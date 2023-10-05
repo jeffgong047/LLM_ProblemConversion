@@ -1,0 +1,79 @@
+IONAL PHYSICS| MARCH 01 2022
+Quantifying biomolecular diffusion with a “spherical cow”
+model 
+Frederico Campos Freitas ; Sandra Byju ; Asem Hassan ; Ronaldo Junio de Oliveira ; Paul C. Whitford
+Am. J. Phys.  90, 225–238 (2022)
+https://doi.org/10.1 119/5.0075952
+ CHORUS
+Articles Y ou May Be Interested In
+Drift-dif fusion (DrDif f) framework determines kinetics and thermodynamics of two-state folding trajectory
+and tunes dif fusion models
+J. Chem. Phys.  (September 2019)
+Biogas production from co-digestion of cocoa pod husk and cow manure with cow rumen fluid as inoculum
+AIP Conference Proceedings  (September 2020)
+Agrivoltaics to shade cows in a pasture-based dairy system
+AIP Conference Proceedings  (December 2022) 04 October 2023 23:04:57
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Quantifying biomolecular diffusion with a “spherical cow” model
+Frederico Campos Freitas,1,a)Sandra Byju,2,b)Asem Hassan,2
+Ronaldo Junio de Oliveira,1,c)and Paul C. Whitford2,d)
+1Laborat /C19orio de Biof /C19ısica Te /C19orica, Departamento de F /C19ısica, Instituto de Ci ^encias Exatas,
+Naturais e Educac ¸~ao, Universidade Federal do Tri ^angulo Mineiro, Uberaba, MG, Brazil
+2Department of Physics and Center for Theoretical Biological Physics, Northeastern University,
+360 Huntington Avenue, Boston, Massachusetts 02115
+(Received 20 October 2021; accepted 20 October 2021)
+The dynamics of biological polymers, including proteins, RNA, and DNA, occur in very high-
+dimensional spaces. Many naturally occurring polymers can navigate a vast phase space and
+rapidly ﬁnd their lowest free energy (folded) state. Thus, although the search process is stochastic,
+it is not completely random. Instead, it is best described in terms of diffusion along a downhillenergy landscape. In this context, there have been many efforts to use simpliﬁed representations of
+the energetics, for which the potential energy is chosen to be a relatively smooth function with a
+global minimum that corresponds to the folded state. That is, instead of including every type ofphysical interaction, the broad characteristics of the landscape are encoded in approximate energy
+functions. We describe a particular class of models, called structure-based models, that can be used
+to explore the diffusive properties of biomolecular folding and conformational rearrangements.These energy functions may be regarded as the spherical cow for modeling molecular biophysics.
+We discuss the physical principles underlying these models and provide an entry-level tutorial,
+which may be adapted for use in curricula for physics and non-physics majors.
+#2022 Published under
+an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0075952
+I. INTRODUCTION
+When studying a complex system, physicists will typically
+begin by proposing a highly simpliﬁed model that includes afew relevant properties of the system. The broad utilization
+of this strategy inspired the well-known joke in the physics
+community regarding a spherical cow, with several examplesof this approach immortalized by a book entitled by thejoke.
+1That is, when studying a cow, a physicist’s ﬁrst
+approximation is to represent the cow by a sphere of uniformmass and charge density. Starting with this spherical cow,
+physicists will then investigate the properties of the simpli-
+ﬁed system before considering additional details. By itera-tively introducing new features, complex physical systemscan be understood at ever-increasing levels of detail. In con-trast to this approach, traditional biological studies aim to
+provide broad characterizations (e.g., structures and rates) of
+detailed systems (e.g., molecules in a cell). Thus, at ﬁrstglance, it may not be obvious how physicists can effectivelyapply the spherical cow philosophy to biology.
+In the following, we will discuss a spherical cow approach
+to studying molecular biophysics. Speciﬁcally, we willexplain the ideas behind a class of potential energy functions
+called structure-based models.
+2–4These models exploit the
+phenomenological features of biomolecules to provide a sim-pliﬁed version of the energetics. To understand the value ofthese models, it is necessary to recognize that molecular biol-
+ogy techniques can provide only atomic-resolution descrip-tions of long-lived stable structures of biomolecules.
+Accordingly, these conﬁgurations must correspond to deep (at
+least several k
+BT) free energy minima. Inspired by this simple
+observation, structure-based models explicitly deﬁne experi-mental conﬁgurations to be stable. That is, the baseline ver-
+sions of these models do not aim to identify the factors that
+impart stability. Rather, interactions formed in the native(ground state) conﬁgurations are deﬁned to be stabilizing, and
+all other interactions are treated as repulsive, which ensures
+that the spatial arrangements are preserved. Given the crudecharacter of the models, it may be surprising that these simpli-
+ﬁed representations have been able to model a broad range of
+biomolecular processes, ranging from protein folding
+2,5–7to
+the dynamics of protein synthesis by the ribosome.8–10
+We ﬁrst provide a brief introduction to molecular biology
+for physics students, followed by a description of simulation
+techniques and structure-based models. We additionally dis-
+cuss example calculations that can be adopted and integratedin advanced undergraduate or graduate-level physics
+courses. Our intent is to provide students (and instructors)
+with a basic understanding of the biological context andphysical principles. To facilitate the adoption of this mate-
+rial, we provide a repository with step-by-step instructions
+on how to apply the models to simulations.
+225 Am. J. Phys. 90(3), March 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 225 04 October 2023 23:04:57

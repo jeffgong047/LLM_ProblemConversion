@@ -1,0 +1,54 @@
+IONAL PHYSICS| MARCH 01 2023
+Continuous fractional component Gibbs ensemble Monte
+Carlo
+Niklas Mayr ; Michael Haring ; Thomas W allek
+Am. J. Phys.  91, 235–246 (2023)
+https://doi.org/10.1 119/5.0135841
+Articles Y ou May Be Interested In
+Thermal simulations of STRIKE tiles for the assessment of the CFC prototypes and of the configuration for
+SPIDER
+AIP Conference Proceedings  (February 2013)
+CFC ‐ free refrigeration: Thermoacoustic technology ‐ design, construction, and evaluation
+J Acoust Soc Am  (September 1993)
+Collection of submicron particles with cloud droplets using the new MIT -CFC
+AIP Conference Proceedings  (May 2013) 04 October 2023 22:50:47
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Continuous fractional component Gibbs ensemble Monte Carlo
+Niklas Mayr,a)Michael Haring,b)and Thomas Wallekc)
+Institute of Chemical Engineering and Environmental Technology, Graz University of Technology,
+Inffeldgasse 25/C, 8010 Graz, Austria
+(Received 23 November 2022; accepted 24 November 2022)
+A continuous fractional component (CFC) approach increases the probability of particle swaps in
+the context of vapor-liquid equilibrium simulations using the Gibbs ensemble Monte Carlo
+algorithm. Two variants of the CFC approach are compared for simulations of pure Lennard-Jones
+(LJ) ﬂuids and binary LJ mixtures as examples. The details of an exemplary CFC implementationare presented. Recommendations are provided to reduce the effort required for the suggested
+problems.
+VC2023 Author(s) .All article content, except where otherwise noted, is licensed under a Creative Commons
+Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0135841
+I. INTRODUCTION
+Since its original development in the 1980s, the Gibbs
+ensemble Monte Carlo (GEMC) algorithm has been success-fully applied to the simulation of ﬂuid phase equilibria.
+Among the most important advantages of the GEMC algo-
+rithm are its simple, intuitive methodology, and the fact that
+data for both coexisting phases can be obtained from a single
+simulation. The data include macroscopic properties such asthe phase molar fractions, x
+i, the phase densities, qi, and the
+chemical potentials, li.1A broad range of open-source
+GEMC programs has been developed.2–6However, a signiﬁ-
+cant limitation of the GEMC algorithm is that the acceptance
+probability for molecule swaps becomes low for insertionsinto dense phases, especially if components with large differ-
+ences of molecular sizes are simulated.
+The goal of this paper is to discuss several variants of the
+GEMC algorithm, which increase the probability of particle
+swaps in the context of vapor-liquid equilibrium simulations.
+For this purpose, two variants of the continuous fractional com-ponent (CFC) approach are compared for pure Lennard-Jones
+ﬂuids, binary Lennard-Jones mixtures, ethane, and carbon diox-
+ide. Details of a continuous fractional component program in
+MATHEMATICA are presented. Simulation protocols are recom-
+mended to reduce the effort required for the proposed problems.
+This paper is structured as follows: In Sec. 

@@ -1,0 +1,56 @@
+IONAL PHYSICS| MARCH 01 2023
+Particle-in-cell method for plasmas in the one-dimensional
+electrostatic limit 
+Sara Gomez  
+ ; Jaime Humberto Hoyos ; Juan Alejandro V aldivia
+Am. J. Phys.  91, 225–234 (2023)
+https://doi.org/10.1 119/5.0135515 04 October 2023 22:50:24
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Particle-in-cell method for plasmas in the one-dimensional electrostatic
+limit
+Sara Gomeza)
+Escuela de Ciencias Aplicadas e Ingenier /C19ıa, Universidad EAFIT, Medell /C19ın, Colombia
+Jaime Humberto Hoyos
+Facultad de Ciencias B /C19asicas, Universidad de Medell /C19ın, Medell /C19ın, Colombia
+Juan Alejandro Valdivia
+Depto. de F /C19ısica, Facultad de Ciencias, Universidad de Chile, Santiago, Chile
+(Received 11 October 2022; accepted 21 November 2022)
+We discuss the particle-in-cell (PIC) method, which is one of the most widely used approaches for
+the kinetic description of plasmas. The positions and velocities of the charged particles take
+continuous values in phase space, and spatial macroscopic quantities, such as the charge densityand self-generated electric ﬁelds, are calculated at discrete spatial points of a grid. We discuss the
+computer implementation of the PIC method for one-dimensional plasmas in the electrostatic
+regime and discuss a desktop application (PlasmAPP), which includes the implementation ofdifferent numerical and interpolation methods and diagnostics in a graphical user interface. To
+illustrate its functionality, the electron-electron two-stream instability is discussed. Readers can use
+PlasmAPP to explore advanced numerical methods and simulate different phenomena of interest.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0135515
+I. INTRODUCTION
+The study of plasmas by analytical methods alone is not
+sufﬁcient.1,2In many situations, plasmas can be consid-
+ered to be collisionless, particularly in space and astro-
+physical environments, where short-range binary
+interactions can be neglected.3An approach that uses the
+collisionless approximation is the particle-in-cell (PIC)
+method, which was proposed in the 1950s and has become
+widely used due to the great advances in computing power.
+The method was developed by John Dawson and Oscar
+Buneman and was ﬁrst applied to systems of 100–1000
+particles.4The method was extended by Dawson5in 1983.
+In 1988, Hockney and Eastwood published a highly
+acclaimed book,6and in 1991, Birdsall and Langdon pub-
+lished the most widely recognized book on the method.1
+Both books describe the PIC method and discuss differentsimulations and analyses.
+Simulations are widely used to study different kinds of
+microinstabilities and waves common in space plasmas such
+as the electron-electron two-stream instability,7Buneman
+instability,8and ion-acoustic waves.9There are now open
+source programs such as Jupyter notebooks for educationalplasma simulations10and the graphical user interface devel-
+oped by Omura and Matsumoto.11
+Reference 12discusses the implementation of the two-
+dimensional electrostatic PIC method in detail. Although two
+dimensions yield a more realistic view of plasmas, thecomputational cost and the complexity of the simulations are
+much greater than one dimension. As will be seen in Sec. 

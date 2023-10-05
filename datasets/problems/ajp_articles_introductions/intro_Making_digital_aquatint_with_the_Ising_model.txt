@@ -1,0 +1,65 @@
+Ising model 
+Yannick Meurice
+Am. J. Phys.  90, 87–92 (2022)
+https://doi.org/10.1 119/10.0006525
+Articles Y ou May Be Interested In
+The ef fectiveness of aviation vocational engineering education internship-taking National Formosa
+University Aeronautical Engineering as an example
+AIP Conference Proceedings  (May 2023)
+Graphic arts in Ho Chi Minh City since the period 1986 to present
+AIP Conference Proceedings  (September 2021) 04 October 2023 23:01:17
+Making digital aquatint with the Ising model
+Y annick Meuricea)
+Department of Physics and Astronomy, The University of Iowa, Iowa City, Iowa 52242
+(Received 31 January 2021; accepted 13 September 2021)
+Aquatint is a printmaking technique that gives visual texture to prints. This patterning is shown to
+be similar to patterns that emerge from the Ising model of magnetism. We provide a concretePython-based example that generates semi-realistic textures and can be used to manipulate existing
+images. Our experience in classrooms of ﬁrst year seminar undergraduate students shows that this
+activity helps artistically inclined students to develop an interest in physics and computer science.
+It may also be suitable for a joint art and science project for high-school seniors.
+#2022 Published
+under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/10.0006525
+I. INTRODUCTION
+The statistical features of images or image sets are very
+interesting. High resolution black and white digital pictures
+of prints can capture many aspects of the original image and
+encode the information into a collection of pixels havinggray values between 0 and 255. Conversely, visual aspects ofstatistical data can play an important role in identifying keyfeatures in samples. Can we use concepts and models of sta-
+tistical mechanics to reproduce artistic features of images
+and attempt to quantify variations observed in these images?For instance, in visual arts like printmaking, the concept oftexture plays a crucial role in the creative process and in the
+description of existing prints. It is not easy to deﬁne texturein a scientiﬁc manner, but in casual conversations, print-
+makers sometimes talk about the texture as the way the
+printed surface would feel to the touch and they use quali-ﬁers such as rough, grainy, or smooth. Is it possible to inventstatistical mechanics models that approximately reproducesuch features? In order to simplify the discussion, we will
+assume that in the ﬁrst approximation, the pixels are either
+black or white and carry only one bit of information. Thissimpliﬁed approach suggests that the Ising model
+1could be
+used to reproduce textures achieved in printmaking ormanipulate features of existing images.
+The Ising model is a highly simpliﬁed model of ferromag-
+netism. It consists of “spin variables” r
+xthat only take the
+values61 and are located on the sites xof a lattice. The
+physical meaning of the spin variables is discussed in moredetail below. In the following, we only consider lattices thatcan be built by assembling elementary squares of identicalsize in rectangular arrays because of their clear connection to
+pixelated pictures. Similar constructions are possible for tri-
+angular, hexagonal or higher-dimensional lattices. We canvisualize a particular choice of spin values as a collection ofblack or white pixels assembled in a two-dimensional rectan-gular array. We call this collection a conﬁguration. In this
+representation, the sites of the lattice are the coordinates of
+the center of the pixels. An example using a 50 /C250 lattice
+is displayed in Fig. 1(a). The black pixels represent r¼þ1
+(spin up) and the white pixels r¼/C01 (spin down).
+In modeling physical systems, the spin variables represent
+magnetic dipole moments or the intrinsic spins of electrons
+and are often depicted as arrows pointing up or down. The
+Ising model is a statistical model where the spin conﬁgura-tions have a classical Boltzmann probability distribution,which depends on the temperature and an external magneticﬁeld and involves nearest neighbor interactions that correlate
+spins in the distribution. The temperature controls theamount of disorder appearing in the system while the mag-netic ﬁeld is used to introduce order. At low temperature,domains, which can be visualized as “islands” of spins hav-
+ing the same sign, are more likely to appear. As we increase
+the temperature, these domains tend to break into smallerones. At high temperature, neighboring spins become uncor-related, as in Fig. 1(a). This intuitive description of the effect
+of the temperature will be made more quantitative later.
+In Fig. 1(a), the individual pixels (spins) are still quite
+visible. However, if we increase the number of pixels while
+keeping the size of the image constant, and introduce a mag-netic ﬁeld and a temperature, textures that artists may considerinteresting can be generated. An example is shown inFig.1(b). In this example, a uniform positive magnetic ﬁeld
+has been applied. This favors black pixels (spin up) over white
+pixels (spin down). This procedure can be reﬁned by adding aspatially modulated magnetic ﬁeld to generate a recognizableimage. This will help us to address the question of the textureof pixelated images in the framework of the Ising model.
+In the following, we show that it is possible to tune the
+adjustable parameters (temperature and magnetic ﬁeld) of
+the Ising model, and use a statistical method called impor-tance sampling, to generate conﬁgurations with texturesapproximating those obtained with a printmaking techniquecalled aquatint, which was developed by artists including
+Francisco Goya, Pablo Picasso, and Mauricio Lasansky. A
+speciﬁc print of Goya is discussed in Sec. 

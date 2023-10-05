@@ -1,0 +1,89 @@
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| NOVEMBER 01 2022
+Surface plasmon resonance sensing in the advanced
+physics laboratory 
+Alaa Adel Abdelhamid ; David Kerrigan ; William Koopman ; Andrew W erner ; Zachary Givens ; Eugenii U. Donev
+Am. J. Phys.  90, 865–880 (2022)
+https://doi.org/10.1 119/5.0070022 04 October 2023 23:21:26
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Surface plasmon resonance sensing in the advanced physics
+laboratory
+Alaa Adel Abdelhamid,a)David Kerrigan, William Koopman,b)and Andrew Werner
+Department of Physics and Astronomy, The University of the South, Sewanee, Tennessee 37383
+Zachary Givens and Eugenii U. Donevc)
+Department of Physics, Engineering, and Astronomy, Austin Peay State University, Clarksville,
+Tennessee 37044
+(Received 3 September 2021; accepted 19 July 2022)
+We present a set of experiments and computations suitable for introducing upper-level
+undergraduate physics and engineering students to the interdisciplinary ﬁeld of nanoplasmonics forperiods ranging from a week-long advanced laboratory session to a summer research project. The
+end product is a tunable optoﬂuidic device capable of detecting changes in a ﬂuid medium as low
+as 0.002 refractive index units. The sensing element—a thin gold ﬁlm on a glass prism coupled to amicroﬂuidic cell—owes its sensitivity to the bound nature of the surface plasmon–polariton waves
+that are resonantly excited by evanescently coupled light at the gold–ﬂuid interface. Pedagogically,
+surface plasmon resonance (SPR) sensing immerses students in the rich physics of nanoscale opticsand evanescent waves in constructing and operating a precision apparatus and in developing
+theoretical, analytical, and numerical models to aid both in the physical understanding and
+engineering optimization of the SPR sensor.
+#2022 Published under an exclusive license by American
+Association of Physics Teachers.
+https://doi.org/10.1119/5.0070022
+I. INTRODUCTION
+The simple geometry of the ﬂat interface between a trans-
+parent dielectric and a noble-metal conductor plays host toremarkable optical phenomena arising from the coupling ofelectromagnetic waves with collective plasma oscillations ofthe conduction electrons. Key manifestations of this couplingare surface plasmon–polaritons (SPPs)—hybrid electric
+polari zation–pho tonevanescent waves that propagate along
+the metal–dielectric interface with amplitude that decays
+exponentially with distance in both the perpendicular direction(due to being surface-bound modes) and longitudinal direction(due to resistive losses in the metal). The resonant nature ofSPP waves and the fact that most of their electromagnetic ﬁeldis concentrated in the dielectric medium
+1make them exqui-
+sitely sensitive to minuscule changes in the medium’s refrac-tive index; moreover, under the speciﬁc conditions forexciting the surface plasmon resonance (SPR), the electric-
+ﬁeld intensity at the metal–dielectric interface is enhanced by
+at least an order of magnitude relative to the incident wave.
+2–5
+These features enable dynamic detection of changes in refrac-tive index on the order of 10
+/C06or better,6,7as well as label-
+free analysis of the kinetics of biomolecular interactions, suchas protein binding to surfaces and immunoassays, and have
+led to the development of a variety of SPR sensing techniques,
+devices, and applications.8–14
+This paper builds upon previous reports on incorporating
+SPR-based projects into undergraduate physics and chemis-try curricula.15–24What sets our contribution apart is the
+tutorial-style pedagogical integration of physical insights,
+theoretical models, student-programmed analytical computa-
+tions, and numerical simulations with student-performedprecision angular measurements of SPR reﬂectance curvesand real-time sensing of large and small refractive-indexchanges—measured using readily customizable opto-
+microﬂuidic setups constructed by students with affordable
+off-the-shelf components. We provide a wealth of references,curated with upper-level physics/engineering undergraduatesand their instructors in mind, to books, literature reviews,
+and recent research articles on the fundamentals and specif-
+ics of SPPs and SPR sensing as well as to all the necessarymaterials properties, software, and hardware components(with current prices listed in the references) to facilitate rapid
+reproduction of the experiments and simulations described
+herein. We also list in the conclusion a dozen or so carefullysourced recommendations for extensions to this project.
+865 Am. J. Phys. 90(11), November 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 865 04 October 2023 23:21:26
+In our experience, the SPR sensing experiments foster stu-
+dent ingenuity and resourcefulness, especially in experimen-
+tal design, while the ability to verify measured results
+computationally encourages students to strive for high accu-racy and precision.
+An SPR sensor based on SPP evanescent waves responds
+to changes in the dielectric environment with a shift of the
+angle-dependent monochromatic reﬂectance curve. The sen-
+sor can be optimized for differentiating between various ﬂu-ids with the help of computer simulations. Surface plasmons
+generated in a prism-based optical setup offer a variety of
+hands-on opportunities for undergraduate students to deepentheir understanding of electromagnetism in the context of
+applied optics, to practice their laboratory and computational
+skills, and to engineer a functional device with a high sensi-tivity-to-simplicity ﬁgure of merit. We showcase here theopportunities for student engagement and learning afforded
+by our versatile, relatively inexpensive optoﬂuidic setup.
+The tasks involved in constructing and optimizing the SPRsensor vary in difﬁculty, so instructors can select the appro-
+priate level of challenge for their students, be it for a week-
+long advanced laboratory session, a semester-long capstoneproject, or a summer research experience. Students get an
+introduction to the ﬁeld of nanoplasmonics and a chance to
+appreciate the power of combining precision experimentalwork with realistic computational modeling. For some stu-dents, the end product itself—a seemingly simple yet surpris-
+ingly sensitive device—represents a memorable milestone in
+their undergraduate physics careers. This article describes:the SPP dispersion relation (Fig. 1); the resonant conditions
+for exciting SPP waves with a prism (Fig. 2); the experimen-
+tal SPR setup constructed and modiﬁed by students (Fig. 3);
+the computations performed by students with the Fresnel
+equations formalism to verify and optimize the operation of
+the SPR sensor (Figs. 4and5); the computed and experimen-
+tal sensorgrams obtained by students from real-time detec-tion of relatively large (Fig. 6), small (Figs. 7and8), andtiny (Fig. 9) refractive-index changes in a ﬂuid medium; the
+computed sensitivity of the SPR sensor (Fig. 10); and a
+numerical simulation of the SPR reﬂectance curve with the
+ﬁnite-element method (Fig. 11).

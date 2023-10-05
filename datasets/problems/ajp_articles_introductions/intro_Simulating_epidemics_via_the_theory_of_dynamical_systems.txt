@@ -1,0 +1,84 @@
+IONAL PHYSICS| MAY 01 2022
+Simulating epidemics via the theory of dynamical systems 
+
+Giorgio Mantica
+Am. J. Phys.  90, 380–393 (2022)
+https://doi.org/10.1 119/5.0082825
+Articles Y ou May Be Interested In
+Interventions and their ef ficacy in controlling the spread of an epidemic: A numerical study
+Chaos  (March 2022)
+Inhomogeneity of epidemic spreading
+Chaos  (June 2010)
+Resilience of epidemics for SIS model on networks
+Chaos  (August 2017) 04 October 2023 23:09:01
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Simulating epidemics via the theory of dynamical systems
+Giorgio Manticaa)
+Center for Nonlinear and Complex Systems, Universit /C18a dell’Insubria, Como, Italy
+and INFN-Sezione di Milano, INDAM, GNFM, Roma, Italy
+(Received 19 December 2021; accepted 19 December 2021)
+This paper describes a deterministic dynamical model of the epidemic spreading of disease. We
+introduce fundamental concepts from nonlinear dynamics and statistical physics, and use computer
+simulations that can be implemented by advanced undergraduate and by graduate students. It is
+shown that the model can describe real-world phenomena during an epidemic. Due to its simplicityand ﬂexibility, the model is also a useful tool for research.
+#2022 Published under an exclusive license by
+American Association of Physics Teachers.
+https://doi.org/10.1119/5.0082825
+I. INTRODUCTION
+The world has been recently caught off-guard by the ines-
+capable spreading of disease through human interactions.
+Such pervasive spreading was already well known to physi-
+cists and mathematicians working in complex systems and
+statistical physics and to their scientiﬁc ancestors. Perhaps the
+ﬁrst quantitative theory of epidemics was proposed by Daniel
+Bernoulli1in 1766 in the form of two differential equations
+describing the change in time of the number of susceptible (S)
+andrecovered (R) individuals from a disease. This approach
+later evolved into the SIR approach ( Irepresents infected )b y
+Kermack and McKendrick2in 1927. In these early theories,
+individuals are treated in a compartmental (mean-ﬁeld) per-
+spective: the total number of people in each category, S,I,
+andRare the variables of interest. Although this approach is
+still valuable and can predict the evolution of epidemics if
+reliable parameters are available (see, e.g., Refs. 3–6for the
+present pandemic), it has been recently recognized that social
+interactions are typically organized in networks.7,8
+More sophisticated models have been introduced in which
+people (whether susceptible, infected, or recovered) are
+nodes in a network. The transmission of disease is typically
+modeled by a random process: a probability of contagion isassigned to every link between an infected and a susceptibleperson. Percolation theory
+9provides a theoretical description
+of the spreading of infection. Moreover, concepts such asnetwork centrality10explain the varied importance of differ-
+ent individuals in the spread of disease. Network models
+take into account the complex structure of social relations,but they usually overlook the internal dynamics of a singleindividual and the interactions in an infectious–susceptiblepair, which are modeled only by random events occurringwith certain probabilities.
+The goal of this paper is to introduce a dynamical model
+of these interactions that can be exploited for educational
+purposes and research alike. The model combines conceptsfrom dynamical systems and complex networks: the internal(health) state of each person interacts dynamically, not prob-
+abilistically, with the state of other people in the network.Mathematically, the model is a coupled maps network exhib-iting many interesting phenomena.
+11,12
+The model is suggested by a similar treatment of neuronal
+excitation in the cerebral cortex,13where each neuron is rep-
+resented by a dynamical subsystem. During the evolution ofthe full system, a neuron interacts with other neurons (termed
+post-synaptic) to which it sends an excitation that might trig-
+ger these latter neurons to do the same, thus propagating anelectric signal through the network,
+14sometimes producing a
+cascade of excitations. Reference 15considered the extreme
+value statistics of the excitation trees that compose such burstsof neuronal activity, which are experimentally observable.
+16
+In this paper, we discuss a similar dynamical system in
+which the interacting individuals in a network can transmit
+disease to create contagion trees. This simpliﬁed model does
+not reproduce all aspects of reality, but includes some essen-tial features. We will show that the phenomena it reproduces
+are representative of real-world behaviors, as is often the
+case for models of complex systems.
+Our model can be implemented by students with a modi-
+cum of programming skills to visualize many phenomena
+occurring in contagion dynamics. It can also be used to intro-
+duce fundamental concepts in ergodic theory and statisticalmechanics. The suggested problems can serve as projects for
+students of nonlinear dynamics or complex systems courses.
+Finally, being purely deterministic and somewhat realistic,the model can be used to simulate real-world scenarios andtest the validity of stochastic approaches to the description of
+disease transmission.

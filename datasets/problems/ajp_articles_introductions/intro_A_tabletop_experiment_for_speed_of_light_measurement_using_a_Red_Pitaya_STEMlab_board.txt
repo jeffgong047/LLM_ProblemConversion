@@ -1,0 +1,105 @@
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| MARCH 01 2023
+A tabletop experiment for speed of light measurement using
+a Red Pitaya STEMlab board 
+Che-Chung Chou ; Shi-Y u Hsaio ; Jun-Zhi Feng ; Tyson Lin ; Sheng-Hua Lu
+Am. J. Phys.  91, 206–213 (2023)
+https://doi.org/10.1 119/5.0099720
+Articles Y ou May Be Interested In
+Digital laser frequency and intensity stabilization based on the STEMlab platform (originally Red Pitaya)
+Rev. Sci. Instrum.  (August 2020)
+LithPulser: An open-source pulse generator with 1 ns time resolution based on the Red Pitaya STEMlab
+125-10 featuring real-time conditional logic for experimental control
+Rev. Sci. Instrum.  (January 2022)
+A highly stable monolithic enhancement cavity for second harmonic generation in the ultraviolet
+Rev. Sci. Instrum.  (January 2018) 04 October 2023 22:50:14
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+A tabletop experiment for speed of light measurement using a Red
+Pitaya STEMlab board
+Che-Chung Chou,a)Shi-Yu Hsaio,b)Jun-Zhi Feng, Tyson Lin,and Sheng-Hua Lu
+Department of Photonics, Feng Chia University, Taichung 40724, Taiwan
+(Received 18 May 2022; accepted 5 November 2022)
+The speed of light is an important fundamental constant in physics, and so determining its value is
+a common undergraduate laboratory experiment. Methods to measure the light speed can help
+students practice their experimental skills and become familiar with the concepts of modernprecision measurement techniques. In this paper, we demonstrate that a tabletop optical setup,
+comprised of an affordable Red Pitaya STEMlab board and a low-cost laser diode module, can be
+used to accurately determine the speed of light by measuring the frequency response of the phaseshift between intensity-modulated light beams reﬂected by two end mirrors separated by 50 cm. By
+using the STEMlab built-in Bode analyzer to automatically scan the modulation frequency over the
+range from 10 to 40 MHz, the frequency response of phase is measured and recorded. These phaseshift data are then used to calculate the speed of light with an uncertainty of less than 0.5%. With
+the help of the Red Pitaya board, the number of required electronic instruments for our setup is
+reduced. All of the required components are commercially available, and no electronicconstruction work is necessary so that teachers and students can implement the experiment in a
+plug-and-play manner.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0099720
+I. INTRODUCTION
+The measurement of the speed of light chas been a histori-
+cally important experimental physics research area. The questto determine the true value of cstimulated several brilliant
+ideas, which led to the development of many ingenious preci-sion measurement schemes and techniques.
+1,2In 1983, the
+International Committee for Weights and Measures (Comit
+international des poids et mesures, or CIPM)3adopted the
+exact deﬁnition of c¼299, 792, 458 m/s for the speed of light.
+Despite this exact deﬁnition, the measurement of cin the
+instructional physics laboratory is still very useful in honingstudents’ experimental skills. Thus, the measurement of the
+speed of light has become an indispensable experiment in the
+undergraduate optics laboratory curriculum.
+With the advent of modern light sources, electronic devi-
+ces, and measurement techniques, variations on the pioneer-ing ideas of Foucault
+4,5or Fizeau6can now be implemented
+straightforwardly in the undergraduate laboratory. Generally,pulsed or continuous wave (CW) light sources are used in
+these modern measurements of c. For example, a short time-
+duration pulsed laser diode with a fast photodetector andsome analyzing electronic devices with sufﬁciently widebandwidth can be employed to perform a tabletopmeasurement, but at some signiﬁcant cost.
+7Alternatively,
+starting with a CW light source, the travel time of a light
+beam can be directly measured with the employment of arotating mirror, i.e., via the scheme ﬁrst used by Foucault,4,5
+or a CW laser source can be chopped by an acousto-optic
+modulator (AOM) as a means of replacing the rotating cog-wheel in the Fizeau scheme.6Examples of such experiments
+are as follows: By pulsing a laser diode’s current, it has been
+recently shown that a light beam’s time of ﬂight can be
+directly measured while propagating either in free space8,9or
+in an optical ﬁber.10Especially, in the work of Ref. 9, the
+time of ﬂight is determined precisely by the picosecond-
+pulse repetition rate, and the distance of ﬂight is determined
+with the optical feedback effect detected by a low-bandwidthphotodetector rather than a fast photodetector. In addition,
+CW light sources have been modulated by a Pockel cell11or
+chopped by an AOM12in order to carry out time of ﬂight
+measurements.
+Alternatively, instead of a time of ﬂight measurement,
+phase shift of ﬂight may be measured to determine the speed
+of light. A CW laser source with amplitude modulation(AM) or phase modulation (PM) is frequently adopted with
+the phase shift method. The comparison of phase shift
+between an amplitude-modulated beam that has traveled a
+206 Am. J. Phys. 91(3), March 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 206 04 October 2023 22:50:14
+given path length and a reference signal yields a simple way
+for determining the value of c.13–16Other creative measure-
+ments of ccan be performed, for example, by noting the
+change in the beat frequency between internal longitudinalmodes of a two-mode laser as the laser’s cavity length is
+varied.
+17
+Recently, thanks to the fast development of microelectron-
+ics and related open-source software, software-deﬁned instru-
+ments have become affordable and popular. These software-
+deﬁned instruments, such as the Red Pitaya STEMlab board18
+(an electronic board with a ﬁeld-programmable gate array and
+a system processor), can replace expensive laboratory control
+and measuring instruments at an affordable cost. Since severalinstrumental functions can be programmed in one software-
+deﬁned instrument, the cost and space to perform an experi-
+ment can be achieved efﬁciently and compactly withoutdegrading the performance of the measurement.
+In this paper, we demonstrate a speed of light measure-
+ment using a low-cost laser diode module as the light source
+along with a Red Pitaya STEMlab board to bias and modu-
+late this light source at up to 40 MHz. By using the phase
+shift measurement similar to the work of Ref. 14, a value for
+cis obtained with an uncertainty of less than 0.5%. We dem-
+onstrate that a Red Pitaya STEMlab board can replace the
+conventional high-bandwidth electronic instruments requiredin this experiment. In addition, the other required electronic
+components in this setup are all commercially available, and
+all of the components are simply connected with coaxial
+cables. No electronic construction work is necessary. This,
+the advantages of our approach are affordable cost, limitedequipment needs, small required space, and ease of
+implementation.

@@ -1,0 +1,52 @@
+IONAL PHYSICS| JUNE 01 2023
+Simulating gravitational motion, gas dynamics, and
+structure in the cosmos
+J. W. Powell ; L. Caudill ; O. Young
+Am. J. Phys.  91, 478 (2023)
+https://doi.org/10.1 119/5.0144906
+Articles Y ou May Be Interested In
+Comparison of CORSIKA and COSMOS simulations
+AIP Conference Proceedings  (September 201 1)
+IRAC Deep Survey Of COSMOS
+AIP Conference Proceedings  (October 2007)
+Model of an Oscillating Cosmos which Rejuvenates during Contraction
+J. Math. Phys.  (December 2004) 04 October 2023 22:53:08
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Simulating gravitational motion, gas dynamics, and structure
+in the cosmos
+J. W. Powell,a)L.Caudill,b)and O. Youngc)
+Department of Physics, Reed College, Portland, Oregon 97201
+(Received 8 December 2022; accepted 8 March 2023)
+We provide introductory explanations and illustrations of the N-body hydrodynamics code Charm
+N-body GrAvity solver (ChaNGa). ChaNGa simulates the gravitational motion and gas dynamics
+of matter in space with the goal of modeling galactic and/or cosmological structure and evolution.
+We discuss the algorithm for leapfrog integration and smoothed particle hydrodynamics andcomputer science concepts used by the program, including the binary data structure for the particle
+positions. Our presentation borrows from the doctoral dissertation of J. Stadel, U. Washington,
+2001. Problems are provided in order to use ChaNGa to learn or solidify some cosmologicalconcepts.
+VC2023 Author(s) .All article content, except where otherwise noted, is licensed under a Creative Commons
+Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0144906
+I. INTRODUCTION
+N-body hydrodynamic simulations of the cosmos and iso-
+lated galaxies1,2have been crucial in establishing Lambda
+cold dark matter (Lambda refers to dark energy) as the stan-dard model of cosmology.3Due to the fundamental nature of
+gravity, computationally challenging densities occur in astro-
+physical situations. Simulations developed by several groups
+have yielded trustworthy predictions of the incrediblydiverse structure of the cosmos and galaxies, and severalsimulations of very differing kinds have given the sameresults, thanks to the AGORA project.
+4
+ChaNGa (Charm N-body GrAvity solver) is an example
+of a highly parallel N-body hydrodynamic code.5The phys-
+ics of star formation, supernovae feedback, and cooling areincluded in ChaNGa.
+Our goal is to provide an accessible, but thorough explana-
+tion of how to use this N-body hydrodynamic code by addingto ChaNGa’s GitHub wiki
+6and many YouTube presenta-
+tions. We also hope to provide a deeper appreciation for how
+computer science data structures are used to constructChaNGa. For example, ChaNGa is written in the parallelprogramming language CHARM þþ, which won a Gordon
+Bell prize.
+7Although we have not attempted to provide an
+exhaustive description of the code, we focus on the detailsthat are most relevant to the physics.
+Sections 

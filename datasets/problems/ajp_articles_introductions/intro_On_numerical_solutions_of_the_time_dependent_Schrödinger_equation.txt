@@ -1,0 +1,89 @@
+Interested In
+Micromagnetic simulations of sweep-rate dependent coercivity in perpendicular recording media
+J. Appl. Phys.  (June 2012)
+Numerical anomalies in the Rayleigh–Ritz method for calculating the normal mode vibrations of arbitrarily
+shaped elastic solids
+J Acoust Soc Am  (May 1995)
+On the performance of four-component relativistic density functional theory: Spectroscopic constants and
+dipole moments of the diatomics HX and XY (X,Y=F , Cl, Br , and I)
+J. Chem. Phys.  (May 2003) 04 October 2023 22:58:16
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+On numerical solutions of the time-dependent Schr €odinger equation
+Wytse van Dijka)
+Department of Physics and Astronomy, McMaster University, Hamilton, Ontario, Canada L8S 4M1;
+and Redeemer University, Ancaster, Ontario, Canada L9K 1J4
+(Received 10 February 2023; accepted 29 May 2023)
+We review an explicit approach to obtaining numerical solutions of the Schr €odinger equation that
+is conceptionally straightforward and capable of signiﬁcant accuracy and efﬁciency. The method
+and its efﬁcacy are illustrated with several examples. Because of its explicit nature, the algorithm
+can be readily extended to systems with a higher number of spatial dimensions. We show that themethod also generalizes the staggered-time approach of Visscher and allows for the accurate
+calculation of the real and imaginary parts of the wave function separately.
+#2023 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0159866
+I. INTRODUCTION
+The time-dependent Schr €odinger equation can be written as
+i/C22h@
+@t/C0H/C18/C19
+wðr;tÞ¼0; (1)
+with
+wðr;t0Þ¼/ðrÞ: (2)
+HðrÞis the time-independent Hamiltonian operator,
+H¼/C0/C22h2
+2mr2þUðrÞ; (3)
+where /C22his the Planck constant, mis the mass of the particle,
+andUðrÞis the potential energy. The solution of Eq. (1)has
+the initial wave function at time t0as input. We can show
+that
+wðr;tþDtÞ¼e/C0iHDt=/C22hwðr;tÞ (4)
+satisﬁes Eq. (1)for any Dt. The solutions of Eq. (1)describe
+a large variety of nonrelativistic atomic and subatomic sys-
+tems. Usually, a limited number of closed-form solutions arediscussed, but these are few and often describe approxima-
+tions of physical systems. Although these solutions provide
+valuable insight, we need to solve the Schr €odinger equation
+numerically to determine accurate wave functions or to
+make predictions of experimentally accessible data.
+A variety of numerical methods for treating the time
+behavior are based on approximations of the time-evolutionoperator e
+/C0iHDt=/C22h. The simplest way to proceed is to consider
+the ﬁrst-order Taylor expansion of this operator, which leads
+to the forward Euler method,wðr;tþDtÞ¼ð 1/C0iHDt=/C22hÞwðr;tÞþOð DtÞ2hi
+: (5)
+A successful and accurate approximation is one by Tal-Ezer
+and Kosloff,1which expands the time-evolution operator in
+terms of Chebyshev polynomials.
+Another effective approach is the exponential split-
+operator approach (see, for example, Ref. 2) in which the
+kinetic and potential energy operators in the exponent areseparated. This separation becomes cumbersome for higherorders because the operators do not commute. TheCrank–Nicolson method
+3and its generalization4preserve
+normalization, but the method is implicit, which makes itcomputationally less efﬁcient. Although explicit methodsexpress the later-time wave function in terms of an operatoracting on the earlier time one(s), implicit methods requirelinear systems of equations involving the earlier and laterwave functions to be solved.
+The simple forward Euler method in Eq. (5)has stability
+issues. To overcome this problem, Askar and Cakmak
+5sug-
+gested calculating the wave function in terms of the wave
+functions at two earlier times by combining Eq. (4)with
+wðr;t/C0DtÞ¼eiHDt=/C22hwðr;tÞ; (6)
+to obtain
+wðr;tþDtÞ¼wðr;t/C0DtÞ/C0 eiHDt=/C22h/C0e/C0iHDt=/C22hðÞ wðr;tÞ
+(7a)
+¼wðr;t/C0DtÞ/C02iDtH
+/C22hwðr;tÞþOð DtÞ3hi
+:
+(7b)
+The possibility of stability is ensured,5,6and as an added
+beneﬁt, the order of the error has gone from O½ðDtÞ2/C138to
+O½ðDtÞ3/C138, as can be seen by expanding the exponentials in
+826 Am. J. Phys. 91(10), October 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 826 04 October 2023 22:58:16
+Eq.(7a) in a Taylor series. An important, and potentially
+useful property of the solution is that the normalization andenergy integrals are also approximately conserved,
+ð
+w
+/C3ðr;tÞAwðr;tÞdV¼constant ; (8)
+whereA¼ IorH, and Iis the identity operator.
+The goal of this paper is to discuss an expansion of the
+time-evolution operator that leads to a simple explicitmethod with potentially signiﬁcant and systematic improve-ments. We introduce the expansion of the time-evolution
+operator in Sec. 

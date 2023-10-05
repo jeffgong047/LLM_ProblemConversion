@@ -1,0 +1,87 @@
+IONAL PHYSICS| JULY 01 2023
+The game of life as a species model 
+David A. Faux ; Peter Bassom
+Am. J. Phys.  91, 561 (2023)
+https://doi.org/10.1 119/5.0150858
+Articles Y ou May Be Interested In
+Latest Results from the DODO Survey: Imaging Planets around White Dwarfs
+AIP Conference Proceedings  (March 201 1)
+Latest Results From The DODO Survey: Imaging Planets Around White Dwarfs
+AIP Conference Proceedings  (November 2010) 04 October 2023 22:53:56
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+The game of life as a species model
+David A. Fauxa)and Peter Bassomb)
+Department of Physics, University of Surrey, Guildford GU2 7XH, United Kingdom
+(Received 16 March 2023; accepted 3 April 2023)
+Conway’s classic game of life is a two-dimensional cellular automaton in which each cell is alive
+or dead and evolves according to simple rules that depend solely on the number of live cells in its
+immediate neighborhood. The emergence of complex multi-cellular objects provides a fascinatingvehicle for exploration. A variant of the classic game of life is presented, the generalized semi-
+classical game of life, in which each cell contains a qubit that evolves by repeated application of
+birth, death, and survival operators. Species are characterized by just two parameters: a preferredneighborhood liveness representing the tendency to herd and a resilience parameter representing
+species’ vulnerability to environmental changes. This generalized model provides the opportunity
+to model the fortune of species and to compare to available data. The model is shown to mimicenvironmental catastrophes and is illustrated by the model’s prediction of a return to the pre-
+hunting level of the global whale population by 2140. A student-designed predator–prey model is
+shown to qualitatively describe the fate of strongly- and weakly coupled predator–prey systems(snowshoe hare/lynx and rabbit/fox, respectively) and sudden and slow predatory impact (dodo and
+diprotodon, respectively).
+#2023 Author(s). All article content, except where otherwise noted, is licensed under a
+Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0150858
+I. INTRODUCTION
+Conway’s classic game of life was developed in the late
+1960s and became the most popular cellular automaton inhistory.1–3Each cell of a two-dimensional matrix is either 1
+(alive) or 0 (dead) and may change value at each time step
+according to a set of simple evolutionary rules that depend
+solely on the number of live cells in the eight cells of itsimmediate neighborhood, known as the Moore neighbor-hood.
+4The rules dictate for each cell whether a birth (0 !1),
+death (1 !0), or survival (0 !0;1!1) event takes place.
+Conway’s rules are designed to mimic the evolution of a
+society of organisms in which fortunes are based on the localenvironment. If the number of live cells in the neighborhoodis too high or too low, the cell dies due to overcrowding or
+loneliness, but ﬂourishes if the surrounding liveness is opti-
+mum. Repeated application of the evolutionary rules to eachcell at each time step (called a generation) can lead to anextraordinary myriad of complex patterns of live and deadcells.
+5,6Flammenkamp has catalogued 100 static and
+dynamic objects referred to as “ash,” but which are moreoptimistically referred to as “lifeforms.” These objects sup-ply a fascinating example of the development of complexity
+through simple evolutionary rules.
+Conway’s original game of life has been the subject of
+many studies with most of the works published in prominentphysics journals. Common themes include statistics and statis-tical mechanics,
+7,8nonlinear dynamics,9and critical behav-
+ior.8,10There have been numerous adaptations of Conway’soriginal game, including the introduction of a thermodynamic
+variable,7a three-dimensional version,11extension to Turing
+machines,12modiﬁcation to a continuous space,13and proba-
+bilistic adaptations.14
+Of interest here is the quantization of Conway’s game
+introduced and developed by Flitney and Abbott where eachlive-or-dead cell is replaced by a qubit.15–17The underlying
+principles of Conway’s original game are retained with amodiﬁed set of evolutionary rules in which qubits evolve via
+the application of birth, death, and survival operators. The
+game’s creators termed the game “semi-quantum” becausesystems do not evolve time-reversibly. An educational illus-tration of the qubit is provided by L /C19opez-Incera and D €ur.
+18
+The quantization of the game of life moves the game
+toward biological applications. The emerging discipline ofquantum biology studies the evolution of quantum objectsinﬂuenced by the local environment. General quantumaspects of life are discussed in Ref. 19. The semi-quantum
+game of life has a parallel in quantum biology where a qubit
+may represent an exciton produced by a photon in a proteincomplex during photosynthesis.
+20The exciton interacts with
+its environment to inﬂuence the energy transfer dynamics.21
+A simpliﬁed version of the semi-quantum game of life has
+been introduced in which the cell qubit components arerestricted to real numbers. This classical variant is denotedas the semi-classical game of life (SCGOL) to distinguish it
+from the semi-quantum game of life and Conway’s classic
+game. Intriguing new phenomena were discovered duringstudent project work, including chaotic effects and new
+561 Am. J. Phys. 91(7), July 2023 http://aapt.org/ajp VCAuthor(s) 2023.
+ 561 04 October 2023 22:53:56
+lifeforms composed of live cells, dead cells and part-live
+cells, plus objects that mimic seeds.22
+Cellular automata, such as the SCGOL, are ideal for
+undergraduate projects that are designed to extend computa-
+tional skills to matrix-based programming languages such as
+MATLAB .23Moore neighborhood calculations and application
+of boundary conditions are nontrivial problems that can beefﬁciently coded. Graphical presentation is well developed
+and quickly mastered by students. Once the fundamental
+rules are implemented, a wide range of different physicalphenomena can be explored. Mathematical game-based cel-lular automata have been shown to be effective at educatingstudents in the emergence of complexity
+24and logical think-
+ing.25All MATLAB software used in this article is provided in
+the supplementary material.26
+In the following, we generalize the SCGOL model to
+model the evolution of a species by choosing two ﬂexiblychosen parameters: one representing the tendency of a spe-cies to herd and a resilience parameter representing vulnera-
+bility to environmental changes. Section 

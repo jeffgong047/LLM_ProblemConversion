@@ -1,0 +1,77 @@
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| FEBRUARY 01 2023
+Low-cost quadrature optical interferometer 
+Tanner M. Melody ; Krishna H. Patel ; Peter K. Nguyen ; Christopher L. Smallwood
+Am. J. Phys.  91, 132–141 (2023)
+https://doi.org/10.1 119/5.01 10405
+Articles Y ou May Be Interested In
+Quadrature formulae for problems in mechanics
+AIP Conference Proceedings  (September 2012)
+Quadrature Sampling of High ‐ Frequency W aveforms
+J Acoust Soc Am  (July 2005)
+Improvement of the accuracy for the Euler-Maclaurin quadrature formulas
+AIP Conference Proceedings  (July 2021) 04 October 2023 22:49:35
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Low-cost quadrature optical interferometer
+Tanner M. Melody, Krishna H. Patel, Peter K. Nguyen, and Christopher L. Smallwooda)
+Department of Physics and Astronomy, San Jos /C19e State University, San Jose, California 95192
+(Received 15 July 2022; accepted 25 October 2022)
+We report on the construction and characterization of a low-cost Mach–Zehnder optical
+interferometer in which quadrature signal detection is achieved by means of polarization control.The device incorporates a generic green laser pointer, home-built photodetectors, 3D-printed
+optical mounts, a circular polarizer extracted from a pair of 3D movie glasses, and a
+PYTHON -
+enabled microcontroller for analog-to-digital data acquisition. Components ﬁt inside of a 1200/C2600
+space and can be assembled on a budget of less than US$500. The device has the potential to make
+quadrature interferometry accessible and affordable for instructors, students, and enthusiasts alike.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0110405
+I. INTRODUCTION
+Optical interference is a phenomenon in which overlap-
+ping beams of light act, by means of the superposition princi-ple of electromagnetism, to modulate the energy density thatwould have otherwise been present in the constituent beamson their own. In turn, the effect results in striking patterns ofirradiance fringes—akin to the nodes and antinodes that canbe observed in the harmonic modes of a vibrating guitarstring—that both verify the wave nature of light and enableprecision measurements. Optical interferometers are devicesengineered to exploit this phenomenon, and due to (1), theconnection between interference fringes and the extremelyshort length scales associated with optical wavelengths(400–700 nm), (2) the abundance of high-quality manipula-tion and detection capabilities at these wavelengths, and (3)the invention of lasers, interferometers have long enjoyed wide-ranging relevance in science and technology. Applicationsinclude testing fundamental physics principles,
+1,2measuring
+velocities and positions,3–5characterizing material properties,6
+and controlling and manipulating both classical and quantumlight sources.7–11Beyond this, optical interferometers enjoy a
+prominent position in classroom physics laboratories, and sev-eral different supply companies are currently selling commer-cialized products and activities.
+12–14
+For the most part, interferometers are designed for delicate
+measurements and/or repeated use, and so construction costscan be large, ranging from about $3,000 (for an educationalapparatus available from Thorlabs),
+12all the way up to
+$1.1 billion [for the laser interferometer gravitational-waveobservatory (LIGO)].15There is a certain utility, however, in
+exploring the degree to which these instruments can behome-built and/or scaled down to minimal components and
+cost.16–24Such devices expand the growing body of optics
+capabilities enabled by the maker movement25–31and could, for
+example, be assembled by hobbyists or produced at scale and
+shipped out to students in large-enrollment online classes.
+Here, we report on the construction of an optical interfer-
+ometer that can be assembled on a budget of under $500 and
+that exhibits both automated data acquisition and quadrature
+detection capabilities. The interferometer utilizes a green
+laser pointer, 3D-printed optical mounts, home-built photo-detectors, and microcontroller-based analog-to-digital signal
+conversion. Among the unique aspects of the setup, differen-
+tiating it from other low-cost interferometers that have been
+reported to date, is the fact that quadrature signals are gener-
+ated through polarization control with phase delays between
+horizontal and vertical polarization components achieved
+using a ﬁlter extracted from a pair of circularly polarized 3D
+movie glasses. We benchmark interferometer performance
+by using it to measure the thermal expansion coefﬁcient of
+an aluminum plate on which the interferometer is mounted.
+While the results reveal quantitative inaccuracies, qualitative
+features are robust. We discuss possible sources of error and
+areas for improvement.
+The construction of the instrument described in this man-
+uscript formed the basis of an independent research project
+conducted by undergraduates and a master’s student in our
+laboratory, and we found it to be an excellent means of
+teaching students about the real-world applications ofinterferometers, quadrature detection, wave plates, Jones
+matrices, circuitry, and experimental control protocols.
+The device has the potential to be used in the same manner at
+other institutions or could perhaps be manufactured at scale
+132 Am. J. Phys. 91(2), February 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 132 04 October 2023 22:49:35
+and utilized by students in larger and more structured class-
+room settings.

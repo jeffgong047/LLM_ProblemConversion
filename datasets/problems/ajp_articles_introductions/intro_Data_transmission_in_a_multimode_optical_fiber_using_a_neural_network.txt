@@ -1,0 +1,57 @@
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| DECEMBER 01 2022
+Data transmission in a multimode optical fiber using a
+neural network 
+Tom A. Kuusela  
+Am. J. Phys.  90, 940–947 (2022)
+https://doi.org/10.1 119/5.0102369
+Articles Y ou May Be Interested In
+Observing distant objects with a multimode fiber-based holographic endoscope
+APL Photonics  (March 2021)
+Multimoding in Lasers
+Journal of Applied Physics  (July 2004)
+Multimode spherical hydrophone
+J Acoust Soc Am  (August 2005) 04 October 2023 23:22:49
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Data transmission in a multimode optical fiber using a neural network
+Tom A. Kuuselaa)
+Department of Physics and Astronomy, University of Turku, 20014 Turku, Finland
+(Received 9 June 2022; accepted 16 August 2022)
+In digital data transmission, single mode optical ﬁbers are commonly used since they can carry
+very short optical pulses without any signiﬁcant distortions. In contrast, multimode ﬁbers supportmany propagation modes that travel with different speeds; thus, they cannot maintain the shape of
+a light pulse. This feature of multiple propagation modes can be a beneﬁt since it makes possible
+the transmission of data through several channels simultaneously. We demonstrate how multimodeﬁbers can be used to transmit images. Because of the different propagation constants of the modes,
+the transmitted image is scrambled to apparently random speckle patterns. A simple neural network
+can be used to model the transmission through the multimode ﬁber. We show how the neuralnetwork can be trained to recognize a set of patterns with high accuracy.
+#2022 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0102369
+I. INTRODUCTION
+Optical ﬁbers are widely used in data transmission since
+they are able to carry information at higher rates and to longerdistances than copper wires. In telecommunications, opticalﬁbers are commonly single mode ﬁbers (SMF) because oftheir capability to transmit very short optical pulses withoutany distortions. However, single mode ﬁbers can carry infor-mation only in serial form since they consist of a single chan-
+nel. Ever increasing needs to expand telecommunication
+networks and data handling capacities have encouraged theconsideration of data transmission through parallel channelsin multimode ﬁbers (MMFs). These ﬁbers can support up tothousands optical modes, each of which (at least in theory)can be independently used to carry information.
+In MMF endoscopy and other image transfer applications,
+the ﬁber modes can be used to transmit the pixel data of theimage. Unfortunately, this is not straightforward: An imageprojected onto the proximal face of the ﬁber is distorted atthe distal face, where the different propagation constants ofthe ﬁber modes have produced a distorted image that appearsto be a random speckle pattern.
+There are several methods of modeling the image trans-
+mission through MMFs. For example, the distortion due to
+modal dispersion can be undone by phase conjugation meth-
+ods.
+1–3Alternately, in the matrix method, the map between
+the inputs and output amplitude and phase is experimentallymeasured for each input pattern.4–6These methods are not
+very practical since they require an external reference beamat the output in order to extract the complex ﬁeld.In the simplest system, only the intensity of the ﬁber out-
+put is measured by a camera. Although there are some
+attempts to construct the complete transmission matrix of theﬁber from the intensity data only using convex optimiza-tion,
+7the most promising approach is to apply neural net-
+works, which are taught to recognize a set of images. In the
+ﬁrst works on this ﬁeld, the neural networks were simple
+three-layer perceptron with one hidden layer.8,9Later, con-
+volutional neural networks with tens of various layers anddeep learning strategies have been used.
+10,11
+In this paper, we show how a simple two-layer perceptron
+can be implemented to recognize letter images transmittedthrough a short multimode ﬁber. In Sec. 

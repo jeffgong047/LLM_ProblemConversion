@@ -1,0 +1,99 @@
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| MAY 01 2023
+Flexible, low-cost phase-sensitive detection for the
+undergraduate laboratory with a T eensy microcontroller 
+Jerome Fung  
+ ; Christopher L. W eil 
+Am. J. Phys.  91, 395 (2023)
+https://doi.org/10.1 119/5.0126691
+Articles Y ou May Be Interested In
+Comparison of processing speed between Arduino Due and T eensy 3.6 boards in a system identification
+application
+J Acoust Soc Am  (March 2018)
+Speech envelope enhancement to improve cocktail-party listening
+J Acoust Soc Am  (October 2021)
+Audiologic evaluation of the tympan open source hearing aid
+J Acoust Soc Am  (March 2018) 04 October 2023 22:52:21
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Flexible, low-cost phase-sensitive detection for the undergraduate
+laboratory with a Teensy microcontroller
+Jerome Funga)and Christopher L. Weilb)
+Department of Physics and Astronomy, Ithaca College, Ithaca, New York 14850
+(Received 16 September 2022; accepted 17 January 2023)
+We perform phase-sensitive detection with an inexpensive microcontroller, the Teensy 3.5. The
+programming and pricing of this microcontroller is similar to that of commonly used Arduino
+microcontrollers, but the Teensy 3.5 offers superior hardware performance. Our Teensy-based phase-sensitive detector can operate either with an external reference signal or by internally generating a
+reference signal. Additionally, we have developed an open-source graphical user interface for
+controlling the instrument. We demonstrate that our phase-sensitive detector exhibits good linearityin amplitude and phase, even with 25 mV signals dominated by larger-amplitude noise. We also use
+our phase-sensitive detector in a simple laboratory measurement: determining the distance
+dependence of the intensity of a light-emitting diode (LED) with the room lights on. Our instrumentis a useful tool for teaching students about phase-sensitive detection and can be a viable low-cost
+alternative to commercial lock-in ampliﬁers.
+#2023 Published under an exclusive license by American
+Association of Physics Teachers.
+https://doi.org/10.1119/5.0126691
+I. INTRODUCTION
+Phase-sensitive detection is a widely used experimental
+technique for recovering the signal amplitude at the fre-quency of a reference oscillator, even when signal ampli-tudes are present at other frequencies. In one classicexample, Libbrecht et al. used a lock-in ampliﬁer and a sinu-
+soidal input current to measure the /C2480 mXresistance of a
+brass wire.
+1Another common application is the measure-
+ment of weak optical signals from laser-induced ﬂuorescenceor scattering by chopping the laser beam at a known fre-
+quency. Phase-sensitive detection is also a concrete demon-
+stration of the utility of Fourier analysis and orthogonalfunctions. Accordingly, considerable attention has been paidto practical experiments or demonstrations involving phase-sensitive detectors
+1–3as well as the pedagogical aspects of
+using them.4
+Phase-sensitive detection is typically performed with dedi-
+cated commercial lock-in ampliﬁers. Several recent studieshave introduced low-cost alternatives to commercial instru-ments, particularly in the context of undergraduate laborato-ries. Xu et al. used a commercial modulator/demodulator
+integrated circuit for phase-sensitive measurements in anupper-division analytical chemistry laboratory.
+5Their
+approach, however, needed external op-amp-based ﬁlteringand phase-shifting circuits that require moderately sophisti-cated knowledge of analog electronics to understand.Nooruddin and Roy performed phase-sensitive detection
+with an AVR microcontroller to which they added additional
+memory.
+6This approach also required signiﬁcant external
+hardware and, moreover, was only demonstrated with anexternal reference oscillator. In addition, Stimpson et al.
+introduced a lock-in detector based on a ﬁeld-programmablegate array (FPGA) that was capable of high-frequency
+(50 MHz) performance comparable to that of dedicated com-
+mercial instruments.
+7While much less expensive than a
+commercial lock-in ampliﬁer, the FPGA-based device usedby Stimpson and co-workers is an order of magnitude moreexpensive than the integrated circuits or microcontrollers
+used by Xu et al. or Nooruddin and Roy.
+8
+A particularly promising idea was proposed by Schultz,
+who performed phase-sensitive detection with an ArduinoUno microcontroller.9In addition to their popularity with
+electronics hobbyists, Arduino microcontrollers have foundincreasingly widespread use in physics laboratories, includ-ing for experiments in electronics,
+10,11controlling mirror
+galvanometers in a confocal microscope,12performing data
+readout in gamma ray spectroscopy,13and as a general-
+purpose measuring device in beyond-ﬁrst-year laborato-ries.14,15Arduino microcontrollers are inexpensive, and
+students can ﬁnd abundant resources to learn how to program
+and use them. While Schultz did not present test data to char-
+acterize the device’s performance, the Arduino Uno micro-controller that was used has signiﬁcant hardware constraints
+395 Am. J. Phys. 91(5), May 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 395 04 October 2023 22:52:21
+that restrict its utility for practical laboratory measurements.
+The Arduino Uno has only 2 kB of onboard RAM, whichlimits the amount of digitized data it can store. Its analog-to-
+digital converters are limited to 10 bits of resolution. In addi-
+tion, the Arduino Uno has no onboard true digital-to-analogconversion, necessitating the use of a clever but cumbersome“bit-banging” scheme for generating a sinusoidal reference
+signal.
+Here, we introduce the use of a Teensy 3.5 microcontroller
+for phase-sensitive detection.
+16The Teensy 3.5 combines the
+ease of use of an Arduino with much better hardware speciﬁ-cations (see the supplementary material
+28for a summary
+comparing the speciﬁcations of the Teensy 3.5 and the
+Arduino Uno). Teensy microcontrollers can be programmed
+like Arduinos and are compatible with most Arduino soft-ware libraries. However, the Teensy 3.5 is based on theARM Cortex-M4 microprocessor, which is much more capa-
+ble than the AVR Atmega 328P microcontroller at the heart
+of an Arduino Uno. The Teensy 3.5 has 256 kB of onboardRAM, two analog-to-digital converters with up to 13 bits ofresolution, and two digital-to-analog converters with 12 bitsof resolution. Like an Arduino, the Teensy 3.5 has the disad-
+vantage of only being able to handle positive signals (from 0
+to 3:3 V), although most of its pins are 5 V-tolerant.
+In this paper, we show how its improved hardware speciﬁ-
+cations enable the Teensy 3.5 to ﬂexibly and effectively per-form phase-sensitive detection. Our phase-sensitive detector,
+unlike those of Schultz and Nooruddin and Roy,
+6,9can oper-
+ate using either an external reference oscillator or anexternally-generated reference signal and allows users to eas-ily control the low-pass ﬁltering that the detector must per-form. After reviewing the theory of phase-sensitive detection
+in Sec. 
