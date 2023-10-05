@@ -1,0 +1,728 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| MARCH 01 2022
+The crane operator's trick and other shenanigans with a
+pendulum 
+Stephan Schlamminger ; Leon Chao ; Vincent Lee ; David B. Newell ; Clive C. Speake
+Am. J. Phys.  90, 169–176 (2022)
+https://doi.org/10.1 119/10.0006965
+Articles Y ou May Be Interested In
+Performance comparison of position and swing angle control system on a gantry crane
+AIP Conference Proceedings  (May 2023)
+Linear Quadratic Gaussian (LQG) for stability control of single payload overhead crane system
+AIP Conference Proceedings  (December 2022)
+Control technology for overhead crane system based on particle swarm algorithm optimization PID control
+AIP Conference Proceedings  (February 2019) 04 October 2023 23:03:18
+The crane operator’s trick and other shenanigans with a pendulum
+Stephan Schlamminger,a)Leon Chao, Vincent Lee, and David B. Newell
+National Institute of Standards and Technology, 100 Bureau Drive, Gaithersburg, Maryland 20899
+Clive C. Speake
+University of Birmingham, Birmingham, United Kingdom
+(Received 9 April 2021; accepted 15 October 2021)
+The dynamics of a swinging payload suspended from a stationary crane, an unwanted phenomenon
+on a construction site, can be described as a simple pendulum. However, an experienced crane
+operator can deliver a swinging payload and have it stop dead on target in a ﬁnite amount of timeby carefully modulating the speed of the trolley. Generally, a series of precisely timed stop and go
+movements of the trolley are implemented to damp out the kinetic energy of the simple harmonic
+oscillator. Here, this mysterious crane operator’s trick will be revealed and ultimately generalizedto capture the case where the load is initially swinging. Finally, this modus operandi is applied to a
+torsion balance used to measure G, the universal gravitational constant responsible for the
+swinging of the crane’s payload in the ﬁrst place.
+#2022 All article content, except where otherwise noted, is
+licensed under a Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/10.0006965
+I. INTRODUCTION
+Many engineers have developed robust control algorithms
+for the automation of industrial cranes to solve the problem of
+damping the swinging motion of a suspended load.1–3Still,
+few have analyzed the capabilities of the most classic control-ler—the human crane operator. While the pendulum provides
+a simple yet fascinating system to study physics,
+4most
+articles on damping or excitation achieve their goal by chang-ing the effective lengths of the pendulum.
+5–7Moreover, the
+papers that describe damping rarely take advantage of the
+Laplace transformation, with12being an exception.8–11Here,
+we study a pendulum with a suspension point that is allowed
+to move horizontally via a trolley. Using the Laplace trans-
+form to obtain the pendulum’s motion, we show that damping
+can be achieved simply by timing the suspension point’s
+motion. In short, the authors combine their experience of driv-ing overhead cranes (SS, LC) with their love for physics (all
+authors) to unveil the principles behind one of the tricks used
+by crane operators. This trick consists of two stop-and-gomotions of the trolley. These can damp out the undesirable
+swinging motion of the pendulum so that it stops dead on tar-
+get in a ﬁnite amount of time. These movements will be ana-lyzed and explained in Sec. III. Finally, this technique is
+applied to a torsion pendulum physics experiment at the
+National Institute of Standards and Technology (NIST) formeasuring the Newtonian constant of gravitation G,s h o w i n g
+the ubiquity of simple harmonic motion, ranging from con-
+struction sites to the modern laboratory.
+Figure 1shows an idealized diagram of a typical tower
+crane with two degrees of freedom: the horizontal motion
+provided by the trolley and the vertical motion by the hoist.For this analysis, the load is assumed to have already been
+lifted to the proper height, and vertical motion during liftoff
+and touchdown is ignored. A point load with mass mis sus-
+pended by a rope with ﬁxed length land negligible mass and
+can swing at small angles with a period T
+o. The horizontal
+position of the load (mass) is given by xmand that of the trol-
+ley (on the crane) by xc. The corresponding velocities are
+abbreviated by vm¼_xmand vc¼_xc, respectively. The angle
+hof the rope with respect to vertical can be obtained fromsinh¼ðxm/C0xcÞ=l. With the trolley at rest, the velocity
+and acceleration of the load tangential to its arcuate motion
+arel_hand l€h. For small excursions ( h/C281), the velocity
+and acceleration can be approximated as _xmand €xm, respec-
+tively. Hence, the linearized differential equation ofmotion is
+m€x
+mþc_xmþðxm/C0xcÞmg
+l¼0; (1)
+where gis the local gravitational acceleration and cis a damp-
+ing coefﬁcient that accounts for the ﬂuid friction force c_xm,
+which is proportional to the velocity of the load. The damping
+term c_xmis included in Eq. (1)for completeness, but, from
+here on, we neglect it to avoid complicating the equations and
+overburdening the physical insight with mathematics. In addi-
+tion, the experimental oscillator discussed in Sec. Vexhibits
+almost no damping so that this approximation is valid in that
+case also. Without damping, Eq. (1)c a nb er e w r i t t e na s
+€xmþx2
+oxm¼x2
+oxc;where xo¼2p
+To¼ﬃﬃﬃg
+lr
+: (2)
+Appendix A shows the derivation of Eq. (2)with the
+Lagrange formalism. Using the Laplace transform,13a popu-
+lar technique used in control theory for solving ordinary
+differential equations, Eq. (2)can be transformed to the
+s-domain,
+s2XmðsÞþx2
+oXmðsÞ¼x2
+oXcðsÞ: (3)
+The Laplace transform is similar to the Fourier transform
+but uses the complex variable sinstead of ixfor converting
+between the time and frequency domains. We denote, as is
+usual, the variables in the Laplace domain with upper caseletters and the ones in the time domain with lower case let-
+ters. A table in Appendix B gives the transformations that
+are used in this article.
+Finally, the response function, the ratio of output to input,
+in this case the load position to the trolley position, is
+given by
+169 Am. J. Phys. 90(3), March 2022 http://aapt.org/ajp VCAuthor(s) 2022.
+ 169 04 October 2023 23:03:18
+RðsÞ:¼XmðsÞ
+XcðsÞ¼x2
+o
+s2þx2
+o: (4)
+II. STARTING WITH THE LOAD AT REST
+Let us start with a simple case that does not require any
+shenanigans. For t<0, both the load and the trolley are ini-
+tially at rest with xm¼xc¼0. A series of two movements
+are examined: at t¼0, the trolley begins to move at constant
+velocity (Sec. II A), and at t¼s, it comes to a stop (Sec.
+II B). Following these two motions, the crane operator’s trick
+to stop the load from swinging is revealed (Sec. II C).
+A. Trolley starts moving
+We assume that for t<0, the trolley is at rest, and at t¼0,
+it instantaneously starts to move with constant velocity vc.
+Hence, xc, determined by the Heaviside function u(t) multi-
+plied with vct, is given by
+xctðÞ¼utðÞvctand XcsðÞ¼vc
+s2with
+utðÞ¼0 t<0;
+0:5t¼0;
+1 t>0:8
+><
+>:(5)
+Note that in the formal deﬁnition, uð0Þ¼0:5, but this point
+is inconsequential here because uðtÞt¼0 for t¼0. The cor-
+responding Laplace transformation XcðsÞis obtained using
+Appendix B so that the position of the load in the Laplace
+domain, XmðsÞcan be inferred from Eq. (4):
+XmðsÞ¼RðsÞXcðsÞ¼x2
+ovc
+s4þx2
+os2¼vc
+s2/C0vc
+s2þx2
+o: (6)
+Equation (6), when converted back into the time domain for
+t>0, yields
+xmðtÞ¼ vct/C0vc
+xosinxotðÞ : (7)The horizontal velocity of the load, vm, is the time derivative
+ofxm
+vm¼vc/C0vccosxotðÞ : (8)
+Equation (8)shows that the average speed of the load, vm,
+is equal to the steady speed of the trolley, vc.H o w e v e r ,i t s
+speed oscillates with an amplitude of vc, so, with respect to
+the construction site, the load’s speed varies from 0 to 2 vc.
+Att¼kTo, the speed of the load is zero. Here, as through-
+out the text, kdenotes a positive integer. If the operator
+stops the trolley at those instants, both the velocity of the
+trolley, vc, and the of load, vm, will be zero. Furthermore, as
+is apparent from Eq. (7), the position of both the load and
+the trolley will then be vckTo. The mass will hang straight
+down, with h¼0, from the resting trolley. Thus, the pendu-
+lum will be at rest and will remain at rest until the next
+stimulus arises.
+B. Trolley starts moving and then stops
+In this section, we use the Laplace transformation to ﬁnd
+the motion of the load after the trolley is brought abruptly to
+a stop, and we check the claim that stopping the trolley at
+times t¼kTowill result in the load hanging at rest. As
+before, the trolley starts moving at t¼0 with a velocity vc,
+but now comes to a stop at t¼s. In the Laplace domain, this
+motion is given by
+XcðsÞ¼vc
+s2/C0vc
+s2expð/C0ssÞ; (9)
+where the ﬁrst term represents the motion starting at t¼0,
+and the second term represents the stop at a later time s.I n
+the Laplace domain, a time shift by srequires multiplication
+by exp ð/C0ssÞ. The transformation back to the time domain
+gives Eq. (7)added to a similar term, but with a negative
+sign and shifted in time by s. Hence, the distance traveled by
+the load is given, for t>s,14by
+xmðtÞ¼ vct/C0vc
+xosinxotðÞ/C0vcðt/C0sÞ
+þvc
+xosinxoðt/C0sÞ ðÞ : (10)
+Furthermore, the velocity of the load at the pendulum
+frequency is determined by the temporal derivative of
+Eq.(10):
+vmðtÞ¼/C0 vccosxotðÞþvccosxoðt/C0sÞ ðÞ : (11)
+Expanding the second term, and subsequent grouping of
+cosðxotÞand sin ðxotÞterms yields
+vmðtÞ¼ vcð/C01þcosxosðÞÞcosxotðÞ
+þvcsinxosðÞ sinxotðÞ : (12)
+Using half-angle identities for xos, one obtains
+vmðtÞ¼2vcsinxos=2ðÞ /C0sinxos=2ðÞ cosxotðÞ/C2
+þcosxos=2ðÞ sinxotðÞ/C3
+: (13)
+Fig. 1. A simpliﬁed diagram of a tower crane. The crane trolley is free to
+move along the horizontal direction. The point load with mass mis sus-
+pended from the trolley via a rope of ﬁxed length l. We denote the horizontal
+position of the mass with xmand that of the trolley on the crane with xc.A s
+indicated by the arrows, the corresponding velocities are abbreviated by
+vm¼_xmand vc¼_xc, respectively.
+170 Am. J. Phys., Vol. 90, No. 3, March 2022 Schlamminger et al. 170 04 October 2023 23:03:18
+The expression in the square bracket is sin ðxot/C0xs=2Þ.
+Hence,
+vmðtÞ¼2vcsinxos
+2/C18/C19
+sinxot/C0xos
+2/C18/C19
+: (14)
+The equation is different from Eq. (8)as it is the outcome of
+two changes in the trolley velocity instead of one. The sec-ond sine in Eq. (14) describes the free pendulum motion
+with a phase shift. Its amplitude is modulated by the ﬁrst
+sine that is dependent on s. Thus, the load velocity becomes
+zero when x
+os¼k2p, or rather s¼kTo, exactly as conjec-
+tured above.
+C. The crane operator’s trick
+Section II Bdescribes a trajectory where the load is at rest
+both initially and ﬁnally. However, during the translation,the horizontal displacement of the load with respect to the
+trolley can be quite large, up to v
+c=xo. To avoid pendulum
+motion during transport, the trolley starts at t¼0 with vc=2
+and then, at t¼s, the velocity is increased to vc. The crane
+operator’s secret is in calculating the value for s. In the s
+domain that stimulus is
+XcðsÞ¼vc=2
+s2þvc=2
+s2expð/C0ssÞ: (15)
+The solution for xmin the time domain for t>sis
+xmðtÞ¼ vct/C0vc
+2s/C0vc
+2xosinxotðÞ
+/C0vc
+2xosinxot/C0xos ðÞ : (16)
+Thus, if xos¼ð2kþ1Þp,o rs¼To=2þkTo, the pendulum
+motion is cancelled. The crane operator’s trick is to start the
+trolley with half the desired velocity. Half a period later, theload passes directly below the trolley with a velocity that is
+twice as fast as the trolley. At that point, the crane operator
+doubles the trolley speed to match the speed of the load.After this maneuver, or set of movements, the load glides
+along with constant velocity.
+Since all good things must come to an end, the trolley
+must be stopped before the end of the track. Stopping withzero swing can be accomplished by performing the same
+trick in reverse: the trolley’s speed is reduced to v
+c=2 and
+then, an odd multiple of To=2 later, reduced to zero.
+D. Finite acceleration of the trolley
+The analysis above has one shortcoming. It assumes that
+the trolley speed can go from 0 to vcorvc=2 instantaneously,
+which, unfortunately, is impossible. Instead, assume that, at
+t¼0, the trolley starts accelerating with acover a duration of
+dt. A second acceleration with the same duration begins at
+t¼s. In the sdomain, the stimulus is
+XcðsÞ¼ac
+s3/C0ac
+s3expð/C0dtsÞþac
+s3expð/C0ssÞ
+/C0ac
+s3expð/C0ðsþdtÞsÞ: (17)
+Fort>sþdt, the response in the time domain isxmðtÞ¼ac2tdt/C0sdt/C0dt2 ðÞ þac
+x2
+ocosðxotÞ
+/C0ac
+x2
+ocosðxot/C0xodtÞþac
+x2
+ocosðxot/C0xosÞ
+/C0ac
+x2
+ocosðxot/C0xodt/C0xosÞ: (18)
+The term in the ﬁrst line describes the motion with constant
+velocity and is identical to that of the trolley. Note that, for
+t>sþdt, the velocity of the trolley is vc¼2acdt.
+Fors¼To=2þkTo, the ﬁrst and third cosines as well as the
+second and fourth cosines are the same with oppositesign and cancel. Hence, all oscillatory terms vanish for
+s¼T
+o=2þkTo, and the load tracks the trolley.
+In summary, both crane operator tricks are valid even if
+the trolley’s acceleration is ﬁnite. Note that we assume
+that both accelerations, at t¼0a n da t t¼s, are identical
+and applied for the same duration, dt. This assumption
+may not hold in a real-world situation, such as if the
+motor moving the trolley outputs a constant mechanical
+power.
+III. STARTING WITH A SWINGING LOAD
+The scenario discussed in this section may be uncommon
+in the world of crane operators, but is applicable to the phys-
+ics experiment discussed later. As previously, we assume the
+trolley to be initially at rest at xc¼0, but the load is now
+assumed to be swinging. Without loss of generality, we set
+t¼0 as the time when the load swings directly under the
+trolley at xm¼0 with positive velocity vmð0Þ¼ vo. One
+could, for instance, imagine that a gust of wind causes the
+load to swing at the beginning of the crane operator’s shift in
+which the task is to move the load from xm¼0t o xm¼xg,
+so that it arrives with the smallest possible pendulum ampli-
+tude. To avoid unnecessary complication, we assume that thetrolley can move with inﬁnite acceleration but has a maxi-
+mum speed of v
+c.
+The load’s motion will be damped using two identical
+trolley movements performed at a known speed vceach of
+duration dt. The combined distance traveled by the trolley
+isxg¼2vcdt. To succeed in the task, the crane operator
+has to quickly solve the equations of motion and deter-
+mine the times t1andt1þswhen these trolley operations
+are to be executed, as the ground recipients are notori-
+ously impatient.
+The two moves can be described in the Laplace domain
+similar to Eq. (15). However, how should the initial con-
+ditions be taken into account? The easiest way is to
+assume that the pendulum is at rest and add a delta-
+function impulse term to the stimulus, which reproduces
+the initial conditions. This term is virtual because the
+crane operator does not actually have to physically exe-cute this step. If the trolley experiences an initial impulse
+given by x
+c¼dðtÞatt¼0, then the pendulum at rest has,
+by deﬁnition of the response function,
+XmðsÞ¼x2
+o
+s2þx2
+o)
+xmðtÞ¼xosinxotðÞ)
+vmðtÞ¼x2
+ocosxotðÞ fort>0: (19)
+171 Am. J. Phys., Vol. 90, No. 3, March 2022 Schlamminger et al. 171 04 October 2023 23:03:18
+To obtain the desired initial condition, i.e., a velocity vo, the
+virtual stimulus must, therefore, be xc¼ðvo=x2
+oÞdðtÞ.
+The combination of the virtual and real trolley motions in
+the Laplace domain is
+XcðsÞ¼vo
+x2
+oþvc
+s2expð/C0t1sÞ/C0vc
+s2expð/C0t1s/C0dtsÞ
+þvc
+s2expð/C0t1s/C0ssÞ/C0vc
+s2expð/C0t1s/C0ss/C0dtsÞ:
+(20)
+Multiplying this by the response function and transforming
+back into the time domain gives for t>t1þsþdt
+xmðtÞ¼2vcdtþvo
+xosinxotðÞ/C0vc
+xosinðxot/C0xot1Þ
+/C0vc
+xosinðxot/C0xot1/C0xosÞ
+þvc
+xosinðxot/C0xot1/C0xodtÞ
+þvc
+xosinðxot/C0xot1/C0xos/C0xodtÞ: (21)
+Since we are interested in the pendulum motion of the load
+after the maneuver, we take the temporal derivative of the
+previous equation, which yields
+vmðtÞ¼cosxotðÞ/C20
+vo/C0vccosxot1ðÞ
+þvccosxot1þxodt ðÞ /C0vccosxot1þxos ðÞ
+þvccosxot1þxodtþxos ðÞ/C21
+(22)
+þsinxotðÞ 4vccosxos
+2/C18/C19 /C20
+/C2cos2xot1þxosþxodt
+2/C18/C19
+sinxodt
+2/C18/C19 /C21
+:(23)
+For the pendulum to be at rest, the terms within the two
+square brackets must be equal to zero. Inspecting the
+terms inside the second set of square brackets yields
+two possible ways the product can be zero. First, onecould choose x
+os¼p. However, for that case, the result
+would be
+vmðtÞ¼ vocosxotðÞ : (24)
+As we have seen in Sec. II C, making two moves an odd mul-
+tiple of half a period apart will not change the energy stored
+in the pendulum’s motion, and the load’s amplitude will notbe damped. The second way to make the terms vanish would
+be
+2x
+ot1þxosþxodt¼pþ2kp)
+t1¼To
+4/C0s
+2/C0dt
+2þkTo=2: (25)
+Then, the velocity of the pendulum for t>t1þsþdtis
+vmðtÞ¼cosxotðÞ/C18
+vo64vccossxo
+2/C18/C19
+sindtxo
+2/C18/C19 /C19
+:
+(26)The sign before 4 vcis positive if kin Eq. (25) is even and
+negative if it is odd. The pendulum motion can be damped to
+zero as long as vo/C204vc. For the case vo¼4vc, the choices
+forsanddtwould be s¼To=2þk1Toanddt¼2k2To, with
+s>dtandk1,k2positive integers. Usually, dtis determined
+by the distance xg¼2vcdtover which the load needs to be
+transported. For a given dt, the largest possible amplitude
+that can be damped to zero is
+vo/C204vcsindtxo
+2/C18/C19
+: (27)
+To accomplish this, smust be chosen as
+s¼To
+parccosvo
+74vcsindtxo
+2/C18/C190
+BB@1
+CCAþ2kTo: (28)
+Furthermore, if
+vo>4vcsindtxo
+2/C18/C19
+; (29)
+then the load will not be at rest after the maneuver.
+However, the energy of the pendulum can be minimized bysetting cos sx
+o=2ðÞ ¼1, or in other words
+s¼2kTo: (30)
+IV. EXAMPLES BY SIMULATION
+In this section, we examine two examples based on the
+equations derived previously. We assume l¼20 m, resulting
+in a pendulum period of 8.97 s for small angles. The goal is
+to move the load by 6 m horizontally to the right with a trol-
+ley speed of vc¼1ms/C01, yielding dt¼3s .
+In the ﬁrst example, it is assumed that the load has a
+velocity amplitude of vo¼1ms/C01. According to Eq. (28),
+Fig. 2. Damping a load that swings with an initial velocity amplitude
+vmð0Þ¼ vo¼1ms/C01. Top: solid blue line indicates the velocity vmof the
+load and dotted red line the velocity vcof the trolley. Bottom: the solid blue
+line indicates the position xmof the load and the dotted red line the position
+xcof the trolley. After a maneuver, or two trolley movements, the load is at
+rest at the target position.
+172 Am. J. Phys., Vol. 90, No. 3, March 2022 Schlamminger et al. 172 04 October 2023 23:03:18
+s¼5:32 s which, as an input for Eq. (25), yields t1¼2:57 s.
+Figure 2shows a numerical simulation of this example
+where the solid traces represent the position xm(bottom
+panel) and the velocity vm(top panel) of the load while the
+dotted traces represent the position xcand velocity vcof the
+trolley. To better visualize the initial swing, t1begins a full
+period late, i.e., t1¼8:97 sþ2:57 s¼11:54 s.
+The calculation has been made by numerically solving the
+differential equation (1)with the Runge–Kutta method. The
+program is written in Python and is freely available at
+https://github.com/schlammis/pendulum . The simulation
+also allows solving the nonlinear differential equation of
+motion and the equation when friction is nonzero ( c6¼0).
+Both topics would go beyond the scope of this article.
+The second example is a case where the initial velocity
+amplitude of the load vo¼5ms/C01is larger than four times
+the trolley speed. According to Eq. (30),s¼17:95 s, which
+yields t1¼0:74 s. Figure 3shows the position and velocity
+of both the load and the trolley in this case. Similar to the
+previous example, t1begins a full period late at t1¼9:72 s.
+The wait time between the two movements is twice the pen-
+dulum period, s¼2To¼17:95 s. Due to the large initial
+velocity of the load, the motion can only be attenuated and
+not fully removed after the maneuver.
+V. APPLICATION IN THE LABORATORY
+The equations derived in Sec. IIIdo not only apply at a
+construction site. They can also be helpful in a physics labo-ratory, especially one involving a harmonic oscillator, which
+is not so unusual in science and engineering. In the present
+case, the above-described crane shenanigans are directly
+applicable to a torsion balance that is used to measure the
+gravitational constant G.
+15
+As shown in Fig. 4, the torsion balance is comprised of
+four cylindrical copper test masses, each of mass approxi-
+mately 1 kg, resting on a disk suspended from a weak torsion
+spring. This assembly is inside a vacuum vessel. An autocol-
+limator monitors the small angle utthe disk makes with
+respect to a ﬁxed direction via one of four mirrors attached
+to the disk. The measurement range of the autocollimator is
+60:17/C14. A source-mass assembly consisting of four cylindri-
+cal source masses on a carousel is located outside the vac-
+uum chamber. The operator can rotate the carousel around
+the symmetry center to an angle uswith the help of a stepper
+motor.
+Depending on the difference us/C0ut, a gravitational
+torque ncan act on the pendulum. The torque can be
+written under the form n¼GCðus/C0utÞ,w h e r e CðuÞis a
+function that depends on the angle difference, but also
+on the mass distribution of the experiment (itself depend-
+ing on the various distance of the masses to the rotation
+center, their height, and densities). Experimentally,
+numerical integration over the test and source mass vol-umes is necessary to determine Cwith relative uncertain-
+ties of /C241/C210
+/C06.
+The experiment is performed as follows. The source
+masses are moved to the angle where the maximum clock-
+wise torque acts on the pendulum, us¼us;max. Due to the
+gravitational torque, the pendulum oscillates around an
+Fig. 3. Damping a load that swings with an initial velocity amplitude
+vmð0Þ¼ vo¼5ms/C01. Top: the solid blue line indicates the velocity vmof
+the load and the dotted red line the velocity vcof the trolley. Bottom: the
+solid blue line indicates the position xmof the load and the dotted red line
+the position xcof the trolley. After the maneuver, the load’s motion has a
+signiﬁcantly attenuated amplitude at the target position.
+Fig. 4. Top: three-dimensional model of the torsion balance. Bottom: topview of the system. The torsion balance is composed of a disk suspended
+by a thin torsion strip, inside a vacuum chamber (omitted for clarity), on
+which four cylindrical test masses are placed at 90
+/C14from one another.
+Outside the chamber are four cylindrical source masses on a carousel that
+can rotate about the strip center. The angle of the torsion balance is mea-
+sured from the dash-dotted line to the test mass labeled 1. This angle is
+very small, utjj/C280:01/C14. The angle of the source mass assembly usis
+measured from the dash-dotted line to the source mass labeled A. The
+gravitational torque depends on us/C0ut/C25usand is maximal for
+us¼us;maxwithus;max/C2518/C14.
+173 Am. J. Phys., Vol. 90, No. 3, March 2022 Schlamminger et al. 173 04 October 2023 23:03:18
+equilibrium position ut;max given by jðut;max/C0ut;0Þ
+¼GCðus;max/C0ut;maxÞ. The torque produced by the torsion
+strip, jðut;max/C0ut;0Þ, counteracts the gravitational torque,
+andut;0denotes the unknown equilibrium position of the
+pendulum in the absence of external torque. The torsion pen-dulum is then observed with an autocollimator for a few peri-
+ods, to determine u
+t;max, after which the source masses are
+moved counterclockwise to the position us;minwhere the tor-
+que acting on the pendulum is minimal, i.e., maximal coun-
+terclockwise torque. The pendulum is observed again, and
+we obtain jðut;min/C0ut;0Þ¼GCðus;min/C0ut;minÞ. The proce-
+dure is repeated to achieve a good precision on ut;max
+/C0ut;min. By using the difference, the unknown angle ut;0
+drops out. From these measurements, the gravitational con-
+stant can be obtained as
+G¼jut;max/C0ut;min
+Cðus;max/C0ut;maxÞ/C0Cðus;min/C0ut;minÞ; (31)
+where the numerator is obtained from the successive mea-
+surements discussed above and the denominator from thenumerical integration of C. The torsional constant, j,i s
+obtained by measuring the resonant frequency of the pendu-
+lum, f
+o, and numerically calculating the pendulum’s moment
+of inertia, I:j¼Ið2pfoÞ2. For a more complete description
+of the setup, see Ref. 15.
+For our geometry, the source mass positions of us;max
+¼/C0us;min/C2518/C14produce an angle difference of ut;max
+/C0ut;min¼0:008 74/C14¼153lrad. One detail worth mention-
+ing is that the pendulum is constantly swinging. Hence, todetermine the equilibrium position of the pendulum with the
+source masses in either state, a sine function must be ﬁtted to
+the data obtained with the autocollimator, offset by u
+t;maxor
+ut;min. The uncertainty in the equilibrium position is smaller
+for smaller pendulum amplitude, for, in this case, the nonli-
+nearities of the autocollimator affect the results to a lesserdegree.
+The differential equation describing the system is
+€u
+tþx2
+out¼nus/C0ut ðÞ
+I; (32)
+where nðus/C0utÞ¼GCðus/C0utÞis the gravitational torque
+that is applied by the operator via moving the source massassembly to u
+s. Note that the omission of damping is justi-
+ﬁed here since the quality factor of the pendulum is very
+large ( /C25100 000). Here, us/C29ut, hence, nðus/C0utÞ
+/C25nðusÞ. In the Laplace domain, the response function is
+UtðsÞ
+NðsÞ¼1
+I1
+s2þx2
+o; (33)
+which closely resembles Eq. (4).
+The same crane operator is in charge of maneuvering
+the source masses, and, like before, only two movements
+per maneuver are allowed. The task is to optimize the timingof both movements, given by the parameters t
+1,dt, and s
+to damp the pendulum as much as possible. One difference
+here is that the torque does not change linearly withrespect to the source mass position but depends onn
+osinððus=us;maxÞðp=2ÞÞ, where no¼1:56/C210/C08Nm .
+Note that this expression corresponds to the ﬁrst order
+expansion, valid if the masses are point masses. It is areasonable accurate approximation for the cylindricalmasses used in the experiment. The problem can then be
+solved with a method similar to what has been describedfor the crane. The exact differential equation of motionand their solutions are beyond the scope of this text butcan be found on the GitHub page mentioned earlier.Spoiler alert: the crane operator’s trick similar to the onedescribed in Sec. IIIbut adapted to torques can be writ-
+ten in the Laplace domain
+NðsÞ¼
+no
+2/C18e/C0st1
+s/C0se/C0st1
+s2þ/C232/C0/C23e/C0st2
+s2þ/C232þ/C23e/C0st3
+s2þ/C232
+/C0se/C0st4
+s2þ/C232þe/C0st4
+s/C19
+; (34)
+with /C23¼p=ð2dtÞ;t2¼t1þdt;t3¼t2þs, and t4¼t3þdt.
+Figure 5shows the pendulum angular position utas a
+function of time. When the source mass is set at þus;max, the
+corresponding usandutcurves are in magenta, whereas
+when it is set at /C0us;max, the corresponding usandutcurves
+are in cyan. The pendulum response to the source massmaneuvers are plotted with thin dotted lines. To understandthe source mass motion plotted in Fig. 5, recall that there is a
+maximum amplitude that can be damped in one maneuver,see Eq. (29). For the torsion pendulum, this amplitude corre-
+sponds to 146 lrad. To achieve this reduction, the wait time
+between the two moves in one maneuver is s/C0dt¼107 s.
+This wait time is long, almost a full period. Alternatively, bysetting s¼dt, the pendulum swing amplitude is reduced by
+137lrad instead of 146 lrad. Thus, the amplitude reduction
+per maneuver is worse, but the average reduction per unittime is greater. Hence, for amplitude larger than 137 lrad,s
+is set to zero. For smaller amplitudes, the ideal sis calcu-
+lated. In the latter case, the wait time between two moves isclearly visible in the last two maneuvers in Fig. 5. More
+Fig. 5. Angular pos itions of the torsion pendulum ( ut, top graph) and of
+t h es o u r c em a s sa s s e m b l y( us, bottom graph) as a function of time. In
+both graphs, three different line thicknesses are used: the one-period-
+long data sets indicated with medium and thick lines were taken with
+the source-mass assembly at us¼18/C14and us¼/C018/C14, respectively.
+These datasets are used to determine G. In between the two extreme
+states, the source masses are moved according to the procedure
+described in the text. The data taken during the maneuver (not used to
+determine G) are shown as thin lines. The damping of the oscillatory
+motion of utcan be seen. The inset in the top graph shows the pendulum
+motion after a little more than an hour. The torsional amplitude is
+1.6lrad, more than 1000 times smaller than at the beginning of the
+experiment.
+174 Am. J. Phys., Vol. 90, No. 3, March 2022 Schlamminger et al. 174 04 October 2023 23:03:18
+information on this topic can be found in the supplementary
+material.16
+At the beginning of the data shown in Fig. 5, the pendu-
+lum had an amplitude of 1830 lrad. After 15 maneuvers,
+the amplitude has been reduced to 1.5 lrad, which shows
+how effective the crane operator’s trick is. However, anattenuation of 99.9% seems to be the limit of this methodfor two main reasons: (1) there is some variation in dt,t h e
+time it takes to perform one movement, and (2) the torque
+on the pendulum is not exactly proportional to the sine ofthe angular position of the source masses as mentionedearlier. Other than that, this work would likely get the nod
+of approval from the Society of Meticulous Crane
+Operators.
+From the physics point of view, the damping of the tor-
+sion pendulum is desirable because it ultimately reducesthe uncertainty of the angular pos ition during the mea-
+surement. The values of u
+t;maxandut;minare determined
+by measuring the pendulum motion over one period.Fitting a large amplitude curve to determine the equilib-rium position is more prone to systematic effects caused
+by nonlinearities of the autocollimator. Here, the authors
+employ the crane operator’s tricks to achieve some seri-ous damping: the amplitude of the oscillations in u
+tafter
+an hour of such maneuvers is about 1200 times smaller
+than the initial amplitude. In contrast, a wait time of the
+order of months would be necessary before the oscilla-tions naturally decay via dissipation in the torsion strip tothe same levels if no trick is applied.
+VI. CONCLUSION
+In this paper, we have taken a light-hearted look at a
+practical application of Newtonian mechanics, usingLaplace transformation. We started with a simple exam-ple. The trolley of a crane starts moving with constant
+velocity. We calculated the effect that this impetus has on
+a classical harmonic oscillator: the load suspended fromthat trolley. The translation property of the Laplace trans-formation allows us to easily consider the effect of two
+such impulses in opposite directions, i.e., starting and
+stopping the trolley. With a few trigonometric manipula-tions, we showed that if the two impulses are separated intime by an integer number of pendulum periods, no
+energy is added or subtracted to the pendulum motion of
+the load. In the classroom, the formalism can be shown onthe whiteboard, with a simulation using the code providedon GitHub, and experimentally by moving the top of a
+plumb bob by hand. The technique can be extended to
+include the initial swinging condition of the pendulum.We use a variation of the crane operator’s trick on a tor-sion balance in our current research, determining the grav-
+itational constant.
+We believe that the ideas presented in this paper can
+be valuable for the classroom. First, the math is not toocomplicated and can be followed on the whiteboard.Second, the freely available python code can be down-
+loaded, and students and teachers alike can play with
+different parameters, including damping. Finally, themotivated reader may endeavor to build an actualexperimental realization of the systems discussed here—
+either a crane or a torsion balance. The topic can be
+approached from many different angles and is, therefore,fun and educational.Applying the techniques discussed above, we found it
+satisfying that the torsion pendulum follows precisely thesimple, albeit uncommon, mathematical formalism. We
+hope that the students and their teachers can ﬁnd the same
+satisfaction in this system, even if only by simulation.This satisfaction can inspire a lifelong passion for under-standing the world using mathematical and physical
+reasoning.
+APPENDIX A: DERIVATION OF THE
+DIFFERENTIAL EQUATION
+The horizontal position of the trolley is given by a twice
+differentiable function x
+cðtÞ. The vertical position of the trol-
+ley,yc¼l, and the length of the rope lare ﬁxed. Then, the
+coordinates of the load are given by
+xm¼xcþlsinhand ym¼l/C0lcosh: (A1)
+The corresponding velocities are
+_xm¼_xcþl_hcoshand _ym¼l_hsinh: (A2)
+The Lagrangian is
+L¼T/C0V¼m
+2ð_x2
+cþ2l_xc_hcoshþl2_h2Þþmglcosh:
+(A3)
+The exact Lagrange equation for his
+l€hþ€xccoshþgsinh¼0: (A4)
+To ﬁrst order, we approximate cos h/C251 and h/C25sinh
+¼ðxm/C0xcÞ=l. With g=l¼x2
+o, we obtain
+€xmþx2
+oxm¼x2
+oxc; (A5)
+which is given in the main text as Eq. (2).
+APPENDIX B: LAPLACE TRANSFORMATIONS
+USED IN THIS ARTICLE
+Name f(t) F(s)
+Impulse dðtÞ 1
+Unit step u(t) s/C01
+Unit ramp uðtÞts/C02
+Unit acceleration uðtÞt2=2 s/C03
+Sine for t>0 uðtÞsinðxtÞ x=ðs2þx2Þ
+Cosine for t>0 uðtÞcosðxtÞ s=ðs2þx2Þ
+Translation in time fðt/C0toÞ expð/C0tosÞFðsÞ
+Derivative d fðtÞ=dts F (s)
+Integralðt
+0fðsÞds s/C01FðsÞ
+175 Am. J. Phys., Vol. 90, No. 3, March 2022 Schlamminger et al. 175 04 October 2023 23:03:18
+a)Electronic mail: stephan.schlamminger@nist.gov
+1W. J. O’Connor, “A gantry crane problem solved,” ASME. J. Dyn. Syst.,
+Meas., Control 125(4), 569–576 (2004).
+2M. Hicar and J. Rit /C19ok, “Robust crane control,” Acta Polytech. Hung. 3(2),
+91–101 (2006), http://www.epa.hu/02400/02461/00006/pdf/EPA02461_
+acta_polytechnica_hungarica_2006_02_091-101.pdf .
+3S. Garrido et al. , “Anti-swinging input shaping control of an automatic
+construction crane,” IEEE Trans. Autom. Sci. Eng. 5(3), 549–557
+(2008).
+4R. A. Nelson and M. G. Olsson, “The pendulum—Rich physics from asimple system,” Am. J. Phys. 54, 112–121 (1986).
+5P. L. Tea and H. Falk, “Pumping on a swing,” Am. J. Phys. 36, 1165–1166
+(1968).
+6W. B. Case, “The pumping of a swing from the standing position,” Am. J.
+Phys. 64, 215–220 (1996).
+7P. Glendinning, “Adaptive resonance and pumping a swing,” Eur. J. Phys.
+41, 025006 (1996).
+8F. S. Crawford, “Damping of a simple pendulum,” Am. J. Phys. 43,
+276–277 (1975).9P. T. Squire, “Pendulum damping,” Am. J. Phys. 54, 984–991 (1985).
+10J. C. Simbach and J. Priest, “Another look at a damped physical pendu-
+lum,” Am. J. Phys. 73, 1079–1080 (2005).
+11G. D. Quiroga and P. A. Ospina-Henao, “Dynamics of damped oscilla-
+tions: Physical pendulum,” Eur. J. Phys. 38, 065005 (2017).
+12R. C. Hudson and C. R. Finfgeld, “Laplace transform solution for the
+oscillator damped by dry friction,” Am. J. Phys. 39, 568–570 (1971).
+13G. B. Arfken, H. J. Weber, and F. E. Harris, Mathematical Methods for
+Physicists: A Comprehensive Guide (Elsevier, Waltham, MA, 2013).
+14Note that all equations in this article can be made valid for all times, but
+that would require multiplying some terms with uðt/C0sÞor similar expres-
+sions. Since we are only interested in the end state, we decided to omit
+these terms and add a disclaimer to describe when the equations are valid.
+15T. Quinn et al. , “The BIPM measurements of the Newtonian constant of
+gravitation, G,” Philos. Trans. R. Soc. A 372, 20140032 (2014).
+16See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/10.0006965 for the equations and their derivations necessary to
+dampen the torsion balance while moving the source masses from oneposition to the other.
+176 Am. J. Phys., Vol. 90, No. 3, March 2022 Schlamminger et al. 176 04 October 2023 23:03:18

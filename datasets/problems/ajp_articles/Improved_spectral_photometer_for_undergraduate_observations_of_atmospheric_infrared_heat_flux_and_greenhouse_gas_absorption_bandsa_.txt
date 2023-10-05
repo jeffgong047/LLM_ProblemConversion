@@ -1,0 +1,488 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| SEPTEMBER 01 2023
+Improved spectral photometer for undergraduate
+observations of atmospheric infrared heat flux and
+greenhouse gas absorption bandsa) 
+Special Collection:  Teaching about the environment, sustainability , and climate change
+Gerard T . Blanchard ; Bryce A. Bowlsbey ; James R. Dyess ; Ryan D. Rumsey ; Justin B. W oodring
+Am. J. Phys.  91, 708–713 (2023)
+https://doi.org/10.1 119/5.0135029
+Articles Y ou May Be Interested In
+An Interference Fringe Photometer
+American Journal of Physics  (August 1965)
+Pulse Counting Photometer for Microspectroscopy
+Rev Sci Instrum  (December 2004)
+A NEW PHOT O ‐ CELL PHOT OMETER
+Rev Sci Instrum  (December 2004) 04 October 2023 22:56:40
+Improved spectral photometer for undergraduate observations
+of atmospheric infrared heat flux and greenhouse gas absorptionbands
+a)
+Gerard T. Blanchard,b)Bryce A. Bowlsbey,c)James R. Dyess,d)Ryan D. Rumsey,
+and Justin B. Woodringe)
+Department of Chemistry and Physics, Southeastern Louisiana University, Hammond, Louisiana 70402
+(Received 15 November 2022; accepted 9 June 2023)
+We present an experiment investigating the physics of the atmospheric greenhouse effect that can be
+performed by undergraduate physics students. The students construct a three-channel spectral
+photometer to observe the infrared heat ﬂux in the atmosphere. With this spectral photometer, thestudents observe the difference in heat ﬂux between the portion of the IR spectrum that is absorbed
+by water vapor and carbon dioxide and the portion that is not absorbed by atmospheric constituents.
+The students discover that Earth’s surface is warmed by radiation from the greenhouse gasabsorption bands, and the radiation of heat to space is retarded by the absorption bands. One
+component of the experiment is performed on the ground and the other component is performed in
+the atmosphere using a high-altitude balloon. The students then compare their results to a simulationof infrared radiation transport in the atmosphere.
+#2023 Published under an exclusive license by American
+Association of Physics Teachers.
+https://doi.org/10.1119/5.0135029
+I. INTRODUCTION
+The atmospheric greenhouse effect1is a signiﬁcant com-
+ponent of Earth’s climate system.2Averaged over Earth’s
+entire surface, the solar irradiance is 341 W/m2of electro-
+magnetic radiation, mostly in the near-infrared (IR), visible(VIS), and ultraviolet (UV) wavelength regions.3Of this
+radiation, 102 W/m2is reﬂected back into space as UV, VIS,
+and near-IR, and 239 W/m2is absorbed and re-radiated into
+space as mid-infrared region radiation3with an effective
+radiation temperature of 255 K, in accordance with the
+Stefan–Boltzmann law,
+239 W m/C02¼5:67/C210/C08Wm/C02K/C04 ðÞ 255 KðÞ4:(1)
+If Earth’s atmosphere lacked mid-IR absorbing constituents,
+then that average radiation temperature of 255 K ( /C018/C14C)
+would also correspond to the average temperature of Earth’ssurface.
+However, Earth’s atmosphere does contain constituents
+such as water vapor and carbon dioxide that have signiﬁcant
+absorption bands in the mid-IR region, corresponding tomolecular rotational-vibrational transitions. Therefore, IR
+radiation upwelling from Earth’s surface is partially
+absorbed by those atmospheric constituents and re-radiatedisotropically, generating downwelling IR radiation with a
+spectral signature corresponding to the spectrum of the
+absorption bands and with an average heat ﬂux of 333 W/m
+2
+at Earth’s surface.3This additional IR heat ﬂux raises the
+average surface temperature to 289 K (16/C14C), corresponding
+to an IR heat ﬂux of 396 W/m2upwelling from the surface.3
+This surface warming by IR radiation from atmospheric con-
+stituents that absorb IR radiation is referred to as the atmo-
+spheric greenhouse effect. Observation and measurement of
+the spectrum of the downwelling radiation from the atmo-sphere is the ﬁrst objective of this experiment.
+Not all of the surface cooling occurs through IR radiation.
+Some (97 W/m2on average) results from thermal convection
+and evaporation.3In a thermal convection cell, rising airexpands adiabatically as the atmospheric pressure decreases
+with altitude, which causes a decrease in atmospheric tem-perature with altitude throughout the troposphere, the layer
+of the atmosphere that participates in thermal convection.
+This decrease in the ambient atmospheric temperature withaltitude means that as the altitude increases, the absorbed IR
+radiation is re-radiated at lower temperatures. Observation
+and measurement of the decrease in effective radiation tem-perature with altitude is the second objective of this experi-ment. The third and ﬁnal objective is to observe and measure
+spectral differences in the upwelling and downwelling infra-
+red radiation to better understand the roles of IR-absorbingcomponents in the greenhouse effect.
+In a previous paper,
+4we presented an investigation into
+some of these aspects of the atmospheric greenhouse effect
+that can be performed by undergraduates with access tohigh-altitude ballooning.5In this article, we present an
+expansion of, and improvement upon, that experiment. We
+present a ground-based investigation that can be performedby undergraduates who build a three-channel infrared spec-
+tral photometer that measures the spectral heat ﬂux of infra-
+red radiation from atmospheric water vapor in thewavelength range from 5.5 to 8 lm; from atmospheric car-
+bon dioxide in the wavelength range from 12 to 14 lm; and
+from the so-called “IR window” in between these absorptionbands from 8 to 12 lm. We also present an improvement
+upon the design of the original 2-channel balloon-borne
+spectral photometer, which is more accurate and hasexpanded capabilities over the original. Finally, we present
+the results from the ﬂight of this improved instrument.
+The student learning outcomes from this experiment are
+numerous. With regard to learning about the greenhouseeffect, the students learn that the downwelling heat ﬂux from
+a clear sky comes primarily from the molecular absorption
+bands while clouds radiate in both the IR window and in theabsorption bands, that the upwelling radiation temperature
+decreases with altitude in the atmosphere and that the
+upwelling heat ﬂux is much lower in the absorption bandsthan in the IR window, and that clouds also reduce the IR
+708 Am. J. Phys. 91(9), September 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 708 04 October 2023 22:56:40
+heat ﬂux through the atmosphere. In addition, students learn
+applications of Planck’s law, infrared ﬁlters, electronics, and
+programming. Finally, the students also learn about project
+management and engineering design. All of these align with
+learning objectives for preparing physics students for 21st-
+century careers.6
+II. INSTRUMENTATION
+The instrument for this experiment comprises eight
+MLX90614 infrared thermometers that function as infrared
+sensors, an 8–12 lm bandpass ﬁlter and an 8 lm long-pass
+ﬁlter that block IR radiation in certain wavelength bands
+from reaching the sensors, an Arduino Mega microcontrollerto read the sensors, and a combined SD card/GPS receiver to
+store data and provide a time stamp for measurements. It is
+important to note that the MLX90614 sensors each contain
+an integrated 5.5–14 lm bandpass ﬁlter.7The temperature
+measurements reported by these thermometers are, therefore,inferred from the effective IR radiation temperature in that
+band alone. It is also important to note that each sensor has a
+conical 45
+/C14ﬁeld of view, and the sensors are not calibrated
+to measure radiation temperatures below 200 K. A photo-
+graph of the instrument is shown in Fig. 1, and a block dia-
+gram of the instrument showing the connections between
+these components is provided in the supplementary mate-
+rial.8The bill of materials for this instrument is provided in
+Appendix A along with additional details on the components.
+The Arduino code for this experiment is provided in the sup-
+plementary material.8
+The instrument makes six measurements at a time: Td, the
+effective radiation temperature of IR radiation downwelling
+from the sky; Tf1, the effective radiation temperature of
+downwelling IR radiation after ﬁltering by an 8–12 lm band-
+pass ﬁlter; Tf2, the effective radiation temperature of downw-
+elling IR radiation after ﬁltering by an 8 lm long-pass ﬁlter;
+Tu, effective radiation temperature of IR radiation upwelling
+from the surface; Ts1, the temperature of sensor f1; and Ts2,
+the temperature of sensor f2.9The sensor temperature is mea-
+sured and reported by each MLX90614 thermometer along-
+side the IR radiation effective temperature. For each of thesemeasurements, we use two separate sensors, subscripted 1
+and 2, so that we can calculate the average and standard errorof the measurement, T6dT. With two measurements, the
+standard error is half of the difference between the individualreadings. From the measured temperatures, we calculate the
+downwelling heat ﬂux from the atmosphere in three wave-
+length bands: 5.5–8 lm (the H
+2O absorption band), 8–12 lm
+(the IR window), and 12–14 lm (the CO 2absorption band).
+We refer to these heat ﬂuxes as /a1,/w, and /a2, respec-
+tively. We present a sample of data and the subsequent anal-ysis in Sec. III.
+III. DATA AND ANALYSIS
+The raw data presented in Table Iwere gathered on
+October 27, 2022 at 12:05 CDT at 30.512
+/C14N latitude,
+90.466/C14W longitude under clear skies. When taking data,
+the sensors were shaded from direct sunlight so that only IR
+radiation from the atmosphere is measured.
+From the temperatures in Table I, we next calculate the
+heat ﬂux received by each sensor, /d,/f1,/f2, and /u.
+Because of the integrated 5.5–14 lm ﬁlter on each sensor,
+the infrared temperature, T, reported by a sensor is the effec-
+tive radiation temperature in that wavelength band.
+Therefore, we calculate the heat ﬂux, /, received by the sen-
+sor by integrating Planck’s law over that wavelength bandand over the conical 45
+/C14(1.87 sr) ﬁeld of view of the sensor,
+/¼2hc21:87 srðÞð14:0lm
+5:5lmdk
+k5ehc=kkT/C01 ðÞ: (2)
+We evaluate this integral numerically using the method pre-
+sented in Appendix B . We also calculate D//DTso that we
+can evaluate the uncertainty
+d//C25D/
+DTdT: (3)
+Equation (3)shows that the heat ﬂux measurement error is
+propagated from the temperature measurement error inherentin the infrared sensors.7The results of applying Eqs. (2)and
+(3)to the data in Table Iare shown in Table II.
+Next, we must account for the fact that some of the heat
+ﬂux received by the sensors behind the external ﬁlters is IR
+radiation emitted by the sensor and reﬂected back to the ﬁlter
+by the stop band(s) of the external ﬁlters, which explainswhy /
+f1is greater than /d, despite the fact that the ﬁlter
+stops some of the external radiation from reaching the sen-sor. Filter 1 transmits IR radiation in the range 8–12 lm with
+a transmittance of t
+1¼0.803 (per the manufacturer’s data)
+and reﬂects the remainder of the radiation. Therefore, the
+radiation from sensor f1 reﬂected by ﬁlter 1 is
+Fig. 1. Photograph of instrument for ground-based observations.Table I. An example of raw sensor readings, averages, and standard errors
+for the ground-based experiment.
+QuantityIndividual measurements (K)
+Average (K) 12
+Td 265.1 261.4 263.3 61.8
+Tf1 272.5 274.2 273.3 60.9
+Tf2 263.3 263.3 263.3 60.0
+Tu 299.7 298.9 299.3 60.4
+Ts1 293.2 294.0 293.6 60.4
+Ts2 293.9 293.9 293.9 60.0
+709 Am. J. Phys., Vol. 91, No. 9, September 2023 Blanchard et al. 709 04 October 2023 22:56:40
+/r1¼Að8lm
+5:5lmdk
+k5ehc=kkTs1/C01 ðÞ
+þ1/C0t1 ðÞ Að12lm
+8lmdk
+k5ehc=kkTs1/C01 ðÞ
+þAð14lm
+12lmdk
+k5ehc=kkTs1/C01 ðÞ; (4)
+where A¼2hc21:87 srðÞ . Filter 2 transmits IR radiation with
+a wavelength greater than 8–12 lm with a transmittance of
+t2¼0.887 (per the manufacturer’s data) and reﬂects the
+remainder of the radiation. Therefore, the radiation from sen-sorf2 reﬂected by ﬁlter 2 is
+/
+r2¼Að8lm
+5:5lmdk
+k5ehc=kkTs2/C01 ðÞ
+þ1/C0t2 ðÞ Að14lm
+8lmdk
+k5ehc=kkTs2/C01 ðÞ: (5)
+The results of these calculations are shown in Table II.
+We are now in a position to calculate the downwelling
+heat ﬂux in the IR window, 8–12 lm, which we designate
+/w. The heat ﬂux received by sensor f1 is the sum of the
+reﬂected heat ﬂux, /r1, and the external heat ﬂux transmitted
+by the ﬁlter, t1/w,
+/f1¼/r1þt1/w; (6)
+which we can solve for /was
+/w¼/f1/C0/r1
+t1: (7)
+The downwelling heat ﬂux is the sum of /wand the heat ﬂux
+in the combined absorption bands, /a,
+/d¼/wþ/a; (8)
+which we can be solved for /aas
+/a¼/d/C0/w: (9)
+The results of these calculations are shown in Table III.
+We designate the downwelling heat ﬂux in the 5.5–8 lm
+water vapor absorption band as /a1and the downwelling
+heat ﬂux in the 12–14 lm carbon dioxide absorption band as
+/a2. The heat ﬂux received by sensor f2 is the sum of the
+reﬂected heat ﬂux, /r2, and the external heat ﬂux transmitted
+by the ﬁlter, t2(/wþ/a2),/f2¼/r2þt2/wþ/a2 ðÞ ; (10)
+which we can solve for /a2as
+/a2¼/f2/C0/r2
+t2/C0/w: (11)
+Then, since
+/a¼/a1þ/a2; (12)
+we can solve for /a1as
+/a2¼/a/C0/a1: (13)
+The results of these calculations are shown in Table III. The
+ﬁnal step in the analysis is to divide the heat ﬂux in each
+band by the respective bandwidth to calculate the spectralheat ﬂuxes, /
+a1,k,/w,k, and /a2,k. The results of these calcu-
+lations are shown in Table IV.
+IV. RESULTS
+The results from Table IVare graphed in Fig. 2. To pro-
+vide a point of comparison for the measurements, we use a
+simulation of infrared radiation transfer in the atmosphere
+using MODTRAN.10MODTRAN is an algorithm that mod-
+els the atmosphere as a series of horizontally homogenous
+vertical layers and calculates the transmittance and radiance
+of the atmospheric constituents in each layer in 0.2 cm/C01
+spectral bands over the spectral range from 0.2 to 100 lm
+and averaged the spectral heat ﬂux in these wavelength
+bands.11,12The surface temperature input into MODTRAN
+is the measured value of Tu, and default setting of “No
+Clouds or Rain” was used to match the actual clear sky con-
+ditions at the time of the measurements. The simulationresults are also shown in Fig. 2. As can be seen, the differ-
+ence between the measured and simulated values is less than
+2 standard errors of measurement.
+The lesson for students is that the downwelling heat ﬂux
+comes primarily from atmospheric absorption bands. This
+downwelling IR heat ﬂux adds to the heat ﬂux from the Sun
+and increases Earth’s surface temperature. This result demon-
+strates the importance to the greenhouse effect of IR absorption
+and re-radiation by water vapor and carbon dioxide.Table II. Total heat ﬂux received by the sensors and heat ﬂux reﬂected to
+sensors by external ﬁlters.
+Quantity Value (W/m2)
+/d 65.362.5
+/f1 80.461.4
+/f2 65.360.0
+/u 130.760.9
+/r1 67.260.5
+/r2 37.460.0Table III. Heat ﬂux in the IR wi ndow, w, and combined absorption
+bands, a.
+Quantity Value (W/m2)
+/w 16.463.2
+/a 48.964.1
+/a1 33.865.2
+/a2 15.063.2
+Table IV. Spectral heat ﬂux in the 5.5–8 lm absorption band, a1, the IR win-
+dow, w, and the 12–14 lm absorption band, a2.
+Quantity Value [W/(m2lm)]
+/a1,k 13.562.1
+/w,k 4.160.8
+/a2,k 7.561.6
+710 Am. J. Phys., Vol. 91, No. 9, September 2023 Blanchard et al. 710 04 October 2023 22:56:40
+V. BALLOON-BORNE INVESTIGATION
+Due to our participation in the Louisiana Space Grant
+Consortium’s Louisiana Aerospace Catalyst Experience for
+Students (LaACES) program, we were able to perform mea-surements of both the upwelling and downwelling infrared
+heat ﬂux at altitudes in the atmosphere ranging from 0 to
+30 km. LaACES is a program that provides experiential learn-ing and technical training for higher-education students across
+Louisiana as they design, build, document, and ﬂy an instru-
+ment for a scientiﬁc experiment on a near-space balloonﬂight.
+13For this experiment, the instrument was conﬁgured as
+shown in the block diagram provided in the supplementary
+material.8The most signiﬁcant difference is that we used two
+8–12 lm bandpass ﬁlters, one for upwelling heat ﬂux and one
+for downwelling heat ﬂux, and did not use the 8 lm long-pass
+ﬁlter. Consequently, we are able to distinguish heat ﬂux in theIR window and the absorption bands, but we are not able to
+distinguish radiation in the 5.5–8 lmH
+2O absorption band
+from radiation in the 12–14 lmC O 2absorption band. The
+LSU MegaSat Sensor Board adds atmospheric pressure, tem-
+perature, and humidity sensors, as well as an internal tempera-
+ture sensor, inertial measurement unit, and real-time clock asa backup to the GPS time signal.14Photographs of the instru-
+ment are shown in Figs. 3and 4. One signiﬁcant design
+change from the previous balloon-borne instrument is that theinfrared sensors were moved outside of the insulated housing
+to prevent them from reaching the high pre-launch tempera-
+tures observed by Blanchard et al.4This change greatly
+improved the accuracy of the measurements by allowing the
+sensor to cool to lower temperatures during ascent, which
+reduces the heat ﬂux reﬂected by the ﬁlters that must be sub-tracted from the total heat ﬂux reaching the sensor in order to
+observe the external heat ﬂux in Eq. (7).
+The experiment was launched at 10:09 CDT on June 12,
+2021 from 30.631
+/C14N latitude, 92.405/C14W longitude and
+ascended to 30 km altitude before returning to the surface by
+parachute. The sky was mostly cloudy with a broken layer of
+cumulus clouds. After recovery, we analyzed the data usingEqs. (2)–(9) . First, Fig. 5shows the upwelling and downwel-
+ling IR radiation temperatures T
+uand Tdmeasured by the
+unﬁltered sensors vs altitude as well as the MODTRAN-simulated radiation temperatures.15Note that we do not
+expect the model to precisely agree with the measurementsat altitudes less than 10 km because the model—using the
+interface that we used—does not accurately reproduce thecloud structure of the lower atmosphere. The only option forcumulus clouds that was available to us was a solid cumuluscloud layer with a base of 0.66 km and a top of 2.7 km. Theactual cloud cover on that day was a broken layer of cumulusclouds with unknown base and top altitudes. In addition, themodel should be considered to represent average atmo-spheric conditions, and the actual conditions on any givenday may differ signiﬁcantly from the average. The lesson forstudents in Fig. 5is that the upwelling radiation temperature
+decreases with altitude, so that the effective temperature of
+the radiation to space is 32 K lower than the surface tempera-
+ture. This is a quantitative measure of the greenhouse effect.
+Figure 6shows the upwelling spectral heat ﬂux in the IR
+window, w, and the combined H
+2O and CO 2absorption
+bands, a. The measured values are in qualitative agreement
+with the simulation results. The lesson for students in Fig. 6is
+that the upwelling heat ﬂux is lower in the absorption bands.Another lesson is the evident contribution of the low-altitudeclouds in reducing the IR heat ﬂux through the atmosphere.
+Figure 7shows the downwelling spectral heat ﬂux in the
+IR window and the combined absorption bands. At loweraltitudes (associated with the cloud layer), the downwellingspectral heat ﬂux is greater in the IR window; and at higher
+Fig. 2. Downwelling spectral heat ﬂux from the atmosphere in three spectral
+bands. The solid line shows the measured spectral heat ﬂux, and the errorbars indicate 62 standard errors of measurement. The dashed line shows the
+model heat ﬂux obtained from MODTRAN.
+Fig. 3. Photograph of the instrument for balloon-borne observations.
+Fig. 4. Photograph of the front of the housing, showing position of sensors
+for measuring downwelling and upwelling IR radiation.
+711 Am. J. Phys., Vol. 91, No. 9, September 2023 Blanchard et al. 711 04 October 2023 22:56:40
+altitudes (above the cloud layer), the downwelling spectral heat
+ﬂux is greater in the absorption bands. One signiﬁcant differ-ence between the model and the measurements is the altitude at
+which this crossover occurs. In the model, the crossover lies at
+3 km, and in the measurements, the crossover appears lower,around 1 km. In both the model and the measurements, the
+downwelling heat ﬂux trends toward zero at 10 km altitude.
+The lesson for students is that the liquid water in the cloudlayer radiates in both the IR window and the absorption bands,
+and in the clear air above the clouds the downwelling heat ﬂux
+comes primarily from the absorption bands.
+VI. CONCLUSION
+The experiments presented in this article expand and
+improve upon the work of our previous paper.
+4We add a
+ground-based experiment, expand the capabilities of the spec-
+tral photometer from two to three bands, add measurements ofthe downwelling heat ﬂux in the atmosphere, and improve theaccuracy of the balloon-borne measurements through a simple
+design change. These experiments allow students to investi-
+gate the atmospheric IR heat ﬂux in different wavelengthbands to understand the role of water vapor and carbon diox-
+ide absorption bands in the atmospheric greenhouse effect.In the ground-based experiment, the students observe the
+infrared radiation spectrum from the sky in three wavelengthbands: the water vapor absorption band, the infrared window,and the carbon dioxide absorption band. The students dis-cover that the radiation from a clear sky comes primarilyfrom the absorption bands. This downwelling radiation fromthe greenhouse gas absorption bands is an important compo-nent of the greenhouse effect. A larger ground-based experi-ment could require the students to make and compareobservations at different times throughout the course of aday, on different days with different surface temperatures, or
+under different sky conditions.
+In the balloon-borne experiment, students observe the vertical
+variation of the IR heat ﬂux in the atmosphere. They observethe decrease in the upwelling IR radiation temperature with alti-tude, which is the essence of the greenhouse effect. The effec-tive radiation temperature at the top of the atmosphere isdetermined by the total heat ﬂux from Sun to Earth. Thedecrease in the upwelling radiation temperature with altituderequires a higher surface temperature. The students also observethat the decrease in heat ﬂux with altitude is much greater in theabsorption bands than in the IR window, emphasizing theimportance of the absorption bands to the greenhouse effect.
+In addition to these geophysical learning objectives, these
+experiments add value to the physics curriculum in other
+ways. The students gain experience with application ofPlanck’s law, infrared ﬁlters, electronics, and programming.The students also gain experience with project managementand the engineering design process. All in all, this experi-ment is an excellent capstone experience for a group ofundergraduate physics majors.
+ACKNOWLEDGMENTS
+This work was supported in part by the National
+Aeronautics and Space Administration (NASA) Grant and
+Cooperative Agreement Number 80NSSC20M0110 with theLouisiana Space Grant Consortium (LaSPACE) throughSubaward Agreement No. PO-0000136817 withSoutheastern Louisiana University.
+AUTHOR DECLARATIONS
+The authors have no conﬂicts to disclose.
+Fig. 5. IR radiation temperature in atmosphere. Solid lines indicate upwell-
+ing heat ﬂux, and dashed lines indicate downwelling heat ﬂux. Thick lines
+indicate measured values, and thin lines indicate MODTRAN simulation
+results. The grey areas indicate 62 standard errors of measurement.
+Fig. 6. Upwelling spectral heat ﬂux. Solid lines indicate spectral heat ﬂux in
+the IR window band and dashed lines indicate spectral heat ﬂux in the com-
+bined absorption bands. Thick lines indicate measured values and thin lines
+indicate MODTRAN simulation results. The grey areas indicate 62 stan-
+dard errors of measurement.
+Fig. 7. Downwelling spectral heat ﬂux. Solid lines indicate spectral heat ﬂuxin the IR window band, and dashed lines indicate spectral heat ﬂux in the
+combined absorption bands. Thick lines indicate measured values and thin
+lines indicate MODTRAN simulation results. The grey areas indicate 62
+standard errors of measurement.
+712 Am. J. Phys., Vol. 91, No. 9, September 2023 Blanchard et al. 712 04 October 2023 22:56:40
+APPENDIX A: BILL OF MATERIALS FOR THE
+INSTRUMENT
+The total cost of materials for the ground-based instru-
+ment—not including the 3D printed sensor holder assem-bly—is $1,178, as detailed in Table V. We do not list
+vendors for materials that are widely available. The totalcost of additional materials for the balloon-borne instrumentis $765, as detailed in Table VI.
+APPENDIX B: NUMERICAL INTEGRATION
+OF PLANCK’S LAW
+At several points in the analysis, it is necessary to calcu-
+late the integral of Planck’s law to calculate the infrared heatﬂux in a wavelength band,
+/¼2hc
+21:87 srðÞðkmax
+kmindk
+k5ehc=kkT/C01 ðÞ: (B1)
+For a given value of T, we calculate /numerically using the
+following procedure. First, we deﬁne a dimensionless vari-able, x, where
+x¼hc
+kkT: (B2)The derivative of xis
+dx¼/C0hc
+k2kTdk: (B3)
+Substituting xanddxforkand d kin Eq. (B1) yields
+/¼2k4
+h3c21:87 srðÞ T4ðxkminðÞ
+xkmaxðÞx3dx
+ex/C01: (B4)
+We then evaluate the integral numerically as a middle
+Riemann sum with n¼1000.
+a)Note: This paper is part of the special issue on Teaching about the environ-
+ment, sustainability, and climate change.
+b)ORCID: 0000-0002-8107-5770.
+c)ORCID: 0000-0001-8895-4578.
+d)ORCID: 0000-0003-4157-3828.
+e)ORCID: 0000-0002-0765-5654.
+1N. Ekholm, “On the variations of the climate of the geological and
+historical past and their causes,” Q. J. R. Meteorological Soc. 27, 1–62
+(1901).
+2Climate Change 2021: The Physical Science Basis , edited by V. Masson-
+Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. P /C19ean, S. Berger, N. Caud,
+Y. Chen, L. Goldfarb, M. I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J.
+B. R. Matthews, T. K. Maycock, T. Waterﬁeld, O. Yelekc ¸i, R. Yu, and B.
+Zhou, (Cambridge U. P., Cambridge, 2021).
+3K. E. Trenberth, J. T. Fasullo, and J. Kiehl, “Earth’s global energy budg-
+et,”Bull. Am. Meteorol. Soc. 90, 311–324 (2009).
+4G. T. Blanchard, F. A. Adesina, W. C. Belkwell, J. R. Dyess, V. A.
+Frabbiele, C. S. McGibboney, and R. D. Rumsey, “Balloon-borne two-
+channel infrared spectral photometer for observation of atmospheric green-
+house effect by undergraduates,” Am. J. Phys. 90, 256–262 (2022).
+5Those seeking to learn more about student ballooning are advised to
+inquire with their local Space Grant consortium <https://www.nasa.gov/
+stem/spacegrant/home/Space_Grant_Consortium_Websites.html >or the
+Stratospheric Ballooning Association <https://www.stratoballooning.org/ >,
+which hosts the Academic High Altitude Conference.
+6Laurie McNeil and Paula Heron, “Preparing physics students for 21st-century careers,” Phys. Today 70(11), 38–43 (2017).
+7“MLX90614 family Datasheet Single and Dual Zone Infra Red
+Thermometer in TO-39, Revision 13,” available at <https://www.melex-
+is.com/en/documents/documentation/datasheets/datasheet-mlx90614 >.
+8See the supplementary material at https://doi/org/10.1119/5.0135029 for a
+block diagram of the ground-based instrument, an Arduino script to con-
+trol it, and a block diagram of the balloon-borne instrument.
+9Note that Tsrefers to the temperature of the MLX90614 sensor itself, not
+the effective radiation temperature measured by that sensor.
+10We ran the model online at <http://climatemodels.uchicago.edu/modtran/ >.
+We used the default parameters, except for the following: Temperature off-
+set, 11.1; Locality, “1976 US Standard Atmosphere”; Altitude, 0; “Looking
+up.”
+11A. Berk, P. Conforti, R. Kennett, T. Perkins, F. Hawes, and J. van denBosch, “MODTRAN6: A major upgrade of the MODTRAN radiative
+transfer code,” Proc. SPIE 9088 , 90880H (2014).
+12Alexander Berk, Patrick Conforti, and Fred Hawes, “An accelerated line-
+by-line option for MODTRAN combining on-the-ﬂy generation of line
+center absorption with 0.1 cm-1 bins and pre-computed line tails,” Proc.
+SPIE 9471 , 947217 (2015).
+13For more information about the LaACES program, please visit <https://
+laspace.lsu.edu/laaces/ >.
+14MegaSat Assembly Manual, LSU rev20220331, available at <https://
+laspace.lsu.edu/laaces/wp-content/uploads/2022/08/A27.01_MegaSat_
+Assembly_Manual_full_res.pdf >.
+15We used the same parameters as above, with the exception of changing the
+temperature offset to 16.8 to account for the different surface temperature
+and changing the locality setting to “Cumulus Cloud Base.66 km Top
+2.7 km.”Table V. Bill of materials for construction of the ground-based instrument.
+Description UnitPrice per
+unit ($)Extended
+price ($)
+IR ﬁlter 10000 nm bp 4000 nm
+(Andover Corporation)Each 689 689
+IR ﬁlter 8000 nm lp
+(Andover Corporation)Each 274 274
+Eight of MLX90614 sensors
+Model ESF-BAA-000-TUEach 14 112
+Arduino Mega Each 32 32
+Adafruit Ultimate GPS
+Logger ShieldEach 30 30
+SD cards Pack of 5 7 7
+Resistor assortment Each 10 10Capacitor assortment Each 10 10Hookup wire Box 14 14Total /C1/C1/C1 /C1/C1/C1 1178
+Table VI. Bill of materials for construction of the balloon-borne instrument.
+Description UnitPrice per
+unit ($)Extended
+price ($)
+IR ﬁlter 10000 nm bp 4000 nm
+(Andover Corporation)Each 689 689
+2 of 2CR5 batteries Each 7 14
+PPTC 0.3 A fuse Pack of 20 8 8Solder Spool 16 16Gorilla glue Bottle 6 6Styrofoam insulation Sheet 16 16EconoKote Roll 16 16Total /C1/C1/C1 /C1/C1/C1 765
+713 Am. J. Phys., Vol. 91, No. 9, September 2023 Blanchard et al. 713 04 October 2023 22:56:40

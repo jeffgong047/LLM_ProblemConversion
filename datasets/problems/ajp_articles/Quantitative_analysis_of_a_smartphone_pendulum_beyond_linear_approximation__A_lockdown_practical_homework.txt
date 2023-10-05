@@ -1,0 +1,494 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| MAY 01 2022
+Quantitative analysis of a smartphone pendulum beyond
+linear approximation: A lockdown practical homework 
+R. Mathevet ; N. Lamrani ; L. Martin ; P. Ferrand ; J. P. Castro ; P. Marchou ; C. M. Fabre
+Am. J. Phys.  90, 344–350 (2022)
+https://doi.org/10.1 119/10.0010073
+Articles Y ou May Be Interested In
+Changes in the soundscape of Girona during the COVID lockdown
+J. Acoust. Soc. Am.  (May 2021)
+Effect of Covid-19 lockdown on mobility and traf fic accidents in Malaysia
+AIP Conference Proceedings  (May 2023)
+Lifestyle modification during Covid-19 lockdown and health related quality of life post Covid 19 lockdown
+among the geriatric patients in Chennai
+AIP Conf. Proc.  (September 2023) 04 October 2023 23:08:13
+Quantitative analysis of a smartphone pendulum beyond linear
+approximation: A lockdown practical homework
+R.Matheveta)
+LNCMI-EMFL, CNRS UPR3228, Univ. Grenoble Alpes, F-38058 Grenoble, France; Univ. Toulouse, Univ.
+Toulouse 3, INSA-T, F-31077 Toulouse, France; and IRES, Universit /C19e Toulouse III, F-31062 Toulouse, France
+N.Lamrani, L.Martin, P.Ferrand, J. P . Castro, P.Marchou, and C. M. Fabre
+IRES, Universit /C19e Toulouse III, F-31062 Toulouse, France
+(Received 6 May 2021; accepted 18 March 2022)
+We present a detailed analysis of a smartphone pendulum, part of which was given as a homework
+assignment to ﬁrst-year undergraduate students. We took care in the design and construction of the
+pendulum itself to draw maximum beneﬁt from the high quality of the embedded sensors. Our
+students build a pendulum and analyze their data using the damped harmonic oscillator model. Weintroduce them to residue analysis to make them aware of slight nonlinearities in both the restoring
+and damping forces. Beyond what we ask our students, we present here results of numerical
+analyses to quantify these nonlinearities and demonstrate that aerodynamic drag contributes quitesigniﬁcantly to damping. We ﬁnally discuss our pedagogical experience using this assignment in
+the classroom.
+#2022 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/10.0010073
+I. INTRODUCTION
+Nowadays, almost every student possesses a smartphone
+that is equipped with sensors for purposes such as localiza-
+tion, orientation, gaming, and photography. Apps that pro-
+vide direct access to the sensor data have been put to use for
+practical teaching exercises for high school and university
+students.
+Oscillatory motion is a keystone of physics, and many
+papers have been published that use smartphones to revisit
+classical experiments1or propose innovative pedagogical
+practices.2,3Different conﬁgurations of simple pendulums4–6
+or compound pendulums7have been investigated. Other
+studies involve horizontal oscillating masses8,9and, possibly,
+coupled systems.8,10Motion is commonly monitored using
+the smartphone’s accelerometers,7,11but other sensors such
+as magnetic ﬁelds,12,13light intensity,9,14and rotation15may
+be used. Furthermore, some apps allow for combined rota-
+tion and acceleration recording, which gives interesting
+investigations.15Finally, other open platforms, such as
+Arduino7or video recording,16have also been used. An
+exhaustive resource letter on mobile devices and sensors for
+physics teaching recently appeared in this journal.17
+Many protocols found in the literature and, in particular,
+videos on the web are more demonstrative than quantitative.
+As a common example, the smartphone is simply suspendedby hand using its own power supply cord. The experiment is
+then quite simple but suffers from movement of the attach-
+ment point and stiffness in the power cord. An agreement
+between the theory and measurement within a few percent is
+often considered as a good achievement. However, the
+embedded sensors are of high quality and so allow, as we
+shall see, for a more detailed analysis that reveals a much
+richer physical content.8,15,18–20
+We present below the project we have assigned to a ﬁrst
+year undergraduate class, which has been developed over
+two years. Students build their own pendulum (following
+provided instructions) and analyzed their data using increas-ingly reﬁned numerical techniques provided in the form of a
+Python program. Our purpose is to introduce our students tothe scientiﬁc approach and, in particular, to the necessity of
+repeated cycles of experimentation and modeling to develop
+a complete scientiﬁc understanding of real systems.
+This paper is organized as follows: in Sec. II, we present
+our setup, its particular dynamics, and the experiments we
+carried out to show how simple and compound pendulums
+differ. Then in Sec. III, we perform a conventional curve ﬁt-
+ting using the damped harmonic oscillator model. Despite a
+seemingly good agreement, residue analysis shows a signiﬁ-
+cant discrepancy between the damped sine wave and actual
+data. We thus introduce in Sec. IV, less common data analy-
+sis methods that exhibit the nature of nonlinearities both inthe amplitude and in the instantaneous frequency of the pen-
+dulum. In Sec. V, we discuss how the project is actually
+given to our students and some of the related pedagogical
+aspects.
+II. SETUP AND DYNAMICS
+A. Setup
+In order to restrict the motion to a vertical plane and mini-
+mize spurious oscillations, the smartphone is placed in anenvelope suspended by two parallel threads
+4–6(Fig. 1). We
+took care in this apparatus design to enable a precise quanti-
+tative comparison later on. A thin and almost inelastic sew-
+ing thread runs from AtoDthrough the holes BandCmade
+in the envelope. The thread is adjusted until ADandBCare
+parallel and then secured using adhesive tape at points Band
+C. A wooden stick is inserted between BandCto stiffen the
+top of the envelope (Fig. 2(a)). At points AandD, the thread
+is wrapped around a ruler to precisely set AD¼BC¼19:0
+cm. The ruler is then clamped to a beam with ADandBC
+parallel to the ground. This achieves an almost perfect paral-
+lelogram ABCD with side length L/C242 m with well-deﬁned
+suspension points.
+B. Kinematics and dynamics
+The system is analyzed in the laboratory frame with ﬁxed
+xand yaxes being, respectively, vertical and horizontal.
+344 Am. J. Phys. 90(5), May 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 344 04 October 2023 23:08:13
+The smartphone oscillates in the xy-plane. Its motion is per-
+pendicular to its thinnest dimension, which reduces aerody-namic friction.
+Our pendulum differs from more common setups, in
+which the smartphone is held by its power supply cord,which behave as compound pendulums. The velocity of thecenter of mass is perpendicular to the supporting thread andparallel to the rotating y-axis of the smartphone. Since the
+smartphone size and weight are not negligible, rotation ofthe smartphone around its center of mass must also be con-sidered. This makes quantitative comparisons difﬁcult.
+In contrast, our design is a deformable parallelogram with
+quite a different kinematics. During the motion, BCremains par-
+allel to the ground by construction. The system is, thus, in a cir-cular motion but does not rotate about its own center of mass.
+The motion of all of the points of the system describes circles of
+the same radius but with different centers (Fig. 1). At any time,
+all the points have the same velocity and acceleration as the cen-t e ro fm a s s G. The actual position of the sensor inside the smart-
+phone makes no difference. We will see that the systemdynamics reduces to those of a simple pendulum.
+The system dynamics is easily obtained from an energetic
+analysis. We consider the system of total mass mmade up ofthe envelope and the smartphone, but we neglect the contri-
+bution of the threads. The forces to be considered are: theweight W¼mgand friction force F, both applied to the cen-
+ter of mass G, and the threads’ tension T
+BandTCapplied at
+the suspending points (Fig. 1). We will ﬁrst assume a viscous
+friction force14F¼/C0avG, with ato be determined experi-
+mentally and vGbeing the center-of-mass velocity.
+Since the object does not rotate and all points translate at
+the same speed, the kinetic energy is
+EK¼1
+2mL2_h2: (1)
+The work-energy theorem DE¼~F/C1D~din a differential
+form gives
+dEK
+dt¼ðPþFÞ/C1vGþTB/C1vBþTC/C1vC: (2)
+As stated before, vB¼vC¼vG. For a circular motion,
+the velocity is perpendicular to the threads, so TB:vB
+¼TC:vC¼0. Equation (2)then gives
+mL2_h€h¼/C0mgL _hsinðhÞ/C0aL2_h2: (3)
+To ﬁrst order in h, sinðhÞ’h, and we obtain the usual
+damped harmonic oscillator equation
+€hþx0
+Q_hþx2
+0h¼0; (4)
+with the undamped angular frequency x0¼2pf0¼ﬃﬃﬃﬃﬃﬃﬃﬃ
+g=Lp
+and quality factor Q¼mx0=a. As we shall see below, we
+recorded the smartphone’s linear acceleration €y. Since
+y¼LsinðhÞ, we have to ﬁrst order in h
+€y¼L€h; (5)
+so the linear acceleration mimics the angular acceleration.
+Our design has a high quality factor Q/C24500. The actual
+pseudo-frequency f0ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1/C01=4Q2p
+differs from f0by a few
+parts per million, which is much less than the relative uncer-
+tainty on f0itself. The gravity constant gis precisely known
+in the vicinity of our lab:21g¼9:80428 m s–2. The main
+uncertainty source is, thus, our measurement of the thread’slength L¼204061 mm. We, thus, ﬁnally expect for the
+pseudo-frequency
+f
+0¼0:349060:0002 Hz : (6)
+Fig. 1. (a) Sketch and (b) picture of our pendulum. The smartphone is
+inserted in an envelope suspended by two parallel 2 m-long almost inextensi-
+ble threads. These threads are wound on a ruler to allow both precise geome-
+try and easy clamping onto a building beam. The smartphone’s overall
+motion is circular, but the body does not rotate around its center of mass.
+The envelope orientation remains parallel to its orientation at rest: each pointwithin the envelope follows a circular path with radius L, but each with a
+different center, e.g., AforB,DforC, and O
+0forG.
+Fig. 2. (a) Picture showing the slight deformation when the smartphone is inserted despite the wooden stick inserted to stiffen the envelope. (b) Comp arison of
+the different values of the pseudo-frequency as determined by: f0(black: damped harmonic oscillator model), fFFT(red: FFT of the recorded data points), fﬁt
+(green: damped sine wave ﬁt), and fZC(blue: zero-crossing times linear regression). The residual plot (Fig. 6(b)) shows that the explanation for this inconsis-
+tency is the variation of the frequency over time.
+345 Am. J. Phys., Vol. 90, No. 5, May 2022 Mathevet et al. 345 04 October 2023 23:08:13
+C. Experiment
+The accelerometer data are recorded using the app
+Phyphox developed at Aachen University.22It provides wire-
+less connection with a computer for easy data transfer andremote control of data acquisition. The pendulum is set inthexy-plane, a few degrees from its equilibrium position,
+using a sewing thread. We let the system settle down for awhile and then burn or cut the thread to release the pendulumas smoothly as possible. Acquisition is started a few oscilla-tions later (Fig. 3). For comparison with f
+0, we ﬁrst perform
+a FFT on the raw data (black curve in Fig. 4(b)). This wide-
+spread algorithm is quite often misunderstood by beginnerstudents and used as a black box. Moreover, it is not easy tomake sense of the peak’s width regarding frequency uncer-tainty. In particular, as we shall see below, the frequencyactually drifts slightly during the motion. This effect contrib-utes to peak broadening and is completely hidden using theFourier transform. Nevertheless, FFT provides an easy andquick rough estimate.
+The fundamental peak is found at f
+FFT¼0:3486
+60:0005 Hz. The peak is slightly asymmetrical and under-
+sampled so we have taken its half width at half maximum(HWHM) as a conservative value of the uncertainty. Themeasured f
+FFTis consistent with f0obtained from the damped
+oscillator model (Eqs. (4)and(6)) at the 1 r-level with a rela-
+tive precision on the order of 0.15% (Fig. 2(b)). We, thus,
+have a good overall understanding of both the experimentaland theoretical aspects of our system.Before we proceed to a more detailed analysis, let us now
+present a simple and revealing experiment that we performed
+to demonstrate a particular feature of our setup (not proposedto our students).
+D. Model confirmation
+As stated in Sec. II B, the double thread suspension implies
+that the oscillation frequency is independent of both total mass
+and mass geometry. We ﬁrst add in the envelope a heavy pieceof brass. The total weight of the system is more than doubled
+without shifting the center of gravity much (Fig. 4(a)). Second,
+we inserted a slab of corrugated cardboard below the smart-phone. This signiﬁcantly lifts up the center of mass of the sys-
+tem by 75 mm, i.e., 3.5% of L, while leaving the total mass
+nearly constant. In both cases, as seen in Fig. 4(b), the oscilla-
+tion pseudo-frequency is hardly affected. Its very small decrease
+(/C240:2%) is attributed to thread elongation ( /C244m m )a f t e rt h e
+heavy brass piece has been inserted.
+III. CURVE FITTING
+While curve ﬁtting was not required of our students in this
+project, we can gain some valuable information by using it.
+A. Model curve
+Equation (4)has a simple solution usually introduced in
+the ﬁrst few years of undergraduate education
+Fig. 3. (a) Raw data and (b) ﬁrst few seconds of the record showing oversampling of the data allowing strong noise reduction through low pass ﬁltering
+(red line).
+Fig. 4. (a) A piece of brass or cardboard is inserted in the envelope to change the total mass and mass geometry. (b) Close view of the fundamental peak of t he
+FFT power density spectrum of €y: smartphone alone (black), smartphone and brass piece (red), and smartphone lifted up by a cardboard piece (blue). The slight
+decrease in frequency is attributed to the elongation of the threads after the heavy brass piece has been inserted.
+346 Am. J. Phys., Vol. 90, No. 5, May 2022 Mathevet et al. 346 04 October 2023 23:08:13
+h¼h0e/C0t=2scosx0ðt/C0t0Þ ðÞ ; (7)
+where we introduced the relaxation time of energy
+s¼Q=x0.h0andt0depend on the initial conditions. From
+Eq.(5), the horizontal acceleration may be written
+€y¼ay0e/C0t=2scosx0ðt/C0t0Þ ðÞ ; (8)
+where we neglected the terms coming from the derivative of
+the exponential decay as Q/C291.
+B. Best fit
+We use the above damped sine wave to ﬁt our data using
+OriginPro 2016 software. We get a seemingly satisfactory
+result (Fig. 5(a)) with good statistical estimators: reduced
+v2<0:005 and R2’0:97. The program determines the
+pseudo-frequency with impressive precision ffit¼0:348 413
+61:01 0/C06Hz. Moreover, the oscillation amplitude is cor-
+rectly reproduced, except perhaps towards the very start andend of the recording. f
+ﬁtis consistent with our previous mea-
+surement fFFTwithin the error bars but disagrees with the
+model prediction f0(Fig. 2(b)). There is a contradiction, and
+a more careful inspection of the data is required. We will use
+a less common, although very efﬁcient technique: residual
+plots.
+C. Residues
+Residues are the difference, for each data point, between
+the actual and ﬁtted values. Residues, hence, magnify the
+discrepancies that may not be clearly visible on full scale ﬁg-
+ures such as Fig. 5(a). In principle, the ﬁtted curve captures
+all the deterministic part of the data. Residues are expected
+to be randomly distributed and so plotting them provides a
+visual representation of the noise level of the data. However,contrary to these expectations, the residues shown here in
+Fig. 5(b) exhibit a deterministic oscillatory shape with typi-
+cal amplitude exceeding 10% of the maximum acceleration.So, our ﬁtted curve is no good at all, despite its apparent
+agreement.
+Close inspection of the beginning and the end of the
+record shows that the ﬁtting curve slowly shifts fromthe data, demonstrating a kind of Moir /C19e effect (Fig. 5(b)).
+The randomly selected few periods shown in Fig. 5(a)are in
+phase with the model only by chance.As the damped sine wave model in Eq. (8)has a constant
+pseudo-period, we can conclude that the frequency of the
+measured data slowly drifts. The two techniques used so far
+cannot describe such an effect.
+IV. MORE DETAILED ANALYSIS
+A. Pseudo-period determination
+Instead of the pseudo-frequency, we may alternatively
+determine the pseudo-period directly from the accelerationtime series. The pseudo-period is best determined from the
+acceleration zero crossings times t
+0ðnÞ, where nis the rank
+index of the half period. Measurements between successivemaxima or minima4,5,11give worse results due to lower sta-
+tistics (only one point per period is involved) and the greater
+effect of noise around a stationary point.
+First of all, we remove a possible offset from the raw data;
+we discard a few points at both ends of the record to selectan (almost) integer number of oscillation periods. Then we
+compute the mean value within this subset, which has been
+substracted to the whole dataset.
+We identify zero-crossing times by looking for a sign change
+between two neighbouring points. Due to a combination of noisydata with the high sampling rate, typically 200 Hz, the data may
+exhibit several sign changes around a single zero crossing. One
+solution is to use a low-pass ﬁlter to remove high frequencynoise (see Fig. 3(b)). After the ﬁlter is applied to the data, there
+is only one sign change per zero crossing, and so the zero cross-
+ing can be localized within half the sampling time (typically a
+few milliseconds, i.e., a thousandth of the oscillation period).
+We also propose to our students a more advanced technique
+of accurately estimating zero-crossing times, interesting from
+a pedagogical point of view as it implements local approxima-
+tion of a function. We extract from the dataset a sample oftypically 20 data points on both sides of a sign change that wepreviously located using the ﬁrst technique. We then perform
+a linear ﬁt on this subset and compute a better approximation
+of the actual zero-crossing time from the regression parame-ters. This algorithm is, thus, quite effective as it enhancesboth noise ﬁltering and time resolution.
+Typical results for zero-crossing times are shown in Fig.
+6(a)together with a linear ﬁt as expected for the damped oscil-
+lator model Eq. (8). At ﬁrst sight, agreement seems perfect,
+which is conﬁrmed by the statistical estimators: reduced
+v
+2<0:01 and R2r o u n d e dt o1b yt h ed a t aa n a l y s i ss o f t w a r e .
+The pseudo-period is twice the slope. We get TZC¼2:868 68
+64/C210/C05s from which we determine the pseudo-frequency
+Fig. 5. (a) A few periods around 480 s: raw data (black dots) and damped sine ﬁt (red line). Inset: full record. Agreement seems quite satisfactory. (b) R esidues
+from the ﬁt showing a large and structured discrepancy between the data and the ﬁtted curve.
+347 Am. J. Phys., Vol. 90, No. 5, May 2022 Mathevet et al. 347 04 October 2023 23:08:13
+fZC¼0:348 5960:5/C210/C05Hz. fZCis consistent with our
+two previous measurement fﬁtandfFFTbut disagrees with the
+model prediction f0(Fig. 2(b)).
+However, we ﬁnd that the residual plot (Fig. 6(b)) clearly
+demonstrates that the data points are not described well bystraight line with the residual errors having a somewhat para-
+bolic shape as a function of time, rather than the random
+scatter that would be expected if the underlying function wastruly linear. The oscillation frequency is not constant, mean-
+ing that nonlinear terms must be taken into account.
+B. Amplitude variation
+The damped harmonic oscillator model also predicts an
+exponential decay of the amplitude. The students test thisproperty by plotting in log-scale the absolute value of the
+acceleration (Fig. 7(a)). Instead of the expected linearly
+decreasing envelope, we observe a concave shape with a typ-ical deviation from the straight line by /C2415% in the middle
+of the record. Since the decay is faster than expected at the
+beginning and then slows down, this implies that viscous
+damping (which is linearly proportional to velocity) is notthe only dissipation mechanism in the experiment.
+C. Numerical simulations
+For the sake of completeness, we have performed numeri-
+cal simulations and supplied them in the supplementarymaterial.
+23These are not discussed with our students.
+However, we demonstrate here that (i) anharmonicity of the
+gravitational potential is not the main source of the nonline-
+arity of the restoring force, and (ii) aerodynamic drag pro-portional to velocity squared contributes signiﬁcantly to
+damping. In the end, our model reaches a 10
+/C03relative accu-
+racy level over the whole recorded time series.
+V. PEDAGOGICAL ASPECTS
+A. Project structure and objectives
+The harmonic oscillator and harmonic approximation are
+widely taught in many areas of physics: mechanics, electricity,
+Drude–Lorentz model, IR spectroscopy, Debye model, etc. We
+have developed the detailed analysis presented above over twoyears for use in a physics project given to ﬁrst year undergrad-
+uate students. These students follow a selective two year
+course somewhat particular to the French education system,which is signiﬁcantly more intensive, especially in physics and
+mathematics, than our Undergraduate University Training.
+24
+This project is given in the form of a comprehensive scien-
+tiﬁc investigation performed during a two-week holiday. Thestudents are guided throughout their investigation process by
+a ten-page document. For data analysis purposes, a Python
+program that they are free to modify is provided on a collab-orative platform (see the supplementary material for the doc-
+ument and program, in French). The program does not
+Fig. 6. (a) t0ðnÞare the zero-crossing times of €ysuccessively numbered by n(black points). Red line: linear adjustment hardly distinguished from data points.
+(b) Residual plot showing that the oscillation period is not constant but has a regular variation over time.
+Fig. 7. (a) Maximum of the absolute value of the acceleration for each half period (black dots, in log-scale). Exponential decay, as predicted by the da mped
+harmonic oscillator model, would produce a linearly decreasing amplitude (red dashed line), which is obviously not the case. (b) Numerical simulati ons, dis-
+cussed in more detail in the supplementary material (Ref. 23) data are quite well reproduced by an almost equal contribution of viscous and aerodynamic
+damping (red line).
+348 Am. J. Phys., Vol. 90, No. 5, May 2022 Mathevet et al. 348 04 October 2023 23:08:13
+include part of the work presented here (Secs. II D,III B, and
+IV C) but contains instead, a phase portrait and energetic
+analysis not discussed here.
+To keep the project attractive, it is not graded but students
+are required to write a report (typically eight pages long23).
+What we expect from our students is:
+•the demonstration of the linearized equations of motionand energetic aspects,
+•the construction of their own pendulum,
+•the data acquisition, basic use of the Python program and
+discussion within the harmonic framework,
+•a ﬁrst attempt at residue analysis, and the log-scale
+method presented in Sec. IV B.
+The project is designed to lead them to realize that the
+damped harmonic oscillator model presented in class is
+highly relevant and captures most of the physical phenome-
+non, but it is not entirely exact. Regarding the explanation ofthe nonisochronism of the oscillations, we expect them tomention the linearization of the sine term, even if, as dis-
+cussed in Sec. IV C, it might not be the major contribution in
+this type of setup. Concerning the nonexponential decay ofthe amplitude, we have no speciﬁc expectation as they have
+little knowledge about aerodynamics at this stage. Thus, both
+of these issues are expected to be only qualitatively invokedby the students. Ideally, they may understand that high qual-ity data may reveal some subtle effects if we are careful with
+the analysis, alternating model improvement and better data
+processing. We are quite aware that it is a very ambitiousgoal, and so far we have found that it is only partially
+achieved. Nevertheless, we want to awaken their curiosity,
+and we think the amusing dimension of doing real physicswith one’s smartphone may help.
+B. Discussion
+We gave this project for the ﬁrst time last year during the
+ﬁrst lockdown due to the COVID-19 pandemic. The projectwas optional and conceived as a break during this very chal-
+lenging period. Only half of the /C2445 students took part. In
+those difﬁcult times, the students who did not get involvedsaid they were feeling too busy and had no time or energy to
+devote to what they perceived as extra work. The reduced
+interactions between themselves and with the teacher werealso often put forward as reasons. These special circumstan-ces also explain why half of the students who did participate
+carried out only part of the work, essentially the playful pen-
+dulum construction. However, most of the ten students whocompleted the whole assignment found it an interesting
+experience and said they will reuse their smartphone for
+future experimental work. A few of them were even quiteenthusiastic. These ﬁrst promising results, despite adverseconditions, led us to reiterate.
+This year, under less restrictive lockdown conditions, the
+project was compulsory. Eight students worked it alone and
+36 worked in pairs. Half of the groups did the whole projecttogether, and the other half shared the tasks. We carried outa survey to identify their difﬁculties and appreciation of the
+project
+23(in French). Overall, only one group found this
+experiment rather negative compared to 30 positive and 12quite positive. The main issues the participants reported
+were difﬁculties in understanding some algorithms and part
+of the theoretical aspects. Indeed, we did not include the full,derivation of Eq. (5), which uses several assumptions andlinearization steps. They appreciated the teacher dedicating
+time to helpful discussions on these difﬁcult points. Finally,
+after their reports had been evaluated and the survey com-
+pleted, there was 2 h-long teaching sequence devoted tomore informal discussions with, here again, positive
+feedback.
+Concerning our pedagogical objectives, half of the stu-
+dents suitably compared the different methods of period
+determination, but rarely interpreted them (especially tak-
+ing into account the error bars). A vast majority ( >30 stu-
+dents) found the residues analysis interesting and realized
+there are some nonlinearities in the real system. A few of
+them proposed, though with no physical explanation, a v
+2
+damping.
+Globally, we are satisﬁed with the practical, experimental,
+and numerical aspects of the project. Our students took plea-
+sure in doing the experiment themselves with some of themdisplaying even more initiative in the data analysis part.
+Conversely, we have a more nuanced conclusion concerning
+our demanding conceptual targets. We have the feeling thatmost students perceived that the damped harmonic oscillator
+model is not the whole story, but without really understand-
+ing there is more interesting physics behind the discrepan-
+cies. Likewise, the use of reﬁned data analysis methods and
+improved models is most often not properly appreciated andconceived as a mandatory exercise. This is not surprising for
+ﬁrst year students; this project is a learning exercise about
+how to take a careful scientiﬁc approach to nonlinear phys-ics, far beyond their learned skills at that age. However, the
+work they produced and, more importantly, their questions,
+were very encouraging. For the ﬁrst time, they built theirown experiment and collected exhaustive data that they had
+to explain, as it is and not as it should be. This is far from the
+usual practical work aimed at illustrating the formal course.As such, next year we will renew this experiment, further
+improving the program with extra comments to more explic-
+itly teach the scientiﬁc approach to unexplained results, and
+adding more insight to the theoretical analysis.
+As a ﬁnal remark, let us mention that we were quite
+pleased that 20% of the students expressed regret that theprogram was completely provided to them. One student even
+suggested broadening the project by proposing they write
+their own code during their computer classes. This anecdote,though particularly rewarding, has certainly has no statistical
+relevance. However, the survey shows that a signiﬁcant part
+of the class really engaged in the project, even though theadvanced physical processes involved in the real system
+were only very vagely imagined by most. Consequently, we
+think that this project is useful for our ﬁrst year students. Itmight also be used fruitfully for graduate students, who
+could perhaps more actively use their practical know-how
+and wider theoretical knowledge to thoroughly understand
+the real system.
+Our project aims at stimulating our students’ curiosity by
+the fun use of their own smartphone. The high quality datathat a smartphone provides can, in turn, lead the students to
+deeper investigations of the physical processes involved. A
+vast majority of our students enjoyed this project.
+ACKNOWLEDGMENT
+The authors thank Deborah Brissiaud for valuable help in
+preparing the manuscript.
+349 Am. J. Phys., Vol. 90, No. 5, May 2022 Mathevet et al. 349 04 October 2023 23:08:13
+a)Author to whom correspondence should be addressed: renaud.mathevet@
+lncmi.cnrs.fr. URL: https://ires.univ-tlse3.fr/sim/
+1See bibliography in, e.g., J. Kuhn, “Relevant information about using a
+mobile phone acceleration sensor in physics experiments,” Am. J. Phys.
+82, 93–94 (2014).
+2A. Kaps, T. Splith, and F. Stallmach, “Implementation of smartphone-
+based experimental exercises for physics courses at universities,” Phys.
+Educ. 56, 035004 (2021).
+3M. N. S. Silva and J. T. Carvalho-Neto, “Manually driven harmonic oscil-
+lator,” Phys. Educ. 56, 035006 (2020).
+4P. Vogt and J. Kuhn, “Analyzing simple pendulum phenomena with a
+smartphone acceleration sensor,” Phys. Teach. 50, 439–440 (2012).
+5J. Briggle, “Analysis of pendulum period with an iPod touch/iPhone,”
+Phys. Educ. 48, 285–288 (2013).
+6T. Pierratos and H. M. Polatoglou, “Study of the conservation of mechani-
+cal energy in the motion of a pendulum using a smartphone,” Phys. Educ.
+53, 015021 (2018).
+7C. Dauphin and F. Bouquet, “Physical pendulum experiment re-
+investigated with an accelerometer,” Papers Phys. 10, 100008 (2018).
+8J. C. Castro-Palacio et al. , “A quantitative analysis of coupled
+oscillations using mobile accelerometer sensors,” Eur. J. Phys. 34,
+737–744 (2013).
+9J. C. Castro-Palacio et al. , “Using a mobile phone acceleration sensor in
+physics experiments on free and damped harmonic oscillations,” Am. J.
+Phys. 81, 472–475 (2013).
+10D. Weiler and A. Bewersdorff, “Superposition of oscillation on the meta-
+pendulum: Visualization of energy conservation with the smartphone,”
+Phys. Teach. 57, 646–647 (2019).
+11S. Aiola et al. , “Probing higher-order approximations in large
+amplitude oscillations of a physical pendulum,” Phys. Educ. 46, 247–249
+(2011).12U. Pili, R. Violanda, and C. Ceniza, “Measurement of g using a magnetic pen-
+dulum and a smartphone magnetometer,” Phys. Teach. 56, 258–259 (2018).
+13T. Splith, A. Kaps, and F. Stallmach, “Phase plot of a gravity pendulum
+acquired via the MEMS gyroscope and magnetic ﬁeld sensors of asmartphone,” Am. J. Phys. 90, 314–316 (2022).
+14D. Li, L. Liu, and S. Zhou, “Exploration of large pendulum oscillations
+and damping using a smartphone,” Phys. Teach. 58, 634–636 (2020).
+15S. Reinhold and M. Ziese, “Frequency doubling in a pendulum,” Eur. J.
+Phys. 42, 025003 (2021).
+16A. Amoroso and M. Rinaudo, “Study of oscillatory motion using smart-
+phones and tracker software,” J. Phys. 1076 , 012013 (2018).
+17M. Monteiro and A. C. Marti, “Resource letter MDS-1: Mobile devices
+and sensors for physics teaching,” Am. J. Phys. 90, 328–343 (2022).
+18L. Tuset-Sanchis et al. , “The study of two-dimensional oscillations using a
+smartphone acceleration sensor: example of Lissajous curves,” Phys.
+Educ. 50, 580–586 (2015).
+19M. Monteiro, C. Cabeza, and A. C. Mart /C19ı, “Exploring phase space using
+smartphone acceleration and rotation sensors simultaneously,” Eur. J.
+Phys. 35, 045013 (2014).
+20R. Mathevet et al. , “Une approche quantitative de la loi de Beer-Lambert
+avec un smartphone - premie `re partie,” Bull. Union Professeurs Phys. Chim.
+113, 1079–10989 (2019); “Une approche quantitative de la loi de Beer-
+Lambert avec un smartphone - seconde partie,” ibid.113, 1357 (2019).
+21For a detailed report on the actual gvalue see <https://infoterre.brgm.fr/
+rapports/RC-56265-FR.pdf >.
+22For more details on the Phyphox app see <https://phyphox.org/ >.
+23See supplementary material at https://www.scitation.org/doi/suppl/10.1119/
+10.0010073 which contains description and code for numerical simulations,
+handouts given to students (in French), and some further data analysis.
+24See supplementary material of Ref. 23for more details on these aspects of
+the French educative system.
+350 Am. J. Phys., Vol. 90, No. 5, May 2022 Mathevet et al. 350 04 October 2023 23:08:13

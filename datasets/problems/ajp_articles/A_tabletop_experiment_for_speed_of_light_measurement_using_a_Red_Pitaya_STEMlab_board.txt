@@ -1,0 +1,499 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| MARCH 01 2023
+A tabletop experiment for speed of light measurement using
+a Red Pitaya STEMlab board 
+Che-Chung Chou ; Shi-Y u Hsaio ; Jun-Zhi Feng ; Tyson Lin ; Sheng-Hua Lu
+Am. J. Phys.  91, 206–213 (2023)
+https://doi.org/10.1 119/5.0099720
+Articles Y ou May Be Interested In
+Digital laser frequency and intensity stabilization based on the STEMlab platform (originally Red Pitaya)
+Rev. Sci. Instrum.  (August 2020)
+LithPulser: An open-source pulse generator with 1 ns time resolution based on the Red Pitaya STEMlab
+125-10 featuring real-time conditional logic for experimental control
+Rev. Sci. Instrum.  (January 2022)
+A highly stable monolithic enhancement cavity for second harmonic generation in the ultraviolet
+Rev. Sci. Instrum.  (January 2018) 04 October 2023 22:50:14
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+A tabletop experiment for speed of light measurement using a Red
+Pitaya STEMlab board
+Che-Chung Chou,a)Shi-Yu Hsaio,b)Jun-Zhi Feng, Tyson Lin,and Sheng-Hua Lu
+Department of Photonics, Feng Chia University, Taichung 40724, Taiwan
+(Received 18 May 2022; accepted 5 November 2022)
+The speed of light is an important fundamental constant in physics, and so determining its value is
+a common undergraduate laboratory experiment. Methods to measure the light speed can help
+students practice their experimental skills and become familiar with the concepts of modernprecision measurement techniques. In this paper, we demonstrate that a tabletop optical setup,
+comprised of an affordable Red Pitaya STEMlab board and a low-cost laser diode module, can be
+used to accurately determine the speed of light by measuring the frequency response of the phaseshift between intensity-modulated light beams reﬂected by two end mirrors separated by 50 cm. By
+using the STEMlab built-in Bode analyzer to automatically scan the modulation frequency over the
+range from 10 to 40 MHz, the frequency response of phase is measured and recorded. These phaseshift data are then used to calculate the speed of light with an uncertainty of less than 0.5%. With
+the help of the Red Pitaya board, the number of required electronic instruments for our setup is
+reduced. All of the required components are commercially available, and no electronicconstruction work is necessary so that teachers and students can implement the experiment in a
+plug-and-play manner.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0099720
+I. INTRODUCTION
+The measurement of the speed of light chas been a histori-
+cally important experimental physics research area. The questto determine the true value of cstimulated several brilliant
+ideas, which led to the development of many ingenious preci-sion measurement schemes and techniques.
+1,2In 1983, the
+International Committee for Weights and Measures (Comit
+international des poids et mesures, or CIPM)3adopted the
+exact deﬁnition of c¼299, 792, 458 m/s for the speed of light.
+Despite this exact deﬁnition, the measurement of cin the
+instructional physics laboratory is still very useful in honingstudents’ experimental skills. Thus, the measurement of the
+speed of light has become an indispensable experiment in the
+undergraduate optics laboratory curriculum.
+With the advent of modern light sources, electronic devi-
+ces, and measurement techniques, variations on the pioneer-ing ideas of Foucault
+4,5or Fizeau6can now be implemented
+straightforwardly in the undergraduate laboratory. Generally,pulsed or continuous wave (CW) light sources are used in
+these modern measurements of c. For example, a short time-
+duration pulsed laser diode with a fast photodetector andsome analyzing electronic devices with sufﬁciently widebandwidth can be employed to perform a tabletopmeasurement, but at some signiﬁcant cost.
+7Alternatively,
+starting with a CW light source, the travel time of a light
+beam can be directly measured with the employment of arotating mirror, i.e., via the scheme ﬁrst used by Foucault,4,5
+or a CW laser source can be chopped by an acousto-optic
+modulator (AOM) as a means of replacing the rotating cog-wheel in the Fizeau scheme.6Examples of such experiments
+are as follows: By pulsing a laser diode’s current, it has been
+recently shown that a light beam’s time of ﬂight can be
+directly measured while propagating either in free space8,9or
+in an optical ﬁber.10Especially, in the work of Ref. 9, the
+time of ﬂight is determined precisely by the picosecond-
+pulse repetition rate, and the distance of ﬂight is determined
+with the optical feedback effect detected by a low-bandwidthphotodetector rather than a fast photodetector. In addition,
+CW light sources have been modulated by a Pockel cell11or
+chopped by an AOM12in order to carry out time of ﬂight
+measurements.
+Alternatively, instead of a time of ﬂight measurement,
+phase shift of ﬂight may be measured to determine the speed
+of light. A CW laser source with amplitude modulation(AM) or phase modulation (PM) is frequently adopted with
+the phase shift method. The comparison of phase shift
+between an amplitude-modulated beam that has traveled a
+206 Am. J. Phys. 91(3), March 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 206 04 October 2023 22:50:14
+given path length and a reference signal yields a simple way
+for determining the value of c.13–16Other creative measure-
+ments of ccan be performed, for example, by noting the
+change in the beat frequency between internal longitudinalmodes of a two-mode laser as the laser’s cavity length is
+varied.
+17
+Recently, thanks to the fast development of microelectron-
+ics and related open-source software, software-deﬁned instru-
+ments have become affordable and popular. These software-
+deﬁned instruments, such as the Red Pitaya STEMlab board18
+(an electronic board with a ﬁeld-programmable gate array and
+a system processor), can replace expensive laboratory control
+and measuring instruments at an affordable cost. Since severalinstrumental functions can be programmed in one software-
+deﬁned instrument, the cost and space to perform an experi-
+ment can be achieved efﬁciently and compactly withoutdegrading the performance of the measurement.
+In this paper, we demonstrate a speed of light measure-
+ment using a low-cost laser diode module as the light source
+along with a Red Pitaya STEMlab board to bias and modu-
+late this light source at up to 40 MHz. By using the phase
+shift measurement similar to the work of Ref. 14, a value for
+cis obtained with an uncertainty of less than 0.5%. We dem-
+onstrate that a Red Pitaya STEMlab board can replace the
+conventional high-bandwidth electronic instruments requiredin this experiment. In addition, the other required electronic
+components in this setup are all commercially available, and
+all of the components are simply connected with coaxial
+cables. No electronic construction work is necessary. This,
+the advantages of our approach are affordable cost, limitedequipment needs, small required space, and ease of
+implementation.
+II. THEORY
+In this work, we use the phase shift of the ﬂight measure-
+ment method to determine the speed of light. The general
+scheme of this phase shift measurement is shown in Fig. 1.
+An oscillator generates a modulation signal of frequency fto
+modulate the laser output intensity. Part of the modulation
+signal is also sent to a phase measurement apparatus as aphase reference signal I
+rand can be expressed as
+Ir¼Arcosð2pft/C0hrÞ; (1)
+where Aris the amplitude of the reference signal and hris
+the initial phase of the reference signal. The modulated laser
+beam propagates an optical path length Lbefore being
+received by a photodetector (PD). Hence, the time delay s
+for the time of ﬂight of the modulated laser beam is given by
+s¼L
+c: (2)
+The measuring signal Imis generated from the PD and can be
+expressed as
+Im¼Amcos 2 pfðt/C0sÞ/C0hm ½/C138 ; (3)
+where Amis the amplitude of the measuring signal and hmis
+the initial phase of the measuring signal. Please note that hm
+includes the initial phase of the oscillator hras well as the
+accumulated electronic phase heof all the electronic devices
+due to laser modulation (indicated as “Laser” and “PD”in Fig. 1) and electrical cables. That is, hmcan be expressed
+as
+hm¼hrþhe: (4)
+The measuring signal Imand the reference signal Irare
+compared in the phase measurement apparatus at time t. The
+frequency-dependent phase hðfÞmeasured by the phase mea-
+surement apparatus is the difference of the phase terms inEqs. (1)and(3)and is given by
+hðfÞ¼2pfsþh
+eðfÞ: (5)
+If the electronic phase heðfÞis nearly constant or can be
+neglected over the modulation frequency tuning range, then
+one can use an elegant method called rf interferometry to
+determine the speed of light. As demonstrated in Ref. 15,i n
+rf interferometry, the modulation frequency is tuned continu-ously to ﬁnd the successive frequencies at which there is
+destructive interference between the measuring and refer-
+ence rf signals. The frequency difference Dfbetween neigh-
+boring frquencies that produce destructive interference andtheir associated Dh¼2pphase difference are inserted into
+Eq.(5)to calculate the time of ﬂight s, under the assumption
+thath
+eis constant. However, in general case, heis a nonlin-
+ear function of the modulation frequency f, and it can be can-
+celled out by using the more involved two-photodiodeconﬁguration such as the work in Ref. 14. There, the refer-
+ence signal is also generated by another identical PD at a
+location near the laser output, and the electric cables for thereference and measuring signals are carefully arrangedto have the same phase delay. Since the purpose of this paper
+is to reduce the required instrumentation and to simplify
+the construction of the experiment, we will discuss and dem-onstrate how to use single PD in the phase shiftmeasurement.
+To fulﬁll the single PD conﬁguration, we change the opti-
+cal path length Lto cancel out the contribution of h
+e, and
+then the phase shift Dhdue to the difference of optical path
+length is given by
+Dh¼2pfDL
+c; (6)
+where DLis the optical path difference. As we can see from
+Eq. (6),Dhis linearly dependent on both fandDL.
+Therefore, one can either vary the modulation frequency for
+the optical path difference DL, and then linearly ﬁt the data
+to obtain the slope of linear variation. From Eq. (6), one alsoFig. 1. (Color online) The basic conﬁguration of the phase shift of the ﬂight
+measurement method. Mod.: modulation signal; L: optical path length; PD:
+photodetector; Mea.: measuring signal; Ref.: reference signal.
+207 Am. J. Phys., Vol. 91, No. 3, March 2023 Chou et al. 207 04 October 2023 22:50:14
+notes that higher modulation frequency fcan reduce the
+required path difference DL.
+In a more conventional approach, such as the work in Ref.
+16, the optical path difference is varied, while the modula-
+tion frequency fis kept as a constant. Then, the slope of the
+phase shift plotted as a function of the optical path differenceis
+m
+L¼Dh
+DL¼2pf
+c; (7)
+and, to accurately determine the speed of light, the optical
+path length must be varied several times. The beneﬁt of thismethod is that the measuring time can be set long enough toobtain an accurate phase measurement. However, careful
+optical alignment work must be done to obtain valid results.
+In our work, we used the alternative frequency-tuning
+method of Ref. 14, where one scans the modulation fre-
+quency f, while the optical path difference DLis kept con-
+stant. In this frequency-tuning approach, the slope of thephase shift plotted as a function of the modulation frequency
+is
+m
+f¼Dh
+f¼2pDL
+c; (8)
+and one only needs to conﬁgure the optics once to create the
+optical path difference DL. Thus, compared to the more con-
+ventional approach, the frequency-tuning method signiﬁ-cantly reduces the optical alignment work. In our setup, weemployed a Red Pitaya STEMlab board, which allowed the
+modulation frequency to be be automatically swept from 10
+to 40 MHz. The design of our setup fulﬁlled our goal of cre-ating a compact and time-saving speed of light experimentfor the instructional physics laboratory, which can also bewell adapted as a lecture demonstration.
+III. EXPERIMENTAL SETUP
+To fulﬁll the phase measurement conﬁguration in Fig. 1
+for a speed of light measurement using the frequency-tuningmethod, one might typically use a signal generator, a modu-lated laser, and a lock-in ampliﬁer (or an oscilloscope) to
+make the phase measurement. To implement this measure-
+ment on a meter-size tabletop, the modulation frequencymust be above 10 MHz in order to create a measurable phaseshiftDh(say, greater than 10
+/C14). Therefore, the aforemen-
+tioned instruments must have rf bandwidth.
+In this paper, by using a Red Pitaya STEMlab 125-10
+board (RP), we show that most of the functions of the rf elec-
+tronics can be accomplished in a card-size board. We usedthe following components to fulﬁll the functions depicted inFig. 1: For the modulation signal of an oscillator, we used
+the rf output of the RP. For the laser, we used the low-costKY-008 laser transmitter module (DL), consisting of a 650-
+nm red laser diode head and a resistor. This laser module is a
+very low-cost light source module originally designed forArduino applications. For the photodetector, any unit withhigh enough bandwidth can be used as the PD. For our setup,we used a New Focus 1081 photoreceiver (simply because
+we had that unit available in our laboratory). Alternatively, a
+good project for a student is to build up a photodector withan inexpensive, wide-bandwidth photodiode such asAEPX65 photodiode.
+19To receive the measuring andreference signals for phase comparison, we used the two
+high-speed analog inputs of the RP. The comparison of the
+phases of the measuring and reference signals was done in
+software by the Bode analyzer, an RP built-in application
+program. All the electronic devices are connected by using
+coaxial cables. The whole setup can be built on a
+60/C290 cm2optical breadboard. If all the components are
+pre-aligned on the optical bread, a lecturer can perform theexperiment in 10 min.
+Our experimental setup of phase measurement for speed
+of light determination using frequency-tuning method is
+shown in Fig. 2. The following paragraphs give some
+detailed descriptions of the experiment.
+The DL can be intensity modulated by varying its injec-
+tion current. This is done by sending a high-frequency modu-
+lation signal into the DL. The high-frequency modulation
+signal from the RP is divided into two parts by a power split-
+ter (PS, Mini-Circuits ZFSC-2-1W). One-half of the modula-
+tion signal’s power is sent back to the RP to serve as areference signal. The other half of the modulation signal’s
+power is combined with a 5-V dc bias voltage by a bias tee
+(BT
+1, Mini-Circuits ZFBT-4R2GW þ) to turn on and modu-
+late the DL. As we can see from Eq. (8), the error of modula-
+tion frequency fcontributes directly to the uncertainty of
+light speed. The frequency error of the rf output port 1 of RP
+is tested by measuring its frequency with a counter (Agilent53150A). We found that the fractional error of modulation
+frequency fis less than 2 /C210–6, which can be neglected in
+this experiment.
+Another error that directly contributes to the speed of light
+measurement is the optical path length DL. In practice, it is
+hard to make an accurate path length measurement of the
+folding light path due to the risks of touching the mirror. In
+our work, we measured DLwithout the aforementioned risks
+with the help of the mounting holes on an optical bread-
+board. We used two mirrors (M 1and M 2) and two irises (I 1
+and I 2) for optical beam alignment along with the mounting
+holes on the optical breadboard. As shown in Fig. 2, near-
+end mirror M 3and far-end mirror M 4are used in successive
+phase measurements to ﬁnish the double-pass optical conﬁg-
+uration. The 25-mm spacing of mounting holes is precisely
+machined by the manufacturer of the optical breadboard
+with a nominal uncertainty of 0.1%. Therefore, by countingthe number Nof the mounting holes between the end mirrors
+M
+3and M 4, we can accurately calculate the optical path dif-
+ference DL. However, the gap or tilting between mirror and
+Fig. 2. (Color online) Experiment setup for measuring the speed of light by
+using the frequency-tuning method. RP: Red Pitaya STEMlab 125–10 board;
+PS: power splitter; BTs: bias-tees; DL: KY-008 laser transmitter module;
+Ms: Mirrors; Is: Irises; PD: Photodetector.
+208 Am. J. Phys., Vol. 91, No. 3, March 2023 Chou et al. 208 04 October 2023 22:50:14
+mirror mount might add additional error to the length of DL.
+We use the same kind of ﬂippable mirror mount (New Focus
+9891) for M 3and M 4, while only M 3will be ﬂipped for
+quickly switching the end mirror. In fact, any kind of mirrormount available can be used. However, by using a ﬂippable
+mirror, the lecturer can demonstrate the experiment more
+smoothly. We estimate the double-pass error related to themirror mounting of M
+3and M 4is less than 2 mm. In this
+work, the optical path difference DLis ﬁxed at 1000 mm
+(N¼20). Hence, the double-pass uncertainty of mirror
+mounting is estimated to be 0.2%. Combined with the uncer-tainties of hole spacing and mirror mounting, the uncertainty
+of the optical path difference DLis about 0.22%.
+To avoid the feedback instability due to the return laser
+light, we set the end mirrors to reﬂect the laser beam backthrough I
+1and I 2, again with very small tilted angles. One
+may also use the conventional combination of a polarization
+beam splitter and a quarter-wave plate to prevent the feed-
+back instability. However, the tilted return light scheme ismore economical and easy for students to use. To make the
+error of DLdue to the tilted angle as small as possible, a
+10-mm right-angle prism mirror M
+5is placed very close to
+the exit pupil of DL to reﬂect the backward laser beam
+through a focus lens into the PD. The lateral separation
+between the forward and backward laser beams is about5 mm. Since the one-pass length (ending at M
+3) of our laser
+light is about 1 m, the fractional error due to the tilted conﬁg-
+uration is less than 10/C05and can be neglected. We also note
+that all of the returned light beam must not be either partiallyblocked by the irises or partially reﬂected by the prism mir-
+ror, otherwise the measured light speed will deviate largely
+from the standard value of light speed.
+The optically delayed measuring signal from the PD is
+coupled to a second bias tee (BT
+2, Mini-Circuits ZFBT-
+4R2GW þ). The ac component is sent to the rf input 1 of RP
+for phase measurement, and the dc component is sent to amultimeter for monitoring the received power. The rf inputrange of a RP can be set to 61 V (LV mode) or 620 V (HV
+mode) by properly bridging the jumpers located behind the
+corresponding input SMA connector. We set our RP to oper-ate in the LV mode to acquire the delayed modulation signal
+with higher resolution.
+IV. THE BODE ANALYZER
+As a software-deﬁned instrument, a RP can be controlled
+remotely over LAN or wireless interface using
+MATLAB ,
+LABVIEW ,SCILAB ,o r PYTHON . Therefore, a program to control
+the RP can be written for one’s own special application.However, for the reason for easily implementing our experi-
+ment, we choose to use one of the RP’s built-in web applica-
+tion programs, the Bode analyzer.
+The Bode analyzer is a built-in application program of the
+Red Pitaya STEMlab for frequency response analysis of
+amplitude and phase. In this work, we use the Bode analyzer
+to realize the phase measurement of Eq. (5). A typical result
+of the phase measurement by using the Bode analyzer isshown in Fig. 3. The modulation frequency fis set to linearly
+sweep from 10 MHz to 40 MHz. The scanning time for one
+sweep of Bode plot is about 2 min. The yellow and greencurves are the frequency responses of amplitude and phase,
+respectively. The abrupt change of the phase response occurs
+as the measured phase goes beyond the range of 6p.W eunwrap the measured phase data by adding or subtracting 2 p
+for all the data analysis.
+On the right in Fig. 3, there is the panel for setting the
+measurement parameters such as the frequency range, num-
+ber of steps, scale, periods number, averaging number, exci-
+tation signal amplitude, and excitation signal dc bias. Notethat, due to the limitation of the maximum bias of 0.5 V inthis application program, the dc bias setting cannot be used
+to bias the DL. The periods number determines how many
+cycles of signal are used for the phase measurement. Hence,larger periods numbers have longer measuring time for each
+data point. Shorter measuring time will have larger phase
+uncertainty, which will result in a more scattering distribu-tion of phase data. The inset of Fig. 4shows the frequency
+response curves of periods numbers 2, which is measured
+with M
+3as the end mirror. The solid blue line is a quadratic
+ﬁtting to the brown circle of the unwrapped phase data. Weestimated the phase noise by using the residual standarddeviation of the quadratic ﬁtting. In Fig. 4, the phase noises
+of phase measurements with several periods numbers are
+plotted. It is obvious that a longer measuring time will havea smaller phase error. Hence, we set the maximum periodsnumber (8) of the Bode analyzer in all the following experi-
+ments. The above experiment is also a good activity for stu-
+dent to acknowledge the relation between the uncertainty ofmeasurement and the time of measurement. To exceed theupper limit of the period number, a student project can be to
+write a software program either using
+MATLAB ,LABVIEW ,
+SCILAB ,o r PYTHON to replace the built-in Bode analyzer.
+We studied the dependency of phase noise on the modula-
+tion amplitude set by the Bode analyzer control panel, andthe result is shown in Fig. 5. One may expect that increasing
+the modulation amplitude will increase the modulated signal
+from PD and will result in a smaller phase noise. This iswhat we observe with modulation amplitude setting less than0.6 V in Fig. 5. However, due to the 61-V input limit of an
+RP in the LV mode, the modulated signal acquired by RP
+may be distorted, which will also distort the frequencyresponse curve of phase. The amplitude of the measuring sig-
+nal becomes greater than 1 V when the modulation amplitude
+setting is larger than 0.6 V. This is why, in Fig. 5, the phase
+noise measured with M
+3is increasing with modulation
+amplitude setting larger than 0.6 V. On the other hand, due
+to the longer propagation distance, the light beam reﬂected
+by the M 4has a larger beam size, which will encounter more
+scattering loss. As a result of the weaker laser beam in thecase of using end mirror M
+4, the corresponding amplitude of
+the measuring signal is always smaller than 1 V. Therefore,
+in Fig. 5, the phase noise measured by using M 4remains
+constant for modulation amplitude larger than 0.6 V. It is bet-ter to ﬁnd out the optimal modulation amplitude each time
+that the optical setup is realigned.
+V. SPEED OF LIGHT MEASUREMENTS
+Before performing the light speed measurement, M
+3is
+ﬂipped down, out of the beam path, to align the light beam
+reﬂected back by M 4. Then M 3is ﬂipped up to align the light
+beam reﬂected back by M 3. The phase measurement is ﬁrst
+done by using the near-end mirror M 3. After that, in order to
+reduce the effect of thermal drift of he, we ﬂip down M 3to
+make the phase measurement with the far-end mirror M 4as
+soon as possible. Please note that, before a lecture, all theoptical alignment work can be carried out on the optical
+209 Am. J. Phys., Vol. 91, No. 3, March 2023 Chou et al. 209 04 October 2023 22:50:14
+breadboard. In this way, teachers can perform the whole
+experiment within ten minutes, because they only need tocommand the RP to perform the ﬁrst near-end phase mea-surement, then ﬂip down the M
+3mirror, and then perform
+the far-end phase measurement. In this way, this light speed
+measurement scheme can be well-adapted as a lecturedemonstration.
+Figure 6shows a typical result of the phase shift measure-
+ment. Due to the nonlinear frequency response of the elec-
+tronic phase h
+ein Eq. (5), the frequency responses of phase
+using end mirrors M 3and M 4are curved (the inset of Fig. 6).
+Comparing the two traces in the inset of Fig. 6, one can ﬁnd
+that the trace with the near-end mirror M 3is more obviously
+bending. This is because a smaller optical path length L
+makes the nonlinear component, the electronic phase he, con-
+tribute more to the phase shift h. On the other hand, longer L
+helps to reduce the uncertainty from the instability of he,
+such as thermal phase drift. As discussed in the experimentsetup, due to the slightly tilted return light beam in our setup,a longer optical path length Lcan also reduce the error of the
+optical path difference DL. In our experiment, the error of
+DLdue to the tilted return light beam is less than 10–5as we
+set the Lwith end mirror M 3to be longer than 1 m.
+We subtract the phase measurement with M 4to that with
+M3to cancel out the contribution of hein Eq. (5).I nF i g . 6,
+the phase differences Dhare plotted as the brown circles with
+a linear ﬁtting line. The 0.991 of the reduced r2indicates the
+data distribution is well-ﬁtted. The slope of the ﬁtted line is
+1.199360.0022 deg/MHz, and the statistical uncertainty is
+calculated to be 0.18%. As estimated previously, the uncer-tainty of the optical path difference DLis about 0.22%.
+Combining with the statistical uncertainty, the total uncer-
+tainty of the measurement is 0.29%. Inserting the measuredvalue of the slope into Eq. (8), the corresponding speed of
+light is calculated as 3.0002 60.0087 /C210
+8m/s. Since a mod-
+ulated lightwave is used in this experiment, the speed mea-
+sured is the group speed of light. The group index of air at650 nm is 1.000295.20Therefore, the expected standard value
+Fig. 3. (Color online) A typical result of phase measurement by using the Bode analyzer. The yellow curve is the frequency response of amplitude. The gr een
+curve is the frequency response of phase. Also shown in the right of ﬁgure is the measurement settings panel.
+Fig. 4. (Color online) Phase noise vs periods number. In this case, M 3is used as the end mirror. As an example of the estimation of phase noise, the inset shows
+the frequency response of the unwrapped phase data (brown circles) and a quadratic ﬁtting (blue line) with periods number 2.
+210 Am. J. Phys., Vol. 91, No. 3, March 2023 Chou et al. 210 04 October 2023 22:50:14
+of light group speed in air is 2.997 040 /C2108m/s. This value
+of light group speed falls within the uncertainty of our mea-sured value.
+We repeated the experiment thirteen times during a one-
+month period. The results are summarized in Fig. 7. The aver-
+aged slope of the ﬁtted line is 1.1994 deg/MHz. The standarddeviation of these measurements is 0.0027 deg/MHz. That is,the reproducibility of these experiments during one month isabout 2.2 /C210
+–3. Moreover, as shown in Fig. 7, ten of the thir-
+teen experiments have their error bars cover the deﬁnitionvalue, and all have the uncertainty less than 0.5%. We concludethat this scheme is a stable and accurate approach for university
+laboratory to measure the light speed.
+We make a summary plot in Fig. 8to compare all the
+works discussed in the introduction with this work. Theresult of this work is indexed as reference number zero.
+There are nine experiments consistent with the standardvalue of speed of light. For those works with deviation fall-ing within their uncertainties, Refs. 6,9,15, and 17have bet-
+ter uncertainties than this work. These works are either using
+a kilometer-long path length, or a picosecond pulse, or ahigher modulation frequency, or a sophisticated laser instru-ment. In this paper, the experiment is implemented with amoderate experimental setup, and hence, we have a moderateexperimental uncertainty.
+While we think a 0.5% uncertainty is good enough for the
+undergraduate laboratory, one might demand a higher accu-racy for his project. There are two sources of uncertainty inour tabletop light speed experiment. The statistical uncer-tainty is due to the random data distribution during the fre-
+quency scanning and can be reduced by extending the
+frequency scanning range. The frequency scanning range canbe extended by using the technique of superheterodyne.
+21
+The main systematic uncertainty is due to the length mea-surement. References 9and15demonstrate two good ideas
+to measure the length using picosecond-pulse feedback andrf interferometry, respectively.
+VI. CONCLUSION
+We demonstrate a tabletop experimental setup for a speed
+of light measurement by using a Red Pitaya STEMlab boardand a low-cost laser diode module. In this scheme, by auto-matically scanning the modulation frequency, students onlyneed to make two alignments with the near-end and far-endmirrors, which saves a lot of difﬁcult optical alignmentwork. Since most of the undergraduate students are not expe-rienced with optical alignment, less alignment work can help
+students build up more conﬁdence with the setup and allow
+them to focus on the physics of the measurement. With thebeneﬁts of affordable cost, limited equipment needs, smallrequired space, and ease of implementation, the light speedFig. 5. (Color online) Phase noise vs modulation amplitude. The blue squares are phase noise measured by using end mirror M 3. The brown triangles are phase
+noise measured by using end mirror M 4.
+Fig. 6. (Color online) A typical result of phase shift measurement. The
+brown circles are the data of phase shift Dh. The black line is a ﬁtted linear
+line. The inset are the frequency responses of phase used to calculated Dh.
+The lower red and upper blue lines in the inset are using M 3and M 4as the
+end mirror, respectively.
+211 Am. J. Phys., Vol. 91, No. 3, March 2023 Chou et al. 211 04 October 2023 22:50:14
+measurement scheme presented in this paper is suitable for
+experimental work in an undergraduate instructional labora-
+tory course or a student independent project. Due to the com-
+pact work space and easy operational steps, our light speedmeasurement scheme can also be well-adapted for a lecturedemonstration.
+ACKNOWLEDGMENTS
+This work was supported partially by the Ministry of
+Science and Technology of Taiwan under Grant No. MOST110-2221-E-035-064. The authors would like to thank
+Professor Jow-Tsong Shy for the helpful advice of revision.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.a)Electronic mail: choucc@fcu.edu.tw, ORCID: 0000-0002-9038-8066.
+b)ORCID: 0000-0001-5984-3019.
+1J. H. Sanders, The Velocity of Light (Pergamon Press, Oxford,
+1965).
+2H. E. Bates, “Resource letter RMSL-1: Recent measurements of the speedof light and the redeﬁnition of the meter,” Am. J. Phys. 56(8), 682–687
+(1988).
+3“Documents concerning the new deﬁnition of the metre,” Metrologia 19,
+163–177 (1984).
+4A. J. Domkowski and C. B. Richardson, “Measurement of the speed oflight,” Am. J. Phys. 40(6), 910–912 (1972).
+5Z. V €or€os and G. Weihs, “Foucault’s method for measuring the speed of
+light with modern apparatus,” Eur. J. Phys. 36(6), 035013 (2015).
+6O. Morizot, A. Sell /C19e, S. Ferri, D. Guyomarc’h, J. M. Laugier, and M.
+Knoop, “A modern Fizeau experiment for education and outreach
+purposes,” Eur. J. Phys. 32(1), 161–168 (2011).
+7K. Aokia and T. Mitsui, “A tabletop experiment for the direct
+measurement of the speed of light,” Am. J. Phys. 76(6), 812–815
+(2008).
+8A. Ronzani, F. Maccarrone, and A. Di Lieto, “Measuring light speed witha modulated laser diode,” Eur . J. Phys. 29(5), 957–965 (2008).Fig. 7. (Color online) A plot of the 13 measurements’ results. The brown dashed line is the corresponding slope for the deﬁnition of light speed in vacuu m.
+Fig. 8. (Color online) A summary plot of the light speed measured by all the references cited in this paper. The brown dashed line is the deﬁnition of ligh t
+speed. The light speed of reference number zero is the work in this paper. The work using the Foucault method (Refs. 4and5) are plotted as squares. The
+work using the Fizeau method (Ref. 6) is plotted as a solid square. The work using the time-of-ﬂight method (Refs. 7–12 ) are plotted as triangles. The work
+using the phase shift method (Refs. 13–16 ) are plotted as circles. The work using the laser mode beating method (Ref. 17) is plotted as a diamond.
+212 Am. J. Phys., Vol. 91, No. 3, March 2023 Chou et al. 212 04 October 2023 22:50:14
+9A. M. Aljalal, “Measuring the speed of light using optical feedback from a
+picosecond diode laser,” Am. J. Phys. 90(3), 211–217 (2022).
+10E. Glmez, “Measuring the speed of light with a ﬁber optic kit: An under-
+graduate experiment,” Am. J. Phys. 65(7), 614–618 (1997).
+11F. D. Becchetti, K. C. Harvey, B. J. Schwartz, and M. L. Shapiro,
+“Time-of-ﬂight measurement of the speed of light using a laser and
+a low-voltage P €ockels-cell modulator,” Am. J. Phys. 55(7), 632–634
+(1987).
+12J. A. Deblaquiere, K. C. Harvey, and A. K. Hemann, “Time-of-ﬂight mea-surement of the speed of light using an acousto-optic modulator,” Am. J.
+Phys. 59(5), 443–447 (1991).
+13E. D. Greaves, A. M. Rodrguez, and J. Ruiz-Camacho, “A one-way speed
+of light experiment,” Am. J. Phys. 77(10), 894–896 (2009).
+14A. J. Murray, “An undergraduate laboratory experiment to accurately mea-
+sure the speed of light,” Eur. J. Phys. 41(4), 045704 (2020).15G. Pegna, “An extraordinary tabletop speed of light apparatus,” Am. J.
+Phys. 85(9), 712–720 (2017).
+16J. Rogers, R. McMillan, R. Pickett, and R. Anderson, “A determination of
+the speed of light by the phase-shift method,” Am. J. Phys. 37(8), 816–822
+(1969).
+17D. J. D’Orazio, M. J. Pearson, J. T. Schultz, D. Sidor, M. W. Best, K. M.Goodfellow, R. E. Scholten, and J. D. White, “Measuring the speed of
+light using beating longitudinal modes in an open-cavity HeNe laser,” Am.
+J. Phys. 78(5), 524–528 (2010).
+18Red Pitaya, <https://www.redpitaya.com >.
+19AEPX65, <https://uk.farnell.com/centronic/aepx65/photodiode/dp/548777 >.
+20RefractiveIndex.INFO, <https://refractiveindex.info/?shelf=other&book=
+air&page=Borzsonyi >.
+21P. Horowitz and W. Hill, The Art of Electronics (Cambridge U. P.,
+Cambridge, 1989).
+213 Am. J. Phys., Vol. 91, No. 3, March 2023 Chou et al. 213 04 October 2023 22:50:14

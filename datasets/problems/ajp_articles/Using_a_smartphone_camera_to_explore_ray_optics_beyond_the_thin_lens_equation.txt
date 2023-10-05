@@ -1,0 +1,600 @@
+
+View
+Online
+Export
+CitationCrossMarkAUGUST 01 2022
+Using a smartphone camera to explore ray optics beyond
+the thin lens equation 
+M. C. Sullivan
+Am. J. Phys.  90, 610–616 (2022)
+https://doi.org/10.1 119/5.0090854
+Articles Y ou May Be Interested In
+Determination of the T ransverse Width and Distance of an Object with a Smartphone Camera
+Phys. T each.  (January 2023)
+Non-invasive neonatal jaundice determination using smartphone camera
+AIP Conference Proceedings  (November 2022)
+Reducing light intensity using blue light filter on LED-based smartphone screen
+AIP Conference Proceedings  (June 2023) 04 October 2023 23:14:28
+Using a smartphone camera to explore ray optics beyond the thin lens
+equation
+M. C. Sullivana)
+Department of Physics and Astronomy, Ithaca College, Ithaca, New York 14850
+(Received 9 March 2022; accepted 13 May 2022)
+Ray optics is a staple of introductory physics classes, but many students do not have the
+opportunity to explore optics beyond the thin lens equation. In this paper, we expand upon asuccessful remote experiment using a smartphone camera to explore both the successes and
+limitations of the thin lens equation. Application of the thin lens equation reveals a linear
+relationship between the object distance and the inverse image height in pixels. Using the open-source image analysis tool ImageJ to measure the image height, we can ﬁnd the effective focal
+length of the smartphone camera lens. Our measured focal lengths agree well with the stated
+manufacturer values for the effective focal lengths. Further application of the thin lens equation isnot successful, but a modiﬁcation of the analysis leads to an explanation and experimental
+determination of the location of the principal planes in the smartphone camera systems. This
+experiment can work well at the introductory level, either in person or remote, and can be used asan introduction or motivation to explore more advanced topics in ray optics.
+#2022 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0090854
+I. INTRODUCTION
+Over the recent decade, the need for high-quality and low-
+cost labs that can be conducted remotely has grown consider-
+ably. This need, driven originally by “traditional” online
+courses and MOOCs,1grew exponentially in 2020 when the
+COVID-19 pandemic forced many institutions to suddenly
+switch to a remote format for all courses, including for tradi-
+tional hands-on labs.
+Over roughly the same time period, the smartphone
+evolved from a single-use item to a veritable physics lab that
+can ﬁt into a pocket. The smartphone has multiple internal
+sensors that can be leveraged for remote labs.2,3In particular,
+the camera(s) in a smartphone are highly sophisticated and
+sensitive. The smartphone camera can be used in a variety of
+optical experiments, including studies of polarization,4
+astronomy,5,6the lensmaker’s equation,7and the thin lens
+equation,8,9as well as experiments that explore the shutter
+speed or the CMOS sensor itself.10For students in the life
+sciences, the smartphone can be used to study the human
+eye11or modiﬁed to act as an optical or ﬂuorescence
+microscope.12
+In this article, we combine and then build on the work of
+Refs. 8,9, and 13to create a comprehensive remote optics
+lab. This experiment uses only a smartphone, a ruler, and
+open-source software but is scalable and can be customized
+for students in introductory courses, intermediate or
+advanced lab courses, or optics courses. The article begins
+with a straightforward investigation of the thin lens equation.
+More advanced students can examine their experimental data
+in a different way using a binomial approximation. Students
+with a strong interest in optics or at the start of an optics
+course can explore how the thin lens equation fails to fully
+explain their experimental data. Understanding this failure
+leads naturally to an exploration of thick lenses, multiplelens systems, and the principal planes inside any complex
+optical system. The introduction of principal planes can
+motivate a discussion of the system ray transfer matrix
+method of geometrical optics. The system ray transfer matrixand the principal planes are an excellent place to begin a dis-
+cussion of epistemology in physics and how to understand
+the beneﬁts and limits of any particular model of a system.
+II. THIN-LENS EXPERIMENT
+In introductory optics, the camera is described as a single
+converging lens, which focuses the light from an object onto
+a focal plane to create a real image. For the camera, the focal
+plane was the photographic ﬁlm, now replaced by the CCDor CMOS sensor inside a digital camera. The relationship
+among the object distance, the image distance, and the focal
+length of the lens is summarized by the thin lens equation (in
+the Gaussian formalism)
+1
+soþ1
+si¼1
+f; (1)
+where the focus of the lens is characterized by the focal
+length f, which is positive for a converging lens and negative
+for a diverging lens. The object distance soand image dis-
+tance siare positive for real objects (from which light rays
+diverge) and images (to which light rays converge); soandsi
+are negative for virtual objects (this happens when a lens
+would form an image but the rays are interrupted by a second
+lens or mirror) and images (from which light rays appear to
+diverge).14In a traditional lab setting, students determine the
+focal length of a lens by measuring both the object distances
+ofrom a lens and the image distance siwith the aid of a
+ground glass screen.13
+We can conduct a similar lab using the smartphone cam-
+era, treating the smartphone optical system as a single thin
+converging lens.8,9We take pictures of an object (e.g., a
+ruler) while varying the distance of the object from thesmartphone. The difﬁculty arises in measuring the image dis-
+tance s
+i, which is hidden inside the body of the camera (and
+which varies to allow the camera to focus on objects at dif-
+ferent distances). We can avoid using the image distance by
+employing the magniﬁcation of the lens
+610 Am. J. Phys. 90(8), August 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 610 04 October 2023 23:14:28
+m¼/C0si
+so¼/C0hi
+H; (2)
+where His the size of the object and hiis the size of the
+image on the digital sensor (both are magnitudes). It is stillimpossible to measure the height of the image h
+i, but we can
+measure the height of the image in the photograph. We thendeﬁne a conversion factor c, such that
+p¼ch
+i; (3)
+where pis the height of the image in the photograph as mea-
+sured in pixels. The parameter chas units of pixels/m and is
+ﬁxed for the smartphone sensor. An online search for thesmartphone in question can usually yield the pixel size, pixelpitch, or the ppi (pixels per inch) for the CCD or CMOS sen-sor inside the smartphone, any of which can be converted to c.
+Our preferred tool for measuring the image size in pixels
+is the open-source software ImageJ,
+15which has both desk-
+top and browser-based versions. ImageJ, originally devel-oped at the National Institutes for Health, is a standard toolused in microscopy and image analysis.Using Eqs. (2)and(3), Eq. (1)can be rewritten as the fol-
+lowing linear equation:
+1
+p¼1
+cHfso/C01
+cH; (4)
+with slope q¼1=ðcHfÞand intercept b¼/C01=ðcHÞ. From
+the slope, we ﬁnd the focal length of the smartphone cameraas
+f¼1
+cHq: (5)
+Experimental data were taken with an iPhone 12 mini. The
+iPhone 12 mini has three separate cameras: two rear cameras(labeled by the manufacturer as “ /C21w i d e ”a n d“ /C20.5 ultra-
+wide”) and a front-facing “selﬁe” camera. Each camera has
+its own set of lenses, motors, and CMOS sensors. Our data
+from each of the three cameras are presented in Fig. 1.F o r
+these data, the smartphone was held rigidly in place on anoptics table, and the object (a ruler) was moved into different
+positions on the optics table. Each line represents a different
+camera: the two rear cameras and the front selﬁe camera.When plotted as the inverse pixel height 1 =pas a function of
+distance s
+o, we can see the linear behavior predicted in Eq.
+(4). We can use weighted least squares ﬁts to ﬁnd the slopes
+and intercepts of these lines, as shown in Table I.
+The CMOS pixel size for the sensors inside an iPhone 12
+mini can be found using a web search, giving the values for c
+listed in Table I.16Using the known object height Hand Eq.
+(5), we can ﬁnd the focal lengths of the three cameras and
+compare them to the manufacturer’s value for the effectivefocal length. Note that many websites do not list the effective
+focal length but rather the 35 mm equivalent focal length
+(usually between 10 and 30 mm).
+17The true effective focal
+length of the camera is stored in the photograph metadataand is on the order of 1 to 5 mm. Our results in Table Ido
+not agree with the expected values within uncertainty, but all
+have less than 5% discrepancy from the manufacturer’svalue and two are less than 1% discrepant. Moreover, the
+data are strongly linear, conﬁrming the functional depen-
+dence of the thin lens equation in Eq. (4).
+We have also presented data using resources readily avail-
+able in a remote setting. The open circles in Fig. 1are taken
+with the rear “ /C21 wide” camera of an iPhone 12 mini using a
+13.4-cm pen as the object and with distances measured using
+a measuring tape. Even with these less precise measurements,Fig. 1. Measurements of a ruler with three different smartphone cameras, plot-
+ted as inverse pixel size vs object distance from the lens along with weightedlinear least squares ﬁt lines (see Sec. III). The uncertainties in the measurements
+are smaller than the points. From Eq. (5), we ﬁnd the effective focal lengths:
+f
+r1¼4:2860:01 mm, fr2¼1:63160:002 mm, and ff¼2:73760:003 mm,
+which all have less than 5% discrepancy when compared to the manufacturer’s
+effective focal lengths. Data from the rear “wide” camera during a typical
+remote lab setup using a measuring tape and a pen as the object are presented
+as open circles ( fr1¼4:5660:02 mm).
+Table I. Results from measurements shown in Fig. 1using Eq. (5)to ﬁnd the focal length. The manufacturer’s values for the effective focal lengths are from
+the photo metadata. The ratio of intercept to slope ( b/q) is used to ﬁnd the ﬁrst principal plane (Eq. (12)in Sec. IV), and the second principal plane is located
+roughly one effective focal length from the right end of the lens.
+Lens Rear “ /C21 wide” Rear “ /C20.5 ultrawide” Front “selfie”
+Object size H(cm) 7.62 12.7 10.16
+c(px/lm) 1/1.4 1/1.0 1/1.0
+Slope q(1/kpx-cm) 0.043 30 60.000 02 0.048 29 60.000 02 0.3599 60.000 01
+Intercept b(1/kpx) /C00:016260:0002 0.0021 60.0002 0.0005 60.001
+Focal length f(mm) 4.243 60.002 1.631 60.001 2.735 60.001
+Manufacturer feff(mm) 4.2 1.55 2.71
+/C0b=q(mm) 3.8 60.1 /C00:4460:04 /C00:160:2
+O1H1 (mm) 0.4 60.1 /C02:0760:04 /C02:860:2
+O2H2 (mm) /C25/C04:2 /C25/C01:6 /C25/C02:7
+611 Am. J. Phys., Vol. 90, No. 8, August 2022 M. C. Sullivan 611 04 October 2023 23:14:28
+using Eq. (5), we ﬁnd a focal length of fr1¼4:5660:02
+mm2, a result with less than 10% discrepancy from the manu-
+facturer’s value. In short, this experiment makes a useful andinexpensive in person or remote lab experience for introduc-tory students with satisfying results that agree with theirexpectations.
+III. THE THIN LENS EQUATION FAILS
+The thin lens equation, Eq. (4), predicted linear behavior,
+which was borne out in the experimental results (Fig. 1). The
+predicted slope, q¼1=ðcHfÞ, returned values for the effective
+focal length that were very close to the manufacturer’s values.
+We have not made use of the intercept of Eq. (4),
+b¼/C01=ðcHÞ. Astute students will note that there is another
+way to ﬁnd the focal length f. Because the cHfactor appears
+in both the intercept and the slope, the ratio of the two will
+eliminate those constants, revealing the focal length
+f¼/C0
+b
+q: (6)
+This method allows us to ﬁnd the focal length without
+requiring any outside knowledge of the smartphone system .
+In our case, this allows us to ﬁnd the camera’s focal lengthwithout needing to know the pixel size of the CCD or CMOSsensor or even the height of the object used, so long as itstays constant throughout our measurements.
+Using the results presented in Table I, we can ﬁnd the
+focal length using the slope and intercept of the linear ﬁt.
+When doing so, we ﬁnd values of 3.8 60.1,/C00:4460:04,
+and/C00:160:2 mm. These values are distressingly far from
+the expected values of 4.2, 1.55, and 2.71 mm. In addition,one of the focal lengths is consistent with a focal length ofzero, and two of the values have the wrong sign, indicating adiverging (negative) lens for the smartphone camera! Theseresults cannot be correct.
+Students will propose experimental improvements in an
+attempt to save the thin lens equation in Eq. (4). Multiple
+measurements of the image height in pixels ( p) can give the
+uncertainty in the mean for each measurement, which canthen be used in a weighted least squares ﬁt. The ﬁts andresults in Fig. 1and Table Icome from a weighted least
+squares ﬁt, and the focal lengths found from unweighted ﬁts
+are not signiﬁcantly different. Thus, we conclude thatweighted ﬁts will not “ﬁx” the results using Eq. (6)to give
+reasonable values for the signs or values of the focal lengths.
+Most students will measure the object distance s
+ofrom the
+smartphone camera body. However, most smartphones have acamera “bump” raised from the smartphone body. Inside thecamera bump, the surface of the lens can be either outside orinside the smartphone camera body. We estimated the dis-tance from the smartphone body to the camera lens to be60.5 to61 mm for the iPhone 12 mini. The ﬁts and results in
+Fig.1and Table Ihave been corrected for this small offset,
+indicating that these offsets will not save Eq. (4).
+Finally, a look at the camera lenses themselves raises fur-
+ther questions. Cross-sectional views of the rear camera
+lenses from an iPhone 12 mini are shown in Fig. 2.
+18The
+lenses for the “ /C21 wide” and the “ /C20:5 ultrawide” are 4.6
+and 4.4 mm thick, respectively. Light enters these lensesfrom the left and exits to a CMOS sensor on the right (notshown). The CMOS sensor is /C240.5 mm from the last optical
+element in the lens.The complexity of the smartphone camera lenses is obvious
+from Fig. 2, where the lenses have seven and ﬁve elements
+apiece. Considering each camera as a single lens governed by
+the thin lens equation seems impossible. Moreover, given thatthe “/C21 wide” and “ /C20:5 ultrawide” cameras have 4.2 and
+1.55 mm effective focal lengths, respectively, it would be
+impossible to ﬁt these lenses along with an approximately 4 or2 mm distance from the lenses to the focal plane (the CMOS orCCD sensor) and still have all parts ﬁt inside a /C257m mt h i c k
+smartphone.
+Looking at the lenses, it seems obvious that the thin lens
+equation should fail to describe this system. On the otherhand, the very linear experimental data in Fig. 1indicate the
+thin lens equation does work, at least to some degree. To rec-oncile the successes and the failures, we must look beyondthe thin lens equation.
+IV. MULTIPLE OPTICAL ELEMENTS
+Rather than considering all ﬁve or seven optical elements
+for a smartphone lens, let us begin by approximating a smart-phone lens as a pair of converging and diverging thin lenses,as shown in Fig. 3: two lenses of focal lengths f
+1andf2sepa-
+rated by a distance d. Introductory students might choose
+this pair, because it is described in introductory textbooks forcamera lenses19and is the simplest approximation of a zoom
+lens—and smartphone cameras are often marketed as“optical zoom” lenses (although the smartphone optical ele-
+ments do not move relative to each other as they do in a true
+zoom lens). Students in an optics course might choose itbecause the pair can form a thin achromatic doublet, the sim-plest combination that can remove some of the chromaticaberrations inherent in a single lens,
+20,21though to remove
+more aberrations the lenses should be touching ( d¼0).
+A two lens system is conceptually simple: you apply the
+formalism of the thin lens equation (Eq. (1)) twice, where
+the subscripts 1 and 2 refer to the ﬁrst and second lens. Themagniﬁcation becomes
+m¼si1
+so1/C1si2
+so2¼/C0hi2
+H; (7)
+that is, the magniﬁcation is the ratio of the height of the
+image generated by the second lens to the original object
+Fig. 2. Cross-sectional views of the iPhone 12 mini rear camera “ /C21 wide”
+(a) and the “ /C20:5 ultrawide” (b) lenses, showing seven and ﬁve separate
+optical elements, respectively. In both panels, light enters the lens from the
+left and exits to the CMOS sensor at the right. The CMOS sensor (not
+shown) is nearly touching the ﬁnal optical element. For (a), the ﬁrst principal
+plane is to the left (red dashed line), and the second principal plane is to the
+right (blue dashed line). For (b), only the second principal plane is shown;
+the ﬁrst occurs out of the image to the left.
+612 Am. J. Phys., Vol. 90, No. 8, August 2022 M. C. Sullivan 612 04 October 2023 23:14:28
+height. This equation, combined with a thin lens equation for
+each lens and the knowledge that jso2j¼si1/C0dleads to a
+system of four equations and four unknowns ( si1;so2;si2,
+and p) and one known (or measurable) quantity ( so1).
+Solving the system of equations gives
+1
+p¼1
+cHfeqso1/C01
+cH1/C0d
+f2/C18/C19
+; (8)
+where
+1
+feq¼1
+f1þ1
+f2/C0d
+f1f2(9)
+is the equivalent focal length of the system, which often
+appears in optics textbooks.20In order to sketch this achro-
+matic doublet, we must pick values for the focal lengths. Thechoices of f
+1¼þ3 mm, f2¼/C04 mm, and d¼2 mm will
+simplify the diagram and the math and give a reasonablevalue of f
+eq¼4 mm, similar to the known effective focal
+length of smartphone cameras. (These choices will not nec-
+essarily reduce chromatic aberrations.) These choices arereﬂected in Fig. 3.
+In this two-lens system, we have retained linear behavior
+between 1 =pands
+o1, which helps justify our data in Fig. 1.
+When we look at the intercept, we see that it has picked up anew term when compared to the intercept in Eq. (4), which
+helps explain why the attempt to ﬁnd the focal lengththrough Eq. (6)failed. Although it is clear from Eq. (8)that
+the intercept has a new term when compared to Eq. (4), it’s
+not clear what the new term is or what it means, or how it
+will change if we switch to three, or four, or more lenses.
+We can explain this term in the intercept by introducing
+the concept of principal planes . The principal planes are two
+theoretical planes in any lens system, be it a single lens, athick lens, or multiple thin or thick lenses. In the optical sys-tem, all refraction is considered to occur at the principalplanes. This allows any optical system to be treated similarlyto a single thin lens, where the light enters the ﬁrst principalplane and then exits the second principal plane, ignoring theseparation between the planes. The principal planes for thetwo-lens system in Fig. 3are shown as dotted lines, and two
+principal rays are shown. The ray that goes through the
+“center” of the thin lens comes out undiverted, as we expect,though the gap between the principal planes shifts the exit ofthe ray laterally from the entrance! The ﬁrst principal planeis measured from the center or left edge (if a thick lens) of
+the leftmost optical element, and the second principal plane
+is measured from the center or right edge of the rightmostoptical element. Using O1 and O2 as the center of the two
+lenses in Fig. 3, the distances to the principal planes become
+O1H1 and O2H2. These distances are negative if the plane
+is to the left of the element and positive if they are to the
+right.
+Employing the logic of the principal planes, we can still
+use Eq. (4)so long as the object distance is measured from
+the principal plane (the distance so1/C0O1H1). Using this
+logic, we ﬁnd
+1
+p¼1
+cHfeqso1/C0O1H1/C0/C1
+/C01
+cH;
+which will yield the correct focal length using Eq. (6).
+However, in this experiment, we do not know the location ofthe principal planes, and it makes more sense to measure
+from the smartphone body. In that case, we modify the previ-
+ous equation to ﬁnd
+1
+p¼1
+cHfeqso1/C01
+cH1þO1H1
+feq !
+; (10)
+where the intercept is no longer equal to 1 =cHand the dis-
+tance from the lens to the principal plane O1H1 ends up in
+the intercept. Using Eq. (10), we now know why we have an
+additional term in the intercept—it occurs when the ﬁrst lens
+and the ﬁrst principal plane are separated in space.
+The distance from the rightmost lens to the second princi-
+pal plane ( O2H2) does not appear in Eq. (10). Recall that we
+measure the ﬁnal image height in pixels p, which is equiva-
+lent (via the magniﬁcation) to a measurement of the image
+distance—which we now know is not sibut rather a measure-
+ment of the image distance as measured from the secondprincipal plane. Thus, the second principal plane is already
+accounted for in Eq. (10).
+In this ﬁnal version, we have a slope qand an intercept b
+given by
+q¼1
+cHfeq;and b¼/C01
+cH1þO1H1
+feq !
+; (11)
+and we can use the ratio of the intercept over the slope to
+ﬁndO1H1Fig. 3. Ray diagram for an achromatic doublet, drawn to scale. The converging f1¼þ3 mm and diverging f2¼/C04 mm lenses are separated by d¼2 mm, giv-
+ing an equivalent focal length of feq¼þ4 mm. The two principal planes (red and blue vertical dashed lines) are labeled with the principal points H1 and H2.
+An object 10 mm from the ﬁrst lens produces an image 5.33 mm from the second lens.
+613 Am. J. Phys., Vol. 90, No. 8, August 2022 M. C. Sullivan 613 04 October 2023 23:14:28
+O1H1 ¼/C0 feq/C0b
+q: (12)
+For a single thin lens, both principal planes occur at the lens
+location ( O1H1 ¼O2H2 ¼0), giving the expected result for
+the focal length of a single lens (Eq. (6)).
+Thus, for a complex optical system, we cannot use Eq. (6)
+to ﬁnd the focal length. Instead, we can use the intercept toexpand our knowledge of the optical system in a different
+way. If we ﬁnd the equivalent focal length using the slope
+(Eq. (11)), we can use the intercept in Eq. (12) to ﬁnd
+the ﬁrst principal plane. The principal planes are listed inTable I. For the rear “ /C21 wide” camera, the ﬁrst principal
+plane is in the middle of the optical system, shown in Fig.
+2(a) as a red dashed line (
+O1H1 ¼0:460:1 mm). For the
+other two cameras, the ﬁrst principal plane is outside the
+smartphone ( O1H1 ¼/C02:0760:04 mm and /C02:83560:2
+mm). For the camera in Fig. 2(b), the ﬁrst principal plane is
+roughly 2 mm to the left of the leftmost element.
+The distance to the second principal plane does not occur
+in Eq. (10), but we can deduce its location nonetheless. Any
+object very far from a converging lens will create an image
+at a distance very close to the focal length of the lens. Theimaging plane in a smartphone will be the CMOS or CCDsensor. Thus, because object distances in a smartphonecamera system are nearly always much larger than the
+effective focal length, the distance from the second princi-
+pal plane to the sensor will be very close to the effectivefocal length. The second principal plane will be to the leftof the CMOS sensor, and therefore negative. For the lensesin Fig. 2, we can estimate the location of the second princi-
+pal plane knowing that the CMOS sensor is only /C250:5m m
+to the right of the rightmost optical element. The second
+principal planes are shown as blue dashed lines in Fig. 2.I n
+this ﬁgure, the second principal planes occur inside the opti-cal system.
+Without knowing more details of the optical elements
+used in the smartphone cameras, it is impossible to deter-
+mine the precise locations of the principal planes for compar-
+ison with the experimental results. If the details of theoptical system are known, it is possible to calculate the loca-tions of the planes, as shown in Fig. 3. A tool for calculating
+the principal planes is called the system ray transfer matrix
+21
+(or system matrix, or transfer matrix, or ray transfer matrix,or ABCD matrix) and can be used to ﬁnd not only the princi-pal planes but also the equivalent focal length (e.g., Eq. (9)).
+Thus, the experimental determination of the principal planesinside a smartphone can motivate an introduction to this the-oretical tool. A short introduction to the system ray transfer
+matrix is shown in Appendix B .
+V. CONCLUSIONS
+The need for robust, thought-provoking, yet inexpensive
+and logistically simple remote labs will only continue to
+increase in the coming years. This work takes a proven inex-
+pensive and remote lab to measure the effective focal lengthof a smartphone camera and modiﬁes it to introduce studentsto the powerful image analysis tool ImageJ. These data canbe analyzed using a straightforward analysis (Eq. (4)), and
+students can also re-examine the same data using a binomial
+expansion (Eq. (A1)). Both methods yield focal lengths with
+small discrepancies compared to the effective focal lengthstored in the smartphone image metadata, a result which is
+both comforting and satisfying.
+Further examination of the data reveals the shortcomings
+of treating a smartphone camera as a single thin lens.
+These shortcomings become opportun ities to intr oduce
+more advanced concepts in ray optics, namely, the exis-
+tence of the principal planes. Using the experimental data,
+the locations of the principal planes in a smartphone cam-
+era are determined. These results can also be used to moti-
+vate a discussion of the system ray transfer matrix for an
+optical system. This experiment can be useful as an intro-duction to an optics course or as a “taste” of optics beyond
+the thin lens equation for students without opportunity to
+take such a course. The experiment described here can also
+serve as an opportunity to discuss epistemology in physics:
+when physicists use which models, and what can be
+learned from both the successes and the failures of the
+model. Finally, the experiment serves as an opportunity to
+engage in discussion about what models mean : what does
+it mean when we treat a system of ﬁve or seven lenses as a
+single lens with a front plane and a back plane with
+“nothing” between the planes? Students might even beneﬁtfrom returning to this experiment at different stages of
+their education to see how their understanding of physics
+experimentation has grown more sophisticated as they
+have progressed through coursework.
+ACKNOWLEDGMENTS
+The author would like to thank the students who tested
+this lab in 2020 and 2021 for their help and advice. In
+addition, the author would like to thank colleagues Luke
+Keller, Jerome Fung, and Kelley D. Sullivan for useful
+discussions, suggestions, and for assistance in editing, and
+Joshua Schmidt for his work during summer 2021. The
+author would also like to acknowledge the helpful comments
+and edits of the anonymous reviewers.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+APPENDIX A: TAYLOR EXPANSION OF THE THIN
+LENS EQUATION FOR A SMARTPHONE
+This author has asked students to begin with Eq. (1)and
+derive a linear relationship between the height in pixels p
+and the object distance s
+o. In doing so, not all students cor-
+rectly arrive at Eq. (4). Some students incorrectly derive a
+linear relationship between the height in pixels pand the
+inverse object distance 1 =so, while others “brute force” the
+derivation and make plots ﬁrst to test out possible linear
+dependencies. A graph of the same data from Fig. 1is shown
+in Fig. 4, only this time as height in pixels vs inverse object
+distance. Contrary to the prediction from Eq. (4), the graphs
+appear linear again!
+The explanation for this is straightforward, and for stu-
+dents learning about Taylor expansions for the ﬁrst time, this
+lab provides experimental proof of the usefulness of these
+expansions. Returning to the thin lens equation and using
+Eqs. (2)and(3)again, we can show that
+614 Am. J. Phys., Vol. 90, No. 8, August 2022 M. C. Sullivan 614 04 October 2023 23:14:28
+p¼cHf
+so1/C0f
+so/C18/C19/C01
+/C25cHf
+soþcHf2
+s2
+oþ/C1/C1/C1 : (A1)
+Even if we know nothing about the speciﬁcs of the smart-
+phone, the thickness of the phone itself (roughly 7 mm) sets
+an upper bound on the focal length f. The student sets the
+object distance so, usually 10 cm and above, making f=so
+reasonably small. If we keep the ﬁrst term of the expansion,
+then the height in pixels is now linear with the inverse object
+distance , and we expect a positive intercept very close to
+zero.
+This analysis justiﬁes the results shown in Fig. 4. The
+experimental data look linear, and the intercepts are very
+small, as predicted. For these data, we expect a slope of
+q¼cHf, from which we can ﬁnd the effective focal length f.
+The experimental results are shown in Table II, where again
+we ﬁnd excellent agreement between the measured focallength and the effective focal length found in the photograph
+metadata. The intercepts are indeed small but not positive,
+indicating that the model does not work well beyond the ﬁrst
+term.
+This method provides an excellent opportunity for inter-
+mediate students to practice both math skills (in the binomial
+expansion) as well as analyze the data from a new perspec-
+tive. The ability to expand the thin lens equation as shown in
+Fig. 4works for any situation where the object distance is
+much greater than the focal length. In a conventional instruc-
+tional optics lab setting, this may or may not be true; in a
+smartphone, it is essentially always met.APPENDIX B: SYSTEM RAY TRANSFER MATRIX
+FOR THIN LENSES
+Let us consider a system of nthin lenses, each with focus
+f
+nand separated by an air gap of width dn. In this case, each
+optical element (lens or air gap) can be written as a 2 /C22
+matrix.20Each lens is represented by
+1/C01=f
+01 !
+; (B1)
+and each air gap by the matrix
+10
+d1 !
+: (B2)
+The system ray transfer matrix (or ABCD matrix) Afor
+the entire system is then given by
+A¼a11a12
+a21a22 !
+¼1/C01=fn
+01 !
+10
+dn/C011 !
+/C21/C01=fn/C01
+01 !
+/C1/C1/C110
+d11 !
+/C21/C01=f1
+01 !
+: (B3)
+From this ray transfer matrix, we can ﬁnd
+1
+feq¼/C0 a12; (B4)
+and
+O1H1 ¼feqð1/C0a11Þ (B5)
+and
+O2H2 ¼feqða22/C01Þ: (B6)
+The equivalent focal length of our two-lens system in
+Sec. IV(Eq. (9)) can be derived using the system ray transfer
+matrix.
+The system ray transfer matrix becomes more complicated
+with thick lenses but is described in detail in opticstextbooks.20,21
+a)Electronic mail: mcsullivan@ithaca.edu, ORCID: 0000-0002-3782-835X.
+1Seehttps://en.wikipedia.org/wiki/Massive_open_online_course for “Massive
+open online course” (last accessed January 05, 2022).
+2M. Monteiro and A. C. Mart /C19ı, “Resource letter MDS-1: Mobile devices
+and sensors for physics teaching,” Am. J. Phys. 90, 328–343 (2022).
+3D. J. O’Brien, “A guide for incorporating e-teaching of physics in a post-
+COVID world,” Am. J. Phys. 89, 403–412 (2021).
+4L.-J. Thoms, G. Colicchia, and R. Girwidz, “Using the naked eye to ana-
+lyze polarized light from a smartphone,” Phys. Teach. 59, 337–339
+(2021).
+5M. Meißner and H. Haertig, “Smartphone astronomy,” Phys. Teach. 52,
+440–441 (2014).
+6A. Barrera-Garrido, “Analyzing planetary transits with a smartphone,”Phys. Teach. 53, 179–181 (2015).
+7J. Freeland, V. R. Krishnamurthi, and Y. Wang, “Learning the lens equation
+using water and smartphones/tablets,” Phys. Teach. 58, 360–361 (2020).Fig. 4. Measurements of a ruler with three different smartphone cameras
+(rear “ultrawide,” crosses; rear “wide,” dots; front, diamonds), plotted as
+pixel height vs inverse object distance from the lens. A weighted linear leastsquares ﬁt line is also shown. The uncertainties in the measurements are
+smaller than the points. To the ﬁrst order in Eq. (A1), we expect and see lin-
+ear behavior with small positive intercepts. The measured focal lengths
+agree well with the manufacturer values.
+Table II. Results from measurements shown in Fig. 4. From the expansion
+in Eq. (A1), the focal length can be found from the slope q¼cHf.
+LensRear
+“/C21 wide”Rear
+“/C20.5 ultrawide”Front
+“selfie”
+Slope q(kpx-cm) 23.30 60.03 20 :7260:03 27.81 60.03
+Intercept b(kpx) /C00:001160:0002/C00:000260:0002/C00:000760:0004
+Focal length f(mm) 4.28 60.01 1.631 60.002 2.737 60.003
+Accepted f(mm) 4.2 1.55 2.71
+615 Am. J. Phys., Vol. 90, No. 8, August 2022 M. C. Sullivan 615 04 October 2023 23:14:28
+8J. Wang and W. Sun, “Measuring the focal length of a camera lens in a
+smart-phone with a ruler,” Phys. Teach. 57, 54–54 (2019).
+9A. Girot, N.-A. Goy, A. Vilquin, and U. Delabre, “Studying ray optics
+with a smartphone,” Phys. Teach. 58, 133–135 (2020).
+10A. Pons, P. Garc /C19ıa-Mart /C19ınez, J. C. Barreiro, and I. Moreno, “Learning
+optics using a smart-phone,” in 12th Education and Training in Optics and
+Photonics Conference , edited by M. F. P. C. Martins Costa and M. Zghal
+(International Society for Optics and Photonics, SPIE, 2014), Vol. 9289,
+pp. 651–655; J. Lincoln, “Five smartphone experiments that don’t need
+apps,” Phys. Teach. 56, 652–653 (2018).
+11G. Colicchia and H. Wiesner, “Looking into the eye with a smartphone,”
+Phys. Teach. 53, 106–108 (2015).
+12T. Hergem €oller and D. Laumann, “Smartphone magniﬁcation attachment:
+Microscope or magnifying glass,” Phys. Teach. 55, 361–364 (2017); H.
+Wang, R. Heintzmann, and B. Diederich, “The power in your pocket-
+uncover smartphones for use as cutting-edge microscopic instruments in
+science and research,” Adv. Opt. Technol. 10, 89–108 (2021); M. Wincott,
+A. Jefferson, I. M. Dobbie, M. J. Booth, I. Davis, and R. M. Parton,“Democratising ‘microscopi’: A 3D printed automated XYZT ﬂuorescence
+imaging system for teaching, outreach and ﬁeldwork,” Wellcome Open
+Res.6, 63 (2021).
+13S. Chakravarti and P. B. Siegel, “Visualizing the thin-lens formula,” Phys.
+Teach. 39, 342–343 (2001).
+14B. D. Sukheeja, “Sign conventions in geometrical optics,” Am. J. Phys.
+35, 611–613 (1967).15See https://imagej.nih.gov/ij/ for “ImageJ” (last accessed January 05,
+2022).
+16See https://www.gsmarena.com/apple_iphone_12_mini-review-2197p5.php
+for “Apple iPhone 12 Mini Review” (last accessed March 9, 2022).
+17The relevant measure for determining how much of a scene a particular
+camera lens and sensor can see is actually the camera angle of view.
+However, the focal length of a lens used in conjunction with traditional
+35 mm photographic negatives is used as an equivalent measure of the
+angle of view. Using a known angle of view, the equivalent focal length
+with 35 mm ﬁlm negatives can be calculated. As a result, most smartphone
+cameras list the 35 mm equivalent focal length for photographers. The dif-ference between the 35 mm equivalent focal length and the effective focal
+length is a source of confusion for students, but an excellent opportunity to
+discuss how a focal length of 26 mm, for example, would be impossible if
+the camera is to ﬁt inside a smartphone whose thickness is usually less
+than 7 mm.
+18To obtain these photographs, a replacement rear camera set was purchasedfrom https://www.iﬁxit.com . The lens assemblies were removed from the
+camera housing and sanded down using 1400-grit sandpaper. The photo-
+graphs were taken using a stereo-optical microscope.
+19R. D. Knight, Physics for Scientists and Engineers: A Strategic Approach ,
+4th ed. (Pearson Education, Boston, 2017), pp. 998–999.
+20E. Hecht, Optics , 4th ed. (Addison-Wesley, San Francisco, 2002).
+21F. L. Pedrotti, L. S. Pedrotti, and L. M. Pedrotti, Introduction to Optics ,
+3rd ed. (Pearson Prentice Hall, Upper Saddle River, NJ, 2007).
+616 Am. J. Phys., Vol. 90, No. 8, August 2022 M. C. Sullivan 616 04 October 2023 23:14:28

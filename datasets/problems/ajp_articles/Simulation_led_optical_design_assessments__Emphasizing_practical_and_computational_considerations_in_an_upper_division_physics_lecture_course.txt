@@ -1,0 +1,405 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| APRIL 01 2022
+Simulation led optical design assessments: Emphasizing
+practical and computational considerations in an upper
+division physics lecture course 
+Vincent M. Rossi  
+Am. J. Phys.  90, 279–285 (2022)
+https://doi.org/10.1 119/5.0064138
+Articles Y ou May Be Interested In
+Monostatic and Bistatic Backscattering Measurements from the Deep Ocean Bottom
+J Acoust Soc Am  (August 2005)
+Nuclear molecules in neutron-rich nuclei
+AIP Conference Proceedings  (November 2018) 04 October 2023 23:06:42
+Simulation led optical design assessments: Emphasizing practical
+and computational considerations in an upper division physicslecture course
+Vincent M. Rossia)
+Department of Physics and Astronomy, Washburn University, Topeka, Kansas 66621
+(Received 20 July 2021; accepted 12 February 2022)
+Employing simulation led optical design assessments (SLODAs) in an upper division optics course
+provides students with a deeper understanding of optical design, interactions, and devices, while
+reinforcing their understanding of computational methods. The upper division optics coursediscussed here did not have a required lab component as would be typical at many institutions.
+Therefore, the practical and expanded experiences students gained via SLODA in lieu of a
+laboratory experience were particularly crucial in developing advanced student understanding andskills in both optical design and computational applications. SLODA can also supplement a
+laboratory-based course with computational skill development. After introducing students to
+various computational methods during the early part of the course via scaffolding in-classpreliminary computational activities, students were then assigned more complicated application
+based SLODA. This paper details each of the preliminary computational activities and SLODA,
+including their implementation and both the optical and computational considerations theseactivities and assessments were designed to introduce. An example SLODA is detailed. A
+reﬂection on the implementation of SLODA is provided for those interested in adopting the
+curriculum. A list of online resources is given in the Appendix for faculty wishing to implementSLODA. Finally, a sample of the student work submitted is presented and discussed in the journal’s
+supplementary material. While success was speciﬁcally found via the implementation of SLODA
+in an upper division optics course, the potential exists for adaptation of the simulation led designassessment approach to other practical, design-based courses such as electronics or those within the
+engineering disciplines.
+#2022 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0064138
+I. INTRODUCTION
+The combined emphasis on active learning,1–5computa-
+tional,6–9and application based10,11approaches within the
+classroom in order to better promote student learning has
+motivated the incorporation of simulation led optical design
+assessments (SLODA) in the upper division PS 330 Optics
+course in the Department of Physics and Astronomy at
+Washburn University, a primarily undergraduate institution.
+The PS 330 Optics course is a lecture course that does not
+have an associated laboratory component, thereby limiting
+the practical, application based experience that would nor-
+mally be afforded optics students via an associated optical
+laboratory curriculum. The instructor was, therefore, moti-
+vated to give students in the lecture course practical experi-
+ence in optics, independent of a lab curriculum. Simulation
+led optical design assessments draw from computational and
+optical design skills and incorporate them into a lab-less cur-
+riculum in order to expose optics students to many of thepractical and application based skills that they would other-
+wise develop via an associated optical laboratory. Instructors
+who teach a lab may also ﬁnd that their students could bene-
+ﬁt from the opportunity to develop computational skills
+while increasing their understanding of the design process.
+The remainder of this paper is structured as follows. A
+general overview of the PS 330 Optics course is given in
+Sec.II. The preliminary computational activities used during
+the course are described in Sec. III. Speciﬁc simulation led
+optical design assessments are described in Sec. IV, includ-
+ing their implementation and an example of student work.The motivation behind SLODA and their learning outcomes
+are covered in Sec. V. A summary of SLODA along with
+student feedback will be covered in Sec. VI. Finally, online
+instructional resources for SLODA are provided in the
+Appendix . Additional considerations for faculty interested in
+implementing SLODA in their curriculum, a brief discussionof student results, and an example of the student code arealso available in the supplementary material.
+15
+II. COURSE SETTING
+The PS 330 Optics course used the ﬁfth edition of Hecht’s
+Optics as the primary resource.12The main topics covered in
+the course are wave motion, electromagnetic theory, propa-
+gation of light, geometrical optics, polarization, superposi-tion, interference, diffraction, Fourier optics, andholography. The prerequisites for the PS 330 Optics course
+are a full year of either General Physics or College Physics.
+As a small department, upper division courses are offered onan every-other-year rotation, so a mix of junior and senior
+level students enroll in the PS 330 Optics course. Students
+enrolled in the course are predominantly Physics majors orstudents enrolled in the department’s Engineering Transfer
+Program. Chemistry majors also enroll in the course periodi-
+cally. Given all of these considerations, advanced knowledgeof electromagnetic theory, waves, or theoretical physics (our
+upper division math methods course) could not be assumed
+of the students enrolled in the course.
+Similarly, computational experience could not be assumed
+of students prior to enrolling in the PS 330 Optics course.
+279 Am. J. Phys. 90(4), April 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 279 04 October 2023 23:06:42
+Therefore, a set of preliminary computational activities was
+instituted during the ﬁrst two-thirds of the semester prior toadministering SLODA. While designed to introduce studentsto optics-speciﬁc course content, a secondary motivation for
+these preliminary computational activities was to introduce
+students to computational methods. These preliminary com-putational activities served as scaffolding towards the moreintensive SLODA that students completed during the laterthird of the semester. Two of these SLODA were imple-mented as projects in lieu of weekly problem solving home-
+work assignments from the text. In order to reﬂect the
+emphasis on this approach to the later portion of the course,two SLODA were also assigned as examinations.
+The PS 330 Optics course is a semester long (15 weeks),
+three-credit course that meets for three 50-min sessions perweek. Beyond the SLODA curriculum, the course alsoincluded standard problem sets (assigned as homework)
+and examinations. The grading structure of the PS 330
+Optics course was designed in order to reinforce the empha-sis on engaged learning, collaboration, and simulation ledoptical design assessments (Table I). While the preliminary
+computational activities were graded as in-class (participa-tion) assignments, the simulation led optical design assess-
+ments were more rigorously graded. A rubric was
+developed in order to aid in grading uniformly across theclass. The SLODA rubric also gives students an idea ofwhat is expected of them and aids in the preparation of theirindependent write-ups. The SLODA rubric is among theonline resources available for instructor use.
+13–15As with
+the preliminary activities, students worked in pairs on their
+SLODA (including the SLODA that served as examina-tions) but were responsible for their own graded, indepen-dent write-ups.
+The course was taught remotely during the Fall 2020
+semester as a result of campus closures due to COVID-19;however, the SLODA curriculum is not dependent upon the
+virtual format and can be used as easily with traditional in-
+person courses. Students obviously had access to personalcomputers in order to participate in class remotely; com-puters would need to be accessible for students when imple-menting this curriculum in person.
+Computer modeling and simulations were carried out
+using GNU Octave
+16(a freely available MATLAB emula-
+tor), which the department faculty decided to adopt across
+all upper-division courses for consistency. However, any
+programming language can be employed in place of GNU
+Octave in order to serve individual instructor or departmental
+needs when implementing SLODA. For those students whohad no previous experience with GNU Octave , an online
+repository in the course learning management system was
+put together in order to help with downloading, installing,
+and executing the program. The same course learning man-agement system was also utilized in the dissemination of in-class preliminary computational activities and other
+SLODA-related resources.
+A single 50 min class period was generally allocated for
+each of the preliminary computational activities. The instruc-
+tor began these class periods by either introducing students
+to or reminding them of the particular optical phenomena
+being modeled in that particular computational activity. Theinstructor then paired students up to work through the activ-
+ity and monitored student progress and interactions,
+answered student questions, and gave additional instruction.The ﬁnal 5–10 min of the class period were reserved for
+summative comments on the computational activities. These
+summative comments were at times provided by the instruc-
+tor, and at other times, students were asked to share their
+conclusions. In either case, the summative comments wereused to address both computational considerations and opti-
+cal phenomena covered via the given activity. Ultimately,
+students were required to write up individual summaries ofeach of the preliminary computational activities for grading.
+Class time was also devoted to each of the SLODA
+assigned. An entire 50 min class or exam period was desig-
+nated for project-based SLODA during which the instructor
+provided guidance and answered student questions. In this
+way, SLODA projects were used to help students developdesign and computational understanding; SLODA examina-
+tions were then used in order to assess how well students
+developed those understandings.
+While class time need not necessarily be devoted to the
+preliminary computational activities nor the simulation led
+optical design assessments themselves—they could all beassigned as homework outside of class—the instructor found
+it particularly useful to have time to interact with students
+during each of these activities and assessments in order togauge and guide student understanding. Furthermore, since
+the computational considerations covered were new to a
+large portion of the student population and were not ofﬁ-
+cially part of the course curriculum (as outlined via the ofﬁ-
+cial course description), the time in class was important forassuring students developed a working knowledge of compu-
+tational physics.
+III. PRELIMINARY COMPUTATIONAL ACTIVITIES
+Computer modeling and simulations were incorporated
+throughout the course in order to promote active learning
+and student interactions in the course. Each of the prelimi-nary computational activities was designed to introduce stu-
+dents to both optics speciﬁc and computational topics.
+Various modes of visualization—both graphical and image-based—were emphasized with the computer models.
+Beyond providing improved visualization of advanced
+topics, these preliminary computational activities also served
+to introduce many of the students to computational methods
+and applications—a good number of students in the course
+had little-to-no computational experience prior to enrollingin the course. Even those students with computational expe-
+rience were generally not familiar with computational
+aspects particular to modeling optical applications or imageprocessing, so it was essential that computational modeling
+and simulations be incorporated into the curriculum early
+and frequently in order to give students the skills necessary
+to complete the simulation aspects of the assessments pre-
+sented here.
+Table I. Grading structure for PS 330 optics.
+Assessments Overall percentage SLODA related notes
+Problem sets 45% Including two SLODA
+In-class assignments 5% Including nine preliminary
+computational activities
+Midterm exams 30% Including one SLODAFinal exam 20% Final SLODA
+280 Am. J. Phys., Vol. 90, No. 4, April 2022 Vincent M. Rossi 280 04 October 2023 23:06:42
+The preliminary computational activities started by simply
+having students adapt parameters in existing code in order todemonstrate the physical dependencies of the modeled phe-nomena upon those parameters. In later simulations, studentsfurther adapted code in order to generate a desired result.The level of student manipulation of code was scaffolded inthe preliminary computational activities so that later in thecourse students would be capable of writing their own codefrom scratch. Each of the preliminary computational activi-ties are brieﬂy described as follows (unless noted otherwise,each preliminary computational activity was allotted anentire 50 minute class period):
+Activity 1: Waves tutorial allows students to take an exist-
+ing, functional script and vary the frequency, wavelength,amplitude, and direction (via a sign change) in order to seethe effects they have on the wave’s behavior. Each section of
+the script results in an animation of waves (plotted on x–y
+axes) in order to demonstrate their time dependence. Finally,students observe how the complex exponential can also beused as an equivalent description of waves—a concept thatis generally new to students in the PS 330 course.Computationally, the ﬁrst activity addresses the use of vec-tors and arrays and logical ﬂow.
+Activity 2: Electric dipole radiation is a fully functional
+simulation of electric dipole radiation in time in which stu-dents can vary the charge magnitude and separation in orderto observe how they affect the dipole ﬁeld. Furthermore, thescript introduces students to the utility of theoretical units.The ﬁrst animation of electric dipole radiation uses actualphysical constants (such as the charge of an electron and thepermittivity of free space), which results in a poorly resolvedsimulation. Setting physical constants to unity in the secondsimulation results in a more intelligible simulation of dipoleradiation in time. The use of vectors and arrays and logicalﬂow are reinforced in the second activity. This activity alsoserves as an introduction to plotting two-dimensional func-tions in time.
+Activity 3: Superposition of waves of the same frequency
+gives students the ability to observe the resulting waveswhen two or more waves of the same frequency are superim-posed. The script is again fully written and functional.Students adapt the code by changing a conditional within thescript in order to select which waves to superimpose. Thisscript goes further than the previous two by including a linewhere students can create their own functions to superim-pose. Therefore, after an introduction to coding via the ﬁrsttwo activities, this activity then asks students to write theirown lines of code from scratch. This script also serves as anintroduction to conditionals as a computational tool.
+Activity 4: Superposition of waves of different frequencies
+is a continuation of activity 3 with the same structure andcomputational concepts; however, it emphasizes the morecomplicated results when waves of different frequencies aresuperimposed. Activities 3 and 4 can either be covered in asingle class period or split over two class periods. In the PS330 course, an entire class period was dedicated for activity3. Approximately 15 min at the beginning of the followingclass period was sufﬁcient for students to work throughactivity 4.
+Activity 5: FFT tutorial introduces students to Fourier
+theory in the time domain. Students are given a series offunctions such as triangle and square waves to select fromand then recreate approximations of each function usingFourier theory. In order to approximate these waves, studentsneed to consider the role of symmetry as well as other factors
+such as wavelength, the DC offset, and the number of termsto carry out their approximations. The fast Fourier transform(fft) is also introduced and sets the stage for 2D Fourier theorythat follows in the course.
+Activity 6: Diffraction grating is the ﬁrst activity where
+students create their own script from scratch. Students writea script showing the resulting diffraction intensity of a ﬁxedwavelength through a diffraction grating. In order to accom-plish this, students had to be able to identify terms from thegrating equation (Ref. 12, Eq. (10.35))—such as grating
+spacing and wavelength—and deﬁne them in their script.
+12
+The instructor’s version of the script was later made avail-able to students, where additional elements were includedsuch as diffraction of multiple wavelengths and changing theangle of incidence off-axis, the latter of which was generally
+ignored by students in their own simulations.
+Activity 7: Fourier optics begins by demonstrating use of
+the convolution theorem by convolving two (2D) functionswith each other. There, students learn how to simulate a 2Dphase sample, which they are later asked to vary in order toobserve the resulting changes to the convolution. The secondpart of this script moves on to demonstrate how the convolu-tion theorem can be applied in optical systems—in this case,for noise reduction via apodization, or spatial ﬁltering. Animage is provided for the later part of the simulation, but stu-dents also found it fun to use their own images.Computationally, students were introduced to the use ofcomplex variables and additional Fourier functions (fft2,ifft2, fftshift, and ifftshift).
+Activity 8: Autocorrelation continues activity 7 by con-
+volving a 2D function with itself. This activity could beadded on to the end of the same class period as activity 7 oraddressed during the ﬁrst 10–15 min of following period, asdone in PS 330. Autocorrelation was not emphasized in theclass but added on as a further example of the convolutiontheory. Faculty who prefer to place a larger emphasis onautocorrelation could use activity 8 as part of a larger discus-sion of autocorrelation and expand upon the providedsimulation.
+SLODA Example: Digital Fourier holographic micros-
+copy (activity 9 ) was the ﬁnal preliminary computational
+activity in the PS 330 course. Simulating a digital Fourierholographic microscope provided students an example ofhow to simulate an optical system. This script was fullyfunctional when provided to students in order to serve as aworking example of what would be expected of them in theirsimulation led optical design assessments that followed. Thesimulation demonstrates how to create a phase sample in sil-
+icoand operate on it computationally in order to simulate
+interactions with optical elements. Finally, a reconstructionof the phase sample is generated in order to demonstrate thesimulation’s—and moreover, the device’s—functionality. Tobetter demonstrate the design and simulation of an entireoptical system and expectations for the coming SLODA, stu-dents were provided a handout with instructions as if theactivity were assigned as a SLODA and a schematic of theinstructor’s system design (Fig. 1). The instructor spent an
+entire class period leading students though the providedscript line by line and relating it back to the optical elementsin the system design. The necessity to have each optical ele-ment that operates on the ﬁeld represented computationallywithin the simulation was emphasized throughout the lesson.Note in the simulation that only lenses were assumed to
+281 Am. J. Phys., Vol. 90, No. 4, April 2022 Vincent M. Rossi 281 04 October 2023 23:06:42
+operate on the ﬁeld—mirrors and beam splitters were not
+included in the simulation, as they only act to change the
+direction of propagation and/or the intensity of the ﬁeld.
+After walking students through the device design and simu-
+lation, students were then given time to manipulate the simu-
+lation themselves. In particular, they were asked to vary the
+reference ﬁeld in order to witness the effects on the holo-
+graphic reconstruction of the twin images.
+IV. SIMULATION LED OPTICAL DESIGN
+ASSESEMENTS
+After establishing basic foundations in both computa-
+tion and theoretical optics, the SLODA curriculum then
+shifts towards larger, application-based student assess-
+ments. These simulation led optical design assessments
+integrate computational modeling of optical systems with
+their design and the underlying optical phenomena by
+which they operate in order to accomplish a given task.
+Moreover, speciﬁc parameters of their optical design must
+be translated into their computational models. In this fash-
+ion, SLODAs give students a deeper understanding of their
+optical designs and simultaneously teach them how to
+translate a physical system into computational language,
+all the while helping them to develop additional skills
+(such as authentic problem solving and collaboration) that
+have been identiﬁed as beneﬁcial to their professional
+careers.6,10,11,17,18
+For each SLODA, students were introduced to the objec-
+tives and functionality of particular optical systems.
+Additional resources (such as journal articles or websites)
+were also provided with each SLODA in order to give stu-
+dents sufﬁcient background in system requirements that
+would lead their design. Students were then instructed to
+design an optical system in order to achieve a given task and
+submit a detailed schematic. Furthermore, students were also
+required to simulate how each sequential element of the
+device operates on the ﬁeld and to describe those operations
+in their write up. Each of the SLODA are brieﬂy described
+below, including how they were implemented in the PS 330
+Optics course; complete documentation is available onlineand in the supplementary material.13–15
+SLODA 1: Fourier optics relies upon concepts presented
+during the class discussions of Fourier optics, spatial ﬁlter-ing, and activities 7 and 8. Students are tasked with the
+design and simulation of a dark-ﬁeld microscope based upon
+those principles. While students are instructed not to design
+a traditional dark-ﬁeld microscope, traditional dark-ﬁeldmicroscopy is introduced in order to help students to recog-
+nize their functionality and to help guide their design basedupon Fourier optics and spatial ﬁltering. Students pulled
+from a variety of computational considerations introduced
+via the preliminary computational activities, includingvectors and arrays, logical ﬂow, conditionals, complexvariables, and 2D Fourier analysis. Optics-speciﬁc consid-
+erations for this SLODA included Fourier imaging, dark-
+ﬁeld imaging, spatial ﬁltering, lens diagrams, and cameraspeciﬁcations. SLODA 1 was assigned in lieu of standard,problem-solving homework for the week. Students worked
+in pairs on their design and simulation but were responsi-
+ble for individual write-ups for grading. An entire classperiod was dedicated to SLODA 1 so that students couldwork together and have the instructor available for ques-
+tions and guidance. This class period was strategically
+placed nearer to the assignment due date than the date onwhich it was assigned so students had time to work withthe SLODA and come to class with informed questions.The instructions given students for this SLODA (Fig. 2), as
+well as a sample of student results (Fig. 3) are both pre-
+sented as examples.
+SLODA 2: Digital holographic microscopy was based on
+the previous SLODA (Fourier optics) and was closely relatedto the digital Fourier holographic microscope example pro-
+vided as the ﬁnal in-class activity (activity 9). This way, the
+SLODAs were designed with scaffolding intentionally incor-porated within them. In activity 9, students were presentedwith a holographic microscope that places a camera at the
+conjugate Fourier plane. Students needed to revise that
+device design in order to capture the hologram via a cameraplaced at the image plane. The device design in this SLODAis simpler than that of activity 9 in that there is one fewer
+lens necessary in this conﬁguration. Furthermore, the device
+design in this SLODA is equivalent to that from the previousSLODA (Fourier optics) but with the spatial ﬁlter removedand the incorporation of a reference beam. While this is a
+simpliﬁed system from that presented in activity 9, the
+reconstruction process follows the inverse of that presentedin activity 9: Fourier planes are replaced with image planesand vice versa. SLODA 2 covered all of the same computa-
+tional and optical concepts and tools as those needed in order
+to complete SLODA 1. In addition, students needed to drawfrom lessons and activities covering convolution in order tocomplete this SLODA. The digital holographic microscopy
+SLODA was implemented in the same fashion as was the
+previous Fourier Optics SLODA.
+Fig. 1. (Color online) (a) The optical design and corresponding (b) sample and (c) reconstructed amplitude and phase provided to students as a demonst ration
+of the optical simulation of a digital Fourier holographic microscope.
+282 Am. J. Phys., Vol. 90, No. 4, April 2022 Vincent M. Rossi 282 04 October 2023 23:06:42
+SLODA 3: Spectrometer design moves away from imaging
+applications and focuses more heavily on hardware consider-ations. Students are given the task of designing a spectrome-ter using a line scan camera (1200 pixels, 3 lm pixel width)
+able to resolve the visible spectrum (400 –700 nm) with a
+minimum resolution of 5 nm. This SLODA requires a gooddeal of calculations prior to writing the simulation in orderto determine the appropriate design speciﬁcations. The simu-lation itself is fairly straightforward, expanding upon activity6: Diffraction grating. In order to reﬂect the PS 330 Opticscurriculum’s emphasis on design and computational model-ing in its grading structure, SLODA 3 was implemented andgraded as an examination. Aside from this difference,SLODA 3 was otherwise implemented in a similar fashion asthe previous SLODA; students worked in pairs but wereresponsible for independent write-ups for grading; a singleclass period was allotted for students to work on the SLODAand ask questions; however, the instructor was more reservedin responding to questions as would be the case in anyexamination.
+SLODA 4: Polarization imaging microscope is a return to
+the topic of imaging applications. Here, students are asked tosimulate a microscope that can separate parallel andperpendicularly polarized light scattered from a sample.
+Complex variables are used in order to simulate the differentpolarizations, where opposite polarizations are buried in thereal and imaginary components of the sample. A samplescript is provided for students in order to instruct them onhow to separate the polarizations computationally via com-plex variables. SLODA 4 was implemented as the ﬁnalexamination for the course in the same fashion as was
+SLODA 3: Spectrometer design.
+V. WHAT IS ACCOMPLISHED BY THESE SLODA?
+While implementation of SLODA into the PS 330 Optics
+curriculum is detailed above, the SLODA curriculum is resil-ient and adaptable and can be easily adapted to ﬁt any upper-division Optics course. How SLODA are implemented issecondary. What is fundamental to SLODA is that students
+gain the experience of integrating aspects of optical design and
+computation into a cohesive and complementary approach.
+The development of simulation led optical design assess-
+ments was primarily motivated by the integration of designand computational skills into a lecture course by incorporatingan emphasis on optical applications and systems. A secondary
+Fig. 2. (Color online) Instructions given to students for a simulation led optical design assessment (Ref. 19).
+283 Am. J. Phys., Vol. 90, No. 4, April 2022 Vincent M. Rossi 283 04 October 2023 23:06:42
+motivation for the SLODA was to simulate an authentic,
+collaborative work environment for students to engage in andexperience.
+By using simulations in order to guide optical design, stu-
+dents continually had to work between translating their
+design into code and then extracting physical insight intotheir design based upon the results of their simulations.
+Furthermore, each optical element in their design represented
+a computational operation that need be carried out. In thisfashion, each optical element in their system design servedas a natural means of compartmentalizing their code. Often
+these operations required specialized algorithms or functions
+such as the discrete 2D Fourier transform (fft2). Studentsalso had to properly scale their simulations—typically relying
+upon visual wavelengths of light and typical CCD speciﬁca-
+tions including pixel count and pitch. Sampling theory plays animportant part in resolution when students consider scaling their
+simulations. Finally, in the simulation led optical design assess-
+ments, students began with a known (simulated) sample thatthey would ultimately need to reproduce via their simulateddevices. Comparing the original (simulated) sample to the ﬁnal
+reconstruction gives students a direct means of testing and vali-
+dating their code—any visual discrepancies between the twoserves as an immediate check of their simulation and ultimately
+system design.
+VI. CONCLUSION
+The simulation led optical design assessment curriculum
+presented here, along with the preliminary computational
+activities, are all freely available online for instructional use
+via the author’s research website,
+14the Partnership forIntegration of Computation into Undergraduate Physics
+(PICUP),13and via the supplementary material.15A more
+detailed list of those resources is included in the Appendix .
+Simulation led optical design assessments were well
+received by students in their upper division optics course. Inparticular, students saw the value in learning to use computa-tional modeling in an applied context, appreciated the addedinsight offered via computationally modeling physical sys-
+tems, and recognized that the skills learned via these assess-
+ments would be applicable in their careers.
+Simulation led optical design assessments had the beneﬁt of
+providing application-based experience to students in a lecturecourse that had no required optical lab component. Beyond pro-viding students with a deeper understanding of optical design,interactions, and devices, these assessments also reinforced stu-dent understanding of computational methods. Simulation ledoptical design assessments afforded students practical and com-putational skills that they can draw from in their future physics
+courses and more broadly in their careers. While the SLODAs
+presented here were given in an optical context, there is poten-tial to adapt the simulation led design assessment approach toadditional contexts or courses such as electronics or engineeringspeciﬁc lecture courses.
+APPENDIX: SIMULATION LED OPTICAL DESIGN
+ASSESSMENT RESOURCES
+Simulation led optical design assessment resources are
+available online for instructional use via the author’sresearch website as well as the partnership for integration of
+computation into undergraduate physics (PICUP) and thisarticle’s supplementary material:
+15
+Fig. 3. (Color online) Sample schematic of the dark ﬁeld imaging apparatus (top) along with simulation results (bottom) submitted by students for the Fourier
+optics SLODA. Both the optical design schematic and simulation ﬁgures have been adapted by the author in order to be printer friendly, but their featur es are
+unchanged from student submissions. The simulated phase sample is provided (bottom left). A 4-f system is used here in order to generate an optical Fou rier
+transform (bottom, mid-left), which is then spatially ﬁltered via a high-pass ﬁlter (bottom, mid-right). The ﬁnal lens operates on the ﬁeld via an inv erse Fourier
+transform, returning the reconstructed dark ﬁeld image (bottom right).
+284 Am. J. Phys., Vol. 90, No. 4, April 2022 Vincent M. Rossi 284 04 October 2023 23:06:42
+https://www.washburn.edu/faculty/vrossi/RossiLab/SLODA.
+html
+https://www.compadre.org/PICUP/exercises/exercise.cfm?I
+=505&A=SLODA
+These resources include:
+•A downloadable zip folder containing code for each of the
+preliminary computational activities (executable in GNU
+Octave ). Each script is annotated with instructions for
+students.
+•Instructions, sample design schematic, and sample codepresented to students for activity 9: digital Fourier holo-graphic microscopy (the example SLODA).
+•The SLODA expectations grading rubric.
+•Instructions for SLODA 1: Fourier optics.
+•Instructions for SLODA 2: Digital holographic microscopy.
+•Instructions for SLODA 3: Spectrometer design.
+•Instructions for SLODA 4: Polarized imaging microscopealong with a (redacted) journal article as reference and theinitial code used to setup the sample in order to help getstudents started.
+In order to maintain the integrity of the four main
+SLODA, sample design schematics and simulations are notprovided via the website. Instructors interested in SLODAfor instructional use are welcome to contact the author withquestions or requests for additional resources.
+a)Electronic mail: vincent.rossi@washburn.edu, ORCID: 0000-0002-3534-
+647X.
+1How People Learn: Mind, Brain, Experience and School, ExpandedEdition , edited by J. D. Bransford, A. Brown, and R. Cocking (National
+Academy, Washington, DC, 2000).
+2M. D. Svinicki, Learning and Motivation in the Post-Secondary
+Classroom (Anker Publishing Company, Inc., Boston, 2004).
+3M. S. Sabella and E. F. Redish, “Knowledge organization and activation in
+physics problem solving,” Am. J. Phys 75(11), 1017–1029 (2007).
+4S. Freeman, S. L. Eddy, M. McDonough, M. K. Smith, N. Okoroafor, H.
+Jordt, and M. P. Wenderoth, “Active learning increases studentperformance in science, engineering, and mathematics,” Proc. Natl. Acad.
+Sci. U. S. A. 111(23), 8410–8415 (2014).
+5N. Lasry and M. W. Aulls, “The effect of multiple internal representations
+on context-rich instruction,” Am. J. Phys 75(11), 1030–1037 (2007).
+6AAPT Undergraduate Curriculum Task Force, AAPT Recommendations
+for Computational Physics in the Undergraduate Physics Curriculum
+(American Association of Physics Teachers, 2016); available at https://
+www.aapt.org/resources/upload/aapt_uctf_compphysreport_ﬁnal_b.pdf
+7F. Reif, Applying Cognitive Science to Education: Thinking and Learning
+in Scientiﬁc and Other Complex Domains (The MIT, Cambridge, MA,
+2008).
+8J. M. Wilson and E. F. Redish, “Using computers in teaching physics,”Phys. Today 42(1), 34–41 (1989).
+9P. M. Greenﬁeld, “Technology and informal education: What is taught,
+what is learned,” Science 323, 69–71 (2009).
+10Joint Task Force on Undergraduate Physics Programs, Phys 21: Preparing
+Physics Students for 21st-Century Careers (American Physical Society, 2016),
+available at <https://www.compadre.org/JTUPP/docs/J-Tupp_Report.pdf >
+11Subcommittee of the AAPT Committee on Laboratories, AAPT
+Recommendations for the Undergraduate Physics LaboratoryCurriculum (American Association of Physics Teachers, 2014); available
+athttps://www.aapt.org/resources/upload/la bguidlinesdocument_ebendorsed_
+nov10.pdf
+12E. Hecht, Optics , 5th ed. (Pearson, Boston, 2017).
+13V. Rossi, “Simulation Led Optical Design Assessments,” Published in the
+PICUP Collection for <https://www.compadre.org/PICUP/exercises/
+exercise.cfm?I=505&A=SLODA >, September 2021.
+14See,<https://www.washburn.edu/faculty/vrossi/RossiLab/SLODA.html >
+15See supplementary material at https://www.scitation.org/doi/suppl/10.1119/
+5.0064138 for Simulation Led Optical Design Assessment Resources.
+16For details about the software package used for simulation led optical
+design assessments, see the GNU Octave website, <https://www.gnu.org/
+software/octave/ >
+17A. M. Price, C. J. Kim, E. W. Burkholder, A. V. Fritz, and C. E. Wieman,
+“A detailed characterization of the expert problem-solving process in sci-ence and engineering: Guidance for teaching and assessment,” CBE—Life
+Sci. Educ. 20(3), ar43 (2021).
+18N. G. Holmes, B. Keep, and C. E. Wieman, “Developing scientiﬁc deci-
+sion making by structuring and supporting student agency,” Phys. Rev.
+Phys. Educ. Res. 16, 010109 (2020).
+19Background information on darkﬁeld imaging was provided to students
+via the Nikon MicroscopyU website, <https://www.microscopyu.com/
+techniques/stereomicroscopy/darkﬁeld-illumination >
+285 Am. J. Phys., Vol. 90, No. 4, April 2022 Vincent M. Rossi 285 04 October 2023 23:06:42

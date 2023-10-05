@@ -1,0 +1,612 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| JANUARY 01 2023
+Low-cost automated spin coater and thermal annealer for
+additive prototyping of multilayer Bragg reflectors 
+Nathan J. Dawson ; Yunli Lu ; Zoe Lowther ; Jacob Abell ; Nicholas D. Christianson ; Aaron W . Weiser ;
+Gioia Aquino
+Am. J. Phys.  91, 48–55 (2023)
+https://doi.org/10.1 119/5.0088776
+Articles Y ou May Be Interested In
+Development of spin coater with close loop control system using A TMega8535 microcontroller
+AIP Conference Proceedings  (February 2016)
+Diagnosis and therapy for a recalcitrant parylene coater
+J. Vac. Sci. T echnol. A  (July 1987)
+Mass Spectrometric Studies on the Limitations of Oil Dif fusion Pumped Coaters
+J. Vac. Sci. T echnol.  (July 1970) 04 October 2023 22:48:49
+Low-cost automated spin coater and thermal annealer for additive
+prototyping of multilayer Bragg reflectors
+Nathan J. Dawsona)
+College of Natural and Computational Sciences, Hawaii Paciﬁc University, Kaneohe, Hawaii 96744
+Yunli Lu
+College of Natural and Computational Sciences, Hawaii Paciﬁc University, Kaneohe, Hawaii 96744
+ZoeLowtherb)
+College of Natural and Computational Sciences, Hawaii Paciﬁc University, Kaneohe, Hawaii 96744
+Jacob Abell
+College of Natural and Computational Sciences, Hawaii Paciﬁc University, Kaneohe, Hawaii 96744
+Nicholas D. Christianson
+College of Natural and Computational Sciences, Hawaii Paciﬁc University, Kaneohe, Hawaii 96744
+Aaron W. Weiser
+Department of Physics and Astronomy, Youngstown State University, Youngstown, Ohio 44555
+Gioia Aquino
+College of Engineering, University of Hawaii, Honolulu, Hawaii 96822
+(Received 20 February 2022; accepted 16 September 2022)
+We present and implement a design for an automated system that fabricates multilayer photonic crystal
+structures. The device is constructed with low-cost materials. A polystyrene/cellulose acetate
+multilayer Bragg reﬂector was fabricated to conﬁrm the device’s capability. A distributed feedbacklaser was also fabricated and characterized. The system has also been used to fabricate microlasers for
+a Modern Physics laboratory assignment in which students measure ﬂuorescence, ampliﬁed
+spontaneous emission, lasing from one-dimensional Bragg reﬂectors, and lasing from scattering media.https://doi.org/10.1119/5.0088776
+I. INTRODUCTION
+Photonic crystals are an important class of materials
+because they interact strongly with visible light through wave
+interference.
+1,2They are observed in nature3–7and also ﬁnd
+many uses in science and technology.8–10One-dimensional
+photonic crystal are used for antireﬂection coatings,10vapor
+sensors,9,11and other photonic devices such as distributed
+feedback lasers.8,12–14Inorganic and hybrid materials are
+often used to fabricate multilayer photonic crystals,15–17but
+polymers offer an inexpensive alternative to many costly
+materials and their morphologies are more easily manipulated
+at the nanoscale. Thus, polymers have emerged as a cost-
+effective option for fabricating photonic materials.18
+Spin coating and annealing each individual layer “by hand”
+can be a serious undertaking where each prototype ﬁlm can
+require hours to days of repetitive steps. Thus, automating the
+process can greatly decrease the burden on a student or
+researcher. In this paper, we describe a low-cost, turnkey sys-tem to spin/anneal polymer multilayer ﬁlms that can be cre-
+ated from common consumer electronics parts and materials
+found at local hardware stores. Two applications of multilayer
+photonic crystals fabricated with the automated system are
+also presented—a visibly reﬂective Bragg mirror followed bya distributed feedback (DFB) laser. Implementation of the
+DFB lasers into a coherent light emission assignment for a
+modern physics laboratory course is also discussed.
+II. DEVICE DESIGN
+We describe an automated spin coater and annealer from
+materials accessible to most educators and researchers below.A. Body/frame
+The outer box of the frame is shown in Figs. 1(a)and1(b),
+where images of the constructed device from different per-
+spectives are shown in Sec. S1 of the supplementary mate-
+rial.
+19The frame was constructed of 1/800thick aluminum
+angles with 100legs. Construction angles are manufactured
+using a standard set of imperial dimensions, and they are sold
+at local hardware stores all over the United States.
+Construction angles can be made from a variety of materials,and we chose aluminum due to the ease of cutting and drilling
+relative to a harder material such as steel. Aluminum angles
+are usually sold with standard thicknesses of 1/16
+00incre-
+ments. The 1/1600thick aluminum angles can be quite ﬂimsy
+and the authors recommend using a minimum angle thickness
+of 1/800when using aluminum as the material. Note that the
+cost per foot of angles increases with the thickness so ﬁnding
+the minimum thickness necessary for your device can save on
+the ﬁnal cost of your device. Also, note that the 1/800thickness
+allowed for some bending away from a 90/C14angle with a rea-
+sonable amount of torque when mounting the linear actuatorsat a shallow angle with respect to the vertical direction. Thus,
+by choosing a 1/8
+00thickness, we were able to use the alumi-
+num angles for both the outer frame and the structures used to
+support actuating components. Construction angles can also
+be sold in a variety of leg sizes, where 100legs at 1/800thickness
+allowed for rigid frame construction and component mounting
+without changing sizes; purchasing 80standard lengths and
+cutting the dimensions shown in Fig. 1(b)resulted in residual
+pieces that were used for mounting purposes (always cut outyour largest pieces ﬁrst). Standard No. 4–40 machine screws/
+nuts were used to fasten the aluminum angles together.
+48 Am. J. Phys. 91(1), January 2023 http://aapt.org/ajp 48 04 October 2023 22:48:49
+The outward-facing legs at the top of the frame holding the
+linear actuators were ﬂush (no separation distance) with the
+legs of the angles of the outer frame. Small end pieces of alu-minum angles were used to mount the heat gun to the interiorsupport angles that ran from the rear of the frame to the front.A power strip was mounted on the horizontal angle at the rearof the box. The residual aluminum angle material was fas-tened to the back of the frame to secure a switching powersupply recycled from an unwanted/outdated computer.
+B. Components and actuators
+1. Spin coater
+The spin coater was made from a brushless direct-current
+(BLDC) motor of a hard drive taken from a retired desktopcomputer. Any BLDC motor with the ability to reach highrevolutions-per-minute (RPM) can be used for the rotationalactuator of the spin coater, but (1) the hard drive frame islarge and can be made into a cart by attaching wheels and(2) there are previously documented procedures for success-fully recycling the BLDC motors from computer hard drives
+for use as spin coaters.
+20–23The casing was removed fol-
+lowed by the read/write arm components and platter.Depending on the institution, protocols can be in place thatmake it difﬁcult to dispose of outdated university property,where many units may be in queue for removal over anextended period of time. Thus, it can be easy for educators/students with limited budgets to take advantage of this localstockpile of outdated materials/devices held by a university’sInformation Technology Services.
+A 4.5
+00diameter, miniature Bundt pan was used as the sol-
+vent catch bowl. A 1 1 =400diameter hole was drilled through
+the center of the Bundt pan from the rear using a hole-saw
+drill bit. The drilled edge of the Bundt pan was ﬁled smoothand mounted on the hard drive frame with the motor viewedthrough the center hole. A hollow cylindrical spacer wasﬁxed over the rotor to raise the spin coater plate above the
+inner lip of the catch bowl. A circular section on the harddrive casing was placed over the spacer for use as a spin
+coater plate and fastened to the rotor with three screws.
+Various models of magnetic hard drives are in common use,
+where this particular model attached the disk with a cap
+using three off-axis screws as opposed to a single centeredscrew.
+Some designs for hard-drive spin coaters require a small
+hole to be drilled through the rotational axis of the rotor;
+these designs can use an external vacuum pump to create a
+seal with the sample substrate.
+20Pumps can be costly and
+not all recycled hard drives can support this capability.
+Therefore, we used three /C240:5 cm pieces of Scotch brand
+mounting tape instead of a vacuum seal. When a rotor speedabove 6000 rev/min was required, we replaced one of the
+pieces of Scotch brand mounting tape with a piece of Gorilla
+Glue Heavy Duty mounting tape. Note that glass substrates
+were easily removed from the spin coater plate when only
+Scotch brand mounting tape was used or when only one
+piece of the heavy duty mounting tape was used, but glass
+substrates would often break from the stress applied toremove them when all three pieces of mounting tape were
+heavy duty.
+A line of lead-based solder was ironed onto the bottom of
+the spin coater plate’s outer edge to form a lip. The dense
+lead-based lip served two purposes; (1) residual solvent after
+spinning dripped from the lip into the solvent catch bowlinstead of ﬂowing into the motor, and (2) the heavy lip
+increased the plate’s moment-of-inertia to reduce angular
+jerk when accelerating/decelerating.
+2. Solvent deposition
+Spin coating layers of polymeric materials requires the
+polymers to ﬁrst be dissolved in solvents. The polymers in
+spin coated multilayers are limited to pairs soluble in
+Fig. 1. (Color online) (a) An image of the assembled multilayer spin coater/annealer system and (b) the frame constructed with aluminum angles. (c) Di agram
+showing the electronic component connections and (d) ﬂow chart. (e) The solid-state relay circuit controlling the DC motor used to relocate the spin c oater
+between dispensing and annealing positions.
+49 Am. J. Phys., Vol. 91, No. 1, January 2023 Dawson et al. 49 04 October 2023 22:48:49
+orthogonal solvents,18where an orthogonal solvent only dis-
+solves only one of the two polymers used during processing.During the spin cycle, the radial acceleration of the rigid sub-
+strate allows the viscous ﬂow of material to coat the ﬂat sur-
+face.24The coated ﬁlm can be made with relatively uniform
+thickness across much of the substrate over a broad range ofspin parameters.25
+In addition to multilayer reﬂectors with quarter-
+wavelength layer thicknesses, constructive interference in
+the reﬂected light can also occur at greater layer thicknessintervals.26For multilayers composed of high/low refractive
+index bilayers, the optimal thickness tfor a layer to reﬂect
+light at a wavelength kfollows as t¼ðmþ1=2Þk=2n, where
+nis the refractive index of a single layer and m¼0;1;2;….
+A multilayer Bragg grating typically consists of tens to hun-dreds of individual layers.
+The polymer/solvent solutions were deposited on the sub-
+strate by actuated syringes above the spin plate. The syringeswere mounted using the spare aluminum angle material and
+3/4
+00split ring hangers as shown in Fig. 1(a). The syringes
+were surrounded by pipe insulation foam before beingclamped tightly into position by the split ring hangers. Theheavy duty linear actuators were the most expensive compo-
+nents used in the automated system. Optical mounts were
+connected to the actuator and two washers were tightenedaround the syringe plunger to hold it in place. Other designsfor multilayer spin coaters employ dispensers fed throughtubes.
+27Our system was designed to use 12 ml disposable
+syringes, which reduces the amount of cleaning required
+after operation; however, the chosen length of the linearactuators (20 cm travel length) allows for much larger syrin-ges, if required.
+3. Annealing
+In addition to macroscopic mechanical parameters such
+as angular speed, duration of radial acceleration, and higher-
+order time derivatives of the rigid substrate’s angular position
+(e.g., jerk), open-system interactions of the polymer/solventsolution with the local environment are also of great impor-tance. The solvent in the polymer/solvent solution must beallowed to evaporate prior to subsequent layers being depos-
+ited. Therefore, adequate time during the spin process, anneal-
+ing time, and cooling time must be allowed for the solvent ineach layer to evaporate. Ambient conditions such as tempera-ture and relative humidity can directly affect the time requiredto evaporate the solvent in each layer.
+28,29
+Thermal annealing can signiﬁcantly raise the temperature
+of the sample and surrounding environment. Therefore, the
+annealing steps were performed away from the dispensingneedles by moving the spin coater to the rear of the device.To make the spin coater assembly mobile, sets of wheels
+were fastened to the front and rear of the spin coater which
+rolled along the legs of aluminum angles at the base of theapparatus. A belt-fed linear actuator driven by a DC motor,recycled from a Canon MG2500 series printer, was attachedto the hard disk’s frame and oriented to move toward and
+away from the front of the multilayer spin coater system.
+The use of a belt-driven linear actuator was due to availabil-ity only, where most linear actuators found in computer parts(e.g., optical disk tray or laser positioner from a CD/DVDdrive) would work well for the task of translating the spin
+coater assembly between the dispensing and annealing posi-
+tions. In the back-most position, a 300 W heat gun wasdirected straight down and ﬁxed to aluminum angle supports.
+The placement of the aluminum mounting angles used tohang the heat gun are shown in Fig. 1(b). The heat gun was
+mounted in the optimal position and orientation to heat the
+sample based on the distance that the spin coater was able tomove away from the deposition position. A 12 V cooling fanwas afﬁxed to vertical rail and oriented towards the anneal-ing position, where the fan was used to cool the sample fol-lowing thermal annealing.
+4. Controls and automation
+An Arduino with a ZYLTech CNC shield was loaded with
+the GRBL library and fastened to an interior aluminum
+angle. The XandYaxes controllers on the CNC shield were
+connected to the stepper motors that drove the linear actua-tors used for depositing the polymer/solvent solutions on thesubstrate. A second Arduino was loaded with the code givenin Sec. S2 of the supplementary material.
+19The pulse width
+modulation (PWM), pin 5, acted as a virtual DC signal to an
+electronic speed controller (ESC) which controlled the spin
+coater’s rotor. The ESC did not require a motor with Hallsensors, but instead, it determined the rotor speed by sensingthe induced emfof the stator winding as the magnetic ﬂux
+changed during rotation of the motor’s permanent magnets.This type of ESC is colloquially referred to as “sensorless.”
+The remaining logic pins were connected to 3.3 V relays
+with optocouplers. The relays connected to pin 2 controlledthe heat gun by closing a circuit with a 120 V AC source,and the relay connected to pin 8 closed a circuit with a 12 Vsource in series with a computer cooling fan. The relays con-nected to pins 4 and 7 controlled the tray movement by clos-ing a612 V sourced circuit with the DC motor. Both
+Arduinos were connected to the USB ports of a Raspberry Pi
+3B with a 5
+00touch screen which was fastened to the appara-
+tus frame.
+C. Polymers and solvents
+Low-cost, commercially available polymers and sol-
+vents were chosen for this study. Polystyrene (PS) wasrecycled from an expanded polystyrene cooler used to ship
+frozen goods. Klean Strip
+VRtoluene was used to dissolve
+the PS. Cellulose acetate (CA) was taken from graﬁxTM
+acetate overlay sheets. Diacetone alcohol (DAA) pur-chased from Consolidated Chemical & Solvents, LLC wasused to dissolve the CA.
+III. CHARACTERIZATION
+The relative motion “G91” GRBL command was used to
+move the linear actuator position as shown in Sec. S3 of thesupplementary material.
+19The linear interpolation code
+“G01” with a feed rate of “F070” was determined to be theoptimal command sequence for 16 gauge dispensing needles,
+where the ﬂuid speed exiting the tip was low enough to avoid
+splashing while maintaining an acceptable volume ﬂow rate.The feed rate should be adjusted if a different diametersyringe and/or dispensing needle is chosen. Because the nee-dle can drip ﬂuid due to the slow relaxation time from pres-sure built up after the linear actuator has reached its ﬁnal
+position, an additional backwards actuation was introduced.
+Using the default units for the GRBL commands, we deter-mined that a travel distance of 0.7 provided enough ﬂuid to
+50 Am. J. Phys., Vol. 91, No. 1, January 2023 Dawson et al. 50 04 October 2023 22:48:49
+cover a 100/C2100glass slide without ﬂowing over the sub-
+strate. After a few seconds, a backwards travel distance of0.2 removed all dripping while keeping ﬂuid in the dispens-ing needle. These parameters worked well for both polymersolutions. Note that a change in units, stepper resolution,thread pitch, viscosity, syringe size, dispensing needle gauge,and type of ﬂuid will affect the numerical value for the traveldistance commands. Thus, these parameters need to be estab-lished for individual prototype systems.
+The angular speed of the spin coater depended on the
+PWM input to the ESC, where the duty cycle of the PWMacts as a virtual DC signal. The frequency of the PWM sig-nal is ideally much greater than the step frequency signalto the BLDC from the ESC. Section S3 of the supplemen-tary material
+19illustrates how to change the PWM fre-
+quency via a change in the clock speed; a good resource
+for changing the frequency of PWM pins on an Arduino
+can be found in Ref. 30. The angular speed as a function of
+the input PWM duty cycle was determined with a digitaloscilloscope using optical tachometry. Because data sheetsmay not be available for all BLDC motors and taking someapart can result in irreversible damage, we also cut a sec-tion of the hard drive platter to act as small mirror on thespin coater. By reﬂecting a collimated laser diode lightbeam off the surface of the mirrored disk every time itpassed across the beam path, we were able to determine thetime interval of a revolution via photodiode detector. Themeasured rotor speed as a function of the duty cycle isgiven in Fig. 2. The lower right inset shows a screen shot
+of the oscilloscope between the channel detecting the ESCtachometer and the channel detecting the photodiode. Thetachometer revealed twelve cycles per one full rotation ofthe rotor. The maximum angular speed of the rotor for thehard disk connected to the spin plate is /C249600 rev/min.
+The Arduino has 256 bit resolution (0–255) for the dutycycle which means that the angular speed can be selectedwith a resolution of /C2437:6r e v / m i n .An option to anneal after each ﬂuid deposition and spin
+cycle was included in the system. A 300 W, single-setting,
+heat gun was aimed downward at the sample (when posi-
+tioned away from the deposition arms) with the heat gun’s
+nozzle located /C246 cm above the sample surface. Note that a
+multi-setting heat gun could be used for increased function-
+ality. The characterize and test the settings, the temperature
+at the sample location as a function of time was recorded
+with a type-K thermocouple after the relay was tripped to
+deliver power to the heat gun and is shown in Fig. 3.
+Cooling of the sample, substrate, and surrounding material
+can be a slow process. Because an automated system is in
+part designed to reduce the total time required to fabricate
+the multilayer materials, a cooling fan was introduced to fur-
+ther reduce the time period of the designated annealing steps.
+Figure 3also shows the temperature as a function of time
+when cooled with and without the cooling fan.
+Single layers of polymer ﬁlms were spin-coated from solu-
+tion onto substrates and annealed. The samples were thenshipped from Hawaii Paciﬁc University to Youngstown State
+University. The samples were then scored, and the thickness
+was measured with a stylus proﬁlometer. The thicknesses
+measured with a proﬁlometer as a function of rotor speed for
+different polymer/solvent concentrations for both CA and PS
+are shown in Fig. 4. A simple model of the thickness dvs the
+spin speed xis ﬁt to the data shown in Fig. 4. The model fol-
+lows the expected relationship d/1=ﬃﬃﬃ ﬃxp.
+31,32The model
+ﬁts the data well for low concentrations while the highest
+concentrations, 23 gl for PS and 29 g/l for CA, appear to
+have the greatest residuals over the range of spin speeds.
+IV. APPLICATIONS
+Two applications for the automated multilayer spin coater
+system are presented in this section. The ﬁrst describes a
+dielectric mirror, and the second involves the fabrication of a
+DFB laser. Both applications use the same polymer/solvent
+pairs.
+A. Polystyrene/cellulose acetate Bragg mirrors
+A square glass slide with 100side lengths was secured to
+the spin coater in the same manner described in the previous
+Fig. 2. (Color online) The rotor speed as a function of duty cycle. The
+upper-left inset shows a hard disk platter with a section removed with a glass
+cutter tool. The small piece was attached to the spin coater plate in order to
+determine the rotor speed by reﬂecting a CW laser beam. The lower-right
+inset shows an oscilloscope screenshot of showing the tachometer signal
+(blue line) and the photodetector signal from the laser beam reﬂected from
+the spin coater plate (yellow line).
+Fig. 3. (Color online) The temperature measured by a type-K thermocouple asa function of time during heating and cooling periods of the annealing step.
+51 Am. J. Phys., Vol. 91, No. 1, January 2023 Dawson et al. 51 04 October 2023 22:48:49
+section. Two 12 ml disposable syringes were secured below
+the dispensing arms. As determined from thin characteriza-tion in the previous section, the ﬁrst syringe contained 23 g/
+l PS/toluene and the second syringe contained 29 g/l CA/
+DAA. The linear actuator arms were repositioned, and the
+syringe plungers were clamped between two washers. A
+paper towel was placed beneath the dispensing needles, and
+the actuators were moved downwards until ﬂuid spurted
+from both needles. A short reversal of the actuators (X-0.2
+and Y-0.2) followed so that any slow drip from the dispens-
+ing needles was eliminated. The spin coater was repositioned
+with the substrate directly underneath the dispensing
+needles.
+The Python script shown in Sec. S3 of the supplementary
+material19was executed until 15 PS/CA bilayers (30 individ-
+ual layers) were deposited. The processing parameters for
+Bragg reﬂector fabrication follow:
+•PS/toluene spin speed: 7400 rpm
+•CA/DAA spin speed: 3900 rpm
+•Spin duration for both solutions: 45 s
+•Annealing duration for both solutions: 120 s
+•Fan-cooling duration for both solutions: 150 s
+After all layers were deposited, the glass substrate holding
+the ﬁlm was removed from the spin plate by slowly prying it
+away with a small tool. Any large mounting tape pieces still
+stuck to the bottom of the glass substrate were mechanically
+removed. The bottom of the substrate was then wiped clean
+of any residual adhesive with acetone and methanol.
+Transmission spectra were recorded with an Ocean Optics
+4000 USB spectrometer. The white-light probe had a beam
+diameter of /C242 mm. A glass substrate without any coating
+was placed in the gap and used as a reference. The transmis-
+sion spectrum of the multilayer ﬁlm (still adhered to the
+glass substrate) is shown in Fig. 5. The transmission spec-
+trum shown in Fig. 5is well-formed, but the reﬂection band
+became unesthetic when probed near the edge of the ﬁlm as
+shown in Sec. S4 of the supplementary material.19The transfer-matrix method33–35was used to model the
+transmittance of the multilayer ﬁlm. The transmittance deter-
+mined with the spectrometer was compared to three separate
+models. The ﬁrst model assumed that there were no varia-
+tions in the thickness of each type of material. It also
+assumed that the refractive index of both materials was con-
+stant. This simple model greatly overestimated the reﬂec-
+tance in the band region and did not accurately describe the
+transmittance oscillations at shorter wavelengths.
+The second model included dispersion in the refractive
+index of both materials, but it still assumed that the layer
+thicknesses were perfect throughout the multilayer reﬂector.
+The refractive indices as functions of free-space wavelength
+were estimated with a Cauchy model, n/C25AþB=k2, where
+AandBare ﬁt parameters and kis the wavelength. The CA
+refractive index was determined by ﬁtting the Cauchy model
+to data in Ref. 36. Similarly, the PS refractive index was
+determined using data from Ref. 37. The Cauchy model
+parameters for CA were determined to be A¼1.46 and
+B¼5:0/C2103nm–2. Likewise, the parameters for PS were
+estimated to be A¼1.56 and B¼1:1/C2104nm–2over the
+visible spectrum. The model that included dispersion overes-
+timated the reﬂectance in the band region, but to a lesser
+extent than the dispersionless model. The amplitude of trans-
+mittance oscillations outside the reﬂection band was still
+greatly exaggerated in the model. The frequency of oscilla-
+tions, however, increased at shorter wavelengths when com-
+pared with the dispersionless model. In comparison to the
+dispersionless model, the second model was able to describe
+the observed transmission spectrum to a better degree, but itwas still far from accurate.
+A third model included dispersion and also assumed that
+layer thicknesses ﬂuctuate tangentially across the ﬁlm.
+Because the probe beam had a relatively large spot size on
+the sample, variations in layer thicknesses over the beam
+spot can affect the measured transmittance. Thus, the third
+model assumes random thickness variations about the nomi-
+nal layer thickness of each material. To simulate tangential
+variations, the model assumes many cross-sectional areas in
+the ﬁlm with different random variations, where the spectra
+Fig. 4. (Color online) Layer thickness as a function of spin speed for differ-
+ing PS/Toluene and CA/DAA concentrations. The inset shows an example
+stylus proﬁlometer measurement of the layer thickness vs. horizontal posi-
+tion from which the data in the main graph were derived.
+Fig. 5. (Color online) The transmittance as a function of wavelength for a 15
+bilayer PS/CA multilayer ﬁlm. The transmittance is compared to three
+transfer-matrix method models with increasing complexity.
+52 Am. J. Phys., Vol. 91, No. 1, January 2023 Dawson et al. 52 04 October 2023 22:48:49
+of each small patch of area are summed together and divided
+by the total number of sections. We chose to calculate andaverage 100 subsections of area being illuminated. The ran-dom variations were assumed to be Gaussian about the meanfor each material. The model shown in Fig. 5assumes a
+mean layer of 96 nm for both CA and PS and an 8.5% stan-dard deviation in layer thickness uniformity. The thirdmodel, which assumes that the layer thicknesses ﬂuctuatetangentially across the multilayer ﬁlm, provides a good ﬁt tothe observed transmission spectrum.
+B. Distributed feedback laser
+As a demonstration of the spin coater’s layer reproducibil-
+ity, a multilayer DFB laser was fabricated using the sameBragg reﬂector recipe described above. For the DFB laser,the CA/DAA ﬂuid was doped with rhodamine 6g (R6g) at aconcentration of 1 wt. % with respect to the CA polymer. For29 gl of CA, the concentration of R6g with respect to theDAA volume was 290 mg/l. The Bragg bilayers have arefractive index difference Dn
+PS=CA/C240:1, where a 30-layer
+ﬁlm is typically insufﬁcient for DFB lasing. For example,DFB lasers fabricated from the terpolymer tetraﬂuoroethy-lene-hexaﬂuoropropylene-vinylidene ﬂuoride (THV) and thecopolymer styrene-acrylonitrile (SAN) have been reportedusing 128 layers with a greater refractive index difference,Dn
+THV =SAN/C240:2.38The 12 ml syringes used in this study do
+not hold enough ﬂuid to spin such large numbers of layers ina single run. Rather than spin many layers that require multi-ple reﬁlled syringes, a single run was performed to create apost-processable 30-layer ﬁlm. The multilayer ﬁlm was thencut with a razor blade into four equal-sized rectangles thatwere stacked on each other to increase the number of layersto 120. Each rectangle was glued together with an ultrathinadhesive layer which resulted in a 120-layer PS/R6g-CADFB laser.
+A 532 nm, 6 ns pulsed, Nd:YAG laser operating at 10 Hz
+was used to pump the multilayer DFB laser. The pump wasreﬂected downward from a dichroic mirror and focused witha lens onto the multilayer DFB laser. The light emitted fromthe surface of the multilayer DFB laser was collimated bythe lens and transmitted through the dichroic mirror. Theemitted light passed through a 550 nm high-pass ﬁlter andonto the end of an optical ﬁber that fed into a spectrometer.The pump intensity was adjusted with a variable attenuator.The output power of the multilayer DFB laser as a functionof pump power is shown in Fig. 6. The plot is commonly
+referred to as a “J-curve” due to the shape caused by a laser’sthreshold behavior. The emission spectrum is shown in theinset of Fig. 6and overlayed with the transmission spectrum
+of the DFB laser. The absorption band of R6g is located nextto the reﬂection band of the multilayer ﬁlm. The laser emis-sion wavelength is located at the highly dispersive, shortwavelength, reﬂection band edge. The J-curve is in goodagreement with previous plastic distributed Bragg reﬂectorlaser measurements at high pump intensities
+14and ASE mea-
+surements at low pump intensities.41
+C. Instructional use
+The system described in this paper can be used to create
+prototype Bragg reﬂectors for student-centered research proj-ects and instructional laboratory courses. At Hawaii PaciﬁcUniversity, the modern physics laboratory course includes acoherent light assignment in which students fabricate a dis-
+tributed feedback laser.
+A neat dye-doped polymer should be fabricated with a sin-
+gle spin coated layer when initially investigating incoherent
+light emission. Note that properties such as emission spec-trum and far-ﬁeld interference can be contrasted between the
+incoherent and coherent light in the written lab report. Using
+a low-cost, high-quantum-yield dye such as rhodamine 6g incellulose acetate is suitable for a second-harmonic Nd:YAG
+pump. Spin coating a thick layer onto a glass slide and focus-
+ing the pump beam onto a line with a cylindrical lens is thebest method for generating ampliﬁed spontaneous emission
+(ASE). Because the ASE threshold depends on the length of
+spontaneously emitted photons traveling through the gainmedium (the part of the dye-doped polymer being illumi-
+nated, a gain region should be broad. Using a cylindrical lens
+to focus a laser line onto the dye-doped polymer forms thegain region into a long cylinder-like shape, which (i) allowsfor a clearly deﬁned propagation direction and (ii) efﬁciently
+utilizes most of the pump intensity available for the purposes
+of gain. Note that the neatness of the polymer ﬁlm is impor-tant because impurities and roughness can sometimes result
+in random laser lines protruding from the ASE spectral pro-
+ﬁle. Fluorescence spectra can also be obtained from the samesample at very low intensities or the sample can be placed in
+the path of a beam with a circular cross section.
+The second sample is the multilayer DFB laser, which can
+be fabricated by the students. For a laboratory course meet-ing once a week, we recommend scheduling the laboratory
+assignment after the second week in the semester to allow
+for preparation. The solvent/polymer solutions (includingany dye) should be made two weeks in advance. Although
+PS dissolves quite rapidly in toluene, the CA can be stubborn
+when trying to dissolve in DAA, where many cycles of heatand sonication can be required. Thus, the instructor may ﬁnd
+themselves ﬁnishing up the process for CA/DAA outside of
+laboratory hours so that students may focus on the main lab-oratory assignment for that week. The DFB laser should be
+fabricated a week before the assigned laboratory. Because of
+the simple turnkey design, students can take a moment at the
+Fig. 6. (Color online) The output power as a function of pump power for the
+PS/R6g-CA multilayer DFB laser. The upper left inset shows the laser trans-
+mission and emission spectra. The lower right inset is an image of the multi-
+layer DFB laser.
+53 Am. J. Phys., Vol. 91, No. 1, January 2023 Dawson et al. 53 04 October 2023 22:48:49
+beginning of their regularly scheduled laboratory assignment
+to load the solvent/polymer solutions into the system andstart the process. A 15 bilayer ﬁlm should be ﬁnished before
+the end of a three-hour laboratory for inspection. Also, note
+that the instructor is advised to run a prototype days beforeto ensure that the system’s settings will result in a suitable
+DFB laser using the solvent/polymer solutions mixed in the
+previous week. The ﬁlm can be lifted, cut, and stacked tocreate a DFB laser with many layers during the same prepa-ration week which allows for transient mechanical behavior
+to dampen prior to beginning the coherent light laboratory
+assignment.
+The third sample is used to illustrate laser emission
+from weak photon localization, which is commonly referredto as random lasing. By the time the students have taken
+ﬂuorescence spectra, ASE spectra, and DFB emission spec-
+tra/J-curve/far-ﬁeld diffraction image, there is little timeremaining for a major undertaking like testing random lasingas a function of microparticle size or concentration. Thus, a
+simple proof-of-concept approach is recommended, where
+the easiest and most cost-effective method to show randomlasing is by staining a rough surface and using high intensitypump pulses. Large samples of bovine bones can be procured
+from T-bone and porterhouse cuts of meat available at local
+grocery stores; bovine femur bones from marrow cuts canoften be purchased from specialty meat suppliers. Moreinformation on random lasing from dyed bones are given in
+Refs. 39and40.
+V. DISCUSSION
+The system has features that allow for a diverse set of rec-
+ipes using various materials; however, some improvements
+are planned that could greatly improve the quality of the
+resultant multilayer ﬁlms. Wheels were mounted to the hard-drive housing as a simple and cost effective means of mov-ing the sample away from the dispensing syringes (often
+ﬁlled with volatile chemicals) for the annealing step.
+Mounting the hard-drive housing to a set of linear guide railsoffers increased stability of the hard disk during the spin pro-cess. This design feature could result in a greater tolerance
+when mounting the spin plate for newly constructed systems
+by constraining wobble caused by an off-center spin plate.The rotor used in our system required three screws to mount
+the hard-drive platter, which was later replaced by an ele-
+vated spin plate. Swapping the hard drive for a center-tappedrotor design would reduce the precision required to mountthe spin plate, but the wobble would be compensated by the
+linear guide rail. Center-tapped rotors have been shown to
+hold substrates in place via vacuum systems, and therefore,adding a linear guide rail could both reduce wobble andremove the necessity for substrate adhesives.
+As mentioned in the above paragraph, some costs were
+reduced by using inexpensive materials that could be
+replaced with more expensive alternatives. Likewise, moreparts of the presented system could be replaced by low-costmaterials with some sacriﬁce to performance. For example,
+the CNC arms used to push the syringe plungers were the
+most expensive items in the cost analysis shown in Sec. S5of the supplementary material.
+19Replacing the CNC arms
+with possible alternatives such as recycled linear actuators
+used for positioning the lasers in Blu-ray/DVD/CD drives
+could be a viable alternative, especially when consideringthat several other parts of the system were recycled fromdesktop computers. We did not attempt this approach
+because the pitch on those types of linear actuators is largeand the motors are relatively weak; however, either swap-
+ping out the smaller National Electrical Manufacturers
+Association (NEMA) motor for a larger NEMA motor orusing a rail with a ﬁner pitched threading could reduce theoverall cost of materials.
+Even with the above improvements to the mechanical sys-
+tem, poor sample quality can occur when solutions are not
+well-prepared. For the materials used in this paper, the PS/toluene solutions were the simplest to prepare at the concen-trations shown in Fig. 4. The CA/DAA was much more difﬁ-
+cult to dissolve and required many cycles of heating, mixing,
+and bath sonication. Despite appearing fully dissolved, somemarks were formed on the sample during the spin coatingprocess. These marks could have been caused by micro-
+scopic debris in the atmosphere landing on the ﬁlm during
+the spin coating process. The markings could have also beenformed from poor dissolution of the polymer. Pushing thesolution through a polytetraﬂuoroethylene (PTFE) ﬁlter prior
+to ﬁlling the dispensing syringes could potentially reduce the
+discontinuous markings in the ﬁlm.
+There are many options for screens suitable for Raspberry
+Pi models. The 5
+00touch screen used in our system was large
+enough to see the graphical user interface (GUI) of the oper-
+ating system, but it was too small to easily use the keyboard
+interface to edit the Python script while viewing the changesto it. Thus, a keyboard and mouse were used despite thetouch screen functionality. Using a larger touch screen would
+reduce the need for a keyboard and mouse. Alternatively, a
+screen that only requires an HDMI port would free manyRaspberry Pi pins. Then, many actuators can be controlleddirectly from the Raspberry Pi, where the Arduino Uno usedto control the relays and BLDC driver’s PWM could be
+removed from the system.
+As a ﬁnal note, there are no interlocks on the low-cost
+spin coater/annealer system. Thus, there should be precau-tions taken before running the system; mainly, the systemshould have intermittent supervision (it should not be run
+overnight without staff present). The relays should all have
+interlocks in the event that one does not trip to the proper set-ting. Overlapping interlocks should also be sent such as atemperature sensor. An interlock that senses ﬁnal dispenser
+plunger position should also be employed so that a use does
+not try to move the CNC arm below the emptied plungerposition. Finally, the system should not be run while under afume hood or air recycling unit that is housed in a shared
+facility; the annealing feature can add heat to the surround-
+ing environment that could potentially ignite fumes fromstored chemicals.
+VI. CONCLUSION
+The spin coater and thermal annealer system was built to
+reproducibly fabricate multilayer photonic crystal prototypesat a relatively low cost. The system was built in a short time,and the system components can be characterized with inex-
+pensive sensors and equipment commonly found at an aca-
+demic institution. The consumer grade polymers andsolvents used to create the Bragg gratings were also inexpen-sive. The system required only minimal preliminary steps for
+the syringes (ﬁlling, inserting, and priming) and glass sub-
+strates (cutting, cleaning, and adhering) before starting theautomated process. The system code given in Sec. S3 of the
+54 Am. J. Phys., Vol. 91, No. 1, January 2023 Dawson et al. 54 04 October 2023 22:48:49
+supplementary material19offers a degree of ﬂexibility when
+creating new recipes, and it only requires slight modiﬁca-tions to further the functionality, e.g., Python commandorder can be changed to dispense while the plate is spinning.
+ACKNOWLEDGMENTS
+The authors thank Pat Allen and the College of Natural
+and Computational Sciences staff for educationallaboratories at Hawaii Paciﬁc University for their support viasupplies and testing equipment.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+a)Electronic mail: ndawson@hpu.edu, ORCID: 0000-0003-1134-723X.
+b)ORCID: 0000-0001-5864-2135.
+1K. Inoue and K. Ohtaka, Photonic Crystals: Physics, Fabrication, and
+Applications (Springer, Berlin, 2013).
+2J. D. Joannopoulos, S. G. Johnson, J. N. Winn, and R. D. Meade, Photonic
+Crystals: Molding the Flow of Light , 2nd ed. (Princeton U. P., Princeton,
+NJ, 2011).
+3S. Kinoshita, S. Yoshioka, and J. Miyazaki, “Physics of structural colors,”Rep. Prog. Phys. 71, 076401 (2008).
+4J. Sun, B. Bhushan, and J. Tong, “Structural coloration in nature,” RSC
+Adv. 3, 14862–14889 (2013).
+5G. Zhang, A. Hirsch, G. Shmul, L. Avram, N. Elad, V. Brumfeld, I.
+Pinkas, Y. Feldman, R. Ben Asher, B. A. Palmer, L. Kronik, L.Leiserowitz, S. Weiner, and L. Addadi, “Guanine and 7,8-dihydroxanthop-
+terin reﬂecting crystals in the zander ﬁsh eye: Crystal locations, composi-
+tions, and structures,” J. Am. Chem. Soc. 141, 19736–19745 (2019).
+6R. K. Cersonsky, J. Antonaglia, B. D. Dice, and S. C. Glotzer, “The diver-
+sity of three-dimensional photonic crystals,” Nat. Commun. 12,
+2543–2543 (2021).
+7N. J. Dawson and V. Lynch-Holm, “Reduced ASE threshold from aperi-
+odic photonic structures in rhodamine B-doped king salmon ( oncorhyn-
+chus tshawytscha ) iridophores,” J. Lumin. 241, 118474 (2022).
+8J. H. Andrews, M. Crescimanno, K. D. Singer, and E. Baer, “Melt-
+processed polymer multilayer distributed feedback lasers: Progress and
+prospects,” J. Polym. Sci., Part B 52, 251–271 (2014).
+9P. Lova, C. Bastianini, P. Giusto, M. Patrini, P. Rizzo, G. Guerra, M.
+Iodice, C. Soci, and D. Comoretto, “Label-free vapor selectivity in poly( p-
+phenylene oxide) photonic crystal sensors,” ACS Appl. Mater. Interfaces
+8, 31941–31950 (2016).
+10J. Rombaut, S. Mart /C19ınez, U. M. Matera, P. Mazumder, and V. Pruneri,
+“Antireﬂective multilayer surface with self-cleaning subwavelength
+structures,” ACS photonics 8, 894–900 (2021).
+11P. Lova, G. Manfredi, L. Boarino, A. Comite, M. Laus, M. Patrini, F.
+Marabelli, C. Soci, and D. Comoretto, “Polymer distributed Bragg reﬂec-tors for vapor sensing,” ACS Photonics 2, 537–543 (2015).
+12H. Kogelnik and C. V. Shank, “Stimulated emission in a periodic
+structure,” Appl. Phys. B 18, 152–154 (1971).
+13N. J. Dawson, K. D. Singer, J. H. Andrews, M. Crescimanno, G. Mao, J.
+B. Petrus, H. Song, and E. Baer, “Post-process tunability of folded one-
+dimensional all-polymer photonic crystal microcavity lasers,” Nonlinear
+Opt. Quant. Opt. 45, 101–111 (2013), available at http://www.oldcitypu-
+blishing.com/journals/nloqo-home/nloqo-issue-contents/nloqo-volume-45-
+number-1-2-2013/nloqo-45-1-2-p-101-111/ .
+14Y. Lu, Z. Lowther, N. D. Christianson, Z. Li, E. Baer, M. G. Kuzyk, and
+N. J. Dawson, “Demonstration of a self-healing all-polymer distributed
+Bragg reﬂector laser,” Appl. Phys. Lett. 116, 103301 (2020).
+15M. E. Calvo, O. S /C19anchez Sobrado, G. Lozano, and H. M /C19ıguez, “Molding
+with nanoparticle-based one-dimensional photonic crystals: A route toﬂexible and transferable Bragg mirrors of high dielectric contrast,”
+J. Mater. Chem. 19, 3144–3148 (2009).
+16M. Anaya, A. Rubino, M. E. Calvo, and H. M /C19ıguez, “Solution processed
+high refractive index contrast distributed Bragg reﬂectors,” J. Mater.
+Chem. C 4, 4532–4537 (2016).17G. Giordano, C. Durante, N. Michieli, A. Gennaro, A. Martucci, and M.
+Guglielmi, “SiO 2–TiO 2multilayer via electrochemical deposition:
+Characterization of reﬂection and refractive index,” J. Sol-Gel Sci.
+Technol. 89, 196–204 (2019).
+18P. Lova, H. Megahd, P. Stagnaro, M. Alloisio, M. Patrini, and D.
+Comoretto, “Strategies for dielectric contrast enhancement in 1d planar
+polymeric photonic crystals,” Appl. Sci. 10, 4122 (2020).
+19See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0088776 for additional ﬁgures, computer code, and data.
+20R. Bianchi, M. Panssiera, J. Lima, L. Yagura, A. Andrade, and R. Faria,
+“Spin coater based on brushless dc motor of hard disk drivers,” Prog. Org.
+Coat. 57, 33–36 (2006).
+21“Spin Coater from Old HDD—Details—Hackaday.io,” <https://hackaday.
+io/project/25260-makerfoundry/log/60808-spincoater-from-old-hdd >(last
+accessed July 18, 2021).
+22M. Sadegh-cheri, “Design, fabrication, and optical characterization of alow-cost and open-source spin coater,” J. Chem. Educ. 96, 1268–1272
+(2019).
+23A. Kadhim, S. M. Swadi, and G. M. Ali, “Design and implementation of afeedback programmable spin coating system,” Indones. J. Electr. Eng.
+Comput. Sci. 17, 1516–1523 (2020).
+24R. G. Larson and T. J. Rehg, Spin Coating (Springer, Netherlands,
+Dordrecht, 1997), pp. 709–734.
+25K. Norrman, A. Ghanbari-Siahkali, and N. B. Larsen, “6 studies of spin-coated polymer ﬁlms,” Annu. Rep. Prog. Chem., Sect. C 101, 174–201
+(2005).
+26K. Vasudevan, M. C. Divyasree, and K. Chandrasekharan, “Enhanced non-linear optical properties of zns nanoparticles in 1d polymer photonic crys-
+tal cavity,” Opt. Laser Technol. 114, 35–39 (2019).
+27S. Vozar, Y.-C. Poh, T. Serbowicz, M. Bachner, P. Podsiadlo, M. Qin, E.
+Verploegen, N. Kotov, and A. J. Hart, “Automated spin-assisted layer-by-
+layer assembly of nanocomposites,” Rev. Sci. Instrum. 80, 023903 (2009).
+28U. Hecht, C. M. Schilz, and M. Stratmann, “Inﬂuence of relative humidity
+during ﬁlm formation processes on the structure of ultrathin polymeric
+ﬁlms,” Langmuir 14, 6743–6748 (1998).
+29Y. Mouhamad, P. Mokarian-Tabari, N. Clarke, R. A. L. Jones, and M.
+Geoghegan, “Dynamics of polymer ﬁlm formation during spin coating,”
+J. Appl. Phys. 116, 123513 (2014).
+30“Arduino-PWM-Frequency ArduinoInfo” <https://arduinoinfo.mywikis.
+net/wiki/Arduino-PWM-Frequency >(last accessed April 14, 2021).
+31D. B. Hall, P. Underhill, and J. M. Torkelson, “Spin coating of thin and
+ultrathin polymer ﬁlms,” Polym. Eng. Sci. 38, 2039–2045 (1998).
+32C. B. Walsh and E. I. Franses, “Ultrathin pmma ﬁlms spin-coated from tol-
+uene solutions,” Thin Solid Films 429, 71–76 (2003).
+33J. M. Luque-Raigon, J. Halme, and H. Miguez, “Fully stable numerical
+calculations for ﬁnite one-dimensional structures: Mapping the transfer
+matrix method,” J. Quant. Spectrosc. Radiat. Transfer 134, 9–20 (2014).
+34S. J. Orfanidis, Electromagnetic Waves and Antennas (2016), Chap. VI,
+available at https://www.ece.rutgers.edu/~orfanidi/ewa/ .
+35I. Kriegel and F. Scotognella, “Modelling and fabrication of one-
+dimensional ﬂexible multilayer photonic crystals based on polymers andinorganic materials,” Opt. Mater. 123, 111859 (2022).
+36M. Reimer, D. Van Opdenbosch, and C. Zollfrank, “Fabrication of
+cellulose-based biopolymer optical ﬁbers and their theoretical attenuation
+limit,” Biomacromolecules 22, 3297–3312 (2021).
+37V. Bonal, J. A. Quintana, J. M. Villalvilla, R. Munoz-Marmol, J. C. Mira-
+Martinez, P. G. Boj, M. E. Cruz, Y. Castro, and M. A. Diaz-Garcia,
+“Simultaneous determination of refractive index and thickness of submi-
+cron optical polymer ﬁlms from transmission spectra,” Polymers 13, 2545
+(2021).
+38J. H. Andrews, M. Crescimanno, N. J. Dawson, G. Mao, J. B. Petrus, K. D.
+Singer, E. Baer, and H. Song, “Folding ﬂexible co-extruded all-polymer
+multilayer distributed feedback ﬁlms to control lasing,” Opt. Express 20,
+15580–15588 (2012).
+39Q. Song, S. Xiao, Z. Xu, J. Liu, X. Sun, V. Drachev, V. M. Shalaev, O.Akkus, and Y. L. Kim, “Random lasing in bone tissue,” Opt. Lett. 35,
+1425–1427 (2010).
+40Q. Song, Z. Xu, S. H. Choi, X. Sun, S. Xiao, O. Akkus, and Y. L. Kim,“Detection of nanoscale structural changes in bone using random lasers,”Biomed. Opt. Express 1, 1401–1407 (2010).
+41N. D. Christianson, Y. Lu, and N. J. Dawson, “Recovery of photodegraded
+rhodamine 6g in ester-containing polymer matrices,” Photochem.
+Photobiol. Sci. 18, 2865–2874 (2019).
+55 Am. J. Phys., Vol. 91, No. 1, January 2023 Dawson et al. 55 04 October 2023 22:48:49

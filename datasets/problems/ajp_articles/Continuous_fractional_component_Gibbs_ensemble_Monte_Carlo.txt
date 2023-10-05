@@ -1,0 +1,823 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| MARCH 01 2023
+Continuous fractional component Gibbs ensemble Monte
+Carlo
+Niklas Mayr ; Michael Haring ; Thomas W allek
+Am. J. Phys.  91, 235–246 (2023)
+https://doi.org/10.1 119/5.0135841
+Articles Y ou May Be Interested In
+Thermal simulations of STRIKE tiles for the assessment of the CFC prototypes and of the configuration for
+SPIDER
+AIP Conference Proceedings  (February 2013)
+CFC ‐ free refrigeration: Thermoacoustic technology ‐ design, construction, and evaluation
+J Acoust Soc Am  (September 1993)
+Collection of submicron particles with cloud droplets using the new MIT -CFC
+AIP Conference Proceedings  (May 2013) 04 October 2023 22:50:47
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Continuous fractional component Gibbs ensemble Monte Carlo
+Niklas Mayr,a)Michael Haring,b)and Thomas Wallekc)
+Institute of Chemical Engineering and Environmental Technology, Graz University of Technology,
+Inffeldgasse 25/C, 8010 Graz, Austria
+(Received 23 November 2022; accepted 24 November 2022)
+A continuous fractional component (CFC) approach increases the probability of particle swaps in
+the context of vapor-liquid equilibrium simulations using the Gibbs ensemble Monte Carlo
+algorithm. Two variants of the CFC approach are compared for simulations of pure Lennard-Jones
+(LJ) ﬂuids and binary LJ mixtures as examples. The details of an exemplary CFC implementationare presented. Recommendations are provided to reduce the effort required for the suggested
+problems.
+VC2023 Author(s) .All article content, except where otherwise noted, is licensed under a Creative Commons
+Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0135841
+I. INTRODUCTION
+Since its original development in the 1980s, the Gibbs
+ensemble Monte Carlo (GEMC) algorithm has been success-fully applied to the simulation of ﬂuid phase equilibria.
+Among the most important advantages of the GEMC algo-
+rithm are its simple, intuitive methodology, and the fact that
+data for both coexisting phases can be obtained from a single
+simulation. The data include macroscopic properties such asthe phase molar fractions, x
+i, the phase densities, qi, and the
+chemical potentials, li.1A broad range of open-source
+GEMC programs has been developed.2–6However, a signiﬁ-
+cant limitation of the GEMC algorithm is that the acceptance
+probability for molecule swaps becomes low for insertionsinto dense phases, especially if components with large differ-
+ences of molecular sizes are simulated.
+The goal of this paper is to discuss several variants of the
+GEMC algorithm, which increase the probability of particle
+swaps in the context of vapor-liquid equilibrium simulations.
+For this purpose, two variants of the continuous fractional com-ponent (CFC) approach are compared for pure Lennard-Jones
+ﬂuids, binary Lennard-Jones mixtures, ethane, and carbon diox-
+ide. Details of a continuous fractional component program in
+MATHEMATICA are presented. Simulation protocols are recom-
+mended to reduce the effort required for the proposed problems.
+This paper is structured as follows: In Sec. II, the princi-
+ples of the Gibbs ensemble Monte Carlo approach are pre-
+sented. The challenge of inserting molecules into dense
+phases is discussed in Sec. III, and two frequently used var-
+iants of the continuous fractional component approach are
+introduced in Sec. IV. The implementation of these algo-
+rithms is presented in Sec. V. In Sec. VI, the continuous frac-
+tional component algorithm is compared to the conventional
+GEMC approach by discussing the acceptance probabilities,followed by a comparison of GEMC and the continuous frac-
+tional component algorithm and an assessment of theimplementations regarding stability, comparison of simula-
+tion results to the literature, and the computational perfor-
+mance. Conclusions are given in Sec. VII, and Sec. VIII
+provides suggested problems for interested readers.
+II. GIBBS ENSEMBLE MONTE CARLO
+The Gibbs criteria for equilibrium between the vapor (V)
+and liquid (L) phases require the equality of the temperature,
+pressure, and chemical potentials in both phases
+T
+V¼TL;PV¼PL;lV;i¼lL;i: (1)
+If Eq. (1)is satisﬁed, the entire system is in a state of mini-
+mum internal energy, or, equivalently, maximum entropy
+fS¼maxgU;V;N¼const :()fU¼mingS;V;N¼const :: (2)
+In the GEMC algorithm, the two phases are represented by
+two simulation boxes ﬁlled with discrete particles. To satisfy
+Eq.(1), three kinds of trial moves are made: (i) molecules
+are randomly displaced within the boxes for internal equili-bration, (ii) the box volumes are adjusted to equilibrate the
+pressure, and (iii) particles are swapped between the two
+boxes to equilibrate the chemical potential. These moves areillustrated in Fig. 1.
+Starting from an initial conﬁguration of the particles in the
+two boxes, trial moves are performed alternately or randomly
+along with a check if such a move drives the system toward
+the minimum internal energy according to Eq. (2). For this
+purpose, the change of the internal energy from the old (o) tonew (n) conﬁguration is calculated as
+D/C23
+o!n¼XN
+j¼1/C23ðrj;nÞ/C0XN
+j¼1/C23ðrj;oÞ; (3)
+where /C23ðrijÞis an internal energy potential function, rjis the
+position of particle j, and the summation is over all molecules N
+235 Am. J. Phys. 91(3), March 2023 http://aapt.org/ajp VCAuthor(s) 2023.
+ 235 04 October 2023 22:50:47
+in the system. For spherically symmetric molecules, the
+Lennard-Jones (LJ) potential function (cf. Fig. 3) can be used.1
+T h eL J - p a r a m e t e r sc a nb ed e t e r m i n e db ya bi n i t i oa l g o r i t h m s8
+or from experimental data.9
+After a trial move has been proposed, it is accepted or
+rejected by the Metropolis algorithm. It is based on the
+change of internal energy as given by
+pn
+po¼min 1 ;expð/C0bD/C23o!nÞ ½/C138 ; (4)
+where b¼1=kBT;pn=pois the probability of accepting a
+move from the old to the new conﬁguration, D/C23o!nis the
+change of the internal energy, and kBis the Boltzmann con-
+stant. Thus, a proposed move is always accepted if the calcu-lated energy difference is less than or equal to zero. If it is
+greater than zero, the acceptance probability is compared
+with a random number, n
+i, which is uniformly distributed on
+(0, 1). If niis greater than the calculated acceptance probabil-
+ity, the move is rejected.
+In some implementations of the acceptance algorithm, an
+early rejection method called “overlap” is used, where anoverlap radius r
+ovis deﬁned. If the distance between two
+interaction sites is smaller than rov, the trial move is automat-
+ically rejected before applying Eq. (4).10
+A certain number of trial moves is executed during the
+three phases of the simulation: (i) in the warm-up phase,
+only displacements are attempted to “melt” the initial
+arrangement of the molecules, which usually are on a grid;(ii) in the equilibration phase, the system is equilibrated
+using the three trial moves; and (iii) during the production
+phase, a sufﬁcient number of states is sampled to obtainensemble averages of the macroscopic properties of the
+boxes such as the phase molar fractions x
+i, the phase densi-
+tiesqi, and the chemical potentials li. Samples are taken
+only after a certain amount of trial moves have been exe-
+cuted. The routine of executing a set number of trial moves
+and sampling the system once is referred to as a Monte Carlocycle.
+10
+III. THE CHALLENGE OF INSERTING
+MOLECULES INTO DENSE PHASES
+Practical applications of the usual GEMC algorithm are
+limited by the low acceptance probability of molecule swaps
+for insertions from the vapor box into the liquid box,especially if molecules with large differences of their molec-
+ular sizes are simulated. The lower the temperature and thehigher the density, the greater the number of swaps that needto be attempted, because the probability of accepting a swapdecreases. This low swap acceptance probability is mainlydue to the strong repulsive force when two particles becomevery close (cf. Fig. 3), and a randomly chosen insertion posi-
+tion is increasingly likely to be close to another moleculewith increasing density. As an appropriate number ofattempted swaps per Monte Carlo (MC) cycle, it has beenproposed to start with half the number of molecules in thesystem and determine an appropriate number in iterative pre-simulations. For example, if the system contains 500 mole-cules, 250 swap moves are proposed as the initial number of
+swap moves per cycle.
+11If the chemical potential is insufﬁ-
+ciently equilibrated because not enough swap moves wereaccepted by the end of the simulation, the number ofattempted swap moves is increased before running the simu-lation again.
+However, at low temperatures and accordingly low accep-
+tance probabilities, simply increasing the number ofattempted swap moves is insufﬁcient, because each trialmove comes at a computational cost causing the duration ofa simulation to become excessively long.
+Several approaches have been proposed to overcome this
+problem. One of the earliest improvements is based on theidea that the acceptance probability for swaps of small par-ticles is signiﬁcantly higher than that of larger ones.Therefore, only the smaller particles are swapped betweenthe boxes. The larger ones are not swapped directly butexchanged with the smaller molecules. As displayed inFig. 2, this exchange is done by changing the identity of a
+small particle into a large particle in one box and the other
+way around in the second box. The results of this approach
+are in good agreement with experimental data for systems ofnoble gases such as argon, krypton, neon, and xenon.
+12
+The “inﬂating-ﬂea” algorithm is similar to this approach.
+In the inﬂating-ﬂea algorithm, a few small particles, whichcan be easily swapped between the boxes, are added. These“entrainer particles” are then swapped with the actual par-ticles in a separate step. The main limitation of this algo-rithm is that the system is no longer identical to the originalsystem.
+13,14
+In the conﬁgurational bias GEMC algorithms, the random
+insertion of an entire molecule is replaced by the gradualinsertion of its constituting atoms, one after another in a way
+Fig. 1. Trial moves in the GEMC algorithm (Ref. 7).
+236 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 236 04 October 2023 22:50:47
+that avoids unfavorable, e.g., overlapping, positions. This
+insertion is done in such a way that preferable conﬁgurations,
+which are more likely to be accepted, are sampled.Conﬁgurational bias GEMC algorithms have been success-
+fully applied to alkane mixtures.
+15,16A substantially differ-
+ent approach, which avoids particle swaps, combines theGEMC approach and thermodynamic integration of the
+Gibbs–Duhem equation along the saturation line.
+17
+IV. THE CONTINUOUS FRACTIONAL
+COMPONENT ALGORITHMS
+Methodologically, the continuous fractional component
+algorithm is similar to the inﬂating-ﬂea algorithm. Instead ofadding small tracer particles, continuous fractional componentalgorithms are based on the introduction of fractional mole-
+cules. The interactions of a fractional with the rest of the sys-
+tem are scaled, so that the particle can be inﬂated orcontracted gradually. By doing so, a gradual insertion or dele-
+tion replaces the conventional GEMC swap move for which
+an entire molecule is moved from one box to the other atonce. In this way, a reasonable acceptance probability of par-
+ticle swaps into the dense phases is achieved. A comprehen-
+sive overview of the development of the continuous fractionalcomponent algorithm can be found in Ref. 18.W es u m m a r i z e
+the basic ideas of its methodology in the following.
+The conventional particle swap, which moves a full parti-
+cle from one box to a randomly chosen position in the otherbox, is replaced by a gradual insertion and deletion. A cou-
+pling parameter kis introduced that controls the interactions
+of the fractional particle. The interaction of the fractionalswith the other particles is scaled as
+/C23ðr
+ij;kÞ¼4k/C15ij1
+nð1/C0kÞ2þrij=rij/C0/C16hi28
+<
+:
+/C01
+nð1/C0kÞ2þrij=rij/C0/C169
+=
+;; (5)
+whererij¼riiþrjj
+2; (6)
+/C15ij¼ﬃﬃﬃﬃﬃﬃﬃﬃ ﬃ/C15ii/C15jjp: (7)
+In Eq. (5),nis an adjustable parameter, which is usually set
+to 0.5,19rijis the distance between the Lennard-Jones par-
+ticles, and rijand/C15ijare the size and energy pair parameters.
+They are calculated with an appropriate combining rule just
+like for a conventional GEMC simulation, for example, with
+the Lorentz-Berthelot rules given in Eqs. (6)and(7). The
+scaled Lennard-Jones potential is illustrated in Fig. 3.
+When two fractionals interact, the interaction parameter
+value becomes20
+kij¼kikj: (8)
+As can be seen in Fig. 3, the interaction of a fractional
+with another particle is small when kis small. Thus, the
+insertion probability of the fractionals into a dense phase is
+high, because the energy contribution, even for very close
+particles, is low.
+Not all fractionals have the same value of k.T h e kdistribu-
+tion can become steep because states with low kvalues are
+unlikely. We use the Wang–Landau approach to determine a
+biasing function gðkÞso that all kvalues are equally likely.21,22
+Fig. 2. Schematic illustration of the swap move in comparison to the swap move for size-asymmetric mixtures (Ref. 12). The orange circle around the big,
+green molecule indicates the strong repulsive forces between two very close molecules. These strong repulsive forces lead to a low acceptance rate fo r swaps
+of large molecules or insertions into dense phases.
+Fig. 3. Scaled Lennard-Jones potential for different values of k.ris the
+Lennard-Jones size, and /C15is the energy parameter of the potential well.
+Legend: k¼------ 0.33, – – – –0.66, ——- 1.00.
+237 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 237 04 October 2023 22:50:47
+This biasing function gðkÞis initialized to zero at the start of
+the simulation and is determined iteratively during the equili-
+bration phase. For this purpose, a biasing increment vis used,
+and the values of kare divided into ten equal sized bins, e.g.,
+the ﬁrst bin is 0 <k<0:1. Each time a new kbin is visited,
+the respective bin and, thus, gðkÞis incremented by ln ðvÞ.F o r
+example, if a trial move resulting in k¼0:15 is accepted, the
+value of the second bin is incremented by ln ðvÞ.T oe n s u r ea
+smooth kdistribution, a linear interpolation is used between
+the bins. In this way, trial moves resulting in kbins that have
+been visited often are less likely to be accepted, and the kdis-
+tribution becomes ﬂatter.23
+After 10,000 conﬁgurations have been sampled, the bias-
+ing increment vis adjusted. If each bin, which should on
+average contain 10% of the visited states, contains at least
+1% of all kstates that have been visited during the respective
+evaluation period, the biasing increment vis decreased
+according to
+vnew¼ﬃﬃﬃﬃﬃﬃﬃvoldp: (9)
+In this way, the biasing increment becomes smaller with
+every adjustment, and the biasing function, gðkÞ, approaches
+its ﬁnal value.21,23,24
+As discussed in Sec. II, moves are accepted or rejected dur-
+ing the simulation by the Metropolis algorithm. To account forthe bias, the difference of g
+o!nbetween the old state (o) and
+the new state (n) is included in the acceptance rule
+pn
+po¼min 1 ;expð/C0bD/C23o!n|ﬄﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄﬄﬄ}
+Usual GEMCþDgo!nÞ|ﬄﬄﬄ{zﬄﬄﬄ}
+CFC biasing"#
+; (10)
+where Dgo!n¼go/C0gn.
+A. Continuous fractional component with two fractionals
+In the continuous fractional component algorithm of Ref.
+23, referred to as CFC2F, one fractional particle is added to
+each box per component with a coupling value kof 0.5 each.
+Each pair of fractionals is coupled via their kvalues19
+1¼ki;Vþki;L: (11)First, the proposed change of the coupling value Dkis ran-
+domly sampled in the range ½0;Dkmax/C138,w h e r e Dkmaxis chosen
+using the algorithm by Allen and Tildesley1to create a 50%
+continuous fractional component acceptance probability.
+Separate biasing functions gðkÞare used for each box to
+guarantee a ﬂat kdistribution in each box. Once a change in
+khas been sampled, we check to see if the new value of kis
+within the range [0, 1]. If so, we attempt to change the cou-pling parameter kof both fractional molecules in their
+respective boxes. Both moves are illustrated in Fig. 4.
+If the newly proposed value of kis outside the range ½0;1/C138,
+a molecule swap is attempted as illustrated in Fig. 4(b). The
+new values for kof the fractionals are calculated using
+k
+i;del;n¼1þðki;del;o/C0DkÞ
+and
+ki;ins;n¼1/C0ðki;ins;oþDkÞ: (12)
+The fractional in the box where k>1 is then converted
+into a full particle, and a new fractional is inserted at a ran-domly chosen position. Simultaneously, the fractional is
+deleted from the donor box and another, previously full par-
+ticle is selected as the new fractional. The reason for this pro-cedure is that the energy contribution of changing afractional with a value of kclose to unity is small. At the
+same time, the negative energy contribution from removingthe fractional with the small coupling parameter is also smalland, most importantly, the interactions of the newly insertedmolecule are minimal. Consequently, the acceptance proba-bility of this procedure of exchanging a particle to the otherbox is high and favorable to facilitate particle swaps. Thechange of the interaction energies /C23and the biasing values g
+are used to calculate the acceptance probability given by
+19
+pn
+po¼min 1 ;Ndel
+o
+Nins
+oþ1Vins
+Vdelexpð/C0bD/C23o!nþDgo!nÞ"#
+: (13)
+B. Continuous fractional component with one fractional
+A continuous fractional component algorithm that is simi-
+lar to CFC2F and is referred to as CFC1F uses only one
+Fig. 4. Continuous fractional component algorithm CFC2F, Ref. 19.
+238 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 238 04 October 2023 22:50:47
+fractional per component instead of two coupled ones.24
+Consequently, the fractional is present in only one of the two
+boxes. A third continuous fractional component trial move—
+the “exchange move”—is introduced that swaps the frac-
+tional from one box to the other. Another difference is that
+the type of the continuous fractional component trial move israndomly chosen and independent of the current value of k:
+50% of the continuous fractional component trial moves are
+kchanges, 25% are exchanges, and 25% are swaps.
+The change of kis similar to that of CFC2F. The main dif-
+ference is that only the change of the interactions of one par-
+ticle needs to be calculated. The acceptance rule is24
+pn
+po¼min 1 ;expð/C0bD/C23o!nþDgo!nÞ ½/C138 : (14)
+Figure 5(a)illustrates how the fractional is exchanged with a
+randomly chosen full particle of the same component of the
+other box.
+The acceptance rule for a trial change where kand the
+positions of the particles remain unchanged, but the numberof full particles in the boxes can change, is
+pn
+po¼min 1 ;No;i
+Nn;iexpð/C0bD/C23o!nþDgo!nÞ/C20/C21
+: (15)
+The energy change due to the trial move is multiplied by the
+ratio of the number of full particles of the exchanged compo-
+nent iin the old and new boxes. This trial move is likely to
+be accepted for values of kclose to unity, where the fraction-
+als’ interactions are almost equal to those of a full particle.24
+The continuous fractional component exchange trial move is
+displayed in Fig. 5(a).
+For a trial change where kand the number of full mole-
+cules remain constant, but the fractional is moved from one
+box to the other, the acceptance rule is
+pn
+po¼min 1 ;Vo
+Vnexpð/C0bD/C23o!nþDgo!nÞ/C20/C21
+: (16)
+The energy change due to this trial move is multiplied by the
+ratio of the total volume of the box where the fractional was
+before the move was attempted and the total volume of the
+box where the fractional is proposed to be placed. This trialmove is likely to be accepted for small values of kfor which
+the interactions of the fractional are weak.24
+V. IMPLEMENTATION OF THE ALGORITHM
+The simulations were conducted using software optimized for
+comparing the two continuous fractional component algorithms
+we have discussed. The software is based on the GEMC algo-rithm proposed by Panagiotopoulos,10,25,26comprising a warm-
+up, equilibration, and production phase.1Analytical tail correc-
+tions account for the truncation of the intermolecular interactions
+of the Lennard-Jones potential.27The pressure is determined
+from the ideal and viral contributions.28The Widom ghost parti-
+cle algorithm is used to determine the chemical potential.29For
+the calculation of cross-interactions, the geometric mean or the
+Lorenz-Berthelot combining rules [see Eqs. (6)and(7)]a r e
+available.30For electrostatic long range corrections, the Ewald
+or Wolf summations are implemented.31,32This simulation
+package, written in MATHEMATICA ,33is part of the supplementary
+material34and also available in Ref. 35.
+VI. ASSESSMENT
+To have a reasonable computation time and to reduce
+ﬁnite-size effects, periodic boundary conditions are used. All
+the simulations were conducted with 500 molecules, using
+the Lennard-Jones parameters for argon: r¼3:3952 ˚A;/C15 =kB
+¼116:79 K.
+Additionally, three binary Lennard-Jones mixtures ranging
+from r22=r11¼½1/C00:5/C138and /C1522=/C1511¼½0:75/C00:5/C138were
+studied at the reduced temperatures T/C3¼kBT=/C15¼1:0 and
+0.75, where riiand/C15iidesignate the Lennard-Jones size and
+energy parameters of the pure components.36The Lennard-
+Jones parameters of the ﬁrst component were set to unity
+(r11¼1˚A;/C1511=kB¼1 K), and Lorentz-Berthelot combining
+rules were used. The Lennard-Jones ﬂuids represent
+simple molecules such as noble gases satisfactorily, because
+such components cannot deform and, thus, have no intra-
+molecular energy.
+More complex molecules were also studied, including
+the two-center molecule ethane, both as a Lennard-Jones-particle
+and as a rigid two-center molecule. Furthermore, carbon dioxide
+was simulated as an example for partially charged molecules.
+The parameters used for these molecules are provided in the
+Fig. 5. Continuous fractional component algorithm CFC1F (Ref. 24).
+239 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 239 04 October 2023 22:50:47
+supplementary material,34and the molecular models are visual-
+ized in Fig. 6.
+Argon and the most asymmetric mixture will be used for
+comparisons and discussions throughout the paper.
+Exemplary results for CO 2are provided in Ref. 34. For the
+quantitative assessment, reduced LJ units, which are often
+used in the literature, are used [see Eqs. (17)–(20) ]. For mix-
+tures, the size parameter ris calculated using Eq. (21)
+T/C3¼kBT=/C150()Tred¼T=TC; (17)
+q/C3¼qr3()qred¼q=qC; (18)
+p/C3¼pr3=/C150() pred¼p=pC; (19)
+U/C3¼U=/C150()Ured¼U=UC; (20)
+r3
+m¼X
+iX
+jxixjr3
+ij: (21)
+A. Continuous fractional component acceptance
+probabilities
+To investigate the acceptance probabilities of the more
+complex continuous fractional component algorithms, weapplied the CFC1F method for argon as a pure Lennard-Jones-ﬂuid at T
+/C3¼0:7. After each Metropolis check, we
+recorded if the trial move was accepted, along with the value
+ofkof the fractional and the distance to the closest particle.
+With these data, the cumulative distribution of ﬁnding an
+insertion position within a certain distance of the closestmolecule was calculated for the vapor and liquid boxes, as
+illustrated in Fig. 7(a), showing the distributions in the liquid
+and the vapor phase on different horizontal axes.
+As expected, the distance between the molecules in the
+vapor phase is signiﬁcantly larger than that of the liquid
+phase. The distribution in the vapor phase is broad compared
+to that of the liquid phase and covers a distance of1/H11351r=r/H113518. In the liquid phase, the distribution is more nar-
+row and covers only a range of 0 /H11351rr
+/C01/H113510:8, which is rea-
+sonable given that T/C3is low.
+The acceptance probabilities for insertions are shown for
+the liquid phase in Fig. 7(b). Based on Fig. 7(a), the distance
+to the nearest neighbor was discretized into four equidistantbins in the range 0 <r=r<1; for example, the ﬁrst bin cov-
+ered the distance 0 <r=r<0:25. The values of kwere also
+discretized into four equidistant bins, the ﬁrst bin covering
+0<k<0:25. We observed that, for k<0:25 and the near-
+est neighbor closer than 0 :75r, the acceptance probability is
+/C250:5%. In contrast, not one attempted insertion was
+accepted when k>0:25 at the same distance to the nearest
+neighbor. Swaps with k>0:25 were only accepted when
+randomly occurring cavities were hit, as indicated by thelarge distance to the closest neighbor (0 :75<r=r<1). This
+low acceptance when two molecules are very close is due to
+the strong repulsive forces resulting from the ðr=rÞ
+12part of
+the Lennard-Jones potential.
+Attempted exchanges with 0 :75<k<1, which is similar
+to the non-adjusted potential function (cf. Fig. 3), were also
+only accepted when the distance to the closest neighbor wasgreater than 0 :75r. Thus, conventional GEMC swaps are
+successful only if very rarely occurring cavities are hit.
+Fig. 6. (a) Argon as Lennard-Jones-ﬂuid (AR), (b) single-center ethane (E1), (c) two-center ethane (E2), and (d) carbon dioxide (CO 2).
+Fig. 7. (a) Probability density function of the distance to the closest molecule, r=r, in the liquid and vapor boxes. (b) Cumulative acceptance probability as a
+function of the distance to the nearest neighbor and the value of kof the fractional. States were recorded for 1,600 MC cycles of Argon at T/C3¼0:7 using the
+CFC1F algorithm.
+240 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 240 04 October 2023 22:50:47
+Consequently, many insertion positions have to be sampled
+and tested to facilitate swaps.
+In contrast, insertions even into very dense phases are
+accepted more often using the CFC1F algorithm, and the strong
+repulsive forces at close distances of the Lennard-Jones poten-
+tial do not inhibit the acceptance probability of swaps as much.
+B. Computational performance
+Given that the goal is to facilitate swaps more efﬁciently,
+the computation time needed to perform such moves and theacceptance probabilities of the algorithms are important. In
+Table I, the computational times needed for the different parts
+(overlap check, Metropolis check, update of the variables—see Sec. V) of the different trial moves are compared to the
+time needed to perform one displacement. This normalization
+is especially useful if simulations on different computers are
+compared because the computational time depends on thehardware and software of the machine used.
+The conventional GEMC moves efﬁciently utilize the
+overlap optimization for displacements and swaps moves:
+For translations, approximately 20% of the computation timecan be saved when an overlap is detected. Apart from that, a
+substantial time—approximately 40%—is needed to update
+the state vectors, where the information of the system (e.g.,the positions of the individual atoms and molecuels are
+stored), and intermolecular energies when a proposed move
+is accepted. The reason is that the interactions of the movedmolecule need to be updated in both the box where it is
+deleted and the box where it is inserted. Consequently, an
+accepted GEMC swap consumes almost twice as much com-putation time than a translation.
+The volume change is the slowest GEMC move, because
+the interactions of all the molecules need to be calculated and
+updated.The CFC2F algorithm is approximately two times slower
+compared to the conventional GEMC swap move due to the
+coupling of the fractionals, because the interactions of both
+fractionals need to be evaluated for every proposed kchange.
+This effect is especially pronounced when a swap move isaccepted, because then the change of the interaction energies
+of four molecules must be calculated and updated.
+In comparison, the CFC1F algorithm involves less compu-
+tational effort. Moves adjusting the coupling strength of thefractional are faster compared to CFC2F moves because, justas for a displacement, only interactions of one molecule in
+one box need to be calculated. Exchange moves, however,
+are slower because the interaction of the new full moleculeneeds to be taken into account as well. Swap moves are more
+or less equivalent to the GEMC swap moves, and no signiﬁ-
+cant difference in the computation time is observed.
+C. Argon as a LJ fluid
+In the following, we compare the GEMC and the two con-
+tinuous fractional component algorithms using three criteria:(i) The stability of the simulations as characterized by thestandard deviation of the number of molecules per box; (ii)
+the agreement of the simulation results with published
+results; and (iii) the total time for one successful swap. Incontrast to Table I, where only the computational time
+needed for performing one accepted swap is listed, Tables II
+andIIIshow the total time, including the time needed for all
+non-accepted swaps and the time needed to update the statevariables when the move is accepted.
+Simulations with argon as a pure Lennard-Jones ﬂuid
+were conducted for 0 :75<T
+/C3<1:3, speciﬁcally at 0.75,
+1.00, 1.15, 1.25, and 1.30. The results of these simulations,which used initial conditions discussed in the literature, aresummarized in Table II.
+10
+The coexisting densities and pressures are in good agree-
+ment with results from the Thol equation of state.37The per-
+formance of the CFC1F algorithm is much better than theCFC2F algorithm, because the time needed for one success-ful swap is much less. Simulations for temperatures in the
+range 0 :7<T
+/C3<0:9524were conducted for argon. For these
+lower temperatures, the time needed for one successful swapusing the CFC1F algorithm is much less than the conven-
+tional GEMC algorithm.
+D. Asymmetric LJ mixture
+The CFC1F algorithm was further investigated for three LJ
+mixtures at three pressures for each mixture. The mixture with
+the parameter ratios r
+22=r11¼0:5a n d /C1522=/C1511¼0:5i sd i s -
+cussed here. The other two mixtures are discussed in Ref. 34.Table I. Comparison of the computational performance of the CFC1F and
+CFC2F algorithms to the GEMC trial moves. Lower numbers indicate better
+performance.
+Method Type Overlap Metropolis Complete
+GEMC Translation 0.5 0.6 1.0
+DV n.a. 72.0 74.4
+Swap 0.5 0.7 1.8
+CFC 2F Lambda n.a. 1.1 2.4
+Swap 0.4 1.9 4.9
+CFC 1 F Lambda n.a. 0.4 0.9
+Exchange n.a. 1.5 4.7
+Swap 0.5 0.6 1.0
+Table II. Summary of the results of the algorithms. tSwapis the normalized total time needed for one successful swap. The quantities Dq/C3andDPidenote the
+average absolute error compared to the Thol equation of state (Ref. 37). stdðnVÞis the standard deviation of the number of molecules in the vapor phase. All
+simulation results are given in Ref. 34.
+tSwap Dq/C3
+V DP/C3
+V stdðnVÞ
+System T/C3Algorithm 1 r310/C03Dq/C3
+L r3/C15/C0110/C03DP/C3
+L 1
+Argon 0.75–1.30 GEMC 65.428 26.382 5.950 0.373 0.447 15.437
+CFC2F 130.779 24.406 11.022 0.383 0.526 13.601CFC1F 95.114 7.227 2.585 0.267 0.381 10.330
+Argon 0.70–0.95 GEMC 196.474 0.426 1.261 0.031 0.530 10.077
+CFC1F 78.146 0.688 2.122 0.050 0.139 7.181
+241 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 241 04 October 2023 22:50:47
+The results of the simulations are summarized in Table IIIand
+visualized in Fig. 8 .
+The conventional GEMC algorithm performed well at
+high temperatures ( T/C3¼1:00) and needed a time equivalent
+to approximately 40 displacements for the asymmetric mix-
+ture to facilitate one successful swap. The performance of
+the algorithm clearly decreased at lower temperatures, and
+this effect is especially pronounced for asymmetric mixtures.The reason could be that the smaller component is two times
+smaller than the larger component. Thus, cavities suitable
+for an insertion of the larger component are easily ﬁlled with
+the smaller component, and the acceptance probability of the
+larger component decreases. Consequently, the computation
+time increased dramatically, and it took a time equivalent to
+approximately 2,000 attempted translations to obtain one
+successful swap.
+In contrast to the conventional GEMC method, the CFC1F
+approach performed equally well for all investigated states.
+Although the GEMC algorithm performed better at high tem-
+peratures because of the higher computational effort of the
+CFC1F algorithm, it took a normalized time between 30 and
+140 to facilitate one successful swap.
+The t-PR equation of state38predicted the molar fractions
+for those simulation points sufﬁciently well, and the initial
+guesses for densities yielded a reasonable computation time.
+In brief, the GEMC and the CFC1F algorithms were in quali-
+tative and quantitative agreement compared to the
+averaged deviation from the BWR equation of state.The deviation of the vapor density, q
+/C3
+V, was on the order of
+10/C03r3, and the deviation of the liquid density, q/C3
+L,w a so nt h e
+order of 10/C02r3. The deviations of the molar fractions were of
+the order of 1%–5% for the simulated mixtures. The standarddeviation of the number of molecules ranged between 10 and
+30 for all algorithms and simulated states. This indicates that all
+the algorithms were similarly able to maintain stable box popu-
+lations, which is required for efﬁcient sampling.
+VII. DISCUSSION
+We found that the CFC1F algorithm, which uses only one
+fractional, requires substantially less computational time,
+compared to CFC2F. The acceptance probability of inser-tions using the CFC1F algorithm ranged from 5% to 10%.
+However, more cycles are needed in some cases because
+CFC1F converges more slowly, compared to the traditionalGEMC algorithm. A possible reason for the slower conver-
+gence could be that the average energy change due to a CFC
+move, compared to the GEMC swap move, is smaller.Therefore, uphill CFC moves are also more likely to beaccepted, negatively affecting the speed at which the chemi-
+cal potential equilibrates. In contrast, in the GEMC algo-
+rithm, the chemical potential and the energy contribution ofa single molecule are directly related. The CFC1F algorithm
+involves less computational effort than the CFC2F algo-
+rithm, because the boxes are not coupled by the fractionals.Hence, CFC1F is a good choice for systems at low tempera-
+tures or asymmetric mixtures.
+We conclude that it is better to use the conventional
+GEMC algorithm at moderate to high temperatures for pureLJ ﬂuids. For low temperatures, dense phases, asymmetric
+mixtures, or complex molecules, the CFC1F algorithm is a
+good choice, because the speed of the expansion and con-traction of the fractionals can be adjusted, ensuring reason-
+able acceptance probabilities.
+VIII. SUGGESTED PROBLEMS
+Based on the results we have discussed and the simula-
+tions in Refs. 1,10,11,12,27,38, and 40–42 , we recom-
+mend the following simulation protocols.
+The initial conditions should be chosen so that in the
+equilibrated system approximately 1/5 of the particles are inthe vapor phase. Given that the molecules are moved
+between the boxes during the simulations, it is necessary to
+do more simulations if your initial guess is not accurate.
+40
+For simulations of mixtures, the initial molar fractions
+should be equal for both boxes, xi;L¼xi;V.26The values for
+the molar fractions should be chosen to be approximately inTable III. Overview of the results of the investigated algorithms. tSwapis the
+normalized total time needed for one successful swap. The physical proper-
+tiesDq/C3andDxiare the average absolute errors compared to the BWR equa-
+tion of state (Refs. 38and39). stdðnVÞis the standard deviation of the
+number of molecules in the vapor phase. More simulation results are given
+in the supplementary material (Ref. 34).
+tSwap Dq/C3
+V DxV stdðnVÞ
+T/C3Algorithm 1 r310/C03Dq/C3
+Lmol mol/C01100DxL 1
+0.75 GEMC 1,913.2 6.082 82.557 0.105 1.472 13.573
+CFC1F 50.2 6.911 52.737 0.234 2.167 18.403
+1.00 GEMC 43.3 4.274 101.496 0.938 1.854 18.073
+CFC1F 36.8 7.611 45.954 0.793 1.489 20.238
+Fig. 8. Simulation results for a asymmetric LJ mixture. Legend: – – – – t-PR equation of state, T/C3¼0:75; – - – - – - t-PR equation of state, T/C3¼1:00;
+/H17034GEMC, /H17005CFC1F.
+242 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 242 04 October 2023 22:50:47
+the center of the two-phase area in the vapor pressure (Pxy)
+diagram43to assure enough particles in both phases.
+The number of attempted displacements is initially set
+equal to the total number of molecules in the system, and
+one volume change is attempted per cycle. Although thenumber of swaps can be adjusted during the equilibrationphase, recommended initial values are listed in Table IV.
+Panagiotopoulos ﬁrst proposed a sequence of displace-
+ments, volume changes, and swap moves.
+10This order was
+later compared with a random choice of these trial moves.1
+Because no signiﬁcant differences in the simulation results
+were observed and the random arrangement of the trial
+moves ensures microscopic reversibility,11,12,44,45random
+trial moves are recommended.
+For the CFC2F algorithm, it is recommended that 50% of
+the attempted trial moves be displacements, 49% be k
+moves, and 1% be volume changes. For the CFC1F algo-rithm, it is suggested that 49.5% of the trial moves be dis-placements, 49.5% be continuous fractional component trial
+moves, and 1% be volume changes.
+We found that N
+tot=4 Widom insertions are sufﬁcient
+because the energy contribution due to the insertion of anadditional molecule is calculated each time a conventionalGEMC swap is attempted. Because the alternative swapalgorithms replace the GEMC swap, more Widom insertionsare necessary if an alternative insertion algorithm is used. IfCFC is used, fractionals are not considered in the energy cal-
+culation of Widom insertions. The range of the trial moves
+for the displacements, volume changes and the kmoves
+should be adjusted to yield an acceptance probability of/C2550%. For the displacements, 0 :59ris a reasonable initial
+value.
+The initial maximum trial move for volume changes was
+set to 1% of the volume of the liquid box because the inter-molecular forces in the liquid box are stronger than in the
+vapor box.For the GEMC simulations, the overlap radius (cf. Sec. II)
+was calculated with
+10
+exp/C0/C23LJðrovÞ
+kBT/C20/C21
+¼10/C015: (22)
+Because periodic boundary conditions are used, the cut-off
+radius must be less than half the box length, otherwise two
+molecules might interact twice. This truncation is taken into
+account by an analytical tail correction for the internalenergy, pressure, and chemical potential. To ensure that theassumption of a uniform distribution is valid, the cut-offradius, r
+c, should be greater than 2 r.27In practice, we set the
+cut-off radius to half the box length, and it was dynamicallyupdated if the box volume changed.
+Problem 1: Your ﬁrst GEMC simulations . We suggest
+starting with the GEMC algorithm, applied to argon as apure Lennard-Jones ﬂuid at T
+/C3¼1:0. Simulations at T/C3¼
+1:0 converge quickly, because swaps are sufﬁciently success-
+ful and T/C3is sufﬁciently far from the critical point. Choose
+q/C3¼0:06, reduced liquid density q/C3¼0:60, 150 molecules
+in the vapor box, and 350 molecules in the liquid box.10Use
+2,000 MC cycles to melt the initial face centered cubic grid,2,000 MC cycles to equilibrate the system, and 8,000 MC
+cycles to obtain a sufﬁcient number of states for the ensem-
+ble averages. Check the plausibility of your results by ana-lyzing a Frenkel plot, as illustrated in Fig. 9.
+As shown in Fig. 9, the successful simulation quickly con-
+verges to its equilibrium conﬁguration and samples the phasespace efﬁciently. The equilibrium conﬁguration is sampledmuch more frequently (see the probability indicator in thebar on the right-hand side of the plot for each phase). In con-trast, the unsuccessful simulation resulted in a state wheremost molecules populate only one of the boxes.
+After this initial check, assess the time series of the num-
+ber of molecules per box, the box volumes, the box pres-sures, and the chemical potential. If the running average ofany of these quantities is not well deﬁned, the duration of thesimulation needs to be extended. You should ﬁnd that thedensities are q
+/C3
+V¼0:03 and q/C3
+L¼0:70 and that the phase
+pressure is P/C3/C250:02. The initial conditions of the unsuc-
+cessful simulation led to a conﬁguration where one of theTable IV. The ratio of the recommended initial number of swaps, nSwaps,t o
+the total number of molecules in the system, Ntot.
+T/C30.75 1.00 1.15 1.25 1.30
+nswaps=Ntot 1.50 0.20 0.10 0.04 0.04
+Fig. 9. Comparison of the Frenkel plot of (a) successful and (b) unsuccessful simulation. The color gradients of the vertical bars indicate the probab ility of a
+speciﬁc state for each phase.
+243 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 243 04 October 2023 22:50:47
+boxes became almost empty. One way to ﬁnd the tipping
+point between successful and unsuccessful initial conditionsis to keep the initial densities constant and vary the numberof molecules per box. For example, we can place 480 mole-cules in the vapor box and only 20 molecules in the liquidbox. Another option is to keep the number of molecules perbox constant and vary the initial molar densities. Use one ofthese suggestions or your own choices and conduct shortsimulations (2,000 warm-up cycles, 2,000 equilibrationcycles, 500 production cycles) to ﬁnd that tipping point andevaluate the recommendations in Sec. VIII. If you use the
+initial conditions suggested in Ref. 10forT
+/C3¼1:0, you will
+ﬁnd that the system starts to become unstable when less than60 molecules are placed in the vapor box.
+Problem 2: Using the continuous fractional component
+algorithm . Below a certain temperature you will ﬁnd that
+most of the time is consumed by unsuccessful attempts toswap molecules between the two phases, and the continuousfractional component algorithm becomes useful. What is thevalue of T
+/C3at which it makes sense to use the continuous
+fractional component algorithm? Compare and analyze thecourse of simulations conducted with the GEMC and theCFC1F algorithm. What are the most signiﬁcant differencesfor the results you obtain? Example results are displayed inFig.10, which shows the results of the conventional GEMC
+algorithm, the CFC1F algorithm using the same overlap asthe GEMC algorithm, and the CFC1F algorithm with anoverlap of 1 A ˚. As expected, the acceptance probability
+decreases with decreasing temperature. This trend is much
+more pronounced for the GEMC algorithm than for the
+CFC1F algorithm. Apart from that, the acceptance probabilityis signiﬁcantly higher when the overlap is set to 1 A ˚.I ft h e
+overlap is chosen to be too large, moves of a fractional with alow coupling value of kwould be rejected by the overlap
+check, while a Metropolis check would have accepted them.
+Does it make sense to further decrease the overlap radius
+for the continuous fractional component algorithm or might
+there be a limiting value below which it does not make senseto further decrease it? Which other criterion could be used todetermine an overlap radius besides the interaction energy?
+Problem 3: Simulating mixtures . To simulate mixtures,
+the initial conditions need to be chosen with even more care.In addition to the total system volume, the phase composi-
+tion also needs to be chosen so that the mixing point is
+within the two-phase area; otherwise, the lever rule
+43will
+leave a phase with little or no molecules. Use an appropriateequation of state (e.g., t-PR
+38) to estimate the initial molar
+fractions. Choose the CFC1F algorithm if the acceptanceprobability is very low, for example, when size-asymmetricmixtures or low temperatures are simulated. The acceptance
+probability of the larger component might be much different
+than that of the smaller component. For example, the largermolecules might create cavities which can accommodateinsertions of the smaller molecules. A larger molecule is alsoFig. 10. Acceptance probability and normalized time per successful transfer as a function of T/C3. Legend: /H17034GEMC; /H17005CFC1F, rOv;Pan;/H17003CFC1F, rOv;1A.
+Fig. 11. Comparison of the acceptance probability of (a) the larger component 1 and (b) the smaller component 2 at T/C3¼1:0 for binary LJ mixtures.
+Algorithms: —–GEMC, ––– CFC1F; Mixtures: /H17034Symmetric, /H17005Slightly asymmetric, /H17003Asymmetric.
+244 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 244 04 October 2023 22:50:47
+more likely to overlap with any other molecule in the system.
+Consequently, the chemical potential might not be properlyequilibrated because a sufﬁcient number of accepted swapsis required. These results are seen in Fig. 11, where the
+acceptance probability of the larger component and thesmaller component of each binary mixture is compared forthe GEMC and CFC1F algorithm at T
+/C3¼1:0.
+For the CFC1F algorithm, an acceptance probability for a
+swap move on the order of 5% to 10% was observed. Thishigher acceptance probability is especially pronounced forthe most asymmetric mixture due to the fact that the maxi-mum change of the coupling factor, k, which controls the
+growth and shrinking of the fractional, is adjusted separatelyfor each component, whereby a reasonable acceptance prob-ability for both components, even at signiﬁcant size differ-ences, is obtained. When deciding whether it is feasible to
+use the CFC1F algorithm, the increased computational time
+needs to be compensated. Example results for the normalizedtime can be found in Table III. You will ﬁnd that it is reason-
+able to use the CFC1F algorithm at low temperatures such asT
+/C3¼0:75, while the GEMC algorithm performs better at
+moderate to high temperatures such as T/C3¼1:0. For mix-
+tures, it is reasonable to use the CFC1F algorithm for lowtemperatures T
+/C3<0:9, or for asymmetric mixtures, indepen-
+dent of the simulated temperature.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conﬂicts to disclose.
+a)ORCID: 0000-0003-3927-9611.
+b)ORCID: 0000-0002-9780-4835.
+c)Electronic mail: thomas.wallek@tugraz.at, ORCID: 0000-0001-9687-
+106X.
+1M. P. Allen and D. J. Tildesley, Computer Simulation of Liquids (Oxford
+U. P., Oxford, 2017).
+2R. Hens, A. Rahbari, S. Caro-Ortiz, N. Dawass, M. Erd €os, A.
+Poursaeidesfahani, H. S. Salehi, A. T. Celebi, M. Ramdin, O. A. Moultos
+et al. , “Brick-CFCMC: Open source software for Monte Carlo simulations
+of phase and reaction equilibria using the continuous fractional componentmethod,” J. Chem. Inf. Modeling 60, 2678–2682 (2020).
+3J. K. Shah, E. Marin-Rimoldi, R. G. Mullen, B. P. Keene, S. Khan, A. S.
+Paluch, N. Rai, L. L. Romanielo, T. W. Rosch, B. Yoo et al. , “Cassandra:
+An open source Monte Carlos package for molecular simulation,” J.
+Comp. Chem. 38, 1727–1739 (2022).
+4Y. Nejahi, M. S. Barhaghi, J. Mick, B. Jackman, K. Rushaidat, Y. Li, L.
+Schwiebert, and J. Potoff, “GOMC: GPU optimized Monte Carlo for thesimulation of phase equilibria and physical properties of complex ﬂuids,”
+SoftwareX 9, 20–27 (2019).
+5M. G. Martin, “MCCCS towhee: A tool for Monte Carlo molecular simu-
+lation,” Mol. Simul. 39, 1212–1222 (2013).
+6D. Dubbeldam, S. Calero, D. E. Ellis, and R. Q. Snurr, “RASPA:
+Molecular simulation software for adsorption and diffusion in ﬂexible
+nanoporous materials,” Mol. Simul. 42, 81–101 (2016).
+7A. Z. Panagiotopoulos, “Monte Carlo methods for phase equilibria of ﬂu-
+ids,” J. Phys.: Condens. Matter 12, R25–R52 (1999).
+8K. Patkowski and K. Szalewicz, “Argon pair potential at basis set and
+excitation limits,” J. Chem. Phys. 133, 094304 (2010).
+9J. Rumble, CRC Handbook of Chemistry and Physics , Vol. 103 (CRC
+Press, Boca Raton, FL, 2022).
+10A. Z. Panagiotopoulos, “Direct determination of phase coexistence proper-
+ties of ﬂuids by Monte Carlo simulation in a new ensemble,” Mol. Phys.
+61, 813–826 (1987).
+11F. Fernandes and R. Fartaria, “Gibbs ensemble Monte Carlo,” Am. J.
+Phys. 83, 809–816 (2015).
+12A. Z. Panagiotopoulos, “Exact calculations of ﬂuid-phase equilibria by
+Monte Carlo simulation in a new statistical ensemble,” Int. J. Thermophys.
+10, 447–457 (1989).13J. J. De Pablo and J. M. Prausnitz, “Phase equilibria for ﬂuid mix-
+tures from Monte Carlo simulation,” Fluid Phase Equi. 53, 177–189
+(1989).
+14A. Z. Panagiotopoulos, “Direct determination of ﬂuid phase equilibria bysimulation in the Gibbs ensemble: A review,” Mol. Simul. 9(1), 1–23
+(1992).
+15M. G. Martin and J. I. Siepmann, “Predicting multicomponent phase equi-libria and free energies of transfer for alkanes by molecular simulation,”J. Am. Chem. Soc. 119, 8921–8924 (1997).
+16G. Mooij, D. Frenkel, and B. Smit, “Direct simulation of phase equi-
+libria of chain molecules,” J. Phys.: Condens. Matter 4, L255–L259
+(1992).
+17D. A. Kofke, “Direct evaluation of phase coexistence by molecular simula-tion via integration along the saturation line,” J. Chem. Phys. 98,
+4149–4162 (1993).
+18A. Rahbari, R. Hens, M. Ramdin, O. Moultos, D. Dubbeldam, and T.Vlugt, “Recent advances in the continuous fractional component MonteCarlo methodology,” Mol. Simul. 47, 804–823 (2021).
+19W. Shi and E. J. Maginn, “Improvement in molecule exchange efﬁciency
+in Gibbs ensemble Monte Carlo: Development and implementation of thecontinuous fractional component move,” J. Comput. Chem. 29,
+2520–2530 (2008).
+20T. Vlugt, private communication (13 August 2021).
+21F. Wang and D. P. Landau, “Efﬁcient, multiple-range random walk algo-rithm to calculate the density of states,” Phys. Rev. Lett. 86, 2050–2053
+(2001).
+22D. Landau, S.-H. Tsai, and M. Exler, “A new approach to Monte Carlosimulations in statistical physics: Wang-landau sampling,” Am. J. Phys.
+72, 1294–1302 (2004).
+23W. Shi and E. J. Maginn, “Continuous fractional component Monte Carlo:
+An adaptive biasing method for open system atomistic simulations,”
+J. Chem. Theory Comput. 3, 1451–1463 (2007).
+24A. Poursaeidesfahani, A. Torres-Knoop, D. Dubbeldam, and T. J.
+Vlugt, “Direct free energy calculation in the continuous fractionalcomponent Gibbs ensemble,” J. Chem. Theory Comput. 12, 1481–1490
+(2016).
+25A. Z. Panagiotopoulos, U. W. Suter, and R. C. Reid, “Phase diagrams ofnonideal ﬂuid mixtures from Monte Carlo simulation,” Ind. Eng. Chem.
+Fundam. 25, 525–535 (1986).
+26A. Z. Panagiotopoulos, N. Quirke, M. Stapleton, and D. J. Tildesley,
+“Phase equilibria by simulation in the Gibbs ensemble,” Mol. Phys. 63,
+527–545 (1988).
+27K. M. Jablonka, D. Ongari, and B. Smit, “Applicability of tail correctionsin the molecular simulations of porous materials,” J. Chem. Theory
+Comput. 15, 5635–5641 (2019).
+28E. de Miguel and G. Jackson, “The nature of the calculation of the pressure
+in molecular simulations of continuous models from volume
+perturbations,” J. Chem. Phys. 125, 164109 (2006).
+29B. Widom, “Some topics in the theory of ﬂuids,” J. Chem. Phys. 39,
+2808–2812 (1963).
+30H. A. Lorentz, “Ueber die anwendung des satzes vom virial in der kineti-schen theorie der gase,” Ann. Phys. 248, 127–136 (1881).
+31P. P. Ewald, “Die berechnung optischer und elektrostatischer
+gitterpotentiale,” Ann. Phys. 369, 253–287 (1921).
+32D. Wolf, P. Keblinski, S. R. Phillpot, and J. Eggebrecht, “Exact method
+for the simulation of coulombic systems by spherically truncated, pairwise1/r summation,” J. Chem. Phys. 110, 8254–8282 (1999).
+33Wolfram Research, Inc., Mathematica, Version 13.1, Champaign, IL,
+2022.
+34See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0135841 for more details on model parameters, the inital condi-
+tions and simulation results of more complex molecules like carbon diox-ide and ethane.
+35Wolfram Foundation Notebook Archive, <https://notebookarchive.org/
+2022-11-6ger7tx >.
+36J. E. Lennard-Jones, “On the forces between atoms and ions,” Proc. Roy.
+Soc. London. Ser. A 109, 584–597 (1925).
+37M. Thol, G. Rutkai, A. K €oster, R. Lustig, R. Span, and J. Vrabec,
+“Equation of state for the Lennard-Jones ﬂuid,” J. Phys. Chem. Reference
+Data 45, 023101 (2016).
+38V. Harismiadis, N. Koutras, D. Tassios, and A. Z. Panagiotopoulos, “How
+good is conformal solutions theory for phase equilibrium predictions?Gibbs ensemble simulations of binary Lennard-Jones mixtures,” Fluid
+Phase Equilibria 65, 1–18 (1991).
+245 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 245 04 October 2023 22:50:47
+39J. Nicolas, K. Gubbins, W. Streett, and D. Tildesley, “Equation of state for
+the Lennard-Jones ﬂuid,” Mol. Phys. 37, 1429–1454 (1979).
+40A. D. Cort /C19es Morales, I. G. Economou, C. J. Peters, and J. Ilja Siepmann,
+“Inﬂuence of simulation protocols on the efﬁciency of Gibbs ensembleMonte Carlo simulations,” Mol. Simul. 39, 1135–1142 (2013).
+41M. Dinpajooh, P. Bai, D. A. Allan, and J. I. Siepmann, “Accurate and pre-
+cise determination of critical properties from gibbs ensemble Monte Carlo
+simulations,” J. Chem. Phys. 143, 114113 (2015).42P. Ungerer, B. Tavitian, and A. Boutin, Applications of Molecular
+Simulation in the Oil and Gas Industry: Monte Carlo Methods (Editions
+Technip, Paris, 2005).
+43P. Atkins, J. de Paula, and J. Keeler, Atkins’ Physical Chemistry , 11th ed.
+(Oxford U. P., Oxford, 2018).
+44D. Frenkel and B. Smit, Understanding Molecular Simulation ,2 n de d . ,
+Computational Science Series (Academic Press, San Diego, CA, 2002), p. 638.
+45R. J. Sadus, Molecular Simulation of Fluids (Elsevier, Amsterdam, 2002).
+246 Am. J. Phys., Vol. 91, No. 3, March 2023 Mayr, Haring, and Wallek 246 04 October 2023 22:50:47

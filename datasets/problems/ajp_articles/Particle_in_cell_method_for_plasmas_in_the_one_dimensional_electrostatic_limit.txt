@@ -1,0 +1,720 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| MARCH 01 2023
+Particle-in-cell method for plasmas in the one-dimensional
+electrostatic limit 
+Sara Gomez  
+ ; Jaime Humberto Hoyos ; Juan Alejandro V aldivia
+Am. J. Phys.  91, 225–234 (2023)
+https://doi.org/10.1 119/5.0135515 04 October 2023 22:50:24
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Particle-in-cell method for plasmas in the one-dimensional electrostatic
+limit
+Sara Gomeza)
+Escuela de Ciencias Aplicadas e Ingenier /C19ıa, Universidad EAFIT, Medell /C19ın, Colombia
+Jaime Humberto Hoyos
+Facultad de Ciencias B /C19asicas, Universidad de Medell /C19ın, Medell /C19ın, Colombia
+Juan Alejandro Valdivia
+Depto. de F /C19ısica, Facultad de Ciencias, Universidad de Chile, Santiago, Chile
+(Received 11 October 2022; accepted 21 November 2022)
+We discuss the particle-in-cell (PIC) method, which is one of the most widely used approaches for
+the kinetic description of plasmas. The positions and velocities of the charged particles take
+continuous values in phase space, and spatial macroscopic quantities, such as the charge densityand self-generated electric ﬁelds, are calculated at discrete spatial points of a grid. We discuss the
+computer implementation of the PIC method for one-dimensional plasmas in the electrostatic
+regime and discuss a desktop application (PlasmAPP), which includes the implementation ofdifferent numerical and interpolation methods and diagnostics in a graphical user interface. To
+illustrate its functionality, the electron-electron two-stream instability is discussed. Readers can use
+PlasmAPP to explore advanced numerical methods and simulate different phenomena of interest.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0135515
+I. INTRODUCTION
+The study of plasmas by analytical methods alone is not
+sufﬁcient.1,2In many situations, plasmas can be consid-
+ered to be collisionless, particularly in space and astro-
+physical environments, where short-range binary
+interactions can be neglected.3An approach that uses the
+collisionless approximation is the particle-in-cell (PIC)
+method, which was proposed in the 1950s and has become
+widely used due to the great advances in computing power.
+The method was developed by John Dawson and Oscar
+Buneman and was ﬁrst applied to systems of 100–1000
+particles.4The method was extended by Dawson5in 1983.
+In 1988, Hockney and Eastwood published a highly
+acclaimed book,6and in 1991, Birdsall and Langdon pub-
+lished the most widely recognized book on the method.1
+Both books describe the PIC method and discuss differentsimulations and analyses.
+Simulations are widely used to study different kinds of
+microinstabilities and waves common in space plasmas such
+as the electron-electron two-stream instability,7Buneman
+instability,8and ion-acoustic waves.9There are now open
+source programs such as Jupyter notebooks for educationalplasma simulations10and the graphical user interface devel-
+oped by Omura and Matsumoto.11
+Reference 12discusses the implementation of the two-
+dimensional electrostatic PIC method in detail. Although two
+dimensions yield a more realistic view of plasmas, thecomputational cost and the complexity of the simulations are
+much greater than one dimension. As will be seen in Sec. II,
+PIC codes are usually built over an Eulerian mesh, and two
+dimensions usually requires the order of 32 /C232¼1024 grid
+points, in contrast to one dimension (1D) for which the mini-
+mum is the order of 32 grid points, meaning that the computa-
+tional cost increases dramatically in 2D systems.1Moreover,
+collisionless plasmas contain many particles in a characteristic
+volume known as the Debye sphere, whose radius is the
+Debye length kD. The number of particles in this volume is
+ND/C24kd
+D. If a 3D system has ND¼106, for example, then ND
+/C25ð106Þ2=3¼104in 2D, and ND/C25ð106Þ1=3¼102in 1D,
+which implies a lower computational effort for the 1D system.1
+Understanding two-dimensional simulations requires a more
+advanced mastery of the PIC method and of the physics
+involved, and thus, a one-dimensional system provides a good
+starting point for students.
+Although Refs. 1,5,6,a n d 10–12 explain the PIC method in
+detail, its understanding requires the mastery of numerical
+methods and advanced electromagnetic concepts. The main
+objective of this paper is to explain the PIC method so that stu-
+dents who have taken a course in integral calculus and a basic
+course in electrostatics can understand the method. In this spirit,
+we consider the simplest plasma, i.e., a Coulomb plasma, for
+which the system is free of magnetic ﬁelds and the plasma
+waves contain only electric ﬁelds varying in a longitudinal
+direction. A graphical user interface (PlasmAPP) is developed
+225 Am. J. Phys. 91(3), March 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 225 04 October 2023 22:50:24
+to help teachers and students study basic plasma phenomena in
+an interactive way.
+Our numerical implementation of the PIC model is based
+on the Lapenta open source code13for which the plasma is
+composed of moving electrons and ions ﬁxed in the back-
+ground. We extended the code to include the motion of ions,two interpolation methods, different numerical methods forthe solution of the differential equations, and multiple diag-
+nostics. The numerical methods explained in Sec. IIIare the
+direct integration of Gauss’s law of electrostatics using thetrapezoid method to approximate integrals, Euler’s methodfor the time integration of Newton’s second law for particle
+dynamics, and the nearest grid point as the simplest interpo-
+lation method. More advanced numerical methods, whichcan increase the efﬁciency and the speed of the simulations,are explained in the supplementary material.
+14,15
+To illustrate the application of the one-dimensional PIC
+method, we discuss simulations of the electron-electron two-
+stream instability, a well-known phenomenon correspondingto an initial condition where two groups of electrons move inopposite directions. This condition departs from thermal
+equilibrium characterized by a single Maxwellian distribu-
+tion function.
+16Reference 12also studied this phenomenon
+using a two-dimensional simulation. They simulated twoelectron beams moving with counter-propagating initial
+velocities along a single Cartesian direction. The subsequent
+evolution of the system in search of thermal equilibriumleads to the appearance of electric ﬁelds pointing mainlyalong this Cartesian direction. However, it is sufﬁcient to
+study this situation with a one-dimensional model as we do
+in the present work. Our code includes comments to facili-tate understanding and is freely available.
+14,15Interested
+readers are guided to choose parameters that can be used tosimulate other plasma phenomena such as the Buneman
+instability, ion-acoustic waves, and Langmuir waves.
+This paper is organized as follows: Sec. IIexplains the
+basic ingredients of one-dimensional electrostatic PIC simu-lations. Section IIIdiscusses the PIC method and explains its
+numerical implementation. Section IVdiscusses the structure
+of the graphical user interface. Section Vcontains the results
+and analysis of the electron-electron two-stream instabilitysimulations. Section VIdiscusses our conclusions, and Sec.
+VIIincludes some suggested problems for interested readers.
+II. THEORETICAL BACKGROUND
+Because plasmas are composed of millions of particles,
+the dynamics of each charge as a function of the self-generated electric forces must be followed to ﬁnd the tempo-
+ral evolution of the system. This approach requires ﬁnding
+the force experienced by each particle produced by theremaining particles and solving Newton’s second law for allof the charges. For a plasma composed of Nparticles, N–1
+forces must be calculated to obtain the force experienced by
+a single charge. If this process is repeated for each of the N
+particles, NðN/C01Þ=2 forces must be calculated, which
+requires a high computational cost.
+1,2,17It is, therefore, nec-
+essary to use methods that approximate the behavior of the
+plasma at a lower computational cost. There are two generalways to achieve this task. One is the plasma ﬂuid approach,which studies the evolution of macroscopic or bulk proper-
+ties such as the density, pressure, mean velocities, and mean
+energy.
+18This approach is useful for understanding plasma
+dynamics for phenomena occurring on large spatial andtemporal scales, in contrast with the small scales associated
+with the discrete nature of particles.19Microscopic temporal
+and spatial scales are best modeled by a kinetic approach
+that considers the discrete nature of particles in constantmotion due to the self-consistent electromagnetic ﬁelds.
+Because a detailed kinetic description is not computationally
+efﬁcient due to the large number of particles, it is necessaryto use a reduced but sufﬁciently detailed model that contains
+information about the particle velocity distribution function.
+6
+A kinetic description of plasmas can be achieved by using
+the Vlasov equation, which gives the spatio-temporal evolu-tion of the distribution function of a single particle.20This
+function is deﬁned in phase space consisting of the spatial
+coordinates and particle velocities of the particles.21The dis-
+tribution function gives the probability of ﬁnding a particlein a small region of phase space.16The Vlasov model corre-
+sponds to a mean-ﬁeld theory that evolves the particles by
+long-range electromagnetic ﬁelds calculated as a statisticalaverage over the ensemble of particles. This model is a good
+approximation for time scales smaller than the characteristic
+time of the collisions and for large length scales compared tothe average particle separation.
+22If the self-consistent cou-
+pling of the Vlasov equation with Maxwell’s equations is
+considered, the set of Vlasov-Maxwell equations isobtained.23
+An approximate solution of the Vlasov equation can be
+found by ﬁnite differences on an Eulerian mesh. During the
+evolution, particles occupy only a ﬁnite region of phasespace.24For this reason, the implementation of Vlasov codes
+requires the implementation of arrays of which only a small
+part is used at any one time, which implies an inefﬁcient useof memory and processing.25
+An approach with low computational cost is the PIC
+method. The system consists of superparticles, which repre-
+sent the dynamics of many, but not too many, real particlesmoving in continuous phase space (Lagrangian description).
+The evolution of the distribution function of each species is
+obtained from the positions and velocities of thesesuperparticles.
+If we ﬁx one particle in the plasma, the other particles will
+move to reduce the electric potential produced by the ﬁxed
+particle. The resulting shielded electric potential will decayexponentially with a length scale called the Debye length,
+20
+which is deﬁned as
+kD;a¼vth;a
+xp;a; (1)
+where x2
+p;a¼naq2
+a=ma/C150is the plasma frequency, v2
+th;a
+¼kBTa=mais the thermal velocity, nais the number density,
+qais the charge, mais the mass, and Tais the temperature of
+the particle velocity distribution function for species a.
+Although the electric potential produced by one particle
+decays with distance, particles closer to the edge of theDebye sphere of the ﬁxed particle can interact with particles
+nearby but outside the Debye sphere, producing a collective
+interaction that can propagate through the plasma. Hence,superparticles can be constructed as ﬁnite clouds of particles
+subject to electrostatic interactions with other superparticles
+that are far away, but experience a weak interaction whenthey are close to each other.
+5The behavior of the spatial den-
+sity is not modeled in regions smaller than the cloud size. In
+this way, it makes sense to construct the charge density andsolve for the electric force from the self-consistent electric
+226 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 226 04 October 2023 22:50:24
+ﬁeld through Maxwell equations, which are solved on a ﬁxed
+Eulerian mesh in conﬁguration space.25The ﬁeld can then be
+interpolated at the position of each superparticle to calculate
+their acceleration.26
+III. ELECTROSTATIC ONE-DIMENSIONAL PIC
+ALGORITHM
+In this work, we consider the simplest conﬁguration, which
+is a one-dimensional system. Many of the technical subtleties
+of 2D simulations are already present in 1D simulations, both
+in physics and implementation, so before tackling the task
+of constructing a simulation for 2D plasmas, it is conve-
+nient to understand the difﬁculties that already appear in
+1D plasma simulations. In this type of simulation, harmonic
+waves with wave propagation vector ~kand frequency x
+have their electric ﬁeld parallel to ~k(parallel propagation).
+Therefore, if one then wants to advance to electromagnetic
+or magnetized problems, it is useful to start with 1D and
+then advance to 2D (oblique propagation).1There are a
+number of current problems in basic and applied research
+that can be studied with 1D PIC simulations.27,28
+As mentioned, the PIC method is based on the use of
+superparticles whose positions and velocities follow a con-
+tinuous path in phase space, while spatial macroscopic quan-
+tities, such as the charge density and self-generated electric
+ﬁeld, are calculated at discrete spatial points of a grid
+(Eulerian description). Figure 1shows how the Eulerianspace grid is created for one dimension. The solid line repre-
+sents the length of the system ranging from 0 to L. The grid
+is divided into Ngnodes denoted by discrete indices
+g¼1;2;3;…;Ng. The system is periodic, so that the simu-
+lation box of length Lrepresents a section of an inﬁnite
+plasma that repeats periodically in space. For a periodic sys-
+tem, nodes divide the total length LintoNgcells of size Dx,
+centered on the grid points as shown in Fig. 1. The grid node
+positions are xg¼gDx, and the length of the system is
+L¼NgDx.6
+Periodic boundary conditions are used so that a spatially
+variable quantity G(x) has a spatial period L, i.e.,
+GðxþLÞ¼GðXÞ. Thus, the last point of the mesh Ngis the
+same as the ﬁrst point g¼0 (which in not part of the array,
+which starts at g¼1), and the point Ngþ1 is the same point
+asg¼1. If a superparticle moves outside the simulation box,
+it returns to a position inside the box.1The distance between
+nodes should be smaller than the Debye length, and within
+each cell there are a large number of superparticles so that
+we can observe collective effects.
+The PIC algorithm is depicted in Fig. 2and is summarized
+in the following:
+(1) Initialize the distribution function of the superparticles
+indexed by pbelonging to species a¼ions or electrons,
+i.e., assign initial positions and velocities to the superpar-
+ticles. For simplicity, the superparticles are initially posi-
+tioned uniformly in space and if desired, a small
+sinusoidal perturbation is added. The initial velocities
+are assigned according to a Maxwellian distribution cor-
+responding to a system in thermal equilibrium.16
+The width of the Maxwellian is determined by vth;a. The
+function is centered on the speed v0, which is determined
+by the nature of the problem being studied.
+(2) Calculate the charge density at the grid points qg.
+Because the coordinate xp;aof the superparticles takes onFig. 1. One-dimensional simulation box of size L. The region between the
+dashed lines represents the cells of size Dxwhich are centered at the grid
+nodes g.
+Fig. 2. Electrostatic one-dimensional PIC algorithm. For visualization purposes, the grid shown is two-dimensional. The index prefers to the superparticles, a
+is the species index, and gis the index of the grid points.
+227 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 227 04 October 2023 22:50:24
+continuous values, it is necessary to determine the contri-
+bution of each superparticle to the charge density at thegrid points. To do so, we deﬁne an interpolation functionwhich determines the weight that each superparticle con-tributes to the physical properties at the grid points. Thesimplest method is called the nearest grid point. If thedistance between the grid point and the center of super-particle jx
+g/C0xp;ajis less than Dx=2, a weight of 1 is
+assigned to that grid point. This method can be expressedusing the b-spline ﬂat-top function b
+0as
+b0ðvÞ¼1jvj<1=2
+0 otherwise :(
+(2)
+The corresponding interpolation function for species ais
+given by
+Waðxg/C0xp;aÞ¼b0xg/C0xp;a
+Dx/C18/C19
+: (3)
+This interpolation scheme is shown in Fig. 3. In more
+advanced methods, the superparticle is assigned to morethan one grid point.
+1,6,15
+(3) The charge density at the grid points gfor species ais
+given by17
+qg;a¼qp;a
+DxX
+pWaðxg/C0xp;aÞ: (4)
+The charge of the superparticle is deﬁned as qp;a¼qaNr;a,
+where Nr;ais the number of real particles in a superparticle.
+(4) The total charge density at grid point gis
+qg¼X
+aqg;a: (5)
+(5) Given the charge density at the grid points, we calculate
+the electric ﬁeld from Poisson’s equation at these nodes
+d2/ðxÞ
+dx2¼/C0qðxÞ
+/C150: (6)
+If we integrate both sides of Eq. (6)from the left bound-
+aryx¼0 to an arbitrary point x, we obtain
+EðxÞ¼Eð0Þþ1
+/C150ðx
+0qðx0Þdx0; (7)where we have used the relation EðxÞ¼/C0 d/ðxÞ=dx.
+Note that Eq. (7)requires the value of the electric ﬁeld at
+the left boundary E(0). Because of periodic boundary
+conditions, we also have EðLÞ¼Eð0Þ. To obtain an
+expression for E(0) in terms of the charge density, we
+integrate Eq. (6)twice and use /ð0Þ¼/ðLÞto obtain
+Eð0Þ¼/C01
+LðL
+0ðx0
+0qðx00Þdx00/C18/C19
+dx0: (8)
+Because the charge density is evaluated at the grid
+points, it is necessary to compute the integrals in Eqs. (7)
+and(8)using the values of the electric ﬁeld. For this pur-
+pose, the trapezoidal rule is used, so that the electric ﬁeldat each grid point is given by29
+Eg¼Eg¼0þDx
+/C150Xg/C01
+j¼1qjþqj/C01
+2/C18/C19
+; (9)
+where q0¼qNg. In the same way, it is possible to obtain
+the electric potential from the relation
+/ðxÞ¼/ð0Þ/C0ðx
+0EðyÞdy: (10)
+Because the reference potential /ð0Þin Eq. (10) can be
+selected arbitrarily, we set /ð0Þ¼0 for simplicity. We
+evaluate the integral in Eq. (10)numerically and express
+/gas
+/g¼/g¼0/C0DxXg/C01
+j¼1EjþEj/C01
+2/C18/C19
+; (11)
+where /g¼0¼0¼/Ng.
+(6) To ﬁnd the electric ﬁeld Ep;aexperienced by a superparticle
+at the continuous position xp;a, the nearest grid point method
+(see Fig. 4) is used so that a superparticle in a cell centered
+atg(closest grid point to the superparticle) interacts with the
+electric ﬁeld Eg. That is, the same interpolation function
+used in Eq. (3)is applied. Therefore, Ep;ais given by
+Ep;a¼X
+gEgWaðxg/C0xp;aÞ: (12)
+The same expression can be applied to more general
+interpolation methods as shown in Refs. 1,6,17, and 29.
+The electric force on the superparticle is
+Fig. 3. The nearest grid point interpolation function for superparticle pof
+species awhose interpolation function with center of mass xp;acontains the
+grid point g. The curved dashed arrow shows that the entire charge of the
+superparticle is assigned to g.Fig. 4. The nearest grid point interpolation method. The electric ﬁeld experi-
+enced by a superparticle with center of mass at xp;acorresponds to the elec-
+tric ﬁeld at node g.
+228 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 228 04 October 2023 22:50:24
+Fp;a¼qp;aEp;a: (13)
+(7) The dynamics of the center of mass of the superparticles
+is governed by Newton’s equations6,17
+dxp;a
+dt¼vp;a; (14)
+dvp;a
+dt¼Fp;a
+mp;a: (15)
+The solution of Eqs. (14) and(15) is obtained numerically
+using the Euler algorithm
+xnþ1;p;a¼xn;p;aþvn;p;aDt; (16)
+vnþ1;pa¼vn;paþqp;a
+mp;aEn;p;aDt; (17)
+where tn¼nDtandDtis the time step.
+As can be seen in Eq. (17), the acceleration depends on
+the charge-to-mass ratio of the superparticles. Because thecharge and mass of a superparticle pof species aare given
+byq
+p;a¼Nr;aqaandmp;a¼Nr;ama, where Nr;ais the number
+of real particles of species a, we have25
+qa
+ma¼qp;a
+mp;a: (18)
+Hence, the center of mass of a superparticle follows the
+same trajectory as a real particle because they experience the
+same acceleration.
+IV. PLASMAPP
+To make plasma simulations more accessible, we created
+a program with a graphical user interface which we call
+PlasmAPP. The program allows users to choose the Euler,
+leapfrog, or fourth-order Runge-Kutta algorithm for the solu-tion of the equations of motion.
+1,29Users can explore the
+advantages and disadvantages of these algorithms in terms of
+numerical stability, speed, and numerical accuracy. Themethod discussed in Sec. IIIto ﬁnd the electric ﬁeld was the
+direct integration of Gauss’s law. The more advanced possi-
+bilities implemented in PlasmAPP include the ﬁnite differ-ence method and the fast Fourier transform.
+15,29Users can
+also select the interpolation method used to assign the charge
+to the grid and the force calculations. Two possibilities are
+the nearest grid point explained in Sec. IIIand the cloud-in-
+cell method.1,6,15PlasmAPP also allows the simulation of
+phenomena involving ion mobility as well as a ﬁxed neutral-
+izing background. The diagnostics can be chosen and theresults can be saved for post-processing. The code can be
+found at Refs. 14and15, and additional information of the
+code can be found in Ref. 15.
+V. RESULTS
+We discuss the results of the electron-electron two-stream
+instability using the Euler method for the equations of
+motion and direct integration for Gauss’s law. The interpola-tion method used is the nearest grid point. These methods
+have a greater numerical error than more advanced methods,
+but they were discussed here because they are easier forstudents to understand who only have a knowledge of inte-
+gral calculus and basic electrostatics.
+It is convenient to normalize the variables in terms of
+characteristic times and lengths which deﬁne the correspond-ing scales of interest and avoid the use of very small or very
+large numbers that lead to numerical errors. By means of an
+inverse procedure, it is possible to ﬁnd the physical quanti-
+ties and their real values. We measured time in terms of the
+electron plasma period ( x
+/C01
+p;e), lengths in terms of the Debye
+length kD;e, the mass in terms of the electron mass me, and
+the charge in terms of the proton charge e. The vacuum per-
+mittivity /C150and the Boltzmann constant kBare set to one.
+The other units of the physical quantities, such as the veloc-
+ity, electric potential, electric ﬁeld, and energy among others,
+are derived from these fundamental units.
+A. Electron-electron two-stream instability
+The electron-electron two-stream instability consists of two
+electron beams with opposite velocities in an immobile ion
+background. The velocity distribution function is given by30
+fðvxÞ¼n0
+2ﬃﬃﬃﬃﬃ ﬃ
+2pp
+vth;ee/C0ðv/C0v0Þ2=2v2
+th;e
+þn0
+2ﬃﬃﬃﬃﬃ ﬃ
+2pp
+vth;ee/C0ðvþv0Þ2=2v2
+th;e:
+To simulate the electron-electron two-stream instability,
+we used the parameters L¼64, the number of time steps
+Nt¼16000, Dt¼0:1, the number of grid points Ng¼256,
+the number of electrons of the two beams Ne;1¼Ne;2
+¼10000, the number of ions ﬁxed to the background
+Nf¼20000, v0e;1¼5;v0e;2¼/C05, the thermal speed of the
+two beams vth;e;1¼vth;e;2¼1, the charge-to-mass relation of
+the beams re;1¼re;2¼/C01, and the plasma frequency
+xp;e¼1.
+The initial state of the system is shown in Fig. 5, where
+the phase space and the distribution function are displayed.
+The latter shows the presence of two peaks centered at v0e;1
+and v0e;2, which correspond to ﬁve times the thermal speed.
+These peaks represent the two electron beams. The initial
+state is charge neutral, and therefore, the electric ﬁeld in thegrid is zero everywhere.
+The initial particle velocity distribution function eventually
+generates an electric ﬁeld, allowing the beams to interact.
+Initially, the electric ﬁeld perturbations are waves that grow
+exponentially in time, signaling an instability (see Fig. 6).
+When the particles interact, they start to form electron
+phase space holes as observed in Fig. 7, which corresponds
+to the system at time t¼350. As can be seen in Fig. 7(b), the
+potential reaches a maximum at the center of the electron
+hole. Because the electric ﬁeld is equal to the negative deriv-
+ative of the electric potential, this maximum separates the
+two regions where the electric ﬁeld changes sign (see Fig.
+7(c)). Because the direction of the electric force is opposite
+to the direction of the electric ﬁeld due to the sign of the
+charge, particles that are to the right (left) of the maximumwill experience forces to the left (right), so particles will
+tend to change their direction of motion, which implies a cur-
+vature in phase space that is visualized as a hole (see Fig.
+7(a)).
+31Similar results were obtained in two dimensions for
+simulations of the electron two-stream instability with ﬁxed
+ions in the presence of a constant external magnetic ﬁeld.12
+229 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 229 04 October 2023 22:50:24
+In their simulation, they used the same initial condition as
+Eq.(19) with the two electron beams moving in opposite
+directions along the x-direction (see Fig. 5(a) of Ref. 12).
+They showed that the initial value of the electric potential /
+is zero, and as the system evolves, waves that vary mainlyalong the xcoordinate begin to appear (see Fig. 6 of Ref. 12)
+as the system attempts to reach thermal equilibrium. It wasalso shown that the electric potential is positive at local-ized regions where electron holes in phase space areformed (see Figs. 5 and 6 of Ref. 12). Because both elec-
+tron beams in Ref. 12have initial velocities in just onedirection ( x), the spatial variation of /through the ycoor-
+dinate is not signiﬁcant. Also, the presence of the constantexternal magnetic ﬁeld does not inﬂuence the evolution inthe electrostatic limit because currents are not generatedalong the xdirection according to Ampere’s law.
+12Thus,
+our 1D simulation contains the relevant physics of theinstability for this particular initial condition, with theadvantage of less computational effort in comparison tothe 2D simulations. However, the 2D code implemented inRef. 12can be used to simulate the more general oblique
+propagation.
+Fig. 5. Initial (a) phase space and (b) velocity distribution function for the electron-electron two-stream instability.
+Fig. 6. (a) Phase space; the spatial dependence of (b) the electric potential, and (c) the electric ﬁeld for the electron-electron the two-stream inst ability at
+t¼10.5.
+230 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 230 04 October 2023 22:50:24
+Figure 8(a) shows how the energy behaves in the time
+interval t¼0t ot¼20. We observe that the kinetic energy ek
+(dashed-dotted line) is much larger than the potential energy
+ep(solid line). When ek/C29ep, the system corresponds to a
+weakly coupled plasma, where long-range interactions domi-
+nate over short-range collisions.
+The movement of the electron beams with respect to each
+other causes density perturbations due to the electric force
+between the particles. These perturbations cause a linear insta-
+bility characterized by an initial temporal exponential growth
+of the electric ﬁeld according to the linear instability theory in
+plasmas.1,32,33This behavior is shown in Fig. 8(a)where theinitial growth of the potential energy occurs for 10 /H11351t/H1135114.
+Att¼15.2, the instability is ﬁrst saturated and the dynamics
+becomes nonlinear as shown in Fig. 8(b). After a long time,
+the beam interaction eventually causes the particles’ speeds to
+converge to the Maxwell-Boltzmann distribution. This long
+time convergence can be observed using the more advancedmethods discussed in Refs. 1,6,15,29, and 34.
+The relative percentage error of the total energy at each
+iteration with respect to the initial total energy was calcu-
+lated and found to be 0.57%, indicating that the energy is
+conserved with reasonable accuracy. An analogous error
+analysis was performed for the total momentum, whichFig. 7. (a) Phase space, the spatial dependence of the (b) electric potential, and (c) the electric ﬁeld for the electron-electron two-stream instabi lity at t¼350.
+Fig. 8. (a) The time dependence of the kinetic energy ek(top curve) and the potential energy ep. (b) The phase space at t¼15.2, corresponding to the ﬁrst satu-
+ration of the potential energy.
+231 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 231 04 October 2023 22:50:24
+should be zero because the two electron beams have the
+same density and the same speed but move in opposite direc-
+tions. The maximum percentage error of the momentum is
+5:54/C210/C010%.
+VI. DISCUSSION
+To understand the behavior of systems as complex as plas-
+mas, it is helpful to use the simplest possible tools.
+Visualizing the complex behavior of plasmas provides addi-tional insight, particularly behavior that is not easily accessi-
+ble by theory.
+Plasma evolution involves self-consistent dynamics
+between the electromagnetic ﬁelds and particles, becauseparticles are the source of these ﬁelds and particle trajecto-
+ries are determined by the ﬁelds. We have discussed the par-
+ticle-in-cell method using direct and simple numericalmethods and focused on the implementation of a simpliﬁed
+plasma system in the electrostatic regime with a one-
+dimensional geometry where all physical quantities varyalong a single direction.
+As an example of the particle-in-cell method and the
+PlasmAPP program, we simulated the instability of two elec-
+tron streams where the formation of electron holes in phasespace is observed, leading to the generation of bipolar pulsesof the electric ﬁeld, which is consistent with measurements
+in astrophysical environments.
+35Similar behavior is obtained
+in one and two dimensions if the initial condition corre-sponds to electron beams moving along a single Cartesian
+coordinate. This example shows that the behavior of a sys-
+tem can be simulated by a simpler one-dimensional simula-tion without the need to introduce the complexities of a
+simulation in higher dimensions.
+Readers can download PlasmAPP from Refs. 14and15
+and perform simulations of other phenomena of interest,including ion motion, and explore other numerical methods.
+We hope that we have provided a guide for readers begin-
+ning the study of plasma physics and kinetic simulations.
+VII. SUGGESTED PROBLEMS
+Problem1: Write your own code . We present a brief guide
+to writing your own electrostatic one-dimensional code using
+the Euler method for integrating the motion of the particlesand direct integration with the trapezoidal rule for determin-
+ing the electric ﬁeld. The following steps are for an electron
+beam with a ﬁxed ion background:
+•Deﬁne the parameters of the system: Length of the systemL, the number of grid points N
+g, the cell size Dx, the num-
+ber of time steps Nt, and the time step Dt. Then deﬁne the
+parameters for the superparticles: The number of superpar-
+ticles for electrons Ne, the electron plasma frequency xp;e,
+the initial velocity v0e, the thermal velocity vth;e, and the
+charge-to-mass ratio re. The charge of the superparticle is
+given by Qe¼x2
+p;e=½reðNe=LÞ/C138. To obtain quasi-neutrality
+of the plasma, a background charge density qbackmust be
+added ðNe=LÞQeþqback¼0, so that qback¼/C0 ð Ne=LÞQe.
+•Place the particles equally spaced in position. One way to
+obtain a Maxwellian distribution for the velocities is tomultiply the thermal velocity by a function that creates
+normally distributed random numbers
+36,37and then add
+the initial velocity of the electrons.•Apply the interpolation function of Eq. (3)to construct the
+charge density at the grid points. Include periodic bound-ary conditions for x
+g, which is the position of the grid
+point closest to the superparticle. Thus, if a superparticleis near g¼0, the charge assignment is to the last grid
+point.
+•Calculate the charge density using Eq. (4), including the
+background density qback.
+•Use direct integration with the trapezoid rule to compute
+the electric ﬁeld at the grid points with Eq. (9).
+•To obtain the electric ﬁeld Ep;aexperienced by a superpar-
+ticle at its current position xp;a, use Eq. (12)to interpolate
+this value from the electric ﬁelds Egat the grid points.
+•Calculate the new velocities of the superparticles using
+Eq.(17).
+•Use Eq. (16)to calculate the new particle positions. Make
+sure that you use periodic boundary conditions on theupdated positions.
+In the following problems, use your own program or the
+one provided in Refs. 14and15to simulate the evolution of
+the plasma.
+Problem2: Langmuir waves . We can observe Langmuir
+waves in a plasma in thermal equilibrium. Use the parame-tersL¼1024, N
+t¼8000, Dt¼0:05,Ng¼8192, Ne¼50000,
+vth;e¼1;re¼/C01;xp;e¼1, and set the other parameters to
+zero. It is necessary in PlasmAPP to deﬁne the number ofions in the background to be equal to the number of elec-trons. The dispersion relation for Langmuir waves is
+38
+x2¼6x2
+p;e1þ3
+2k2k2
+D;e/C18/C19
+; (19)
+where xcorresponds to the frequency associated with the
+propagating harmonic ﬁelds and kis the corresponding
+wavenumber. Use your results to plot the theoretical disper-sion relation and the simulated one, and determine how theycompare. To do so, apply a fast Fourier transform in spaceand time to the electric ﬁeld. You should obtain a plot likethe one in Fig. 9.
+Vary the thermal velocity and observe how the dispersion
+relation changes. If the thermal velocity becomes smaller,you will obtain cold plasma waves with a frequency equal to
+Fig. 9. Ratio of the theoretical to the simulated dispersion relation for
+Langmuir waves (see problem 2).
+232 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 232 04 October 2023 22:50:24
+xp;e. You will also see that the numerical error increases
+because of the non-compliance of the stability conditions.6It
+is important to be aware of the limitations of the program.Add an initial velocity to the beam of electrons, and observeif there is a change in the dispersion relation.
+Problem3: Ion-acoustic and Langmuir waves . In problem
+2, the ions were ﬁxed. What happens when they are mobile?
+Add a second species to your program and use the parame-
+ters: L¼2048, N
+t¼8000, Dt¼0:05,Ng¼8192, Ne¼8000,
+Ni¼8000, v0e¼0;v0i¼0;vth;e¼10;vth;i¼0;re¼/C01,
+andri¼0:01. The thermal velocity is increased for ease of
+visualization. Plot the simulated dispersion relation. Youshould see another branch corresponding to the dispersionrelation of waves generated by the ions. Because they aremore massive than electrons, their frequency will be lower.These waves are called ion-acoustic waves, and the disper-sion relation is given by
+32
+x2¼x2
+p;i
+1þðxp;e=k2v2
+th;eÞ: (20)
+Plot the theoretical dispersion relations of Eqs. (19)and(20)
+and compare them with your simulations. Then decrease thethermal velocity of the electrons and determine how the dis-persion relation changes.
+Problem4: Buneman Instability . What happens if there is
+a relative velocity between two beams of different species?As in the electron-electron two stream instability, an instabil-ity, known as the Buneman instability, will be generated. Itoccurs if the drift velocity between the electron beam andthe ions exceeds the thermal velocity of both species.
+39Use
+the parameters L¼2p;Nt¼5000 ;Dt¼0:1;Ng¼512, Ne
+¼10000, Ni¼10000, v0e¼1;v0i¼0;vth;e¼0:004;vth;i
+¼0;re¼/C01;ri¼0:001. Plot the phase space, and the spa-
+tial dependence of the electric potential and electric ﬁeld.Observe the time evolution and see how the plasma triesto approach thermal equilibrium. You should ﬁrst observethe formation of electron phase-space holes with the charac-teristic bipolar waves of the electric ﬁeld propagatingslower than in the electron-electron two-stream instabil-ity.
+40You should also observe how the electron velocity
+approximates a Maxwell–Boltzmann distribution with amean velocity approximately equal to the velocity of the ion
+beam. This system requires a long time to reach thermal
+equilibrium.
+Next increase the charge-to-mass ratio of the ions. What
+happens to the ion distribution compared to the ﬁrst simula-tion? What would happen if instead of ions, you consider apositron beam ( r
+i¼1)?.
+ACKNOWLEDGMENTS
+S.G. is grateful to Universidad EAFIT for its support.
+J.H.H. thanks the support of University of Medellin,Colombia and Professor Jaime Araneda of University of
+Concepci /C19on, Chile for his guidance in the ﬁrst steps of
+Particle simulations in Plasmas. J.A.V. thanks the support ofANID-Fondecyt under Grant No. 1190703.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.a)ORCID: 0000-0003-1601-6704.
+1C. K. Birdsall and A. B. Langdon, Plasma Physics via Computer
+Simulation (Taylor and Francis, New York, 2005).
+2P. L. Pritchett, “Particle-in-cell simulation of plasmas—A tutorial,” in
+Space Plasma Simulation , edited by J. B €uchner, M. Scholer, and C. T.
+Dum (Springer Berlin Heidelberg, Berlin, Heidelberg, 2003), pp. 1–24.
+3R. Treumann and W. Baumjohann, Advanced Space Plasma Physics
+(Imperial C.P., London, 1997).
+4D. Tskhakaya, “The particle-in-cell method,” in Computational Many-
+Particle Physics , edited by H. Fehske, R. Schneider, and A. Weiße
+(Springer Berlin Heidelberg, Berlin, Heidelberg, 2008), pp. 161–189.
+5J. M. Dawson, “Particle simulation of plasmas,” Rev. Mod. Phys. 55,
+403–447 (1983).
+6R. W. Hockney and J. W. Eastwood, Computer Simulation Using Particles
+(Hilger, Bristol, 1988).
+7I. Hutchinson, “How can slow plasma electron holes exist?,” Phys. Rev. E
+104, 015208 (2021).
+8R. S. Rajawat and S. Sengupta, “Particle-in-cell simulation of Buneman
+instability beyond quasilinear saturation,” Phys. Plasmas 24, 122103
+(2017).
+9E. Koen, A. Collier, S. Maharaj, and M. Hellberg, “Particle-in-cell simula-tions of ion-acoustic waves with application to Saturn’s magnetosphere,”
+Phys. Plasmas 21, 072122 (2014).
+10UCLA, “Jupyter notebooks for educational plasma physics
+simulations with PIC,” <https://github.com/UCLA-Plasma-Simulation-Gr
+oup/JupyterPIC >.
+11Y. Omura and H. Matsumoto, KEMPO1: Technical Guide to One-
+Dimensional Electromagnetic Particle Code (Terra Scientiﬁc, Tokyo, 1993).
+12D. Rodr /C19ıguez-Pati ~no, S. Ram /C19ırez Ram /C19ırez, J. Hoyos, J. Salcedo Gallo, and
+E. Restrepo Parra, “Implementation of the two-dimensional electrostatic
+particle-in-cell method implementation of the two-dimensional electro-
+static particle-in-cell method,” Am. J. Phys. 88, 159–167 (2020).
+13G. Lapenta, “Particle-in-cell 1D electrostatic code,” (2007), <https://
+github.com/valsusa/SkeletonPIC >.
+14S. Gomez, J. H. Hoyos, and J. A. Valdivia, “PlasmAPP code,” (2022),
+<https://github.com/gsara798/PLASMAPP-0.1.git >.
+15See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0135515 forPlasmAPP code and supplementary notes.
+16F. Reif, Fundamentals of Statistical and Thermal Physics (McGraw Hill,
+Tokyo, 1965).
+17G. Lapenta, “Kinetic plasma simulation: Particle in cell method,” inProceedings of the XII Carolus Magnus Summer School on Plasma and
+Fusion Energy Physics (KU Leuven, Belgium, 2015).
+18S. Ledvina, Y. Ma, and E. Kallio, “Modeling and simulating ﬂowing plas-
+mas and related phenomena,” Space Sci. Rev. 139, 143–189 (2008).
+19R. Goldston and P. H. Rutherford, Introduction to Plasma Physics (CRC
+Press, Boca Raton, FL, 2020).
+20J. A. Bittencourt, Fundamentals of Plasma Physics , 3rd ed. (Springer-
+Verlag, New York, 2004).
+21P. M. Bellan, Fundamentals of Plasma Physics (Cambridge U. P.,
+Cambridge, 2006).
+22N. Krall, A. Trivelpiece, and J. Kempton, Principles of Plasma Physics ,
+International Series in Pure and Applied Physics (McGraw-Hill,New York, 1973).
+23K .C h a u d h a r y ,A .M .I m a m ,S .Z .H .R i z v i ,a n dJ .A l i ,i n Kinetic Theory ,e d i t e d
+by G. Z. Kyzas and A. C. Mitropoulos (IntechOpen, Rijeka, 2018), Chap. 7.
+24H. Ruhl and P. Mulser, “Relativistic Vlasov simulation of intense fs laserpulse-matter interaction,” Phys. Lett. A 205, 388–392 (1995).
+25A. Pukhov, “Particle-in-cell codes for plasma-based particle acceleration,”
+Proceedings of the 2014 CAS-CERN Accelerator School: Plasma WakeAcceleration, 23–29 November 2014, Geneva, Switzerland (CERN,
+Geneva, 2016), pp. 181–206.
+26R. E. Navarro, P. S. Moya, V. Mu ~noz, J. A. Araneda, A. F. Vi ~nas, and J.
+A. Valdivia, Solar Wind Thermally Induced Magnetic Fluctuations , Vol.
+112 (American Physical Society, College Park, Maryland, 2014), p.
+245001.
+27V. Sainia, S. K. Pandey, P. Trivedi, and R. Ganesh, “Coherent phase space
+structures in a 1D electrostatic plasma using particle-in-cell and Vlasov
+simulations: A comparative study,” Phys. Plasmas 25, 092107 (2018).
+28S. K. Pandey and R. Ganesh, “Landau damping in one dimensional peri-
+odic inhomogeneous collisionless plasmas,” AIP Adv. 11, 025229 (2021).
+29R. L. Burden and J. D. Faires, “Numerical analysis,” 4th ed., The Prindle,
+Weber and Schmidt Series in Mathematics (PWS-Kent Publishing
+Company, Boston, 1989).
+233 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 233 04 October 2023 22:50:24
+30J. S. Bland /C19on, J. P. Grisales, and H. Riascos, Electrostatic Plasma
+Simulation by Particle-In-Cell Method Using ANACONDA Package , Vol.
+850 (IOP Publishing, Bristol, 2017), p. 012007.
+31I. Hutchinson, “Electron holes in phase space: What they are and why they
+matter,” Phys. Plasmas 24, 055601 (2017).
+32F. F. Chen, Introduction to Plasma Physics (Plenum Press, New York,
+1974).
+33F. Gbaorun, E. S. John, T. M. Aper, T. Daniel, and F. Eriba-Idoko,“Simulation of electron-electron two stream instability (ETSI),” Nigerian
+Annals of Pure and Applied Sciences 2, 265–273 (2019).
+34G. Lapenta, “Particle simulations of space weather,” Comput. Plasma
+Phys. 231, 795–821 (2012).
+35J. S. Pickett, L.-J. Chen, S. W. Kahler, O. Santol /C19ık, M. L. Goldstein, B.
+Lavraud, P. M. E. D /C19ecr/C19eau, R. Kessel, E. Lucek, G. S. Lakhina, B. T.
+Tsurutani, D. A. Gurnett, N. Cornilleau-Wehrlin, A. Fazakerley, H. Re `me,
+and A. Balogh, “On the generation of solitary waves observed by clusterin the near-Earth magnetosheath,” Nonlin. Processes Geophys. 12,
+181–193 (2005).
+36MATLAB, Create Codistributed Array of Normally Distributed Random
+Numbers ,<https://la.mathworks.com/help/parallel-computing/codistributed.
+randn.html >.
+37Numpy. “Return a sample (or samples) from the ‘standard normal’ distribu-
+tion,” <https://numpy.org/doc/stable/reference/random/generated/numpy. ran-
+dom.randn.html >.
+38H. E. J. Koskinen, Physics of Space Storms from the Solar Surface the
+Earth (Springer, Berlin, 2011).
+39Q. Moreno, M. E. Dieckmann, X. Ribeyre, S. Jequier, V. T. Tikhonchuk,
+and E. d’Humie `res, “Impact of the electron to ion mass ratio on unstable
+systems in particle-in-cell simulations,” Phys. Plasmas 25, 062125 (2018).
+40M. V. Goldman, D. L. Newman, and R. E. Ergun, “Phase-space holes due
+to electron and ion beams accelerated by a current-driven potential ramp,”
+Nonlin. Processes Geophys. 10, 37–44 (2003).
+234 Am. J. Phys., Vol. 91, No. 3, March 2023 Gomez, Hoyos, and Valdivia 234 04 October 2023 22:50:24

@@ -1,0 +1,511 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| FEBRUARY 01 2022
+Subtle features in projectile motion with quadratic drag
+found through T aylor series expansions 
+Antonio Corvo
+Am. J. Phys.  90, 135–140 (2022)
+https://doi.org/10.1 119/10.0009227
+Articles Y ou May Be Interested In
+Preliminary group classification of equations vtt=f (x,vx)vxx+g(x,vx)
+J. Math. Phys.  (November 1991)
+Histotripsy and metastasis: Assessment in a renal VX-2 rabbit tumor model
+AIP Conference Proceedings  (October 2012)
+Effects of Heat and Ultrasound on Vx ‐ 2 Carcinoma in Bones of Rabbits: A Preliminary Report
+J Acoust Soc Am  (July 2005) 04 October 2023 23:02:16
+Subtle features in projectile motion with quadratic drag found through
+Taylor series expansions
+Antonio Corvoa)
+Applied Research Solutions, Beavercreek, Ohio 45440, and School of Systems and Logistics, Air Force
+Institute of Technology, Wright-Patterson Air Force Base, Ohio 45433
+(Received 6 April 2021; accepted 21 December 2021)
+Many attempts have been made at ﬁnding the trajectory for the projectile problem with quadratic
+drag. However, no complete analytical solution is possible due to the nonlinear coupling between
+differential equations describing the horizontal ( x) and vertical ( y) velocity components that
+result in the ﬁnal trajectory solution, y¼f(x). Over the years, a number of approximate analytical
+methods, including Taylor series expansions, have been applied to the problem. However,
+whereas prior works expanded Vxby assuming Vx¼Vx(t), the expansion here is based on the
+faster converging 1/ Vx(t), whose reciprocal better captures the monotonically decreasing nature
+ofVx.#2022 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/10.0009227
+I. INTRODUCTION
+One of the oldest physics problems in human history is at
+what angle and how fast something has to be thrown in order
+to hit a target of interest. Humans mastering those tech-
+niques, from hunting to warfare, were more likely to hit theirprey and be victorious in a battle. Sports, in many of theirvarious forms, encompass a wide range of different methodsto transfer energy to a projectile in order to hit a target, forminganother area where a substantial amount of effort has beenplaced in understanding the nuances of projec tile motion.
+1–3
+Thus, in all of its applications, it is not surprising that projectile
+motion has played major roles in the formal development ofdynamics and even in digital computer design starting withENIAC, the ﬁrst programmable, electronic, general-purpose
+digital computer initially developed for the United States
+Army to calculate artillery ﬁring tables.
+4
+In physics education, projectile motion may be studied with
+the use of a lab-scale catapult. A typical trajectory, as shownin Fig. 1, begins at the origin (0, 0) in the ascent phase of seg-
+ment I when the catapult releases the projectile with a givenlaunch angle and velocity. The projectile rises to a peak at(x
+p,yp) and then returns to the plane of origin ( xr,0 )i nt h e
+descent phase of segment II. In studies of projectile motion,the trajectory is often limited to segments I and II. SegmentIII is included here to add generality to the trajectory since
+projectiles can also be launched from elevated positions.
+Thus, if the motion extends past the plane of origin, theprojectile continues to the ﬁnal position ( x
+f,yf) in segment III.
+In a classroom environment, the projectile’s horizontal
+range, whether at the end of segment II or III, is one of thesimpler results to measure compared to component velocitiesand positions as functions of time. However, in order to com-pare the measured range with predicted values, a moresophisticated approach than the standard vacuum trajectorymodel is needed. The model must include drag.
+5
+Which drag model to use in a particular application
+depends on variables such as shape of the projectile, its
+speed, and properties of surrounding ﬂuid. These conditions
+are typically captured in the non-dimensional Reynolds num-ber, R
+e, which expresses the ratio of inertia and viscous
+forces.6ForRe/C281, linear models, where the drag force is
+proportional to the velocity, are typically used. Linearmodels are relatively straightforward and often included in
+ﬁrst-year calculus-based college physics textbooks, wheresolutions are composed of simple elementary functions.
+7,8
+When Re/C291, the case of interest here, the drag force is
+proportional to the square of the velocity. The resulting non-linear equations do not have closed form solutions in termsof elementary functions. A number of different approaches
+have been investigated that result in varied approximate ana-
+lytical solutions.
+9–17Generally speaking, these solutions
+qualitatively capture the trajectory but lose their accuracy as
+the projectile transitions from segment I to segment II, and
+this tendency worsens as launch angles increase.
+Solutions using series expansions have also been
+reported.18–20However, because of the nonlinearity of the
+problem, series components are arduous to calculate and the
+resultant truncated series typically have poor applicability dueto slow convergence and eventual divergence. Nevertheless,
+Das and Roy
+18report a good match with a fourth-order
+Runge-Kutta (RK4) solution using a 12th-order series and thePad /C19e approximant, where the series coefﬁcients were found
+numerically.
+21,22
+This work uses a series expansion approach to address
+speciﬁc characteristics of the quadratic drag trajectory.However, the goal is not to ﬁnd another approximate solution
+for the trajectory but to better understand the nature of the
+trajectory by deriving and analyzing analytical expressionsfor the Taylor series coefﬁcients up to sixth order, concen-
+trating mostly on the horizontal component in segments I
+and II of Fig. 1. The derived expressions describe important
+changes in the trajectory as a function of launch angles and
+velocities. These results provide insight into why approxi-
+mate solutions lose their validity over segments I and II.
+The following analysis grew from trying to adapt various
+approximate quadratic drag models in the college classroom
+for catapults using table tennis balls as projectiles.
+23However,
+the analysis is scalable to other projectile applications, becausethe model only requires the projectile’s launch angle h, initial
+velocity V
+0, and terminal velocity Vt, to be known.
+II. THE BASIC PROBLEM
+The quadratic drag force acting along the direction of
+motion is proportional to VV, where V¼VxiþVyjis the
+135 Am. J. Phys. 90(2), February 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 135 04 October 2023 23:02:16
+velocity vector, with horizontal and vertical components Vx
+andVy, respectively, and V¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+V2
+xþV2
+yq
+is the velocity’s
+magnitude. The equations of motion from Newton’s second
+law,PF¼/C0kVV/C0mg, are then given by
+dVx
+dt¼/C0kVV x; (1)
+dVy
+dt¼/C0kVV y/C0g: (2)
+In Eqs. (1)and(2),tis the time and g¼9.807 m/s2is the
+acceleration of gravity. If the ﬂight proﬁle involves a longtime of ﬂight, such as a tall segment III of Fig. 1, the projec-
+tile may approach terminal velocity in the vertical direction.
+When this occurs, V
+y!Vt,dVy/dt!0, and Vx!0.
+Substituting these values into Eq. (2)deﬁnes the proportion-
+ality constant, k, in terms of the terminal velocity as k
+¼g=V2
+t.I fVtis unknown, it can be estimated from the well-
+known ﬂuid dynamics formula
+Vt¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2mg
+cDqoAs
+; (3)
+where mand Aare the projectile’s mass and cross-
+sectional area, respectively, q0is the air density, and cdis a
+non-dimensional drag coefﬁcient associated with airﬂowover an object’s surface.
+24Thus, the inﬂuence of the pro-
+jectile’s shape on the trajectory is roughly captured
+through Eq. (3).
+III. RUNGE-KUTTA SOLUTIONS
+Figure 2shows the RK4 spreadsheet generated curves for
+the accelerations of Eqs. (1)and(2)at angles of 15/C14,4 5/C14,
+and 75/C14, for a table tennis ball with an initial launch velocity
+of 7.00 m/s. The terminal velocity from Eq. (3)for this pro-
+jectile ( m¼0.0027 kg, A¼0.001 26 m2) at sea level ( q0
+¼1.225 kg/m3) is about 8.279 m/s using cd¼0.5.24These
+values result in k/C250.143/m. Both accelerations in Fig. 2
+experience some ﬂuctuations, but the horizontal accelera-tion’s ﬂuctuations at low angles eventually turn into local
+maxima at higher angles. (When the launch angle is mostly
+or purely vertical ( V
+x0!0), Eqs. (1)and(2)are trivial to
+solve. For small angles /C2815/C14, a number of small angleapproximations can be used to simplify the problem. For fur-
+ther discussions on very small and very large angles, see, for
+example, Sec. IVbelow and Ref. 17.)
+Figure 3shows the RK4 solutions for Vx,Vy, and Vfrom
+Eqs. (1)and(2)for the same conditions as in Fig. 2. The hor-
+izontal velocity, Vx, continuously decreases but experiences
+ﬂuctuations due to the maxima in the horizontal accelerationof Fig. 2(a), which, in turn, are due to the minima in Vin
+Fig.3(c).
+We see in Fig. 3(c)that as angles increase, the minima in
+Vbecome deeper and the ﬂuctuations in V
+xin Fig. 3(a)
+become more pronounced. This causes a greater departure
+from a strictly decreasing function in Vxthat would be
+expected when drag is the only force acting on an object, forexample, as seen in the linear drag horizontal solution
+(where there is no coupling between the xandycomponents)
+or if V
+y¼0 in Eq. (1)where the motion would be strictly
+horizontal. For completeness, Fig. 4gives the trajectories,
+y¼f(x), for the conditions given in Figs. 2and 3, and
+includes travel into segment III of Fig. 1. The curves in
+Fig.4were found from numerical integration of the velocity
+curves in Fig. 3to ﬁnd y(t) and x(t).
+IV. SERIES EXPANSIONS
+The series expressions for the horizontal and vertical
+velocities from Eqs. (1)and(2)are given by
+Fig. 2. RK4 horizontal (a) and vertical (b) accelerations from Eqs. (1)and
+(2), respectively, for 15/C14,4 5/C14, and 75/C14with V0¼7 m/s and Vt¼8.279 m/s.
+Fig. 1. A basic classroom scale catapult setup and trajectory used to measure
+the range as a function of launch angles and velocities. For scaled up cata-
+pult systems, the table is replaced with an elevated ledge or cliff, and seg-
+ment III height may be large.
+136 Am. J. Phys., Vol. 90, No. 2, February 2022 Antonio Corvo 136 04 October 2023 23:02:16
+Vx¼a0þa1tþa2t2=2!þa3t3=3!þ/C1/C1/C1 ; (4)
+Vy¼b0þb1tþb2t2=2!þb3t3=3!þ/C1/C1/C1 ; (5)
+where anandbnare the Taylor series expansion coefﬁcients
+anda0andb0are the initial conditions Vx0andVy0, respec-
+tively. The higher orders are derived from the nth deriva-tives, f
+n(t¼0), of their respective functions and subsequent
+recursion relationships from Eqs. (1)and(2). For example,
+a1and a 2of Eq. (4)are given bya1¼_Vxt¼0ðÞ ¼/C0kV0Vx0; (6)
+a2¼€Vxt¼0ðÞ ¼/C0kV _VxþVx_V/C0/C1
+t¼0
+¼k2V2Vx/C0kVxVx_VxþVy_Vy
+V/C18/C19
+t¼0: (7)
+Thendots over the variables in Eqs. (6)and(7)refer to their
+nth time derivative. Calculating higher order coefﬁcients of
+Eqs. (4)and(5), although straightforward, is cumbersome
+and laborious due to the nature of Eqs. (1)and(2). However,
+the ﬁnal expressions can be somewhat simpliﬁed by using
+the relationships Vx0¼V0cos(h) and Vy0¼V0sin(h) and the
+deﬁnition R¼V0/Vt. The results up to third-order are given
+in Tables IandII.
+The series for the total velocity, V, can be found from V
+¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+V2
+xþV2
+yq
+using the formulas in Tables IandIIbut more
+conveniently from its own series expansion. For example, to
+the second order in time
+V¼V0/C0gR2þsinhðÞ/C2/C3
+tþg2
+2V0/C18/C19
+/C22R4þ2R2sinhðÞþ1/C0sin2hðÞ/C2/C3
+t2þ/C1/C1/C1 :(8)
+There are some limited special cases where the series con-
+verges to simple functions. For example, for R/C291 and/or h
+/C281, the components in Table Iform the expansion of the
+function
+Vx¼Vx0
+1þkV0t; (9)
+where Eq. (9)is written with kinstead of Rso it matches the
+derivations based on other assumptions and techniques in
+earlier references; see, for example, Ref. 17. Similar results
+occur for Vy.
+Fig. 3. RK4 graphs for the horizontal velocity (a) and the vertical velocity
+(b), corresponding to Fig. 2accelerations; and the magnitude of the total
+velocity V(c).
+Fig. 4. RK4 graphs for the trajectory y¼f(x) from the velocities given in
+Fig.3showing partial travel into segment III of Fig. 1.
+Table I. Vxcoefﬁcients of Eq. (4)up to third order in terms of handR.
+Coefficient Expressions
+a0 Vx0
+a1 /C0Vx0ðg=V0ÞR2
+a2 Vx0ðg2=V2
+0Þ½2R4þR2sinðhÞ/C138
+a3 /C0Vx0ðg3=V3
+0Þ½6R6þ5R4sinhðÞþR2ð1/C0sin2hðÞ/C138
+137 Am. J. Phys., Vol. 90, No. 2, February 2022 Antonio Corvo 137 04 October 2023 23:02:16
+V. A FASTER AND MORE INTERESTING
+EXPANSION
+Because the Taylor series solutions of Eqs. (4)and(5)con-
+verge very slowly, and by their nature do not provide any imme-diate insight, it is worth looking at a different function whose
+expansion converges faster and provides a different and more
+interesting perspective. The approach involves expanding 1/ V
+x
+and analyzing the results for Vx. References 18–20 also use a
+form of 1/ Vxin part of their analysis but not to the extent here.
+The motivation to expand 1/ Vxis that this expansion yields
+a polynomial with a leading term tnin the denominator
+instead of in the numerator. This expansion could better cap-
+ture the nature of Vxgiven by the RK4 curves of Fig. 3(a)
+with fewer coefﬁcients. However, the expansion is not neces-sarily useful for calculating most other trajectory quantitiessuch as range. Its usefulness comes in analyzing trajectorybehavior. (It is not necessary to examine the vertical solutionsince the V
+xexpansion alone provides the needed informa-
+tion for the trajectory analysis of interest here.)
+Forf(t)¼1/Vx, the derivatives up to fourth order evaluated
+att¼0 are
+f0ðÞ¼1
+Vx0;f00ðÞ¼kV0
+Vx0;f000ðÞ¼/C0gkV y0
+V0Vx0; (10)
+f0000ðÞ¼AB¼/C0gkV y0
+V0Vx0kV0/C0gV2
+x0
+Vy0V2
+0"#
+;
+fiv0ðÞ¼AB2þB0 ðÞ : (11)
+The terms A, B, and B0are deﬁned as
+A¼/C0gkV y0
+V0Vx0;B¼kV0/C0gV2
+x0
+Vy0V2
+0; (12)
+B0¼/C0k2V2
+0/C0gkV y0
+V0/C0gV2
+x0k
+VyV0þg
+V2
+01
+V2
+y0þ2
+V2
+0 !"#
+:
+(13)
+The ﬁfth and sixth orders are too long to write in their
+entirety, but in terms of A,B, and their derivatives are
+fv0ðÞ¼AB3þ3BB0þB00 ðÞ ; (14)
+fvi0ðÞ¼A½B4þ6B2B0þ3B0Þ2þ4BB00þB000/C138: (15)
+The coefﬁcients derived above have a common 1 =Vx0term;
+thus, the horizontal velocity to sixth order can be written as
+Vx¼Vx0
+1þkV0tþc2t2=2!þc3t3=3!þc4t4=4!þc5t5=5!þc6t6=6!;
+(16)where cn¼Vx0fnt¼0ðÞ and the ﬁrst two terms are given
+explicitly to show similarity to the previous derivation inEq.(9). As in the previous case for the V
+xcoefﬁcients in
+Table I, the coefﬁcients of Eq. (16) can be further expanded
+in terms of handR. The results are given in Table IIIup to
+fourth order.
+The expansion coefﬁcients in Table Ialternate signs
+based on their order but never change signs as a function ofthe launch angle, initial velocity, and terminal velocity(h,R¼V
+0/Vt). However, some of the coefﬁcients in Table
+IIIdo change signs depending on these three values. These
+are listed in Table IV. The conditions in Table IVcan be
+readily veriﬁed through visual inspection of the expressionsin Table IIIforc
+0–c4. The expressions for c5andc6,f r o m
+Eqs. (14) and(15), are too complex for simple analysis;
+however, the behaviors for these two orders were foundfrom numerically analyzing the expressions over a range ofhandRinput values. Curves generated from Eq. (16) for
+each order and for the same conditions in Figs. 2and3are
+shown in Fig. 5.
+The truncated Taylor series expansions of Eqs. (4)and(5)
+will eventually result in inﬁnite quantities as t!1 depend-
+ing if the two series are truncated at even or odd orders.However, the polynomial in Eq. (16) may have singularities
+if a particular order has real positive roots at chosen initialconditions. Focusing on segments I and II of the trajectories,
+when these roots occur well outside of segments I and II,
+their appearance is mostly unimportant since they have littleinﬂuence on the area of interest.
+If truncated at the second order, the second-order root, t
+ð2Þ
+r,
+from Eq. (16), occurs at
+t2ðÞ
+r¼V01þﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þ2 sin hðÞ=R2p
+gsinhðÞ: (17)Table II. Vycoefﬁcients of Eq. (5)up to third order in terms of handR.
+Coefficient Expressions
+b0 Vy0
+b1 /C0g½R2sinhðÞþ1/C138
+b2 ðg2=VtÞ½2R3sinhðÞþRð1þsin2ðhÞ/C138
+b4 /C0ðg3=V2
+tÞ½6R4sinhðÞþ5R2sin2hðÞþ3R2þ3sinhðÞ/C0sin3hðÞ/C138Table III. Equation (16)coefﬁcients to fourth order in terms of handR.
+Coefficient Expressions
+c0 1
+c1 kV0¼(g/V 0)R2
+c2 /C0ðg2=V2
+0ÞR2sinðhÞ
+c3 ðg3=V3
+0ÞR2½1/C0sin2hðÞ/C0R2sinhðÞ/C138
+c4 ðg4=V4
+0ÞR2½3R2/C02R2sin2hðÞ/C03 sin3hðÞþ3 sin hðÞ/C138
+Table IV. Sign changes for coefﬁcients of Eq. (16) as launch angles
+increase.
+Coefficient Sign changes
+c0 Always þ
+c1 Always þ
+c2 Always /C0
+c3 Starts þbut switches and remains /C0;
+switch angle decreases as Rincreases
+c4 Always þ
+c5 Starts /C0for small angles and Rvalues,
+butþotherwise
+c6 Starts /C0at small angles but switches
+þasRincreases and may switch back to
+/C0depending on angle and Rvalues
+138 Am. J. Phys., Vol. 90, No. 2, February 2022 Antonio Corvo 138 04 October 2023 23:02:16
+Forh!90/C14andR/C291(V0!1 orVt!0), Eq. (17) gives
+tð2Þ
+r!2V0/g, which is the time for a round trip of an object
+thrown vertically in the air without drag.
+The second-order root in Eq. (17) may occur past seg-
+ments I and II for most, if not all, values of angles and veloc-ities. In the 15
+/C14case of Fig. 5(a), the second-order curve
+ﬂattens near 2.5 s and begins to curve upward, correspondingto the second-order singularity at tð2Þ
+r/C256.4 s.
+For the larger angles in Figs. 5(b) and5(c), the second-
+order behavior is clearly displayed. As launch anglesincrease, tð2Þ
+rmoves toward segments I and II, and since c 2is
+always negative, the second-order minimum, where the
+curve begins to increase, moves into segments I and II at a
+time given by
+t2ðÞ
+m¼V0
+gsinhðÞ; (18)
+which is independent of Rand, for h!90/C14, is the time an
+object thrown vertically into the air without drag reaches its
+peak.
+The behavior of the second-order coefﬁcient takes on
+greater signiﬁcance when tied to the third-order coefﬁcient
+and the third-order polynomial. The coefﬁcient, c3, changes
+signs as a function of handR. The angle, hd, where the sign
+change occurs is found by setting the third-order coefﬁcient
+in Table IIIequal to zero. The equation for sin( hd) has the
+solution
+sinhdðÞ¼/C0R2þﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+R4þ4p
+2: (19)
+For the table tennis catapult with R¼V0/Vt/C250.846, Eq.
+(19) gives hd/C2544.8/C14. (As a note of interest, when R¼1,
+sin(hd)¼(/C0u,1 /u), where uis the golden ratio ¼1.618 03
+…. The positive root is the golden ratio conjugate, 1/ u, giv-
+inghd/C2538.2/C14.)
+The coefﬁcient c3is an important system parameter
+because, as it approaches zero with changing launch angle, it
+causes the third-order polynomial in Eq. (16) to have a posi-
+tive root. Being a third-order polynomial, the time of the sin-
+gularity can be given in the closed form but is too
+cumbersome to calculate, express, and use. What is more
+useful is the time of the third-order polynomial’s minimum,
+which requires ﬁnding the root of its second-order derivative.
+The minimum occurs at
+t3ðÞ
+m¼V0
+gsinhðÞ6ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+3 sin2hðÞþ2R2sinhðÞ/C02p
+1/C0sin2hðÞ/C0R2sinhðÞ: (20)
+The root of Eq. (20) is real only when the expression
+under the radical in the numerator is positive. This condition
+deﬁnes the critical angle, hc, given by
+sinhcðÞ¼/C0R2þﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+R4þ6p
+3: (21)
+Thus, third-order minima only occur when h/C21hc. When
+this occurs, the maxima in Fig. 2(a) appear, and the third-
+order coefﬁcient, in conjunction with the second-order
+coefﬁcient, critically inﬂuences the higher-order solutions in
+segments I and II as shown in the changes in the fourth and
+higher-order curves from Figs. 5(a)–5(c) . This is not surpris-
+ing, since the third-order coefﬁcient is related to the deriva-
+tive of the acceleration shown in Fig. 2(a). In essence, hc
+provides a marker where analytical approximations begin to
+worsen in their ability to model the trajectory.
+The graphs in Fig. 5clearly show the long-range effects
+in the higher orders due to the second and third-order coef-
+ﬁcients. They also show how much faster Eq. (16) con-
+verges compared to Eq. (4), where, for the latter equation,
+at mid to higher angles many higher orders are required to
+approximate just the ascent phase.18For the table tennis
+Fig. 5. The RK4 curve and the ﬁrst six polynomial approximations of Vx
+vs time for h¼15/C14(a),h¼45/C14(b), and h¼75/C14(c) with V0¼7 m/s and Vt
+¼8.279 m/s.
+139 Am. J. Phys., Vol. 90, No. 2, February 2022 Antonio Corvo 139 04 October 2023 23:02:16
+example, the small difference between the second and third
+orders in Fig. 5(b) is due to hc/C2537.8/C14andhd/C2544.8/C14being
+just under 45/C14.
+Although, as stated earlier, calculating trajectories is not
+a goal of this work, it is of some interest to at least considerwhat the calculated ranges would be from the curves ofFig. 5. From visual inspection, one can conclude that the
+range calculations over segments I and II from the numeri-cally integrated horizontal velocities of Fig. 5(a) should
+show good to excellent agreement between the RK4result and the various polynomial integrations with thisagreement decreasing as the launch angle increases in Figs.5(b) and5(c). Figure 6compares the range, x(t), between
+the RK4 solution and the sixth-order polynomial for 75
+/C14
+from Fig. 5(c). At the return to launch plane point, RK4
+gives a range of 1.63 m at t/C251.20 s, whereas the sixth-
+order polynomial gives 1.70 m at the same time.
+VI. CONCLUSIONS
+An analytical solution for projectile motion with quadratic
+drag cannot be obtained due to the nonlinear couplingbetween the differential equations describing the horizontaland vertical components. Although a number of approximatetrajectory solutions have been derived, these approximatesolutions have the common limitation of worsening aslaunch angles increase and as the projectile transitions fromthe ascend phase to the descend phase. In this paper, detailedTaylor series coefﬁcients, up to the sixth order, were derivedfor a projectile’s horizontal velocity when expressed as thereciprocal of the expansion of 1/ V
+x(t). The coefﬁcients were
+given in terms of the launch angle hand the ratio of the ini-
+tial velocity to terminal velocity, R¼V0/Vt. The solutions
+include expressions for the critical times and angles thatdeﬁne when important changes in trajectory characteristicsoccur. The derived relationships clearly demonstrate whyapproximate solutions fail as the launch angles approach thederived critical angle, and why their performance dropsdramatically in time as they enter the descending segment ofthe trajectory. A question that remains open is whetherapproximate analytical solutions exist that can capture the
+required, albeit subtle, trajectory characteristics presented
+here.
+ACKNOWLEDGMENTS
+The author would like to thank Stacie Taylor of the
+School of Systems and Logistics, Air Force Institute of
+Technology, for her early review of the manuscript.
+a)Electronic mail: antonio.corvo.ctr@aﬁt.edu
+1A. Raymond Penner, “The physics of golf: The optimum loft of a driver,”
+Am. J. Phys. 69, 563–568 (2001).
+2A. Tan, C. H. Frick, and O. Castillo, “The ﬂy ball trajectory: An older
+approach revisited,” Am. J. Phys. 55, 37–40 (1987).
+3John Eric Goff, “Trajectory analysis of a soccer ball,” Am. J. Phys. 77,
+1020–1027 (2009).
+4Paul A. Freiberger and Michael R. Swaine, see https://www.britannica.-
+com/technology/ENIAC for “‘ENIAC,’ Britannica” (2008).
+5Pirooz Mohazzabi, “When does air resistance become signiﬁcant in pro-
+jectile motion?,” Phys. Teach. 56, 168–169 (2018).
+6Frank P. Incropera and David P. DeWitt, Heat and Mass Transfer , 5th ed.
+(John Wiley & Sons, New York, 2002), pp. 337–355.
+7Raymond A. Serway and Robert J. Beichner, Physics for Scientists and
+Engineers with Modern Physics , 5th ed. (Saunders College Publishing,
+Philadelphia, 2000), pp. 164–169.
+8R. J. Atkin, W. D. Collins, and P. E. Rawlins, “How does air resistanceaffect the motion of a projectile,” Teach. Math. Appl. 12(2), 78–82 (1993).
+9William J. M. Ribeiro and J. Ricardo de Sousa, “Projectile motion: The
+‘coming and going’ phenomenon,” Phys. Teach. 59, 168–171 (2021).
+10G. W. Parker, “Projectile motion with air resistance quadratic in the
+speed,” Am. J. Phys. 45, 606–610 (1977).
+11G. J. Troup, “Approximate trajectories for projectile motion with air
+resistance,” Am. J. Phys. 66, 34–37 (1998).
+12Mustafa Turkyilmazoglu, “Highly accurate analytic formulae for projectile
+motion subjected to quadratic drag,” Eur. J. Phys. 37(3), 035001 (2016).
+13R. D. H. Warburton and J. Wang, “Analysis of asymptotic projectile
+motion with air resistance using the Lambert W function,” Am. J. Phys.
+72, 1404–1407 (2004).
+14Peter Chudinov, “Approximate analytical description of the projectile
+motion with a quadratic drag force,” Athens J. Sci. 1(2), 97–106 (2014).
+15Chokri Hadj Belgacem, “Analysis of projectile motion with quadratic air
+resistance from a nonzero height using the Lambert W function,” J. Taibah
+Univ. Sci. 11, 328–331 (2017).
+16Kazuki Yabushita, Mariko Yamashita, and Kazuhiro Tsuboi, “An analyti-
+cal solution of projectile motion with the quadratic resistance law using
+the homotopy analysis method,” J. Phys. A 40, 8403–8416 (2007).
+17R. D. H. Warburton, J. Wang, and J. Burgdorfer, “Analytic approximations
+of projectile motion with quadratic air resistance,” J. Serv. Sci. Manage. 3,
+98–105 (2010).
+18Chandra Das and Dhiranjan Roy, “Projectile motion with quadratic damp-
+ing in a constant gravitational ﬁeld,” Resonance 19, 446–465 (2014).
+19Riccardo Borghi, “Trajectory of a body in a resistant medium: an elemen-
+tary derivation,” Eur. J. Phys. 34(2), 359–369 (2013).
+20Shouryya Ray and Jochen Frohlich, “An analytic solution to the equations
+of the motion of a point mass with quadratic resistance and general-
+izations,” Appl. Mech. 85, 395–414 (2015).
+21Eric W. Weisstein, see https://mathworld.wolfram.com/Runge-KuttaMethod.
+html for “Runge-Kutta Method, From MathWorld–A Wolfram Web
+Resource.”
+22Eric W. Weisstein, see https://mathworld.wolfram.com/PadeApproximant.html
+“Pad /C19e Approximant, From MathWorld–A Wolfram Web Resource.”
+23Jacob Emil Mencke, Mirko Salewski, and Ole L. Trinhammer, “Flight and
+bounce of spinning sports balls,” Am. J. Phys. 88, 934–937 (2020).
+24See <https://www.engineeringtoolbox.com/drag-coefﬁcient-d_627.html >
+for “Engineering ToolBox, Drag Coefﬁcient” (2004).
+Fig. 6. The range, x(t), for 75/C14from the RK4 and the sixth-order polynomial
+horizontal velocities shown in Fig. 5(c). The range from the sixth-order
+polynomial was obtained through numerical integration.
+140 Am. J. Phys., Vol. 90, No. 2, February 2022 Antonio Corvo 140 04 October 2023 23:02:16

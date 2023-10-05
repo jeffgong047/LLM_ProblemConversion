@@ -1,0 +1,427 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| JUNE 01 2023
+Endless fun in high dimensions—A quantum card game 
+Lea Kopf  
+ ; Markus Hiekkamäki  
+ ; Shashi Prabhakar  
+ ; Robert Fickler  
+Am. J. Phys.  91, 458 (2023)
+https://doi.org/10.1 119/5.0062128
+Articles Y ou May Be Interested In
+Modeling of Lateral Dynamics for an Endless Steel Belt
+AIP Conference Proceedings  (May 2010)
+Development of fatigue stress spectrum and fatigue life prediction of endless winder sheave for wind
+turbine lift using finite element analysis
+J. Renewable Sustainable Energy  (August 2014)
+Experimental study on influence of filler rods in gas T ungsten Arc welding
+AIP Conference Proceedings  (October 2019) 04 October 2023 22:52:57
+Endless fun in high dimensions—A quantum card game
+LeaKopfa)and Markus Hiekkam €akib)
+Photonics Laboratory, Physics Unit, Tampere University, Tampere FI-33720, Finland
+Shashi Prabhakarc)
+Photonics Laboratory, Physics Unit, Tampere University, Tampere FI-33720, Finland and Quantum Science
+and Technology Laboratory, Physical Research Laboratory, Ahmedabad 380009, India
+Robert Ficklerd)
+Photonics Laboratory, Physics Unit, Tampere University, Tampere FI-33720, Finland
+(Received 23 March 2022; accepted 12 April 2023)
+Quantum technologies enable new ways to distribute and process information. The enormous
+progress over the recent decades has led to an urgent need for new educational programs totrain professionals to work in this ﬁeld. Here, we present a card game that teaches students the
+building blocks of quantum computing through strategic gameplay. Participants start from the
+lowest quantum state and play cards that change their state and/or their opponents’ state,aiming to build an algorithm that achieves the highest possible quantum state. Players can
+utilize several different strategies that rely on quantum features such as randomness,
+superposition, interference, and entanglement. Our game expands on the existing QjCards i
+game, originally developed using traditional qubits (with 2-level states), by including an option
+to play with qutrits (with 3-level states), and by developing cooperative and single player
+modes in addition to the existing competitive mode. The presented game contributes to theongoing efforts on gamifying quantum physics education with a particular focus on the
+counter-intuitive features that make quantum computing powerful.
+#2023 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0062128
+I. INTRODUCTION
+Quantum physics is one of the most successful branches
+of physics. At the very heart of quantum physics are princi-ples such as randomness, superposition, interference, andentanglement. These concepts are difﬁcult to grasp as theyoften contradict our intuition, which we developed throughexperiencing our large-scale, classical world. It is thesecounter-intuitive features that have enabled novel technolo-gies, which would not be possible in a classical setting. Thisemerging technological thrust is often termed the secondquantum revolution,
+1since it differs signiﬁcantly on the fun-
+damental and application level from the ﬁrst set of technolo-gies developed through applying quantum physics, e.g.,
+lasers or semiconductor devices.
+One of the most prominent examples of quantum technol-
+ogy is a quantum computer. Compared to their classicalcounterparts, quantum computers promise a faster comple-tion of certain tasks and would enable computational algo-rithms that are impossible in a classical setting. Recentprogress has led to the ﬁrst large-scale quantum computerthat outperforms all classical computers for one speciﬁccomputational task.
+2,3
+In this article, we present a card game that provides a fun
+and engaging introduction to the concepts of quantum com-puting. The game, Endless Fun in high dimensions ,i s
+designed to be a low threshold introduction to quantum com-puting that encourages people to look into the fundamentals
+of quantum physics. The game implements basic quantum
+mechanical concepts such as randomness, superposition,interference, and entanglement. By playing cards that corre-spond to quantum logic operations, the participants aremanipulating the quantum state of a virtual quantum com-puter with the aim of achieving the highest value of theirown quantum state. The ﬁnal result is evaluated using an
+included computer program. We note that although current
+quantum computers work with two-level quantum states, this
+card game goes a step further by also including the program-ming of three-dimensional quantum systems, i.e., high-
+dimensional quantum system. Such higher dimensional
+states, called qudits rather than qubits, are considered prom-ising candidates for next generation quantum computers and
+other technologies.
+4–6They are also beneﬁcial in the gaming
+setting as they increase the complexity of the game playenabling longer lasting (maybe endless) fun.
+II. BACKGROUND
+Building intuition often leads to a deeper understanding of
+difﬁcult concepts and has been the focus of various gamiﬁca-
+tion efforts.
+7,8Games offer an entertaining way to loosen up
+the atmosphere in a course while promoting learning.9,10
+Education in quantum physics and, in particular, modern
+quantum information science can beneﬁt from ideas devel-oped through gamiﬁcation methods.
+Many quantum physicists hope that these games could be
+more than just tools for learning, as expressed by John
+Preskill who said “[p]erhaps kids who grow up playing quan-tum games will acquire a visceral understanding of quantum
+phenomena that our generation lacks.”
+11Popular examples
+of quantum games are the online computer game Particle in
+a Box ,12and “quantized” adaptations of well-known games:
+Quantum TiqTaqToe ,13,14Quantum Chess ,15,16Quantum
+Minigolf ,17as well as the quantum version of Minecraft—
+qCraft .18In addition to online games, there are also educa-
+tional board games, e.g., Entanglion by IBM.19The idea of
+gamiﬁcation in quantum sciences has been the center of
+458 Am. J. Phys. 91(6), June 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 458 04 October 2023 22:52:57
+focus in various quantum game jams, i.e., events in which
+instructive and entertaining quantum games are developed.20
+At the Quantum Wheel game jam in Helsinki in 2019,20
+the quantum card game QjCards iwas developed and intro-
+duced.21The game presented here builds upon and extends
+QjCards i. The gameplay in the basic version is similar and
+only varies in small details. However, in contrast to
+QjCards i,Endless Fun aims at building a high-dimensional
+quantum computer, i.e., a quantum computer operating on
+states with three possible values instead of two. The game
+was also extended to three difﬁculty levels and two addi-
+tional game modes.
+III. ENDLESS FUN IN HIGH DIMENSIONS
+Endless Fun is a strategic multi-player card game that intro-
+duces the players to quantum computational logic gates. The
+players aim to increase their quantum state value and decrease
+the quantum state values of the other players. After all cards are
+played, the ﬁnal quantum state values are calculated by evalua-
+tion software. Comparing the expected outcome to the actual
+outcome allows one to reﬂect on misunderstandings and retrace
+the effects of each operation. The goal of this game is to pro-
+vide a platform to practice and engage with quantum logic
+operations while providing varying difﬁculty levels without the
+necessity of fully understanding the underlying mathematicalframework. The instruction manual, the Python-based evalua-
+tion software, the cards, and the riddles of the single-player
+game mode are provided in the supplementary material.22
+Although so far most quantum computers have used binary-
+valued quantum systems to encode bit-valued quantum infor-
+mation, the increase in possible outcomes when using high-
+dimensional quantum systems enhances the complexity of the
+game and offers options to adjust the difﬁculty. Thus, we antici-
+pate a longer-lasting interest in playing the game. Furthermore,
+the game includes a cooperative and a single-player game
+mode to address different learning objectives.
+A. Player states
+In classical computation, information is saved as bit val-
+ues: either 0 or 1. In the simplest forms of quantum comput-
+ing, information is encoded into two-level systems called
+quantum bits, or qubits . Similar to classical bits, qubits can
+take values of j0iorj1i. However, the quantum nature also
+allows for superpositions, i.e., being in both states at the
+same time, loosely speaking. A superposition is written as a
+sum over both possible states, e.g., 1 =ﬃﬃ ﬃ
+2p
+ðj0iþj1iÞ, which
+means that any measurement can result in either outcome, 0or 1, with equal probability.23Note that we only allow for an
+equal superposition with a probability amplitude of 1 =ﬃﬃ ﬃ
+2p
+in
+the game; however, in general, all normalized amplitudes arepossible. High-dimensional quantum states, often called
+qudits , go a step further in complexity, as they do not only
+allow two but dpossible outcomes. The game can be played
+with either two- or three-dimensional quantum states. In 2D,only the qubit values j0iandj1iare available; in 3D an addi-
+tionally qudit value j2iis available.
+In the game, each player is assigned a quantum state.
+During gameplay, the quantum states will evolve when cards,i.e., quantum logic operations, are played on these states.
+B. Cards
+Playing cards is the only way to change a player’s quan-
+tum state. During gameplay, the players can play cards either
+on their own or other players states to manipulate the state.
+An overview over the playable cards is given in Table I. The
+detailed truth tables for all quantum gates can be found inthe instruction manual.
+22The game also includes cards that
+do not correspond to quantum operations, e.g., a steal cardthat allows a player to steal a card from another player. Note
+further, that the choice of dimension affects the set of quan-
+tum operations. In 2D, for example, only one X-gate isdeﬁned, whereas in 3D, two X-gates with different cyclicshifts exist. The cards do not form a universal set of gates.
+C. Gameplay
+The goal of the game is to play cards, i.e., quantum logic
+operations, in such a way that the player’s own qudit value isas high as possible and the opponents’ values as low as pos-sible. An example gameplay where the players have alreadyplayed their cards is shown in Fig. 1.
+The players can choose between three different difﬁculty
+levels. To not overwhelm the players who do not have a solid
+background in quantum information, it is recommended tostart the game in the Easy version. In this simpliﬁed 2D-
+version, beginners can familiarize themselves with the rulesand basic quantum logic operations without the phase prop-erties of the operations, i.e., without the Y and Z gates andonly with a single Hadamard gate. The game is more com-
+plex in the standard 2Dversion, in which the cards are added
+that modulate the phase of single states, thus allowing theplayers to control quantum interference. In this version, allcards are used. Finally, the 3Dversion is played with three-
+dimensional qudits; thus, it includes the most complexquantum states and the gameplay reaches its maximal
+Table I. Overview of the playable cards and their consequences.
+Actions Cards Description
+Single-qudit gates I Identity operation. It does nothing.
+X X-gate. It increases the qudit value by 1 (1 or 2 in 3D) cyclically.Y Y-gate. It acts like the X-gate with an additional phase shift.
+Z Z-gate. It adds phase shifts to the state.
+H Hadamard-gate. It generates a superposition of all possible qudit values with equal probabilities.
+The game has 2 (3 in 3D) different Hadamard gates with different phase values.
+Multi-qudit gates CX CX-gate. The CX operation is controlled by one qudit and acts as an X-gate on another.
+SWAP SWAP-gate. Swaps the value of two qudits.
+Other Cancel The card replaces a played quantum operation by an identity operation.
+Steal The player can steal a card from another player, but must play it immediately.
+459 Am. J. Phys., Vol. 91, No. 6, June 2023 Kopf et al. 459 04 October 2023 22:52:57
+difﬁculty. Here, the X, Y, and Z gates have two and the
+Hadamard gates have three variations. More details on the
+cards used in each version can be found in the manual.22
+There are three game modes: competitive, cooperative,
+and single-player. In the cooperative mode, the goal is not to
+win against the other players but to reach the highest possible
+values summed up over all qudits as a group. In the single-player mode, the player can solve six ready-made riddlesthat guide the player to discover speciﬁc quantum effects.
+The riddles have different levels of difﬁculty, starting with
+easy ones that help the player learn about quantum interfer-ence effects. The difﬁculty is then gradually increased, with
+more quantum effects being gradually introduced. In addi-
+tion, the signiﬁcance of each quantum effect in quantumcomputing is brieﬂy discussed along with the solution of the
+riddle, such that students can put quantum operations in a
+better context. Instructors can extend this set with their ownriddles. A detailed description and the riddle sheets are avail-
+able in the supplementary material.
+22
+D. Strategies and quantum effects
+To know what strategy to employ, a player must keep
+track of the evolution of the state. Playing in the single-player mode will help players learn to keep track of the state,
+and how it is changed by different cards. Furthermore, three
+quantum effects can be used in different game strategies:
+•Quantum superpositions, which demonstrate the probabil-istic nature of quantum measurements, i.e., quantumrandomness.
+•Quantum interference, which demonstrates the effect of
+phases on measurement outcomes.
+•Quantum entanglement, which leads to strong correlations
+between the measurement outcomes of different systems.
+In the following, we give simple examples of how the three
+effects can be observed in different game strategies. For sim-
+plicity, we explain the effect in detail with qubits; however, the
+high-dimensional counterparts follow in an analogous manner.1. Quantum superposition
+A Hadamard gate acting on the quantum states j0iorj1i
+generates a superposition of both states, as shown in Fig.
+2(a). In the game, the software “collapses” the state by simu-
+lating a measurement and gives the random outcome
+weighted by the quantum probability. This quantum random-ness adds an element of luck to the gameplay. Additionally,
+the superpositions can be used as a strategic element. For
+example, if one of the players is leading the round, the otherscan reduce the leader’s chances of winning by setting them
+into a superposition. When the game is played in the 3D ver-
+sion, similar Hadamard operations can be performed, how-
+ever, with the superposition having three possible outcomes.
+Note that the variety of Hadamard gates only differ fromeach other in phase (see manual for more details
+22), which
+becomes important when considering interference effects.
+2. Interference effects
+The phase of a quantum state is a physical property which
+does not have a direct effect on its qubit values. However, asit affects the outcome of quantum interference it can indi-
+rectly be used to change the qubit value of a state. When
+playing the game, it is possible to learn how to control inter-
+ference through phase manipulations. Controlling phase is an
+important underlying working principle of quantum compu-tations and almost always the reason behind its quantum
+advantage. Let’s assume that we have a qubit j0ion which
+we play two H
+1-Hadamard operations. In this process, the
+second Hadamard allows interference to occur, resulting in
+the state j0iagain. If we add a Z-gate before or after the two
+H1-gates, the outcome doesn’t change as the players state is
+stillj0i. If, however, we ﬁrst play the H 1gate, then the Z-
+gate, and then the second H 1-gate, the resulting state is j1i.
+A quick look at the state evolution shows that after the ﬁrst
+card, we obtain the superposition state 1 =ﬃﬃ ﬃ
+2p
+ðj0iþj1iÞ.
+Then, the Z-gate changes the phase between the two terms,i.e., changes the state to 1 =ﬃﬃ ﬃ
+2p
+ðj0i/C0j1iÞ, which leads to the
+ﬁnal state j1i, when another H
+1-gate is applied. This state
+evolution is outlined in detail in Fig. 2(b). Thus, with the
+Fig. 1. (Color online) A possible gameplay with three-dimensional qudits and four players. Player 1 starts with the qudit value of j0iobtained in the ﬁrst round.
+Players 2, 3, and 4, start with their qudit values of j2i;j1i, and j0i, respectively. The software on the right evaluates the winning state as j2;1;1;1i, where the
+position of qudit values corresponds to the players. For a better understanding of the underlying mechanisms, the generated end state is also display ed on the
+bottom of the window, before it was measured. The other possible outcomes can be found by inspecting the overall state. Here, the states j2;1;2;2iand
+j2;1;0;0icould also have been obtained with the same probability.
+460 Am. J. Phys., Vol. 91, No. 6, June 2023 Kopf et al. 460 04 October 2023 22:52:57
+phase, we can manipulate the evolution of a superposition to
+obtain a desired state, thereby controlling the probability of
+measuring it. In this way, the phase gates can be used to con-trol the state and the measurement outcome, through quan-tum interference. Interference effects can also be observed
+when the game is played in 3D, where the increased com-
+plexity of the states allows a larger variety of different phasemanipulations and interference effects. In this game, the Y,
+Z, and Hadamard cards can be used to change the phase of a
+quantum state. Interference effects are explored in a guidedmanner by the two easy riddles provided in the supplemen-
+tary material for single-player game mode.
+22
+3. Quantum entanglement
+Entanglement is another fundamental feature of quantum
+mechanics. Quantum entanglement correlates the value of
+one qubit with the value of another qubit. Counterintuitively,the correlations between entangled qubits still exist when
+they are not in a single state, but a superposition. Hence,
+when an entangled state is measured, the outcome ofentangled players will be random due to being in a superpo-
+sition, but still perfectly correlated. By using quantum entan-
+glement in the game, you can, for example, ensure that acertain opponent does not get more points than you, as in the
+example in the next paragraph. A plethora of other possible
+strategies open up when considering tuning the correlationthrough other gates, e.g., phase gates.
+In a quantum computation process and, thus, in the game,
+entanglement is generated by playing a Hadamard-gate and
+consecutively a CX-gate on one qubit. As an example, let’sassume players 1 and 2 both have a qubit value of j0i, as dis-
+played in Fig. 2(c). A Hadamard-card is played on qubit 1,
+generating a superposition, i.e., the two-qubit state becomes1=ﬃﬃ ﬃ
+2p
+ðj0;0iþj1;0iÞ. Here, the position in the ket-vector
+corresponds to the qubit number, e.g., the state jx;yirefers to
+player 1 being in state xand player 2 in y. We then play a
+CX-gate (X gate controlled by qubit 1 and targeting qubit 2),which results in the state 1 =ﬃﬃ ﬃ
+2p
+ðj0;0iþj1;1iÞ. This means,
+that both players’ states will randomly have either the value
+0, or 1 after a measurement is performed. However, due toentanglement, both qubits will always end up with the same
+random value. The same entangling operation also works in
+3D. In the single-player mode, the player is guided throughinstructive examples of entanglement in three different rid-
+dles with varying difﬁculty.
+IV. FEEDBACK AND FUTURE IMPROVEMENTS
+First trials with graduate and undergraduate students have
+shown good indications of the educational value of thegame. Discussions and self-reports of the participants afterplaying the game allowed us to draw the following conclu-
+sions: Student understanding of quantum operations
+improves considerably after only a few trial games. The stu-dents not only understood how the states were evolving but
+they also conceived and tested better strategies to achieve
+the highest possible qudit values to win the game. The posi-tive feedback shows promise for enhanced student involve-
+ment in future quantum information courses. An enthusiastic
+student, for example, stated that he “learned about quantumlogic in an engaging, fun way.” However, we also observed
+that students without any background in quantum mechanics
+struggled to develop better strategies. Hence, using the gamein undergraduate studies will require more time to introduce
+the game and the basic concepts of quantum state and their
+evolutions. We also note that a more controlled and
+Fig. 2. (Color online) By playing the depicted cards, the players can explore superpositions, interference, and entanglement with qubits as describ ed in detail
+in Sec. III D. The state after each cards operation is applied is written beneath it. (a) The Hadamard card is generating a qubit superposition of the state of
+player 1. Player 1’s starting state j0iturns into 1 =ﬃﬃ ﬃ
+2p
+ðj1iþj0iÞ. (b) Quantum interference can be controlled by phase. Player 1’s value after the logic opera-
+tions is j1i, Player 2’s is j0i. (c) Entangling the qubits of players 1 and 2. The starting state j0;0iis transformed to the entangled state 1 =ﬃﬃ ﬃ
+2p
+ðj1;1iþj0;0iÞ.
+461 Am. J. Phys., Vol. 91, No. 6, June 2023 Kopf et al. 461 04 October 2023 22:52:57
+quantitative study would be needed to evaluate the educa-
+tional effectiveness of the game.
+The current version of the game explores some fundamen-
+tal quantum mechanical effects by mimicking the operation
+of a quantum computer. Other interesting quantum mechani-
+cal effects, such as non-equally weighted states, are beyond
+the scope of this game.
+Although the ﬁrst trial games have given positive feed-
+back overall, the game can be further improved. An addi-
+tional operation that could be introduced to the game is a
+state measurement card which measures the state of one ormore qudits, individually. This mechanism would add an
+extra layer of complexity and would allow the game to intro-
+duce simple quantum algorithms, such as superdense coding,quantum teleportation, or entanglement swapping.
+V. CONCLUSION
+Teaching quantum mechanical concepts is a challenging
+task, because quantum mechanics is non-intuitive and per-
+ceived to be highly demanding. To loosen up the atmo-
+sphere and promote student engagement, methods from
+gamiﬁcation can be applied. The strategic card game
+Endless Fun in high dimensions offers multiple game
+modes to facilitate learning new quantum computational
+concepts. Additionally, the underlying fundamental quan-tum features, namely, randomness, superposition, interfer-
+ence, and entanglement can be experienced and understood
+in a quantum computing setting. Initial trial games with stu-
+dents have shown the potential the game has for supporting
+conventional teaching methods. Together with the evalua-
+tion software, the card game is a powerful tool which is not
+only suitable for players with background knowledge but
+also for introducing players to quantum operations in an
+easy-going way. Thus, it can also be used for outreach pur-
+poses where interested laymen can experience fundamental
+quantum physical features.
+ACKNOWLEDGMENTS
+The authors thank Stephen Plachta, Matias Eriksson,
+Subhajit Bej, Marco Ornigotti, Mona Pulst, and Rupa
+Kiran for feedback on the game, valuable suggestions, and
+design support. The authors furthermore thank IlkkaKyl€anp€a€a for help in software-related questions. The
+authors acknowledge the inventors of the card game
+QjCards i: Oskari Kerppo, Jorden Senior, Sabrina
+Maniscallo, Guillermo Garcia-Perez, Samuli J €a€askel €ainen,
+Sylvia Smatanova, Krista Erkkil €a, and Elie Abraham. All
+authors acknowledge ﬁnancial support from the Academy
+of Finland through the Competitive Funding to Strengthen
+University Research Proﬁles (Decision No. 301820) andthe Photonics Research and Innovation Flagship
+(PREIN—Decision No. 320165). L.K. acknowledges
+support from the Vilho, Yrj €o, and Kalle V €ais€al€a
+Foundation of the Finnish Academy of Science and
+Letters. M.H. acknowledges support from the Doctoral
+School of Tampere University and the Magnus Ehrnrooth
+foundation through its graduate student scholarship. R.F.
+acknowledges support from the Academy of Finlandthrough the Academy Research Fellowship (Decision No.
+332399).AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts of interest to disclose.
+a)Electronic mail: lea.kopf@tuni.ﬁ. ORCID: 0000-0002-7629-0492.
+b)ORCID: 0000-0002-3496-7338.
+c)ORCID: 0000-0002-7337-8755.
+d)ORCID: 0000-0001-6251-753X
+1Jonathan P. Dowling and Gerard J. Milburn, “Quantum technology: The
+second quantum revolution,” Philos. Trans. R. Soc. London. Ser. A:
+Math., Phys. Eng. Sci. 361(1809), 1655–1674 (2003).
+2Frank Arute, Kunal Arya, Ryan Babbush, Dave Bacon, Joseph C. Bardin,
+Rami Barends, Rupak Biswas, Sergio Boixo, Fernando G. S. L. Brandao,
+David A. Buell et al. , “Quantum supremacy using a programmable super-
+conducting processor,” Nature 574(7779), 505–510 (2019).
+3Han-Sen Zhong, Hui Wang, Yu-Hao Deng, Ming-Cheng Chen, Li-Chao Peng,
+Yi-Han Luo, Jian Qin, Dian Wu, Xing Ding, Yi Hu et al., “Quantum computa-
+tional advantage using photons,” Science 370(6523), 1460–1463 (2020).
+4Daniele Cozzolino, Beatrice Da Lio, Davide Bacco, and Leif Katsuo
+Oxenløwe, “High-dimensional quantum communication: Beneﬁts, progress,
+and future challenges,” Adv. Quantum Technol. 2(12), 1900038 (2019).
+5Yuchen Wang, Zixuan Hu, Barry C. Sanders, and Sabre Kais, “Qudits and
+high-dimensional quantum computing,” Front. Phys. 8, 589504 (2020).
+6Manuel Erhard, Mario Krenn, and Anton Zeilinger, “Advances in high-
+dimensional quantum entanglement,” Nat. Rev. Phys. 2(7), 365–381 (2020).
+7Sebastian Deterding, Dan Dixon, Rilla Khaled, and Lennart Nacke, “From
+game design elements to gamefulness: Deﬁning ‘gamiﬁcation’,” in
+Proceedings of the 15th International Academic MindTrek Conference:
+Envisioning Future Media Environments (ACM, 2011), pp. 9–15.
+8Juho Hamari, David J. Shernoff, Elizabeth Rowe, Brianno Coller, Jodi
+Asbell-Clarke, and Teon Edwards, “Challenging games help students
+learn: An empirical study on engagement, ﬂow and immersion in game-
+based learning,” Computers Human Behav. 54, 170–179 (2016).
+9Ming-Shiou Kuo and Tsung-Yen Chuang, “How gamiﬁcation motivates
+visits and engagement for online academic dissemination—An empirical
+study,” Computers Human Behav. 55, 16–27 (2016).
+10Dimitrios Vlachopoulos and Agoritsa Makri, “The effect of games and
+simulations on higher education: A systematic literature review,” Int. J.
+Educ. Technol. Higher Educ. 14(22), 1–33 (2017).
+11John Preskill, “Quantum computing in the NISQ era and beyond,”
+Quantum 2, 79–99 (2018).
+12Aditya Anupam, Ridhima Gupta, Azad Naeemi, and Nassim JafariNaimi,
+“Particle in a box: An experiential environment for learning introductory
+quantum mechanics,” IEEE Trans. Educ. 61(1), 29–37 (2017).
+13Allan Goff, Dale Lehmann, and Joel Siegel, “Quantum tic-tac-toe, spooky-coins &
+magic-envelopes, as metaphors for relativistic quantum physics,” in 38th AIAA/
+ASME/SAE/ASEE Joint Propulsion Conference & Exhibit (ASME, 2002), p. 3763.
+14Evert van Nieuwenburg, “Quantum TiqTaqToe,” 2019. <https://quantum-
+tictactoe.com/ >
+15QuantumRealmGames, “Quantum chess,” 2020. <https://quantumchess.net/ >
+16Christopher Cantwell, “Quantum chess developing a mathematical frame-
+work and design methodology for creating quantum games,” preprint
+arXiv:1906.05836 (2019).
+17Reinhard Friedemann, “Quantum minigolf,” 2011. <http://quantummini-
+golf.sourceforge.net/index.html >
+18Daniel Ratcliffe, “Qcraft,” 2013. <https://sites.google.com/a/elinemedia.-
+com/qcraft/wiki/qcraft/blocks-and-items#TOC-Quantum-Ore >
+19Maryam Ashoori, Justin D. Weisz, Aaron Cox, Michael L. Kenney, Jay M.
+Gambetta, Jerry M. Chow, and Lev S. Bishop, “Entanglion—Open source
+quantum board game,” 2018. <https://entanglion.github.io/ >
+20Annakaisa Kultima and Sabrina Maniscalco, “Quantum wheel—Quantum
+game jam,” 2019. <http://www.ﬁnnishgamejam.com/quantumwheel/ >
+21Oskari Kerppo, Jorden Senior, Sabrina Maniscallo, Guillermo
+Garcia-Perez, Samuli J €a€askel €ainen, Sylvia Smatanova, Krista Erkkil €a, and
+Elie Abraham. “Q—cards,” 2019. <https://zhamul.itch.io/qcards >
+22See supplementary material online for https://www.scitation.org/doi/suppl/
+10.1119/5.0062128 for card game instructions, cards, evaluation software, and rid-
+dle sheets; Lea Kopf, Markus Hiekkam €aki, Shashi Prabhakar, and Robert Fickler,
+“Endless fun high dimensions—A card game to program a high-dimensional
+quantum computer,” Zenodo, 2020. <https://zenodo.org/record/7034144 >
+23J€urgen Audretsch, Entangled Systems: New Directions in Quantum
+Physics (John Wiley & Sons, New York, 2008).
+462 Am. J. Phys., Vol. 91, No. 6, June 2023 Kopf et al. 462 04 October 2023 22:52:57

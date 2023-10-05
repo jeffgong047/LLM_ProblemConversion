@@ -1,0 +1,667 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| APRIL 01 2022
+The analog computer: Beyond the museum artwork, a tool
+for studying linear and nonlinear systems 
+Marcello Carlà
+Am. J. Phys.  90, 263–272 (2022)
+https://doi.org/10.1 119/10.0009634
+Articles Y ou May Be Interested In
+Mid-infrared reflectography for the analysis of pictorial surface layers in artworks
+AIP Conference Proceedings  (May 2013)
+Artificial intelligence art: Attitudes and perceptions toward human versus artificial intelligence artworks
+AIP Conference Proceedings  (August 2023)
+The style and creativity of southeast Asian calligraphy wood carving
+AIP Conference Proceedings  (April 2023) 04 October 2023 23:06:23
+The analog computer: Beyond the museum artwork, a tool for studying
+linear and nonlinear systems
+Marcello Carl /C18aa)
+Department of Physics and Astronomy, University of Florence, Via G. Sansone 1 50019, Sesto Fiorentino,
+Florence, Italy
+(Received 14 January 2021; accepted 20 August 2021)
+Analog computers have been a valuable resource for a time to solve linear as well as nonlinear
+differential equations before being superseded by digital computers. However, interest toward
+analog computing has not fully faded away. Though not competitive for accuracy or speed, analogcomputers have the important property of being true physical systems that can be made to behave
+according to a given equations set. This aspect makes analog computers interesting educational
+tools for hands-on work with real physical systems, where a number of effects, both linear and notlinear, can easily be added at will (a feature not readily available in mechanical systems). This
+paper describes the implementation of a modular, very ﬂexible, cheap, yet powerful analog
+computer, suitable for student laboratories. As examples of possible applications, a selection oflinear and nonlinear oscillator models are described that can be used in the laboratory to introduce
+students to various nonlinear effects.
+#2022 Published under an exclusive license by American Association of
+Physics Teachers.
+https://doi.org/10.1119/10.0009634
+I. INTRODUCTION
+We can study the behavior of an electrical or electronic
+network by writing down and resolving a system of equa-tions (may be nonlinear but almost always differential) thatstart from the physical principles governing each element of
+the network. This is the subject of several ﬁrst or second
+year classes and laboratories for physics or engineeringstudents.
+The converse also is true: if we have a system of equations
+and we are able to assemble an electronic network described bythose equations, then the network, left alone after setting the ini-tial conditions, will behave according to the solution of the sys-tem. We can observe and capture that behavior (i.e., we can seethe equations’ solution, for example, on an oscilloscope). This isthe central point of analog electronic computing.
+A detailed history of analog computing is beyond the pur-
+pose of this paper. Only a few notes are useful here to outlinea historical reference frame. For the reader interested in con-temporary accounts, historical material is widely availableon the internet.
+1,2
+After World War II began the era of digital computers.
+They were gigantic, expensive, power hungry, and slowmachines. In many cases, their use for solving differentialequations was simply not affordable, let alone for obtainingreal time solutions.
+In the same period, the ﬁeld of analog electronics pro-
+gressed signiﬁcantly; the vacuum tube summing ampliﬁer
+was patented in 1946,
+3while the name operational ampliﬁer
+was coined in 1947 to describe a circuit used to build a num-ber of modules, each one performing an elementary mathe-matical operation.
+4In Ref. 4, several examples were also
+given of networks composed of two or more such elementarymodules and capable of solving second or higher order dif-ferential equations.
+In parallel, many ingenious devices were being developed
+to implement nonlinear functions. See Refs. 5–8for the state
+of the art at the time or browse the manual of a top level ana-log computer.
+9For some years, this state of affairs made analog comput-
+ing the preferred (or the only) choice for affordable real timeresolution of differential equations.
+In the following decades, however, digital electronics
+grew at a phenomenal rate, yielding minicomputers, personalcomputers, microprocessors, and microcomputers: greaterand greater computing power at smaller and smaller cost andsize. By the end of the 20th century, solving a system of non-linear differential equations numerically using a digital com-puter was, by far, more efﬁcient than using the best analogcomputer. Today, there is no industrial production of analog
+computers, and such a machine can no longer be purchased,
+only observed in science museums (see, e.g., Ref. 10).
+Despite this, the recent scientiﬁc literature shows that
+interest in analog computing has not fully faded away. Forexample, a paper published in 1998 dealt exhaustively withthe use of analog computing to study nonlinear dynamicalsystems
+11and contained a wide bibliography on the subject.
+In following years and in recent specialized literature, analogcomputing has been used to study chaotic systems and tackle
+theoretical problems,12–16while there is a continued interest
+for educational purposes17and for the development of new
+arrangements to improve performances and extend the appli-cation range.18In 2005, the IEEE Control Systems Magazine
+devoted an issue to the history of analog computers.2This
+continued interest can hardly be justiﬁed today by the superi-ority in terms of performance of the analog computer com-pared to its digital counterpart. It is from an educational
+point of view that analog computing mostly continues to be
+interesting. Let us consider a physical system, for instance, alinear or nonlinear oscillator, which is certainly one of themost important model systems in a physics curriculum. Thesystem behavior can be obtained either by numerically inte-grating the equations or by working with an analog machine.From the point of view of speed and accuracy, the game isover: numerical integration overwhelms the analog by orders
+of magnitude. However, the difference is that the analog
+machine isthe physical system, while numerical integration
+solves the mathematics that describe the physical system.
+263 Am. J. Phys. 90(4), April 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 263 04 October 2023 23:06:23
+Moreover, an analog machine has to be setup and operated
+with the same attention and cleverness required in any physi-cal experiment. As in experimental research, the results,
+under the form of an output signal, have to be collected via a
+suitable data acquisition system. (Here, it could be an oscil-loscope or a digital computer connected to a signal sampler.)Learning this process is paramount in any experimentalphysicist’s education.
+In parallel with the evolution of digital electronics, analog
+electronics also has become, by far, more efﬁcient and accu-
+rate than half a century ago. It is also affordable at a muchlower cost. Today, an efﬁcient analog network for computingcan be assembled and operated at a cost of a few hundreddollars. Yet it can be used to solve nonlinear differential
+equations with complexity limited only by the operator
+ingenuity.
+For about 25 years, in a laboratory class on analog alec-
+tronics for a physics degree at the University of Florence, wehave presented to students some experiments using the ele-mentary building blocks of analog computing (integrators,
+summing nodes, and analog four quadrant multipliers) to
+introduce them to nonlinear effects.
+With this work, we wish to show that analog computing is
+worth the effort it requires to be used and should not be con-sidered solely as equipment of historical interest. We would,therefore, like to present a possible implementation of analog
+computing for undergraduate laboratory courses and describe
+some experiments.
+Once linear mechanical oscillators, such as the pendulum
+or the mass-spring oscillator, have been introduced in thecurriculum, either in class or in the laboratory, students havethe necessary background to study other oscillators, includ-
+ing nonlinear ones. In the analog computer, nonlinear effects
+can easily be introduced in a ﬂexible and quantitatively accu-rate manner.
+II. AN EDUCATIONAL ANALOG COMPUTER
+In the world of analog computing, the implementation of
+the proper electronic layout that will evolve along a given
+equation set is the equivalent of writing a program for a digi-tal computer.
+The basic elements of this code are various electronic
+modules, each one comprising inputs and outputs that arerelated by the mathematical operator that the speciﬁc module
+implements—in other words, the transfer function of each
+module is an elementary math operation. By routing the sig-nal from one module to the next, successive operations canbe applied until the desired program is achieved.
+Such an electronic circuit may be fully assembled by the
+students. However, this approach would be very time-
+consuming. Moreover, it would put the focus on the subtle-
+ties and good practice of electronics assembly (an importantﬁeld by itself, but quite another matter) rather than on thephysics itself. In the present case, we have chosen to pre-assemble all operator modules using printed circuit cards of
+identical dimensions. Modules are then arranged on a sup-
+porting custom-designed motherboard (Fig. 1and the supple-
+mentary material).
+19We found that this solution was simple,
+ﬂexible, and cheap, leaving sufﬁcient room for student inves-tigation, while decreasing the modules’ assembly time.
+Moreover, the modules are accessible and exposed. They can
+be examined in detail, so that there is no black box in theexperiment. Despite the circuits being exposed, there is noelectrical shock, burn, or ﬁre hazard, because the greatest
+voltage that appears between any two points is 30 V with amaximum current of 100 mA.
+Each module has multiple pins for input and output.
+Connections are made using signal-ground wire pairs, termi-
+nated with female pins, and twisted to minimize interfer-ences. Shielded cables and connectors might be used as well,but in the frequency range, and operating at the signal levels
+of these circuits, this choice is often unnecessarily
+expensive.
+Care is required to correctly complete the modules’ inter-
+connections. Errors are possible, of course, and studentsshould be urged to check twice their machine before power-
+ing it. However, the modules described in this paper are
+almost fool-proof, and errors are of no consequence (apart,of course, that the circuit will not behave as expected),because the operational ampliﬁers are protected from shorts
+on the output and can sustain voltages a few volt above the
+supply rail on the inputs. The only destructive error wouldbe to invert the polarity of the power supply, which is madeimpossible by an asymmetric disposition of the positive andnegative power pins.
+III. BUILDING BLOCKS FOR THE STUDENT’S
+LABORATORY ANALOG COMPUTER
+Using analog computers requires differential equations to
+be rewritten as integral equations. This originates from awell-known problem of feedback ampliﬁers: integrators areintrinsically stable and low-noise, whereas differentiators are
+potentially unstable and intrinsically noisier, so that they are
+not usually used (see Refs. 20and 21for a detailed
+discussion).
+As will be seen at the start of Sec. IV A, the integral equa-
+tions obtained from the differential ones will contain the sumand integration mathematical operators and no more the dif-
+ferentiation operator. In analog computers, sum and integra-
+tion usually are implemented with two circuits known as thesumming node (Fig. 2) and the Miller integrator (Fig. 3).
+Fig. 1. Motherboard with operator modules. Pin sockets on the motherboard
+provide mechanical support for the modules, as well as a connection to
+ground and to the 615 V power supply given by a DC–DC converter (mid-
+dle of the left column). Twisted pairs route signals from module to module
+(see the supplementary material (Ref. 19) for more details).
+264 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 264 04 October 2023 23:06:23
+Aside from the two linear operators, two nonlinear opera-
+tors have been implemented: the four quadrant multiplier
+and the absolute value operator, described in Figs. 4and5,
+respectively. There is an inﬁnite variety of nonlinear opera-
+tors, but the reason for our selection is that these two opera-
+tors are very accurate and easily available. Moreover, the
+four quadrant multiplier allows one to implement any integer
+power operation, and hence polynomial, which is a far reach-
+ing possibility. Although we have not used them, other non-
+linear operators that could be added include logarithm and
+exponentiation.
+A ﬁfth module has been implemented to set initial condi-
+tions to the integrators, as required (Fig. 6).
+Throughout all experiments, we have used OPA604 or
+AD711 operational ampliﬁers, which offer a convenient
+compromise between good performances and low cost.
+However, plenty of other models are equally well-suited. For
+the four quadrant multiplier module, the choice is more lim-
+ited: the classical AD633 device has been selected as the
+most convenient and suitable. It is a monolithic chip with
+two inputs ( vpand vq), designed to yield the output signal
+vo¼vp/C1vq=Kwith K¼10 V.
+The cost of components for each module is of the order of
+$10–15, printed circuit card included.
+The traditional through-hole technique has been used
+instead of the more modern surface-mount. This makes a
+module assembly a matter of a few minutes work, in thereach also of an electronics naive. Another educational
+advantage of the old-style technology is the ease with whichsignals internal to a module can be accessed, e.g., with an
+oscilloscope probe, for exploration or maintenance.
+The printed circuit cards were designed using the open-
+source pcb interactive printed circuit board editor, availablefor Unix, Linux, Windows, and Mac systems.
+22Cards layout
+is available as the supplementary material19both as original
+.pcb ﬁles or exported in gerber format, together with shortnotes describing the trimming procedure.
+IV. EXPERIMENTS
+As mentioned above, the oscillator is certainly one of the
+most important concepts in a physicist’s curriculum. Thependulum in mechanics and the LRC resonating circuit in
+electromagnetism are the two most classic examples of oscil-
+lators that a physicist encounters in the ﬁrst or second yearof the curriculum. They are both physical oscillators that
+exhibit some nonlinearity and damping and can be studied in
+the laboratory. In a recent paper,
+23the educational impor-
+tance of being able to adjust all oscillator parameters has
+been pointed out. Certainly, the system described in that
+paper, based on optical levitation, has the advantage ofbringing the student in touch with interesting and modern
+scientiﬁc technologies, but it is rather complex and costly.
+Fig. 2. Electronic circuit for a three input summing node. The output voltage is the weighted sum of the input voltages: vo¼/C0 ð k1v1þk2v2þk3v3Þwith
+weights ki¼R=Ri. Generally speaking, the summing node can have any reasonable number of inputs with vo¼/C0P
+ikivi. Though the OPA604 operational
+ampliﬁer is a low offset device, an offset nulling trimmer T(100 kX) has been added for optimum performance. On the right, the practical implementation of
+the sum module is shown. In our experimental realization of this circuit, all resistors have 10 k Xvalue, yielding a ﬁxed ki¼1 value. The 615 V power supply
+(not shown in the schematics) is ﬁltered on each module by two 4 :7lF electrolytic capacitors, visible in the photo near the power pins (see the supplementary
+material (Ref. 19) for more details).
+Fig. 3. Circuit for a two input Miller integrator. The output is the weighted sum of integral over time of input voltages: vo¼/C0ÐP
+ikividtwith ki¼1=ðRiCÞ.
+The same considerations reported in the caption of Fig. 2apply to this circuit, regarding the number of inputs and offset trimming. Terminals marked as Aand
+Bare intended to be connected with their counterparts on the module shown in Fig. 6to set initial conditions. The right image is the experimental realization
+of a Miller integrator with a ﬁxed 10 nF capacitor and two 10 k Xresistors that can be wired via jumpers to give R1¼5, 10, or 20 k X. Two more inputs are
+available that use strip line connectors to hold resistors of other values or a trimmer (see the supplementary material (Ref. 19)).
+265 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 265 04 October 2023 23:06:23
+An analog machine is by far more versatile for experiment-
+ing with a wide variety of conditions at a much lower cost.
+In Secs. IV A–IV D , we are going to describe a selection
+of oscillators, starting from the ideal one and then increasingthe complexity by progressively adding nonlinear terms.
+When using an analog computer, it is necessary to have an
+external device to capture and display the output of the cir-cuit. In the case of a forced oscillation, a signal generator isalso necessary. One could use a wavefunction generator andan oscilloscope, but we found that a general purpose soundcard is convenient both to generate a forcing signal when
+needed and to sample and record the analog machine’s out-
+going signal.
+A sound card has many advantages: it is inexpensive, is
+easily available, and offers multiple synchronous high accu-racy ADC’s and DAC’s with a wide dynamical range and avery good noise level. An external sound card can offer a bitmore ﬂexibility for signal connection and a better protectionagainst electromagnetic noise, but the built-in sound channelthat most recent computers have can be used as well. Allexperiments we are going to describe, except the onedetailed in Sec. IV C, have been performed using an USBsound card (Sound Blaster X-Fi HD) connected to a PC with
+24-bit resolution and 48 kHz sampling rate.
+High quality software packages like sox
+24or audacity,25
+capable of interacting with almost every sound card and
+audio channel, are freely available on the internet. The maindrawback of a sound card is that its input is AC-coupled and,
+hence, cannot be used when signals with DC or very low fre-
+quency components are involved (typically less than 10 Hz).Because of this limitation, experiment C has been performed
+with a digital oscilloscope (a Tektronix TDS3032B, but most
+currently available models with PC connection capability aresuitable, amateur ones included). The main drawbacks of the
+digital oscilloscope are the limited dynamic range (typically
+50 dB vs more than 100 dB the sound card) and the impossi-bility to acquire a signal in a continuous stream.
+A possible alternative is a DAQ board, which typically
+offers 16-bit resolution, DC coupling and stream acquisition
+at a price of a few hundred dollars. An open source softwarepackage that uses one of several models of DAQ boards and
+may be suitable for the kind of experiments reported in this
+paper is described in Ref. 26and available in Ref. 27.
+A. The linear oscillator
+The simplest case is the ideal linear oscillator described
+by the differential equation
+s
+2€xþx¼0: (1)
+To solve this second order differential equation with an
+analog computer, the standard steps are: (1) split the equa-
+tion into a system of two ﬁrst order equations; (2) rewritethem as integral equations, as outlined below:
+_x¼y;
+s
+2_y¼/C0x;)x¼ð
+ydtþx0;
+s2y¼/C0ð
+xdtþy0;(2)
+with x0andy0setting the initial conditions.
+Hence, the analog machine that corresponds to this system
+is composed of two integrators and one single input sum
+node with /C01 gain, as shown in Fig. 7. Assigning the role of
+Fig. 4. Four quadrant multiplier module. The function is actually performed by the monolithic circuit AD633. The output voltage is vo¼vp/C1vq=K, where Kis
+a constant ( K¼10 V). The operating range is a very convenient 610 V for all v’s. For best accuracy, offset voltages at both pandqinputs as well as at the
+output are to be zero-trimmed. At the vqinput, a jumper switch (sw) has been provided to change to vo¼/C0 vp/C1vq=K.
+Fig. 5. The absolute value circuit. It implements the mathematical function
+vo¼jvij.
+266 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 266 04 October 2023 23:06:23
+xto voltage v2at the second integrator output, the voltage at
+the ﬁrst integrator output is v1¼/C0s_v2¼/C0s_x, etc. The
+experiment is then performed by imposing initial conditions
+as mentioned in Sec. IIIand observing how the various sig-
+nals vary.
+Experience with this circuit is always frustrating. In place of
+the expected stationary sinusoidal signal with the characteristics
+given by the selected initial conditions, an exponentially increas-
+ing or decreasing oscillation is invariably observed. This is aﬁrst important experimental result: a zero in a mathematical
+equation can seldom be reproduced as an exact zero in a physi-
+cal system. Even using the best quality components to assemblethe modules for the circuit of Fig. 7, some slight nonideal behav-
+ior is always present. For example, the Miller integrator output
+always contains a small error signal that is proportional to the
+input voltage rather than to its integral. In the frequency domain,this implies that a sinusoidal signal applied at the input of an
+integrator appears at the output with a nominal 90
+/C14phase rota-
+tion plus some small deviations.
+We may observe the following: (i) The analog computer,
+by nature, behaves like a physical system and will nevershow an ideal behavior. (ii) The numerical integration can
+go on for a long time and show results close to the behavior
+of an ideal system because only after a very long calculationthe cumulative effects of arithmetic rounding make the solu-
+tion appreciably deviate from ideality. (iii) Only an analyti-
+cal solution can show the true stationary state of an ideallinear system.To be realistic, Eq. (1)for a true physical system should
+always be written as
+s
+2€xþd_xþx¼0; (3)
+where the dcoefﬁcient—that expresses the oscillation
+damping—can, in practice, be very small indeed, but never
+zero. Usually, it is not even possible to predict the sign of d.
+In our experience, the better the components’ quality, thecloser dis to zero, and the greater the sign uncertainty, to the
+point that two identical circuits can behave differently.
+Once this state of affairs has been accepted, one might try
+to trim dto zero by adding a small amount of _x(of the proper
+sign) to the input of the summing node in order to introduce
+a/C0dterm in the equation. The result of this second experi-
+ence is frustrating as well. Even when using the best trimmerto adjust the resulting damp to zero, this condition turns out
+to be unstable. After a while, the oscillation starts to increase
+or decrease in amplitude again, caused by any minimal driftin the component parameters.
+All these effects (as well as other ones, like the unavoid-
+able noise intrinsic to every resistive component in the cir-
+cuit) are akin to measurement errors, a primary concept inevery physics laboratory. Just as it is not possible to get ameasurement of a quantity with inﬁnite accuracy, it is not
+possible to set the value of some physical quantity with inﬁ-
+nite accuracy. Ultimately, one must accept the evidence thata steady state oscillation in a perfectly linear system is only a
+mathematical concept; this is an important lesson for a young
+scientist.
+B. The almost linear oscillator
+In the physical world, we can obtain a stationary oscilla-
+tion only if we give up linearity: we must introduce some
+amount of nonlinear behavior in our system.
+This might be done by simply and roughly introducing a
+negative damping in the system, i.e., a negative value for d,
+so that the oscillation amplitude will rise exponentially with
+time. The oscillation then increases until it must stop because
+of the ampliﬁers’ saturation. This arrangement is often usedin the generation of radio signals, but that is another story. In
+an analog computer, this must be absolutely avoided. The
+ampliﬁers must remain in their prescribed operating range,
+Fig. 6. Module to preset the initial voltage across the capacitor of an integrator. Terminals AandBare to be connected with the AandBterminals across the
+capacitor in the integrator module of Fig. 3. The relay RL is used with the contact normally closed, i.e., when the relay is not activated, the input of the integra-
+tor at Ais forced until output Bis at the voltage set by the trimmer. When relay RL is activated by allowing a current in the solenoid, the contact opens, allow-
+ing the integrator to operate in the normal way. This mode of using the relay (i.e., making the circuit start to operate at the relay opening) is importan t to avoid
+the effects of the contact rebounces typical of mechanical relay closing. With a fast reed relay, a delay of about 80 ls has been measured between an excitation
+current pulse and the corresponding contact opening, and a delay difference less than 10 ls between relays on two different modules. These times are adequate
+for most applications. If not, the relay should be replaced with a CMOS switch that can yield switching times of 100 ns or less.
+Fig. 7. The ideal linear oscillator. Both integrators have identical time con-stant s¼RC, given by the input resistance Rand feedback capacitor C.
+With typical values R¼10 kXandC¼10 nF, one gets s¼100ls, corre-
+sponding to an oscillation frequency f¼1=ð2psÞ¼1:59 kHz. Formulas in
+the ﬁrst line (in red) describe the relationships among the electrical signals
+of each node. The lower expressions (in black) give the correspondence of
+the electrical signals with variables of Eq. (1)(second line) or Eq. (2)(third
+line).
+267 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 267 04 October 2023 23:06:23
+otherwise the circuit will not model the equations anymore,
+and no quantitative result can be obtained.
+Nonlinearity must be added to the system with suitable
+nonlinear devices that correspond to explicit nonlinear terms
+in the equations. One way to obtain this result is to introduce
+a cubic term in Eq. (3). This increases the complexity of the
+circuit but opens the way to richer physics and is suitable for
+an interesting numerical analysis. The new equation, akin to
+van der Pol’s equation,28is
+s2€x/C0a/C0bs2_x21
+K2/C18/C19
+s_xþx¼0; (4)
+with aandbboth positive quantities; the corresponding cir-
+cuit is shown in Fig. 8.
+As often with nonlinear differential equations, Eq. (4)does
+not admit a closed analytical solution, but if the nonlinearity
+is sufﬁciently small, an approximate solution x(t) for the
+steady state can easily be obtained through a Fourier expan-
+sion. Without a forcing term, i.e., without an additional signal
+from an external generator applied to the sum module (as it
+will be made in Fig. 14), according to Poincar /C19e–Bendixson
+theorem,29x(t) will asymptotically converge to a periodic
+function of time, that can be expanded as a Fourier series,
+containing a fundamental term sin ðxtþuÞ, along with har-
+monics of decreasing amplitude.
+Assuming x’AsinðxtþuÞ, we will have _x
+’AxcosðxtþuÞ. Using the trigonometric expansion
+cos3ðxtþuÞ¼3
+4cosðxtþuÞþ1
+4cosð3xtþ3uÞ(5)
+to express the _x3term, and keeping only the fundamental
+and discarding the third harmonic contribution, Eq. (4)
+becomess2€x/C0a/C03
+4x2s2A2
+K2b/C18/C19
+s_xþx¼0: (6)
+The stationary state, i.e., the zero damping condition, is
+obtained at the oscillation amplitude Aat which the coefﬁ-
+cient of _xis zero, i.e.,
+A¼K
+xsﬃﬃﬃﬃﬃﬃ
+4
+3abr
+’Kﬃﬃﬃﬃﬃﬃ
+4
+3abr
+; (7)
+with the last approximation obtained when considering that,
+under the small damping condition, xs’1. With K¼10 V
+(the scale factor of the AD633 four quadrant multiplier), and
+a desired full scale oscillation amplitude A¼10 V, one
+obtains a=b¼3=4. Note that this result does not single-
+handedly deﬁne aandb. To determine the absolute values of
+these parameters, another condition has to be added, and this
+is the amount of nonlinearity, quantiﬁed by b, that we decide
+to add to the system. For large values of b, the harmonic con-
+tent of the signal will be more important, but the system will
+respond faster to perturbations in the oscillation amplitude.For lower values of b, the spectral purity will be greater, but
+the system response will be slower.
+The machine shown in Fig. 8has been operated with
+a¼0.01, a¼0.1, and a¼1, obtained with resistors of
+1MX;100 kX, and 10 k X, respectively, at the ainput of the
+sum module, and resistors of 0 :75 MX,7 5 kX, and 7 :5kX,
+respectively, at the binput (the feedback resistor R(deﬁned
+in Fig. 2) is always 10 kX). The rise of the oscillation with
+a¼0.1 and a¼1 is shown in Fig. 9. In both cases, the inte-
+grators start with 0 V across the capacitor. The noise, con-
+stantly present in a physical circuit, ensures that in a
+condition of negative damping, the oscillation will alwaysstart. In the right plot, with a¼1, an expert eye can distin-
+guish a small signal distortion, stronger in the
+/C0s_xterm at
+the ﬁrst integrator output (signal 1, blue line), and attenuatedat the second integrator output (signal 2, red line), asexpected. To make the effect more clearly visible, the signal
+at the ﬁrst integrator output is shown expanded in Fig. 10
+(dashed blue line), together with its three main harmoniccomponents: the ﬁrst (the base frequency), third, and ﬁfthovertones. The table on the right of the plot contains the
+numerical values of these harmonic components for the sig-
+nals at both integrators output, both measured and obtainedby numerical integration of Eq. (4)on a digital computer.
+A much cleaner oscillation is obtained with a¼0.01
+(Fig. 11). The left plot shows the amplitude rise (blue solid
+line), compared to results from numerical integration (red
+Fig. 8. The almost linear oscillator.
+Fig. 9. Output voltages from the almost linear oscillator for a¼0.1 (left) and a¼1 (right). The lagging oscillation (1—blue line) is the output from the ﬁrst
+integrator ( v1) and the leading oscillation (2—red line) from the second ( v2).
+268 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 268 04 October 2023 23:06:23
+points). The right plot shows a 3 ms interval taken from the
+steady state region. Harmonic content is low enough not to
+be observable by the naked eye. From spectral analysis, thethird and ﬁfth components’ amplitude are 12 mV and 36 lV,
+respectively, at the ﬁrst integrator output. Numerical integra-
+tion yields 12 mV as well for the third overtone, but a smaller26lV value for the ﬁfth, with a discrepancy that amounts to
+1 ppm of the total amplitude. Here, we are at the limit of the
+analog machine possibilities, imposed by its dynamicalrange: the ratio between the full scale and the noise ﬂoor
+voltages.
+C. The nonharmonic oscillator
+Another interesting circuit that can easily be assembled
+using the same modular integrators and multipliers as the cir-cuit in Fig. 8is the nonharmonic oscillator, a simpliﬁed ver-
+sion of a system sometimes referred to as the Dufﬁng
+oscillator.
+13
+In this circuit, shown in Fig. 12, the cubic term has been
+moved from the damping to the potential expression, yield-
+ing the equation
+s2€xþas_xþx3
+K2¼0: (8)
+Signals obtained according to this equation-circuit are
+shown in Fig. 13with initial conditions set to 10 V for xand
+to 0 V for /C0s_x. The most important feature of this signal isthat the oscillation frequency changes with the amplitude.
+The oscillator with the Dufﬁng potential is not isochronous,
+a property, as it is well known, speciﬁc to the harmonicpotential.
+D. The driven nonharmonic oscillator
+The shift in the resonance frequency of a slightly anhar-
+monic forced oscillator is a well-known and well-studied
+effect in several ﬁelds of physics. A typical example can befound in Ref. 30. At high amplitudes, the resonance curve
+can be fully distorted, giving rise to discontinuities and to
+a hysteresis loop during a forward and reverse frequencyscan.
+In a paper published a few years ago,
+31guitar strings were
+described as examples of nonlinear resonators. From models
+and measurements, it resulted that the behavior of the stringwas fairly well described by the equation
+€xþx
+0_xbþcj_xj ðÞ þx021þ/C15x2 ðÞ x¼FðtÞ (9)
+over a wide range of oscillation amplitudes (except for the
+largest ones). In the equation, the coefﬁcient baccounts for
+the usual linear damping and the term cj_xjfor the nonlinear
+ﬂuid dynamics damping.
+It is physically insightful to study how such an experiment
+can be replicated using an analog machine, given that the
+analog machine gives us more control over each variable in
+the equation.
+Fig. 10. Expanded view of v1(ﬁrst integrator output) from the steady-state region in the right plot of Fig. 9, together with its main harmonic content. The
+dashed (blue) line is the measured signal; other lines, orange, green, and red in the decreasing order of amplitude, are, respectively, its ﬁrst, thir d, and ﬁfth
+overtones. This harmonic content has been computed from v1by a least squares ﬁt of the v1signal with the function fðtÞ¼A0þP
+n¼1;3;5AnsinðnxtþunÞ
+with An,un, and xadjustable parameters. The residual difference between the measured signal and f(t) (the dotted black line) proves that the considered com-
+ponents are the most signiﬁcant ones. A fast Fourier transform in this case would give a full spectrum of the measured signal with all the overtone compo nents
+but with a reduced accuracy because of truncation errors. The amplitudes (in V) at the ﬁrst and second integrators output are shown in the table right, both for
+the measured signal (M) and the numerically computed one (C).
+Fig. 11. Amplitude rise and steady state oscillation of the xvariable (voltage at the second integrator output) in the circuit of Fig. 8with a¼0.01.
+269 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 269 04 October 2023 23:06:23
+The analog machine shown in Fig. 14has been assembled,
+after rewriting Eq. (9)in the form
+s2€xþs_xbþsj_xjc
+K/C18/C19
+þ1þx2/C15
+K2/C18/C19
+x¼gEðtÞ;(10)
+to take into account that v1actually corresponds to /C0s_x, not
+to_x, with x0¼1=s, and writing c=Kand/C15=K2instead of c
+and/C15to have all constants dimensionless and all variables
+well scaled for the analog computer’s operation.
+Values for sandbcan be imported directly from the
+results of the experiment with the guitar string and have beenset as close to the reported values as allowed by componentsavailability: s¼475ls and b¼6:70/C210
+/C04vs reported
+483:6ls and 6 :75/C210/C04.
+Values for the cand /C15constants are more intriguing, as
+they are linked to the scale that is selected for xands_x.T o
+have the analog machine work over the full available dynam-ical range, i.e., 610 V for both xands_x,/C15andcare to be
+chosen in order to make the terms x
+2/C15=K2andsj_xjc=Khave
+the same values as the corresponding quantities in the paper(8:1/C210
+/C03and 1 :98/C210/C03, respectively, at the maximum
+peak level). At full scale, both x=K¼1 and s_x=K¼1, so
+/C15¼8:1/C210/C03andc¼1:98/C210/C03.
+Due to components availability, we have chosen c¼1:8
+/C210/C03, while /C15has ﬁrst been chosen to be 8 :3/C210/C03before
+being increased to 1 :0/C210/C02for a better agreement with
+results reported in Ref. 31(see later).
+Measurements have been performed following a similar
+procedure as in Ref. 31. The forcing signal E(t) has been
+generated using one channel of the sound card, calibratingthegcoefﬁcient to excite a 610 V amplitude for the v
+1and
+v2oscillations. The quantity that corresponds to the guitar
+string speed in the original experiment is voltage v1. Voltage
+v2has been measured as well; it corresponds to the string
+displacement.
+With the guitar string, only the resonance frequency can
+be tuned, within a limited range, other parameters being con-strained. Using an analog machine, it is possible to modeland study the system at will, even considering each param-
+eter at a time: by unplugging the v
+/C15and vcsignals, a fully lin-
+ear resonator is obtained; adding vc, the effect of the ﬂuid
+dynamics damping can be observed and so on. Some resultsare described in Fig. 15.
+The behavior of the complete network is reported in
+Fig. 16. The difference between consecutive curve ampli-
+tudes is smaller than the excitation step size because of the
+ﬂuid dynamics damping: when the oscillation amplitude
+becomes greater, the effective ﬁgure of merit of the resonatordecreases. This can better be seen in the left-top inset ofFig.16that reports the ratio of peak amplitude over excita-
+tion signal as a function of the excitation intensity. The blueline has been drawn using the results reported from leastsquares ﬁt in Ref. 31; red points are values from this experi-
+ment, scaled to make the leftmost point to coincide withthe line.
+The most impressive aspect of Fig. 16is the curve defor-
+mation produced by the potential’s anharmonicity: the peakbends rightward, until an hysteresis loop appears between
+the forward and reverse frequency scans. Changing the sign
+of the /C15coefﬁcient, the curve would bend leftward. This is a
+freedom practically unavailable with most nonlinear physicaloscillators, where nonlinearity is linked to some unmodiﬁ-able system property.
+To make a comparison with data obtained with the guitar
+string, three horizontal dashed black bars are reported in theplot. The upper bar (labeled 1) corresponds to the frequencyshift of the resonance peak in the guitar experiment, from theasymptotic low level resonance to the highest oscillationlevel ( /C241:4 Hz). The experiment with the analog machine
+has been repeated a few times with slightly different values
+of/C15, and the one has been chosen that yields the best agree-
+ment with data in Ref. 31. (The residual disagreement is
+about 10%.)
+It is worth noting that in Ref. 31, the /C15parameter was also
+adjusted to stretch rightward the curves obtained with themathematical model and make the shift of the highest oscil-lation peak coincide with the experiment.
+The difference in the value of /C15used in Ref. 31
+(/C15¼8:1/C210
+/C03) and the value of /C15used to ﬁnd agreement in
+the circuit response ( /C15¼1:0/C210/C02) may be due to the fact
+that in Ref. 31, the mathematical solution was obtained
+through an expansion to ﬁrst order of Eq. (9), discarding all
+overtone content, while the work of the analog machine is adirect integration of the whole equation. This point may beworth further investigation. However, most importantly,
+Fig. 12. The damped Dufﬁng oscillator with cubic restoring force.
+Fig. 13. A decaying signal from the Dufﬁng oscillator with s¼100ls and
+a¼1/12.
+Fig. 14. An analog machine that emulates the guitar string behavior as
+described in Ref. 31. The signal at the ﬁrst integrator output is v1¼/C0s_x
+¼/C01=sÐ
+ðbv1þv3Þdtthat amounts to the input s2€x¼/C0bs_x/C0cs2_xj_xj=
+K/C0xð1þ/C15x2=K2Þ/C0gEðtÞ[see Eq. (10)]. The black and red labels pairing
+on each node give the correspondence among electrical signals and terms in
+Eq.(10).
+270 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 270 04 October 2023 23:06:23
+both solutions show the same macroscopic disagreement
+with the guitar string experiment at the highest oscillation
+amplitudes: the middle bar (labeled 2) shows the width ofthe hysteresis loop in the guitar experiment, that is about
+0:67 Hz. The corresponding value from the analog machine
+results is less than half that value ( /C240:31 Hz) in rough agree-
+ment with results from mathematical computations in Ref.
+31(/C240:25 Hz, lower bar, labeled 3).
+This comparison conﬁrms the limits of the model
+expressed in Eqs. (9)and(10) (and the circuit in Fig. 14)t o
+describe the physics of the guitar string at the highest oscilla-
+tion amplitudes.
+V. CONCLUSIONS
+The experiments reported in this paper are only a few
+examples of an inﬁnite variety of physical oscillators, whose
+knowledge and familiarity with are valuable in the curriculumof a physicist, both an experimentalist or a theorist.The experiment described in Sec. IV D is probably the most
+fascinating of the four, because it opens a view on some unex-pected behaviors. The experiments described in Sec. IV A
+with the linear oscillator, instead, make clear the differencebetween the numerical and analytical solutions of the equa-tions of a physical system and the direct observation of thesystem behavior, hence, the usefulness of the analog computer
+approach. In Sec. IV A, it was noted that experience with the
+circuit in Fig. 7is frustrating. This is not meant to imply that
+the circuit is not good enough to tackle the linear oscillatorproblem in full; rather, the opposite. It is the mathematics thatshow in Eqs. (1)and(3)an idealized and unrealistic image of
+the world we make in our mind. A physical system behaveslike the circuit in Fig. 7, frustrating such a simplistic image
+and forcing a more complex view: a steady state oscillation ina linear system is only a mathematical concept; the real worldneeds nonlinearity to be stationary.
+As shown by the examples of oscillators, the analog com-
+puter is a very ﬂexible and inexpensive device to expose stu-dents to a wide variety of experimental situations, either in alinear or nonlinear world. There is no doubt that mathematicswill always be the master way to the full analysis of a physi-cal system behavior, but the experimental approach is a wayto stimulate an understanding of aspects of physics that mustbe accounted for by the mathematical model.
+a)Electronic mail: carla@ﬁ.infn.it
+1See <http://analogmuseum.org/english/ >or<http://www.rsp-italy.it/
+Electronics/Analog%20computing/index.htm >.
+2IEEE Control Systems, Issue 3, June, 2005 <https://ieeexplore.ieee.org/
+stamp/stamp.jsp?tp ¼&arnumber ¼1432585 >.
+3Karl D. Swartzel, Jr. and N. J. Teaneck, “Summing ampliﬁer,” U.S. Patent
+2,401,779 (June 11, 1946).
+4John R. Ragazzini, Robert H. Randall, and Frederick A. Russell, “Analysis ofproblems in dynamics by electronic circuits,” Proc. IRE 35(5), 444–452 (1947).
+5M. G. Hartley, An Introduction to Electronic Analog Computers (John
+Wiley & Sons, London, 1962).
+6Norman R. Scott, Analog and Digital Computer Technology (McGraw-
+Hill-Kogakusha, Tokyo, 1960).
+7F. H. Raven, Automatic Control Engineering (McGraw-Hill-Kogakusha,
+Tokyo, 1961).
+8John D. Ryder, Engineering Electronics (McGraw-Hill-Kogakusha,
+Tokyo, 1957).
+9The original operators manual of the EAI TR-48 analog computer can befound at, <www.bitsavers.org/pdf/eai/tr-48/EAI_TR-48_Analog_Computer_
+Operators_Manual_Oct63.pdf orhttps://usermanual.wiki/Document/
+EAITR48AnalogComputerOperatorsManualOct63.669687125 >.
+10See, for a few images of the EAI TR-48 analog computer, <https://www.
+computerhistory.org/revolution/analog-computers/3/152/430 >.
+Fig. 15. Operation of the circuit of Fig. 14at different signal amplitudes with the vcsignal operative and v/C15unplugged (left plot) and v/C15operative and vc
+unplugged (right plot). The quantity vo=viis the ratio of amplitudes of v1and the forcing signal gEðtÞ. In a linear oscillator, its peak value corresponds to the
+ﬁgure of merit Q. The left plot displays the effect of ﬂuid dynamics damping alone. The lowest curve corresponds to the greatest signal, and the highest curve
+to the lowest signal with a difference of 8 :5 dB in the input signal intensity between successive curves: the lowering of the Qwhen the signal amplitude
+increases is clearly observed. The right plot shows the bending and the hysteresis loops due to the cubic term in the potential. The rightmost curve cor responds
+to the highest oscillation amplitude ( 610 V); going left, other curves are obtained with the forcing signal reduced by 3, 6, and 51 dB.
+Fig. 16. Response from the circuit of Fig. 14when all nonlinear effects are
+present. Solid (red) curves have been obtained with forward frequency
+scans, dashed (blue) curves with reverse scans. The input signal vifor the
+highest curve has been adjusted for a 10 V peak oscillation amplitude. For
+lower curves, videcreases by 3 dB per curve down to /C015 dB, and thereaf-
+ter, by /C06 dB per curve down to /C051 dB. The vertical dotted bar marks the
+asymptotic resonance frequency at zero amplitude; the top-left inset reports
+the oscillation peak values (see the text for meaning and description); the
+three horizontal dashed bars report values from Ref. 31for the highest oscil-
+lation curve: (1) resonance shift from the asymptotic low level value; (2)
+width of the hysteresis loop in the guitar experiment; (3) width of the hyster-
+esis loop obtained from mathematical computations.
+271 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 271 04 October 2023 23:06:23
+11D. G. Luchinsky, P. V. E. McClintock, and M. I. Dykman, “Analogue
+studies of nonlinear systems,” Rep. Prog. Phys. 61, 889–997 (1998).
+12J. C. Sprott, “Simple chaotic systems and circuits,” Am. J. Phys. 68,
+758–763 (1999).
+13B. K. Jones and G. Trefan, “The Dufﬁng oscillator: A precise electronic
+analog chaos demonstrator for the undergraduate laboratory,” Am. J. Phys.
+69, 464–469 (2001); a short and clear review of the Dufﬁng oscillator
+can be found also on Wikipedia <https://en.wikipedia.org/wiki/Dufﬁng_
+equation >.
+14Edward H. Hellen, “Real-time ﬁnite difference bifurcation diagrams from
+analog electronic circuits,” Am. J. Phys. 72, 499–502 (2004).
+15Fariha Ghaffar, Sajid Iqbal, Umer Shahid, and Muhammad Abdullah,
+“Implementation of a BJT based jerk circuit: route to chaos with multiple
+attractors,” in 9th IEEE Annual Ubiquitous Computing, Electronics &
+Mobile Communication Conference (UEMCON) (IEEE, New York, 2018).
+16E. Tama /C20sevicˇi/C22ut_e, A. Tama /C20sevicˇius, G. Mykolaitis, and S. Bumelien _e,
+“Analogue electrical circuit for simulation of the Dufﬁng-Holmes equa-
+tion,” Nonlinear Anal.: Modell. Control 13(2), 241–252 (2008).
+17Matt Schmitthenner, “Modeling the Dufﬁng equation with an analog computer”
+<http://physics.wooster.edu/JrIS/Files/Schmitthenner_Web_ Article.pdf >.
+18Edgar Perez, Colleen Werkheiser, Alex Striff, and Lucas Illing,
+“Exploring delay dynamics with a programmable electronic delay circuit,”
+Am. J. Phys. 88, 1006–1011 (2020).
+19See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/10.0009634 for more details about the modules assembling, the
+trimming procedures and the ﬁles for the printed circuit boards production.
+20Sergio Franco, Design with Operational Ampliﬁers and Analog Integrated
+Circuits (McGraw-Hill, Tokyo, 2002), pp. 19–20.
+21George Clayton and Steve Winder, Operational Ampliﬁers , 5th ed.
+(Newnes, Oxford, 2003), pp. 146–168.22See, for the ofﬁcial development site of pcb, <https://sourceforge.net/
+projects/pcb/ >.
+23Javier Tello Marmolejo, Oscar Isaksson, Remigio Cabrera-Trujillo, Niels
+C. Giesselmann, and Dag Hanstorp, “A fully manipulable damped drivenharmonic oscillator using optical levitation,” Am. J. Phys. 88(6), 490–498
+(2020).
+24See, for the ofﬁcial development site of SoX, <https://sourceforge.net/
+projects/sox/ >.
+25See, for the ofﬁcial development site of Audacity, <https://www.audacityteam.
+org/>.
+26Giovanni Aloisi, Federico Bacci, Marcello Carl /C18a, David Dolci, and
+Leonardo Lanzi, “Implementation on a desktop computer of the real time
+feedback control loop of a scanning probe microscope,” Rev. Sci. Instrum.
+79, 113702 (2008).
+27See, for a software package (spm2), originally designed for the real time
+control of a scanning tunnel microscope, but easily usable for many data
+stream acquisition processes, <http://spm.polosci.uniﬁ.it/ >.
+28Balth van der Pol Jun, “LXXXVIII. On relaxation-oscillations,” London,
+Edinburgh, Dublin Philos. Mag. J. Sci. 2, 978–992 (1926).
+29To put it simply, Poincar /C19e–Bendixson theorem states the conditions under
+which the solutions of a plane nonlinear system will approach a closed sta-
+tionary cycle. It is an important topic in the study of nonlinear dynamical
+systems. See, e.g., D. K. Arrowsmith and C. M. Place, Dynamical
+Systems: Differential Equations, Maps and Chaotic Behavior (Chapman &
+Hall, London, 1992).
+30Lev Landau and Evgeny Lifchitz, Mecanique , Deuxie `me /C19edition ( /C19Editions
+MIR, Moscow, 1966), p. 28.
+31Marcello Carl /C18a and Samuele Straulino, “Measurements on a guitar string
+as an example of a physical nonlinear driven oscillator,” Am. J. Phys.
+85(8), 587–595 (2017).
+272 Am. J. Phys., Vol. 90, No. 4, April 2022 Marcello Carl /C18a 272 04 October 2023 23:06:23

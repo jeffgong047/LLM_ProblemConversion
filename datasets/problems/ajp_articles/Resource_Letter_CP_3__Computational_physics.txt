@@ -1,0 +1,1869 @@
+
+View
+Online
+Export
+CitationCrossMarkJANUARY 01 2023
+Resource Letter CP-3: Computational physics 
+Timothy J. Atherton
+Am. J. Phys.  91, 7–27 (2023)
+https://doi.org/10.1 119/5.0106476
+Articles Y ou May Be Interested In
+Application for calculation of mean aerodynamic chord of arbitrary wing planform
+AIP Conference Proceedings  (June 2016)
+CP violation
+AIP Conference Proceedings  (May 1981)
+CP VIOLA TION
+AIP Conference Proceedings  (August 2000) 04 October 2023 22:48:38
+RESOURCE LETTER
+Resource Letters are guides for college and university physicists, astronomers, and other scientists to literature, websites, and other teaching a ids.
+Each Resource Letter focuses on a particular topic and is intended to help teachers improve course content in a speciﬁc ﬁeld of physics or tointroduce nonspecialists to this ﬁeld. The Resource Letters Editorial Board meets annually to choose topics for which Resource Letters will be
+commissioned during the ensuing year. Items in the Resource Letter below are labeled with the letter E to indicate elementary level or material of
+general interest to persons seeking to become informed in the ﬁeld, the letter I to indicate intermediate level or somewhat specialized material, or t he
+letter A to indicate advanced or specialized material. No Resource Letter is meant to be exhaustive and complete; in time there may be more than one
+Resource Letter on a given subject. A complete list by ﬁeld of all Resource Letters published to date is at the website <http://web.mit.edu/rhprice/
+www/>. Suggestions for future Resource Letters, including those of high pedagogical value, are welcome and should be sent to Professor Mario
+Belloni, Editor, AJP Resource Letters, Davidson College, Department of Physics, Box 6910, Davidson, NC 28035; e-mail: mabelloni@davidson.edu.
+Resource Letter CP-3: Computational physics
+Timothy J. Atherton
+Department of Physics and Astronomy, Tufts University, 574 Boston Ave, Medford, Massachusetts 02155
+(Received 28 June 2022; accepted 19 October 2022)
+This Resource Letter provides information and guidance for those looking to incorporate
+computation into their courses or to reﬁne their own computational practice. We begin with general
+resources, including policy documents and supportive organizations. We then survey efforts to
+integrate computation across the curriculum as well as provide information for instructors lookingto teach a computational physics course speciﬁcally. An overview of education research into
+computation in physics, including materials from beyond Physics Education Research, is then
+provided, followed by suggestions for tools, languages, and environments. We conclude with someemerging topics for which only preliminary resources exist but represent important topics for
+future innovation.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0106476
+I. INTRODUCTION
+This Resource Letter aims to help a diverse audience dis-
+cover resources to help them in their practice and education,
+namely, high school and college physics instructors aiming toincorporate computing into their courses, those looking to
+teach a course speciﬁcally on computational physics, educa-
+tion researchers interested in work on computation in physics,
+and, ﬁnally but perhaps most importantly, those physicists
+including students interested in broadening their view on com-
+puting in physics more generally and acquiring new tools and
+skills for their work. As I discuss below, the word computing
+is used here in a broad sense to cover the many ways com-
+puters are used in physics. In prior Computational Physics
+Resource Letters,1,2many of the resources provided (and their
+updated versions) are still of considerable value. Much in
+those earlier Letters in fact seems remarkably prescient:
+Published in 1995, de Vries’s letter CP-11discusses the tre-
+mendous potential of neural networks for physics applications,
+for example. Now grouped with other machine learning meth-ods and part of the emerging discipline of data science, their
+potential alluded to in CP-1 has only recently begun to be
+fully realized in physics as improved hardware, algorithms,
+and datasets have become available.
+Similarly visionary, in CP-2, Rubin Landau argues that
+computation represents a third avenue of physics knowledgeproduction distinct from experiment and theory, and framed
+computational physics as a synthesis of applied math, com-
+puter science, and physics. In highlighting its highly interdis-
+ciplinary nature, and also its epistemic role, Landau
+foreshadows much recent work on thinking of howcomputing is done in physics, i.e., the skills and practices
+necessary rather than simply tools and problems.
+Taking into account important developments since the earlier
+Letters, I have broadened the scope of this new Resource Letter
+in a number of ways that aim to be useful to educators. There
+now exist signiﬁcant repositories of materials and supportivecommunities for educators and an emerging body of educationresearch on computational education, including physics educa-tion research (PER) speciﬁcally. Even so, integrating computa-tion remains challenging and instructors experience manybarriers that may prevent them from succeeding.
+140–142Rather
+than focusing entirely on computational physics courses, I, there-
+fore, aim to help diminish some of these barriers by providingresources that are valuable for integrating computation into anyphysics course and note the many recommendations to do so.
+3–7
+In arguing why integration of computation into the physics
+curriculum is so necessary, I will go further than Landau:Computation is so interwoven into essentially all aspects ofphysics knowledge production that it almost cannot be mean-
+ingfully disentangled because computers are used to build theo-
+ries, design experiments, model phenomena, collect, analyze,visualize data, and much more. In this Letter, I adopt a verybroad view of computing in physics, including all these usesand not just computational problems, algorithms, or coding. Ibelieve that this enriched view of computation requires a verydifferent kind of classroom from the traditional one: One in
+which students are doing physics with computers and where
+students have the opportunity to engage in the various episte-mic practices of physics. It repositions the instructor as a fellowscientist who facilitates discovery rather than the sole source ofknowledge and authority.
+7 Am. J. Phys. 91(1), January 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 7 04 October 2023 22:48:38
+Achieving this vision will require paying attention to: who
+is doing computation necessitating considerations of diver-
+sity, equity, inclusion, and justice (DEIJ); what is happening
+andhow including practices and active learning techniques
+as well as insights from math and computer science educa-
+tion; whyfocusing on objectives of inquiry and standards of
+evidence; and for whom inviting questions of communica-
+tion, outcomes, professional preparation, and the social con-
+text of science. Certain emerging areas like quantum
+computing even call into question what the computer of the
+future even will be! I sincerely hope readers will, therefore,
+read this Letter not just for information but as an invitationto innovate further with their pedagogy and practice to
+achieve some of these goals.
+For those entirely new to the idea of integrating computa-
+tion into their courses, may I suggest a few resources that
+form particularly good starting points: A recent AAPT
+report, Ref. 3, provides general recommendations. PICUP,
+Ref. 14, is a supportive community of educators at various
+stages of integrating computation into their courses and also
+an impressive online repository of examples. Simple, ready
+to go simulations with no coding are available throughPhET.
+18Speciﬁc resources for K-12 and introductory
+courses are found in Secs. III B andIII C, respectively. No-
+install tools for coding using the popular PYTHON language
+are found in Refs. 70and254. A very accessible article on
+some of the kinds of thinking computation opens up is Ref.
+194. Finally, many accessible references for diversity equity
+inclusion and justice in computing are found in Sec. VII A .
+To assist all readers, I have structured the Letter to group
+particular kinds of resources as follows: Section IIcontains
+general resources for computation, including reports that
+provide overall guidance best practices, review papers, and
+collections of resources and organizations. Section IIIis
+aimed at those interested in integrating computation into any
+course; it also includes resources for curricular reform.
+Section IV, in contrast, considers computational physics
+courses speciﬁcally. While resources from physics education
+research (PER) are embedded throughout the whole paper,
+additional materials that may require more education back-
+ground are presented in Sec. V. Suggestions for tools, lan-
+guages, and environments are provided in Sec. VI.I
+conclude the substantive material in Sec. VIIon emerging
+topics in computation for which only a limited selection of
+resources are presently available but represent importantdirections for future development. As an additional aid to the
+reader, a glossary of acronyms is provided in Sec. VIII.
+1. “Resource Letter CP-1: Computational physics,” P. L.
+DeVries, Am. J. Phys .64, 364–368 (1996). (E)
+2. “Resource Letter CP-2: Computational physics,” R. H.
+Landau, Am. J. Phys .76, 296–306 (2008). (E)
+II. GENERAL RESOURCES
+This section contains general, birds-eye view resources for
+those want to integrate computation: Sec. II A reviews
+articles, editorials, and opinion pieces; Sec. II Brepositories
+of resources; Sec. II C; and supporting in Sec. II D.
+A. Reports
+A number of efforts have emerged to gather and synthe-
+size the views of interested parties on computation. Theresulting reports are helpful policy documents with recom-
+mendations for good practices.
+3.AAPT Recommendations for Computational Physics in
+the Undergraduate Physics Curriculum , prepared by
+members of the AAPT Undergraduate Curriculum Task
+Force (AAPT, 2016). Provides guidance and recommenda-
+tions for incorporating computational physics into under-
+graduate physics programs at all levels. Discusses learning
+outcomes, skills, and challenges for integration. See also
+the accompanying Guest Editorial: “AAPT recommenda-
+tions for computational physics in the undergraduate phys-
+ics curriculum, and the partnership for integrating
+computation into undergraduate physics,” E. Behringer and
+L. Engelhardt, Am. J. Phys .85, 325–326 (2017). (E)
+4.Advancing Interdisciplinary Integration of
+Computational Thinking in Science, May 2–5, 2019,
+Conference Report , S. Brophy, M. D. Caballero, K.
+Fisler, M. Hicks, R. Hilborn, C. M. Romanowicz, K.
+Roos, and R. Vieyra (AAPT, Maryland, 2020). Report
+focusing on integrating computing into K-12 science edu-
+cation. Emphasizes importance of disciplinary values,
+DEIJ considerations, the need for training, assessment,
+and workforce preparation. See Sec. VD3 on computa-
+tional thinking below. Available at: https://www.aapt.org/
+resources/upload/computational_thinking_conference_
+report_ﬁnal_200212.pdf (E)
+5.Computation as a Tool for Discovery in Physics ,B .
+McCurdy, D. Ceperly, S. Koonin, J. Ostriker, D. Reed, N.
+J. Wilkins, and P. Woodward (National Science
+Foundation, Arlington, Virginia, 2002). Report advocating
+that the NSF should create a new program in computational
+physics. Provides a very broad and interesting look at the
+myriad uses computation is put to across the discipline. (I)
+6.Effective Practices for Physics Programs: The EP3
+Guide & Communities . Joint effort of the APS and AAPT
+that provides advice for physics departments and programs
+in the U.S. to support change and improvement. Includes a
+section on computational skills. https://ep3guide.org (E)
+7.Phys21: Preparing Physics Students for 21st-Century
+Careers, Joint Taskforce on Undergraduate Physics
+Programs . Joint report by the APS and AAPT advocating
+for aligning physics curricula with workforce needs.
+Advises integration of computation in line with other
+reports. https://www.compadre.org/phys21 (E)
+8.2021 PICUP Virtual Capstone Conference Report ,R .
+Hilborn, M. D. Caballero, L. Engelhardt, A. Knaub, M.
+Kuchera, M. L. del Puerto, B. Lunk, K. Roos, and T.
+Zimmerman. Report summarizing progress of the PICUP
+project.14Includes some resources and prospects for
+future work. https://www.compadre.org/picup//events/pdfs/
+2021_PICUP_Capstone_Report_Final_Final_220502.pdf
+B. Editorial and review articles
+Review articles and previous versions of this Resource
+Letter provide helpful references and perspective.
+9. “Hitting the ground running: Computational physics
+education to prepare students for computational physics
+research,” A. L. Graves and A. Light, Comput. Sci. Eng.
+22, 50–60 (2020). Advocates for a skills-based approach.
+Includes the results of a survey of N¼46 computational
+physicists to determine the type of experience
+8 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 8 04 October 2023 22:48:38
+undergraduate students need to do research with them.
+Critically examines some existing courses using theresults. (E)
+10. “The beneﬁt of computational modeling in physics
+teaching: A historical overview,” J. Weber and T.
+Wilhelm, Eur. J. Phys .41, 034003 (2020). Overview of
+modeling in physics education. Chronological approachprovides a sense of evolution of the ﬁeld. (I)
+11. “Undergraduate computational physics education:
+Uneven history and promising future,” R. F. Martin,J. Phys.: Conf. Ser. 759, 012005 (2016). Provides a brief
+history of computational physics education, reﬂects on
+the success of three computational physics programs,and proposes factors for successful creation of futureprograms. (E)
+12. “Preparing physics students for 21st-century careers,” L.
+McNeil, and P. Heron, Phys. Today 70(11), 38–43
+(2017). Argues that physics programs need to better pre-
+pare students for careers beyond academia. Signiﬁcantemphasis on the importance of computation. (E)
+13. “AJP theme double-issue on computation: An introduc-
+tion to the theme double-issue,” W. Christian andBradley Ambrose, Am. J. Phys .76, 293–295 (2008). (E)
+C. Collections of resources
+A number of repositories exist speciﬁcally for computa-
+tion in physics education.
+14.Partnership for Integrating Computation into
+Undergraduate Physics (PICUP) . PICUP is a collec-
+tion of resources including peer reviewed “exercisesets,” and other contributed materials to integrate com-
+putation in a variety of undergraduate courses.
+Resources are categorized along various dimensionssuch as intro or advanced, topical area, language, andtime estimated. Particularly valuable is the associated
+community of practice and Slack channel. Available at:
+https://www.compadre.org/PICUP/ . PICUP hosts regular
+webinars with further information and recordings avail-able at https://www.compadre.org/PICUP/community/ .
+See also associated articles: “PICUP: A community of
+teachers integrating computation into undergraduate
+physics courses,” M. D. Caballero, Norman Chonacky,Larry Engelhardt, Robert C. Hilborn, Marie Lopez delPuerto, and Kelly R. Roos, Phys. Teach. 57, 397–399
+(2019) and “Analysis of the PICUP collection: Strengths
+and areas for development,” W. B. Lane, e-print
+arXiv:2103.02408 (2021). (E)
+15.Enhancing Science Courses by Integrating Python
+(ESCIP) . A collaborative dedicated to providing easy
+access to
+PYTHON and Jupyter Notebooks for chemistry,
+physics, and astronomy education. Also provides train-
+ings for instructors new to PYTHON .https://escip.io (E)
+16.Open Source Physics . Extensive collection of resources
+to engage students in physics, computation, and com-puter modeling, primarily in
+JAVA and JAVASCRIPT .
+Available at: https://www.compadre.org/osp (E)
+17.The Compadre Resource for Physics Education .
+Large repository of valuable resources for physics edu-
+cation including.7,16,52http://www.compadre.org/ (E)
+18.PhET Interactive Simulations . Provides ready to use
+interactive simulations for introductory and intermediateundergraduate classes.
+JAVA and browser-based versionsavailable. https://phet.colorado.edu . Based on an exten-
+sive research program; the website includes links tonumerous research articles. See selected associatedarticles: “PhET: Interactive simulations for teaching andlearning physics,” K. Perkins, W. Adams, M. Dubson,
+N. Finkelstein, S. Reid, C. Wieman, and R. LeMaster,
+Phys. Teach. 44, 18–23 (2006) and “Teaching physics
+using PhET simulations,” C. E. Wieman, W. K. Adams,P. Loeblein, and K. K. Perkins, Phys. Teach. 48,225–227 (2010). (E)
+19.The Shodor Foundation provides a national resource
+for computational science education including resources
+and workshops. (I) http://www.shodor.org (I)
+D. Organizations
+Here, I include organizations whose mission includes
+computation as used by the physics community or with an
+educational focus.
+20.Extreme Science and Engineering Discovery
+Environment (XSEDE) .A single virtual system that sci-
+entists can use to interactively share computing resour-ces, data, and expertise. Aims to support U.S.-based
+researchers wish to use high performance computing
+resources, including services, software, compute, etc.Provides extensive training materials, including onlinecourses. Material for beginners also available: https://
+www.xsede.org . (A)
+21.American Physical Society Division of Computational
+Physics (DCOMP) . Promotes research and development
+in computational physics: https://engage.aps.org/dcomp/
+home (A)
+22.International Union of Pure and Applied Physics
+(IUPAP) . Includes a Commission on Computational
+Physics (C20) that organizes the yearly internationalConference on Computational Physics (CCP): https://
+iupap.org/who-we-are/internal-organization/commissions/
+c20-computational-physics/ (A)
+23.NumFOCUS . Promotes open practices in research, data,
+and scientiﬁc computing by sponsoring open source
+projects and organizing community-driven educationalprograms https://numfocus.org (A)
+24.Centre Europ /C19een de Calcul Atomique et Mol /C19eculaire
+(CECAM) . Promotes fundamental research on advanced
+computational methods and their applications to scienceand technology. Traditionally focused on condensed
+matter. http://www.cecam.org (A)
+25.National Labs . Many National Labs have a very strong
+Computational Physics focus to support their activities.A few examples:
+(a) Los Alamos: https://www.lanl.gov/org/padwp/
+adx/computational-physics/index.php and https://
+www.lanl.gov/org/ddste/aldsc/computer-computa-tional-statistical-sciences/index.php . Codes, intern-
+ships, and summer programs are available. (A)
+(b) Argonne: https://www.anl.gov/topic/science-tech-
+nology/computational-physics (A)
+(c) Lawrence Berkeley: https://www.physics.lbl.gov
+(A)
+(d) Oak Ridge: https://www.ornl.gov/group/theoreti-
+cal-and-computational-physics (A)
+26.Association for Computing Machinery Special
+Interest Group (ACMSIG) on High Performance
+9 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 9 04 October 2023 22:48:38
+Computing. Promotes interest in and knowledge of
+applications of high performance computing. https://
+sighpceducation.acm.org/ (A)
+III. COMPUTATION ACROSS THE CURRICULUM
+In this section, I present resources for instructors who are
+looking to integrate computation into non-specialized com-
+putational physics courses. For each type of course, I present
+a selection of papers focusing on a material that is relativelyaccessible to instructors and clearly document what has been
+done. Some of these are also education research papers and
+incorporate various kinds of evaluation.
+Beyond these resources, I strongly recommend that any
+effort to integrate computation begin by seeking out a sup-
+portive community of practitioners already embarking onthis journey (e.g., PICUP
+14or ESCIP15), and also by reading
+recent reports that provide general guidance (see Sec. II A).
+Having a clear understanding of your own objectives forcomputation, how they might connect with other elements of
+your course and other classes at your institution will aid you
+immeasurably in this rewarding process. As you try a fewiterations, you may ﬁnd valuable the additional resources of
+Sec. Vthat require more background in education and even
+ﬁnd yourself contributing to this exciting literature.
+A. Curriculum reform
+A number of institutions have successfully reformed their
+curricula to incorporate computation. Some of their experi-
+ences are documented in the below publications.
+27. “Putting computation on a par with experiments and the-
+ory in the undergraduate physics curriculum,” R. M.Serbanescu, P. J. Kushner, and S. Stanley, Am. J. Phys .
+79, 919–924 (2011). Integration of computation into lec-
+ture and lab courses in the ﬁrst and second year at theUniversity of Toronto.
+PYTHON based. Examines student
+reactions from surveys. (I)
+28. “Integrating computation into the undergraduate curricu-
+lum: A vision and guidelines for future developments,”
+N. Chonacky and D. Winch, Am. J. Phys. 76, 327–333
+(2008). Expansive vision for computationally integratedphysics curricula leveraging survey data, meetings and
+discussion at a sequence of conferences and a visioning
+workshop. Proposes recommendations and future direc-tions for reform, not all of which have been fully
+explored. (I)
+29. “Computation in undergraduate physics: The Lawrence
+approach,” D. M. Cook, Am. J. Phys. 76, 321–326 (2008).
+Part of AJP theme double issue.
+13Comprehensive effort to
+redesign the entire physics curriculum around computation
+at a liberal arts college. (A)
+30. “Integrating computational activities into the upper-level
+Paradigms in Physics curriculum at Oregon State
+University,” D. H. McIntyre, J. Tate, and C. A.
+Manogue, Am. J. Phys .76, 340–346 (2008). Part of AJP
+theme double issue.13Describes paradigms in physics,
+an upper-level curriculum that tightly integrates
+research-based instruction and computation. (A)
+31. “An incremental approach to computational physics edu-
+cation,” K. R. Roos, Comput. Sci. Eng .8, 44–50 (2006).
+Description of an effort at Bradley University to inter-
+weave computation into classical mechanics andstatistical mechanics courses. Discusses opportunities
+and challenges for integrating computation. (I)
+32. “Computation across the curriculum: What skills are
+needed?,” M. D. Caballero, PERC Proceedings (2015).Report on a 30 person conference to identify skills phys-ics bachelor’s graduates need with respect to computa-tion. Discusses concepts, practices, computational ways
+of thinking, and meta-knowledge. (I)
+B. K-12 courses
+Those teaching computation in K-12 courses are also
+advised to consult the literature on computational thinking,which has become a popular organizing framework forcomputational activity at this level (Subsection VD3 ). A
+valuable recent report on these lines is to be found in Ref. 4.
+K-12 classes are a topic of increasing importance in PER,
+see Refs. 153,154,155,161,175, and 302.
+33.A Framework for K-12 Science Education Practices:
+Crosscutting Concepts, and Core Ideas ,National
+Research Council (National Academies Press,
+Washington, D.C., 2012). Framework for K-12 that aimsto incorporate scientiﬁc practices and emphasize compu-
+tational modeling. See also the Next Generation Science
+Standards that uses this framework: https://www.next-
+genscience.org/ (E)
+34.Coding in High School Physics and Physical Science .
+Collection of resources at: https://www.compadre.org/
+books/hscoding (E)
+35. “Integrating numerical computation into the modeling
+instruction curriculum,” M. D. Caballero, J. B. Burk, J.M. Aiken, B. D. Thoms, S. S. Douglas, E. M. Scanlon,
+and M. F. Schatz, Phys. Teach . 52, 38–41 (2014). Aims
+to introduce high school physics students with no back-ground in programming to computational problem-solving experiences. Presents a typical activity using
+VPYTHON to model a kicked soccer ball with example stu-
+dent work. (E)
+36.STEM coding . Aims to re-imagine introductory STEM
+courses with computer science in mind. Emerging effort
+to also produce data science materials. https://u.osu.edu/
+stemcoding/ (E)
+37. “Numerical modeling with spreadsheets as a means to
+promote STEM to high school students,” J. Benacka,Eur. J. Math., Sc. Tech. Ed. 12, 947–964 (2016). High
+school developed spreadsheet applications to simulatefall and projectile motion. Includes example spread-
+sheets. (E)
+38.Next Generation Science Standards . Multi-state effort
+to create a science curriculum organized around disci-plinary core ideas, concepts used across disciplines, andscientiﬁc practices. Computation feeds into both“developing and using models” and “using mathematicsand computational thinking,” which are both practices
+https://www.nextgenscience.org (E)
+39.Scratch . Visual block-based programming environment
+widely used in K-12 contexts. https://scratch.mit.edu (E)
+40. “Scratch as a computational modeling tool for teaching
+physics,” V. Lopez and M. Isabel Hernandez, Phys.
+Educ .50, 310–318 (2015). Illustrates use of Scratch
+39in
+a physics context. Includes a discussion of other environ-ments that may be of interest. (E)
+10 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 10 04 October 2023 22:48:38
+41. “Computational thinking for physics: Programming
+models of physics phenomenon in elementary school,”H. Dwyer, B. Boe, C. Hill, D. Franklin, and D. Harlow,PERC Proceedings (2013). Scratch-based curriculum for
+grades 4–6. (E)
+42. “Teachers’ intended learning outcomes around computa-
+tion in high school physics,” D. P. Weller, M. D.Caballero, and P. W. Irving, PERC Proceedings (2019).Examines high school teachers’ objectives for computa-
+tion relative to the NGSS. (A)
+C. Introductory courses
+Introductory courses are a major focus of physics educa-
+tion research, and there are a good deal of valuable resourcesfor courses that center computation:
+43. “Computational physics in the introductory calculus-
+based course,” R. Chabay and B. Sherwood, Am. J.
+Phys.76, 307–313 (2008). Describes integration of com-
+putation in the context of the matter and interactions cur-riculum using
+VPYTHON based on experiences from
+several institutions. Goals include improving conceptual
+understanding of physics principles, visualization,
+modeling complex situations, and curricular change.Discusses positive and negative outcomes of program-ming and provides example sequences of computational
+activities. (E)
+44. “A model-based view of physics for computational
+activities in the introductory physics course,” A. Bufﬂer,S. Pillay, F. Lubben, and R. Fearick, Am. J. Phys. 76,
+431 (2008). Helpful theoretical discussion of models and
+modeling. Leverages
+VPYTHON in a laboratory format.
+Focuses on modeling the translational and rotationalmotion of a spaceship. Analyzes student work. (E)
+45. “Implementing and assessing computational modeling in
+introductory mechanics,” Marcos D. Caballero, Matthew
+A. Kohlmyer, and Michael F. Schatz, Phys. Rev. PER 8,
+020106 (2012). Presents integration and of computa-tional modeling homework questions into a large (1357student) intro class with
+VPYTHON . Valuable effort to
+assess effectiveness on a separate task, although the
+emphasis on student errors rather than successes wouldbe interesting to push beyond. (E)
+46. “Incorporating computational exercises into introductory
+physics courses,” G. Kortemeyer, J. Phys.: Conf. Ser.
+1512 , 012025 (2020). Reports integration of group
+VPYTHON exercises into studio physics based intro course.
+Considers beneﬁts of collaboration vis- /C18a-vis issues like
+plagiarism. (E)
+47. “Computational essays in the physics classroom,” T. O.
+B. Odden and J. Burk, Phys. Teach .58, 252–255 (2020).
+Uses computational “essays” in an into electromagne-
+tism class to structure student thinking. See section onComputational Literacy below. (E)
+48. “A model scientiﬁc computing course for freshman stu-
+dents at liberal arts colleges,” A. K. Sharma, J. Comp.
+Sci. Ed .8, 2–9 (2017). A very interesting approach tar-
+geting freshman students within a liberal arts environ-ment. Mathematica based, also using visualizationsoftware like Visual Molecular Dynamics and
+Avogadro. Project descriptions and extensive supple-
+mentary material provided. Reports a positive studentresponse from survey data. (E)49. “A hybrid approach for using programming exercises in
+introductory physics,” C. M. Orban, R. M. Teeling-Smith, and J. R. H. Smith, Am. J. Phys .86, 831–838
+(2018). Presents an approach that incorporates interac-
+tivity and coding (somewhere between PhET and a tradi-
+tional coding-ﬁrst approach). Promising results even forweak and beginner programmers. (E)
+50. “P
+3: A practice focused learning environment,” P. W.
+Irving, M. J. Obsniuk and M. D. Caballero, Eur. J. Phys .
+38, 055701 (2017). Ambitious introductory course
+designed around problems and practices in physics and
+incorporating signiﬁcant computation elements.Extensively studied by successive PER efforts. (E)
+51. “Modeling instruction: An effective model for science
+education,” J. Jackson, L. Dukerich, and D. Hestenes,Sci. Educ. 17, 10–17 (2008). Accessible overview of the
+Modeling instruction curriculum. (E)
+52.Physlet Physics: Interactive Illustrations, Explorations
+and Problems for Introductory Physics , 3rd ed., W.
+Christian and M. Belloni (Google Play, 2019); 1st Ed.(Prentice Hall, New Jersey, 2004). Textbook and collec-
+tion of interactive “Physlets” in
+JAVASCRIPT and run in the
+web browser. Latest 3rd edition is available as a freeebook. Available at: https://www.compadre.org/phys-
+lets/. (E)
+53. “A novel approach for using programming exercises in
+electromagnetism coursework,” C. Orban, C. D. Porter,
+N. K. Brecht, R. M. Teeling-Smith, and K. A. Harper,
+PERC Proceedings (2017). Browser-based and student-
+modiﬁable
+JAVASCRIPT simulations for Introductory
+E&M. (E)
+D. Cellphones as labs
+An important resource that many—but not all—students
+have access to are cellphones. Here, I list some resources
+and tools that aim to use these devices for data collection.
+The ready availability of such real-life data can be a power-ful resource for computation.
+54. “Resource Letter MDS-1: Mobile devices and sensors
+for physics teaching,” M. Monteiro, Am. J. Phys .90,
+328–343 (2022). Very comprehensive Resource Letter
+on using cellphones for physics. (E)
+55. “Experiments with mobile devices—A retrospective on
+10 years of iPhysicsLabs,” J. Kuhn and P. Vogt, Phys.
+Teach .60, 88–89 (2022). Overview of a recurring col-
+umn in The Physics Teacher with numerous resources
+for using cellphones in labs. (E)
+56. “Computer-based learning in an undergraduate physics
+course: Interfacing a mobile phone and Matlab to studyoscillatory motion,” E. Momox and C. O. De Maio, Am.
+J. Phys .88, 535–541 (2020). Shows integration of cell-
+phones with
+MATLAB to acquire and analyze accelerome-
+ter data. (E)
+57.Physical Phone Experiments (PhyPhox), Free smart-
+phone app that provides access to the cellphone’s sen-sors, including accelerometers, magnetometers, etc.https://phyphox.org (E)
+58. “Teaching classical mechanics using smartphones,” J.
+Chevrier, L. Madani, S. Ledenmat, and A. Bsiesy, Phys.
+Teach .51, 376–377 (2013). Describes iMecaProf soft-
+ware that can receive and interactively visualize sensordata from an iPhone. (I)
+11 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 11 04 October 2023 22:48:38
+59. “Using a mobile phone acceleration sensor in physics
+experiments on free and damped harmonic oscillations,”
+J. Carlos Castro-Palacio, L. Vel /C19azquez-Abad, M. H.
+Gim/C19enez, and J. A. Monsoriu, Am. J. Phys .81, 472–475
+(2013). Uses a cellphone and an air track to create an
+oscillator and compare with theoretical predictions. (E)
+E. Laboratories
+Some efforts have been made to incorporate computation
+into laboratories. Laboratory reform is an important contem-
+porary topic of interest in physics education and so I also
+include here a few resources on that topic.
+60. “Integrating numerical modeling into an introductory
+physics laboratory,” D. Sachmpazidi, M. Bautista, Z.
+Chajecki, C. Mendoza, and Charles Henderson, Am. J.
+Phys.89, 713–720 (2021). Integration of modeling with
+Excel spreadsheets into an introductory laboratorycourse. Computational tools allowed students to engage
+in more complex and realistic experiments than conven-
+tional labs. Students and instructors responded posi-
+tively. (E)
+61. “Introductory physics labs: We can do better,” N. G.
+Holmes and C. E. Wieman, Phys. Today 71, 38–45
+(2018). Shows that some labs are not an effective means
+of students learning physics content, but could be a placefor scientiﬁc activity. (E)
+62. “Model-based reasoning in the physics laboratory:
+Framework and initial results,” B. M. Zwickl, D. Hu, N.
+Finkelstein, and H. J. Lewandowski, Phys. Rev. ST
+Phys. Educ. Res. 11, 020113 (2015). Brings a modeling
+lens to labs, which focuses student attention on scientiﬁc
+sense making rather than technical details. Presents a
+framework together with results including student inter-
+views. (I)
+63. “Labs in building a modern physics way of thinking,”
+M. Michelini, in The Role of Laboratory Work in
+Improving Physics Teaching and Learning (Springer,
+New York, 2018), p. 15. K-12 oriented study that aims
+to ground labwork to reﬂect scientiﬁc practices. (I)
+64. “Investigating complementary computational and empir-
+ical activities for students learning diffusion,” D. P.
+Weller, K. Hinko, and V. Sawtelle, PERC Proceedings
+(2018). Pairs a computational simulation of diffusion
+with a lab activity. (I)
+F. Upper-level courses
+Upper-level courses represent signiﬁcant opportunities for
+future work on integrating computing. A challenge is ensur-
+ing that students are adequately prepared given computation
+cannot be the main focus of the course; these efforts require
+some sort of base at the introductory level. In this section, I
+give a few examples of documented efforts to use computa-
+tion in these more advanced courses. For those interested in
+doing so, many algorithms and problems suitable for upper-level courses can be found in computational physics text-
+books as listed in Sec. IV B. Further project ideas are to be
+found in the American Journal of Physics and even in con-
+temporary physics journals, e.g., Ref. 69.
+65. “Computation in classical mechanics,” T. Timberlake
+and J. E. Hasbun, Am. J. Phys .76, 334–339 (2008).Integration of computational projects into classical
+mechanics. Projects included comparison of algorithmson the same problem physical motivations why their per-
+formance might differ; incorporation of phenomena that
+cannot be modeled analytically; approximation. Code isavailable in
+MATLAB ,MATHEMATICA , and JAVA. (I)
+66. “A model for incorporating computation without
+changing the course: An example from middle-division
+classical mechanics,” M. D. Caballero and S. J.
+Pollock, Am. J. Phys. 82, 231–237 (2014). Integration
+of computation into a sophomore-level course, includ-ing both Mathematica activities in homework problems
+and ﬁnal projects. Describes course and topic-level
+goals for computation and provides example abbrevi-ated example homework problems. Leveraged videos
+for outside class. (I)
+67. “Shifting the learning gears: Redesigning a project-
+based course on soft matter through the perspective ofconstructionism,” E. Langbeheim, A. Abrashkin, A.Steiner, H. Edri, S. Safran, and E. Yerushalmi, Phys.
+Rev. PER 16, 020147 (2020). A project-based course on
+soft and biological materials. Includes constructing andusing computational Monte Carlo and molecular dynam-ics models to explain experimental results. Example
+projects are described together with results of student
+interviews. Grounded in constructionist pedagogy. (I)
+68. “Enhancing teaching and learning of ﬂuid mechanics
+with interactive computational modeling,” R. G. Neves,
+J. Phys.: Conf. Ser. 1286 , 012047 (2019). Describes
+Modellus activities, e.g., ﬁnding the maximum depth ofwater a dam can sustain, in a ﬂuids and thermodynamicscourse. Student feedback was very positive about inclu-
+sion of these activities. (I)
+69.Physical Review E A journal covering statistical, non-
+linear, and soft matter physics. Papers in the statisticalphysics and computational physics sections often usecomputational methods that are accessible to non-
+experts. A valuable source of inspiration for possible
+project ideas.
+G. Accessible computational tools
+In this section, I provide examples of computational tools
+that are particularly suitable for undergraduate education innon-specialized courses.
+VPYTHON , for example, has been
+very extensively used in physics education and removes
+many barriers to entry. Nonetheless, there remains a need forvirtual environments that offer more sophisticated feature
+sets. Some alternatives less widely used in physics: Scratch39
+and Processing.223At a similar level of ease of use,
+PhyPhox57provides interactive data collection with cell-
+phone sensors. Other tools listed elsewhere in this Resource
+Letter are also quite accessible: Both Google
+Colaboratory254and Jupyter252offer PYTHON in a convenient
+notebook form; Colaboratories run from the browser with noneed for installation.
+70.
+VPYTHON .PYTHON module to create navigable 3D displays
+and animations. Widely used in Physics Education, nota-bly in the Matter and Interactions curriculum. See alsoarticle: “VPython: 3D interactive scientiﬁc graphics for
+students,” D. Scherer, P. Dubois, and B. Sherwood,
+Comput. Sci. Eng .25, 56–62 (2000). Widely used in
+Physics Education, notably in the Matter and
+12 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 12 04 October 2023 22:48:38
+Interactions curriculum.43Available at https://vpython.
+org. See also the web-based version Glowscript that ena-
+bles the user to create and store programs in the cloud:https://glowscript.org (E)
+71. “Algodoo: A tool for encouraging creativity in physics
+teaching and learning,” B. Gregorcic and M. Bodin,
+Phys. Teach .55,25–28 (2017). Digital sandbox for 2D
+physics simulations. Compatible with digital white-
+boards/touchscreen interface. (E)
+72.Easy Java Simulations . Free authoring tool that helps
+non-programmers create interactive simulations in
+JAVA
+orJAVASCRIPT . Part of Ref. 16. See article: “Modeling
+physics with easy Java simulations,” W. Christian and F.
+Esquembre, Phys. Teach .45, 475–480 (2007). https://
+www.um.es/fem/EjsWiki/ (E)
+IV. COMPUTATIONAL PHYSICS COURSES
+Courses that focus speciﬁcally on computation enable stu-
+dents to learn and use more complex tools and reﬁne both theirability to do computation and their ability to do physics.
+A. Journal articles
+This section collects a number of reports by authors who
+have created dedicated computational physics courses. Manyof these incorporate or are entirely based on projects, or are
+structured as labs. These materials should be read in the con-
+text of general recommendations for computation asdescribed in Sec. II A.
+73. “A project-oriented course in computational physics:
+Algorithms, parallel computing, and graphics,” C.
+Rebbi, Am. J. Phys .76, 314–320 (2008). Describes a
+number of projects given in a primarily graduate levelcomputational physics course, including Laplace’s equa-
+tion, stochastic simulations, the time-dependent
+Schr€odinger equation, and molecular dynamics. (I)
+74. “Developing a project-based computational physics
+course grounded in expert practice,” C. J. Burke and T.
+J. Atherton, Am. J. Phys. 85, 301–310 (2017). Describes
+the design and implementation of a project-based course,primarily for undergraduates, grounded in an analysis of
+computational skills required for research. Includes pro-
+ject descriptions and a skills-based rubric. (I)
+75. “The role of computational physics in the liberal arts
+curriculum,” R. Dominguez and B. Huff, J. Phys.: Conf.
+Ser. 640, 012061 (2015). A computational physics
+course incorporating homework and a capstone project.Extensively discusses the role of such a course in the
+context of a liberal arts college. (E)
+76. “Teaching computational physics as a laboratory
+sequence,” R. L. Spencer, Am. J. Phys. 73, 151–153
+(2005). Brief report of an interesting structure: Splits
+computational physics instruction into three one-credit
+hour laboratories one for sophomores, one for juniors,and one for seniors.
+MAPLE and MATLAB . (I)
+77. “Pwning level bosses in MATLAB: Student reactions to
+a game-inspired computational physics course,” I. D.
+Beatty and L. A. Harris, PERC Proceedings (2014).Report of a game-based computational physics course;
+course structure includes a number of very interesting
+design elements around feedback, deadlines, etc. (E)B. Computational physics textbooks
+An inevitable question in course design is the question of
+appropriate textbooks. The choice of textbook will inevitably
+depend on the goals of the instructor and whether they planto use the book as a core text to be read carefully or as a ref-
+erence for students. In reviewing the available options, I
+have focused on those that are readily available (i.e., not outof print). I have also tried to categorize them as either more
+numerical , i.e., focusing on numerical analysis, algorithms,
+and tasks like root-ﬁnding, integration, etc., or more physics ,
+i.e., framed around physical applications. A few textbookstake a blended approach incorporating both elements as sep-
+arate sections. A number of books have become freely avail-
+able open-source affairs mirroring code-sharing practices
+common in science. In each case, I note the main program-ming language(s) used by the book.
+1. More physics
+78.An Introduction to Computer Simulation Methods ,
+3rd ed., H. Gould, J. Tobochnik, and W. Christian(CreateSpace, California, 2017); 2nd ed. (Addison-
+Wesley, Massachusetts, 2006). Open source textbook
+that aims to teach physical concepts using computer sim-ulations. Primarily undergraduate level. Introduces
+JAVA
+programming by example. As well as a print edition, theelectronic edition is freely available at http://physics.
+clarku.edu/sip/ (I)
+79.Computational Physics: Problem Solving with
+Python , 3rd ed., R. H. Landau ,M .J .P /C19aez, and C. C.
+Bordeianu (Wiley, New York, 2015). Very comprehen-
+sive physics-focused book starting from elementarytopics and culminating in advanced material such as par-
+allel and GPU computing.
+PYTHON listings provided.
+Upper-level undergraduate or beginning graduate level.Extensive materials including video lectures online. https://
+sites.science.oregonstate.edu/~landaur/Books/CPbook/
+eBook/Lectures/index.html (I)
+80.Computational Physics with Python , E. Ayars (2013).
+Free, open source textbook aimed at undergraduates.Concise and interweaves numerical and physics topics.Introduction to the Linux environment. (I)
+81.Computational Physics , 2nd ed., N. Giordano and H.
+Nakanishi (Prentice Hall, New Jersey, 2006).
+Undergraduate text framed around physics problems, gradu-ally introducing programming and algorithms in context of
+a particular system. Numerical methods are presented as
+Appendices for reference. Some programs in FORTRANand True BASIC are available on a companion websitehttp://www.physics.purdue.edu/~hisao/book/ (A)
+82.Elementary Mechanics Using Python , A. Malthe-
+Sørenssen (Springer, Berlin, 2015). Undergraduate text
+focused on teaching mechanics through
+PYTHON . Detailed
+worked examples with code included, and assumes noprior knowledge of
+PYTHON . (I)
+2. Blended
+83.Computational Quantum Mechanics , J. Izaac and J.
+Wang (Springer, Berlin, 2019). Upper-undergraduate
+level text that takes an interesting approach by focusingon applications in quantum mechanics. Introduces
+13 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 13 04 October 2023 22:48:38
+programming and numerical methods in FORTRAN and
+PYTHON . (I)
+84.Basic Concepts in Computational Physics ,B .A .
+Stickler and E. Schachinger (Springer, Berlin, 2016).
+Aims to provide exact mathematical analysis of bothdeterministic and stochastic methods. Rather concise butwith useful mathematical detail. Intersperses numericalmethods and physical problems.
+Cþþ code online but
+not integrated into text. Upper-level undergraduate orearly graduate level. Perhaps more valuable as a second-ary text. (I)
+85.Computational Physics: Simulation of Classical and
+Quantum Systems , 2nd ed., Philipp O. J. Scherer
+(Springer, Berlin, 2013). Graduate-level text divided
+into two parts: The ﬁrst introduces numerical
+methods; the second considers some physical applica-tions. Electronic edition available. Does not includelistings. (A)
+86.Computation In Modern Physics , 3rd. ed., W. R. Gibbs
+(World Scientiﬁc, Singapore, 2006).
+FORTRAN based.
+Upper undergraduate/early graduate level. Some discus-sion of parallel computing. Blended approach: Earlychapters discuss numerical tasks and later chaptersexplore some physical systems. (A)
+3. More numerical
+87.Numerical Methods in Physics with Python ,A .
+Gezerlis (Cambridge U. P., Cambridge, 2020). Focuseson numerical methods, motivating each one with a phys-ics application, with a brief introduction to
+PYTHON .
+Listings provided in the text and supplementary materialathttps://numphyspy.org (I)
+88.Applied Computational Physics , J. F. Boudreau and E.
+S. Swanson (Oxford U. P., Oxford, 2018). Upper-levelundergraduate or graduate level (more tuned to the lat-ter).
+Cþþbased and extensively discusses programming
+topics including OOP and best practices. Chapters on
+numerical methods, programming, and physical applica-tions are interspersed. Parallel computing is introducedearly, and interesting advanced topics include many-body physics and quantum ﬁeld theory. Expensive. (A)
+89.Computational Methods in Physics: Compendium for
+Students , 2nd ed., S. /C20Sirca and M. Horvat (Springer,
+Berlin, 2018). Graduate level guide to numerical meth-ods that aims to cultivate careful scrutiny of numerics.Rather detailed coverage makes it useful as a reference.(A)
+90.Numerical Methods for Physics , 2nd ed. revised, A. L.
+Garcia (CreateSpace, California, 2016); 2nd. ed.
+(Prentice Hall, New Jersey, 2000). Two versions areavailable in
+PYTHON and MATLAB /Cþþ, respectively.
+Undergraduate text framed around numerical tasks withphysics applications. Supplementary material at: http://
+www.algarcia.org/nummeth/nummeth.html (I)
+91.Computation and Problem Solving in Undergraduate
+Physics , 2nd ed., D. Cook (2016). Free, open source
+textbook developed at Lawrence University (see Ref.29). Focuses on typical numerical tasks at an undergrad-
+uate level. Adopts an interesting multi-language
+approach: Parallel versions of the text are available fordifferent languages including
+C,FORTRAN ,PYTHON ,
+MATHEMATICA , MATLAB , and others. Includes anintroduction to typesetting with LATEX . Available at
+https://psrc.aapt.org/curricula/cpsup/ (I)
+92.Computational Methods for Physics , 1st ed., J. Franklin
+(Cambridge U. P., Cambridge, 2013). Well-writtenundergraduate text framed around numerical methodsbut with each chapter introduced by a section on physi-cal motivation. Uses
+MATHEMATICA . (I)
+93.Computational Physics , M. Newman (CreateSpace,
+Cambridge, 2013). Undergraduate text framed around
+computational tasks, with examples from physics andproblems. Provides a particularly detailed introductionto programming in
+PYTHON that may aid beginners.
+Programs and data available on companion websitehttp://www-personal.umich.edu/~mejn/cp/index.html (I)
+94.An Introduction to Computational Physics , 2nd ed., T.
+Pang (Cambridge U. P., Cambridge, 2010). Intended for
+upper undergraduate/early graduate but appears moresuitable for the latter. Some interesting advanced topics,e.g., genetic algorithm and numerical renormalization,that are not available elsewhere. Examples in
+JAVA, but
+programs are also available in Cand FORTRAN on the
+companion website https://www.physics.unlv.edu/
+~pang/cp.html (A)
+95.Introductory Computational Physics , A. Klein and A.
+Godunov (Cambridge U. P., Cambridge, 2010). Concisetextbook on numerical methods with
+Cþþ. Includes an
+introduction to the ROOT data analysis system used inhigh energy physics. (A)
+96.Numerical Recipes: The Art of Scientiﬁc Computing ,
+3rd ed., W. H. Press, S. A. Teukolsky, W. T. Vetterling,
+and B. P. Flannery (Cambridge U.P., New York, NY,
+2007). Comprehensive and accessibly written referencetext that aims to broadly cover many common tasks inscientiﬁc computing with example implementations andcomparisons of popular algorithms. Discusses physicsapplications only incidentally. An online version is
+available at http://numerical.recipes (A)
+97.Computational Physics: FORTRAN Edition ,S .E .
+Koonin and D. Meredith (Avalon Publishing, New York,1998; Taylor & Francis, London, 2018). Venerable text-book framed around numerical methods. (A)
+C. Supplementary textbooks and lecture notes
+Here, I present some additional resources that are not suit-
+able as a primary text, but could be very valuable as second-ary texts or as resources for project ideas.
+98.A Student’s Guide to Python for Physical Modeling ,
+2nd ed., J. M. Kinder and P. Nelson (Princeton U. P.,
+Princeton, 2021). Fairly brief book on
+PYTHON aimed at
+the beginning programmer: Focuses on basic program-ming constructs but with scientiﬁc applications inmind. Potentially very useful as a secondary text.Inexpensive paperback edition. (E)
+99.Computational Problems for Physics: With Guided
+Solutions Using Python , R. H. Landau and M. J. P /C19aez
+(Taylor & Francis, London, 2018). Extensive source-
+book of problems from across the undergraduate phys-ics curriculum that could be incorporated into courses.Includes complete
+PYTHON listings. (A)
+100. Classical Mechanics with Matlab Applications , 2nd
+ed., Javier E. Hasbun (CreateSpace, California, 2018).
+14 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 14 04 October 2023 22:48:38
+Classical mechanics textbook with examples in
+MATLAB . (A)
+101. Computational Physics , R. Fitzpatrick (updated 2014).
+Upper-division undergraduate. Polished and includes
+an extensive introduction to the Clanguage followed by
+discussion of several physical systems. Available at:https://farside.ph.utexas.edu/teaching/329/329.html (I)
+102. Computational Physics , 2nd. ed., J. Thijssen
+(Cambridge U. P., Cambridge, 2007). Graduate-level
+text framed around condensed matter physics applica-
+tions, including density functional theory, ﬂuid dynam-ics, and molecular dynamics. (A)
+103. Monte Carlo Methods in Statistical Physics ,M .E .J .
+Newman and G. T. Barkema (Oxford U. P., Oxford,1999). Narrow in focus but extremely readable book.Particularly valuable for enriching discussions of the
+Ising model. (I)
+104. Introduction to Computational Science: Modeling
+and Simulation for the Sciences , A. B. Shiﬂet and G.
+W. Shiﬂet (Princeton U. P, Princeton, 2014).Introductory textbook broadly focused on modelingand simulation in science. (E)
+D. Valuable pedagogical papers
+In this subsection, I collect a few papers specially intended
+to be pedagogical; the Computational Physics section of AJP
+contains many other examples. I tend to give papers like this
+directly to students to enable them to cultivate the importantscientiﬁc practice of reading scientiﬁc papers.
+105. “Six textbook mistakes in computational physics,” A.
+Gezerlis and M. Williams, Am. J. Phys . 89, 51–60
+(2021). Discusses some common misconceptions aboutnumerical methods, including ﬂoating-point numbers,
+linear algebra, interpolation, and initial value problems.
+Provocative in tone but valuable. (A)
+106. “Stable solutions using the Euler approximation,” A.
+Cromer, Am. J. Phys .49, 455–457 (1981). Discusses
+the Backwards Euler algorithm that has improved sta-bility over the regular Euler method. (I)
+107. “Symplectic integrators: An introduction,” D. Donnelly
+and E. Rogers, Am. J. Phys .73, 938–945 (2005).
+Describes a class of algorithms that preserve energy
+and, hence, provide superior performance. (I)
+108. “Adaptive stepsize Runge-Kutta integration,” W. H.
+Press and S. A. Teukolsky, Comp. Phys. 6, 188–191
+(1992). Witty article on adaptive stepsize. (I)
+109. “Computational physics with particles,” W. G. Hoover
+and C. G. Hoover, Am. J. Phys. 76, 481–492 (2008).
+Introduction to particle based simulation methods. (I)
+110. “Introduction to molecular dynamics simulations,” K.
+Vollmayr-Lee, Am. J. Phys .88, 401–422 (2020).
+Outline of molecular dynamics algorithms and con-cepts. (I)
+E. Applied math textbooks
+Applied mathematicians bring a very different set of
+lenses to computation than physicists: Among other things,they aim to design and analyze algorithms and prove their
+properties rather than use them to study physical phenomena.
+In this section, I list a few popular and established textbooksused in applied math that could be useful supplementary
+texts to make available to students; they all discuss issues
+like stability, order, error propagation, etc., from a mathe-
+matical perspective. I highly recommend (from personalexperience) consulting with applied mathematicians and
+computer scientists for production implementations of scien-
+tiﬁc codes.
+111. A First Course in Numerical Methods , U. M. Ascher
+and C. Greif (SIAM, Philadelphia, 2011). Clear exposi-
+tion, more contemporary feel and includes
+MATLAB
+scripts. (I)
+112. Numerical Analysis , 10th ed., R. L. Burden, D. J.
+Faires, and A. M. Burden (Cengage Learning,
+Massachusetts, 2015). Numerous exercises. Algorithmsin pseudocode with listings available in multiple lan-
+guages as the supplementary material. (I)
+113. Accuracy and Stability of Numerical Algorithms , 2nd
+ed., N. J. Higham (SIAM, Philadelphia, 2002). Focusedon numerical linear algebra. (A)
+114. Numerical Linear Algebra , 1st ed., L. N. Trefethen
+and D. Bau III (SIAM, Philadelphia, 1997). A very
+interesting approach that provides considerable insightinto how factorizations like the singular value decom-
+position (SVD), QR decomposition, etc., work. (I)
+115. Approximation Theory and Approximation Practice ,
+L. N. Trefethen (SIAM, Philadelphia, 2013). Highlyreadable with great insight into approximation theory.
+MATLAB code integrated into the text (each chapter is a
+MATLAB ﬁle). (I)
+116. A First Course in the Numerical Analysis of
+Differential Equations , 2nd ed., A. Iserles (Cambridge
+U. P., Cambridge, 2008). Oriented to PDEs. Introduces
+many ideas, including topics such as ﬁnite differences,ﬁnite elements, and multigrid through the Poisson
+equation with other exemplar equations. (A)
+117. Numerical Analysis , 2nd ed., K. E. Atkinson (Wiley,
+New York, 1991). Venerable but clear. (A)
+F. Computer science books
+In the same spirit as Subsection IV E, I present a selection
+of popular Computer Science books that are less well read
+than they might be in the physics community and are very
+useful to assist physicists in reﬁning their practice. Topicsinclude program design, algorithms and data structures,
+implementation, documentation, and engineering practices.
+118. Introduction to Algorithms , 3rd ed., T. H. Cormen, C.
+E. Leiserson, R. L. Rivest, and C. Stein (MIT Press,Massachusetts, 2009). Undergraduate textbook that
+introduces many common and useful algorithms and
+provides tools for analyzing their performance such ashow they scale with problem size, typical vs. worst-
+case estimates, etc. (I)
+119. The Pragmatic Programmer: Your Journey To
+Mastery , 2nd ed., D. Thomas and A. Hunt (Addison
+Wesley Professional, Massachusetts, 2019). Discusses
+best practices and major pitfalls of software engineer-
+ing. (I)
+120. Code: The Hidden Language of Computer Hardware
+and Software , 1st ed., C. Petzold (Microsoft Press,
+Unterschleissheim, 2000). Highly readable book about
+how computers work. (E)
+15 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 15 04 October 2023 22:48:38
+121. Code Complete , 2nd ed., S. McConnell (Microsoft
+Press, Unterschleissheim, 2004). Discusses program-
+ming strategies for high quality software as “softwarecraftsmanship.” (I)
+122. Design Patterns: Elements of Reusable Object-
+Oriented Software , 1st ed., E. Gamma, R. Helm, R.
+Johnson, and J. Vlissides (Addison-WesleyProfessional, Massachusetts, 1994). Describes com-
+monly occurring problems that occur and provides
+“design patterns,” solution templates to solve them.Provides powerful insight into how to use OOP effec-
+tively. Examples are in
+Cþþ but applicable to most
+OOP languages. (A)
+123. Art of Computer Programming , Vol. 1–4A., D. Knuth
+(Addison-Wesley Professional, Massachusetts,1997–2011). The Feynmann lectures of Computer
+Science. Deep insights into algorithms and data by the
+creator of the TEXtypesetting system. His article“Literate programming,” D. Knuth in Literate
+Programming (CSLI, California, 1992), p. 99, is also
+highly inﬂuential for advocating a form of self-documenting program design. (A)
+V. EDUCATION RESEARCH
+Computation has emerged as an important topic within
+physics education in the last decade or so. Much of this workhas been in conjunction with various course-level and curric-
+ular efforts aiming to integrate computation. I already pre-
+sented a portion of this literature earlier in Sec. III, focusing
+there on resources that are relatively accessible to those who
+are simply looking for ways to integrate computation into
+their classes. Here, I build on this by presenting additionalresources that may require more background in PER to fully
+utilize.
+Because computation is, as I argued in the Introduction, a
+fundamental but complex disciplinary practice that cutsacross many other aspects of physics, I believe that multiple
+theoretical perspectives will be valuable in designing and
+evaluating computational interventions. I have, therefore,tried to provide a number of resources, especially theoretical
+perspectives on computational education, that have been
+developed outside the physics community but are being
+adopted by the computational PER community. There none-
+theless remains signiﬁcant room for further theorizing of
+computation in physics speciﬁcally. The multifaceted natureof computation also means that it naturally connects to many
+other important topics within PER; group work, scientiﬁc
+agency, laboratories, to name a few.
+A. Entry points
+124. “Synthesis of discipline-based education research in phys-
+i c s , ”J .L .D o c k t o ra n dJ .P .M e s t r e , Phys. Rev. ST Phys.
+Educ. Res . 10, 020119 (2014). Very helpful entry point
+into the PER literature that synthesizes main themes and
+approaches in the ﬁeld up to the date of publication. (E)
+125. “Physics computational literacy: What, why, and
+how?,” T. O. B. Odden and M. D. Caballero, manu-script in preparation. Forthcoming review article that
+covers a good deal of important work in the ﬁeld from
+the view of the computational literacy framework. (E)B. Journals
+126. Physical Review Physics Education Research (for-
+merly Physical Review Special Topics-PhysicsEducation Research). Physics education research jour-
+nal. (I)
+127. European Journal of Physics . Physics education
+research journal. (I)
+128. Physics Education Research Conference
+Proceedings. Associated with the Physics Education
+Research Conference (PERC) and contains many valu-
+able papers, including cutting edge and preliminaryreports of emerging work . In the below section, I have
+selected a few particularly interesting resources; many
+more are to be found in the archive online at https://
+www.compadre.org/per/perc/proceedings.cfm (I)
+129. The Physics Teacher . Practitioner-focused journal
+publishing shorter articles primarily for high schoolteachers and introductory physics. (E)
+130. Physics Education . IOP journal with similar audience
+toThe Physics Teacher . (E)
+131. American Journal of Physics . Practitioner-focused
+journal but with more in-depth articles and covering alllevels of physics. Contains many examples PER, partic-
+ularly before Phys. Rev. ST: PER and Phys. Rev PER
+were established. (E)
+132. Journal of Computational Science Education .
+General journal for computation across STEM, butincludes some articles for physics. (I)
+133. Journal of Physics: Conference Series . General pub-
+lisher of conference proceedings that has publishedsome papers related to computation. (A)
+134. Annual Conference on Innovation and Technology in
+Computer Science Education. Computer Science
+Education conference proceedings
+. Note that computer
+science, as a discipline, uses conference proceedings astheir top-tier publication location. (I)
+135. ACM International Computing Education Research
+Conference . Another source of Computer Science
+Education articles. (I)
+C. Publications
+1. Pioneering work
+Early efforts on using computers for physics education are
+interesting not least because of the creativity of those work-
+ing with very limited hardware and the visionary ideas they
+put forward.
+136. “Computer-generated motion pictures of one-dimensional
+quantum-mechanical transmission and reﬂection phenom-ena,” A. Goldberg, H. M. Schey, and J. L. Schwartz, Am.
+J. Phys . 35, 177–186 (1967). Early example of using
+computer graphics to visualize 1D solutions of the time-dependent Schr €odinger equation. (I)
+137. Computers in Undergraduate Science Education
+Conference Proceedings , edited by R. Blum,
+Commission on College Physics (1970). Report of a
+conference sponsored by the Commission on CollegePhysics that collects many early examples of practi-
+tioners using computers in physics education. (A)
+138. “Computers as an aid to increasing physical intuition,”
+A. Bork, Am. J. Phys . 46, 796–800 (1978). Pioneering
+16 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 16 04 October 2023 22:48:38
+paper arguing that computation can aid students build
+physical intuition in ways complementary to but dis-tinct from experiments. Importantly, Bork is concernedwith how to use these materials with “all students”even “poorly motivated ones.” (E)
+139. “Student programming in the introductory physics
+course: M.U.P.P.E.T.,” E. F. Redish and J. M. Wilson,
+Am. J. Phys. 61, 222–232 (1993). Early modular pro-
+gramming environment for physics. Particularly inter-esting because of a detailed exposition of the rationalefor integrating computation, including mimicking sci-entiﬁc practice. Included open-ended projects intendedas a proxy for scientiﬁc research. (A)
+2. Policy and curricular reform
+See also the reports in Sec. II Aand work on curriculum
+reform in Sec. III A.
+140. “Identifying features predictive of faculty integrating
+computation into physics courses,” N. T. Young, G.Allen, J. M. Aiken, R. Henderson, and M. D. Caballero,
+Phys. Rev. PER 15, 010114 (2019). Applies a ML clas-
+siﬁer to data from a national survey of faculty in phys-ics departments. Finds four factors that predict whetherfaculty integrate computation into their courses: Usingcomputation in their research, not personally usingcomputation, believing computation allows them tobring new physics into their course, believing computa-tion allows them to bring new problems into theircourse. (A)
+141. “Prevalence and nature of computational instruction in
+undergraduate physics programs across the UnitedStates,” M. D. Caballero and L. Merner, Phys. Rev.PER 14, 020129 (2018). Large scale survey of N ¼
+1246 people from 357 distinct institutions to study thelevel of computational integration in physics courses.Finds that while many faculty do use computing insome form, combining active learning with computa-tion remains a signiﬁcant opportunity. (I)
+142. “Numerical computations in US undergraduate physics
+courses,” R. G. Fuller, Comp. Sci. Eng. 8(5), 16–21
+(2006). Survey of physics faculty attitudes to integrat-ing computation into courses across the US. Finds thatwhile some faculty are excited and committed to devel-oping computation in their courses, others are frustratedby the lack of resources. (I)
+143. “Computational practices in introductory science
+courses,” C. Fracchiolla and M. Meehan, PERCProceedings (2021). Aimed to identify practices usedby faculty across the sciences; found little consensus on
+baseline knowledge of computation across disciplines.
+(I)
+144. “Impact of industry experience on faculty teaching
+practices in STEM,” D. Hu, B. M. Zwickl, and C.Carusone, PERC Proceedings (2019). Interviews withinstructors who have signiﬁcant industry experience;computing and programming are key topics. (I)
+145. “Understanding the PICUP community of practice,” P.
+W. Irving and M. D. Caballero, PERC Proceedings(2017). Studies evolution of PICUP and the roles thatparticipants can engage in through interviews. (I)
+146. “Preliminary efforts to evaluate an initiative introduc-
+ing computation across the undergraduate physicscurriculum,” A. Gavrin and G. Vemuri, PERC
+Proceedings (2021). Early report of a project to developan assessment instrument to measure students’ attitudesand self-efﬁcacy towards computation over the courseof their degree. (A)
+147. “The difﬁculties associated with integrating computa-
+tion into undergraduate physics,” A. Leary, P. W.Irving, and M. D. Caballero, PERC Proceedings(2018). Identiﬁes a number of challenges experiencedby faculty seeking to integrate computation. (I)
+148. “Characterizing analytical and computational mathe-
+matics use during PhD research,” B. Zwickl, K. Chen,J. Deslongchamps, A. Leak and K. Martin, PERC
+Proceedings (2017). Snapshot of some ways in which
+PhD students use computation to advance theirresearch. (I)
+149. “Challenges of preparing secondary STEM pre-service
+teachers in computational thinking,” H. C. Sabo, T. O.B. Odden, and T. F. Gregers, PERC Proceedings(2022). Interview based study of secondary pre-serviceteachers. Participants found it challenging to translatecomputational knowledge and computational thinkinginto their practice of teaching.
+3. Modeling and practices
+Computational modeling —using computers to build phys-
+ics models—has been an important thread running throughPER. See also Ref. 40. Another theme running through some
+of these studies is the idea of practices , things physicists do
+as they create physics knowledge, and hence I combine thetwo in this section. See also Ref. 74for a practices based
+approach to a computational physics course.
+150. “Mapping university students’ epistemic framing of
+computational physics using network analysis,” M.Bodin, Phys. Rev. PER 8, 010115 (2012). Students
+investigate a numerical particle-spring model. Usesinterviews and a network analysis method to comparestudents’ epistemic framing before and after the task.
+Shows that students change their epistemic framing
+from a modeling task to a physics task. (A)
+151. “Physics students’ performance using computational
+modeling activities to improve kinematics graphs inter-pretation,” I. S. Araujo, E. A. Veit, and M. A. Moreira,Comp. Ed. 50, 1128–1140 (2008). Examines student
+performance with complementary computationalmodeling activities to improve physics learning usingthe Modellus software. (I)
+152. “Physicality, modeling and making in a computational
+physics class,” A. M. Phillips, E. J. Gouvea, B. E.Gravel, P.-H. Beauchemin and T. J. Atherton, e-printarXiv:2203.04134 (2022). https://arxiv.org/abs/
+2203.04134 Provides a theoretical analysis of computa-
+tional modelling in physics and operationalizes this inan educational environment, computational making,that centers practices and facilitates connectionsbetween experiment and modeling. (I)
+153. “C2STEM: A system for synergistic learning of physics
+and computational thinking,” N. M. Hutchins, G.Biswas, Mikl /C19os Mar /C19oti,/C19Akos L /C19edeczi, S. Grover, R.
+Wolf, K. Pilner Blair, D Chin, L. Conlin, S. Basu, andKevin McElhaney. J. Sci. Ed. Tech. 29, 83–100 (2020).
+Describes a high school learning environment for
+17 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 17 04 October 2023 22:48:38
+model building. Approach and theory are particularly
+interesting. (A)
+154. “Conceptual understanding of Newtonian dynamics in a
+comparative study of computational modeling and video
+motion analysis,” J. Weber and T. Wilhelm, PERCProceedings (2021). Finds that both computational model-ing and video motion improve high school students’learning of mechanics according to the FCI. (I)
+155. “Programming and its affordances for physics educa-
+tion: A social semiotic and variation theory approach to
+learning physics,” K. Svensson, U. Eriksson, and A.-M.
+Pendrill, Phys. Rev. PER 16, 010127 (2020).
+Qualitative study of high school students using
+PYTHON
+and processing to model phenomena. Very rich use oftheoretical frameworks including social semiotics forinvestigating group meaning making, and affordances,what different objects offer a person who interacts with
+them. These are used to illuminate the interplay
+between coding, interacting with the simulation andvisualization. (A)
+156. “A framework for understanding physics students’
+computational modeling practices,” B. R. Lunk, PhDthesis, North Carolina State University (2012). Veryinteresting exploration of computational modeling in
+the Matter and Interactions curriculum; numerous ideas
+around resources, programming and group work thatcould be applied more broadly. (I)
+157. “Using conceptual blending to model how we interpret
+computational models,” B. R. Lunk, PERC Proceedings
+(2019). Sees code as a representation of a physical sys-tem; unpacks a single students’ reading of a code. (A)
+158. “Student performance in computer modeling and prob-
+lem solving in a modern introductory physics course,”
+M. A. Kohlmyer, PhD thesis, Carnegie-Mellon
+University (2005). Early exploration of computationalmodeling in Matter and Interactions. (I)
+159. “Model-based inquiry vs. traditional computer
+simulation-based instruction: Which can better helpstudents construct the quantum-mechanical model of anatom?,” T. Yuksel, N. S. Rebello, and Lynn A. Bryan,
+PERC Proceedings (2017). Small but interesting study
+showing that a model-based learning environmentincluding simulations can help students construct aquantum-mechanical model of the atom. (I)
+160. “Scientiﬁc practices in minimally working programs,”
+D. P. Oleynik and P. W. Irving, PERC Proceedings(2019). Examines students working in P
+3(see Ref. 50)
+to modify existing codes in introductory physics
+through a practices and task analysis framework. (I)
+161. “How do you eat an elephant? How problem solving
+informs computational instruction in high school phys-ics,” J. Willison, J. Christensen, S. Byun, D. Stroupe,and M. D. Caballero, PERC Proceedings (2022). Casestudy of a high school teacher participating in the inte-grating computation in science across Michigan pro-
+gram. Reports on the ways this teacher integrated
+computation in their classroom, along with the chal-lenges they faced. (I)
+4. Programming and code
+There are a few very interesting examples of deep analysis
+of students coding.162. “Comparing student conceptions and construction of
+while loops in modeling motion,” G. Mackessy, P. W.Irving, M. D. Caballero, and L. Doughty, PERCProceedings (2021). Deep dive into connectionsbetween programming and disciplinary thinking in thecontext of a simple integration loop to simulate motion.(A)
+163. “Programming as a semiotic system to support physics
+students’ construction of meaning: A pilot study,” K.Svensson, U. Eriksson, A.-M. Pendrill, and L. Ouattara,J. Phys. Conf. Ser .1512 , 012026 (2020). Qualitative
+study that interprets programming as a way of commu-nicating disciplinary knowledge with video analysis ofstudent work. (I)
+164. “Student predictions of functional but incomplete
+example programs in introductory calculus-based phys-ics,” S.Weatherford and R. Chabay, PERC Proceedings(2012). Analysis of a minimal working program designin Matter & Interactions. (I)
+165. “Coding expediently: A computationally situated epi-
+stemic game,” A. Anderson, P. Pressler, and W. B.Lane, PERC Proceedings (2022). Observational studyof students programming in
+PYTHON . Interprets their
+decision through the lens of “epistemic games” to con-trast two students of differing backgrounds learning
+PYTHON . (I)
+5. Support mechanisms
+These works consider how students work together with
+one another as well as with computers and support mecha-nisms that may facilitate that.
+166. “The nature of collaborations on programming assign-
+ments in introductory physics courses: A case study,”G. Kortemeyer and A. F. Kortemeyer, Eur. J. Phys .39,
+055705 (2018). Network analysis of student collabora-tion on programming assignments. Finds collaborationnetworks are very extensive, while copying large sec-tions of code was rare. Potentially important implica-tions for design of activities and assessment. (A)
+167. “Communities of practice as a curriculum design the-
+ory in an introductory physics class for engineers,” P.W. Irving, D. McPadden, and M. D. Caballero, Phys.Rev. PER 16, 020143 (2020). Describes the role of
+communities of practice in shaping the P
+3course (see
+Ref.50). (I)
+168. “Student representations of computation in the physics
+community,” W. B. Lane and C. Headley, e-printarXiv:2112.05581 (2021), https://arxiv.org/abs/
+2112.05581 Uses the communities of practice frame-
+work to understand how students represent the use of
+computation in their mental models of the global phys-
+ics community. (I)
+169. “Learning assistant approaches to teaching computa-
+tional physics problems in a problem-based learningcourse,” A. Pawlak, P. W. Irving, and M. D. Caballero,Phys. Rev. PER 16, 010139 (2020). Learning assistants
+are valuable in computation physics settings but mayhave different perceptions of computation than faculty.(I)
+170. “Comparison of student and instructor reasons for using
+computation,” W. B. Lane and C. Headley, PERCProceedings (2021). Finds students and instructors
+18 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 18 04 October 2023 22:48:38
+identify many of the same reasons to use computation,
+but instructors view this more broadly and use exam-ples from their research. (I)
+171. “Investigating peer and teaching assistant interactions
+of physics students working on computational coding,”Z. Rowatt, R. Rosenblatt, and R. Zich, PERCProceedings (2017). Video analysis of a computationallab. Interesting ramiﬁcations for how TAs can produc-tively engage with students. Collaborative groupworkis also suggested as a solution. (I)
+172. “A case study: Novel group interactions through intro-
+ductory computational physics,” M. J. Obsniuk, P. W.
+Irving, and M. D. Caballero, PERC Proceedings
+(2015). Nice example of students debugging and mak-ing physical sense of a simulation in the P
+3course at
+MSU. (I)
+173. “Disciplinary Inq[ee]ry in computational physics,” A.
+M. Phillips, E. Gouvea, B. Gravel, and T. J. Atherton,PERC Proceedings (2022). Analyzes moments from aninquiry-centered computational physics class that reso-nate with queer theory as a possible lens for DEIJ.Argues that disciplinary practices and inclusion can bealigned goals.
+6. How computation shifts thinking
+A number of works have considered how computation and
+computational environments may change students’ thinking
+about physics.
+174. “Operationalizing relevance in physics education:
+Using a systems view to expand our conception ofmaking physics relevant,” A. Nair and V. Sawtelle,Phys. Rev. PER 15, 020121 (2019). Explores how stu-
+dents transfer knowledge between courses with adetailed example of a student and physics, computa-tional modeling, and biochemistry. (I)
+175. “The effect of computer science on physics learning in
+a computational science environment,” R. Taub, M.Armoni, E. Bagno, and M. Ben-Ari, Comp. Ed .87,
+10–23 (2015). Qualitative study that explores ways in
+which high school students programming simulations
+affected the students’ conceptual understanding ofphysics. (I)
+176. “Factors promoting engaged exploration with computer
+simulations,” N. S. Podolefsky, K. K. Perkins, and W.K. Adams, Phys. Rev. ST PER 6, 020117–020128
+(2010). Qualitative study of students exploring thewave interference PhET simulation (see Ref. 18). (I)
+177. “An analysis of the ability to apply student problem
+solving concepts and algorithms in online and ofﬂinelearning systems based on realistic mathematicalapproaches,” T. N. Sipayung, S. D. Simanjuntak, A.Wijaya et al. , J. Phys. Conf. Ser. 1836 , 012053 (2021).
+Compares problem solving between two groups, one in
+an online and the other an ofﬂine environment. Finds
+that students in the ofﬂine environment performed bet-ter on a test because of group discussion and the abilityof the instructor to respond to cues about learning.However, the online environment facilitated re-watching of materials. Obvious implications for thedesign of digital environments to overcome these limi-tations. (I)178. “Attitudes of life science majors towards computational
+modeling in introductory physics,” B. R. Lunk and R.
+J. Beichner, PERC Proceedings (2016). Suggests life-science majors may be more receptive to spreadsheet-
+based approaches. (I)
+179. “How computation can facilitate sensemaking about
+physics: A case study,” O. P. Sand, T. O. B. Odden, C.Lindstrom, and M. D. Caballero, PERC Proceedings
+(2018). Neat qualitative studying following a single
+student’s sensemaking of a computational model ofradioactive decay. (I)
+180. “Examining thematic variation in a phenomenographi-
+cal study on computational physics,” N. Hawkins, M. J.
+Obsniuk, P. W. Irving, and M. D. Caballero, PERCProceedings (2017). Examines student responses withthe theme “Computation Helps to Learn Physics” in the
+P
+3course at MSU. (I)
+181. “How do previous coding experiences inﬂuence under-
+graduate physics students?,” J. N. Bumler, P. C.Hamerski, M. D. Caballero, and P. W. Irving, PERC
+Proceedings (2019). Examines how the EMP-Cubed
+activities changed students’ coding identities relative toprior coding experiences including competence, perfor-
+mance, and interest factors. (I)
+182. “Students’ development of a logarithm function in
+Python using taylor expansions: A teaching design casestudy,” O. P. Sand, E. Lockwood, M. D. Caballero and
+K. M ~A/C20zrken, Digital Experiences Mathematics Educ.
+8, 213–255 (2022). Interesting example from math edu-
+cation of the iterative design of a tutorial where stu-
+dents implement their own logarithm function with
+detailed analysis of student work. (I)
+D. Theoretical perspectives
+In this section, I present a number of theoretical perspec-
+tives on computational education emerging from outside
+PER as well as examples of how they are being used in vari-
+ous ways by physics education researchers. Theory worksboth as a lenses for design and to evaluate learning, but also
+organizes communities of researchers working on a common
+endeavor. I include these perspectives, therefore, becausethey greatly enrich the space of design possibilities for what
+could occur in a physics classroom, and also provide power-
+ful lenses to help interpret what does occur. I note that the
+perspectives I have chosen to present have considerable
+overlap with one another both in their content and their asso-
+ciated communities. Indeed, signiﬁcant interactions have his-torically occurred between their various proponents.
+1. Constructionism
+Constructionism is a pedagogical approach originally
+articulated by Seymour Papert that involves students creating
+things, including both digital artifacts like code and docu-mentation, as well as physical objects. Grounded in but dis-tinct from Piaget’s constructivism , a theoretical framework
+for pedagogy that argues learners construct knowledge rather
+than simply absorb information. Extremely inﬂuential in theteaching of computing, and with important implications for
+equity,
+186I note it here because while a number of physics
+efforts (VPython, PhET) absorb some of its ideas around vir-tual environments, other aspects remain under-explored.
+Indeed, despite constructionism’s considerable inﬂuence on
+19 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 19 04 October 2023 22:48:38
+computing education, surprisingly few studies within PER
+explicitly connect themselves to constructionist ideas (a fewthat do: Refs. 18,67, and 192).
+183. Mindstorms Children, Computers, and Powerful
+Ideas , S. Papert (Basic Books, New York, 2020).
+Highly inﬂuential book originally published in 1980 onthe possibilities afforded by computational environ-ments in education. Grounded in Piaget’s theory of
+learning. Focuses on the LOGO language. (E)
+184. “The signiﬁcance of constructionism as a distinctive
+pedagogy,” D. Laurillard, in Constructionism 2020
+Conf. Proc . (2020), p. 29. A very helpful contemporary
+elucidation of constructionist ideas; the conference pro-ceedings represents a wealth of constructionistapproaches to many areas. (E)
+185. Constructionism: Research reports and Essays , edited
+by I. Harel and S. Papert (Ablex Publishing, New York,1991). Collection of constructionist literature address-ing both theoretical foundations and realizations. (A)
+186. “Epistemological pluralism and the revaluation of the
+concrete,” S. Turkle and S. Papert, J. Math. Behavior
+11, 3–33 (1992). Considers implications of construc-tionist design for equity. (I)
+187. “Dynaturtle revisited: Learning physics through collab-
+orative design of a computer model,” B. Sherin, A.diSessa, and D. Hammer, Int. L. Env. 3, 91–118
+(2006). Advocates collaborative design as an activity tosupport student inquiry in physics. (A)
+188. “Rethinking the microworld idea,” C. Hoyles, R. Noss,
+and R. Adamson, J. Ed. Comp. Res .27, 29–53 (2002).
+Exploration of virtual environments. (A)
+2. Computational literacy
+Emerging from the work of Andrea DiSessa, who theorized
+computation as a new literacy, computational literacy hasgained traction in the PER community. Computational literacyis particularly interesting because, like constructionism, it payssigniﬁcant attention to social processes such as communicationand group interactions. See also Refs. 47and192.
+189. Computational Literacy and “The Big Picture”
+Concerning Computers in Mathematics Education ,
+A. A. DiSessa, Theorizes computation as a new type ofliteracy with examples from students learning motion.Interesting material on the limitations of other theoreti-cal perspectives such as computational thinking. (E)
+190. Changing Minds: Computers, Learning, and Literacy ,
+A. A. DiSessa (MIT Press, Massachusetts, 2000).
+Envisions computing as the basis for a new literacy thatfundamentally changes how students think and learn.(E)
+191. “Boxer: A reconstructible computational medium,” A.
+A. diSessa and H. Abelson, Comms. ACM 2, 859–868
+(1986). Pioneering programmable computational envi-ronment that emphasized a spatial metaphor, makingelements of the environment (in effect, objects) visibleas concrete “boxes.” Compare with Smalltalk andLOGO. (I)
+192. “Physics computational literacy: An exploratory case
+study using computational essays,” T. O. B. Odden, E.Lockwood, and M. D. Caballero, Phys. Rev. PER 15,
+020152 (2019). Implements and analyzes DiSessa’sidea of a computational “essay”: a notebook that com-
+bines code, text, and ﬁgures to communicate an idea.Extensively theorizes computational literacy as aframework for undergraduate physics. (I)
+193. Using computational essays to scaffold professional phys-
+ics practice, T. O. B. Odden and A. Malthe-Sørenssen,
+Eur. J. Phys. 42, 015701 (2021). Detailed study connect-
+ing computational literacy with practices. (A)
+3. Computational thinking
+The framework of Computational Thinking has become
+very popular in the STEM and CS education literature in
+recent years. While it captures only part of physics computa-
+tional practice, a signiﬁcant body of work is emerging that ishighly relevant to teaching computation in physics. See alsothe report in Ref. 4.
+194. “Computational thinking in introductory physics,” C.
+M. Orban and R. M. Teeling-Smith, Phys. Teach .58,
+247–251 (2020). Highly readable introductory paperﬁrmly grounded in a physics context. Describes CTthrough four components: Dealing with data, model-ling/simulating, problem-solving via computers, andthinking about a complex system the systems level. (E)
+195. “On computational thinking and STEM education,” Y.
+Li, A. H. Schoenfeld, A. A. diSessa, A. C. Graesser, L.C. Benson, L. D. English, and R. A. Duschl, J.STEM
+Ed. Res .3, 147–166 (2020). Extensive review article
+focusing on efforts to integrate computational thinkinginto disciplinary education. (I)
+196. “Deﬁning computational thinking for mathematics and
+science classrooms,” D. Weintrop, E. Beheshti, M.Horn, K. Orton, K. Jona, L. Trouille, and U. Wilensky,J. Sci. Educ. Technol .
+25, 127–147 (2016). Deﬁnes
+computational thinking through practices, including
+data practices, modeling and simulation practices,
+problem solving practices, and systems thinking. (I)
+197. “Computational thinking,” J. Wing, Comms. ACM 49,
+33–35. (2006). Highly inﬂuential opinion piece thatargues computational thinking is a fundamental skillfor everyone, not just for computer scientists. (E)
+198. “Computational thinking from a disciplinary perspec-
+tive: Integrating computational thinking in K-12 sci-ence, technology, engineering, and mathematicseducation,” I. Lee, S. Grover, F. Martin, Sarita Pillai,and J. Malyn-Smith, J. Sci. Ed. Tech. 29, 1–8 (2020).
+Introduction to a special issue of J. Sci. Ed. Tech. on
+computational thinking. A good editorial and overview.(I)
+199. “Missing in measurement: Why identifying learning in
+integrated domains is so hard,” W. W. Bortz, A.Gautam, D. Tatar, and K. Lipscomb, J. Sci. Ed. Tech.29, 120–135 (2020). Argues that assessing computa-
+tional thinking in disciplinary contexts inherentlyrequires mixed-methods approaches. (A)
+200. “Computational thinking in higher education: A review
+of the literature,” J. A. Lyon and A. J. Magana, Comp.Appl. Eng. Ed. 28, 1174–1189 (2020). Valuable litera-
+ture review for applications to higher education. (I)
+201. “A conceptual framework for computational pedagogy
+in STEAM education: Determinants and perspectives,”S. Psycharis, K. Kalovrektis, and A. Xenakis, Hellenic
+J. STEM Ed .1, 17–23 (2020). Considers connections
+20 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 20 04 October 2023 22:48:38
+between computational thinking and other STEM prac-
+tices including computational experiments. (I)
+202. “Computational thinking, between papert and wing,”
+M. Lodi and S. Martini, Sci. Educ .30, 883–908 (2021).
+Thoughtful piece that argues for a combination of com-putational thinking and constructionist approaches andexamines the links between these ideas. (I)
+203. “Development and illustration of a framework for com-
+putational thinking practices in introductory physics,”D. P. Weller, T. E. Bott, M. D. Caballero, and P. W.
+Irving, Phys. Rev. Phys. Educ. Res. 18, 020106 (2022).
+Identiﬁes a number of practices for computationalthinking from a literature review and physics classroomdata. (A)
+204. “Examining how problem design relates to computa-
+tional thinking practices,” T. E. Bott, T. Stump, M. D.Caballero, D. R. McPadden, and P. W. Irving, PERCProceedings (2022). Reports a task analysis to examine
+how computational thinking practices relate to speciﬁc
+design features of an in-class problem. Ramiﬁcationsfor design of material provided for students. (A)
+VI. TOOLS, LANGUAGES, AND ENVIRONMENTS
+A. Languages
+Languages facilitate human expression of tasks for the com-
+puter to perform. There is a wide and ever growing selection oflanguages that vary in the objectives of their design, and manyhave been used successfully for scientiﬁc computing. Whilescientists may develop certain language preferences based ontheir own experience and objectives, it is worth learning about
+the available possibilities. A number of new languages have
+emerged and become popular since CP-1 and CP-2, and I hopeto provide an updated perspective. To that end, in this section, Icompare a number of popular languages and offer suggestionsfor emerging or lesser-known but interesting languages. Foradvice and examples of how to incorporate particular languagesinto a course, the reader is advised to consult a supportive com-
+munity, e.g., Ref. 14.
+Like their human counterparts, computer languages evade
+a precise taxonomy, but a number of valuable considerationsthat assist in selecting one for a particular application are asfollows:
+Purpose. Some languages are general purpose , intended
+for a broad range of applications; others are domain speciﬁc ,
+intended to express certain tasks easily (text processing or
+querying a database are common examples) or to solve a par-
+ticular type of problem.
+Performance. Languages fall into several performance
+categories. The languages with fastest performance are com-
+piled to machine code that can be executed in hardware by
+the processor. In contrast, some are interpreted from the
+source code directly; the act of interpreting incurs a perfor-
+mance overhead so these languages are typically slower.
+Between these categories are some intermediate cases: Somelanguages are compiled to an intermediate representation(often referred to as a bytecode ) for faster execution and por-
+tability; some may be converted to machine code before orduring execution. (These are referred to as Just-In-Time orJITcompiled languages.) High quality JITs achieve perfor-
+mance close to compiled languages. Nonetheless, the above
+are all broad categories: Different compilers or interpretersmay yield signiﬁcantly different performance even on thesame program, for example. Similarly, particular language
+features may incur penalties and the efﬁciency of language
+implementations differs signiﬁcantly. I remind the reader
+that, very often, the time spent programming and debugginga program exceeds the time that the computer spends running
+it! Programming in a slower language that facilitates writing
+correct code quickly is quite a rational decision, whichexplains the popularity of languages like
+PYTHON .
+Programming paradigm. Languages ﬁt into families
+based on their syntax and constructs they provide.
+Procedural languages provide functions, loops, etc., Object-
+oriented languages enable greater modularity, ease of design
+and code reuse by organizing data and methods that act on
+the data into packages called objects. Functional program-
+ming languages centralize functions and lack things like
+explicit control ﬂow; these have been historically very
+important in computer science but have been relativelyunderutilized in physics.
+Typing. Programs work on different types of data including
+integers, ﬂoating point numbers, strings, composite structures,
+collections, etc. In a strongly typed language, the user must
+specify type information explicitly so that the compiler can
+check for conﬂicts or illegal conversions that are often caused
+by programming errors. Weakly ordynamically typed lan-
+guages do not require this information, gaining some ﬂexibility
+at the expense of losing out on such automated veriﬁcation.
+Table Icompares a number of programming languages
+popular in physics.
+205.
+PYTHON has become one of the most popular languages
+for scientiﬁc work especially data analysis. Dynamic
+language features provide ease programming. SYNTAX
+incorporates indentation to enforce tidy code. Very rich
+collection of libraries. Environments like Jupyter252
+provide a free alternative to commercial ones like
+MATLAB . High performance implementations like PyPy
+provide efﬁcient execution https://www.pypy.org (E)
+206. Cis a concise language for systems programming that
+provides excellent performance. Clean and simple syn-tax has inspired numerous other languages including
+Cþþ,JAVA,JAVASCRIPT , etc. The standard textbook C
+Programming Language , 2nd ed. (Pearson, London,
+1988), B. W. Kernighan and D. M. Ritchie is a classic
+exemplar of good technical documentation. (A)
+207. C11 is an object-oriented extension of Cthat shares
+excellent performance. Strongly typed, but templatesoffer a way to express code that works on more than
+one type or class without repeating the entire code for
+each type. Popular for implementing low-level or per-formance sensitive code. (A)
+208.
+FORTRAN .One of the oldest languages still in common
+use (the other is LISP) and historically very important
+for numerical work for performance reasons. Modernversions incorporate features like OOP. Many legacy
+codes are in FORTRAN and a good deal of libraries for
+numerical computing are available. It is not necessaryto program in FORTRAN to use these libraries; modern
+compilers link code across languages quite well. (A)
+209.
+JAVA. Popularized by the emergence of the web, JAVA
+provides very convenient cross-platform operation;
+efﬁcient JITs are available for reasonable performance.
+Object oriented but easier to program than Cþþ by
+avoiding the complexity of pointers. Has ratherdeclined in popularity recently. (I)
+21 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 21 04 October 2023 22:48:38
+210. JULIA . A relatively new language that offers the conve-
+nience of a dynamic language but with excellent perfor-
+mance comparable to compiled languages. Supportsmultiple dispatch, whereby multiple copies of a method
+that act on different data types can be deﬁned; the cor-
+rect method is selected at runtime. Increasingly popularin the applied math and data science community; one towatch. https://julialang.org (I)
+211.
+MATLAB .Proprietary language and environment ori-
+ented to numerical work, especially matrix manipula-
+tions. Very extensive libraries for numerics andvisualization capabilities. Very popular in the academic
+applied math community and hence a great deal of
+code available. https://www.mathworks.com/ .A n
+annual “Teaching computation with Matlab” confer-ence is sponsored by Mathworks: https://serc.carleton.
+edu/teaching_computation/index.html (E)
+212.
+OCTAVE . Free and largely compatible alternative to
+MATLAB .https://www.gnu.org/software/octave/index (I)
+213. MATHEMATICA . Proprietary language and environment
+that provides a notebook environment for symbolic and
+numerical computation. Very extensive library of rou-
+tines across all domains of mathematics. Includes pow-erful integrated visualization capabilities. https://
+www.wolfram.com/mathematica/ (E)
+214. Ris oriented to statistical computing, data manipula-
+tion, calculation and graphical display. https://www.
+r-project.org . See also RStudio, the recommended
+development environment.256(E)
+2. Typesetting, markup, documentation
+215. HTML . The language of the world wide web. The latest
+version HTML5 incorporates signiﬁcant features for
+interactivity. (E)216. MARKDOWN . Lightweight language for documentation; I
+recommend following the CommonMark speciﬁcation
+https://commonmark.org . See also reStructuredText
+which is popular for PYTHON .https://docutils.sourcefor-
+ge.io/rst.html (E)
+217. LATEX . Computer typesetting system that is very popu-
+lar for scientiﬁc publishing. See also Overleaf , a com-
+mercial web based collaborative authoring tool https://
+www.overleaf.com ; LyX, a graphic front-end for writ-
+ing LATEX :https://www.lyx.org (I)
+2. Data
+218. XML. Standardized interchange format emerging from
+HTML and electronic publishing. https://www.w3.org/
+XML/ (I)
+219. JSON. Lightweight and easy to parse language for inter-
+change of structured data. https://www.json.org/json-
+en.html (E)
+220. SQL.Ubiquitous language for querying databases.
+https://www.w3schools.com/sql/ (A)
+3. Other interesting languages
+221. RUST.New language that provides exceptional perfor-
+mance while eliminating memory management bugscommon in other high performance languages. https://
+www.rust-lang.org (A)
+222. Haskell. Purely functional language with lazy evalua-
+tion. Rich tools for formal veriﬁcation/provably correctprogramming. https://www.haskell.org (A)
+223. Processing . Easy to learn and use. Facilitates creation
+of visual and interactive programs. Widely used in edu-
+cation and visual arts. https://processing.org (E)Table I. Programming language comparison.
+Language Purpose Performance Paradigm Typing Physics use case
+Python General Bytecode Multi Weak General purpose; data analysis;
+Simulation; Visualization;
+Machine Learning and Data
+Science.
+C General Compiled Procedural Strong Implementation of fast specialized
+codes.
+Cþþ General Compiled Object-oriented Strong Implementation of large, complex
+codes.
+FORTRAN Numerical computing Compiled Procedural Strong Leveraging existing numerical
+libraries or legacy codes.
+Java General JIT Object-oriented Strong Implementation of cross-platform
+programs with graphical
+components.
+Matlab/Octave Numerical computing Interpreted Procedural Weak Matrices; Prototyping;
+Visualization; Applications
+leveraging new algorithms from
+Applied Math
+Mathematica/Maple Symbolic and numerical computing Interpreted Multi Weak Visualization; prototyping;
+symbolic manipulation; analytical
+calculations; computer algebra
+R Statistics Interpreted Object-oriented Weak Statistical analysis of dataJulia Numerical computing JIT Multi Weak Visualization and prototyping but
+with high performance; signiﬁcant
+interest from Applied Math and CS
+community.
+22 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 22 04 October 2023 22:48:38
+224. Lisp. Functional language with minimal syntax; code
+and data intermix freely. As old as FORTRAN and histori-
+cally popular in CS and especially artiﬁcial intelli-gence. See also Scheme which is easier to learn andClojure a modern derivative. (A)
+225.
+JAVASCRIPT is the language of interactivity on the web;
+ubiquitously available via web browsers. Particularly
+valuable for deployment of physics education tools. A
+common transpilation target for other languages. (A)
+226. Popular languages beyond physics: Go is an open
+source C-family language by Google with memorysafety, garbage collection, structural typing, and sup-
+port for concurrency; Swift is Apple’s language of
+macOS and iOS development. (A)
+227. Scripting languages: Lua is a language intended to be
+embedded in applications to promote extensibility;Wren is a recent and elegant alternative. Ruby is an
+object-oriented language designed with an emphasis on
+programming productivity and simplicity. Morpho is
+an object-oriented language oriented to scientiﬁc appli-cations. (A)
+228. Inﬂuential languages of historical interest:
+Smalltalk , important object-oriented language intended
+for constructionist education (see Sec. VD1 );Self,a
+dynamic prototype-based object-oriented language thatpopularized many important features especially JITs.(A)
+229. Esoteric languages that call into question what con-
+stitutes programming: Befunge arranges instructions
+in 2D; Pietprograms appear as abstract art. (I)
+4. Parallel computing
+A signiﬁcant trend over the last couple of decades has
+been the replacement of CPUs with single compute units(“cores”) with multi-core machines. As of writing, 8 or 12core processors are ubiquitous and as many as 64 core devi-
+ces emerging. These advances have been driven by the need
+for higher performance with manufacturers increasingly lim-ited by their ability to reduce the feature size of elements inthe processor and also to limit energy consumption: In appli-cations like cellphones, some cores are less capable but con-
+sume less power, while others are brought into action when
+higher performance is needed. To exploit the capabilities ofthese computers, it is necessary to use parallel programmingtechniques.
+230. Message Passing Interface (MPI). Relatively low-
+level framework for parallel computing. Ubiquitous in
+high performance computing. (A)
+231. OpenMP. https://www.openmp.org Relatively high-
+level API that provides a portable implementation ofmultithreading, supporting shared-memory multipro-cessing programming. (A)
+232. Pthreads . Very low-level multithreading API for C.
+(A)
+233. ZeroMQ . Surprisingly easy to use (in relative terms)
+low level library to implement distributed applications.https://zeromq.org (A)
+234.
+PYTHON libraries for parallel processing . The above
+solutions have PYTHON wrappers; there are other conve-
+nient libraries listed at: https://wiki.python.org/moin/
+parallelprocessing (A)B. Visualization and image/data processing
+235. VTK . Open source library for manipulating and dis-
+playing scientiﬁc data including 3D and GUI widgets.https://vtk.org (I)
+236. Paraview . Open-source, multi-platform data analysis
+and visualization application, particularly for PDE solu-
+tions. Suitable for large datasets. https://www.paraview.
+org(A)
+237. Visual Molecular Dynamics (VMD) . Molecular
+dynamics visualization program. https://www.ks.uiuc.
+edu/Research/vmd/ (I)
+238. UCSF Chimera . Interactive visualization and analysis
+of molecular structures and related data. https://
+www.cgl.ucsf.edu/chimera/ (I)
+239. GNUplot . Convenient command line plotting and visu-
+alization application also used by other projects. http://
+www.gnuplot.info (I)
+240. Gephi .Visualization of graphs and networks .https://
+gephi.org (I)
+241. VisIt . Scalable visualization and analysis program par-
+ticularly useful for very large datasets. https://visit-
+dav.github.io/visit-website/ (A)
+242. ImageJ . Open source image processing package.
+https://imagej.net A version with many additional plu-
+gins and features included by default called Fiji is
+highly recommended: https://imagej.net/software/ﬁji/
+(E)
+243. Root . Open-source data analysis framework for very
+large datasets used by high energy physics. https://
+root.cern (A)
+1. Tools to support programming
+244. Git. Open source version control system. https://
+git-scm.com . Widely used public host servers include
+Github https://github.com and Bitbucket https://
+bitbucket.org/product . These services are generally free
+for academic open source projects with subscriptionservices for a fee. (A)
+245. Slack is a very widely used platform for group conver-
+sations. https://slack.com (E)
+246. Documentation .Sphinx assists automatically gener-
+ating documentation, originally developed for
+PYTHON
+https://www.sphinx-doc.org/en/master/ ;Doxygen is
+an alternative for C family language https://
+www.doxygen.nl ;Docutils uses the reStructuredText
+format https://docutils.sourceforge.io .Read the Docs
+hosts documentation for open source software. https://
+readthedocs.org (A)
+247. Valgrind . Powerful proﬁling tool that helps diagnose
+and solve memory errors, particularly in C.https://
+valgrind.org (A)
+2. IDEs and programming environments
+248. Visual Studio Code . Extensible text editor and IDE
+similar in spirit to Atom. Many languages. https://
+code.visualstudio.com (E)
+249. Textmate . Highly customizable text editor for macOS.
+Many languages. https://macromates.com (E)
+23 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 23 04 October 2023 22:48:38
+250. XCode. Apple’s proprietary but extremely usable IDE for
+C family languages and macOS/iOS: https://developer.
+apple.com/xcode/ (A)
+251. Codelite . Open source IDE for C,Cþþ,JAVASCRIPT , etc.
+https://codelite.org (A)
+252. Jupyter . Browser based interactive notebook environ-
+ment for PYTHON . I strongly recommend installing it
+through the very comprehensive Anaconda collec-tion.
+291JupyterLab is the emerging next-generation
+version with an interface more like a conventional IDE.Seehttps://jupyter.org (E)
+253. Spyder . Scientiﬁc environment for
+PYTHON https://
+www.spyder-ide.org (A)
+254. Colaboratory. Google’s cloud-based python jupyter
+environment. (E) https://colab.research.google.com
+255. Eclipse. Popular IDE for JAVA.https://www.eclipse.org/
+eclipseide/ (A)
+256. RStudio. IDE for the R language. https://www.rstudio.
+com/products/rstudio/ (I)
+C. Libraries
+257. Netlib . Large collection of collection of mathematical
+software, papers, and databases. https://www.netlib.org
+(A)
+258. LAPACK . Dense linear algebra. Legacy FORTRAN API
+can be challenging; the LAPACKE wrapper facilitates
+calls from C/Cþþ. Part of Ref. 257. (A)
+259. Suitesparse . Sparse matrix library. Also provides some
+graph algorithms. https://people.engr.tamu.edu/davis/
+suitesparse.html (A)
+260. NAG . Extensive but proprietary library of mathemati-
+cal and statistical algorithms. https://www.nag.com (A)
+261. NumPy . Fundamental package for numerical comput-
+ing in PYTHON .https://numpy.org (I)
+262. SciPy . Provides many numerical algorithms for
+PYTHON .https://scipy.org (I)
+263. GNU Scientiﬁc Library (GSL) . Wide range of numer-
+ical routines for Cand Cþþ programmers. Free soft-
+ware under GNU public license (GPL). https://
+www.gnu.org/software/gsl/ (A)
+264. CGAL. Algorithms for computational geometry.
+https://www.cgal.org (A)
+265. PetSc . Portable, extensible toolkit for scientiﬁc compu-
+tation provides parallel linear and nonlinear equationsolvers and ODE integrators for use in large-scaleapplication projects. https://petsc.org/release/ (A)
+266. SLEPc. Scalable library for eigenvalue problem com-
+putations supports solution of large scale sparse eigen-value problems on parallel computers. https://
+slepc.upv.es (A)
+267. FFTW . Compute the discrete fourier transform in one
+or more dimensions. https://www.fftw.org (A)
+268. Gmsh. Open source 3D ﬁnite element mesh generator.
+https://gmsh.info (A)
+269. Fenics . Open-source computing platform for solving
+partial differential equations (PDEs). High level inter-face makes it easy to get started. https://fenicsproject.
+orgThe accompanying book is very clear: Automated
+Solution of Differential Equations by the FiniteElement Method , edited by A. Logg, K.-A. Mardal, and
+G. N. Wells (Springer, Berlin, 2012). (A)270. Firedrake. Open source platform for PDEs. Similar in
+goals to Fenics—they use the same interface—but
+more application-focused. https://www.ﬁredrakeproject.
+org(A)
+VII. EMERGING TOPICS
+I present in this section a number of topics that have
+emerged in the past decade that physics educators and practi-
+tioners working in computation should at least be aware of.Not all of these topics have yet been integrated into even
+advanced courses, and so they represent rich opportunities
+for instructional innovation. Many of these will signiﬁcantlyalter how computers are used in physics in the future and
+how computation in physics is taught.
+A. Diversity, equity, inclusion, and justice (DEIJ)
+The continued success of the physics enterprise requires
+our attention to the equitable participation of various histori-cally marginalized groups. Also referred to as EDI or DEI,
+there are a number of efforts to improve the climate and par-
+ticipation of these groups. Connecting these efforts to workon computing, which has a speciﬁc and different history
+(though no less problematic) with regard to marginalization
+than physics, is an important contemporary topic; see 186 foran exemplar earlier effort. Here, I present a few resources for
+those who wish to educate themselves about these issues.
+271. “Resource Letter: GP-1: Gender and physics,” J. Blue,
+A. Traxler, and G. Cochran, Am. J. Phys. 87, 616–626
+(2019). Overview of issues which inﬂuence the repre-
+sentation and participation of women in physics. (E)
+272. “Resource Letter RP-1: Race and physics,” Katemari
+Rosa, J. Blue, S. Hyater-Adams, G. L. Cochran, and C.Prescod-Weinstein, Am. J. Phys. 89, 751–768 (2021).
+Introduces theory, frameworks, research, and historical
+information that connect the experiences of peoplefrom ethnic/racial groups that have been minoritizedand marginalized in science with a focus on physics.
+(E)
+273. LGBT1Climate in Physics (American Physical
+Society, Maryland, 2016), T. J. Atherton, R. S.Barthelemy, W. Deconinck, M. L. Falk, S. Garmon, E.
+Long, M. Plisch, E. H. Simmons, and K. Reeves.
+Report prepared for the APS on LGBT þ(Lesbian,
+Gay, Bisexual, Transgender and other gender and sex-
+ual minorities) climate in physics. Includes recommen-
+dations directed at the APS. See also “LGBT þ
+Inclusivity in physics and astronomy: A best practices
+guide,” N. Ackerman et al. which contains further
+advice: https://arxiv.org/pdf/1804.08406.pdf and Ref.
+173for emerging work in PER. (E)
+274. “Sex and gender as non-binary: What does this mean
+for physics teachers?,” A. Traxler and J. Blue, Phys.
+Teach . 58, 395–398 (2020). Tractable implications of a
+sophisticated understanding of gender aimed at physics
+teachers. (E)
+275. Coders: The Making of a New Tribe and the
+Remaking of the World , C. Thompson (Penguin,
+New York, 2019). Popular account of the history and
+culture of programmers with particular attention to the
+history of gender around programming. (E)
+24 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 24 04 October 2023 22:48:38
+276. Hidden Figures, M. L. Shetterly (William Morrow and
+Co., New York, 2016). Popular book documenting thelives and achievements of four Black women who over-came discrimination and racial segregation to become
+vital parts of mathematics, scientiﬁc, and engineering
+history. A ﬁctionalized movie of the same name basedon this book was released in 2016. (E)
+277. “Women’s history month: Arianna Rosenbluth and the
+Metropolis Monte Carlo algorithm,” S. Chen, APS
+News 31(2022). Article describing the unacknowl-
+edged contributions of Arianna Rosenbluth to the crea-tion of Markov Chain Monte Carlo methods. (E)
+278. Algorithms of Oppression , S. U. Noble (NYU Press,
+New York, 2018). How negative biases against women
+of color are embedded in search engine results and
+algorithms. (E)
+279. APS Inclusion, Diversity, and Equity Alliance
+(IDEA) . Community of transformation to empower
+physics departments, laboratories, and other organiza-
+tions to identify and enact strategies for improving
+equity, diversity, and inclusion (EDI). https://www.aps.
+org/programs/innovation/fund/idea.cfm (E)
+280. Increase Investment in Accessible Physics Labs: A
+Call to Action for the Physics Education Community
+(AAPT, Maryland, 2021). Committee on Laboratories
+Accessible Physics Labs Task Force Report. Reportarguing for improved accessibility for physics laborato-ries; important ramiﬁcations for accessibility of compu-tational environments. (E)
+281. EQUIP. Observation tool that teachers can program to
+collect data particular to their classrooms, e.g., partici-
+pation of marginalized groups, or how the instructorinteracts with different students. https://equip.ninja
+B. GPU computing
+Three-dimensional computer graphics calculations ulti-
+mately involve the multiplication of many small matrices as
+a virtual model is placed within a digital world and then pro-
+jected into two dimensional coordinates for display. Thesecalculations are highly parallel: Objects in the computer aretypically represented as polyhedra and each vertex can be
+transformed independently. To perform these calculations
+efﬁciently, most computers are equipped with special graphi-cal processing units (GPUs). Over the last two decades thesemoved from ﬁxed purpose devices permitting a limited set of
+operations to becoming very ﬂexible devices that can be
+independently programmed. Many highly parallel operationsincluding linear algebra, computational geometry, MonteCarlo methods, etc., can exploit these devices to provide
+excellent performance even on personal computers, and there
+has been an increasing trend to using GPU computing toaccelerate solution of physics problems.
+282. APIs: OpenCL is an open standard from the Khronos
+consortium https://www.khronos.org/opencl/ ;CUDA
+(Compute Uniﬁed Device Architecture) is NVidia’s pro-
+prietary API: https://developer.nvidia.com/cuda-toolkit ;
+Metal is Apple’s proprietary API: https://developer.
+apple.com/metal/ .( A )
+283. “Accelerating molecular dynamics simulation on
+graphics processing units,” M. S. Friedrichs et al. ,J
+Comput. Chem . 864–872 (2009). Discusses implemen-
+tation of molecular dynamics on GPUs. (A)284. “GPU accelerated Monte Carlo simulation of the 2D
+and 3D Ising model,” T. Preis, P. Virnau, W. Paul, and
+J. J. Schneider, J. Comp. Phys .228, 4468–4477 (2009).
+Highly cited early paper on the Ising model on a GPU.(A)
+285. “GPU-computing in econophysics and statistical phys-
+ics,” T. Preis, Eur. Phys. J. Spec. Top .194, 87–119
+(2011) Pedagogical article that provides a detailed
+account of coding the Ising model for the GPU. (I)
+286. “Simulating spin models on GPU,” M. Weigel,
+Comput. Phys. Commun .182, 1833 (2011) and
+“Performance potential for simulating spin models on
+GPU,” M. Weigel, J. Comput. Phys. 231, 3064 (2012)
+also give information about simulating the Ising model
+on a GPU. (I)
+287. “GPU computing,” J. D. Owens, M. Houston, D.
+Luebke, S. Green, J. E. Stone, and J. C. Phillips, Proc.
+IEEE 96, 879–899 (2008). Overview of the potential of
+GPU computing for applications including physics. (I)
+C. Data science, machine learning, and artificial
+intelligence
+A great deal of activity has emerged in exploiting the
+capabilities of powerful computers with large data sets to
+advance physics knowledge. A number of (overlapping)
+terms described these activities: Data science has emerged
+as an umbrella term for interdisciplinary activity using com-
+puting for working with data. machine learning (ML) refers
+to algorithms where the computer is not explicitly pro-
+grammed to perform a task, but “learns” from a given train-
+ing set of examples. artiﬁcial intelligence (AI) refers to
+construction of algorithms to perform tasks typically per-
+formed by humans.
+Many of the associated methods are older than they
+appear. As I mention in the Introduction, they are referred to
+in the ﬁrst Resource Letter on computational physics 1 and
+indeed some emerged from physics itself. Nonetheless, there
+is undoubted contemporary excitement around these ele-
+ments, they are ever more important to physics practice and
+they are important career destinations for physics students.
+Tasks such as classiﬁcation and processing of images are
+particularly well-suited to ML methods, for example.
+Unfortunately, efforts to integrate these methods into physicscurricula are at a nascent stage. Here, therefore, I present a
+few selected resources to assist instructors looking to cata-
+lyze this integration. The topic certainly deserves a Resource
+Letter of its own. See also Ref. 36.
+288. “A high-bias, low-variance introduction to Machine
+Learning for physicists,” P. Mehta, M. Bukov, C.-H.
+Wang, A. G.R. Day, C. Richardson, C. K. Fisher, D. J.
+Schwab, Phys. Rep. 810, 1–124 (2019). Very valuable
+review paper that discusses many methods with physics
+applications. See also arXiv version https://arxiv.org/
+abs/1803.08823 .
+PYTHON notebooks accompanying the
+article available at https://github.com/drckf/mlreview_
+notebooks (I)
+289. Deep Learning and Physics , 1st ed., A Tanaka, A.
+Tomiya, and K. Hashimoto (Springer, Berlin, 2021).
+Advanced but illuminating book that explores connec-
+tions among machine learning, information theory, and
+physics. (A)
+25 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 25 04 October 2023 22:48:38
+290. “Machine-learning-assisted modeling,” E. Weinan, J.
+Han, and L. Zhang, Phys. Today 74(7), 36–41 (2021).
+Readable article discussing how ML opens up new pos-sible approaches to modeling. (E)
+291. Anaconda . Very comprehensive collection of data sci-
+ence tools, including
+PYTHON , Jupyter, etc., and most
+commonly used libraries. https://anaconda.org (I)
+292. APS Topical Group on Data Science https://engage.
+aps.org/gds/home . A unit of the American Physical
+Society for those working on or with Data Sciencemethods. (I)
+293. Data Science Education Community of Practice
+(DSECOP) https://www.aps.org/programs/innovation/
+fund/dsecop/index.cfm . APS-supported community of
+practice aiming to support instructors in integrating datascience into physics classes. See also their Github: https://
+gds-education-community-of-practice.github.io/ (I)
+294. The Elements of Statistical Learning , 2nd ed., T.
+Hastie, R. Tibshirani, and J. Friedman (Springer,Berlin, 2009). Accessible introductory textbook cover-ing basic machine learning methods. (I)
+295. Interpretable Machine Learning , C. Molnar. Digital
+book that provides a valuable guide to interpreting
+the output of some machine learning methods. https://
+christophm.github.io/interpretable-ml-book/ (I)
+D. Quantum computing
+Quantum computers differ from their classical counter-
+parts in leveraging the quantum effects of superposition andentanglement to perform calculations that are challenging orintractable for classical computers. Quantum computers usequbits as the fundamental unit of information, which can bein an arbitrary superposition of states j0iandj1ithat corre-
+spond to classical bits. While the idea of simulating quantumsystems on other quantum systems is not new, there has beenvery signiﬁcant hardware progress in the last decade withcurrent devices having /C24100 qubits. If these machines can
+be scaled up, they show remarkable promise across numer-ous computing applications. Here, I collect a few resourcesfor those interested in learning about this exciting new ﬁeld:
+296. “Resource Letter QI-1: Quantum information,”
+Frederick W. Strauch, Am. J. Phys . 84, 495–507
+(2016). Relatively recent resource letter that provides
+an overview of the ﬁeld. (E)
+297. Quantum Information and Quantum Computation ,
+M. A. Nielsen and I. L. Chuang (Cambridge U. P.,Cambridge, 2011). A very popular text that starts withoverviews of both quantum mechanics and the theoryof computation, then builds to advanced topics.Appropriate for advanced undergrads in physics, com-puter science, or math. (I)
+298. Quantum Computer Science: An Introduction ,N .D .
+Mermin (Cambridge U. P., Cambridge, 2007). Focusedbook on QC that provides a complementary perspectiveto Nielsen and Chuang. (A)
+299. Classical and Quantum Computation , A. Y. Kitaev, A.
+H. Shen, and M. N. Vyalyi (American MathematicalSociety, Rhode Island, 2002). Another good comple-ment to Nielsen and Chuang. (A)
+300. Quantum Information Theory , 2nd ed., M. Wilde
+(Cambridge U. P., Cambridge, 2017). Approaches QCfrom an information-theoretic approach that is interest-
+ing but more technical than other books. (A)
+301. Quantum Computing: An Applied Approach , 2nd ed.,
+J. D. Hidary (Springer, Berlin, 2021). Very hands-oncoding approach to QC. (I)
+302. Qubes course , A. Coladangelo, J. Necaise, K. Setia,
+and E. Weis. Course aimed at teaching QC to high
+school students. Available at: https://qbook.qbraid.
+com/learn/qubes_course . Part of the Qbraid repository
+which is also valuable https://account.qbraid.com (I)
+303. “Undergraduate computational physics projects on
+quantum computing,” D. Candela, Am. J. Phys .83,
+688–702 (2015). Very useful paper describing quantumcomputing projects suitable for an undergraduate audi-
+ence. (E)
+304. Qiskit textbook . Online and continuously updated
+introduction to the popular Qiskit framework for quan-tum computing. https://qiskit.org/textbook (I)
+305.
+Introduction to Classical and Quantum Computing ,
+T. G. Wong (Rooted Grove, 2022). Very accessibletextbook aimed at undergraduates or for self study.
+Requires only trigonometry. Particularly aimed at those
+who lack mathematical background; the only prerequi-site is trigonometry.
+306. Lecture notes by John Preskill http://theory.caltech.
+edu/~preskill/ph229/ and Thomas Vidick http://
+users.cms.caltech.edu/~vidick/teaching/ provide a good
+introduction to QC. (A)
+307. “Quantum computational chemistry,” S. McArdle, S.
+Endo, A. Aspuru-Guzik, S. C. Benjamin, and X. Yuan
+Rev. Mod. Phys. 92, 015003 (2020). Review paper that
+focuses on quantum chemistry applications too new tobe included in above textbooks. (A)
+E. Augmented and virtual reality
+There are quite a few examples of experimental uses of
+virtual reality (VR) for physics education using custom hard-ware. However, hardware developments underlying smart-
+phones have facilitated a new generation of and augmented
+reality (AR) devices that are now very widely available.These have great potential for scientiﬁc visualization, educa-tion and immersive user interfaces. Present challengesinclude stratiﬁcation of platforms and standards as well as
+the quality (and difﬁculty) of tools available for creating
+software with VR support.
+308. “A literature review on immersive virtual reality in
+education: State of the art and perspectives,” L. Freina,and M. Ott, in Proc. Int. Sci. Conf. Learn. SoftwareEduc. 1, 10 (2015). Broad overview of VR and AR
+across disciplines. (I)
+309. “Learning experience design with immersive virtual
+reality in physics education,” Y. Georgiou, O.Tsivitanidou, and A. Ioannou, Educ. Tech Res. Dev .
+69, 3051–3080 (2021). Neat recent example of a VR
+simulation designed to improve student understanding
+of relativity. Contains a valuable literature review. (I)
+310. “Physics education in virtual reality: An example,” H.
+Kaufmann and B. Meyer, Themes Sci. Technol. Educ.2, 117–130 (2009). Example of a lab-like environment
+for mechanics. (I)
+311. “Non-euclidean virtual reality I: Explorations of H
+3,”
+V. Hart, A. Hawksley, E. A. Matsumoto, and
+26 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 26 04 October 2023 22:48:38
+H. Segerman, arXiv:1702.04004 and “Non-euclidean
+virtual reality II: Explorations of H2/C2E,” same
+authors, arXiv:1702.04862 . A powerful glimpse into
+the possibilities of VR where the user can navigate anon-Euclidean space. Usable from a web-browser. (E)
+312. OpenXR. Emerging open standard for AR and VR that
+aims to improve compatibility between hardware andsoftware. https://www.khronos.org/openxr/ (A)
+VIII. GLOSSARY OF ACRONYMS
+AAPT American Association of Physics Teachers
+AJP American Journal of Physics
+API Application Programmer Interface
+APS American Physical Society
+CPU Central Processing Unit
+DEIJ Diversity, Equity, Inclusion and Justice (Also EDI,
+DEI)
+GPU Graphical Processing Unit
+JIT Just In Time (compiler technology)ML Machine Learning
+MD Molecular Dynamics
+MPI Message Passing Interface
+OSP Open Source Physics
+OOP Object Oriented Programming
+PER Physics Education Research
+PERC Physics Education Research Conference
+QC Quantum ComputingVR Virtual Reality
+ACKNOWLEDGMENTS
+The author is deeply grateful to Anna Phillips, Amy
+Graves, Scott MacLachlan, Will Kirby, Peter Love, William
+Ratcliffe, Kelly Roos, Tor Odden, Bruce Sherwood, BrandonLunk, and Karen Camarda for valuable suggestions of
+resources to include and reading draft versions of the
+manuscript. This material is based in part upon the worksupported by the National Science Foundation under Grant
+No. DMR-1654283.
+27 Am. J. Phys., Vol. 91, No. 1, January 2023 Timothy J. Atherton 27 04 October 2023 22:48:38

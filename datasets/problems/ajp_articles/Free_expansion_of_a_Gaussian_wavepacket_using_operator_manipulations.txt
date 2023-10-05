@@ -1,0 +1,827 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| JUNE 01 2023
+Free expansion of a Gaussian wavepacket using operator
+manipulations 
+Alessandro M. Orjuela ; J. K. Freericks
+Am. J. Phys.  91, 463 (2023)
+https://doi.org/10.1 119/5.0083964
+Articles Y ou May Be Interested In
+The dif fraction and spreading of a wavepacket
+American Journal of Physics  (March 2004)
+Wavepacket scattering in potential theory
+J. Math. Phys.  (August 2008)
+Angular dependence of Bloch wavepackets.
+J Acoust Soc Am  (April 1996) 04 October 2023 22:52:59
+Free expansion of a Gaussian wavepacket using operator
+manipulations
+Alessandro M. Orjuelaa)
+Department of Physics, Bowdoin College, Maine 04011
+J. K. Freericksb)
+Department of Physics, Georgetown University, 37th and O Sts. NW, Washington, DC 20057
+(Received 31 December 2021; accepted 24 April 2023)
+The free expansion of a Gaussian wavepacket is a problem commonly discussed in undergraduate
+quantum classes by directly solving the time-dependent Schr €odinger equation as a differential
+equation. In this work, we provide an alternative way to calculate the free expansion byrecognizing that the Gaussian wavepacket can be thought of as the ground state of a harmonic
+oscillator with its frequency adjusted to give the initial width of the Gaussian, and the time
+evolution, given by the free-particle Hamiltonian, being the same as the application of a time-dependent squeezing operator to the harmonic oscillator ground state. Operator manipulations
+alone (including the Hadamard lemma and the exponential disentangling identity) then allow us to
+directly solve the problem. As quantum instruction evolves to include more quantum informationscience applications, reworking this well-known problem using a squeezing formalism will help
+students develop intuition for how squeezed states are used in quantum sensing.
+#2023 Published
+under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0083964
+I. INTRODUCTION
+A common example of time evolution taught in quantum
+mechanics classes—in fact, in many cases, the ﬁrst examplethat is considered—is the free expansion of a Gaussianwavepacket starting from a state with variance rand zero
+average momentum, which is in the following wavepacket att¼0
+wðx;t¼0Þ¼
+1
+ð2pr2Þ1
+4e/C0x2=4r2: (1)
+It is then solved by transforming from position to momentum
+space, time evolving in momentum space, and then trans-forming back to position space. These Fourier transformationintegrals are elementary to do, because they are in aGaussian form and Gaussians integrate to Gaussians.
+However, the analysis is fairly technical and does not pro-
+vide great physical intuition as to what is happening (asidefrom the notion that because we have a spread in momentum,this means that components of the wavepacket move in posi-tion space at different rates and hence the position-spacewavepacket spreads in time).
+In this work, we present a different methodology to solve
+this problem based on the modern concept of squeezing.Squeezing is a phenomenon whereby a quantum state main-
+tains a minimum uncertainty product, but the uncertainties in
+position and momentum oscillate in time, with each individ-ual uncertainty becoming very small at some moment oftime and the other uncertainty becoming very small at a latertime. Squeezing is often discussed within the context of asimple harmonic oscillator. Here, the squeezing operatorlooks similar to the exponentiation of the Hamiltonian itself,but with different coefﬁcients in front of the individual
+terms. The application to the free-expansion of a Gaussian
+comes from the facts that the ground state of a harmonicoscillator is also a Gaussian, and the free time-evolutionoperator is a squeezing operator (for the harmonic oscillatorsystem). Hence, the time evolution of a Gaussian can be
+solved by simply applying a squeezing operator to the har-
+monic oscillator ground state!
+Squeezed states can be difﬁcult to understand. One way to
+physically picture them is via a quantum quench. If a systemis in a harmonic oscillator energy eigenstate with an initialfrequency x
+i, and then suddenly the frequency changes to
+xf, then we would expect the initially steady state to evolve
+over time. This subsequent time evolution is one way tothink of the behavior of a squeezed state. Unlike a coherentstate, which preserves its shape as it evolves in time, the
+squeezed state changes its shape as it evolves, periodically
+changing from a squeezed state, with smaller variance inposition space, to an expanded state, with a larger variancein position space. The period of the shape oscillations is onehalf the period of the new oscillator. If, the quench goes all
+the way to x
+f¼0, then we will no longer have periodic
+motion. Instead, the Gaussian will simply expand forever asa function of time. This is precisely the scenario for the freeexpansion of a Gaussian that we consider here.
+We have surveyed 25 different undergraduate textbooks to
+see whether they cover the free-expansion of a Gaussian
+wavepacket and where this material appears relative to dis-cussions of the operator-based solution of the simple har-monic oscillator. We also looked at whether these textbooksdiscuss coherent states and squeezed states. The results are
+summarized in Table I. Clearly, none of these texts are ideal
+for using the material presented here—supplemental materialwill be required for all of them.
+For undergraduate classes that employ these textbooks,
+the methodology we discuss ﬁts in best with a course orga-
+nized so that the abstract operator method is used to solve
+the harmonic oscillator problem before a discussion of the
+spreading Gaussian wavepacket. However, because all ofthese textbooks have inadequate resources for these topics,
+extra instruction on squeezed states of the harmonic oscilla-
+tor is required. Since quantum mechanics classes are likelyto change the material they cover to be more aligned with
+463 Am. J. Phys. 91(6), June 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 463 04 October 2023 22:52:59
+quantum information science, we anticipate many more clas-
+ses will provide coverage of coherent and squeezed statesand be well positioned to discuss the material we develophere in the near future. Indeed, we ﬁnd from our textbooksurvey that more recent books are more likely to covercoherent and squeezed states, supporting this trend.
+The pedagogical literature has also discussed the free
+expansion of a Gaussian wavepacket extensively, but we arenot aware of any physics education research work on thissqueezed states approach. Our discussion of previous peda-
+gogical work will not be exhaustive here. Much of the previ-
+ous work is interested in the question of whether and howthe wavepacket expands,
+1,2how its shape evolves over
+time,3–5and whether a power-series expansion to the time-
+evolution operator converges.2Some papers discuss alterna-
+tive methodologies to compute the evolving wavepacket.6,7
+We are aware of three works that discuss this problem in
+relationship to squeezed states of the simple harmonic oscil-lator.8–10Unlike this previous work, our work emphasizes
+the operator approach to squeezed states.
+The ground-state wavefunction of a simple harmonic
+oscillator, with mass mand frequency xis given by
+wgsðxÞ¼h xj0i¼mx
+p/C22h/C18/C19 1
+4
+e/C0mxx2=2/C22h: (2)
+Here, j0iis the ground state of the simple harmonic oscilla-
+tor, and jxiis the position eigenstate at the location x. The
+variance r2of the initial Gaussian is set by choosing
+x¼/C22h=2mr2. Next, we can use a displacement operator to
+displace the Gaussian in both position space and momentumspace. The displacement by x0and p0, respectively, is
+given by
+^Dðx0;y0Þ¼e/C0i
+/C22hðx0^p/C0p0^xÞ; (3)
+where ^xand ^pare the operators of position and momentum,
+which satisfy the canonical commutation relation ½^x;^p/C138¼i/C22h.
+The displaced Gaussian state can then be represented by
+jwgs;x0;p0i¼ ^Dðx0;p0Þj0i; (4)
+our choice for writing the wavepacket in this fashion ﬁxes its
+initial global phase.
+The free-particle evolves according to the free
+Hamiltonian, given by ^Hfree¼^p2=2m, so the time evolution
+of the initial Gaussian state becomes
+jwgsðtÞ;x0;p0i¼e/C0i
+/C22h^Hfreet^Dðx0;p0Þj0i; (5)
+and the spreading Gaussian wavefunction evolves according
+to time via
+wgsðx;t;x0;p0Þ¼h xje/C0i
+/C22h^Hfreet^Dðx0;p0Þj0i: (6)
+It turns out that this is in the form of a squeezed and dis-
+placed simple harmonic oscillator state, which can be seen
+most easily when we express the position and momentumoperators in terms of the ladder operators of the simple har-monic oscillator.
+The raising and lowering operators for a simple harmonic
+oscillator are given byTable I. Summary of different topics, as presented in 25 undergraduate quantum mechanics textbooks. The X indicates that the topic is covered in the co rre-
+sponding textbook.
+Author TitleSpreading
+GaussianSHO in
+operator formSHO before
+GaussianCoherent
+statesSqueezed
+states
+Banks Quantum Mechanics XX /C1/C1/C1 X /C1/C1/C1
+Beck Quantum Mechanics XX /C1/C1/C1 XX
+Binney and Skinner The Physics of Quantum Mechanics XX /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Brandsden and Joachain Quantum Mechanics X /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Burkhardt and Leventhal Foundations of Quantum Physics XX /C1/C1/C1 X /C1/C1/C1
+Cohen-Tannoudji, Diu, and Lalo €e Quantum Mechanics XX /C1/C1/C1 X /C1/C1/C1
+Dicke and Wittke Introduction to Quantum Mechanics /C1/C1/C1 X /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+French and Taylor Introduction to Quantum Physics X /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Grifﬁths Introduction to Quantum Mechanics XX X X /C1/C1/C1
+Hannabuss An Introduction to Quantum Theory /C1/C1/C1 X /C1/C1/C1 XX
+Kroemer Quantum Mechanics for Engineering X /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Liboff Introductory Quantum Mechanics XX /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Mahan Quantum Mechanics in a Nutshell /C1/C1/C1 x /C1/C1/C1 X /C1/C1/C1
+McIntyre, Manogue, and Tate Quantum Mechanics /C1/C1/C1 X /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Miller Quantum Mechanics for Scientists /C1/C1/C1 XX /C1/C1/C1 X /C1/C1/C1
+Ohanian Principles of Quantum Mechanics XX /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Puri Nonrelativistic Quantum Mechanics XX /C1/C1/C1 XX
+Rae and Napolitano Quantum Mechanics /C1/C1/C1 X /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Robinett Quantum Mechanics: Classical Results, /C1/C1/C1 XX /C1/C1/C1 X /C1/C1/C1
+Saxon Elementary Quantum Mechanics XX /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Shankar Principles of Quantum mechanics XX /C1/C1/C1 X /C1/C1/C1
+Townshend A Modern Approach to Quantum Mechanics XX /C1/C1/C1 X /C1/C1/C1
+Winter Quantum Physics /C1/C1/C1 X /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Zettili Quantum Mechanics: Concepts and /C1/C1/C1 XX /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+Zweibach Mastering Quantum Mechanics: /C1/C1/C1 XX /C1/C1/C1 XX
+464 Am. J. Phys., Vol. 91, No. 6, June 2023 A. M. Orjuela and J. K. Freericks 464 04 October 2023 22:52:59
+^a¼ﬃﬃﬃﬃﬃﬃﬃmx
+2/C22hr
+^xþi^p
+mx/C18/C19
+and ^a†¼ﬃﬃﬃﬃﬃﬃﬃmx
+2/C22hr
+^x/C0i^p
+mx/C18/C19
+:
+(7)
+The inverse relations are
+^x¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+/C22h
+2mxr
+^aþ^a† ðÞ and ^p¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+/C22hmx
+2r
+1
+i^a/C0^a† ðÞ :
+(8)
+We can re-express the free-particle Hamiltonian in terms of
+the ladder operators as
+^p2
+2m¼/C0/C22hx
+4ð^a†Þ2/C0^a†^a/C0^a^a†þ^a2/C16/C17
+: (9)
+The most general squeezing operator is written as
+^Sðn;gÞ¼e/C0n
+2^a†ðÞ2þig
+2^a†^aþ^a^a† ðÞ þn/C3
+2^a2; (10)
+with nbeing a complex number and gbeing a real number.
+When converted to position and momentum operators, this is
+the most general unitary operator that can be constructed from
+quadratics in position and momentum; namely, it is of the
+form exp ðia^x2þibð^x^pþ^p^xÞþic^p2Þ, with the real numbers
+a,b, and cindependent of each other and expressible in terms
+ofnandg. Using Eq. (9), we ﬁnd that the time-evolution oper-
+atore/C0i^p2t=2m/C22his simply the squeezing operator with
+n¼/C0ixt
+2and g¼/C0xt
+2: (11)
+Hence, the most general spreading Gaussian is a displaced-
+squeezed state with the magnitudes of both nandgincreasing
+linearly in time. Note that this squeezing operator is a special
+case, in which n¼ig. We ﬁnd we need to work with a simpli-
+ﬁed form of the squeezing operator, given in general by
+^S6ðkÞ¼eik^a†6^a ðÞ2
+: (12)
+Here, the operator for time evolution is ^S/C0xt
+4/C0/C1, with
+k¼xt=4, because it involves the exponential of the square
+of the momentum operator; we will ﬁnd we also need to
+work with the exponential of a constant times the square of
+the position operator, which corresponds to ^Sþðk0Þfor a suit-
+ably chosen k0given below.
+II. FORMALISM AND DETAILS OF THE
+DERIVATION
+If students know about the operator-based solution of the
+simple harmonic oscillator, coherent states and squeezedstates, then it is natural to also discuss the spreading of a
+Gaussian wavepacket in the context of this simpliﬁed
+squeezing operator and the displacement operator. Wedescribe the details for how this works next. What we ﬁnd to
+be particularly interesting about this approach is that we use
+ladder operators from the simple harmonic oscillator in the
+analysis, even though the quantum state evolves with respect
+to a free-particle Hamiltonian, and there is no frequencyscale in the free-particle Hamiltonian. The simple harmonic
+oscillator (and thereby the frequency we will use) enters
+only because the initial wavepacket is a Gaussianwavepacket with an initial variance r
+2. This tells us the fre-
+quency of the simple harmonic oscillator for which this
+Gaussian is the ground-state wavefunction and allows us to
+examine the spreading of the wavepacket in this fashion. Theformal developments in this work are similar to, but different
+from, earlier work on how to determine the displaced-
+squeezed state wavefunction using operator methods11in
+that here we must work with g6¼0, whereas there, g¼0.
+We start with a coherent state jaiwith initial position
+x0¼0 and some arbitrary initial momentum p0. Then, using
+the standard notation for coherent states, we have that
+a¼ip01ﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2/C22hmxp for this special case. We use the free-particle
+Hamiltonian, with mandxﬁxed in our calculations, and we
+have that the initial variance of the probability distribution is
+given by r2
+0¼D2
+x¼/C22h=2mx, since it is a coherent state.
+To obtain the time-dependent wavefunction, we take the
+overlap of a position bra with the time-evolved initial coher-ent state
+wðx;tÞ¼D
+x/C12/C12/C12e
+/C0i
+/C22h^Hfreet/C12/C12/C12aE
+¼D
+x/C12/C12/C12e/C0it
+2/C22hm^p2eip0
+/C22h^x/C12/C12/C120E
+: (13)
+The coherent state is simply a momentum translation opera-
+tor applied to the harmonic oscillator ground state. We willalso ﬁnd it convenient to later introduce the position state at
+the origin j0
+xi, which satisﬁes ^xj0xi¼0. Then, using the
+translation operator for position yields the position eigenstate
+atxviajxi¼e/C0i
+/C22hx^pj0xi, so that ^xjxi¼xjxi. In addition,
+because the position translation operator has the semigroup
+property, given by e/C0i
+/C22hx^pe/C0i
+/C22hx0^p¼e/C0i
+/C22hðxþx0Þ^p, we ﬁnd that
+jxþx0i¼e/C0i
+/C22hx0^pjxi¼e/C0i
+/C22hx^pjx0iboth hold. We will also use
+this identity below.
+Our manipulations will employ two other operator identi-
+ties: (i) the Hadamard lemma,
+e^A^Be/C0^A¼^Bþ^A;^B/C2/C3
+þ1
+2!^A;^A;^B/C2/C3/C2/C3
+þ/C1/C1/C1 ; (14)
+with the nth term in the summation equal to
+1
+n!^A;^A;…^B/C2/C3
+/C1/C1/C1/C2/C3
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+nnested commutators
+of^Awith ^B(15)
+and (ii) the exponential disentangling identity, which is dis-
+cussed in the Appendix .
+Now, we begin our work to simplify Eq. (13). We use a
+multiply by 1 to create a Hadamard lemma expression,
+which, after evaluating the Hadamard lemma, effectively
+moves the expip0
+/C22h^x/C16/C17
+term from the right of the time evolu-
+tion operator to its left
+wðx;tÞ¼ x/C12/C12/C12/C12/C12eip0
+/C22h^xe/C0ip0
+/C22h^x
+|ﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄ}
+¼1e/C0it
+2/C22hm^p2eip0
+/C22h^x/C12/C12/C12/C12/C120*+
+¼x/C12/C12/C12/C12/C12eip0
+/C22h^xe/C0ip0
+/C22h^xe/C0it
+2/C22hm^p2eip0
+/C22h^x
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+Hadamard/C12/C12/C12/C12/C120*+
+¼eixp0
+/C22hD
+x/C12/C12/C12e/C0it
+2/C22hmð^pþp0Þ2/C12/C12/C120E
+: (16)
+Here, we used the fact that hxj^x¼hxjxto replace
+hxjexpip0
+/C22h^x/C16/C17
+byhxjexpip0
+/C22hx/C16/C17
+and then moved the number
+465 Am. J. Phys., Vol. 91, No. 6, June 2023 A. M. Orjuela and J. K. Freericks 465 04 October 2023 22:52:59
+out of the matrix element. Evaluating the Hadamard lemma
+requires some standard operator manipulations. First, we expand
+the central exponential in a power series, and note that the expo-
+nential factors can be moved into the exponent (this operation is
+called the braiding relation), because the “internal” exponential
+factors appear in pairs and multiply to 1
+e/C0ip0
+/C22h^xe/C0it
+2/C22hm^p2eip0
+/C22h^x¼X1
+n¼01
+m!/C0it
+2/C22hm/C18/C19m
+e/C0ip0
+/C22h^x^p2meip0
+/C22h^x
+¼X1
+n¼01
+m!/C0it
+2/C22hm/C18/C19m
+e/C0ip0
+/C22h^x^peip0
+/C22h^x
+|ﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄ}
+Hadamard !2m
+¼X1
+n¼01
+m!/C0it
+2/C22hm/C18/C19m
+^p/C0ip0
+/C22h^x;^p½/C138/C18/C192m
+¼X1
+n¼01
+m!/C0it
+2/C22hm/C18/C19m
+^pþp0 ðÞ2m
+¼e/C0it
+2/C22hmð^pþp0Þ2: (17)
+Note that the Hadamard for the exponent truncates after just
+the ﬁrst commutator, because it is a number, which subse-
+quently commutes with all operators.
+Next, we expand the squared exponent in Eq. (16), pull
+out the constant terms, let the terms with a linear exponent in
+^pact on the bra to translate the position state, and then
+replace the momentum operator with its expression in terms
+of ladder operators (of the simple harmonic oscillator) in the
+quadratic exponent to give us
+wðx;tÞ¼eip0x
+/C22h/C0itp2
+0
+2/C22hmD
+x/C0tp0
+m/C12/C12/C12eixt
+4^a†/C0^a ðÞ2/C12/C12/C120E
+: (18)
+We need to motivate our next step. The exponent of the oper-
+ator is proportional to the difference of the ladder operators,
+and we do not know how such an operator acts on the posi-tion bra to the left. However, if we could ﬁnd a way to
+change the difference of ladder operators into a sum in the
+exponent, then the operator in the exponent would be propor-
+tional to ^x
+2, which can be readily applied onto the position
+eigenbra to its left. This would then leave us with theground-state wavefunction evaluated at x/C0tp0
+m. In order to
+accomplish the sign change, we ﬁrst use the exponential dis-
+entangling identity acting on the simple harmonic oscillator
+ground state and apply it to the operator with a quadratic
+exponent as given in Eq. (A12) . We use the case with a dif-
+ference of the ladder operators and k¼xt=4. We ﬁnd Eq.
+(18) becomes
+wðx;tÞ¼eip0x
+/C22h/C0itp2
+0
+2/C22hmﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þixt
+2qD
+x/C0tp0
+m/C12/C12/C12eixt
+4þ2ixtð^a†Þ2/C12/C12/C120E
+; (19)
+where two of the exponential factors in the exponential
+disentangling identity have been replaced by 1 because
+^aj0i¼0. This means that both exp ðb^a†^aÞj0i¼j 0iand
+expðc^a2Þj0i¼j 0i, with bandcnumbers, as can be veriﬁed
+by expanding the exponentials into power series and actingthem on the harmonic oscillator ground-state ket. Next, we
+use Eq. (A12) again, but now for the sum of ladder operators
+and with k
+0¼xt
+4ð1þixtÞ. In addition, we start from the expres-
+sion on the right and replace it by the equivalent expression
+on the left. A direct calculation givesik0
+1/C02ik0¼ixt
+4ð1þixtÞ1/C02ixt
+4ð1þixtÞ/C18/C19 ¼ixt
+4þ2ixt:
+(20)
+So, we ﬁnd
+wðx;tÞ¼eip0x
+/C22h/C0itp2
+0
+2/C22hmﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þixt
+2r x/C0tp0
+m/C12/C12/C12/C12/C12ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þixt
+2
+1þixtvuut
+eixt
+4ð1þixtÞ^a†þ^a ðÞ2/C12/C12/C12/C12/C120*+
+¼eip0x
+/C22h/C0itp2
+0
+2/C22hmﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ1þixtpD
+x/C0tp0
+m/C12/C12/C12eimx2t
+2/C22hð1þixtÞ^x2/C12/C12/C120E
+¼eip0x
+/C22h/C0itp2
+0
+2/C22hmﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ1þixtp eimx2t
+2/C22hð1þixtÞx/C0tp0
+mðÞ2D
+x/C0tp0
+m/C12/C12/C120E
+¼eip0x
+/C22h/C0itp2
+0
+2/C22hmﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ1þixtp eimx2t
+2/C22hð1þixtÞx/C0tp0
+mðÞ2
+wgsx/C0tp0
+m/C18/C19
+: (21)
+Substituting in the ground-state wavefunction from Eq. (2)
+yields our ﬁnal result
+wðx;tÞ¼mx
+p/C22h/C18/C19 1
+4 1ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ1þixtp e/C0mx
+2/C22hð1þixtÞx/C0tp0
+mðÞ2þip0x
+/C22h/C0itp2
+0
+2/C22hm:
+(22)
+The probability density becomes
+jwðx;tÞj2¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃmx
+p/C22hð1þx2t2Þr
+e/C0mx
+/C22hð1þx2t2Þx/C0tp0
+mðÞ2
+: (23)
+Now we see the variance is increasing approximately qua-
+dratically in time as
+r2ðtÞ¼D2
+xðtÞ¼/C22h
+2mxð1þx2t2Þ¼r2ð0Þð1þx2t2Þ:(24)
+This is, of course, the standard result for the spreading
+Gaussian wavefunction in position space. Using operator
+methods to determine it is a straightforward exercise that
+helps build facility in working with operators. It is also inter-
+esting to think of this in terms of squeezing and a “hidden”simple harmonic oscillator.
+The momentum-space derivation is even simpler. We start
+with
+/ðp;tÞ¼h pje
+/C0i
+/C22h^Hfreetjai¼h pje/C0it
+2/C22hm^p2eip0
+/C22h^xj0i: (25)
+We can immediately apply the momentum operator onto the
+momentum eigenstate and replace ^p!p. This gives
+/ðp;tÞ¼e/C0it
+2/C22hmp2hpjeip0
+/C22h^xj0i: (26)
+The evaluation of the remaining expectation value is easy
+once we realize that the exponential operator translates the
+momentum via jpi¼eip
+/C22h^xj0pi, with ^pj0pi¼0 deﬁning the
+momentum state at the origin j0pi. So, we ﬁnd the exponen-
+tial operator translates the momentum bra to give us
+466 Am. J. Phys., Vol. 91, No. 6, June 2023 A. M. Orjuela and J. K. Freericks 466 04 October 2023 22:52:59
+/ðp;tÞ¼e/C0ip2t
+2m/C22hhp/C0p0j0i: (27)
+The term hp/C0p0j0iis just the ground state of the simple har-
+monic oscillator in momentum space. It can easily be found
+by Fourier transformation or by operator methods.12
+Substituting in this result gives us
+/ðp;tÞ¼1
+ðp/C22hmxÞ1
+4e/C0ðp/C0p0Þ2
+2/C22hmx/C0ip2t
+2m/C22h; (28)
+which is our ﬁnal result for the wavefunction. The probabil-
+ity distribution becomes
+j/ðp;tÞj2¼1ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+p/C22hmxp e/C0ðp/C0p0Þ2
+/C22hmx: (29)
+The variance of the momentum-space wavefunction does not
+change with time
+r2
+pðtÞ¼D2
+p¼/C22hmx
+2: (30)
+III. APPLICATIONS OF THESE IDENTITIES
+AND NEW EXERCISES FOR STUDENT LEARNING
+One of the goals in modernizing physics instruction is to
+bring modern experimental results into the classroom. Recent
+work on atoms trapped in harmonic potentials has been able
+to (i) create the ground state, the ﬁrst excited state, and the
+second excited state and (ii) has used time-of-ﬂight spectros-
+copy to measure the momentum distribution of the atom
+when it is in these different Fock states.13The formalism we
+used to describe the free-expansion of the simple harmonic
+oscillator can be immediately adapted to analysing this exper-
+iment, which makes for a context-rich problem for students
+studying the expansion of wavepackets. We describe how this
+can be used in instruction next.
+These experiments employ time-of-ﬂight spectroscopy, which
+is an important experimental technique that does not often get
+discussed in quantum instruction. The only quantum textbook
+we are aware of that discusses this technique in any detail is
+Ballentine’s book.14In fact, even though many textbooks say
+that one can measure the momentum of a quantum particle, vir-
+tually none explain just how one does this. It is subtle, because
+we usually measure position to infer momentum; hence, intro-
+ducing a discussion of time-of-ﬂight provides a great opportu-
+nity to properly explain how Heisenberg’s uncertainty principle
+applies to a real experiment on measuring momentum.
+In fact, while many textbooks do describe how one can
+measure position, they are often silent about how to measure
+momentum. For example, Grifﬁths states “You might won-
+der how it is enforced in the laboratory—why can’t you
+determine (say) both the position and the momentum of a
+particle? You can certainly measure the position of the parti-cle, but the act of measurement collapses the wave function
+to a narrow spike, which necessarily carries a broad range of
+wavelengths (hence momenta) in its Fourier decomposition.”
+In this discussion, Grifﬁths is intimating that a simultaneous
+measurement of position and momentum is impossible. It is
+certainly true that subsequent measurements of position can-
+not be used to determine the original momentum, but that
+does not forbid position and momentum to be measured atthe same time, as we see below. Zweibach explicitly states
+“given a particle, you cannot simultaneously know both itsposition and its momentum.” However, a time-of-ﬂightmeasurement is one way to determine momentum and itdoes so by measuring position. Is this in conﬂict with theCopenhagen interpretation? Of course not, because themomentum is inferred from the position measurement andthe assumption that the wavepacket is traveling as a free par-ticle. One simply needs to perform the analysis properly. Letus explain carefully how time-of-ﬂight works.
+In a time-of-ﬂight experiment, one prepares a reasonably
+localized state. (In Ref. 13, the state is localized on the order
+of 0 :3–0:5lm.) Then at a speciﬁc time, the harmonic oscilla-
+tor trapping potential is shut off (a quench to x
+f¼0, just
+like we analyzed above). We start a clock at this time and letthe atom expand in its wavepacket for some time before
+measuring its position. (In Ref. 13, the time of ﬂight is about
+10ls.) At the moment of the measurement, we know the
+position to the accuracy of the position detector—but, wealso know its momentum, which is inferred from the factthat it traveled as a free particle from its localized origin towhere it was detected in the time of ﬂight. So, at the momentof the measurement, we know the position and momentumof the quantum particle for this one experimental shot!
+Does this violate uncertainty? Of course not. The uncer-
+tainty principle applies to the spread in the results if we repeatthe measurement many times (which will actually determinethe momentum distribution). The momentum distribution isthat of the original trapped atom, plus any spread in the distri-bution that occurred due to the time of ﬂight. However,because the momentum distribution does not spread in time,we do really measure the momentum distribution of the atomin its trap. What about the original position uncertainty?Unfortunately, we cannot determine that, because this mea-surement is not sensitive to the initial position. However, theuncertainty in knowing just what the initial position is (due tothe initial wavepacket spread) does lead to an intrinsic uncer-tainty in the momentum measurement in a time-of-ﬂight exper-iment, but one can make that uncertainty as small as desiredby simply increasing the time for the time of ﬂight (whichreduces the relative error for the momentum measurement).
+Hence, the time-of-ﬂight measurement does not fall into
+the standard measurement paradigm taught in most quantumtextbooks, and it avoids the uncertainty principle restrictionson individual experimental shots due to the way it is set-up.The time of ﬂight is employed to magnify the position valuesso that we can distinguish these different positions (due tothe magniﬁcation effect) and then infer the different
+momenta in the initial momentum distribution.
+What gets confused about quantum mechanics postulates
+is that every quantum state has complementary uncertaintiesthat must obey the uncertainty principle. In other words, noquantum state can be created that has deﬁnite position andmomentum. Similarly, no von Neumann style projectivemeasurement can measure both position and momentumwithout obeying uncertainty as well. However, the vonNeumann paradigm is not sufﬁcient to be used to describe allof the parts of the time-of-ﬂight measurement—it onlydescribes the position measurement part. This is a subtlepoint, but an important one to convey to students.
+So, while one can certainly say one cannot create a quan-
+tum state with deﬁnite position and momentum, one shouldnever say that one cannot measure position and momentum at
+the same time. One can. Discussing how this works provides
+467 Am. J. Phys., Vol. 91, No. 6, June 2023 A. M. Orjuela and J. K. Freericks 467 04 October 2023 22:52:59
+a great opportunity to carefully explain the subtleties of the
+Heisenberg uncertainty principle and the strategies used to
+measure momentum. These are two topics often given “short
+shrift” in the traditional quantum mechanics courses.
+Back to the experiment in Ref. 13. In those measurements,
+they examine not just the momentum distribution of theground state, but of the two lowest excited states as well. We
+can easily generalize the techniques we developed above to
+determine the momentum distributions for these differentFock states too, and this is an excellent exercise for studentspost instruction. Since the momentum distribution of a har-
+monic oscillator is identical in shape to the position distribu-
+tion, this also can be thought of as a magniﬁed visualizationof the original position distribution as well. The calculation
+is quite simple to do, and this is because all harmonic oscilla-
+tor Fock states maintain their shape (in momentum space)during time of ﬂight.
+5So, if I start in the nth Fock state,
+given byð^a†Þnﬃﬃﬃ
+n!pj0i, then the momentum distribution after a
+time of ﬂight of duration tis simply given by
+/nðp;tÞ¼/C28
+p/C12/C12/C12/C12e/C0i
+/C22h^Hfreet^a†ðÞn
+ﬃﬃﬃﬃ
+n!p/C12/C12/C12/C120/C29
+; (31)
+which can be immediately solved to be
+/
+nðp;tÞ¼1
+ðp/C22hmxÞ1
+41ﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+n!2np Hnpﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+/C22hmxp/C18/C19
+e/C0p2
+2/C22hmx/C0ip2t
+2/C22hm:(32)
+Here, we have introduced the physicist’s form of the
+Hermite polynomial. Details for how to do this using opera-tors have been discussed by Rushka and Freericks.12
+One might say that because we directly measure the posi-
+tion in the time-of-ﬂight, we should really calculate the posi-
+tion distribution at time t. One can do this as well for the
+Fock states, but it takes a few more steps. Again, we assumethe initial momentum is zero because we are in an energyeigenstate. Then, the only difference in the derivation is that
+at the point when we use the exponential disentangling iden-
+tity, the exponentials of ^a
+2and of ^a†^acannot immediately
+act on the ground state because the ð^a†Þnterm is in the way.
+However, this causes no problem, as one can move the expo-
+nentials past that operator by using a “multiply-by-one”followed by the Hadamard lemma. We have to do thistwice—once when we use the disentangling identity on the
+square of the momentum operator and once when we bring
+the required factors needed to convert the exponential to thesquare of the position operator. This requires a fair amountof algebra, which then yields
+w
+nðx;tÞ¼1ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ1þixtp eimx2t
+2/C22hð1þixtÞx2 1ﬃﬃﬃﬃ
+n!p
+ð1þixtÞn
+/C2/C28
+x/C12/C12/C12/C12^a†þðixtÞ2^a/C16/C17n/C12/C12/C12/C120/C29
+: (33)
+Ifn¼0, this is the same answer as we had before. When
+n¼1, we obtain
+w1ðx;tÞ¼mx
+p/C22h/C18/C19 1
+4 1ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ1þixtpﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2mx
+/C22hr
+x
+ð1þixtÞ
+/C2e/C0mx
+2/C22hð1þixtÞx2: (34)
+The ﬁrst excited state probability distribution then becomesjw1ðx;tÞj2¼ﬃﬃﬃﬃﬃﬃﬃmx
+p/C22hr1ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þx2t2p2mxx2
+/C22hð1þx2t2Þe/C0mx
+/C22hð1þx2t2Þx2
+:
+(35)
+This has the same shape as the ﬁrst excited state, but with
+x2!x2=ð1þx2t2Þ(and the required change in the normali-
+zation factor), as we expect it to.5The calculation of higher-
+order excited states follows in a similar fashion but is tedious
+to work out the details, because the Hermite polynomial must
+have each power of xscaled with a different factor, leading to
+cumbersome equations to work out. So we stop here.
+IV. CONCLUSION
+In this work, we showed an alternative way to determine
+the expansion of a Gaussian wavepacket in free space as afunction of time by mapping the problem onto the applica-
+tion of a squeezing operator on a simple-harmonic-oscillator
+ground state with the same variance as the initial wavepacket
+att¼0. The squeezing operator used here is particularly
+simple, which allows us to use an exponential disentangling
+identity in the derivation that is easy to derive. Given the
+increasing interest in quantum information science, espe-
+cially in quantum sensing, we feel this approach will provide
+an interesting new perspective on an old problem.
+We worked with operators throughout, because we believe
+working with operators makes the material accessible to
+more students since it does not require calculus. (Calculus is
+only needed to determine normalization constants, and those
+can be told to the student if needed.)
+All of the pedagogy used with the free-expansion of a
+Gaussian wavepacket can also be used if it is taught this
+way. This pedagogy is well-known and appears in many text-
+books, so we do not rehash it here. Instead, we described
+how this approach can be employed to introduce a modern
+time-of-ﬂight experiment that measures the momentum dis-
+tribution of a quantum particle in a harmonic trap and in the
+ground state or a low-lying excited state. This provides an
+interesting new application of the freely expanding
+Gaussian, which should become a standard in quantum
+mechanics courses of the future.
+ACKNOWLEDGMENTS
+J.K.F. was supported by the National Science Foundation
+under Grant No. PHY-1915130. A.M.O. was supported by the
+National Science Foundation under Grant No. DMR-1950502as an REU student. In addition, J.K.F. was supported by the
+McDevitt bequest at Georgetown University.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+APPENDIX: SIMPLIFIED EXPONENTIAL
+DISENTANGLING IDENTITY FOR THESYMPLECTIC GROUP
+We want to ﬁnd a disentangled expression for
+e
+ik^a†6^a ðÞ2
+¼eikðð^a†Þ26ð^a†^aþ^a^a†Þþ^a2Þ; (A1)
+468 Am. J. Phys., Vol. 91, No. 6, June 2023 A. M. Orjuela and J. K. Freericks 468 04 October 2023 22:52:59
+with kbeing a complex number. Disentangling identities are
+proven by mapping the operators in the exponent onto Lie
+algebra generators.15Here, the Lie algebra is that of the sym-
+plectic group. We employ a faithful matrix representation of
+that Lie algebra to derive an identity of the exponential oper-ator in terms of the product of three different exponential
+operators—each involving one of the Lie algebra generators.
+Then, because the representation is faithful, the identity
+holds when expressed in terms of the Lie generators as well.
+We start by working with the following operators, which
+serve as generators of the symplectic Lie algebra
+^K
+0¼1
+4ð^a†^aþ^a^a†Þ;^Kþ¼1
+2ð^a†Þ2;and ^K/C0¼1
+2^a2:(A2)
+They satisfy the commutation relations
+^K0;^K6/C2/C3
+¼6^K6and ^Kþ;^K/C0/C2/C3
+¼/C02^K0; (A3)
+as can be directly worked out from the fact that ½^a;^a†/C138¼1.
+This algebra looks quite similar to the more familiar SU(2)
+algebra, except for the change in sign on the last commuta-
+tor. Then, we have
+eik^a†6^a ðÞ2
+¼e2ik^Kþ62^K0þ^K/C0 ðÞ; (A4)
+and our goal is to ﬁnd a,b, and csuch that
+e2ikð^Kþ62^K0þ^K/C0Þ¼ea^Kþeb^K0ec^K/C0: (A5)
+We create a faithful representation of the Lie algebra via the
+following 2 /C22 matrix representation of the Lie algebra
+^K0$1
+2/C010
+01/C18/C19
+; ^Kþ$00
+/C010/C18/C19
+;
+and
+^K/C0$01
+00/C18/C19
+: (A6)
+It is a worthwhile exercise to show that these matrices satisfy
+the symplectic Lie group commutator algebra in Eq. (A3) .
+Using this representation, we ﬁnd that
+^Kþ62^K0þ^K/C0$711
+/C0161/C18/C19
+¼M6: (A7)
+The matrices M6are nilpotent with index two—in other
+words, M2
+6¼0. Then the power-series expansion of the
+exponential truncates after the ﬁrst term, so we have
+e2ikM6¼I2þ2ikM6¼172ik 2ik
+/C02ik 162ik !
+: (A8)
+Each term in the right-hand side of Eq. (A5) can also be eas-
+ily calculated, and we ﬁndea^Kþeb^K0ec^K/C0$10
+/C0a1 !
+e/C0b
+20
+0eb
+2 !
+1c
+01 !
+¼e/C0b
+2 ce/C0b2
+/C0ae/C0b
+2/C0ace/C0b
+2þeb
+2 !
+: (A9)
+We equate these two matrices to ﬁnd that
+a6¼c6¼2ik
+172ikand b6¼/C02l nð172ikÞ:(A10)
+Hence, the exponential disentangling identity becomes
+eik^a†6^a ðÞ2
+¼eik
+172ik^a†ðÞ2
+e/C01
+2lnð172ikÞ^a†^aþ^a^a† ðÞeik
+172ik^a2:(A11)
+Acting this on the simple-harmonic-oscillator ground state
+then gives us
+eik^a†6^a ðÞ2
+j0i¼1ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+172ikp eik
+172ik^a†ðÞ2
+j0i; (A12)
+because ^aj0i¼0. This last identity is used in our derivation
+with two different kvalues, k¼xt
+4andk0¼xt
+4ð1þixtÞ.
+a)ORCID: 0000-0001-6917-7929.
+b)Electronic mail: james.freericks@georgetown.edu, ORCID: 0000-0002-
+6232-9165.
+1H. M. Bradford, “Propagation and spreading of a pulse or wave packet,”Am. J. Phys. 44, 1058–1063 (1976).
+2J. R. Klein, “Do free quantum-mechanical wavepackets always spread?,”
+Am. J. Phys. 48, 1035–1037 (1980).
+3K. Mita, “Dispersion of non-Gaussian free particle wave packets,” Am. J.
+Phys. 75, 950–953 (2007).
+4M. Andrews, “The evolution of free wave packets,” Am. J. Phys. 76,
+1102–1106 (2008).
+5W. van Dijk, F. M. Toyama, S. J. Prins, and K. Spyksma, “Analytic time-dependent solutions of the one-dimensional Schr €odinger equation,” Am. J.
+Phys. 82, 955–961 (2014).
+6C. S. Lai, “Spreading of wavepackets in the coordinate representation,”
+Am. J. Phys. 47, 766–768 (1979).
+7T. L. Beach, “Initial phase and free-particle wave packet evolution,” Am.
+J. Phys. 77, 538–545 (2009).
+8G. W. Ford and R. F. O’Connell, “Wave packet spreading: Temperature
+and squeezing effects with applications to quantum measurement and
+decoherence,” Am. J. Phys. 70, 319–324 (2002).
+9R. W. Robinett, M. A. Doncheski, and L. C. Bassett, “Simple examples of
+position-momentum correlated Gaussian free-particle wave packets in one
+dimension with the general form of the time-dependent spread in posi-
+tion,” Found. Phys. Lett. 18, 455–475 (2005).
+10A. P. Kim, “Coherent squeezed-state representation of traveling general
+Gaussian wave packets,” J. Korean Phys. Soc. 49, 464–471 (2006).
+11E. Mungu /C19ıa-Gonz /C19alez, S. Rego, and J. K. Freericks, “Making squeezed-
+coherent states concrete by determining their wavefunction,” Am. J. Phys.
+89, 885–896 (2021).
+12M. Rushka and J. K. Freericks, “A completely algebraic solution of the
+simple harmonic oscillator,” Am. J. Phys. 88, 976–985 (2020).
+13M. O. Brown, S. R. Muleady, W. J. Dworschack, R. J. Lewis-Swan, A. M.
+Rey, O. Romero-Isart, and C. A. Regal, “Time-of-ﬂight quantum tomogra-
+phy of an atom in an optical tweezer,” Nat. Phys. 19, 569–573 (2023).
+14L. E. Ballentine, Quantum Mechanics: A Modern Development , 2nd ed.
+(World Scientiﬁc, Singapore, 2015).
+15F. T. Arecchi, E. Courtens, R. Gilmore, and H. Thomas, “Atomic coherent
+states in quantum optics,” Phys. Rev. A 6, 2211–2237 (1972).
+469 Am. J. Phys., Vol. 91, No. 6, June 2023 A. M. Orjuela and J. K. Freericks 469 04 October 2023 22:52:59

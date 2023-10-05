@@ -1,0 +1,953 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| OCTOBER 01 2022
+Exploring entropy by counting microstates of the p-state
+paramagnet 
+Steuard Jensen  
+Am. J. Phys.  90, 736 (2022)
+https://doi.org/10.1 119/5.0061383
+Articles Y ou May Be Interested In
+Eigen microstates and their evolution of global ozone at dif ferent geopotential heights
+Chaos  (July 2021)
+Number of microstates and configurational entropy for steady-state two-phase flows in pore networks
+AIP Conference Proceedings  (January 2015)
+Microstability properties of the EBT boundary layer
+Physics of Fluids  (July 1982) 04 October 2023 23:18:13
+Exploring entropy by counting microstates of the p-state paramagnet
+Steuard Jensena)
+Department of Physics and Engineering, Alma College, Alma, Michigan 48801
+(Received 25 June 2021; accepted 24 August 2022)
+Moore and Schroeder proposed an effective approach to introducing entropy and the second law
+through computational study of models with easily countable states at ﬁxed energy. However, suchsystems are rare: the only familiar examples are the Einstein solid and the two-state paramagnet,
+which limits the available questions for assignment or discussion. This work considers the more
+general p-state paramagnet and describes the modestly more complicated counting of its
+microstates. An instructor can draw on this family of systems to assign a variety of new problems
+or open-ended projects that students can complete with the help of a spreadsheet program oranalytic calculation.
+#2022 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0061383
+I. INTRODUCTION
+Entropy is perhaps the most central concept in thermal
+physics, but students often struggle to understand it. The
+classical equation deﬁning entropy Sfrom heat Qand tem-
+perature T,dS/C21/C22dQ=T, leads directly to the crucial second
+law of thermodynamics. Total entropy always increases as
+sub-systems equilibriate with heat ﬂowing from hot to cold,
+since dS/C21/C22dQ=Tcþ/C22dQ=Th>0w h e n Tc<Th. However,
+this provides no intuition for what entropy is. Introductorytexts often use fuzzy, inprecise language to explain that
+entropy somehow measures the randomness or (worse)
+“disorder” of a system. But, how does this concept relate tothe mathematical deﬁnition?
+The statistical deﬁnition of entropy is much more concrete
+than “disorder.” Entropy is the log of the number of micro-
+states, X, corresponding to a given macrostate with total
+energy Uspread over Nparticles: S¼klnXðN;UÞ, where k
+is Boltzmann’s constant. Temperature is then given a quanti-
+tative deﬁnition relative to entropy, 1 =T¼@S=@U. So higher
+entropy means higher probability, and the tendency of a sys-
+tem to move to a more probable state hints at the second law.However, it’s still not clear why this should mean that heat
+ﬂows from hot to cold, nor why these probabilistic state-
+ments should lead to an absolute “law” for macroscopicsystems.
+This challenge of introducing entropy in a meaningful
+way was discussed by Moore and Schroeder,
+1who proposed
+that students build intuition about entropy, temperature, and
+the second law through computational statistical calculations
+with systems composed of subsystems that can exchangeenergy. Through this concrete exercise, students can see that
+the composite system’s most probable microstate (with the
+highest entropy) doesn’t necessarily spread energy outequally among subsystems, but that the subsystem tempera-
+tures arelikely to be equal. Introductory texts sometimes
+attempt similar demonstrations but use quite small systems
+whose multiplicities can be computed by hand: too small to
+properly convey the inevitibility of the second law. Moreadvanced texts consider larger systems but traditionally rely
+on limits and approximations that provide little intuition for
+students. Computational analysis permits study of systemslarge enough to clearly show irreversible behavior but still
+small enough for explicit calculations.
+Moore incorporated this approach into his introductory
+textbook Six Ideas That Shaped Physics
+2with the help of acustom-built application to automate the process, and
+Chabay and Sherwood used it in their Matter & Interactions
+textbook.3At the intermediate to advanced undergraduate
+level, Schroeder’s textbook Thermal Physics4asks students
+to perform their own analysis in a spreadsheet program like
+Microsoft Excel. Such tools are readily available and often
+familiar, avoiding the need to teach formal programming.
+This paper addresses a limitation of Moore and
+Schroeder’s approach that becomes especially apparent
+when teaching more advanced students: there are only twophysical systems whose states are easy to count explicitly,
+the Einstein solid and the two-state paramagnet. This means
+that there are limited options for homework and exam ques-
+tions. If one system is explained in detail to illustrate the
+method and then students are asked to apply their under-standing to analyze the second in homework, there is no dis-
+tinct third system available to use for further practice or
+assessment. Also, students seeking deeper understanding
+have nothing to explore for larger projects or curiosity-
+driven questions.
+Here, we show how an expanded class of systems, the
+“p-state paramagnets,” can be analyzed using similar state
+counting. At the minimum value p¼2, this coincides with
+the two-state case considered by Moore and Schroeder, andwhen p!1 , it is formally equivalent to the Einstein solid
+model. Between those extremes, explicit state counting is
+more complicated. However, once the multiplicities are in
+hand, the subsequent analysis proceeds the same way, and its
+results can teach interesting things about the relationshipbetween the two simplest systems.
+In what follows, Sec. IIreviews the Einstein solid and the
+two-state paramagnet. Section IIIdescribes the general p-state
+paramagnet and suggests student activities counting micro-
+states in a spreadsheet program like Excel. Section IVsumma-
+rizes the work and its limitations. Additionally, Appendix A
+presents derivations of the state counting formulas in the main
+text. Appendix B shows computer code to generate paramag-
+net multiplicities. Appendix C shows analytical results for the
+large- Nlimit. Finally, Appendix D reviews the more familiar
+analysis of these systems using the partition function.
+Related approaches to teaching entropy through state
+counting have been considered in the literature, and some of
+those might connect productively to the systems considered
+here. For example, Schoepf
+5presented an introduction to
+entropy similar to Moore and Schroeder’s, but with a focus
+on explicit tracing of energy transfers rather than computer
+736 Am. J. Phys. 90(10), October 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 736 04 October 2023 23:18:13
+tools. Salagaram and Chetty present a recursive algorithm
+for computing entropy via state counting6that can enable
+analysis of larger and more complicated systems than the
+basic two, and one of their applications was the three-stateparamagnet.
+II. REVIEW OF BASIC SYSTEMS
+A two-state paramagnet is a system of Nidentical spin-
+1=2 particles in a magnetic ﬁeld ~B¼B^z. Each has energy
+/C0~l/C1~B, where ~lis the magnetic moment. Each spin can be
+up or down, l
+z/C176l, with energy 7lB. For ease of com-
+parison with the Einstein solid, we shift the zero of energybylB, making the state energies 0 and 2 lB. For our pur-
+poses, the important factor is just the spacing /C15between the
+states, so for this system /C15¼2lB.
+The paramagnet’s ground state occurs when all Nspins
+are parallel to the magnetic ﬁeld. If we ﬂip the spin state of q
+spins, the total energy of the system is U¼q/C15. The integer q
+labels the macrostate, and the number of microstates is thenumber of ways to choose which qof the Nspins are ﬂipped.
+The multiplicity is, thus, given by the binomial coefﬁcient,
+often called “ Nchoose q.” Here, we denote it as/C16N
+q/C17
+f1g
+X2ðN;qÞ¼N
+q/C18/C19f1g
+¼N!
+q!ðN/C0qÞ!: (1)
+The superscript “{1}” is not part of the typical binomial
+notation. It denotes the fact that each spin can be chosenonly once. No spin can be “doubly ﬂipped” into a higher
+energy state because there is only one state above the ground
+state: repetition is not allowed.
+Below, we will discuss the more general form/C16N
+q/C17
+frg
+(to be read as “ N{r}-choose q”). This allows each of the N
+particles to be repeatedly chosen up to rtimes. These are
+called “extended binomial coefﬁcients” or “polynomial coef-ﬁcients,” and this notation follows that of Neuschel.
+7
+The total ( ^z) magnetization Mof the paramagnet is the
+sum of all Nmagnetic dipole moments. It corresponds
+closely to the energy: if qspins are in the higher energy
+lz¼/C0lstate then N–qwill be þl,s o
+M¼lN1/C02q
+N/C18/C19
+¼Mmax 1/C02U
+Umax/C18/C19
+: (2)
+The maximum magnetization Mmax¼lNoccurs when
+q¼0, and it falls to zero as q!N=2.
+Meanwhile, in the Einstein solid model, we approximate a
+solid as a system of Nidentical, independent harmonic oscil-
+lators. (This could be N=3 atoms, each oscillating in three
+dimensions about its equilibrium position.) Each oscillator’s
+energy states are separated by equal steps /C15, where this time
+/C15¼/C22hx. The total energy (above the ground state) of all the
+oscillators is U¼q/C15. The integer q/C210 again counts the
+total number of “energy units” in the system, but now qhas
+no upper bound.
+For macrostate q, the number of microstates is the number
+of ways to distribute the qunits of energy among the Noscil-
+lators. Inﬁnite repetition is allowed: there is no limit on the
+maximum energy per oscillator, soXEðN;qÞ¼N
+q !f1g
+¼Nþq/C01
+q !f1g
+¼ðNþq/C01Þ!
+q!ðN/C01Þ!:
+(3)
+(This is sometimes called “ Nmultichoose q.”) This expres-
+sion in terms of binomial coefﬁcients can be deduced from a“balls and bars” argument: one good explanation is in Sec.2.2 of Schroeder’s Thermal Physics textbook.
+4
+For both the Einstein solid and the two-state paramagnet,
+having an explicit formula for the multiplicity as a functionof energy allows us to ﬁnd the entropy, which in turn allowscalculations of measurable quantities like temperature andheat capacity. (A full pedagogical treatment is presented inchapters 2–3 of Schroeder’s Thermal Physics textbook.
+4)
+Before we discuss this process, we introduce the general p-
+state paramagnet.
+III. STATE COUNTING AND PHYSICS FOR
+GENERAL PARAMAGNETS
+A. Finding the multiplicity
+Ap-state paramagnet is composed of Nidentical particles
+each with total angular momentum quantum numberj¼ðp/C01Þ=2. Each particle’s magnetic dipole moment can,
+thus, take the pvalues l
+z¼/C0jdl;ð/C0jþ1Þdl;…;jdl, where
+dlis a constant. (If the angular momentum comes entirely
+from electron spins, dlis two times the Bohr magneton. For
+other cases, it may depend on the details of the system. SeeRef.4, p. 234 for further discussion.)
+When placed in a magnetic ﬁeld B^z, each particle, thus,
+haspequally spaced energy states. As before we label the
+energy spacing /C15(here, /C15¼d
+lB) and choose the ground state
+energy to be zero. For example, each particle in a three-stateparamagnet has energy states 0, /C15, and 2 /C15. The Einstein solid,
+p¼1 , and two state paramagnet, p¼2, are limiting cases
+of this more general system.
+As before, we deﬁne the total system energy as U¼q/C15
+with 0 /C20q/C20ðp/C01ÞNan integer labeling the macrostate.
+We count microstates by starting in the ground state and thenchoosing how to distribute each unit of energy among the N
+particles. However, now limited repetition is allowed: we
+can choose each particle up to r¼p/C01 times.
+Unfortunately, the formulas for these polynomial coefﬁ-
+cients are more complicated than for the limiting cases r¼1
+or1. One formula for the trinomial ( p¼3) coefﬁcients, “ N
+{2}-choose q,” was given by Andrews
+8
+X3ðN;qÞ¼N
+q/C18/C19f2g
+¼Xminðq;2N/C0qÞ
+j¼0ð/C01ÞjN
+j/C18/C19
+2N/C02j
+q/C0j/C18/C19
+:
+(4)
+A similar formula for the general case was given by Dani9
+XpðN;qÞ¼N
+q/C18/C19fp/C01g
+¼Xbq=pc
+j¼0ð/C01ÞjN
+j/C18/C19
+Nþq/C0pj/C01
+q/C0pj/C18/C19
+;
+(5)
+where bq=pcdenotes the “ﬂoor” of q/p, which here equals
+the integer part of the quotient. Proofs of both of these
+737 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 737 04 October 2023 23:18:13
+formulas are given in Appendix A . They use more sophisti-
+cated combinatorics arguments than the “balls and bars” der-
+ivation for Eq. (3), so instructors might not ﬁnd it worth
+working through these details.
+Instead, an instructor could simply provide students with a
+table giving the multiplicity as a function of q. (The ﬁrst and
+second columns of Table IIshow an example.) Such a list
+can be generated directly by a computer and then exported
+as a data ﬁle or into a spreadsheet. Speciﬁc implementations
+using an Excel VBA function, Mathematica, and Python are
+given in Appendix B .
+For more extensive projects studying the behavior of
+p-state paramagnets, students may beneﬁt from using the for-
+mula directly. Though the full proofs are better left to spe-
+cialized math courses, students can gain conﬁdence in these
+formulas by explicitly enumerating states for some very
+small values of Nand checking that the results match. A
+comparison of the coefﬁcients for several values of pfor the
+cases of N¼3 and 6 is given in Table I. It is noteworthy that
+for ﬁxed Nand small enough q, all values of preach the
+same or nearly the same multiplicity because the energy is
+dilute enough that overlap is rare.
+B. Physics and sample problems
+1. Individual systems
+With the ability to compute multiplicities for p-state para-
+magnets now in hand, we can consider speciﬁc physics
+problems to assign. The most straightforward standalone
+problems are studies of the entropy, temperature, and heat
+capacity of a single p-state paramagnet that directly parallel
+those discussed by Moore and Schroeder for the Einstein
+solid and two-state paramagnet. The instructor can choose
+particular values of Nand pand provide students with a
+spreadsheet ﬁle giving the multiplicity for each allowed
+energy state as described in Sec. III A. For N¼50 and p¼3,
+an excerpt of such a list is shown in the ﬁrst two columns of
+Table II.
+Students can compute the (dimensionless) entropy S=k
+¼lnXcorresponding to each multiplicity, then compute
+temperature using 1 =T¼@S=@U. Temperature can also be
+made dimensionless with the substitution U¼q/C15
+/C15
+kT¼@ðS=kÞ
+@ðU=/C15Þ¼@ðS=kÞ
+@q: (6)We implement this in the spreadsheet with a “centered dif-
+ference” form for the ﬁnite difference ﬁrst derivative: the
+temperature for qenergy units can be computed as
+kTq=/C15/C25Dq
+DðS=kÞ¼2
+ðS=kÞqþ1/C0ðS=kÞq/C01: (7)
+(The numerator is Dq¼ðqþ1Þ/C0ð q/C01Þ¼2.) Similarly,
+heat capacity is deﬁned as C¼@U=@T, making the heat
+capacity per particle C/Nin dimensionless form
+C
+Nk¼1
+N@ðU=/C15Þ
+@ðkT=/C15Þ/C251
+NDq
+DðkT=/C15Þ: (8)
+Again, this last form can be implemented in a spreadsheet.
+Excerpts from the results for N¼50 three-state particles are
+shown in Table II. The patterns are qualitatively similar to
+those for the two-state paramagnet, including the unusual neg-ative temperature regime when q>ðp/C01ÞN=2. (Negative
+temperatures arise only in rare systems where the multiplicity
+sometimes goes down as energy goes up: usually when the
+system has a maximum allowable total energy. When these
+systems are near the maximum energy, they increase their
+entropy (i.e., move to a more probable state) by giving away
+energy: any negative temperature is “hotter than inﬁnity.”)
+Just as for the two-state case, the total magnetization Mof
+the system is the sum of the contributions of each magnetic
+dipole moment and is, thus, related to the energy
+M¼lðp/C01ÞN1/C02q
+ðp/C01ÞN/C18/C19
+¼Mmax 1/C02U
+Umax/C18/C19
+:
+(9)
+As before, Mdecreases from Mmax¼lðp/C01ÞNwhen q¼0
+to zero as q!ðp/C01ÞN=2.
+Students could extend this procedure to explore patterns in
+the distribution of states, heat capacity, or other physicalquantities for various values of porN. The instructor can
+again provide multiplicity data, or for a longer project, stu-
+dents might beneﬁt from computing those values themselves.Table I. A comparison of extended binomial coefﬁcients/C16N
+q/C17fp/C01g
+for sev-
+eral values of Nandp. The p¼1 case corresponds to the Einstein solid. At
+low temperatures (small q) and a given N, all values of pgive similar
+results.
+Npq ¼0 1 2 3 4567 8 9
+3 21 3 3 10000 0 0
+3 31 3 6 76310 0 034 1 36 1 01 21 21 0 6 3 131 1 36 1 01 52 12 83 6 4 5 5 5
+6 2 1 6 15 20 15 6 1 0 0 0
+6 3 1 6 21 50 90 126 141 126 90 506 4 1 6 21 56 120 216 336 456 546 58061 1 6 21 56 126 252 462 792 1287 2002Table II. Entropy ( S), temperature ( T), heat capacity ( C), and magnetization
+(M) for a three-state paramagnet with N¼50 particles, computed in Excel
+based on multiplicity ( X) values calculated as described in the text. (Values
+in parentheses are theoretical limits, not calculated.) As with all paramagnetsystems, most of the p
+N¼350possible microstates fall in macrostates near
+q¼qmax=2: see Fig. 1. Boltzmann’s constant kand the energy level spacing
+/C15have been used to make all quantities dimensionless.
+q3 X3 S3=kk T 3=/C15 C3=Nk M =Mmax
+0 1 0 (0) (0) 1.00
+1 50 3.91 0.28 — 0.982 1275 7.15 0.33 0.450 0.963 22 050 10.00 0.37 0.526 0.94
+..................
+48 4 :66/C210
+2252.20 16.9 0.002 0.04
+49 4 :87/C2102252.24 33.8 0.001 0.02
+50 4 :94/C2102252.26 ð1Þ (0) 0.00
+51 4 :87/C2102252.24 /C033.8 0.001 /C00.02
+52 4 :66/C2102252.20 /C016.9 0.002 /C00.04
+..................
+99 50 3.91 /C00.28 — /C00.98
+100 1 0 (0) (0) /C01.00
+738 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 738 04 October 2023 23:18:13
+As an example, here we compare the multiplicity as a
+function of energy for paramagnets with different p. Figure 1
+shows multiplicities for systems of N¼50 particles, where
+each has either p¼2, 3, or 4 angular momentum states. The
+two panels of Fig. 1show very different ways of plotting the
+same data. On the one level, the value of these graphs is sim-ply to see that each paramagnet’s multiplicity has a peakaround the center of its allowed energy range. However, thisis also an opportunity for students to learn about the chal-lenges and choices involved in effective data visualization.
+Students will quickly ﬁnd that graphing raw multiplicities
+on the same linear vertical scale is not useful because the peakheights differ by so much that a single scale cannot show all ofthe curves. To effectively compare the different systems, theymust either use a log scale for the vertical axis (effectivelygraphing entropy S¼klnX, as in the top panel of Fig. 1)o r
+normalize it in a meaningful way (as in the bottom panel). For
+the horizontal axis, they can choose either to plot the energyon a common scale to show the differences in range and peakposition (as in the top panel), or to scale the energy relative tothe system’s maximum capacity which centers all of the peaksfor easier comparison (as in the bottom panel).
+These different representations of the same data each have
+strengths and weaknesses. The top panel of Fig. 1is opti-
+mized to show differences in the peak positions and totalmultiplicities for different values of p, and it also draws
+attention to the equivalent behavior of all systems in thelow-energy limit. However, these choices greatly obscurethe sharpness of the peaks. The bottom panel is optimizedinstead for comparing the sharpness and shapes of the peaksfor various p, but its vertical normalization is subtle.
+10
+Confronting the surprisingly large impact of these choices in
+visualizing the exact same underlying data can be an excel-lent learning experience.
+As a related project, students could compare the heat
+capacities or magnetizations for various values of p. Somecare is necessary in order to study the full temperature scale,
+because a spreadsheet like Excel is only able to handle thesize of the multiplicity numbers for qup to a few hundred at
+most (less for higher p).
+11Students can study smaller sys-
+tems (say, N¼50–100) over their full range of energy qto
+study the high-temperature and negative temperature regime.However, small systems don’t work well for low tempera-ture, since even just one or two units of energy correspondsto fairly large temperature. To study this low-temperature
+regime, students can consider larger systems (say, N¼5000
+or more), but only at small values of energy.
+Figure 2shows what the result of such a project might
+look like, using systems of size N¼50 and 5000 to compare
+the heat capacities for p¼2;3;4;15 and the Einstein solid.
+(As seen on the graph, for N¼50 the lowest temperature
+with reliable data is kT=/C15/C240:33, corresponding to q¼2.)
+Just as we saw for multiplicities in Table I, the heat capaci-
+ties at low temperature are nearly identical for all values ofp. However, at high temperature, the curves interpolate
+between the two-state paramagnet and Einstein solid. As p
+increases more energy states are accessible, the behavior
+approaches that of an ideal harmonic oscillator, which has no
+limit on its energy. Note that the Einstein solid has no regimewith negative temperatures because it has no maximum inthe system energy. (For N¼5000, the plot shows negative
+temperature heat capacities mirrored from the positive tem-perature side.) A similar project could compare graphs for
+magnetization.
+2. Interacting systems
+After studying entropy and temperature using a single sys-
+tem, students can study interacting systems to build an intui-tive understanding of the second law. Here, we tune themagnetic ﬁeld so the energy state spacing /C15for a paramagnet
+matches that for an Einstein solid, which allows us to use the
+same integer counting of energy chunks to consider interac-
+tions between the two systems.
+When we study such a combined system, we will take the
+total amount of energy shared between the two subsystemsto be a constant, and we will distinguish the macrostates by
+Fig. 1. Two possible visualizations of the distribution of multiplicities for
+various p-state paramagnets (that a student could construct in Excel, using
+multiplicity data computed elsewhere). Some of the options are discussed in
+the text: the choices leading to the top graph focus on the different overall
+state distributions and the matching low-energy limit, while the choices
+leading to the bottom one focus on the sharpness and comparative shapes of
+the peaks.Fig. 2. Heat capacities computed and graphed in Excel for various paramag-
+nets and an Einstein solid. Calculations for N¼50 particles can show high-
+temperature features, while low-energy calculations for N¼5000 explore
+the lower-temperature limit where these systems all converge to the same
+behavior. For clarity, only every few data points are shown in regions where
+they would otherwise blur together.
+739 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 739 04 October 2023 23:18:13
+how the energy is split between the two. For example, con-
+sider a system comprised of a three-state paramagnet withN
+3¼50 particles interacting with an Einstein solid with NE
+¼50 oscillators. If the system has total energy Utotal¼100/C15,
+then the energies of the subsystems are not independent, but
+can vary under the constraint q3þqE¼qtotal¼100. Table III
+presents representative data for this example, labeled by thenumber of energy units q
+3in the paramagnet.
+The critical assumption underlying statistical mechanics is
+that an isolated system is equally likely to be in any micro-
+state corresponding to its macrostate. This is true only if we
+consider the system over timescales that are much largerthan the time the system takes to move between microstates.Over these large timescales, all microstates will be sampled
+equally and we can say, that the system is in equilibrium.
+This system timescale is inversely proportional to thestrength of the interactions: strongly interacting systemsreach equilibrium faster.
+Here, we will assume that the internal interactions of each
+subsystem are much stronger than the interactions that
+exchange energy between them, meaning the subsystemsreach equilibrium much faster than the combined system.We will consider the behavior of the system at timescales
+larger than the subsystem internal timescales, meaning we
+can simply count the subsystem microstates and assume theyare sampled equally. Yet because we wish to understandwhat happens when two systems are ﬁrst brought into con-tact and establish an equilibrium, we count the microstates
+of the combined system for each separate pair of values
+q
+3;qE. (Over much longer timescales, all of these pairs
+would be well sampled and it would only be meaningful tocount the total microstates of the combined system macro-
+state, q
+total¼100.)
+Again, the instructor can provide data for the number of
+microstates of the paramagnet subsystem as a function of q3
+so that students don’t need to use Eqs. (4)or(5). Students
+would be expected to construct the rest of the table using the
+same procedure described by Moore and Schroeder. They
+can ﬁnd qEfor each row from the constraint qE¼qtotal/C0q3,
+then compute the total number of microstates for thecombined system for each value of q
+3as the product
+Xtotalðqtotal;q3Þ¼X3ðq3ÞXEðqEÞ, and the net probability
+from the sum of the total multiplicity values over all
+macrostates.
+Students can identify the most likely subsystem macro-
+state q3in several ways. The most likely conﬁguration is theone with the highest total multiplicity Xtotal, and correspond-
+ingly the highest entropy. Just as important, it is also thestate where the temperatures of the two subsystems are mostnearly equal. (The instructor could frame the problem to ask
+students to apply a speciﬁc approach, or to ask them to com-
+ment on both.)
+In this particular example, the calculation excerpts in
+Table IIImake it clear that the macrostates with q
+3¼32 and
+33 are the most likely, with q3¼32 marginally favored.
+Some students may at ﬁrst be surprised that two systems of
+“equal size” would not share the energy equally: this gives
+an opportunity to emphasize the central importance of multi-plicity in determining the probabilities of states rather thanjust energy. This reinforces Moore and Schroeder’s lesson
+that even though all macrostates are possible, the over-
+whelming majority of the probability is concentrated nearthe maximum entropy state: the essence of the Second Law.
+As before, interactions involving different p-state para-
+magnets provide opportunities for more open-ended explora-tion. An interested student could use these methods to
+consider interactions between an Einstein solid and paramag-
+nets with different values of p, and study the patterns that
+arise. As one example, Fig. 3shows the probability distribu-
+tions for various macrostates for paramagnets with p¼2, 3,
+4 and also for interaction between two Einstein solids.Table III. Multiplicities, temperatures, and probabilities for a three-state paramagnet with N3¼50 particles interacting with an Einstein solid with NE¼50
+oscillators, sharing 100 total energy units between them. Students can identify the most likely macrostate q3¼32 of the combined system as the one with the
+highest total multiplicity and greatest probability, and also the one where the individual system temperatures are most nearly equal (though q3¼33 is only
+marginally less likely).
+q3 X3 S3=kk T 3=/C15 qE XE SE=kk T E=/C15 Xtotal St=k Prob
+0 1 0 0 100 6.71 /C2103991.70 2.52 6.71 /C2103991.70 10/C014%
+1 50 3.91 0.28 99 4.50 /C2103991.31 2.50 2.25 /C2104195.22 10/C012%
+2 1275 7.15 0.33 98 3.01 /C2103990.90 2.48 3.84 /C2104298.05 10/C011%
+3 22 050 10.00 0.37 97 2.00 /C2103990.50 2.46 4.43 /C21043100.50 10/C010%
+.................................
+31 2 :05/C2102046.77 1.68 69 4.50 /C2103377.49 1.87 9.23 /C21053124.26 7.68%
+32 3 :65/C2102047.35 1.79 68 2.63 /C2103376.95 1.85 9.61 /C21053124.30 8.00%
+33 6 :28/C2102047.89 1.90 67 1 :53/C2103376.41 1.83 9.60 /C21053124.30 7.99%
+34 1 :04/C2102148.40 2.03 66 8.83 /C2103275.86 1.81 9.22 /C21053124.26 7.68%
+Fig. 3. Interaction macrostate probabilities for three different paramagnetic
+systems with N¼50 particles with an equal-sized Einstein solid and 100 total
+units of energy, as well as an interaction between two Einstein solids. As p
+increases, the particles interact more and more like a second Einstein solid.
+740 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 740 04 October 2023 23:18:13
+This graph is another clear illustration of the way in which
+the Einstein solid is a limiting case of the paramagnet as
+p!1 .
+Many other avenues of exploration suggest themselves. One
+could investigate these systems’ behavior for a variety of values
+of total energy, including both qtotal/C28Nand/C29N.A r et h e r e
+recognizable trends in the equilibrium temperature as a functionofq
+total? Or, for a given Einstein solid, might a two-state para-
+magnet with larger Nhave similar interaction behavior as a
+smaller three-state paramagnet? (Would the details depend on
+the total energy?) Are there interesting patterns in interactions
+between paramagnets of different porN? There is a great deal
+of room for students to develop their own questions.
+IV. CONCLUSIONS
+For students studying thermal physics based on Moore and
+Schroeder’s state-counting approach to entropy and the sec-
+ond law, the p-state paramagnets are a natural generalization
+of the Einstein solid and two-state paramagnet systems that
+form the foundation of that entry point to the subject. The
+modest increase in complexity lies entirely in the initial setup,so it is straightforward to assign problems that require no stu-
+dent background beyond what they have already practiced.
+This provides a source of additional examples to supplement
+the standard two for homework or exams. (Some analytic
+analysis is also possible: see Appendix C .) Because these sys-
+tems form a related family, there is a great deal of room for
+open-ended projects and curiosity-driven exploration using
+these same basic tools involving explicit states counting.
+It is worth explicitly commenting that state counting is not
+theeasiest approach to studying p-state paramagnets. As
+with so many examples, once students understandBoltzmann factors and the partition function, those tools pro-
+vide a much more direct way to determine the temperature
+dependence of measurables like energy and heat capacity.
+(This is brieﬂy reviewed in Appendix D .) In fact, once stu-
+dents have learned both approaches it can be interesting toask them to study the same system in both ways. Seeing the
+agreement between these methods can give a satisfying dem-
+onstration of their relationships.
+ACKNOWLEDGMENTS
+The author thanks Thorsten Neuschel for helpful
+clariﬁcations of the useful range of his extended binomialcoefﬁcient approximation and also students at Alma College
+for serving as guinea pigs for some of these ideas.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conﬂicts of interest to disclose.
+APPENDIX A: DERIVATIONS OF MULTIPLICITY
+FORMULAS
+The multiplicity formulas for p-state paramagnets given in
+Sec. III(Eqs. (4)and(5)) are based on the functions “ N
+fp/C01g-choose q,” where we can choose any given one of
+theNelements at most p/C01 times. In this appendix, we pre-
+sent formal mathematical derivations of those equations.
+It will be helpful in what follows to recall that binomial
+coefﬁcients “ Nchoose q,” with p¼2, can be interpreted asthe coefﬁcient of x
+qin the expansion of the binomial
+ð1þxÞN: this counts the number of ways to choose qterms
+out of the Nterms of the product to contribute a power of x
+(corresponding in the two-state paramagnet to a particle con-
+tributing one unit of energy). This relationship is expressed
+as the binomial expansion
+ð1þxÞN¼XN
+q¼0N
+q/C18/C19f1g
+xq: (A1)
+Our explicit example of the three-state paramagnet has
+energy states 0, /C15, and 2 /C15, which suggests a parallel to the
+binomial expansion from Eq. (A1)
+ð1þxþx2ÞN¼X2N
+q¼0N
+q/C18/C19f2g
+xq: (A2)
+Conceptually, as before, each of the Nterms on the left cor-
+responds to one of the Nparticles. When a given term con-
+tributes an xto the product, that corresponds to a particle
+carrying one unit of energy, and when it contributes an x2
+that corresponds to two units of energy. The coefﬁcient of xq
+is, thus, the total number of ways of distributing energy to
+add up to U¼q/C15. This same reasoning extends directly to
+the more general extended binomial coefﬁcients
+ð1þxþx2þ/C1/C1/C1þ xp/C01ÞN¼XNðp/C01Þ
+q¼0N
+q/C18/C19fp/C01g
+xq:(A3)
+The equations for the extended binomial coefﬁcients given
+in Sec. IIIcan both be derived using combinatorial proofs based
+on the “principle of inclusion-exclusion:” a process of repeated
+overcounting and corrections. For p¼3, Andrews8provides
+two formulas, the ﬁrst of which was given as Eq. (4)
+N
+q/C18/C19f2g
+¼Xminðq;2N/C0qÞ
+j¼0ð/C01ÞjN
+j/C18/C19
+2N/C02j
+q/C0j/C18/C19
+: (A4)
+Andrews presents these formulas without proof, calling them
+“easily derived,” which might possibly be true for those withrecent practice in combinatorics. Here, it seems worth
+explaining in more detail.
+As illustrated in Fig. 4for the case N¼2,q¼2, we apply
+the principle of inclusion-exclusion as follows. Imagine
+each particle as a box that can hold up to two marbles
+(energy units): one in a slot on the left and one on the right.There are, thus, 2 Nslots, and naively we can distribute the q
+marbles in 2 N-choose- qways. (This is the j¼0 term in the
+sum above.) However, this double counts cases where a sin-
+gle box has only one marble, because it doesn’t matter which
+slot is ﬁlled. So we choose one particular box (there areN-choose-1 choices), assume it has only one marble, and sub-
+tract off the number of ways of distributing the remaining q–1
+marbles among the remaining 2 ðN/C01Þslots: ð2ðN/C01ÞÞ-
+choose- ðq/C01Þways. (This subtraction is the j¼1t e r mi nt h e
+sum.) However, now we have overcorrected, because some ofthose conﬁgurations had a second box with only one marble.
+We need to add back the count of the number of conﬁgurations
+with two boxes containing one marble each. There are
+N-choose-2 choices, and for each one the remaining count
+isð2ðN/C02ÞÞ-choose- ðq/C02Þ. (This is the j¼2t e r m . )
+We repeat this alternating sum until we have considered every
+possible conﬁguration: the last nonzero term is either j¼q
+741 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 741 04 October 2023 23:18:13
+(we’ve used all the energy) or j¼2N/C0q(we’ve used all the
+“empty slots”), whichever comes ﬁrst. (Try this yourself forN¼2,q¼3.)
+Meanwhile, the general formula in Eq. (5)is
+N
+q/C18/C19
+fp/C01g
+¼Xbq=pc
+j¼0ð/C01ÞjN
+j/C18/C19
+Nþq/C0pj/C01
+q/C0pj/C18/C19
+:(A5)
+This was proven by Dani by direct calculation,9but a count-
+ing argument may give deeper insight.
+We again apply the principle of inclusion-exclusion. Start
+by allowing unlimited energy per particle and count the
+number of ways to distribute the qunits of energy among
+Nparticles. Just as for the Einstein solid in Eq. (3), this is the
+“multichoose” function N-multichoose- q¼ðNþq/C01Þ-
+multichoose- q. (This is the j¼0 term in the sum above.) For
+ﬁnite pthis obviously overcounts the number of states,
+because some particles may have been assigned more thanp/C01 units of energy. We need to subtract off the number of
+states where at least one particle has por more energy units.
+To do this, we ﬁrst identify the overﬁlled particle (there areN-choose-1 ¼Nchoices) and assign it a baseline of punits of
+energy, and then we count the number of ways to distributethe remaining q–penergy units among all Nparticles:
+N-multichoose- ðq/C0pÞ¼ð Nþq/C0p/C01Þ-choose- ðq/C0pÞ.
+(This subtraction is the j¼1t e r mi nt h es u m . )H o w e v e r ,n o w
+we have overcorrected: we have subtracted the states wheretwoparticles have too much energy twice. To add back these
+overcounted states, there are N-choose-2 possible pairs, and
+for each possible pair we must add back the number of statesin which both have at least punits of energy: N-
+multichoose- ðq/C02pÞ¼ðNþq/C0
+2p/C01Þ-choose- ðq/C02pÞ.( T h i s
+positive correction is the j¼2 term.) This alternating process
+continues until we have exhausted the number of energy units:until j¼bq=pc(the integer part of the quotient), proving the for-
+mula above.
+APPENDIX B: CODE FOR COMPUTING
+MULTIPLICITIES
+In most cases, asking students to write code to implement
+the multiplicity formulas themselves will be outside thescope of the course, but the instructor will need some way of
+generating the necessary data. Sample code for several plat-
+forms is given below, and implementation ﬁles for each are
+included in the supplementary material.12
+One straightforward way to generate the necessary data is
+to deﬁne a custom function in a spreadsheet program. The
+instructor could use this to generate a ﬁxed data table to pro-vide to students, or if all of the students are using the same
+program they could be given a spreadsheet template with
+the necessary function in place. For example, Excel on
+any platform can use the following VBA code to implement
+Eq.(5):13
+FunctionExtBinom(n,q,p)
+result ¼0
+Forj ¼0Toq\p
+result ¼result þ(-1)ˆj*_
+Application.WorksheetFunction._
+Combin(n,j) *_
+Application.WorksheetFunction._Combin(n þq-p*j-1,q-p *j)
+Nextj
+ExtBinom ¼result
+EndFunction
+(In VBA, ending a line with “space-underscore” allows a
+formula to split across lines. The Excel COMBIN(N,q)
+function referenced here is the “combinations” function
+that computes the binomial coefﬁcientsN
+q/C18/C19
+f1g
+.) This cus-
+tom function can then be used in spreadsheet formulas as
+¼ExtBinom(n,q,p) .
+Another approach that can be effective for standalone
+problems is to generate the multiplicity values in advance
+and give them to the students as a data ﬁle or spreadsheettemplate. For example, using Mathematica a list of the p¼3
+multiplicities for N¼50 derived from Eq. (A3) is produced
+by the command CoefﬁcientList[(1 þxþxˆ2)ˆ50,
+x], and a function giving the extended binomial coefﬁcient/C16n
+q/C17
+fp/C01g
+is
+extBinomial[n_,q_,p_]: ¼
+Coefﬁcient[Sum[xˆa,{a,0,p-1}] ˆn,x,q].
+For larger values of Nandp, this method can be slow: it may
+be more efﬁcient to implement the formula of Eq. (5)
+instead. That is just as straightforward to do in Mathematica
+as it was in VBA above, or in a general purpose program-
+ming language like Python we can write:
+importscipy.specialassp
+defextBinom(n,q,p,exact ¼True):
+result ¼0
+forjinrange(q//p þ1):
+result þ¼(-1) **j*sp.comb(n,j,exact)\
+*sp.comb(n þq-p*j-1,q-p *j,exact)
+returnresult
+(Ending a line with a backslash allows a formula to split across
+lines.) The function scipy.special.comb() is the
+“combinations” function that computes the binomial coefﬁ-
+cients; itsexact parameter determines whether the answer is
+returned as an exact integer or (if exact ¼False )a saﬂ o a t i n g
+point number. The latter might be preferred once the multiplicity
+becomes large.Fig. 4. Top: Direct state counting for N¼2,q¼2,p¼3: two boxes and two
+marbles. Each box can hold 0, 1, or 2 marbles (three possible states), so2f2g-choose 2 ¼3.Bottom: Computing this using Eq. (4)/(A4), where each
+box has two “slots.” First ( j¼0) count all ways to distribute two marbles
+among four slots. This double counts cases where a box contains a single
+marble (since slots are equivalent), so ( j¼1) cycle through subtracting those
+cases: choose a box to have exactly one marble, then count ways to distrib-
+ute the remaining marble. However, this double subtracts cases where two
+boxes have just one marble, so ( j¼2) add that back in.
+742 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 742 04 October 2023 23:18:13
+APPENDIX C: ANALYTIC CALCULATIONS
+AT LARGE N
+In addition to explicit state counting, the multiplicities for
+the Einstein solid and the two-state paramagnet are simpleenough for students to evaluate analytically using Stirling’sapproximation when Nandqare large. This allows explicit
+calculations of quantities like entropy as a function of energyor of energy as a function temperature.
+For example, for the two-state paramagnet, applying the
+leading terms of Stirling’s approximation to the natural log ofEq.(1)gives S=k/C25NlnN/C0qlnq/C0ðN/C0qÞlnðN/C0qÞ,s o
+the temperature is given by 1 =T¼@S=@U¼ðk=/C15Þ@ðS=kÞ=
+@q, and thus, /C15=kT/C25ln½ðN/C0qÞ=q/C138. Solving for energy, we
+ﬁnd U¼q/C15/C25N/C15=ð1þe
+/C15=kTÞ, or rearranging terms,
+U/C25ðN/C15=2Þð1/C0tanhð/C15=2kTÞÞ. Then from Eq. (9), the mag-
+netization is M¼lNtanhð/C15=2kTÞ. Similar reasoning can be
+applied to the Einstein solid.
+This procedure is more difﬁcult for the general p-state
+paramagnet because of the sum in Eq. (5)for the multiplic-
+ity: this sum is ﬁnite, but in systems of realistic size it couldhave on the order of 1023terms. We can make progress in
+particular limits, but the proofs are quite specialized and itwould be unrealistic to ask physics students to understandthe details. Instead, it is best just to directly cite the relevantresults for students to apply.
+The most interesting and accessible limit is at high tem-
+perature, as the paramagnet approaches its maximum multi-plicity, q!ðp/C01ÞN=2. This is the central peak seen in the
+density of states in Fig. 1. For large N, we can use results by
+Neuschel
+7(building on the work of Eger14) to estimate the
+multiplicity. Neuschel gives a full expansion of the extendedbinomial coefﬁcients in orders of 1 =N. For our purposes, the
+leading term is sufﬁcient15
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ðp2/C01ÞN
+12r
+1
+pNN
+q/C18/C19fp/C01g
+¼1ﬃﬃﬃﬃﬃﬃ
+2pp e/C0x2=2þO1
+N1=2/C18/C19
+;
+(C1)
+converging uniformly with respect to all integers q, with
+x¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+12
+ðp2/C01ÞNs
+q/C0Nðp/C01Þ
+2/C18/C19
+: (C2)
+This variable xhas been scaled to put the Gaussian term
+into standard normal distribution form: the prefactor outsidethe parentheses is one over the standard deviation:r¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ðp
+2/C01ÞN=12p
+. Note that x<0 for positive tempera-
+tures, with T!1 asx!0.
+From the right hand side of this expression, it is clear that
+the Gaussian term will be dominant at large Nas long as
+jxj/H113511, but that outside of that central peak the Gaussian will
+fall off roughly as e/C0Nand cease to be reliable as a leading
+term. (This is why this result only allows calculations in thehigh-temperature limit.) Thus, for jxj/H113511, we can reliably
+solve for the multiplicity
+X
+pðN;qÞ¼N
+q/C18/C19fp/C01g
+/C25pN
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2pNpﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+12
+p2/C01s
+e/C0x2=2:(C3)
+This is pNtimes a standard normal distribution, so a sum
+over xgives pNas the total number of states, as expected.To study the physical behavior of paramagnetic systems, the
+next step is to compute the entropy S¼klnXp
+Sp=k/C25Nlnp/C0x2
+2þ1
+2ln6
+pN/C18/C19
+/C0lnðp2/C01Þ/C18/C19
+:
+(C4)
+From this, we can then apply the deﬁnition of temperature,
+1=T¼@S=@U, or in dimensionless form
+/C15
+kT¼@S=k
+@q¼@S=k
+@x@x
+@q/C25/C0xﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+12
+ðp2/C01ÞNs
+¼12
+ðp2/C01ÞNNðp/C01Þ
+2/C0q/C18/C19
+: (C5)
+Solving for energy, we ﬁnd
+q¼U
+/C15/C25Np/C01
+2/C0p2/C01
+12/C15
+kT/C18/C19
+: (C6)
+(This correctly matches the high temperature limit of the ear-
+lierp¼2 result.) From the energy, we can calculate the heat
+capacity at high temperature
+C¼dU
+dT¼Nkp2/C01
+12/C15
+kT/C18/C192
+: (C7)
+Finally, we can use the energy to ﬁnd the magnetization
+using Eq. (9)
+M¼lðp2/C01ÞN
+6/C15
+kT¼Mmaxpþ1
+6/C15
+kT: (C8)
+This 1 =Tdependence at high temperatures is Curie’s Law.
+All of these steps that follow from Eq. (C3) are a direct
+generalization of calculations that students may have already
+seen for the two-state paramagnet or the Einstein solid,
+which could make this a natural followup activity on home-
+work or exams.
+The low-temperature limit is more difﬁcult to explore in
+this way, though limited results are possible.16It is also less
+necessary. As previously discussed, in this dilute limit when
+q/C28N, all of the p-state paramagnets (and the Einstein solid)
+are equivalent to the two-state case: when there are very few
+energy units to go around, it is rare for any particle to carry
+even one of them, let alone more. In this limit, the number of
+available particle states makes essentially no difference at
+all.
+APPENDIX D: ANALYSIS USING THE PARTITION
+FUNCTION
+Paramagnetic systems with p>2 states are by no means
+new: they have been thoroughly studied in the canonical
+ensemble using Boltzmann factors and the partition function.
+(See, e.g., Schroeder problem 6.11.4) So it is instructive to
+see how the results of the microcanonical analysis and directstate counting presented above compare to the (substantially
+simpler) canonical methods.
+The partition function of a single particle is the sum of
+Boltzmann factors e
+/C0E=kTfor each of its pstates
+743 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 743 04 October 2023 23:18:13
+Zp¼Xp/C01
+j¼0e/C0j/C15=kT¼1þe/C0/C15=kTþ/C1/C1/C1þ e/C0ðp/C01Þ/C15=kT:
+(D1)
+If we deﬁne the shorthand y¼e/C0/C15=kT, we can use polynomial
+division (or the geometric series) to write
+Zp¼Xp/C01
+j¼0yj¼1/C0yp
+1/C0y; (D2)
+an algebraic identity that holds for any y6¼1 and, thus, any
+T6¼61. Plugging in yand rearranging terms produces
+Zp¼e/C0p/C15=2kT
+e/C0/C15=2kTep/C15=2kT/C0e/C0p/C15=2kT
+e/C15=2kT/C0e/C0/C15=2kT
+¼e/C0ðp/C01Þ/C15=2kTsinhðp/C15=2kTÞ
+sinhð/C15=2kTÞ; (D3)
+using the deﬁnition of sinh. The initial exponential term
+would be absent if we had chosen the zero of energy to bethe midpoint rather than the ground state.
+To study limits of T, we deﬁne the dimensionless variable
+t/C17kT=/C15,s o y¼e
+/C01=t. The strict high-temperature limit is
+t/C29p>1, which will apply in realistic cases where pis a
+small integer. However, we may also consider the formallimit p/C29t/C291: this is the p¼1 case corresponding to an
+Einstein solid. In either of these high-temperature limits,y/C251/C0ð1=tÞþð 1=2t
+2Þ/C0ð 1=6t3Þ. If additionally t/C29p;yp
+/C251/C0ðp=tÞþð p2=2t2Þ/C0ð p3=6t3Þ, and so
+Zp;high/C0T/C25p
+t/C0p2
+2t2þp3
+6t3
+1
+t/C01
+2t2þ1
+6t3
+/C25p1/C0p/C01
+2tþðp/C01Þð2p/C01Þ
+12t2/C18/C19
+: (D4)
+On the other hand, in the limit p/C29t/C291, it follows that
+yp/C281 and so Z1;high/C0T/C251=ð1=tÞ¼t¼kT=/C15.
+From these results, the total energy of the system can be
+calculated in either of two standard ways
+Up¼N/C22Ep¼N
+ZpXp/C01
+j¼0j/C15e/C0j/C15=kT;or (D5)
+Up¼/C0N
+Zp@Zp
+@b
+¼N/C15
+2ðp/C01Þ/C0pcothðp/C15=2kTÞþcothð/C15=2kTÞ ðÞ :(D6)
+Once again we can look at limiting temperatures. In the
+strict high-temperature limit t/C29p, we can use the x/C281
+expansion coth x/C251=xþx=3 to show Up;high/C0T/C25N/C15ðp
+/C01=2/C0p2/C01=ð12tÞÞ. This precisely matches the earlierasymptotic form from Eq. (C6).I fp/C29t/C291, the previous
+expansion together with coth ðp=2tÞ!1 means that
+U1;high/C0T/C25N/C15t¼NkT, exactly as given by the equiparti-
+tion theorem for an Einstein solid.
+From the energy, we can immediately also ﬁnd the magne-
+tization using Eq. (9)
+Mp¼lNpcothðp/C15=2kTÞ/C0cothð/C15=2kTÞ ðÞ : (D7)
+In the strict high-temperature limit, Mp;high/C0T/C25lNp2
+/C01=ð6tÞ, exactly matching Eq. (C8) and reproducing the 1 =T
+behavior of Curie’s Law.
+a)Electronic mail: jensens@alma.edu, ORCID: 0000-0002-5434-0460.
+1T. A. Moore and D. V. Schroeder, “A different approach to introducing
+statistical mechanics,” Am. J. Phys. 65(1), 26–36 (1997).
+2T. A. Moore, Six Ideas That Shaped Physics: Unit T , 3rd ed. (McGraw-
+Hill, New York, NY, 2017).
+3R. Chabay and B. Sherwood, Matter & Interactions , 4th ed. (Wiley,
+New York, NY, 2015).
+4D. V. Schroeder, An Introduction to Thermal Physics (Addison Wesley,
+San Francisco, CA, 2000).
+5D. C. Schoepf, “A statistical development of entropy for the introductoryphysics course,” Am. J. Phys. 70(2), 128–136 (2002).
+6T. Salagaram and N. Chetty, “Enhancing the understanding of entropy
+through computation,” Am. J. Phys. 79(11), 1127–1132 (2011).
+7T. Neuschel, “A note on extended binomial coefﬁcients,” J. Integer
+Sequences 17(10), 14.10.4 (2014), <https://cs.uwaterloo.ca/journals/JIS/
+VOL17/Neuschel/neuschel4.html >.
+8G. E. Andrews, “Euler’s ‘Exemplum memorabile inductionis
+fallacis’ and q-trinomial coefﬁcients,” J. Am. Math. Soc. 3(3),
+653–669 (1990).
+9A. Dani, “How to compute coefﬁcients in trinomial triangle at speciﬁcposition?” Mathematics Stack Exchange <https://math.stackexchange.
+com/q/57112 >(2011).
+10Because of the horizontal scaling in the top panel of Fig. 1,t h eh i g h e r - p
+graphs have denser data points: this leads to lower multiplicity in any given
+data point and thus to lower peak heights, which can be visually misleading.
+So rather than directly graphing the relative multiplicity X=Xtotalfor each
+state, this graph shows a fractional density of states, normalizing by the (rela-
+tive) size of the energy steps for each system. This makes the graphs easy to
+compare by ensuring that the area under each curve equals one.
+11It is important when using Excel to program multiplicity formulas using the
+¼COMBIN(N,q) function for the binomial coefﬁcients rather than explicitly
+using factorials, because that function in Excel can handle larger arguments
+than the factorials can: it is coded to perform the cancellation of terms between
+numerator and denominator before evaluating the result. Some spreadsheet
+programs other than Excel do not implement ¼COMBIN(N,q) carefully in
+this way, and are limited to smaller systems as a result.
+12See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0061383 for the sample code.
+13D. Koutsoyiannis, private communication (7 August 2021).
+14S. Eger, “Stirling’s approximation for central extended binomial coef-
+ﬁcients,” Am. Math. Mon. 121(4), 344–349 (2014).
+15Keeping the next-leading term from Neuschel’s expansion is equivalent to
+including the 1 =12Nterms in Stirling’s approximation for N!, as can be
+veriﬁed explicitly for the p¼2 case.
+16For the p¼3 case, Eq. (4)can be rewritten in terms of a hypergeometric
+function whose N!1 limit falls into a class studied by Cvitkovic ´et al.
+(Ref. 17). However, the challenging calculation involved leads to exactly the
+same result found (far more easily) with Stirling’s approximation for p¼2.
+17M. Cvitkovic ´, A.-S. Smith, and J. Pande, “Asymptotic expansions of the
+hypergeometric function with two large parameters—Application to the
+partition function of a lattice gas in a ﬁeld of traps,” J. Phys. A: Math.
+Theor. 50(26), 265206 (2017).
+744 Am. J. Phys., Vol. 90, No. 10, October 2022 Steuard Jensen 744 04 October 2023 23:18:13

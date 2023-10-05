@@ -1,0 +1,779 @@
+
+View
+Online
+Export
+CitationCrossMarkJUNE 01 2022
+Modelling the Earth's magnetic field 
+Nuno Barros e Sá ; Lourenço Faria ; Bernardo Alves ; Miguel Cymbron
+Am. J. Phys.  90, 436–444 (2022)
+https://doi.org/10.1 119/5.0074846
+Articles Y ou May Be Interested In
+Tunable damping-like and field-like spin-orbit-torque in Pt/Co/HfO 2 films via interfacial charge transfer
+Appl. Phys. Lett.  (October 2019)
+Surveillance of medium and high Earth orbits using large baseline stereovision
+AIP Conference Proceedings  (November 2014)
+Small satellite attitude determination based on GPS/IMU data fusion
+AIP Conference Proceedings  (December 2014) 04 October 2023 23:10:45
+Modelling the Earth’s magnetic field
+Nuno Barros e S /C19aa)
+Institute of Marine Sciences—Okeanos, University of the Azores, Rua Prof. Doutor Frederico Machado 4,
+9901-862 Horta, Portugal
+Lourenc ¸oFaria, Bernardo Alves,b)and Miguel Cymbron
+Escola Secund /C19aria Domingos Rebelo, Av. Antero de Quental, 9504-501 Ponta Delgada, Portugal
+(Received 11 October 2021; accepted 13 March 2022)
+The Earth’s magnetic ﬁeld can be decomposed into spherical harmonics, and the exact coefﬁcients
+of the decomposition can be determined through a few measurements of its value at different
+locations. Using measurements from a magnetometer on board the International Space Station, we
+computed the multipolar moments of an expansion in spherical harmonics to order 3, calculated thelocation of the magnetic dip poles, and produced an intensity map of the magnetic ﬁeld across the
+globe. The accuracy of the results was evaluated by comparison with data from the International
+Geomagnetic Reference Field.
+#2022 Published under an exclusive license by American Association of Physics
+Teachers.
+https://doi.org/10.1119/5.0074846
+I. INTRODUCTION
+The Laplace equation,
+r2V¼0; (1)
+shows up early in an electromagnetism course in the context
+of electrostatics (Ref. 1, Chap. 1). Solving the Laplace equa-
+tion in spherical coordinates leads to the expansion of theelectrostatic potential Vin spherical harmonics:1
+Vr;h;/ðÞ ¼X1
+l¼1Xl
+m¼0AlmrlþBlm
+rlþ1/C20/C21
+/C2ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2lþ1 ðÞ l/C0mðÞ !
+4plþmðÞ !s
+PlmcoshðÞ eim/: (2)
+Here, r,h, and /are, respectively, the distance to the origin,
+the polar angle, and the azimuthal angle. AlmandBlmare the
+expansion coefﬁcients, and PlmðxÞis the associated Legendre
+polynomial; landmare called the degree and order of the
+spherical harmonics, respectively.
+In this article, we propose a real-life application of the
+multipolar expansion of the solution to the Laplace equation
+to the case of the Earth’s magnetic ﬁeld. From the compari-
+son of a limited number of measurements to this seriesexpansion, one can reconstruct the Earth’s magnetic ﬁeldabove its surface and determine the location of the magneticdip poles. This project relates the theory with real data and
+allows easy comparison with tabulated data, making it a nice
+tool in the teaching of electromagnetism.
+In the work carried out by our students (presented in Sec.
+IV), measurements of the Earth’s magnetic ﬁeld were per-
+formed on board the International Space Station (ISS) at
+points along its orbit. However, this project can be applied to
+other situations such as measurements collected from differ-ent locations on the surface of the Earth (Sec. III). In addi-
+tion to giving students the thrill of working with datacollected on the ISS, using these measurements challenged
+students to understand not only electromagnetism but also
+reference frame transformations. Moreover, the comparisonbetween theory and experiment required the construction ofalgorithms and some amount of programming. Using knowl-
+edge acquired in other disciplines raised students’ awareness
+that, to tackle practical problems, they needed to intercon-nect different disciplines of their curriculum.
+II. MULTIPOLAR EXPANSION OF THE MAGNETIC
+FIELD ON THE SURFACE OF THE EARTH
+The Earth’s magnetic ﬁeld is complex and evolves in
+time. Deriving tractable models to describe it as accuratelyas possible is of practical importance for navigation,
+2
+defense, and land surveying, and also of scientiﬁc impor-
+tance for study of topics ranging from properties of the
+Earth’s core3to animal migration (see Ref. 4for a review).
+The intensity of the Earth’s magnetic ﬁeld along its surface
+varies between 20 and 65 lT. This ﬁeld can be described, to
+a ﬁrst approximation, by a magnetic dipole placed at the cen-
+ter of the Earth and tilted by 11/C14with respect to Earth’s rota-
+tion axis. The geomagnetic poles are the (antipodal) points of
+intersection of the dipole axis with the surface of the Earth.
+The real magnetic ﬁeld of the Earth is, however, not per-
+fectly dipolar. For example, the intensity of the magneticﬁeld is abnormally low in the South Atlantic (the so-called
+South Atlantic anomaly), and the dip poles (points on the
+surface of the Earth where the magnetic ﬁeld is vertical) donot coincide with the geomagnetic poles, neither are they
+antipodal (on opposite points on the Earth’s surface).
+Improved descriptions of the Earth’s magnetic ﬁeld can beobtained by going to higher orders of a multipolar expansion,
+as we shall see below.
+We start from Ampe `re–Maxwell’s law,
+~r/C2 ~H¼~jþ
+@~D
+@t; (3)
+where ~His the magnetic ﬁeld strength and ~jis the free cur-
+rent density. One can neglect the time-variation of the dis-
+placement ﬁeld ~D:@~D=@t¼0, since the Earth’s magnetic
+ﬁeld varies slowly in time. At the surface of the Earth and in
+the atmosphere, one can further set ~j¼0, because the
+Earth’s magnetic ﬁeld is essentially produced by currents
+436 Am. J. Phys. 90(6), June 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 436 04 October 2023 23:10:45
+inside its core.5Moreover, in the atmosphere, ~H¼~B=l0,
+where ~Bis the magnetic ﬁeld and l0is the magnetic perme-
+ability of the vacuum. Equation (3)then simpliﬁes to
+~r/C2 ~B¼0) ~B¼/C0 ~rw; (4)
+where wis called the scalar magnetic potential. Plugging Eq.
+(4)in Gauss’s law for the magnetic ﬁeld, one gets
+~r/C1~B¼0)r2w¼0; (5)
+that is, the scalar potential wobeys Laplace’s equation.
+The scalar magnetic potential can, therefore, be expanded
+into spherical coordinates in the same way as in Eq. (2).I ti s
+natural to choose the center of the Earth as the origin of thecoordinates and the axis of rotation of the Earth as the polaraxis. The terms with coefﬁcients A
+lmgrow with rand, hence,
+cannot represent the magnetic ﬁeld created by currents circu-lating inside the Earth. We shall, therefore, set them to zero,as, on the surface of the Earth and in its atmosphere, theinﬂuence of external sources is not generally signiﬁcant.Moreover, since there are no magnetic charges, the monopo-lar term is B
+00¼0. Finally, the terms with coefﬁcients Blm
+can be rearranged to give
+w¼aXN
+l¼1a
+r/C18/C19lþ1Xl
+m¼0gm
+lcosm/ðÞ/C2
+þhm
+lsinm/ðÞ/C3
+Pm
+lsinhðÞ ; (6)
+where:
+•The angle his measured from the equator and is positive
+in the northern hemisphere. It, therefore, represents (geo-
+centric) latitude and not colatitude.
+•Distances are normalized to the mean Earth’s radiusa¼6:371 2 /C210
+6m.
+•The model contains NðNþ2Þparameters: The coefﬁ-
+cients are gm
+landhm
+l. (Note that h0
+l¼0 for all l.) Since,
+for practical calculations, the expansion cannot containinﬁnite terms, we truncated the expansion to order N¼3
+inl.
+•We chose the Schmidt quasi-normalization for the associ-
+ated Legendre polynomials, Pm
+l, which is normally used in
+geomagnetism,5,6that is,
+Pm
+l¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2l/C0mðÞ !
+1þdm
+0/C0/C1lþmðÞ !s
+Plm; (7)
+where dis the Kronecker delta and
+PlmxðÞ¼1
+2ll!1/C0x2 ðÞm=2dlþm
+dlþmxx2/C01 ðÞl: (8)
+Concerning this last point, we should point out that con-
+ventions regarding the normalization and sign (the
+Condon–Shortley phase) of the associated Legendre polyno-mials vary in different areas of physics. The values for coef-ﬁcients g
+m
+landhm
+lthen depend on the preferred convention.
+We chose to express the multipolar expansion to order N¼3
+obtained with this normalization asw¼a3
+r2g0
+1sinhþg1
+1cos/þh1
+1sin//C2/C3
+cosh/C8/C9
+þa4
+r3g0
+21/C03
+2cos2h/C18/C19
+þﬃﬃﬃ
+3p
+g1
+2cos/þh1
+2sin//C2/C3/C26
+þsinhcoshþﬃﬃﬃ
+3p
+2g2
+2cos 2 /ðÞþh2
+2sin 2 /ðÞ/C2/C3
+cos2h/C27
+þa5
+r4g0
+3sinh1/C05
+2cos2h/C18/C19/C26
+þﬃﬃﬃ
+3
+2r
+g1
+3cos/þh1
+3sin//C2/C3
+/C2cosh2/C05
+2cos2h/C18/C19
+þﬃﬃﬃﬃﬃ
+15
+2r
+g2
+3cos 2 /ðÞ/C2
+þh2
+3sin 2 /ðÞ /C138 sinhcos2h
+þﬃﬃﬃﬃﬃ
+15
+8r
+g3
+3cos 3 /ðÞ þ h3
+3sin 3 /ðÞ/C2/C3
+cos3h)
+: (9)
+With this in mind, the magnetic ﬁeld can be calculated
+from Eqs. (4)and(9)as
+~B¼/C0~rw¼/C0@w
+@r^erþ1
+r@w
+@h^ehþ1
+rcosh@w
+@/^e//C18/C19
+:(10)
+Let us note that the multipolar expansion in the lowest
+order, N¼1, leads to the familiar formula
+~B~rðÞ¼l0
+4p3~m/C1~rðÞ ~r
+r5/C0~m
+r3/C20/C21
+; (11)
+where the magnetic dipole moment is given by
+~m¼4pa3
+l0g1
+1;h1
+1;g0
+1/C0/C1
+: (12)
+Equations (6)and (10) are in fact those used in the
+International Geomagnetic Reference Field (IGRF) withN¼13 for the latest (2020) model.6The IGRF computes the
+values of the multipolar moments gm
+landhm
+lfrom large sets
+of data obtained from observatories and satellites across the
+globe.7It is updated every 5 years and, for each release, con-
+tains both the multipolar moments and their expected (linear)time variation for the next 5-year period.6In the following,
+we will compare our results with the much more preciseresults of the IGRF. We chose the IGRF as reference, as we
+are more familiar with it, the other major model of the
+Earth’s magnetic ﬁeld using a spherical harmonics expan-sion, with N¼12, being the WMM (world magnetic
+model).
+8
+A note should be made about the comparison of the
+N¼13 IGRF moments to our N¼3 results. If we had access
+to measurements covering the entire surface of the Earth,
+then a model with N¼13 should produce the same moments
+up to order 3 as a model with N¼3. However, that is not the
+case with a ﬁnite number of measurements (for a clear dis-cussion of this issue, see Ref. 5, Chap. 2.3), and the less
+well-spaced the measurements, the bigger the difference is inthe moments evaluated by the different order models.
+However, the IGRF model is based on a large and well-
+spaced set of measurements, and the absolute value of themoments decreases fast with increasing order. This makes
+437 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 437 04 October 2023 23:10:45
+the values of the lowest order moments in the IGRF model
+almost insensitive to further raising the order of the expan-
+sion, so that they can be considered as good estimates of the
+real values of the moments. The choice of the N¼3 order
+for the truncation of the series in our model was made to
+make the problem interesting enough for the students while
+still rendering it possible to solve using a personal computerin a reasonable amount of time.
+III. CALCULATING THE MULTIPOLAR MOMENTS
+FROM MAGNETOMETER READINGS
+We would now like to show how measurements of the
+magnetic ﬁeld on different locations around the globe, either
+at its surface or in the atmosphere, enable the determination
+of the multipolar moments g
+m
+landhm
+lvia Eqs. (9)and(10).
+These equations are written in a spherical geocentric frame
+(where we may assume that the polar axis is the rotation axis
+of the Earth, and that the azimuthal angle measures longi-tude), while magnetometer readings typically come in the
+cartesian frame of the magnetometer, so that, in order to
+compare the two, one has to convert between the two framesat each location.
+We begin by writing Eq. (10) in the cartesian Earth-
+centered Earth-ﬁxed frame (ECEF) ð^e
+x;^ey;^ezÞ, which is such
+that
+^er¼coshcos/^exþcoshsin/^eyþsinh^ez; (13)
+^eh¼/C0sinhcos/^ex/C0sinhsin/^eyþcosh^ez; (14)
+^e/¼/C0sin/^exþcos/^ey: (15)
+Note that we used lowercase letters for the cartesian axes of
+the ECEF frame in order to differentiate them from those of
+the magnetometer for which we shall use capital letters.
+For the purpose of a student project, readings of the mag-
+netic ﬁeld across the globe are freely available from the
+global scientiﬁc magnetic observatory network through the
+Intermagnet website.9Alternatively, a collaboration can be
+setup among schools using lower precision magnetometers,
+which are available at low cost, as was done in Ref. 10.
+For most magnetic measurements on the Earth’s surface,
+the magnetometer’s frame is chosen such that the Xaxis of
+the magnetometer points towards the north, its Yaxis points
+towards the east, and its Zaxis points towards the center of
+the Earth (Fig. 1). It is an instructive task for students to
+obtain the equations that relate the components of the ﬁeld inthe magnetometer frame, B
+X,BY, and BZ, to its components
+in the ECEF frame Bx,By, and Bz:
+BX¼/C0cos/sinhdBx/C0sin/sinhdByþcoshdBz; (16)
+BY¼/C0sin/Bxþcos/By; (17)
+BX¼/C0cos/coshdBx/C0sin/coshdBy/C0sinhdBz; (18)
+where hdstands for the geodetic latitude, which is the angle
+made by the normal to the surface of the Earth with the plane
+of the equator. Geocentric latitude, h, on the other hand, is
+the angle made by the equator with a straight line connectingthe location with the center of the Earth. The two quantities
+differ by a very small amount, but they are not identical,
+since the Earth is not perfectly spherical. The WorldGeodetic System (WGS84) uses a reference ellipsoid for the
+surface of the Earth deﬁned by the equation
+x2þy2
+A2þz2
+B2¼1; (19)
+where, by deﬁnition, A¼6 37 8 13 7 m and A=ðA/C0BÞ
+¼298.257 223 563 exactly, from which B/C256 356 752.314 245
+m follows. The relation between geocentric latitude hand geo-
+detic latitude hdis given by11
+A2tanh¼B2tanhd: (20)
+If the location of the magnetometers is known in terms of
+elevation h, longitude, and geodetic latitude, as it normally
+is, one can convert it to the cartesian coordinates of the
+ECEF by11
+x¼A2=shdðÞþh/C2/C3
+coshdcos/; (21)
+y¼A2=shdðÞþh/C2/C3
+coshdsin/; (22)
+z¼B2=shdðÞþh/C2/C3
+sinhd; (23)
+where
+shdðÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+A2cos2hdþB2sin2hdq
+: (24)
+Once the measurements have been performed, the experi-
+mental values can be compared to Eqs. (16)–(18) to derive
+the value of the multipolar moments. This can be done using
+the method of least squares. Let bi
+X;bi
+Y, and bi
+Zbe the three
+components of the magnetic ﬁeld measured in the magneto-meter’s frame at location i,a n d B
+i
+X;Bi
+Y, and Bi
+Zthe corre-
+sponding values predicted in Eqs. (9)and (16)–(18) . The
+multipolar moments can be found by minimizing the function
+Sgm
+l;hm
+l/C2/C3¼XP
+i¼1Bi
+Xg;h½/C138/C0bi
+X/C0/C12þBi
+Yg;h½/C138/C0bi
+Y/C0/C12h
+þBi
+Zg;h½/C138/C0bi
+Z/C0/C12i
+; ð25Þ
+with respect to the gm
+landhm
+l. Here, gdenotes all gm
+l, and h
+denotes all hm
+l.Pis the number of data points.
+Fig. 1. The cartesian Earth-centered Earth-ﬁxed frame (ECEF, lowercase
+letters) and the local frame of the magnetometer (uppercase letters).
+438 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 438 04 October 2023 23:10:45
+After ﬁnding the best ﬁt for gm
+landhm
+l, one can put the
+obtained values back into Eq. (9)and compute the magnetic
+ﬁeld in any other location ~Bðr;h;/Þ. One can even ﬁnd the
+location of the Earth’s magnetic dip poles by minimizing,for the north and south poles, respectively, the functions
+F
+N¼BRh;/ðÞ ;h;/ ðÞ þ~BR h;/ðÞ ;h;/ ðÞ /C1^nhd;/ðÞ ;(26)
+FS¼BRh;/ðÞ ;h;/ ðÞ /C0 ~BR h;/ðÞ ;h;/ ðÞ /C1 ^nhd;/ðÞ ;(27)
+with respect to hdand/(hbeing understood as a function of
+hd, via Eq. (20)). Here,
+Rh;/ðÞ ¼ABﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+A2sin2hþB2cos2hp (28)
+is the distance of the surface of the Earth to its center, and
+^nhd;/ðÞ ¼coshdcos/^exþcoshdsin/^eyþsinhd^ez(29)
+is the unit vector normal to the Earth’s surface.
+IV. OUR TEAM’S PROJECT
+Our team’s work was done in the context of the “European
+Astro Pi Challenge Mission Space Lab 2020–2021,” a contest
+promoted by ESA and the Raspberry Pi Foundation, where
+secondary school students are invited to write a code to berun on a Raspberry Pi device12on board the International
+Space Station (ISS). Another example of work conducted bystudents in the Astro Pi Challenge, using the same equipment,
+can be found in Ref. 13.
+Our team of students (the last three authors of this article)
+wrote a code in Python to register the magnetic ﬁeld at regu-lar time intervals along the two orbits of the ISS duringwhich the code was run (Fig. 2). They recorded 4871 read-
+ings on April 21, 2021, from 02:24:23 GMT to 05:18:56
+GMT, with an average interval between readings of 2.15 s.
+The magnetometer we used was the one included in the
+Sense Hat,
+12an add-on board for the Raspberry Pi computer,containing a gyroscope, an accelerometer, a magnetometer, and
+sensors for temperature, pressure, and humidity. The Raspberry
+Pi is an affordable single-board computer, costing approxi-mately 80 e, while the Sense Hat costs about 40 e. The dimen-
+sions of the whole set (Raspberry Pi plus Sense Hat, Fig. 3)a r e
+approximately 9 /C26/C22c m3, and it weights less than 100 g.
+The Sense Hat magnetometer has a relatively low accuracy ofthe order of hundreds of nT. The Sense Hat was made espe-cially for the Astro Pi mission, but other low-cost magneto-
+meters can be attached to the computer, as was done in Ref. 10.
+The ISS circles the Earth with a 93-min period at an aver-
+age altitude of 400 km, and its orbit is inclined by 51.6
+/C14with
+respect to the equator. We had access to the ISS positioncoordinates for each measurement of the magnetic ﬁeld in
+the form of the altitude h, longitude /, and geodetic latitude
+h
+dand converted them to the cartesian coordinates of the
+ECEF using Eqs. (21)–(23) .
+However, we cannot use Eqs. (16)–(18) to convert the
+components of the ﬁeld between the ECEF frame and the
+magnetometer’s frame because the magnetometer axes are
+not, in this case, aligned in the bottom–up, South–North, andWest–East directions. In fact, we were not provided with
+information about the orientation of the magnetometer inside
+the ISS. All we knew was that is was at rest with respect tothe ISS. Therefore, we ﬁrst related the components of the
+Fig. 2. The two orbits of the ISS mapped by our team.
+Fig. 3. The Raspberry Pi 3B computer together with the Sense Hat add-on
+board.
+439 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 439 04 October 2023 23:10:45
+magnetic ﬁeld in the ECEF frame, Bx,By, and Bz, with its
+components in a moving frame ﬁxed with respect to the ISS,
+B~X;B~Y, and B~Z, and then related, through a ﬁxed but
+unknown rotation, the latter with the ﬁeld components along
+the magnetometer axes, BX,BY, and BZ. The resulting trans-
+formations from the ﬁrst to the third set of components
+replace Eqs. (16)–(18) in our case. We note that the remain-
+ing results of Sec. IIIare unaffected and remain valid in our
+case.
+The ISS is made to orbit the Earth with the same side per-
+manently facing the Earth and with the same side facing the
+direction of motion too (Fig. 4). This allows for an easy con-
+struction of a reference frame, which is ﬁxed with respect to
+the ISS. The LVLH (local vertical, local horizontal) refer-
+ence frame of the ISS is deﬁned in the following manner:
+The ~Zaxis points towards the Earth’s center, and the ~Yaxis
+is normal to the orbit, pointing in the opposite direction to
+the angular velocity; the frame is completed with the ~Xaxis
+being orthogonal to the other two. Since the orbit of the ISS
+is approximately circular, the ~Xaxis points in the direction
+of movement of the ISS.
+In a fairly good approximation, we can write
+^e~X¼~ri/C2~ri/C2~ri/C01 ðÞ
+rijj~ri/C2~ri/C01jj¼~ri/C1~ri/C01 ðÞ ~ri/C0r2
+i~ri/C01
+rijj~ri/C2~ri/C01jj; (30)
+^e~Y¼~ri/C2~ri/C01
+jj~ri/C2~ri/C01jj; (31)
+^e~Z¼/C0~ri
+ri; (32)
+where ~riis the position of the ISS at a certain instant tiand
+~ri/C01is its position at the instant ti/C01, immediately before ti,
+all expressed in the ECEF reference frame.
+Hence, the components of the magnetic ﬁeld in the LVLH
+reference frame are given by
+B~X¼~ri/C1~ri/C01 ðÞ ~Bi/C1~ri/C0/C1
+/C0r2
+i~Bi/C1~ri/C01/C0/C1
+rijj~ri/C2~ri/C01jj; (33)
+B~Y¼~Bi/C1~ri/C2~ri/C01 ðÞ
+jj~ri/C2~ri/C01jj; (34)
+B~Z¼/C0~Bi/C1~ri
+ri; (35)where ~Biis the expected magnetic ﬁeld at instant ti,
+expressed in the ECEF frame.
+Since the magnetometer was ﬁxed with respect to the ISS,
+the relation between these components and their counterpartsin the magnetometer’s frame ðB
+X;BY;BZÞis simply given by
+a rotation
+BX
+BY
+BZ2
+43
+5¼MB~X
+B~Y
+B~Z2
+43
+5; (36)
+with the rotation matrix Mdepending on three unknown
+Euler angles a,b, and c
+M¼cosacosbcosasinbsinc
+/C0sinacosc !
+cosasinbcosc
+þsinasinc !
+sinacosbsinasinbsinc
+þcosacosc !
+sinasinbcosc
+/C0cosasinc !
+/C0sinb cosbsinc cosbcosc2
+6666666643
+7777777
+75:
+(37)
+In Eq. (36),t h e BðX;Y;ZÞðgm
+n;hm
+n;a;b;cÞare the components
+of the magnetic ﬁeld in the magnetometer frame, and they aret h eo n e st ob eu s e di nE q . (25). Notice that these expressions
+depend on three extra parameters: The angles of the rotation
+matrix. This means that Eq. (25) must be minimized for a,b,
+andctoo, though their values are of no interest for our purpose.
+This procedure added extra sources of error and more process-ing time to run the algorithms, which should be avoided, butcould not be within the rules of the “Astro Pi Challenge.”
+V. RESULTS
+Although we were not provided with the orientation of the
+Raspberry Pi inside the ISS, we could at once compare the mea-
+sured magnitude of the magnetic ﬁeld B¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+B
+2
+XþB2
+YþB2
+Zp
+along the orbits of the ISS with the prediction from the IGRF
+model, since Bdoes not depend on the magnetometer’s orienta-
+tion. This is depicted in Fig. 5.
+Albeit agreeing overall in order of magnitude and in the
+position of the peaks, our data differed signiﬁcatively from theestimate from the IGRF model. This could not be explained by
+variations of the Earth’s magnetic ﬁeld: Changes on time scales
+greater than one year are of origin internal to the Earth and areaccounted for by the IGRF model, whereas seasonal variations
+Fig. 4. The ECEF frame (lowercase letters), the ISS local vertical local hori-
+zontal (LVLH) reference frame (capital letters with a tilde), and the magne-
+tometer’s frame (capital letters), whose orientation we do not know.
+Fig. 5. Magnitude of the magnetic ﬁeld as a function of time along the tra-jectory of the ISS. Upper curve: measured. Middle curve: expected from the
+(N¼13) IGRF multipolar model. Lower curve: measured, corrected by sub-
+tracting a constant ﬁeld.
+440 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 440 04 October 2023 23:10:45
+are expected to be of the order of a few tens of nT.14,15The
+lithospheric ﬁeld, although of higher magnitude, should not
+exceed 20 nT at the ISS altitude.16Additional short-term mag-
+netic ﬁeld variations may be due to ionospheric currents or
+originate in the magnetosphere. In both cases, they should also
+occur on the scale of a few tens of nT,15,16while we observe
+deviations reaching 10 lT, almost a thousand times greater!
+This discrepancy could, however, come from the presence
+of a static magnetic ﬁeld inside the ISS or from an improper
+calibration offset, as both effects would shift the measure-
+ments by a constant ﬁeld. In order to take this into account,
+we assumed the existence of such a ﬁeld ~b0, with compo-
+nents ðb0
+X;b0
+Y;b0
+ZÞin the magnetometer frame, subtracted it
+from the magnetometer readings bi
+X;bi
+Y, and bi
+Z, and, instead
+of minimizing Eq. (25), we minimized
+Sgm
+l;hm
+l;a;b;c;b0
+X;b0
+Y;b0
+Z/C2/C3
+¼XP
+i¼1Bi
+Xg;h;a;b;c ½/C138 /C0bi
+Xþb0
+X/C0/C12h
+þBi
+Yg;h;a;b;c ½/C138 /C0bi
+Yþb0
+Y/C0/C12
+þBi
+Zg;h;a;b;c ½/C138 /C0bi
+Zþb0
+Z/C0/C12i
+; (38)
+with respect to gm
+n;hm
+n,a,b,c,b0
+X;b0
+Y, and b0
+Z. Of course, just
+as when we introduced the Euler angles, having to ﬁnd theseextra parameters added further sources of error and process-
+ing time.
+All calculations described in this article were performed
+using Mathematica computing software17and are available
+at the repository.18Due to the presence of trigonometric
+functions in Eq. (37), the minimization of Sproduces several
+local minima. The built-in function NMinimize attempts toﬁnd the global minimum but with no guarantee of success,as it turned out to happen in our case. We, therefore, mini-
+mized Susing the function FindMinimum, which ﬁnds local
+minima starting from given seed values. The price to pay isthat the program had to run for different seed values of the
+angles, a,b, and c, until all the local minima were found.
+From these, the absolute minimum was determined.
+As a measure of the accuracy with which our model ﬁtted
+the measurements, we used the values of g
+m
+l;hm
+l,a,b,c,
+b0
+X;b0
+Y, and b0
+Zobtained from the minimization process to
+compute the mean absolute error
+DB¼1
+PXP
+i¼1jj~Big;h;a;b;c ðÞ /C0~biþ~b0
+ijj: (39)
+We obtained DB¼1:9lT for our data (and DB¼3:6lT for
+the data in Sec. VI).
+The intensity of the subtracted constant ﬁeld ~b0deter-
+mined by the minimization process (38 :8lT for our data and
+22:0lT for the data used in Sec. VI) seemed too large either
+to be the average ﬁeld inside the ISS or to result from a
+wrong calibration offset. It could also result from the magne-
+tometer being close to magnetized or electronic equipment.Table I. Multipolar moments obtained from our analysis and the IGRF refer-
+ence values (in lT).
+Moment g0
+1 g11 h11 g02 g12 h12 g22
+IGRF /C029.40 /C01.44 4.62 /C02.51 2.97 /C03.03 1.67
+This work /C023.48 /C00.47 2.39 /C02.43 2.58 /C02.98 2.12
+h2
+2 g03 g13 h13 g23 h23 g33 h33
+/C00.76 1.37 /C02.39 /C00.07 1.24 0.24 0.51 /C00.54
+/C00.85 2.12 /C02.51 /C02.74 /C00.08 0.22 0.27 /C00.28Table II. Location of Earth’s dip poles obtained from our analysis and the
+IGRF values.
+IGRF This work Deviation
+NP 86.4/C14N, 156.8/C14E 70.4/C14N, 80.0/C14E 19.1/C14
+SP 64.0/C14S, 135.7/C14E 57.5/C14S, 163.9/C14E 15.1/C14
+Fig. 6. Contour map for the magnitude of the magnetic ﬁeld, using our results for the multipolar model to order 3. Separation between contour lines: 5 lT.
+Darker areas represent weaker ﬁelds. The two small dots are the dip poles, as inferred from our measurements.
+441 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 441 04 October 2023 23:10:45
+We have no way to determine that, but we are satisﬁed that it
+must result from one of these possibilities, or from a combi-nation of them, since its subtraction produced a very goodmatch with the values predicted by the IGRF (as shown inFig. 5, where the lower curve is a plot of the absolute value
+of the vector ðb
+i
+X/C0b0
+X;bi
+Y/C0b0
+Y;bi
+Z/C0b0
+ZÞ), and since other
+sources of distortion of the magnetic ﬁeld would not haveproduced a constant shift.
+The values of the multipolar moments we obtained are
+given in Table Ialong with the IGRF’s values for compari-
+son. The latter were computed as
+vtðÞ¼v2020:0 ðÞ þ_vt; (40)
+where vð2020:0Þis the value of any of the g
+m
+landhm
+lfor
+January 1, 2020, 00:00:00 GMT provided in Ref. 6,_vis its
+expected linear variation for 2020–2025,6andtis the time
+elapsed between 2020.0 and the instant of the ﬁrst reading ofthe magnetometer. Since we did not have any information onthe precise location of our setup in the ISS, we could notassess the values for a,b, and cthat came out of the
+minimization.
+The location of the magnetic dip poles was obtained by
+the method described in Sec. IIIand is compared with the
+IGRF’s values in Table II. Figure 6shows a contour map of
+the Earth’s magnetic ﬁeld intensity, calculated from the val-ues of the multipolar moments that we obtained.All calculated multipolar moments agree with the ones
+from the IGRF, both in order of magnitude and in sign. Yet,
+they are not accurate. For example, the dipole moment
+(l¼1) is 20.8% weaker in magnitude than the expected
+value and 3.5
+/C14off the right direction. The same lack of accu-
+racy is visible in the calculated location of the magnetic
+poles (Table II) and in the intensity map in Fig. 6(to be com-
+pared with the corresponding one in Ref. 6). Despite these
+uncertainties, some major features of the Earth’s magnetic
+ﬁeld, such as the South Atlantic anomaly, are visible.
+VI. ANOTHER SET OF ORBITS
+Our results could hardly be improved by sampling more
+points along the probed orbits, as that would only augmentthe precision for shorter wavelengths, associated with higher
+order terms. However, they could beneﬁt from a greater
+number of orbits. For that purpose, after the work for the“Astro Pi Challenge” was completed, we repeated our analy-
+sis for a set of 15 orbits extracted from data provided by the
+Raspberry Pi site.
+19This set of ISS orbits provides data that
+are more uniformly distributed along the surface of the
+Earth, forming a homogeneous grid between latitudes of
+52/C14N and 52/C14S (Fig. 7), even though it has a lower number
+of measurements per orbit than our data. The selected data
+were recorded from February 23, 2016, 10:52:51 GMT to
+February 24, 2016, 10:00:11 GMT. It comprised of 8261 read-ings taken with an average interval between them of 10.08 s.
+The values of the multipolar moments we obtained are
+given in Table III, along with the IGRF’s values for compari-
+son. The latter were computed for the instant of the ﬁrst
+Fig. 7. The 15 orbits of the ISS extracted from the “Raspberry Pi Learning Resources” webpage.
+Table III. Multipolar moments obtained from our analysis of the 15 orbits
+and the IGRF reference values (in lT).
+Moment g0
+1 g11 h11 g02 g12 h12 g22
+IGRF /C029.43 /C01.49 4.76 /C02.46 3.01 /C02.88 1.68
+15 orb. /C028.35 /C01.74 4.58 /C03.19 3.11 /C02.49 1.75
+h2
+2 g03 g13 h13 g23 h23 g33 h33
+/C00.66 1.35 /C02.36 /C00.11 1.23 0.24 0.57 /C00.54
+/C00.49 1.55 /C02.35 /C00.49 1.07 0.52 0.67 /C00.41Table IV. Location of Earth’s dip poles obtained from our analysis of the 15
+orbits and the IGRF values.
+IGRF 15 orb. Deviation
+NP 86.5/C14N, 167.8/C14W 86.2/C14N, 33.7/C14E 7.2/C14
+SP 64.2/C14S, 136.4/C14E 57.8/C14S, 138.8/C14E 6.5/C14
+442 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 442 04 October 2023 23:10:45
+reading from a linear interpolation between the 2015.0 and
+the 2020.0 values in Ref. 6.
+In Table IV, the location of the poles calculated from this
+set of orbits is compared with the IGRF’s values. The loca-
+tion of the poles and the values of the momenta are not the
+same as the ones in Tables IandIIdue to the secular varia-
+tion of the magnetic ﬁeld between the two sets of measure-
+ments in 2016 and 2020. In Fig. 8, we show the contour map
+of the expected ﬁeld intensity for the values of the multipolar
+moments obtained for this set of 15 orbits.
+We see that a better spatial sampling of the data provided
+great improvement in the determination of the multipolar
+moments (the dipole magnitude is only 3.6% shorter of the
+IGRF value and its orientation is only 0.6/C14off the IGRF
+axis), and the contour map in Fig. 8is much closer to the cor-
+responding map in Ref. 6. However, the improvement in the
+determination of the location of the poles was more modest,
+probably due to the fact that the ﬁelds in the polar regions
+were still not sufﬁciently sampled.
+VII. CONCLUSIONS
+A magnetic ﬁeld is a concept in electromagnetism with
+which students have some familiarity, because people are used
+to playing with magnets from an early age, and, by seeing the
+action of a compass, realize that the Earth itself has magnetic
+properties. The Earth’s magnetic ﬁeld, thus, provides an oppor-
+tunity to create a bridge between the more abstract and mathe-
+matical contents of electromagnetism courses with the
+students’ day-to-day experience. The project reported here pro-
+poses such a bridge between Laplace’s equation and its solu-
+tions in terms of spherical harmonics (a mathematical tool that
+also appears in more advanced disciplines of physics).
+It came to us as a surprise that, with data points covering
+only a thin ring over the surface of the Earth, and 3 h of mea-
+surement with a low-cost magnetometer onboard the ISS,one could reconstruct the main features of the Earth’s mag-
+netic ﬁeld: Its magnitude, its angle with respect to theplanet’s rotation axis, its non-uniformity, and even some of
+its anomalies. We made use of a Raspberry Pi-powered mag-netometer on board the ISS, but the project could easily beadapted to ground measurements with state-of-the-art gauss-meters, Arduino-powered Hall sensors, or even smartphonemagnetometers, and take advantage of the internet or socialmedia to devise a participatory science experiment.
+ACKNOWLEDGMENTS
+The authors thank Ronald Merrill, Erwan Th /C19ebault, and
+Yosuke Yamazaki for providing clariﬁcations and MariaBeatriz Cachim for support provided at Escola Secund /C19aria
+Domingos Rebelo. The authors would also like to thank thereviewers of the American Journal of Physics for their helpful
+remarks, which greatly contributed to the improvement of thisarticle.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+a)ORCID: 0000-0001-7216-6614.
+b)ORCID: 0000-0002-6997-9443.
+1J. Jackson, Classical Electrodynamics (Wiley, New York, 1999).
+2D. Bartlett, Essentials of Positioning and Location Technology
+(Cambridge U. P., Cambridge, 2013).
+3D. Stump and G. Pollack, “A current sheet model for the Earth’s magneticﬁeld,” Am. J. Phys. 66, 802–810 (1998).
+4H. Meyers and W. Davis, “A proﬁle of the geomagnetic model user and
+abuser,” J. Geomagn. Geoelectr. 42, 1079–1085 (1990).
+5R. Merrill, M. McElhinny, and P. McFadde, The Magnetic Field of the
+Earth (Academic, New York, 1996).
+6P. Alken et al. , “International geomagnetic reference ﬁeld: The thirteenth
+generation,” Earth Planets Space 73, 49 (2021).
+7The ESA Swarm mission is currently the primary satellite data source
+<https://earth.esa.int/eogateway/missions/swarm >.
+8A. Chulliat, W. Brown et al. ,The US/UK World Magnetic Model for
+2020–2025: Technical Report (National Centers for Environmental
+Information, NOAA, Silver Spring, Maryland, 2020).
+Fig. 8. Contour map for the magnitude of the magnetic ﬁeld, using our analysis of the 15 orbits for the multipolar model to order 3. Separation between co ntour
+lines: 5 lT. Darker areas represent weaker ﬁelds. The two small dots are the dip poles, as inferred in this analysis.
+443 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 443 04 October 2023 23:10:45
+9Intermagnet is a programme establishing a global network of cooperating
+digital magnetic observatories that facilitates data exchanges, <http://
+www.intermagnet.org/ >.
+10C. Beggan and S. Marple, “Building a Raspberry Pi school magnetometer
+network in the UK,” Geosci. Commun. 1, 25–34 (2018).
+11B. Hofmann-Wellenhof, H. Lichtenegger, and J. Collins, GPS-Theory and
+Practice (Springer, New York, 1994).
+12Information on the Raspberry Pi computer and on the Sense Hat can be
+found at the internet site of the Raspberry Pi Foundation, <https://
+www.raspberrypi.org/ >.
+13T. Magalh ~aeset al. , “Observation of atmospheric gravity waves using a
+Raspberry Pi camera module on board the International Space Station,”
+Acta Astronaut. 182, 416–423 (2021).
+14S. Malin and D. Winch, “Annual variation of the geomagnetic ﬁeld,”
+Geophys. J. Int. 124, 170–174 (1996).15V. Courtillot and J. Le Mou €el, “Time variations of the Earth’s magnetic
+ﬁeld: From daily to secular,” Ann. Rev. Earth Planet. Sci. 16, 389–476
+(1988).
+16T. Sabaka, N. Olsen, and R. Langel, “A comprehensive model of the
+quiet-time, near-Earth magnetic ﬁeld: Phase 3,” Geophys. J. Int. 151,
+32–68 (2002).
+17Wolfram Mathematica is a software system, widely used by physicists andmathematicians, developed by Wolfram Research, <https://www.wolfram.
+com/mathematica/ >.
+18The data used in this work and the programs used to process them can be
+found at the GitHub repository, <https://github.com/magnetometer/iss/
+releases/tag/issmag >.
+19Astro Pi Flight Data Analysis, by the Raspberry Pi Foundation, <https://
+github.com/raspberrypilearning/astro-pi-ﬂight-data-analysis/raw/master/
+data/Columbus_Ed_astro_pi_datalog.csv.zip >.
+444 Am. J. Phys., Vol. 90, No. 6, June 2022 Barros e S /C19aet al. 444 04 October 2023 23:10:45

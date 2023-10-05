@@ -1,0 +1,706 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| SEPTEMBER 01 2022
+The basic concepts determining electromagnetic shielding 
+
+Guy A. E. V andenbosch
+Am. J. Phys.  90, 672–681 (2022)
+https://doi.org/10.1 119/5.0087295
+Articles Y ou May Be Interested In
+Clarification of basic concepts for electromagnetic interference shielding ef fectiveness
+J. Appl. Phys.  (December 2021)
+MITICA intermediate electrostatic shield: Concept design, development, and first experimental tests
+identification
+AIP Conference Proceedings  (December 2018)
+RSMASS ‐ D: Reactor and shield mass minimization models
+AIP Conference Proceedings  (January 1991) 04 October 2023 23:16:02
+The basic concepts determining electromagnetic shielding
+Guy A. E. Vandenboscha)
+Department of Electrical Engineering, Katholieke Universiteit Leuven, Kasteelpark Arenberg 10,
+3001 Leuven, Belgium
+(Received 3 February 2022; accepted 28 June 2022)
+Shielding involves much more than just putting a conductive screen in between an emitting source
+and a susceptible device. Starting from Maxwell’s equations, the concept of electromagnetic
+shielding is formally explained. The physical working mechanisms behind the two basic forms ofshielding, electric ﬁeld and magnetic ﬁeld shielding, are given, and the link between them at higher
+frequencies is clariﬁed. Several aspects, like the effect of gridding or weaving a shield, the effect of
+the ﬁnite size of a shield, and the penetration through the metal of a shield, are discussed based onvery simple canonical shielding topologies that can be solved analytically. Although the classical
+paradigm to explain shielding based on the notions of skin depth and eddy current is not followed,
+conceptual links with this classical paradigm are explained.
+#2022 Published under an exclusive license by
+American Association of Physics Teachers.
+https://doi.org/10.1119/5.0087295
+I. INTRODUCTION
+In the minds of most scientists and engineers, electromag-
+netic shielding involves putting an electromagnetic screen,
+i.e., a shield, between a source of electromagnetic waves and
+a susceptible device. This technique is widespread amongexperimentalists, technicians, and designers of equipmentand measurement setups. Electromagnetic shielding is alsoimportant in life outside of the laboratory. For example, thesteel reinforcement of concrete walls and ﬂoors partially
+shields the inside of buildings from the mobile phone wire-
+less networks deployed outside, which explains the typicallylower signal level indoors. Also, shielding is one of the mostbasic drivers of the EMC industry.
+1,2EMC (ElectroMagnetic
+Compatibility) is the study of the simultaneous functioningof electric and/or electronic devices in each other’s
+neighborhood.
+Electromagnetic shielding is commonly taught in physics
+and engineering curricula. At higher frequencies, the conceptof both electric and magnetic shielding is often explainedstarting from the conﬁguration involving a plane wave inci-dent on a metal screen.
+3,4In some cases, this may lead to
+incorrect interpretations as pointed out by Fahy et al.5
+Solving Maxwell’s equations for this simple geometry yields
+the coefﬁcients of reﬂection and transmission. It is easilyshown that for good metal screens, the reﬂection is veryhigh, and the transmission is very low, leading to goodshielding properties. Although this approach is educationally
+sensible, unfortunately it does not give the student a thor-
+ough understanding of many aspects that are crucial in thepractical application of shielding when designing electronicsystems. In the simple “plane wave understanding” of shield-ing, many questions are completely left unanswered.Questions as “Is there a difference in behavior of a screen at
+low and high frequencies?,” “Does shielding work only for
+two-dimensional screens?,” “How large is the spatial zoneshielded by a screen?,” “Is electric and magnetic shieldingalways the same, as in this simple plane wave case?” cannotbe answered based solely on the plane wave explanation.
+At lower frequencies, the concept of eddy currents is used
+mainly to explain magnetic shielding.
+6Eddy currents are
+electric currents ﬂowing in loops within conductors due to achanging magnetic ﬁeld in the conductors. They aregoverned by Faraday’s law of induction. Shielding is then
+based on the fact that this current swirls in such a way as tocreate an induced magnetic ﬁeld that opposes the phenome-
+non that created it, resulting in a certain level of magnetic
+shielding. For the novice, this low-frequency paradigminvokes other questions: “Does this mechanism also generateelectric shielding?,” “What is the relation between the inci-
+dent and reﬂected (plane) wave description and the eddy cur-
+rent description?,” etc.
+The result is that the novice physicist or engineer who is
+confronted with an electromagnetic interference problem
+may just try to put “some” screen in between the source and
+the “problematic” device in the hope that the ﬁeld levels willbe reduced sufﬁciently in order to solve the problem.
+In this paper, the basic working mechanisms of electromag-
+netic shielding are explained based on the laws of electromag-
+netism. The presentation is completely different from what istraditionally taught and leads to a much more robust under-standing of the basic phenomena involved. The approach fol-
+lowed in this paper allows correct assessment of many
+practical situations: Those where shielding is already occur-ring or where it has to be applied in order to solve a practical
+interference problem. Shielding geometries that are discussed
+include conducting wires, woven shields, and solid screens,and both penetration through and diffraction around shields
+are considered. Concrete calculations are based on very sim-
+ple topologies that can be solved analytically: the simplestraight wire, a raster of parallel straight wires, and a conduct-ing half plane. To the knowledge of the author, the paradigm
+followed in this paper has never been published before. Most
+didactic papers on the topic consider electrostatic casesonly.
+7–9However, electrostatic shielding is not as important
+in daily life compared to screening of non-zero frequency
+ﬁelds. Readers looking for more advanced treatments of prac-tical shielding problems may wish to consult the IEEE
+Transactions on Electromagnetic Compatibility .10,11
+II. THE BASIC EQUATIONS
+All electromagnetic phenomena can be described by
+Maxwell’s laws, expressed in the vector ﬁelds E(electric
+ﬁeld) and B(magnetic ﬁeld). In general, these ﬁelds depend
+on the coordinates ( x,y,z) and on time t. For simplicity,
+672 Am. J. Phys. 90(9), September 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 672 04 October 2023 23:16:02
+these dependencies are not explicitly mentioned further. In
+time-harmonic situations (i.e., in the frequency domain with
+the time-harmonic convention ejxt) and in integral form,
+these equations are
+þ
+cE/C1dC¼/C0jxðð
+SB/C1dS; (1)
+þ
+cB/C1dC¼jxðð
+SelE/C1dSþðð
+SlðJindþJsoÞ/C1dS
+¼ðð
+SðjxeþrÞlE/C1dSþðð
+SlJso/C1dS; (2)
+where Sis an arbitrary surface in space and Cits contour.
+Here, J¼JindþJsois the electric volume current density,
+which is also a vector ﬁeld depending on ( x,y,z), and which
+can be written as the sum of an imposed source current Jso,
+typically a current source injecting current into the system,
+and a current Jind¼rE, the Ohmic current density induced
+by the electric ﬁeld in the conductor. The ﬁelds are, thus,“generated” by the source current J
+so. The materials are
+assumed to be linear, homogenous, isotropic, and time-
+invariant and have permittivity ( e), permeability ( l), and
+conductivity ( r) that are frequency independent in the fre-
+quency band considered. Note that in (1)and(2), the permit-
+tivity, permeability, and conductivity are scalar functionsthat may vary over space, which means that they have to stay
+part of the integrands. The result is that these expressions
+can be applied without modiﬁcation, even when crossingmaterial boundaries. The differential form of Maxwell’s
+equations for the considered materials is
+r/C2E¼/C0jxB; (3)
+r/C2B¼ðjxeþrÞlEþlJ
+so: (4)
+III. SHIELDING EFFECTIVENESS
+Traditionally, the quality of shielding is expressed with
+the parameter shielding effectiveness (SE). It is the ratio of
+the ﬁeld in the absence of the shield (also called the incidentﬁeld) to the ﬁeld in the presence of the shield
+SE dBðÞ¼20 log
+10SEðlinearÞ ½/C138 ¼ 20 log10/C12/C12/C12/C12Finc
+Fsh/C12/C12/C12/C12;(5)
+where Fis the ﬁeld. This parameter can be deﬁned both for
+the electric ﬁeld (electric shielding, F¼E) and the magnetic
+ﬁeld (magnetic shielding, F¼B).
+IV. ELECTRIC SHIELDING
+The line of reasoning for electric shielding, i.e., shielding
+of the electric ﬁeld, starts with Ohm’s law
+Jind¼rE; (6)
+which leads to a time-averaged dissipated power density in
+the conductor of
+ploss¼1
+2E/C1Jind¼rjEj2
+2: (7)Since energy and power quantities have to stay ﬁnite, in
+the limit that the conductivity goes to inﬁnity, the electric
+ﬁeld has to go to zero. This leads to the well-known result
+that in a perfect conductor, the electric ﬁeld is zero, andinside a shield with very large conductivity, the electric ﬁeldis nearly zero.
+The second step in the line of reasoning relates the ﬁelds
+inside the shield to the ﬁelds just outside the shield. ApplyingFaraday’s law (1)to the geometry in Fig. 1for a height dh
+and a length dlin the limit both going to zero, we obtain
+ðE
+1t/C0E2tÞdl¼/C0jxd/¼/C0jxB1tdldh
+2þB2tdldh
+2/C18/C19
+;
+(8)
+where Eitis the component of the electric ﬁeld parallel to dl
+in region i¼1;2 and Bitis the component of the magnetic
+ﬁeld also tangential to this surface and simultaneously nor-mal to the loop. For a vanishing dh, the magnetic ﬂux d/
+through the elementary surface is vanishing. It follows that
+the electric ﬁeld tangential to and just outside the shield isthe same as this ﬁeld just inside, which is nearly zero. Thepractical result is that a shield indeed makes the electric ﬁeldtangential to it very small just outside the shield.
+It is very important to emphasize that the previous line of
+reasoning does not involve frequency. For real-life conduc-tors with large but ﬁnite conductivity, electric shieldingworks down to zero frequency, i.e., DC.
+It is also important to emphasize that this line of reasoning
+can be applied not only in the case of a screen, i.e., a two-dimensional shield, but also in the case of a conducting wire,further called a one-dimensional shield. A one-dimensionalshield shields its immediate environment from electric ﬁeldcomponents along its direction.
+Note that the notions “in front of” and “behind” the screen
+are irrelevant for the line of reasoning followed up to now.In principle, a shield shields both just in front of it and justbehind it. These notions become important when the actualsize of the spatial zone in which the ﬁeld is shielded is con-sidered. The size of the shielded region depends very muchon the exact geometry of the shield and the frequency. Thestudy of a few well-selected canonical cases is ideal to pro-vide a very good physical insight in this matter. In the rest of
+Fig. 1. (Color online) A ﬂat elementary surface dSwith length dland height
+dhcrossing the boundary between a shield (medium 2) and free space
+(medium 1).
+673 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 673 04 October 2023 23:16:02
+Sec. III, we will systematically study the size of the zone in
+space that is shielded. In each section, one speciﬁc phenome-
+non is discussed. Unless speciﬁed otherwise, we will only
+consider cases where the shield consists of perfectly con-ducting material. This approximation simpliﬁes reasoning
+without signiﬁcantly compromising the validity in more gen-
+eral cases.
+A. Size of the shielded region for long 1D shields
+The ﬁrst canonical case is a plane wave hitting a very long
+thin wire of radius a, as in Fig. 2. This case is considered
+because it clearly illustrates the fact that shielding is not
+always linked to 2D screens. The direction of incidence isnormal to the wire, and the polarization of the incident elec-
+tric ﬁeld is parallel with the wire. If the polarization is nor-
+mal to the wire, there will be no shielding and the planewave will not be affected.
+Note that the shielding problem considered here is funda-
+mentally different from the hollow cylinder problem consid-
+ered by Aguirregabiria.
+12The problem considered is the
+shielding at the outside of a wire, not inside a hollow wire
+(or cylinder), and at arbitrary frequencies, not in the quasi-
+static limit. We will assume that the wire is very thin, i.e.,ka/C281 with k¼xﬃﬃﬃﬃﬃlepbeing the wavenumber of the
+medium in which the wire is embedded (in most cases air or
+vacuum) and inﬁnitely conducting.
+We know already that within the wire, the electric ﬁeld is
+zero, and in its immediate neighborhood, the electric ﬁeld in
+the direction of the wire is “shielded” and, thus, very small.
+However, how large is the zone where it is shielded?
+We know that the incident plane wave induces a current in
+the wire. This current generates a so-called scattered ﬁeld. In
+the wire, this scattered ﬁeld compensates the incident ﬁeld
+completely, so that the total ﬁeld becomes zero there.However, it is straightforward to see that due to the cylindri-
+cal symmetry, outside the wire this scattered ﬁeld is actually
+a cylindrical wave propagating away from the wire. Themain component of this scattered wave is analyticallyknown. Outside the wire, it behaves as the Hankel function
+of second kind and order zero, i.e., H
+2
+0ðkrÞ, with rbeing the
+distance from the axis of the wire. The proof is easily given.
+We start from the source-free Helmholtz wave equation forthe electric ﬁeld
+r
+2Eþk2E¼0: (9)
+Writing in cylindrical coordinates yields
+@2E
+@r2þ1
+r@E
+@rþ1
+r2@2E
+@u2þ@2E
+@z2þk2E¼0: (10)
+The problem is uniform in the zdirection, which means
+that the derivative with respect to zis zero. The solution can
+be written as a superposition of sinusoidal modes in the u
+direction. For each of these modes, (10) is transformed into
+the differential equation for the corresponding Bessel
+functions. The Hankel functions of the ﬁrst kind can imme-
+diately be excluded since they represent waves propagatinginward toward the wire from inﬁnity. This is the so-called“radiation boundary condition.” This leaves the contributions
+ðC
+mccosðmuÞþCmssinðmuÞÞH2
+mðkrÞwith CmcandCmsbeing
+unknown coefﬁcients that need to be determined for everymode m. They can be rigorously calculated from the second
+boundary condition, which states that at the surface of the
+wire the total z-directed electric ﬁeld needs to be zero since
+the wire is perfectly conducting. Projection of this boundarycondition onto the separate sinusoidal modes splits this over-all equation into equations per mode mthat are easily solved.
+For the zeroth order mode, this equation is
+ð
+2p
+0ðEpw
+zejkasinuþC0cH2
+0ðkaÞÞdu¼0; (11)
+so that
+C0c¼/C0ð2p
+0Epw
+zejkasinudu
+2pH2
+0ðkaÞ
+¼/C0Epw
+z
+pH2
+0ðkaÞðp
+0cosðkasinuÞdu
+¼/C0Epw
+zJ0ðkaÞ
+H2
+0ðkaÞ: (12)
+For very small wire diameters ka/C281, only the zeroth order
+mode gives a non-negligible contribution at distances thatare large compared to a. Indeed, all the other modes yield
+multi-pole like currents ﬂowing within a very small wire
+cross section, which means that the ﬁelds due to the poles of
+the multi-pole for the largest part cancel each other. The totalﬁeld a bit further away is, thus, completely formed by thesuperposition of a plane wave and a cylindrical wave
+E
+total
+zðr;uÞ¼Epw
+zejkrsinuþC0cH2
+0ðkrÞ: (13)
+The zone where the electric ﬁeld can be considered as
+shielded is determined by the interference patterns betweenthe plane and the cylindrical waves. In Fig. 3, this interfer-
+ence pattern is illustrated along the direction of the plane
+wave. It is seen that behind the wire, the electric ﬁeld is mar-
+ginally reduced over a respectable region. “In front” of the
+ Fig. 2. (Color online) Plane wave hitting a long thin conducting wire. Iis
+the current induced in the wire.
+674 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 674 04 October 2023 23:16:02
+wire, this zone is much smaller. There is even a small zone
+where the ﬁeld is increased by more than 10%. The physical
+reason for this is the fact that in front of the wire, the plane
+wave and the cylindrical wave travel in opposite directions,
+while behind the wire, they propagate in the same direction,in this way showing a destructive type of interference over a
+much larger distance. The main conclusion, however, is that
+considerable shielding is achieved only in the immediate
+neighborhood of the wire. There, using small argument series
+expansions for the Bessel functions, the total electric ﬁeld
+can be approximated by E
+total
+zðrÞ/C25Epw
+zð1/C0lnðkrÞ=lnðkaÞÞ,
+which yields a shielding of 90% at kr/C25ðkaÞ0:9/C250:016 in
+Fig. 3. At a distance of k=32 in the transverse direction, this
+approximation yields a shielding of only 3.8 dB.
+For a wire with ﬁnite conductivity r, the reasoning has to
+be generalized. For a perfect conductor, all the current is on
+the surface of the wire, but when the conductivity is ﬁnite,
+the current extends into the bulk of the wire. The outgoingcylindrical wave is generated by a current Iinduced on the
+wire by the incident plane wave (as indicated in Fig. 2).
+Now, the second boundary condition can be obtained by
+imposing J¼rE
+total
+zin the wire. Integrating this equation
+over the cross section of the wire leads to an equation in
+terms of the current I. This equation can be solved, and the
+total ﬁeld distribution can then be calculated. If the wire
+radius is much larger than the skin depth, the current isnearly the same as for a perfect conductor, and thus, the
+shielding is nearly the same. If the wire radius is much smaller
+than the skin depth, the current density is nearly constantacross the wire cross section, but the integrated current is
+smaller so the shielding is worse. The criterion to have similar
+shielding properties as for a perfectly conducting wire is,
+thus, the ratio of skin depth to wire radius. The skin depth
+is found from d¼(2q/xl)
+1/2. For copper, q¼1.7/C210/C08Xmandl/C24l0¼4p/C210/C07N/A2, so for a frequency of 1 MHz,
+d¼0.07 mm. This means that at a frequency of 1 MHz, copper
+wire with a radius of 0.5 mm carries a current Ithat is almost
+the same as in the case of the perfectly conducting wire and,
+therefore, has similar shielding properties, but at a frequency of1 kHz, the shielding will be reduced.
+This kind of shielding is seen in printed circuit boards
+(PCBs), i.e., the green boards that are found in almost any
+electronic device. Sensitive subsystems are put in the middle
+of the board, where there is a small shielded zone created bythe 1D metal traces near the edges of the PCB.
+B. Size of the shielded region for a periodic array of long
+1D shields
+In many cases, shields are used that do not consist of solid
+conductive metal but, for example, of gridded or woven
+metal wires. The darkish glass front of a microwave ovenactually contains a gridded shield. At lower frequencies,
+reinforced concrete in buildings forms a very effective shield
+thanks to the gridded steel reinforcements. At higher fre-quencies, it doesn’t. The outer conductor of most coaxial
+cables is actually woven. What is the effect of gridding or
+weaving and the resulting openings in between the wires?
+This phenomenon can be studied in a qualitative way by
+considering the canonical case of a periodic array of long
+conductive wires with radius aparallel to each other and
+with distance din between, as in Fig. 4. We know already
+from Sec. IV A that wires only have an effect on an electric
+ﬁeld parallel to them, so we will consider a plane wave com-
+ing from a direction normal to the plane of the wires andwith an electric ﬁeld polarization parallel to the wires. It is
+easy to understand that, due to symmetry, the same currents
+are induced on all the wires. This means that the total ﬁeld
+Fig. 3. (Color online) Loci of constant electric ﬁeld amplitude levels jEj, with Ebeing the phasor of the sinusoidally time varying electric ﬁeld. The perfectly
+conducting wire is located in the origin. The direction of the incident plane wave with amplitude 1 is shown by the blue-grey arrow. The horizontal and v ertical
+axes represent kxandky, respectively, k¼xﬃﬃﬃﬃﬃlep. The radius aof the wire was chosen as ka¼0.01. Calculations are performed based on an implementation
+of Eqs. (12) and(13) inMATLAB (Ref. 13).
+675 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 675 04 October 2023 23:16:02
+can be written as a superposition of the plane wave and an
+inﬁnite sum of cylindrical waves, one emanating from eachwire, spatially shifted over the proper number of d’s.
+As long as a/C28d, based on the equations for the single
+wire case, the total ﬁeld can be written as
+E
+total
+zðx;yÞ¼Epw
+zejky
+þXþ1
+n¼/C01C0cH2
+0kﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ðx/C0ndÞ2þy2q/C18/C19
+:(14)
+Ifdbecomes comparable to a, the current proﬁles on the
+wires start to couple so strongly that the reasoning fol-lowed further is not valid any more. This case is mathemat-ically much more complex and beyond the scope of thispaper.
+C
+0cagain needs to be determined from the condition that
+at the surface of the wires, the total zdirected electric ﬁeld
+needs to be zero. Following the same projection techniquefor this zeroth order mode (i.e., integrating this conditionover the circumference of the central wire) yields
+ð
+2p
+0Etotal
+zðacosu;asinuÞdu
+¼ð2p
+0/C18
+Epw
+zejkasinu
+þXþ1
+n¼/C01C0cH2
+0kﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ðacosu/C0ndÞ2þðasinuÞ2q/C18/C19 /C19
+du:
+(15)
+As long as a/C28d, for n6¼0 the terms under the square root
+with the factor acan be neglected. For n¼0, we obtain the
+same term as for the single wire. The result isC0c¼/C0ð2p
+0Epw
+zejkasinudu
+2pH2
+0ðkaÞþ2X1
+n¼1H2
+0ðkndÞ !
+¼/C0Epw
+zJ0ðkaÞ
+H2
+0ðkaÞþ2X1
+n¼1H2
+0ðkndÞ: (16)
+The resulting total ﬁeld for different d=kis given in Fig.
+5. It is seen that, as expected, the shielding gets better with
+decreasing values of d=k. In the limit of very large separa-
+tions compared to the wavelength (not shown in the ﬁg-ure), the situation is similar to the situation of light rays
+passing through prison bars. The wave is not stopped at all.
+From a shielding perspective, the most interesting is to seehow the shielding improves drastically below a certainthreshold for d=k. The distance for which a shielding of
+/C06 d Bi sr e a c h e di sc a . d¼k=8. For d¼k=32, shielding
+values of ca. /C030 dB are reached. This phenomenon is
+directly related to the fact that for waves with certainwavelength, it is very difﬁcult to pass through openingsthat are much smaller than their wavelength. The result is a
+“shielded wave” behind the screen with much smaller
+amplitude and a standing wave with amplitude nearly twicethe incident amplitude in front of the screen. Note, how-ever, that this transmitted amplitude is multiple orders ofmagnitude larger than the one of a wave actually“penetrating” through the metal of a full metal screen, aswill be shown later in this work. Note further that in allc a s e sd e p i c t e di nF i g . 5, the distance between the wires is
+much larger than the radius of the wires, so that most ofthe gridded 2D screen is actually ﬁlled with free space. It
+is not needed to use a lot of metal for shielding purposes; it
+is just needed to put the metal that is available closeenough together compared to the wavelength. Also, notethat the ﬁeld behind the screen very rapidly reaches theplane wave behavior again.
+For wires with ﬁnite conductivity r, the reasoning has
+to be generalized in the same way as for the single wire inSec. IV A . The outgoing cylindrical waves are generated
+by currents Iinduced on the wires by the incident plane
+wave (as indicated in Fig. 4). Due to symmetry, these cur-
+rents are identical. The second boundary condition can be
+obtained by imposing J¼rE
+total
+z in one of the wires.
+Integrating this equation over the cross section of thisw i r el e a d st oa ne q u a t i o ni n I. This equation can be
+solved, and the total ﬁeld distribution can then be calcu-lated. For a practical copper wire with a radius of 0.5 mmand at normal frequencies (tens of kHz–MHz), again, theshielding properties of the structure turn out to be quitesimilar.
+Note that the conclusions drawn in this section for the
+wire structure can be generalized to other geometries:
+(1) other shapes, for example, strips,
+(2) 2D (two dimensional) topologies, such as nets and
+chicken wire, (the same phenomena occur, but now forboth polarizations of the electric ﬁeld).
+Also note that the static version of this problem is consid-
+ered in the Feynman Lectures on Physics .
+14It can be veriﬁed
+Fig. 4. (Color online) Plane wave hitting a periodic array of inﬁnitely long
+conducting wires. The distance between two neighboring wires is d.Iis the
+current induced in the wires.
+676 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 676 04 October 2023 23:16:02
+that in the limit for the frequency going to zero (14) leads to
+an exponential decay behind the screen, as also found byFeynman. The mathematical proof is beyond the scope of
+this paper.
+C. Size of the shielded region for 2D shields
+The canonical case considered is a plane wave hitting a
+perfectly conducting half plane, as in Fig. 6. The direction of
+incidence is normal to the half plane, and the polarization ofthe incident electric ﬁeld is either parallel or normal to the
+edge of the half plane. This case is considered for tworeasons. The main reason is that this geometry shows how an
+electromagnetic ﬁeld “diffracts” at the edge, in this way
+reaching the region behind the shield. If properly applied, it
+allows an assessment of how close behind a shield, a deviceor component has to be located in order to reach a certain
+level of shielding. The second reason is the fact that this
+geometry is a classic one, already solved quasi-analytically
+by Sommerfeld in 1964 and very clearly described by van
+Bladel.
+15,16Because the mathematical derivation can be
+found in these references, the resulting expressions for the
+total ﬁeld are provided without proof. For an incident electric
+ﬁeld parallel to the edge, this ﬁeld is
+Fig. 5. (Color online) Loci of constant electric ﬁeld amplitude levels jEj, with Ebeing the phasor of the sinusoidally time varying electric ﬁeld. The perfectly
+conducting wires are located periodically at y¼0 with spacings shown on each diagram. For the last case, behind the shield the ﬁeld is on the order of /C030 dB
+(linear value ¼0.03). The horizontal and vertical axes represent kxandky, respectively. The radius aof the wires was chosen as ka¼0.01. Calculations are
+performed based on an implementation of formulas (14)–(16) inMATLAB (Ref. 13).
+677 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 677 04 October 2023 23:16:02
+Etotal
+z¼jsinðkrsinuÞ
+þ1þj
+2ejkrsinuFﬃﬃﬃﬃﬃﬃﬃ
+2kr
+pr
+cosu
+2/C18/C19
+þsinu
+2/C18/C19 /C18/C19 !
+/C01þj
+2e/C0jkrsinuFﬃﬃﬃﬃﬃﬃﬃ
+2kr
+pr
+cosu
+2/C18/C19
+/C0sinu
+2/C18/C19 /C18/C19 !
+;
+(17)
+FðtÞ¼ðt
+0e/C01=2jps2ds: (18)
+Expression (18) deﬁnes the so-called Fresnel integral that
+is used in expression (17), very well known in the diffraction
+theory. The loci where the ratio of the amplitude of the totalelectric ﬁeld (i.e., incident ﬁeld þﬁeld generated by the cur-
+rents induced on the shield) over the amplitude of the inci-dent ﬁeld (i.e., simply the plane wave amplitude) is constant
+are given in Fig. 7. Of course, on the screen, the total (tan-
+gential) ﬁeld is zero. It is seen in Fig. 7that the shielding is
+better than 40 dB (a reduction in the ﬁeld by a factor of 100)only in a very small region behind the half plane. Close to
+the edge of the half plane, this region is considerably thinner
+than further away. A shielding of 20 dB (i.e., a reduction of
+the ﬁeld by a factor 10) is reached in a considerable regionbehind the half plane.
+Through this canonical case, two general shielding proper-
+ties are illustrated. In a speciﬁc point behind a shieldingscreen, the level of shielding depends on the ratio between
+the absolute distance from the screen and the absolute dis-
+tance from the closest edge of the screen. However, it alsodepends on the electrical distance to the closest edge of the
+screen, i.e., the distance expressed as a number of wave-
+lengths. Keeping the absolute point behind the screen, the
+same shielding will be better at higher frequencies, becausethis corresponds with moving further to the right in Fig. 7.
+Based on Fig. 7, a good estimate of the level of shielding can
+be made in each speciﬁc case.
+In Fig. 7also note the formation of a standing wave pat-
+tern at the right above the half plane. Going to the left of thehalf plane, i.e., where there is no shielding, the ﬁeld rapidlyapproaches the amplitude 1, i.e., the original plane wave is
+just passing at the left of the half plane.
+From a physical perspective, the fact that the ﬁelds reach
+the zone at the back of the shield can also be explained byusing Huygens’ principle: Each point within a “primary”wave front can be interpreted as a new source of a
+“secondary” spherical wave. The superposition of all these
+secondary spherical waves completely determines the shapeof the forward propagating original wave at any subsequenttime. So in this case, the secondary spherical waves emanat-ing from the left half of the plane, i.e., where no shield is pre-
+sent, do reach the zone at the back of the shield. The
+amplitudes there are governed by the interference betweenall these secondary waves. Note that the ﬁeld levels that aregenerated by this effect in practice are quite comparable to
+the levels observed when the shield is gridded or woven, of
+course depending on the size of the openings expressed inwavelength.
+For a half plane with ﬁnite conductivity r, a contribution
+to the total ﬁeld behind the screen generated by the wave
+penetrating the shield has to be added. However, in Sec.
+IV D , it will be shown that this contribution in typical
+Fig. 6. (Color online) Plane wave hitting a conducting half plane.
+Fig. 7. (Color online) Loci of constant electric ﬁeld amplitude levels jEj, with Ebeing the phasor of the sinusoidally time varying electric ﬁeld. The perfectly
+conducting halfplane is depicted as a red line. The direction of the incident plane wave with amplitude 1 is marked in blue-grey. The horizontal and ver tical
+axes represent kxandky, respectively. The levels /C040 dB (linear value ¼0.01) and /C020 dB (linear value ¼0.1) are indicated. Both the incident electric ﬁeld
+polarization parallel to the edge (left) and normal to the edge (right) are considered. The white zone in the ﬁgures is the zone with shielding better th an 40 dB.
+Calculations are performed based on an implementation of formulas (17) and(18) inMATLAB (Ref. 13).
+678 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 678 04 October 2023 23:16:02
+shielding situations is on the order of /C0100 dB, which means
+that it is negligible in comparison with the contribution fromthe wave “going around the screen,” as described in thissection.
+D. Penetration through a 2D shield with finite
+conductivity
+This phenomenon is the only one that can be well-
+described by the classic textbook case of a plane wave hit-ting an inﬁnite conducting screen. Most of the wave reﬂects.A small part of the wave enters the screen, where it decaysin an exponential way while propagating further. This decayis governed by the skin depth of the metal of the screen. Atthe other end of the screen, a second reﬂection occurs andpart of the wave leaves the screen again. This means thatinside the screen, a situation with multiple reﬂections at the
+interfaces at both sides of the screen may occur. The rigorous
+analysis of this canonical case can be found in many text-books and will not be repeated here. The ﬁnal result for thetransmission Tof a normally incident plane wave can easily
+be expressed in closed form,
+3,4
+T¼1
+SE linearðÞ¼/C12/C12/C12/C124g0gse/C0csd
+ðgsþg0Þ2/C0ðgs/C0g0Þ2e/C02csd/C12/C12/C12/C12;
+(19)
+c
+i¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+jxliðjxeiþriÞp
+¼propagation constant in medium i; (20)
+gi¼jxli
+ci¼characteristic impedance of medium i;
+(21)
+where the subscript i¼0 represents the background medium
+and the subscript i¼s represents the screen medium, which
+is a conductor. A widespread misconception is the belief thata good shield needs to have a thickness much larger than theskin depth at the frequency considered. Working out expres-sion (19) for skin depths going to inﬁnity (or frequencies
+going to zero) yields T’2=ðg
+0rsdÞ. If the background
+medium is air, then this further reduces to T¼2/(Z0rsd)
+where Z0¼377Xis the impedance of free space. For a cop-
+per plate of thickness 0.1 mm, this gives a shielding level ofca. 120 dB. This means that if one considers only this contri-bution to the ﬁeld behind the screen, this ﬁeld is reduced bya factor of 10
+6.
+In other words, in most practical circumstances, with ﬁnite
+screens (see Sec. IV C ), or with woven screens or mesh
+based screens (see Sec. IV B ), the level of shielding is not
+determined by the penetration through the metal itself, but
+mainly by the presence of any (even small!) holes in thescreen (as qualitatively described in Sec. IV B ), or by diffrac-
+tion at the edges of the screen (as qualitatively described inSec. IV C ).
+From a practical shielding point of view, a detailed study
+of a plane wave hitting an inﬁnite conducting screen in mostcases is, thus, actually irrelevant. The exception is the so-called full-metal Faraday cage, i.e., a closed Faraday cagemade of 2D shielding material without holes/openings,where the penetration through the metal fully determines thelevel of shielding.V. MAGNETIC SHIELDING
+The basic working mechanism of magnetic shielding is
+different. The reason is that there is no magnetic equivalent
+for the electric conductor; that is, a material with inﬁnite
+magnetic conductivity that will respond in a way that the B-
+ﬁeld inside is zero. The shielding of magnetic ﬁelds is a sec-ondary effect, related to the shielding of the electric ﬁelds inthe ﬁeld conﬁguration. It is qualitatively easily seen from the
+differential form of Faraday’s law, i.e. (3), that in a region
+where the electric ﬁeld is zero (or very small), the magneticﬁeld will also be zero (or very small), provided that the fre-quency is not zero (or large enough).
+We can study this in a more systematic way. It follows
+from (3)that inside a shield made of perfect electric conduc-
+tor (thus, with conductivity r!1 ) for any frequency dif-
+ferent from zero, the zero electric ﬁeld automatically leads toa zero magnetic ﬁeld. This is well known. The second stepinvolves relating the zero ﬁeld inside with the ﬁeld just out-
+side, just as in the case of the electric ﬁeld. Applying (3)
+again, but now just above the surface of the shield, and tak-ing into account that the tangential electric ﬁelds there arezero, we immediately see that just outside the shield themagnetic ﬁeld component normal to the shield is zero. It is
+very important to emphasize that a shield (that essentially
+consists of electric conductors) does not shield the magneticﬁeld components tangential to the shield in its immediateneighborhood. It just shields the normal component of this
+magnetic ﬁeld. This means that there is a sudden jump of the
+tangential magnetic ﬁeld at the surface of the shield fromzero (or a very small value) inside to a considerable valuejust outside. For sufﬁciently high frequencies, the study ofthe “shielded zone” is very similar to the case of electric
+shielding and delivers results that are very similar. It is
+important to note that an identical result is obtained by build-ing a line of reasoning fully based on eddy currents, as is tra-ditionally done.
+However, for sufﬁciently low frequencies, the situation is
+totally different. This is revealed by studying the relation
+among ﬁnite conductivity, the frequency, and magneticshielding. A very educational way to do this is by studyingthe simple example of the magnetic ﬁeld inside a loop ofconducting wire, as in Fig. 8.
+Applying the integral form of Faraday’s law, Eq. (1),
+along the loop yields
+RI¼/C0jx/
+tot¼/C0jxðLIþ/incÞ; (22)
+where /incis the incident magnetic ﬂux going through the
+loop, which is directly related to the magnetic ﬁeld normal to
+Fig. 8. (Color online) Loop with resistance R(due to the ﬁnite conductivity
+of the wire) and inductance L(due to the inductive self-coupling) in the
+presence of a time-varying applied magnetic ﬂux /inc(Ref. 17).
+679 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 679 04 October 2023 23:16:02
+the loop area, and Iis the current ﬂowing in the loop. This
+can be solved as
+I¼/C0jx/inc
+RþjxL; (23)
+/tot¼/incþLI¼1
+ð1þjxL=RÞ/inc: (24)
+The incident ﬂux, which is the integral over the loop area of
+the magnetic ﬁeld normal to the loop, is, thus, reduced by a
+factor that depends on ðxL=RÞ. Any device positioned
+inside, or just in front or behind this loop, will experience
+this reduction of magnetic ﬁeld and is, thus, shielded from
+this magnetic ﬁeld component. For a perfect conductor, R
+equals zero, and the magnetic shielding is perfect. The inci-
+dent ﬂux is completely compensated. However, for any non-
+zero R, there exists a critical frequency ðR=LÞ=ð2pÞbelow
+which the shielding deteriorates to reach zero shielding at
+DC, i.e., for x¼0. This is a major difference with electric
+shielding.
+This can be numerically illustrated by using the formulas
+forRandLfor a copper loop of diameter Dand wire radius
+a. These formulas can also be found in any basic textbook
+R¼pD
+rpa2¼D
+ra2; (25)
+L¼l0D
+2ln4D
+a/C18/C19
+/C02/C18/C19
+; (26)
+yielding
+xcrit¼R
+L¼D
+ra2
+l0D
+2ln4D
+a/C18/C19
+/C02/C18/C19
+¼2
+l0ra2ln4D
+a/C18/C19
+/C02/C18/C19 : (27)
+ForD¼1 m and a¼1 mm, this delivers a critical frequency
+offc/C25694 Hz. At 60 Hz, this yields a reduction of the
+amplitude of the incident ﬂux by a factor 1.0037, which is
+negligible.
+Note that a full shield can always be seen as a superposi-
+tion of an inﬁnite number of loops, each with its own current.
+The effect is the same. For real-life conductors with ﬁnite
+conductivity, magnetic shielding does not work for sufﬁ-
+ciently low frequencies. This result is impossible to obtain
+from the “plane wave understanding” of shielding.
+The practical consequences are severe. Whereas from a
+technical point of view, it is easy to shield houses from the
+radiation generated within the context of wireless communi-
+cation networks, it is almost impossible to shield houses
+from the magnetic ﬁelds generated by the high-voltagepower distribution lines. The reason is that the frequency
+there is only 50 or 60 Hz. These two forms of “radiation” are
+highly controversial in the present day society, where a con-
+siderable portion of the people is concerned with the radia-
+tion exposure issue.
+Note that it is possible to implement magnetic shielding
+based on another operational principle. Shields can be madewith high-permeability alloys like mu-metal. This type of
+shield works not by blocking or reﬂecting magnetic ﬁeldsbut by providing a preferred path for the magnetic ﬁeld lines
+around a shielded area, a consequence of the high permeabil-
+ity. This means that the best shape for this type of magneticshields is a closed container surrounding the shielded space.The electric analog is a container made of high permittivitymaterials, which essentially does the same thing for the elec-
+tric ﬁeld. In the engineering community, this technique is tra-
+ditionally not thought of as a real “shielding” technique, andit is very rarely used in practice. However, from a physicspoint of view, it is related. A high conductivity or a high per-mittivity then just means working with the imaginary part or
+the real part of the complex permittivity. Both result in
+shielding properties. A more detailed discussion on this isbeyond the scope of this paper.
+VI. CONCLUSION
+In this paper, the basics of electromagnetic shielding have
+been reviewed. This is done from a physical point of view,
+explaining the nature of the phenomena on the basis of rigor-ous mathematical formulations for very simple canonicalcases. The issue was considered from the perspective of howan incident wave can reach the zone at the back of a shield:
+through the metal of the shield, through holes in the shield,
+or via the edges of the shield. For most practical shields, theﬁrst route leads to negligible ﬁelds. The second and thirdroutes are the ones that need to be considered in real practi-cal cases. Depending on the situation and frequency consid-
+ered, for appropriate shields they typically give reductions of
+the ﬁeld levels in the order of a few tens of dB.
+The questions asked in the introduction can now be
+answered.
+•There is indeed a difference in the behavior of a screen atlow and high frequencies. At low frequencies, electricshielding can be largely maintained, whereas magneticshielding properties largely get lost. At high frequencies,
+however, electric and magnetic shielding become very
+similar.
+•Shielding does not only work for two-dimensional screensbut also for wire grids and, to a certain extent, even forsingle wires. The main difference is the level of shieldingand the region in space where the shielding is occurring.
+•The traditional “educational” plane wave description of
+shielding is typically used at high frequencies, and it is
+valid for both types of shielding since they are inherentlylinked there. The description on the basis of eddy currentsis typically used for magnetic shielding at lower frequen-cies. However, in principle, the eddy currents and the cur-
+rents ﬂowing in the screen of the plane wave description
+are essentially the same electric currents. In the plane wavedescription, they are somehow “invisible,” since thisdescription typically works with reﬂection and transmissioncoefﬁcients without really considering the electric currents.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conﬂicts of interest to declare. There is
+no ﬁnancial interest to report. I certify that the submission isoriginal work.
+680 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 680 04 October 2023 23:16:02
+a)Electronic mail: guy.vandenbosch@kuleuven.be, ORCID: 0000-0002-
+5878-3285.
+1See<www.lessemf.com >for information on many practical forms of
+shielding, here related to the controversy about electromagnetic ﬁelds inour society.
+2H. Ott, Electromagnetic Compatibility Engineering (John Wiley & Sons,
+New York, 2009).
+3S. Celozzi, R. Araneo, and G. Lovat, Electromagnetic Shielding (John
+Wiley & Sons, New York, 2008).
+4K. L. Kaiser, Electromagnetic Shielding (CRC, Taylor & Francis Group,
+Boca Raton, FL, 2006).
+5S. Fahy, C. Kittel, and S. G. Louie, “Electromagnetic screening by met-
+als,” Am. J. Phys. 56, 989–992 (1988).
+6W. M. Saslow, “Maxwell’s theory of eddy currents in thin conducting
+sheets, and applications to electromagnetic shielding and MAGLEV,” Am.
+J. Phys. 60(8), 693–711 (1992).
+7L. Kowalski, “About electrostatic shielding,” Phys. Teach. 27, 366–367
+(1989).
+8P. Rochon and N. Gauthier, “Strong shielding due to an electromagneti-
+cally thin metal sheet,” Am. J. Phys. 58, 276–277 (1990).9Z. Geller and E. Bagno, “Does electrostatic shielding work both ways?,”
+Phys. Teach. 32(1), 20–22 (1994).
+10R. B. Schulz, V. C. Plantz, and D. R. Brush, “Shielding theory and
+practice,” IEEE Trans. Electromagn. Compat. 30(3), 187–201 (1988).
+11K. F. Casey, “Electromagnetic shielding behavior of wire-mesh screens,”
+IEEE Trans. Electromagn. Compat. 30(3), 298–306 (1988).
+12J. M. Aguirregabiria, A. Hernandez, and M. Rivas, “Shielding of an oscil-
+lating electric ﬁeld by a hollow conductor,” Am. J. Phys. 64(8),
+1008–1013 (1996).
+13See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0087295 for “Matlab scripts.”
+14R. P. Feynman, R. B. Leighton, and M. Sands, The Feynman Lectures on
+Physics II: Commemorative Issue, Three Volume Set (Addison Wesley,
+Boston, 1989), Sec. 5–7.
+15A. Sommerfeld, Optics (Academic, New York, 1964).
+16J. Van Bladel, Singular Electromagnetic Fields and Sources (Oxford
+Science Publications, Clarendon, Oxford, 1991).
+17G. A. E. Vandenbosch, “How to model connection wires in a circuit: From
+physical vector ﬁelds to circuit scalar quantities,” Am. J. Phys. 81(9),
+676–681 (2013).
+681 Am. J. Phys., Vol. 90, No. 9, September 2022 Guy A. E. Vandenbosch 681 04 October 2023 23:16:02

@@ -1,0 +1,673 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| JUNE 01 2023
+Cost-effective measurement of magnetostriction in
+nanoscale thin films through an optical cantilever
+displacement method 
+David L. T ran; Paymon Shirazi ; Mohanchandra K. Panduranga ; Gregory P . Carman
+Am. J. Phys.  91, 470 (2023)
+https://doi.org/10.1 119/5.0134187
+Articles Y ou May Be Interested In
+Parameter space validation through OOPS simulations of plasma burnthrough and discharge evolution in
+the SST -1 tokamak
+Phys. Plasmas  (April 2020)
+Micro-magnetoelastic modeling of T erfenol-D for spintronics
+J. Appl. Phys.  (June 2022)
+Correlation between bonding, vacancy migration mechanisms, and creep in model binary and ternary hcp-
+Mg solid solutions
+J. Appl. Phys.  (October 2020) 04 October 2023 22:53:02
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Cost-effective measurement of magnetostriction in nanoscale thin films
+through an optical cantilever displacement method
+David L. Tran,a)Paymon Shirazi,b)Mohanchandra K. Panduranga,c)
+and Gregory P . Carmand)
+Department of Mechanical and Aerospace Engineering, University of California, Los Angeles, Los Angeles,
+California 90095
+(Received 8 November 2022; accepted 15 March 2023)
+A cost-effective method for the quantitative characterization of the magnetostrictive effect in thin ﬁlms
+is presented. In this method, a sample’s magnetostriction is extrapolated from the tip displ acement of a
+thin-ﬁlm magnetostrictive cantilever. The tip displacement is measured by monitoring the position of a
+reﬂected laser beam using two differentially coupled photodiode positioning sensors. In contrast withalternative optical deﬂection-angle devices designed for educational purposes, the detection limit of
+our setup resolves submicron-level displacements from nanoscale thin ﬁlms. The efﬁcacy of the system
+is demonstrated through measurements using amorphous 200-nm thick Terfenol-D/Si (100) bimorphcantilevers. In these measurements, magnetostriction values of 106 63:5 ppm at 64300 Oe applied
+ﬁeld were attained, where the voltage noise ﬂoor was 60.05 V (a cantilever displacement uncertainty
+of670 nm). In-plane (IP) and out-of-plane (OOP) magnetization curves and crystallographic x-ray
+diffraction (XRD) were performed to determine the magnetic behavior and conﬁrm the amorphous
+nature of the ﬁlms, respectively. The experimental methods and material characterization systems
+demonstrated here enhance the understanding of complex magnetic phenomena and introduce commonmeasurement techniques to better equip students with the skills for insightful analysis of fundamental
+magnetic physics.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0134187
+I. INTRODUCTION
+The precise measurement of the magnetostrictive effect in
+thin ﬁlm materials is a complex task and is often the subject
+of magnetics education. Magnetostriction is an inherent prop-erty of ferromagnetic and ferrimagnetic materials anddescribes the change in a sample’s dimensions upon applica-
+tion of a magnetic ﬁeld H, which enables the conversion of
+electromagnetic energy to mechanical energy or vice versa.This applied Hwill cause magnetic domains—regions of
+aligned spins and orbitals of unpaired electrons—most closely
+aligned with the direction of Hto accumulate over domains
+oriented in different directions. Accordingly, the dipoleswithin these differently oriented domains will experience atorque from Hand rotate to align themselves with this ﬁeld.
+Rotations result in an induced strain as the spacing between
+atoms must change to accompany the realignment of the orbi-tals in the presence of spin-orbit coupling.
+1,2Depending on its
+sign, the magnetostrictive strain kmsincreases or decreases
+until it levels off towards a saturation value ksat. This effect
+has been exploited for sensory and actuation purposes foundin milling process monitoring,3high-accuracy position sen-
+sors,4linear motors,5among other applications.
+Since its discovery in 1842, numerous methods have been
+devised to directly measure magnetostriction as a function of
+the strength of the applied magnetic ﬁeld H, including strain
+gauges,6laser Doppler/holographic interferometry,7,8and
+deﬂection-angle devices.9–11Strain gauges offer an accurate
+and cost-effective approach commonly used for bulk crystal-line materials, but cannot be applied to thin ﬁlms due totheir signiﬁcantly reduced dimensions ( <1lm) and micro/
+nanoscale displacements.
+1Interferometry uses the superposi-
+tion of interfering waves between the sample and a referencemirror to extract information about either phase or amplitudechanges. These apparatuses offer incredible precision, but
+are meticulous to implement, expensive (especially for edu-
+cational demonstrations), and highly sensitive due to theoptics required.
+8Instead, an alternative method to cost effec-
+tively and accurately measure the magnetostrictive effect isthrough the deﬂection method,12wherein the displacement
+of a reﬂected laser beam from the sample is read via a posi-tioning sensor or camera. With these systems, calibration
+470 Am. J. Phys. 91(6), June 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 470 04 October 2023 22:53:02
+and further data processing are required to properly assess
+equipment sensitivity constants (e.g., the apparatus’ camera
+constant K; see discussion below) but offer substantially more
+cost-effectiveness and less complexity than interferometry-based techniques. Previous cantilever-based setups incorpo-rating the deﬂection angle approach and designed for
+classroom purposes have demonstrated accurate measure-
+ments for ﬁlm thicknesses t
+fin the range of tens of lm.9,10
+The new setup described in this paper is ideal for educational
+purposes as it is suitable for nanoscale thin ﬁlms with tfin the
+hundreds of nm deposited in a number of ways—sputtering,
+evaporation, or molecular-beam epitaxy (MBE)—and has amuch lower detection limit k
+DLfor a variety of bimorph canti-
+lever proportions than similar setups suggested by Laumann
+et al.9and Adhikari et al.10Furthermore, even though similar
+apparatuses exist using voltage measurements, they are need-lessly complex to set up, require a complex array of beam
+splitters and mirrors,11and ultimately distract from the heart
+of the experiment, despite their accuracy. On the other hand,the beneﬁts associated with the versatility of our system, easeof set up and operation through educationally available free
+software (e.g., the entire experimental procedure can easily be
+automated in MATLAB ,Python , or similar programs), and
+capability to measure magnetostriction of a variety of ﬁlmsfrom nanoscale to bulk thickness are promising for general
+laboratory and educational purposes.
+This article outlines our cost-effective magnetostriction
+measurement apparatus with nanoscale precision designed foreducational purposes. In Sec. II, a theoretical background is
+provided to outline the equations required to extract k
+msfrom
+the raw data, followed by a derivation of the detection limit
+kDL. Custom and commercially available components utilized
+in apparatus design and the methods for implementation are
+provided in Sec. III. To show the efﬁcacy of the system, mag-
+netostriction measurements are performed on nanoscale amor-phous Terfenol-D (Tb
+0:3Dy0:7Fe1:92) thin ﬁlms with measured
+values of 106 63:5p p m a t 64300 Oe. Magnetic hysteresis
+curves and properties (e.g., actual Msatvalue and remnant
+magnetization Mr) are further analyzed with in-plane (IP) and
+out-of-plane (OOP) magnetic hysteresis loops measured by ascanning superconducting quantum interference device
+(SQUID) magnetometer to supplement characterization of the
+amorphous Terfenol-D samples studied. This study illustratesthe various unique magnetic and structural properties of ferro-
+magnetic and ferrimagnetic materials that may be emphasized
+when performing this experiment. For example, performing acomplete magnetic ﬁeld sweep reveals the property of mag-netic hysteresis, a critical component for many applications
+ranging from geological record keeping
+13to computer hard
+disk drive (HDD) storage14to transformers.15Additionally,
+these hysteresis loops enable further quantitative study of amaterial’s magnetic response (e.g., characterization of its
+magnetically soft and hard axes from IP and OOP SQUID
+data, among other quantities which are discussed below).From an instructional standpoint, the focus should remain on
+the analysis of these various magnetomechanical properties of
+the collected data for students to better understand the reason-ing behind the use of certain magnetic materials in theirrespective applications.
+II. THEORETICAL BACKGROUND
+Bimorph magnetostrictive cantilevers are constructed of
+two layers, consisting of a substrate material that exhibits nomagnetostriction, followed by a thin magnetostrictive ﬁlm as
+illustrated in Fig. 1. In the absence of an applied magnetic
+ﬁeld (i.e., H¼0), the ﬁlm layer has a rest length of L
+f. Upon
+application of a magnetic ﬁeld, the length of the thin ﬁlm
+layer changes through longitudinal and transverse deforma-
+tions causing the cantilever to deﬂect transversely (see Fig.1). During this process, the dimensions of the substrate layer
+remain constant exhibiting no magnetostriction. Measuringthe transverse cantilever displacement requires sensitiveequipment, which is accomplished by a cantilever deﬂectionmeasurement system consisting of an incident laser beamand a position detector that determines the position of adeﬂected laser beam as shown in Fig. 2. The position of the
+laser beam on the position detector is derived from the dif-ference in beam intensity, which corresponds to a voltageoutput provided by a differential operational ampliﬁer circuit(see Fig. 3). However, the extent to which the voltage
+changes for any given position change is unknown anddependent on the geometry of the apparatus. This factor,termed the apparatus’ camera constant K , needs to be
+obtained prior to magnetostriction measurements and isrequired to correlate the displacements in the laser beam’sposition on the position detector to the voltage changes givenby
+K¼
+Dx
+DV; (1)
+where Dxis the change in the position and DVis the change in
+the differential voltage measured. To obtain K, a micrometer
+stage is utilized to move the detector along the x-axis while
+recording the voltage output. Using several data points, a best-
+Fig. 1. (Color online) Bimorph cantilever beam setup with one end ﬁxed and
+constructed with the non-magnetostrictive substrate and magnetostrictive
+ﬁlm layers placed in (a) no magnetic ﬁeld with ﬁlm rest length Lfand (b)
+applied magnetic ﬁeld Hin the ^x-direction, demonstrating the tip displace-
+ment measurement technique with a laser beam.
+Fig. 2. (Color online) Schematic of the experimental setup consisting of thesample placed in between NdFeB permanent electromagnets with a He-Ne
+laser shone onto the cantilever to measure its magnetostriction via the laser
+beam’s position on the photodiode from (a) rest ( H¼0) to (b) deﬂected
+(H6¼0).
+471 Am. J. Phys., Vol. 91, No. 6, June 2023 Tran et al. 471 04 October 2023 22:53:02
+ﬁt line is determined in which the slope of the curve equates to
+the camera constant K(see the supplementary material40for
+data processing and additional discussion).
+For measurement of magnetostriction in a cantilever
+beam, the cantilever experiences an angular deﬂection at Lf
+ofhupon application of a magnetic ﬁeld ( H¼6H^x). To
+measure this displacement, an incident laser beam is shone
+onto the ﬁlm’s endpoint Lf, which is then reﬂected back onto
+the position detector. For a cantilever experiencing a uniformload throughout its length (e.g., due to the magnetic ﬁeld H),
+the magnetostrictive tip displacement D
+msatLfcan be
+approximated for sufﬁciently small has
+Dms/C253
+4Lfh: (2)
+The factor of 3/4 is derived from the analytical relationship
+between a cantilever beam’s free end slope and maximum
+deﬂection for a uniformly distributed load. During the mag-
+netic ﬁeld sweep, the reﬂected laser beam will continuouslychange its x-position, which corresponds to a change in the
+differential voltage. From the deﬁnition of the camera con-stant, the displacement on the position detector during the
+magnetic ﬁeld sweep r
+ican be expressed in terms of the
+measured voltage at any speciﬁc instant DVias
+ri¼KDVi: (3)
+Recall that if a mirror is rotated by an angle h,t h e
+reﬂected ray will be rotated by 2 h. By this principle, the
+angle that the original incident laser beam at H¼0m a k e s
+with the deﬂected laser beam when H6¼0i s2 h,s i n c e
+the cantilever’s end is deﬂected by h. Considering the
+geometry of the setup in Fig. 4, the displacement on the
+position detector can be related to 2 hfor sufﬁciently small
+values as
+2h/C25tan 2h¼ri
+d; (4)
+where dis the horizontal distance between the sample and
+position detector along the y-axis.
+2his independent of the initial beam path subtended angle
+dand will produce the same results irrespective of its value.
+The cantilever tip displacement can then be related to the
+laser-beam displacement represented by the op-amp voltage
+by substituting h/C174Dms=3Lffrom Eq. (2)into Eq. (4).
+Solving for Dmsas a function of DViproducesDmsðDViÞ¼3LfK
+8dDVi: (5)
+The magnetostrictive strain of a sample is deﬁned as
+kms/C17DLf=Lf, but measuring this quantity is difﬁcult and
+requires precise equipment. Derived from the satisfaction of
+boundary and compatibility conditions, van de Riet16proved
+that if the cantilever is free on one end, its width w(i.e.,
+depth in the y-dir.) is negligible compared to Lf, and tf/C28ts,
+then the magnetostriction of the ﬁlm layer can be calculated
+in terms of the tip displacement by
+kms¼2
+9Dms
+tfts
+Lf/C18/C192Es1þ/C23f ðÞ
+Ef1þ/C23s ðÞ; (6)
+where Eis Young’s modulus, tis the thickness, /C23is Poisson’s
+ratio, and the subscripts f and s denote these properties for the
+ﬁlm and substrate, respectively. Since the cantilever is a
+bimorph, the elastic properties of the substrate must also be
+accounted for, as the mechanical coupling between the sub-
+strate and magnetostrictive layers inﬂuences the bending of
+the beam, which in turn dictates the measured tip displace-
+ment Dms.E q u a t i o n (6), moreover, assumes the deposition is
+ideal (i.e., the ﬁlm layer is evenly distributed across the
+entirety of the substrate). Ensuring that the cantilever abides
+by all of these requirements is salient to the experiment’s reli-
+ability and enables the use of Eq. (6)to accurately infer kms
+from minute laser-beam position displacement—provided that
+all of the geometrical conditions and assumptions are adhered
+to accordingly. Film deposition techniques such as sputtering
+and MBE mechanically couple the ﬁlm and substrate layers
+without the use of a bonding agent or other crude methods
+that would impact the bending response of the cantilever.
+Furthermore, these methods evenly deposit the two layers on
+top of each other with customizable tf. The efﬁcacy of these
+methods allow Eq. (6)to be used to correlate Dmstokms.
+In our setup, the magnetic ﬁeld is swept in the direction par-
+allel along the cantilever’s length, i.e., along the x-direction
+in Fig. 5. Additionally, there is an option for biasing permanent
+magnets that provide Hbiasand saturate the cantilever along the
+y-axis. By applying Hfrom the electromagnets, we obtain the
+magnetostriction that corresponds to a 90/C14domain rotation (see
+Fig.5), and for simplicity, one magnetostriction coefﬁcient kms
+will be used to describe the ﬁlm’s dimensional change.
+Since the data are read from a data acquisition (DAQ)
+device that is processing measurements collected by a differ-
+ential op-amp circuit, it is desirable to rewrite Eq. (6)in
+terms of the differential voltage DVi. Replacing Dmswith Eq.
+(5)to obtain kmsas a function of the measured op-amp dif-
+ferential voltage yields
+Fig. 3. (Color online) Differential operational-ampliﬁer circuit diagram
+(Texas Instruments INA121) with listed operating voltages used to collect
+data from the two photodiodes labeled “ PD1” and “ PD2,” which is hooked
+up to a National Instruments NI-9263 interfaced with a personal computer
+(not shown). The “ VoltageOutput ” terminal sends collected data of DVi
+and other quantities.
+Fig. 4. (Color online) Reﬂected laser-beam path variation from (a) no mag-
+netic ﬁeld (solid line) to (b) non-zero magnetic ﬁeld (dashed line), where the
+position on the photodiode position detector changes by ri, which subtends
+the angle 2 hat the sample.
+472 Am. J. Phys., Vol. 91, No. 6, June 2023 Tran et al. 472 04 October 2023 22:53:02
+kmsDViðÞ ¼1
+12t2
+s
+tfLfK
+d/C18/C19Es1þ/C23f ðÞ
+Ef1þ/C23s ðÞDVi: (7)
+The substrate and ﬁlm layers are also assumed to be mechan-
+ically isotropic with the experiment taking place at constant
+temperature such that no thermally induced strains are gener-ated (see supplementary material40Secs. I and II for an in-
+depth discussion of thermal effects on error). Checking that
+the magnetostriction is discernible from thermally induced
+curvature for a given geometrical and material conﬁgurationis critical to obtaining sensible results.
+Equation (7)is reliant on Poisson’s ratio and Young’s
+modulus of the ﬁlm and substrate layers. However, exper-imentally measuring the values of Eand /C23of bulk materi-
+als are quite complex and require sophisticated sample
+geometries which must be placed in load frames. In therealm of thin ﬁlms, estimations of Eand /C23are commonly
+taken from bulk values as they are even more difﬁcult to
+obtain accurately. We are forced to instruct students and
+their instructors to obtain the Young’s moduli andPoisson’s ratio of the substrate and ﬁlm from their bulkcounterparts (or for the thin ﬁlm if available), which are
+readily accessible in peer-reviewed manuscripts, theses,
+and dissertations.
+Differential voltage measurements are subject to mea-
+surement uncertainties, noise, and equipment detection lim-its that dictate the peak resolution of the setup. The noise
+ﬂoorDV
+noiseis deﬁned as the aggregate of all the sources of
+noise in a system, including thermal ﬂuctuations, Johnson-Nyquist noise, power supply noise, 1 =fnoise, laser beam
+position and intensity variations, etc. For our system, the
+noise ﬂoor of the system was determined to be DV
+noise
+¼60:05 V from baseline readings (i.e., holding the mag-
+netic ﬁeld constant and observing the output voltage ﬂuctu-ations). Thus, the lowest discernible magnetostriction value
+is obtained by simply substituting DV
+i¼DVnoise into Eq.
+(7)since any smaller reading cannot be distinguished from
+noise
+kDL¼1
+12t2
+s
+tfLfK
+d/C18/C19Es1þ/C23f ðÞ
+Ef1þ/C23s ðÞDVnoise: (8)Equation (8)essentially provides the measurement uncer-
+tainty of the photodiode readings [i.e., for any given reading
+kmsðDViÞ, its measurement uncertainty is 6kDL]. The detec-
+tion limit of any apparatus is variant on a multitude ofmechanical and geometrical factors listed in Eq. (8).I ti s
+imperative to consider k
+DLin the context of the material or
+alloy being used as the magnetostrictive thin ﬁlm. Few materi-
+als exhibit magnetostriction in the hundreds of ppm, so verify-ing that the geometrical conﬁguration being tested has ameasurable k
+msthat is distinguishable from noise is crucial.
+Mathematically, the signal-to-noise ratio can be expressed as
+kmsðDViÞ=kDL, which grows with increasing jHja n ds h o u l db e
+much greater than 1 to ensure discernible readings from noise.
+For some materials or setups, saturation may be difﬁcult
+to reach, especially if the ﬁeld source is insufﬁciently strong.A relationship between k
+msandM=Msatcan be expressed by
+[see supplementary material40Sec. VIII for an explanation
+of the origin of Eq. (9)]17,18
+kmsðMÞ¼3
+2ksatM
+Msat/C18/C192
+: (9)
+With Eq. (9), the normalized magnetization hysteresis loop
+can be plotted if a magnetometer is not available for Mvs.H
+characterization of the sample.
+III. EXPERIMENTAL SETUP AND PROCEDURE
+The apparatus for the optical cantilever displacement
+method for the measurement of magnetostriction consists ofan electromagnet connected to an 8-Ampere bi-directionalpower supply, a He-Ne laser (wavelength k¼632 nm, a
+beam diameter of 0.81 mm, and a source divergence of 1.0
+mrad), a custom-designed 3D printed cantilever mount with
+a 900 Oe bias ﬁeld supplied by four NdFeB permanent mag-nets (see Fig. 6), and a custom single-axis position detectorFig. 5. (Color online) Magnetic domain rotation mechanism associated with
+kmsðHÞasH!Hsat, which induces a ﬁlm length change DLfðHÞarising
+from spin-orbit coupling (Refs. 17and18). The ﬁlm is initially saturated
+along the ﬁlm’s short side by the biasing permanent magnets, which supplies
+a constant bias magnetic ﬁeld Hbias.
+Fig. 6. (Color online) (a) 3D printed housing structure containing the magne-
+tostrictive cantilever (shown by the clamped dark rectangle in the red box) sit-
+uated between a bi-directional electromagnet hooked up to an 8 A power
+supply (not shown), (b) the biasing NdFeB permanent magnets used to satu-
+rate the sample perpendicularly to forego the need to collect two separate
+measurements, and (c) a schematic of the clamp used to ﬁx the cantilever.
+473 Am. J. Phys., Vol. 91, No. 6, June 2023 Tran et al. 473 04 October 2023 22:53:02
+composed of two separate photodiodes (ams-OSRAM SFH
+2440 with peak sensitivity at k¼620 nm and an active area
+of 7.02 mm2, see Fig. 7separately). The applied magnetic
+ﬁeld provided by the electromagnet was swept using the
+National Instruments NI-9263 DAQ device’s analog outputcorrelating to –8 A to þ8 A output from the power supply
+controlled by a MATLAB script (see supplementary material
+40
+Sec. VII for the automation software). Cantilever deﬂection
+Dmswas measured by a custom single-axis position detector
+consisting of two separate photodiodes connected to a differ-ential operational ampliﬁer (Part # Texas Instruments
+INA121; see supplementary material40Sec. VI for comments
+on op-amp conﬁguration). The camera constant Kwas deter-
+mined by moving the position detector along the x-axis using
+a single-axis linear stage micrometer while recording thechange in the voltage output from the ampliﬁer. The inverse
+of the slope of the resultant calibration curve of the voltage
+vs. distance was taken as Kfor the measurements.
+A cantilever beam with the dimensions 0.4 /C23c m
+2was
+mechanically diced from the wafer for measurement. Theamorphous Terfenol-D thin ﬁlm employed in this work was
+deposited on a 2 in. 100 lm thick (100) silicon substrate at a
+thickness of 200 nm by ultra-high vacuum magnetron sput-tering from a single alloy target with the compositionTb
+0:3Dy0:7Fe1:92. The ﬁlms were deposited using a sputtering
+power of 200 W and an argon working pressure of 6 mTorr
+at a base chamber pressure of 1 /C210/C06Torr. A 10 nm Ta
+barrier layer and a 5 nm Ta capping layer were depositedprior to and post in situ deposition of the Terfenol-D thin
+ﬁlm, respectively, to prevent oxidation, producing a layered
+structure Si (100 lm)/Ta (10 nm)/Terfenol-D (200 nm)/Ta
+(5 nm). The mechanical properties of the substrate and ﬁlmare estimated as E
+f¼35 GPa, Es¼140 GPa, /C23f¼0:3;19
+and /C23s¼0:3.2,20,21The residual stresses rresidual on the 2 in.
+Si (100) wafers were calculated with the aid of a laser wafercurvature measurement system (KLA Tencor Flexus FLX-2320) pre and post ﬁlm-deposition. Stoney’s equation
+22was
+then used to relate the measured curvatures to the residualstresses; residual stresses of approximately –700 MPa (com-pressive) were found for the sample (see supplementarymaterial
+40Sec. IV). X-ray diffraction (XRD) in Bragg-
+Brentano geometry veriﬁed the amorphous nature of theTerfenol-D thin ﬁlms by scanning the 2 hangle from 20
+/C14to
+60/C14with ﬁxed Cu K aradiation. In-plane (IP) and out-of-
+plane (OOP) DC MvsHcurves were measured by sweeping
+the magnetic ﬁeld between –6 and þ6 kOe using scanning
+superconducting quantum interference device (SQUID) mag-netometry at 300 K.
+Magnetostriction measurements were performed in the
+sample holder with an applied bias-ﬁeld of 900 Oe suppliedby permanent magnets to saturate the sample perpendicularto the sweeping magnetic ﬁeld. The magnetic ﬁeld wasswept between –4300 and þ4300 Oe with a step size of
+50 Oe and a sampling rate of 1000 Hz during the magneto-striction measurements to smooth the effects of noise andenable the system to adequately stabilize. Additionally, thepresence of vibrations on the setup can be catastrophic tomeasurements, rendering data useless if unaccounted for. Tomitigate any vibrations originating from the electromagnetand any other sources, an optical table is employed to per-form the experiment on to minimize the impact of anyunforeseen disturbances on readings. The distance betweenthe cantilever beam and the PD was held at d¼169 cm, and
+a camera constant of K¼2:10/C210
+/C04m/V was determined
+by calibration at this distance before measurement. As illus-trated in Fig. 1, the sample is oriented such that its length is
+parallel to the applied magnetic ﬁeld H¼H^x.
+All components employed to develop the magnetostric-
+tion measurement apparatus along with their approximatecost are available in Table I. While some components may
+be relatively expensive, we highlight additional alterna-tives to reduce equipment costs in Sec. V of the supple-mentary material, which are analyzed in the context oftheir potential impact on measurement precision.
+Additionally, the Terfenol-D and Si (100) wafer costs
+approximately $18.50/cm
+2[4 in. Terfenol-D 200 nm/Si
+(100)]. More information on the sourcing of this wafer canbe found in the supplementary material.
+40Alternatively,
+Fig. 7. (Color online) Differential position measurement system utilized
+with a pair of photodetectors (ams-OSRAM SFH 2440 shown) with soldered
+connections to the DAQ device for structural stability purposes.Table I. Cost of outlined optical apparatus.
+Component Cost (USD)
+Electromagnet $3,000
+NdFeB permanent magnets $10Photodiodes $2Texas Instruments INA121 $6NI USB-6501 DAQ device $143Kepco power supply $3,000Thorlabs HeNe laser $1,000Hall effect sensor IC $1Single-axis linear-stage micrometer $70Raw material (Terfenol-D/Si) $200Approximate total cost $7432
+474 Am. J. Phys., Vol. 91, No. 6, June 2023 Tran et al. 474 04 October 2023 22:53:02
+any other magnetostrictive thin ﬁlm may be employed in
+the apparatus to measure its magnetostriction.
+IV. RESULTS AND DISCUSSION
+A. Amorphous Terfenol-D’s magnetic properties and the
+cantilever’s crystalline structure
+Figure 8shows the XRD pattern of the Terfenol-D ﬁlm
+(black) with the crystalline Terfenol-D reference (red) pro-vided for 2 hbetween 20
+/C14and 60/C14. The ﬁlm’s XRD plot
+reveals that the Terfenol-D ﬁlm is amorphous due to the
+hump-like pattern between 30/C14and 50/C14, followed by the lack
+of overlap between the ﬁlm’s peaks with the crystalline ref-erence. Additionally, the low intensity count of the ﬁlm also
+indicates the amorphous nature of the ﬁlm. The sharp peak
+coupled with a broader peak located near 33
+/C14is due to the
+silicon wafer’s forbidden peak,23which is generated as the
+ﬁlm was mechanically diced (i.e., cleaved) before measuring
+the XRD pattern.
+Figure 9shows the IP and OOP SQUID MvsHcurve of
+the amorphous Terfenol-D ﬁlm. The plot illustrates that thesample possesses an OOP magnetization, which is also the
+magnetic easy-axis (i.e., the axis that is the most energetically
+favorable for magnetization), whereas the IP orientationbehaves magnetically hard. The magnetization aligns in the
+OOP plane orientation as a consequence of the compressive
+residual stress of the ﬁlm along with the positive coefﬁcientof magnetostriction of Terfenol-D.
+20This in turn results in a
+negative magnetoelastic energy contribution towards the total
+magnetic anisotropic energy, as there is negligible contribu-tion from the magnetocrystalline anisotropy due to the amor-phous nature of the Terfenol-D ﬁlms.
+21,24
+Referring to the inset of Fig. 9, both OOP and IP direc-
+tions show a near zero remnant magnetization as a result of
+the compressive residual stress of the ﬁlm coupled with theferrimagnetic nature of Terfenol-D.24Therefore, a sufﬁ-
+ciently strong magnetic ﬁeld must be present in order for the
+Terfenol-D ﬁlms to remain magnetized. To hold the ﬁlms ina magnetized state, a 900 Oe biasing magnetic ﬁeld isapplied IP along the short axis of the cantilever by the per-
+manent magnets shown in Fig. 6. Now by referring back to
+Fig. 6(a) portraying the orientation of cantilever in theapparatus, it can be seen that the applied magnetic ﬁeld and
+the biasing magnetic ﬁelds are both IP. This demonstratesthat the 90
+/C14domain rotation in the magnetostriction mea-
+surements performed for the Terfenol-D cantilever will be
+between two magnetically hard axes and thus requires muchlarger magnetic ﬁelds to saturate completely. Consequently,a sufﬁciently large sweeping magnetic ﬁeld ( <6 kOe) is
+required to fully saturate the Terfenol-D ﬁlm and measure
+k
+sat. Alternatively, for ﬁlms consisting of 3 dmagnetic ele-
+ments with lower magnetoelastic anisotropies such as FeGa,the easy axes lie IP for ﬁlms even with high residual
+stresses.25,26Therefore, the apparatus will also be suitable
+for the measurement of 3 dmagnetostrictive thin ﬁlms along
+with any other magnetostrictive material (e.g., Ni, Fe, etc.).
+B. Magnetostriction data measured by the optical setup
+Figure 10(a) shows the measured magnetostriction ( kms)o f
+the amorphous Terfenol-D thin ﬁlm cantilever ( tf¼200 nm,
+ts¼100lm) on the left-ordinate axis and the magnetostrictive
+tip displacement Dmsdetermined using Eq. (5)on the right-
+ordinate axis as a function of the applied magnetic ﬁeld. Here,the error bars represent the measurement uncertainty of the
+magnetostriction given by the noise ﬂoor k
+DL/C2563:5p p m
+(Dnoise/C25670 nm) calculated using Eq. (8). Additionally, the
+numbered arrows sequentially represent the directional pathsof the sweeping magnetic ﬁeld. Near the extrema H/C2564:3
+kOe, k
+mstrends toward similar magnetostriction values of
+approximately 106 ppm ( Dms/C252:14lm). As indicated in Fig.
+10(a) , the Terfenol-D ﬁlms did not reach saturation due to the
+insufﬁciently supplied magnetic ﬁelds in the harder IP axis.
+This agrees with the IP SQUID curve in Fig. 9,a st h eﬁ l m s
+were not completely saturated at 6 kOe. Additionally, a limita-tion of the setup was that the power supply could only supplyup to68 A to the electromagnet. Therefore, as k
+satwas not
+measured, the measured magnetostriction of the ﬁlms may be
+potentially larger at higher magnetic ﬁelds. It is important tonote that the magnetostrictive responses measured by the setupare in good agreement with reported values for amorphous
+Terfenol-D thin ﬁlms between 150 (Ref. 27) and 320 ppm
+(Ref. 28) considering these values were reported at larger
+Fig. 8. (Color online) X-ray diffraction patterns of the amorphous Terfenol-
+D ﬁlm (black) compared with a crystalline Terfenol-D reference (red).Fig. 9. (Color online) IP and OOP SQUID MvsHhysteresis loops exhibit-
+ing no coercive ﬁeld (i.e., Hc/C250 Oe) and no remnant magnetization (i.e.,
+Mr/C250 emu/cc), which illustrates the need for the biasing magnets. A
+zoomed inset of the plot is given between 60.4 kOe for visual clarity near
+the origin.
+475 Am. J. Phys., Vol. 91, No. 6, June 2023 Tran et al. 475 04 October 2023 22:53:02
+magnetic ﬁelds in excess of /C2410 kOe and that our ﬁlm was not
+saturated. Accordingly, the obtained results demonstrate that
+the magnetostrictive apparatus is capable of discerning the
+magnetostriction of thin ﬁlm magnetostrictive cantilevers withlow measurement uncertainty for laboratory purposes while
+also suitable in an instructional setting.29–39
+Figure 10(b) shows the normalized magnetization derived
+from the magnetostriction results in Fig. 10(a) using Eq. (9)
+vs the applied magnetic ﬁeld H. It is important to note that
+the magnetic behavior observed in the ﬁgure is different
+from those of the IP SQUID curve shown in Fig. 9due to the
+presence of the 900 Oe bias ﬁeld perpendicular to the sweep-ing magnetic ﬁeld. Notably, the results in Fig. 10(b) show
+that the sample possesses a remnant magnetization at the ori-
+ginM
+r=Msat/C250.34. Referring back to the IP SQUID curve
+in Fig. 9, this 900 Oe IP bias ﬁeld corresponds to an IP nor-
+malized magnetization of approximately 0.28, which is in
+relative agreement with the results of Fig. 10(b) . The dis-
+crepancy between the two Mr=Msatvalues may be associated
+with ksatrequired in Eq. (9), as the maximum magnetostric-
+tion value measured was set as ksatdue to the lack of a satu-
+ration magnetostriction value in Fig. 10(a) . In addition, the
+magnetization deduced from the magnetostriction results in
+Fig.10(a) shows important magnetic behavior which is often
+difﬁcult to replicate in SQUID or vibrating sample magneto-
+meters (VSMs) and useful for understanding the deduced
+magnetostriction more clearly in these settings. Moreover, themagnetization determined using the magnetostriction may be
+helpful for instructors without expensive magnetometery
+equipment and provides a demonstration of the intertwinedrelationship between magnetism and magnetostriction.
+40
+V. CONCLUDING REMARKS
+A cost-effective method for the quantitative characteriza-
+tion of the magnetostrictive effect in thin ﬁlms was detailedin this article, where the magnetostriction is extrapolated
+from the tip displacement of a thin-ﬁlm magnetostrictive
+cantilever using the position of a reﬂected laser-beam mea-sured by two differentially coupled photodiode positioning
+sensors. The measurement capability of the apparatus was
+veriﬁed through magnetostriction measurements of nano-scale amorphous Terfenol-D (Tb
+0:3Dy0:7Fe1:92) thin ﬁlms,
+where magnetostriction values up to 106 63.5 ppm were
+obtained. From the magnetostriction data, a normalized mag-
+netization M=Msatvs applied magnetic ﬁeld Hhysteresisloop was extrapolated inferring useful information regarding
+the magnetic behavior of the ﬁlm under test. Magnetic trends
+from IP and OOP magnetic hysteresis loops measured by a
+SQUID magnetometer show Mr/C250 emu/cc, revealing the
+need for Hbiasin the setup to maintain the Terfenol-D ﬁlms
+in a magnetized state during magnetostriction measurements.
+Additionally, XRD data conﬁrmed the amorphous nature ofthe Terfenol-D ﬁlms as compared with a crystalline refer-
+ence. With all of the characterization techniques presented,
+this experiment provides a segue into the origin and quantita-tive exploration of the unique properties of ferromagnetic
+and ferrimagnetic materials and elucidates their use in many
+technologies today to students. Consequently, we foresee themethods and equipment outlined in this work suited for dem-
+onstrations of the fundamental physics of magnetic materials
+for classroom instruction, while also well-capable for cost-effective laboratory magnetostriction measurements catered
+to nanoscale thin ﬁlms.
+ACKNOWLEDGMENTS
+The authors acknowledge the use of the fabrication facility
+at the UCLA NanoFabrication Laboratory, the Integrated
+Systems Nanofabrication Cleanroom (ISNC), and the
+Molecular Instrumentation Center (MIC) at the CaliforniaNanoSystems Institute (CNSI) at UCLA. This content is
+based upon the work supported by or in part by the Army
+Research Laboratory and the U.S. Army Research Ofﬁce viaGrant No. W911NF-17-0364. The authors gratefully
+acknowledge support from the National Science Foundation
+(NSF) through the Cooperative Agreement Award No. EEC-1160504 for solicitation, No. NSF 11-537 (TANMS).
+Magnetic data were acquired on a SQUID magnetometer
+supported through No. NSF MRI-1625776. D. L. Tran wouldlike to gratefully acknowledge support from the TANMSUndergraduate Research Program (URP). Finally, the authors
+greatly appreciate the detailed comments and feedback from
+the three anonymous reviewers who signiﬁcantly improvedthe quality of the ﬁnal version of the manuscript.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.Fig. 10. (a) Magnetostriction kmsvs applied magnetic ﬁeld H¼H^x(and cantilever tip displacement Dms) measured with the optical op-amp setup; (b) normal-
+ized magnetization M=Msatvs applied magnetic ﬁeld of the sample extracted from Eq. (9)with a traced out sequential sweep path.
+476 Am. J. Phys., Vol. 91, No. 6, June 2023 Tran et al. 476 04 October 2023 22:53:02
+DATA AVAILABILITY
+The data that support the ﬁndings of this study are avail-
+able from the corresponding author upon reasonable request.
+a)Electronic mail: davidt964@ucla.edu, ORCID: 0000-0001-6924-5354.
+b)ORCID: 0000-0002-5695-4597.
+c)ORCID: 0000-0003-3551-9112.
+d)ORCID: 0000-0002-5841-5861.
+1N. B. Ekreem, A. G. Olabi, T. Prescott, A. Rafferty, and M. S. J. Hashmi,
+“An overview of magnetostriction, its use and methods to measure these
+properties,” J. Mater. Process. Technol. 191(1–3), 96–101 (2007).
+2Duc Nguyen Huu, “Giant magnetostriction in Lanthanide-transition metal
+thin ﬁlms,” Handbook Phys. Chem. Rare Earths 32, 1–53 (2001).
+3Hiro Ohzeki, Akihiro Mashine, Hideki Aoyama, and Ichiro Inasaki,
+“Development of a magnetostrictive torque sensor for milling process
+monitoring,” J. Manuf. Sci. Eng. 121, 615–622 (1999).
+4Fernando Seco, Jose Miguel Martin, Antonio Ramon Jimenez, and
+Leopoldo Calderon, “A high accuracy magnetostrictive linear position
+sensor,” Sens. Actuators A: Phys. 123–124 , 216–223 (2005).
+5Lothar Kiesewetter, “The application of Terfenol in linear motors,” in
+Proceedings of 2nd International Conference on Giant Magnetostrictive
+Alloys (1988), p. 15.
+6Wei Wang, Huiming Liu, Rongjin Huang, Yuqiang Zhao, Chuangjun
+Huang, Shibin Guo, Yi Shan, and Laifeng Li, “Thermal expansion and
+magnetostriction measurements at cryogenic temperature using the strain
+gauge method,” Front. Chem. 6, 72 (2018).
+7Celso L. Ladera, Guillermo Donoso, and Johnny H. Contreras,
+“Magnetostriction measured by holographic interferometry with the sim-
+ple and inexpensive arrowhead setup,” Eur. J. Phys. 33(2), 373–383
+(2012).
+8Peter S. Harllee III, George H. Bellesis, and David N. Lambeth,
+“Anisotropy and magnetostriction measurement by interferometry,”
+J. Appl. Phys. 75(10), 6884–6886 (1994).
+9D. Laumann, P. Hayes, C. Enzingm €uller, I. Parchmann, and E. Quandt,
+“Magnetostriction measurements with a low-cost magnetostrictive cantile-
+ver beam,” Am. J. Phys. 88(6), 448–455 (2020).
+10Rajdeep Adhikari, Rakesh Kaundal, Anirban Sarkar, Pushpinder Rana,
+and Amal K. Das, “The cantilever beam magnetometer: A simple teaching
+tool for magnetic characterization,” Am. J. Phys. 80(3), 225–231 (2012).
+11H. Aireddy and A. K. Das, “The cantilever beam magnetometer for the
+measurement of electric ﬁeld controlled magnetic property of ferromag-
+net/ferroelectrics heterostructures,” Rev. Sci. Instrum. 90(10), 103905
+(2019).
+12Cunzheng Dong, Menghui Li, Xianfeng Liang, Huaihao Chen, Haomiao
+Zhou, Xinjun Wang, Yuan Gao, Michael E. McConney, John G. Jones,
+Gail J. Brown et al. , “Characterization of magnetomechanical properties
+in FeGaB thin ﬁlms,” Appl. Phys. Lett. 113(26), 262401 (2018).
+13David J. Dunlop and €Ozden €Ozdemir, Rock Magnetism: Fundamentals
+and Frontiers (Cambridge U. P., Cambridge, 2001), No. 3.
+14Jian-Gang Jimmy Zhu, “New heights for hard disk drives,” Mater. Today
+6(7–8), 22–31 (2003).
+15Francisco De Leon and Adam Semlyen, “A simple representation of
+dynamic hysteresis losses in power transformers,” IEEE Trans. Power
+Delivery 10(1), 315–321 (1995).
+16E. van de Riet, “Deﬂection of a substrate induced by an anisotropic thin-
+ﬁlm stress,” J. Appl. Phys. 76(1), 584–586 (1994).
+17Bernard Dennis Cullity and Chad D. Graham, Introduction to Magnetic
+Materials (John Wiley & Sons, New York, 2011).
+18David Jiles, Introduction to Magnetism and Magnetic Materials (CRC
+Press, Boca Raton, 2015).
+19J. Mencik, E. Quandt, and D. Munz, “Elastic modulus of TbDyFe ﬁlms—
+A comparison of nanoindentation and bending measurements,” Thin Solid
+Films 287(1–2), 208–213 (1996).
+20K. P. Mohanchandra, S. V. Prikhodko, K. P. Wetzlar, W. Y. Sun, P.
+Nordeen, and G. P. Carman, “Sputter deposited Terfenol-D thin ﬁlms for
+multiferroic applications,” AIP Adv. 5(9), 097119 (2015).
+21Paymon Shirazi, Taehwan Lee, Mohanchandra K. Panduranga, Alpha T.
+N’Diaye, Anthony Barra, and Gregory P. Carman, “Rare-earth orbitalmoment contributions to the magnetic anisotropy in magnetostrictive
+Tb0.3Dy0.7Fe2,”Appl. Phys. Lett. 118(16), 162401 (2021).
+22George Gerald Stoney, “The tension of metallic ﬁlms deposited by electro-
+lysis,” Proc. Royal Soc. London, Ser. A, Containing Papers Math. Phys.
+Character 82(553), 172–175 (1909).
+23Peter Zaumseil, “High-resolution characterization of the forbidden
+Si 200 and Si 222 reﬂections,” J. Appl. Crystallogr. 48(2), 528–532
+(2015).
+24Michael Guevara De Jes /C19us, Mohanchandra K. Panduranga, Paymon
+Shirazi, Scott Keller, Malcolm Jackson, Kang L. Wang, Christopher S.
+Lynch, and Gregory P. Carman, “Micro-magnetoelastic modeling ofTerfenol-D for spintronics,” J. Appl. Phys. 131(23), 234101 (2022).
+25Y. Hsiao, D. B. Gopman, K. Mohanchandra, P. Shirazi, and C. S. Lynch,
+“Effect of interfacial and edge roughness on magnetoelectric control
+of Co/Ni microdisks on PMN-PT (011),” Sci. Rep. 12(1), 3919 (2022).
+26Michael Guevara De Jesus, Zhuyun Xi1ao, Maite Goiriena-Goikoetxea,
+Rajesh V. Chopdekar, Mohanchandra K. Panduranga, Paymon Shirazi,
+Adrian Acosta, Jane P. Chang, Jeffrey Bokor, and Gregory P. Carman,“Magnetic state switching in FeGa microstructures,” Smart Mater. Struct.
+31(3), 035005 (2022).
+27A. Speliotis and D. Niarchos, “Magnetostrictive properties of amorphous
+and crystalline TbDyFe thin ﬁlms,” Sens. Actuators A: Phys. 106(1–3),
+298–301 (2003).
+28Ming Liu, Shandong Li, Ziyao Zhou, Shawn Beguhn, Jing Lou, Feng Xu,Tian Jian Lu, and Nian X. Sun, “Electrically induced enormous magneticanisotropy in Terfenol-D/lead zinc niobate-lead titanate multiferroic heter-
+ostructures,” J. Appl. Phys. 112(6), 063917 (2012).
+29Julia R. Downing, Suok-Min Na, and Alison B. Flatau, “Compressive pre-
+stress effects on magnetostrictive behaviors of highly textured Galfenol
+and Alfenol thin sheets,” AIP Adv. 7(5), 056420 (2017).
+30E. du Tr /C19emolet De Lacheisserie and J. C. Peuzin, “Magnetostriction and
+internal stresses in thin ﬁlms: The cantilever method revisited,”J. Magnetism Magn. Mater. 136(1–2), 189–196 (1994).
+31James Ma, Daniel T. O’Brien, and Desiderio Kovar, “Amorphous
+Terfenol-D ﬁlms using nanosecond pulsed laser deposition,” Thin Solid
+Films 518(1), 319–323 (2009).
+32Mohanchandra K. Panduranga, Zhuyun Xiao, Joseph D. Schneider,
+Taehwan Lee, Christoph Klewe, Rajesh Chopdekar, Padraic Shafer, Alpha
+T. N’Diaye, Elke Arenholz, Rob N. Candler et al. , “Single magnetic
+domain Terfenol-D microstructures with passivating oxide layer,”
+J. Magnetism Magn. Mater. 528, 167798 (2021).
+33Jennifer Beth Thoelke, “Magnetization and magnetostriction in highly
+magnetostrictive materials,” Technical report, Ames Lab., 1993.
+34A. Datta, D. Nathasingh, R. J. Martis, P. J. Flanders, and C. D. Graham,Jr., “Saturation and engineering magnetostriction of an iron-base amor-
+phous alloy for power applications,” J. Appl. Phys. 55(6), 1784–1786
+(1984).
+35Alireza Moridi, Haihui Ruan, L. C. Zhang, and Mei Liu, “Residualstresses in thin ﬁlm systems: Effects of lattice mismatch, thermal mis-
+match and interface dislocations,” Int. J. Solids Struct. 50(22–23),
+3562–3569 (2013).
+36Mohanchandra K. Panduranga, Taehwan Lee, Andres Chavez, Sergey V.Prikhodko, and Gregory P. Carman, “Polycrystalline Terfenol-D thin ﬁlms
+grown at CMOS compatible temperature,” AIP Adv. 8(5), 056404 (2018).
+37Won-Jong Kim and Ali Sadighi, “A novel low-power linear magnetostric-
+tive actuator with local three-phase excitation,” IEEE/ASME Trans.
+Mechatron. 15(2), 299–307 (2009).
+38Masaya Toda, Naoki Inomata, Takahito Ono, and Ioana Voiculescu,
+“Cantilever beam temperature sensors for biological applications,” IEEJ
+Trans. Electr. Electron. Eng. 12(2), 153–160 (2017).
+39J. Huang, C. Prados, J. E. Evetts, and A. Hernando, “Giant magnetostric-
+tion of amorphous Tb xFe1/C0x(0:10<x<0:45) thin ﬁlms and its correla-
+tion with perpendicular anisotropy,” Phys. Rev. B 51(1), 297–304 (1995).
+40See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0134187 for additional elaboration regarding the calculation
+and mitigation of thermally-induced strains, photodiode calibration, resid-
+ual stress approximation, cost-reduction measures and their impact on
+apparatus efﬁcacy, differential operational-ampliﬁer setup, derivation of
+the magnetostriction-magnetization relation, the automation software, andthe procurement of commercial nanoscale Terfenol-D thin ﬁlms.
+477 Am. J. Phys., Vol. 91, No. 6, June 2023 Tran et al. 477 04 October 2023 22:53:02

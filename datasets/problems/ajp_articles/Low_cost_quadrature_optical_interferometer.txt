@@ -1,0 +1,853 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| FEBRUARY 01 2023
+Low-cost quadrature optical interferometer 
+Tanner M. Melody ; Krishna H. Patel ; Peter K. Nguyen ; Christopher L. Smallwood
+Am. J. Phys.  91, 132–141 (2023)
+https://doi.org/10.1 119/5.01 10405
+Articles Y ou May Be Interested In
+Quadrature formulae for problems in mechanics
+AIP Conference Proceedings  (September 2012)
+Quadrature Sampling of High ‐ Frequency W aveforms
+J Acoust Soc Am  (July 2005)
+Improvement of the accuracy for the Euler-Maclaurin quadrature formulas
+AIP Conference Proceedings  (July 2021) 04 October 2023 22:49:35
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Low-cost quadrature optical interferometer
+Tanner M. Melody, Krishna H. Patel, Peter K. Nguyen, and Christopher L. Smallwooda)
+Department of Physics and Astronomy, San Jos /C19e State University, San Jose, California 95192
+(Received 15 July 2022; accepted 25 October 2022)
+We report on the construction and characterization of a low-cost Mach–Zehnder optical
+interferometer in which quadrature signal detection is achieved by means of polarization control.The device incorporates a generic green laser pointer, home-built photodetectors, 3D-printed
+optical mounts, a circular polarizer extracted from a pair of 3D movie glasses, and a
+PYTHON -
+enabled microcontroller for analog-to-digital data acquisition. Components ﬁt inside of a 1200/C2600
+space and can be assembled on a budget of less than US$500. The device has the potential to make
+quadrature interferometry accessible and affordable for instructors, students, and enthusiasts alike.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0110405
+I. INTRODUCTION
+Optical interference is a phenomenon in which overlap-
+ping beams of light act, by means of the superposition princi-ple of electromagnetism, to modulate the energy density thatwould have otherwise been present in the constituent beamson their own. In turn, the effect results in striking patterns ofirradiance fringes—akin to the nodes and antinodes that canbe observed in the harmonic modes of a vibrating guitarstring—that both verify the wave nature of light and enableprecision measurements. Optical interferometers are devicesengineered to exploit this phenomenon, and due to (1), theconnection between interference fringes and the extremelyshort length scales associated with optical wavelengths(400–700 nm), (2) the abundance of high-quality manipula-tion and detection capabilities at these wavelengths, and (3)the invention of lasers, interferometers have long enjoyed wide-ranging relevance in science and technology. Applicationsinclude testing fundamental physics principles,
+1,2measuring
+velocities and positions,3–5characterizing material properties,6
+and controlling and manipulating both classical and quantumlight sources.7–11Beyond this, optical interferometers enjoy a
+prominent position in classroom physics laboratories, and sev-eral different supply companies are currently selling commer-cialized products and activities.
+12–14
+For the most part, interferometers are designed for delicate
+measurements and/or repeated use, and so construction costscan be large, ranging from about $3,000 (for an educationalapparatus available from Thorlabs),
+12all the way up to
+$1.1 billion [for the laser interferometer gravitational-waveobservatory (LIGO)].15There is a certain utility, however, in
+exploring the degree to which these instruments can behome-built and/or scaled down to minimal components and
+cost.16–24Such devices expand the growing body of optics
+capabilities enabled by the maker movement25–31and could, for
+example, be assembled by hobbyists or produced at scale and
+shipped out to students in large-enrollment online classes.
+Here, we report on the construction of an optical interfer-
+ometer that can be assembled on a budget of under $500 and
+that exhibits both automated data acquisition and quadrature
+detection capabilities. The interferometer utilizes a green
+laser pointer, 3D-printed optical mounts, home-built photo-detectors, and microcontroller-based analog-to-digital signal
+conversion. Among the unique aspects of the setup, differen-
+tiating it from other low-cost interferometers that have been
+reported to date, is the fact that quadrature signals are gener-
+ated through polarization control with phase delays between
+horizontal and vertical polarization components achieved
+using a ﬁlter extracted from a pair of circularly polarized 3D
+movie glasses. We benchmark interferometer performance
+by using it to measure the thermal expansion coefﬁcient of
+an aluminum plate on which the interferometer is mounted.
+While the results reveal quantitative inaccuracies, qualitative
+features are robust. We discuss possible sources of error and
+areas for improvement.
+The construction of the instrument described in this man-
+uscript formed the basis of an independent research project
+conducted by undergraduates and a master’s student in our
+laboratory, and we found it to be an excellent means of
+teaching students about the real-world applications ofinterferometers, quadrature detection, wave plates, Jones
+matrices, circuitry, and experimental control protocols.
+The device has the potential to be used in the same manner at
+other institutions or could perhaps be manufactured at scale
+132 Am. J. Phys. 91(2), February 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 132 04 October 2023 22:49:35
+and utilized by students in larger and more structured class-
+room settings.
+II. THEORETICAL BACKGROUND
+Like interferometers more generally, quadrature-detected
+interferometers have long been employed as scientiﬁc mea-surement devices, and they can take on a variety of differentgeometrical conﬁgurations.
+3,32–38Devices of this sort are
+collectively deﬁned by their ability to generate a pair ofoutput signals that have been engineered to be “in quad-rature” with each other, which is to say that there is a p=2-
+radian (or quarter wavelength) phase shift between the waythat the two different signals monitor the interference effectsof the overlapping beams.
+Among the more common means of obtaining quadra-
+tures is through polarization control, in which case the opti-
+cal path difference between the interferometer’s arms for
+vertically polarized light (for example) is phase-shifted by aquarter of a wavelength relative to the optical path differ-ence for horizontally polarized light. Because of the vectornature of electromagnetism, the interference effects associ-ated with these two different polarization states can be inde-pendently examined (note that horizontal and verticalpolarization states do not interfere with each other, a factcodiﬁed in the Fresnel–Arago laws), and the signals can beﬁltered and mapped onto distinct quadrature-shifted irradi-ance measurements at the point of a pair of detectors. In
+turn, polarization control is often achieved by means of
+optical retarders, and in the implementation described inthis work, we have followed this approach by inserting aquarter-wave plate retarder and a few judiciously placedlinear polarizers into an otherwise standard Mach–Zehnderconﬁguration.
+Figure 1shows an example polarization-based quadrature
+optical interferometer setup. Beamsplitters 1 and 2 are non-polarizing beamsplitters. Linear polarizers are labeled withvertical (V), horizontal (H), or þ45
+/C14rotated (45) transmis-
+sive axes with coordinates speciﬁed in a lab frame whilelooking into the beam (i.e., the x-axis is horizontal, the
+y-axis is vertical, and the z-axis runs parallel to the direction
+of beam propagation). The quarter wave plate (labeled ask=4) is oriented such that its fast axis is rotated /C045
+/C14down-
+ward from the horizontal lab frame axis while looking intothe beam. Incoming light is vertically polarized.If we assume, for simplicity’s sake, that the light passing
+through the interferometer is a harmonic traveling plane
+wave of angular frequency x, then the dynamics of this setup
+can be characterized in terms of a Jones matrix analysis,39–42
+where the electromagnetic ﬁeld vector,
+Eð‘;tÞ¼Re ~E0x^xþ~E0y^y/C0/C1
+eiðk0‘/C0xtÞno
+; (1)
+is described by a two-component amplitude vector ~E0(i.e., a
+Jones vector )
+~E0¼~E0x
+~E0y"#
+¼E0xei/x
+E0yei/y"#
+(2)
+such that
+Eð‘;tÞ¼Re~E0eiðk0‘/C0xtÞ/C8/C9
+: (3)
+The x-direction, or upper entry, within this representation
+corresponds to the electromagnetic ﬁeld’s horizontal (or p-
+polarized) component with positive xpointing to the right
+while staring into the beam. The y-direction, or lower entry,
+corresponds to the ﬁeld’s vertical (or s-polarized) compo-
+nent with positive yalways pointing upward in the lab
+frame. These conventions are consistent with those of text-
+books by Pedrotti40and Hecht.41The variable ‘/C17ÐnðzÞdz
+corresponds to optical path length with n(z) being the
+position-dependent refractive index, and the vacuum wave-
+number is k0/C172p=k0¼x=cwith c¼299;792;458m =s.
+Symbols with tildes on top explicitly indicate complex-valuedquantities.
+Having described the electromagnetic ﬁeld amplitude in
+terms of a two-component vector of this sort, the actions of
+different sorts of optical elements can be described in termsof multiplication operations by different kinds of matrices,
+termed Jones matrices . For example, the action of wave
+plates oriented such that their fast and slow axes are alignedto the Jones vector coordinate axes can be represented by
+e
+i/x0
+0 ei/y"#
+; (4)
+where /xand/yare the phase lags induced by the wave
+plate along the x-axis and y-axis, respectively. For a quarter
+wave plate, /y/C0/x¼p=2. Thus, the matrix for a quarter
+wave-plate with its fast axis oriented along the x-direction
+can be represented as
+10
+0i"#
+; (5)
+where a factor of ei/xhas been pulled out of the expression
+and dropped because global phase shifts have no effect on
+the polarization state and can, moreover, be erased by shift-ing the origin of the position or time axis in Eq. (1).
+The Jones matrix for a linear polarizer with its transmis-
+sive axis oriented along the x-direction is
+10
+00"#
+: (6)
+Fig. 1. Schematic illustration of an example polarization-based quadrature
+Mach–Zehnder interferometer.
+133 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 133 04 October 2023 22:49:35
+The Jones matrix of a mirror is
+10
+0/C01"#
+; (7)
+where a minus sign between the x- and y-directions has been
+introduced to account for the fact that the coordinate systemshould rotate by 180
+/C14about the y-axis to keep the reference
+frame oriented as if looking back toward the source.
+Beamsplitters have somewhat more complicated Jones
+matrix representations than the representations of other types
+of optical elements because of their doubled input and output
+ports, but descriptions remain well established.43,44We
+employ in this work a description in which the reﬂectionmatrix is given by
+r
+p 0
+0/C0rs"#
+; (8)
+and the transmission matrix is given by
+itp0
+0its"#
+; (9)
+regardless of the incoming light direction. Here, raandtaare
+the electric ﬁeld reﬂection and transmission coefﬁcients, respec-
+tively, and the beamsplitter is assumed to be lossless. Energy
+conservation is preserved by the relationship r2
+aþt2
+a¼1 and by
+the factors of ipreceding the coefﬁcients ta.
+Finally, birefringent optical elements with axes rotated
+into orientations other than those of the Jones vector coordi-
+nates can be described by means of combining matrices like
+Eqs. (4)–(6) with rotation matrices of the form
+RðhÞ¼cosh/C0sinh
+sinh cosh"#
+: (10)
+For example, a quarter wave plate with its fast axis oriented
+at/C045/C14relative to the Jones vector x-axis can be described
+by the matrix
+Rð/C045/C14Þ10
+0i"#
+Rð45/C14Þ¼eip=4
+ﬃﬃ ﬃ
+2p1i
+i1"#
+!1ﬃﬃ ﬃ
+2p1i
+i1"#
+:(11)
+The Jones matrix for a linear polarizer with the transmission
+axis rotated at þ45/C14relative to the Jones vector x-axis can be
+described by the matrix
+Rð45/C14Þ10
+00"#
+Rð/C045/C14Þ¼1
+211
+11"#
+: (12)
+Having laid out these various deﬁnitions, we seek to
+examine the interference properties of signals measured at
+photodetectors A and B in Fig. 1as a function of varied opti-
+cal path differences between beam paths 1 and 2. The physi-cally measurable quantity of interest in these cases is theirradiance Ið‘;tÞ, which is related to the total electric ﬁeld
+Eð‘;tÞaccording to the equation
+Ið‘;tÞ¼n/C15
+0chE2ð‘;tÞi; (13)
+where /C150is the dielectric permittivity of vacuum and the
+angle brackets indicate a time average of the expression overseveral optical oscillation periods. In the case at hand, the
+total electric ﬁeld Eð‘;tÞcorresponds to the vector sum of
+the two different component vector ﬁelds E1andE2propa-
+gating through the interferometer along optical paths ‘1and
+‘2. We can rewrite the equation as
+I¼n/C150chE1þE2 ðÞ2i (14)
+¼n/C150chE2
+1þE2
+2þ2E1/C1E2i (15)
+¼n/C150chE2
+1i|ﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄ ﬄ}
+I1þn/C150chE2
+2i|ﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄ ﬄ}
+I2þ2n/C150chE1/C1E2i|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+I12; (16)
+where the terms in Eq. (16) can be separately labeled as I1,I2,
+andI12. The quantities I1andI2have no dependence on the rel-
+ative values of ‘1and‘2whereas I12does, and so we see that
+I12(often explicitly identiﬁed as the expression’s interference
+term40) is the main quantity of interest. We can write it as
+I12¼2n/C150chE1/C1E2i (17)
+¼2n/C150cRe ~E/C3
+1/C1~E2no
+: (18)
+Employing the matrix methods above and examining the
+irradiance at photodetector A gives
+~EðAÞ
+1¼00
+01/C20/C21
+|ﬄﬄ ﬄ{zﬄﬄ ﬄ}
+Polarizerrp 0
+0/C0rs/C20/C21
+|ﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄ ﬄ}
+Beamsplitter 21ﬃﬃ ﬃ
+2p1i
+i1/C20/C21
+|ﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄ}
+k=4
+/C210
+0/C01/C20/C21
+|ﬄﬄﬄ ﬄ{zﬄﬄﬄ ﬄ}
+Mirror 5rp 0
+0/C0rs/C20/C21
+|ﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄ ﬄ}
+Beamsplitter 10
+1/C20/C21
+E0eiðk0‘1/C0xtÞ
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ ﬄ}
+Vertical light(19)
+¼r2
+sﬃﬃ ﬃ
+2p0
+1/C20/C21
+E0eiðk0‘1/C0xtÞ/C0ip(20)
+and
+~EðAÞ
+2¼00
+01/C20/C21
+|ﬄﬄ ﬄ{zﬄﬄ ﬄ}
+Polarizeritp0
+0its/C20/C21
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}
+Beamsplitter 21
+211
+11/C20/C21
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}
+Polarizer
+/C210
+0/C01/C20/C213
+|ﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄ ﬄ}
+Mirrors 2 /C04;itp0
+0its/C20/C21
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}
+Beamsplitter 10
+1/C20/C21
+E0eiðk0‘2/C0xtÞ
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ ﬄ}
+Vertical light(21)
+¼t2
+s
+20
+1/C20/C21
+E0eiðk0‘2/C0xtÞ; (22)
+leading to
+IðAÞ
+12/r2
+st2sE20
+2ﬃﬃ ﬃ
+2p Reeik0ð‘2/C0‘1Þþip fg (23)
+or (adjusting the origin of ‘1to remove the pphase shift)
+IðAÞ
+12/r2
+st2sE20
+2ﬃﬃ ﬃ
+2p Reeik0ð‘2/C0‘0
+1Þ/C8/C9
+: (24)
+Taking a similar approach to determine the irradiance at pho-
+todetector B gives
+134 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 134 04 October 2023 22:49:35
+~EðBÞ
+1¼10
+00hi
+|ﬄﬄ{zﬄﬄ}
+Polarizeritp0
+0itshi
+|ﬄﬄﬄ ﬄ{zﬄﬄﬄ ﬄ}
+Beamsplitter 21ﬃﬃ ﬃ
+2p1i
+i1hi
+|ﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄ ﬄ}
+k=4
+/C210
+0/C01hi
+|ﬄﬄﬄ ﬄ{zﬄﬄﬄ ﬄ}
+Mirror 5rp 0
+0/C0rshi
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}
+Beamsplitter 10
+1hi
+E0eiðk0‘1/C0xtÞ
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+Vertical light(25)
+¼/C0rstpﬃﬃ ﬃ
+2p1
+0/C20/C21
+E0eiðk0‘1/C0xtÞ(26)
+and
+~EðBÞ
+2¼10
+00hi
+|ﬄﬄ{zﬄﬄ}
+Polarizerrp 0
+0/C0rshi
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}
+Beamsplitter 21
+211
+11hi
+|ﬄﬄﬄﬄ{zﬄﬄﬄﬄ}
+Polarizer
+/C210
+0/C01hi3
+|ﬄﬄﬄﬄ ﬄ{zﬄﬄﬄﬄ ﬄ}
+Mirrors 2 /C04;itp0
+0itshi
+|ﬄﬄﬄ ﬄ{zﬄﬄﬄ ﬄ}
+Beamsplitter 10
+1hi
+E0eiðk0‘2/C0xtÞ
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+Vertical light(27)
+¼/C0irpts
+21
+0/C20/C21
+E0eiðk0‘2/C0xtÞ; (28)
+leading to
+IðBÞ
+12/rprstptsE2
+0
+2ﬃﬃ ﬃ
+2p Reeik0ð‘2/C0‘1Þþip=2 fg (29)
+/rprstptsE2
+0
+2ﬃﬃ ﬃ
+2p Reeik0ð‘2/C0‘0
+1Þ/C0ip=2/C8/C9
+: (30)
+By comparing Eqs. (24) and (30), we see that the signals
+extracted at photodetectors A and B are 90/C14out of phase
+with each other, thereby enabling quadrature detection and
+analysis.
+Returning back to generalized features, we can see that
+quadrature detection is useful as a tool for tracking optical pathlength ﬂuctuations because it helps one to remove directional
+ambiguities. Consider the traces plotted out in Fig. 2(a), show-
+ing the dependence of signals IðAÞ
+12andIðBÞ
+12on the optical path
+difference ‘2/C0‘0
+1i nt h ec a s ew h e r e rp¼rs¼tp¼ts¼1=ﬃﬃ ﬃ
+2p
+.
+ForIðAÞ
+12orIðBÞ
+12considered in isolation, there is an unambiguous
+mapping from path length difference to irradiance (that is, if
+we know ‘2/C0‘0
+1, then we know exactly what value to expect
+forIðAÞ
+12). However, the inverse problem is not so well deﬁned,
+and indeed there are an inﬁnite number of quantities ‘2/C0‘0
+1
+possible if the value of IðAÞ
+12is taken as an input. To lift the
+ambiguity, an optical path difference initial condition can be
+either independently ascertained or set to zero, and the value of
+IðAÞ
+12can be subsequently tracked as a function of time. There is,
+however, a remaining problem: When the interference signal
+comes to an extremum—for example, a maximum, ashighlighted in Fig. 2(a) by the vertical gray bar at /¼0—it
+will in all cases trend back toward equilibrium at times follow-
+ing this, and there is no way to know if that changing signalrepresents an increase or decrease in the optical path difference.
+Quadrature detection plugs this hole by monitoring a pair of
+interference fringes in tandem instead of just a single interfer-
+ence fringe, and when one of the two fringes (e.g., I
+ðAÞ
+12)c o m e s
+to an extremum, the other ( IðBÞ
+12) is planted at zero with maximal
+slope.Figure 2(b) shows an illustration of the IðAÞ
+12andIðBÞ
+12signals
+plotted against each other on an xycoordinate scheme (a
+form of Lissajous ﬁgure) and illustrates a convenient graphi-cal means of converting interference fringes back into phase,and by extension, optical path difference. Notice that Eqs.(24) and(30) can be written as
+I
+ðAÞ
+12/E2
+0cos k0ð‘2/C0‘0
+1Þ/C2/C3
+(31)
+and
+IðBÞ
+12/E2
+0sink0ð‘2/C0‘0
+1Þ/C2/C3
+: (32)
+Thus, plotting IðBÞ
+12on the y-axis against IðAÞ
+12on the x-axis
+generates values in the xyplane that can be interpreted as
+forming an angle /¼k0ð‘2/C0‘0
+1Þrelative to the positive x-
+axis that obeys the relation
+IðBÞ
+12
+IðAÞ
+12/sink0ð‘2/C0‘0
+1Þ/C2/C3
+cos k0ð‘2/C0‘0
+1/C2/C3 ¼tank0ð‘2/C0‘0
+1Þ/C2/C3
+: (33)
+In the case of rp¼rs¼tp¼ts¼1=ﬃﬃ ﬃ
+2p
+, the coefﬁcient of pro-
+portionality is 1, and the expression can be inverted to obtainFig. 2. Theoretical illustration of the advantages of quadrature detection. (a)
+Illustration of the interference terms IðAÞ
+12andIðAÞ
+12as deﬁned in Eqs. (24) and
+(30) as a function of optical phase shift /. (b) Lissajous ﬁgure plotting IðBÞ
+12
+against IðAÞ
+12.
+135 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 135 04 October 2023 22:49:35
+/¼k0ð‘2/C0‘0
+1Þ¼atan2ðIðBÞ
+12;IðAÞ
+12Þþ2pn; (34)
+where n2Zand the function atan2 ðy;xÞis the four-
+quadrant arctangent. The path-length extraction goal isthereby achieved.
+III. EXPERIMENTAL SETUP
+Having established a theoretical summary of operative
+principles, we proceed to a description of the physically real-ized setup. Figure 3shows a 3D CAD rendering and sum-
+mary photograph of the device, which we constructedaccording to the Fig. 1schematic using a 12
+00/C2600sheet of
+1/4-inch thick aluminum as a base plate. As can be seen inFig. 3(a), the system’s ﬁnite optical path difference between
+its two interferometer arms gives it the potential of beingused to measure the thermal expansion coefﬁcient of the alu-minum plate, or alternatively (if the thermal expansion coef-ﬁcient of aluminum is known) as a high-resolutiontemperature sensor.
+Because the goal of this manuscript is to report on the lim-
+its of how inexpensively a polarization-based optical quadra-ture interferometer can be constructed, it is important to layout a detailed analysis of components and costs. Table Isum-
+marizes this information in the form of a parts list. The indi-
+vidualized merits of each of these different components arediscussed in turn below.A. Light source
+The typical light source used in commercialized interfero-
+metric devices is a helium-neon gas laser, available, for
+example, from Edmund Optics (stock no. 61-338) for$1,270. While such lasers offer excellent stability and coher-ence lengths on the order of 20 cm, this laser cost is far more
+expensive than the budget we were hoping to achieve. Diode
+lasers that emit typically in the red spectral range are aninexpensive and ubiquitous alternative, but we chose to
+avoid these due to concerns about coherence length. Instead,
+we chose to incorporate a diode-pumped solid-state laseremitting green light at a wavelength of 532 nm for our device(based on frequency-doubling the 1064 nm emission line of
+Nd
+3þions embedded within a host matrix like YAG or
+YVO 4), which combines low cost with long coherence
+length. Lasers of this sort can be purchased on Amazon for
+prices ranging from $20 to $30. We selected the green-light
+version of a Dinoﬁre presentation remote for our experiment,purchased online for $24.99 and pictured on the left side ofFig. 3(b). Although manufacturer speciﬁcations neglected to
+include information on coherence length, we found the
+coherence of this item to be nevertheless adequate for ourexperiment, as demonstrated by the fact that interference
+fringes between the two arms of the interferometer could be
+observed at all times when the interferometer was well-aligned. The laser exhibited a signiﬁcant drop-off in outputirradiance over the course of the ﬁrst several minutes after
+being turned on, possibly due to a dependence on the battery
+charge level, and so we found it best to wait a minimum of25 min before beginning to collect data.
+Not all 532-nm green laser pointers work for the applica-
+tion we had in mind. Aside from the laser used in the demon-
+strated device, we attempted to use a Pinty 532-nm greenlaser in the setup. Interference fringes could not be observed,possibly due to the fact that the Pinty laser was designed in
+such a way that it blinked with a cycling time of about
+190 Hz as veriﬁed using an oscilloscope.
+B. Optical mounts and components
+When performing optical experiments, conventional
+optical mounts are made of metal with each component
+Fig. 3. Experimental setup. (a) CAD rendering. (b) Photograph.Table I. Parts list.
+Qty Item description Brand/supplier Cost
+1 Green laser pointer Dinoﬁre $23.99
+1 Aluminum plate Kaylan $19.991 Pair of 3D glasses RealD $4.991 Plastic sheet polarizer Izgut $12.991 Spool 3D printer ﬁlament Geeetech $19.532 Nonpolarizing beamsplitter Edmund Optics $90.005 Silvered mirrors Thorlabs $164.202 Plano-convex lens Pre-owned $9.002 Kinematic mount Thorlabs $79.722 Home-built photodetectors Various $10.001 LM35 temperature sensor TI $2.291 Trinket M0 microcontroller Adafruit $8.391 Hot glue gun Art Minds $13.991 Package hot glue Art Minds $5.491 Package 5 min epoxy Devcon $3.69Total $468.26
+136 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 136 04 October 2023 22:49:35
+(excluding mirrors) costing between $20 and $150. One of the
+simpliﬁcations that we made to our own interferometer was to
+make 3D printed optical mounts from polylactic acid (PLA)
+plastic ﬁlament as illustrated in Fig. 4. The mirror mounts
+were printed to position the optics at ﬁxed 45/C14angles with
+respect to the mirror-mount bases for ease of alignment. The
+azimuthal rotating mount was printed to be freely adjustable
+and allowed a linear polarizer to be rotated in place to clean upthe laser pointer’s initial polarization and direct it to verticalorientation. Each of these mounts costs around $0.10 to make.
+We have included links to the OBJ ﬁles for all 3D printed
+optical components in a Github link at the end of the paper.
+Mounts were secured to optical elements and the alumi-
+num base plate using a combination of hot glue and 5-minuteepoxy. Although we found 3D-printed parts to be sufﬁcient
+for ﬁxed-mount components of the system, a pair of kine-
+matic mirror mounts are still required in order to align thetwo interferometer arms. We used Thorlabs KM100 kine-matic mirror mounts to achieve this.
+In terms of actual interferometer optical elements, a sig-
+niﬁcant portion of the cost in a traditional polarization-basedquadrature interferometer system comes from the polariza-tion optics, speciﬁcally linear polarizers (typically ranging
+from tens to hundreds of dollars per item) and—more
+critically—wave plate retarders (often priced higher than$250 per item). In our setup, we procured low-cost versionsof linear polarizers by purchasing a sheet of polarizing
+plastic from the company Izgut (model no. 4335030066). A
+low-cost quarter wave plate was obtained by installing thelens of a circular polarizer from a pair of 3D movie glasses(RealD) into the setup backwards. Circular polarizers of this
+type consist of linear polarizers and quarter wave plates
+stacked on top of each other. If the optic is arranged suchthat linearly polarized light impinges upon the polarizerbefore seeing the wave plate, then the polarizer’s only
+impact is to (possibly) reduce the output beam’s irradiance,
+and the light that emerges will be otherwise circularly polar-ized. Alternate wave plate solutions exist apart from theimplementation we have incorporated into this work (see, for
+example, Edmond Optics k=4 Retarder Film, stock no.
+14-723), and indeed, it has been reported that quarter waveplates can be constructed by means as simple as folding asheet of clear plastic wrap around a microscope slide.
+41
+We opted against this ﬁnal option because of concerns aboutwave fronts and scattering.The mirrors we used are manufactured by Thorlabs
+(model PF10–03-P01) and cost $53 each. We attempted to
+buy cheaper mirrors for a cost of about $0.05 each. (Such
+mirrors can be purchased, for example, as craft supplies.)However, we found that cheaper mirrors yielded imperfectreﬂections and corrupted the beam wave fronts. Similarly,
+we attempted to construct low-cost beamsplitters by attach-
+ing one-way window ﬁlm to microscope slides, but we wereunsuccessful in this attempt. The beamsplitters that we ulti-
+mately incorporated into the setup were plate beamsplitters
+purchased from Edmund Optics (stock no. 43-736).
+C. Photodetectors and data acquisition elements
+Automated data acquisition capabilities form a critical
+aspect of nearly all modern optical applications, yet this capa-bility is often found absent in low-cost interferometer reports.
+In order to facilitate such automated data acquisition, it is nec-
+essary to incorporate photodetectors into the setup.Commercially available units are often priced in the range of
+hundreds of dollars, but we found that a detector consisting of
+a Hamamatsu S5971 photodiode wired up to a resistor and acapacitor arranged in parallel as illustrated in Fig. 5was
+enough to suit our purposes. We chose a resistance value of
+10 MXand a capacitance value of 10 nF in our detector design
+so as to optimize gain and ﬁlter out high-frequency noise.
+Because the S5971 is a small-area photodiode, we found it
+helpful to focus down the light emerging from the interfer-
+ometer onto the diode active areas using some converging
+lenses (18-mm focal length) that we had on hand in our labo-ratory. Such lenses could have alternatively been purchasedfrom a company like Surplus Shed for $4.50 apiece. Aside
+from these two focusing lenses used after the beams are com-
+bined, there are no other lenses involved in the setup, and sowavefronts are ﬂat at the point where beams are combined,
+leading to an absence of transverse fringes when the experi-
+ment is well-aligned. Because of this, we experienced noloss of precision due to the presence or absence of focusingbefore the detector.
+Fig. 4. Close-up photograph of some of the system’s 3D-printed mounts and
+optics.
+Fig. 5. Photodetector design elements. (a) Photograph of photodetector A.(b) Associated circuit diagram. A bias voltage was set to 3.3 V. Resistance
+and capacitance values were R¼10 MXandC¼10 nF, respectively.
+137 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 137 04 October 2023 22:49:35
+Photodetectors were held in place by means of alligator
+clips and soldering stands, which was a design choice dictated
+by time constraints of the graduation dates of the undergradu-
+ate and master’s student authors spearheading the project. Infuture iterations of the device, it would make sense for thesemounts to be replaced by 3D-printed mounts afﬁxed to the
+aluminum plate itself. Because interferometer beams are
+recombined at the point of the second beam splitter, the dis-tance between this beam splitter and the detectors, and also
+the materials over which the beams travel while traversing
+this distance, are irrelevant to interferometer performance.
+Although not technically part of the interferometer function-
+ality, we needed an independent measurement of temperaturein order to conduct the interferometer functionality tests
+described later on in Sec. IV. To achieve this measurement, we
+incorporated an LM35 temperature sensor manufactured byTexas Instruments as pictured in the center of Fig. 3(b).T h e
+sensor generates a voltage proportional to the ambient temper-
+ature in Celsius with a conversion factor of 1
+/C14C/10 mV.
+Finally, a low-cost analog-to-digital conversion protocol
+was achieved by means of the Trinket M0 microcontrollerpurchased from Adafruit, pictured in Fig. 6. This microcon-
+troller can be coded using CircuitPython, a
+PYTHON variation
+that has been speciﬁcally designed for microcontroller devi-ces. We programmed the Trinket to have three analog volt-age outputs ( þ3.3 V) to power the two photodetectors and
+the temperature sensor, as well as three analog voltage inputs
+(0–3.3 V) to receive voltage signals from each component.The analog signals are converted into digital signals with 12-
+bit digital resolution, which—distributed across the input
+voltage acceptance range—gives a voltage conversion reso-lution of 0.81 mV. The signal was transmitted to a computerby means of a micro-USB to USB cable. Once the computer
+intercepted the data from the Trinket, the information was
+logged into a CSV ﬁle by a
+PYTHON script running on this
+computer. Details of this protocol and the associated PYTHON
+script are provided in the github link at the end of this paper.
+Preliminary quadrature signal analysis was performed in
+real-time by the Trinket by examining the signals from pho-
+todetectors A and B (refer back to Fig. 1) as they were
+acquired and periodically recomputing the solution to Eq.
+(34) in response to the changing photodetector input signals.
+To accommodate laser intensity variations as well as varia-tions in beam overlap, the microcontroller was additionallytasked with offsetting the raw data sets by their respective
+center values, as these center values were found to vary.
+IV. RESULTS
+To characterize our device functionality, we adjusted the
+air conditioner settings in the room where the interferometerwas housed, while the interferometer was left running on top
+of a set of books sitting on a rigid lab desk. Then, we corre-lated real-time interferometer readings against the LM35temperature sensor reading to extract the coefﬁcient of ther-mal expansion of the aluminum plate on which the device
+was mounted. We compared our results to thermal expansion
+coefﬁcient values that have been reported in the literature.
+In general, the thermal expansion properties of materials
+can be somewhat complicated functions; aluminum expandsmore rapidly with temperature at room temperature than itdoes near absolute zero, and water actually contracts whenincreasing in temperature from solid to liquid state. For smalltemperature ﬂuctuations and in the absence of phase transi-tions, however, these functional dependences can be linear-ized using Taylor series approximations. The standard
+equation used to deﬁne the expansion coefﬁcient under such
+circumstances is
+DL
+L¼aDT; (35)
+where DLis the change in the object length, Lis the overall
+object length, DTis the change in the temperature, and ais
+the coefﬁcient of thermal expansion. Solving for agives
+a¼DL
+DT1
+L: (36)
+The quantity DL=Lis essentially the same as the change in
+the optical path difference divided by the overall optical pathdifference between the interferometer’s two arms, and so wecan see from Eq. (36) that the thermal expansion coefﬁcient
+can be extracted by ascertaining the slope of a graph plottingthis change in the optical path difference as a function of the
+temperature change, and then dividing the result by the over-
+all path length difference, which we measure in our device tobe 24.060.4 cm.
+Figure 7illustrates the data ﬂow of one of our experimen-
+tal runs. Figure 7(a) shows the raw data outputs of photode-
+tectors A and B as a function of time. Figure 7(b) shows a
+zoomed-in version of this, corresponding to the ﬁrst75 seconds worth of data acquisition, and Fig. 7(c) shows a
+Lissajous ﬁgure of the output of photodetector B vs photode-
+tector A over this same 75-second time frame. As can be
+seen, particularly in Fig. 7(c), the signals from the two differ-
+ent photodetectors are close to being in quadrature, but notquite perfectly so as evidenced by the fact that the Lissajousﬁgure ellipse exhibits a slight diagonal elongation. This islikely due to a combination of imperfections in the 3D movieglass quarter wave plate (optical retardance is generallyspeaking expected to be different for different wavelengthsand, therefore, not likely optimized perfectly at 532 nm) and
+laser beam alignment and wavefront imperfections.
+Figure 7(d) shows the phase change D/(left axis) and
+change in the optical path difference Dð‘
+2/C0‘0
+1Þ¼D/=k0
+(right axis) over the entire trial, calculated by applying Eq.
+(34) to the data from Fig. 7(a) after subtracting off the center
+value and normalizing the signal deviations away from thiscenter value to unity. Minimum, maximum, and center val-ues were in their own right calculated in post-processingusing a script similar to (but not quite identical with) thereal-time phase calculation reported in Sec. III. Following
+the phase extraction in the 2 p-modulo form, the phase was
+computationally unwrapped, leading to the data that havebeen ultimately presented.
+Fig. 6. Adafruit Trinket M0 microcontroller used for analog-to-digital signal
+conversion.
+138 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 138 04 October 2023 22:49:35
+Figure 7(e)shows temperature vs time for the full duration
+of the trial as measured using the LM35. Discretely spaced
+vertical temperature readings in the panel originate from theﬁnite-granularity of the microcontroller’s 12-bit analog-to-
+digital converter (0.81 mV voltage granularity translates over
+into a temperature-reading granularity of 0.081
+/C14C). These
+can be averaged away by means of a smoothing spline inter-
+polation as illustrated by the panel’s solid black line.
+Figure 7(f) shows the optical path difference shift from
+Fig. 7(d) plotted against the smoothing spline interpolation
+of the temperature data shown in Fig. 7(e). Interestingly, the
+plot shows that it is generally true that temperature and the
+interferometer’s thermal expansion properties are correlated,which is a fact that is also apparent by examining Figs. 7(d)
+and7(e) directly. However, the relationship is actually not a
+strictly linear one as would have been predicted in Eq. (35).
+There are times when the slope of the plot is gentler (for
+example, between 75 and 125 s as in the graph’s upper right
+portion), leading to an extracted thermal expansion coefﬁ-cient of a¼ð24:460:7Þ/C210
+/C06=/C14C. More often, however,
+the slope is steeper. Between 200 and 400 s, for example
+(middle of the graph), the extracted thermal expansion coef-ﬁcient turns out to be a¼ð79:461:4Þ/C210
+/C06=/C14C. While
+the ﬁrst of these two values is in reasonable agreement with
+thermal expansion coefﬁcients reported in the literature foraluminum (typically quoted near 23 :6/C210
+/C06=/C14C),45the
+second is clearly not. The results indicate that although the
+interferometer serves as a useful demonstration piece illus-trating the basic functionality of a polarization-based quadra-
+ture interferometer, it falls short of being able to be used for
+more quantitative measurements. Discrepancy origins mayinclude laser Poynting vector stability issues over long peri-
+ods of time, different parts of the interferometer changing
+temperature at different rates (although this may ultimatelybe unlikely given the close proximity of the LM35 to the
+interferometer base plate), and/or thermally contracting or
+twisting 3D-printed mounts. We note that the temperature-dependent refractive index of air will have an effect on the
+interferometer output signal in addition to the aluminum
+baseplate’s physical contraction. For a temperature drop of0.7
+/C14C near a starting temperature of 21.7/C14C as displayed in
+Fig. 7(e), the overall expected air-induced phase shift is
+merely 1.90 radians,46far below the 120-radian phase shift
+that is experimentally observed in Fig. 7(d).
+V. CONCLUSIONS
+The interferometer presented in this paper represents a
+working device capable of illustrating the qualitative func-tionality of polarization-based quadrature interferometry
+basics at a fraction of the cost of the cheapest commercially
+available alternatives. Components leading to the biggestreduction in these overall costs include a generic green laser
+pointer, 3D-printed optics mounts, low-cost commercially
+available polarization optics, home-built photodetectors, andlow-cost microcontroller-based analog-to-digital signal
+conversion.
+Looking toward the future, we envision design tweaks that
+may improve device accuracy with only a marginal increasein cost, potentially leading to quantitatively accurate mea-
+surements. Temperature measurements may be able to be
+improved, for example, by means of better thermal contactestablished between the temperature sensor and aluminum
+baseplate and possibly a preampliﬁer inserted between the
+sensor output and microcontroller analog-to-digital input.Alternatively, the setup may be modiﬁed to utilize an infra-
+red temperature sensor to measure the exact temperature of
+the aluminum. Stronger adhesives might be applied to the
+Fig. 7. Example dataset illustrating the thermal expansion coefﬁcient extraction process. (a) Raw photodetector voltage outputs. (b) A section of d ata from (a)
+restricted to the experiment’s ﬁrst 75 seconds (i.e., the region from panel (a) highlighted in red). (c) Lissajous plot of detector B vs detector A. (d) Extracted
+optical phase shift (left axis) and associated optical path difference shift (right axis) of the data depicted in (a). (e) Interferometer temperatur e vs time as mea-
+sured with the LM35 sensor (purple circles) and associated smoothing spline interpolation (black line). (f) Interferometer size vs temperature. Th e slope of this
+graph can be divided by the overall optical path difference between the interferometer’s two arms (24.0 60.4 cm) to yield an estimate of the baseplate’s linear
+expansion coefﬁcient a.
+139 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 139 04 October 2023 22:49:35
+optical mounts in order to better secure them in place.
+Interferometer application goals could be reoriented to focuson phenomena occurring on faster time scales than tempera-ture ﬂuctuations like vibrational phenomena or turbulence in
+gasses.
+Applications of the interferometer in present and future
+forms may include use as a classroom demonstration modeland deployment of many devices or device kits in tandem togroups of students taking laboratory optics classes. Beyondthis, our hope is that the summary of design elementsreported in this work will inspire independent device con-
+struction, development, and improvements by readers both
+inside of academia and beyond.
+ACKNOWLEDGMENTS
+The authors would like to thank P. T. Beyersdorf, H. B.
+Wahhab, and M. Rojas-Montoya for useful discussions. Thismaterial is based upon the work supported by the National
+Science Foundation under Grant No. 2003493.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts of interest to disclose.
+DATA AVAILABILITY
+The data that support the ﬁndings of this study are available
+from the corresponding author upon reasonable request. A
+selection of data processing scripts and 3D-printer CAD draw-ings has also been made publicly available on GitHub at https://
+github.com/Pnguyenkhang/Low-Cost_Quad-Interferometer .
+a)Electronic mail: christopher.smallwood@sjsu.edu, ORCID: 0000-0002-
+4103-8748.
+1Albert A. Michelson and Edward W. Morley, “On the relative motion ofthe earth and the luminiferous ether,” Am. J. Sci. 34, 333–345 (1887).
+2B. P. Abbott et al. , “Observation of gravitational waves from a binary
+black hole merger,” Phys. Rev. Lett. 116, 061102 (2016).
+3Norman Bobroff, “Recent advances in displacement measuring inter-
+ferometry,” Meas. Sci. Technol. 4(9), 907–926 (1993).
+4J. E. Field et al. , “Review of experimental techniques for high rate defor-
+mation and shock studies,” Int. J. Impact Eng. 30(7), 725–775 (2004).
+5W. Gao et al. , “Measurement technologies for precision positioning,”
+CIRP Ann. 64(2), 773–796 (2015).
+6P. R. Grifﬁths, J. A. De Haseth, and J. D. Winefordner, Fourier Transform
+Infrared Spectrometry, Chemical Analysis: A Series of Monographs onAnalytical Chemistry and Its Applications (Wiley, New York, 2007).
+7A. Mabrouki, M. Gadonna, and R. Le Naour, “Polarization characteriza-
+tion of a mach–zehnder interferometer,” Appl. Opt. 35(19), 3591–3596
+(1996).
+8Bhaskar Kanseri, Nandan S. Bisht, H. C. Kandpal, and Shyama Rath,“Observation of the fresnel and arago laws using the mach-zehnder inter-ferometer,” Am. J. Phys. 76(1), 39–42 (2008).
+9B. M. Rodr /C19ıguez-Lara and I. Ricardez-Vargas, “Interference with polar-
+ized light beams: Generation of spatially varying polarization,” Am. J.
+Phys. 77(12), 1135–1143 (2009).
+10Keshaan Singh, Wagner Tavares Buono, Sabino Chavez-Cerda, and
+Andrew Forbes, “Demonstrating Arago–Fresnel laws with Besselbeams from vectorial axicons,” J. Opt. Soc. Am. A 38(9), 1248–1254
+(2021).
+11Christopher C. Gerry and Peter L. Knight, Introductory Quantum Optics
+(Cambridge U. P., Cambridge, 2005).
+12Thorlabs, “Michelson interferometer educational kit,” <https://www.thorlabs.
+com/thorproduct.cfm?partnumber=EDU-MINT2 >, accessed on October 17,
+2022.13PASCO, “Complete interferometer system,” <https://www.pasco.com/
+products/lab-apparatus/light-and-optics/advanced-optics/os-9258#desc-panel >,
+accessed on October 17, 2022.
+14TeachSpin, “Modern interferometry,” <https://www.teachspin.com/mod-
+ern-interferometry >, accessed on October 17, 2022.
+15“LIGO factsheet: NSF and the laser interferometer gravitational-wave
+observatory,” <https://www.nsf.gov/news/special_reports/ligoevent/pdfs/
+LIGO_factsheet_2017_v01.pdf >(2017), accessed on October 17, 2022.
+16Eric F. Cave and Louis V. Holroyd, “Inexpensive Michelson inter-
+ferometer,” Am. J. Phys. 23(1), 61–63 (1955).
+17Yong Kee Kim and R. B. Lal, “A simple, low-cost laser interferometry
+technique for singlecrystal growth,” J. Mod. Opt. 46(6), 941–948 (1999).
+18M. Vollmer and K.-P. M €ollmann, “Michelson interferometer for your
+kitchen table,” Phys. Teach. 46(2), 114–117 (2008).
+19Ryan Scholl and Bruce W. Liby, “Using a Michelson interferometer to
+measure coefﬁcient of thermal expansion of copper,” Phys. Teach. 47(5),
+306–308 (2009).
+20Dimitrios Felekis and Evangelos Papadopoulos, “Design and developmentof a low-cost interferometric device for nanoscale position and velocityfeedback,” in proceedings of IEEE/ASME International Conference on
+Advanced Intelllgent Mechatronics, AIM , Montreal, 2010, pp. 611–616.
+21Jillian M. Oliveira, “MICA optical: A low-cost, educational Michelson
+interferometer,” Undergraduate thesis, MIT (2013), <https://dspace.mit.
+edu/handle/1721.1/83733 >.
+22Kenneth G. Libbrecht and Eric D. Black, “A basic Michelson laser inter-
+ferometer for the undergraduate teaching laboratory demonstrating picom-
+eter sensitivity,” Am. J. Phys. 83(5), 409–417 (2015).
+23Shirish Pathare and Vikrant Kurmude, “Low cost Michelson–Morley inter-
+ferometer,” Phys. Educ. 51(6), 063001 (2016).
+24K. M €uhlberger, C. M. Harvey, and M. Fokine, “High-performance
+Arduino-based interferometric quadrature phase-shift detection systemwith 1 nm resolution,” AIP Adv. 11(10), 105304 (2021).
+25Karl Willis, Eric Brockmeyer, Scott Hudson, and Ivan Poupyrev, Printed
+Optics: 3D Printing of Embedded Optical Elements for InteractiveDevices (Association for Computing Machinery, New York, NY, 2012),
+pp. 589–598.
+26Lon A. Porter, Benjamin M. Washer, Mazin H. Hakim, and Richard F.Dallinger, “User-friendly 3D printed colorimeter models for student explo-ration of instrument design and performance,” J. Chem. Educ. 93(7),
+1305–1309 (2016).
+27Luis Jos /C19e Salazar-Serrano, Juan P. Torres, and Alejandra Valencia, “A 3D
+printed toolbox for opto-mechanical components,” PLoS One 12(1), 1–13
+(2017).
+28M. Delmans and J. Haseloff, “ lCube: A framework for 3D printable opto-
+mechanics,” J. Open Hardware 2(1), 1–9 (2018).
+29E. Brekke, T. Bennett, H. Rook, and E. L. Hazlett, “3D printing an external-
+cavity diode laser housing,” Am. J. Phys. 88(12), 1170–1174 (2020).
+30Matthew Mantia and Teresa Bixby, “Optical measurements on a budget: A
+3D-printed ellipsometer,” Am. J. Phys. 90(6), 445–451 (2022).
+31Mario Del Rosario et al. , “The ﬁeld guide to 3D printing in optical micros-
+copy for life sciences,” Adv. Biol. 6(4), 2100994 (2022).
+32Edson R. Peck and S. Wendell Obetz, “Wavelength or length measurement
+by reversible fringe counting,” J. Opt. Soc. Am. 43(6), 505–509 (1953).
+33G. M. B. Bouricius and S. F. Clifford, “An optical interferometer using
+polarization coding to obtain quadrature phase components,” Rev. Sci.
+Instrum. 41(12), 1800–1803 (1970).
+34L. M. Barker and R. E. Hollenbach, “Laser interferometer for measuring
+high velocities of any reﬂecting surface,” J. Appl. Phys. 43(11),
+4669–4675 (1972).
+35Y. Elsworth and J. F. James, “An optical screw with a pitch of one wave-length,” J. Phys. E Sci. Instrum. 6(11), 1134–1136 (1973).
+36M. J. Downs and K. W. Raine, “An unmodulated bi-directional fringe-
+counting interferometer system for measuring displacement,” Precis. Eng.
+1(2), 85–88 (1979).
+37Daniel O. Hogenboom and Charles A. DiMarzio, “Quadrature detection of
+a Doppler signal,” Appl. Opt. 37(13), 2569–2572 (1998).
+38Tae Bong Eom, Jong Yun Kim, and Kyuwon Jeong, “The dynamic com-
+pensation of nonlinearity in a homodyne laser interferometer,” Meas. Sci.
+Technol. 12(10), 1734–1738 (2001).
+39R. Clark Jones, “A new calculus for the treatment of optical systemsi.
+Description and discussion of the calculus,” J. Opt. Soc. Am. 31(7),
+488–493 (1941).
+40F. L. Pedrotti, L. M. Pedrotti, and L. S. Pedrotti, Introduction to Optics
+(Cambridge U. P., Cambridge, 2017).
+140 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 140 04 October 2023 22:49:35
+41E. Hecht, Optics (Pearson, London, 2017).
+42C. Brosseau, Fundamentals of Polarized Light: A Statistical Optics
+Approach (Wiley, New York, 1998).
+43A. E. Siegman, Lasers (University Science Books, California, 1986).
+44Peter T. Beyersdorf, Martin M. Fejer, and Robert L. Byer, “Polarization
+sagnac interferometer with a common-path local oscillator for heterodyne
+detection,” J. Opt. Soc. Am. B 16(9), 1354–1358 (1999).45“Linear thermal expansion of metals and alloys,” in ASM Handbook,
+Volume 22A: Fundamentals of Modeling for Metals Processing , edited by
+D. U. Furrer and S. L. Semiatin (ASM International, Ohio, 2009),
+pp. 602–603.
+46Jack A. Stone and Jay H. Zimmerman, “NIST engineering metrology toolbox:
+Refractive index of air calculator based on modiﬁed Edl /C19en equation,” <https://
+emtoolbox.nist.gov/wavelength/Edlen.asp >, accessed on October 17, 2022.
+141 Am. J. Phys., Vol. 91, No. 2, February 2023 Melody et al. 141 04 October 2023 22:49:35

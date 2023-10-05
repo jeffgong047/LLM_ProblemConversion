@@ -1,0 +1,663 @@
+
+View
+Online
+Export
+CitationCrossMarkOCTOBER 01 2023
+An undergraduate physics experiment to measure the
+frequency-dependent impedance of inductors using an
+Anderson bridge 
+Andrew James Murray  
+ ; Carl Hickman  
+Am. J. Phys.  91, 847–854 (2023)
+https://doi.org/10.1 119/5.01481 14
+Articles Y ou May Be Interested In
+Bubble inductors: Pneumatic tuning of a stretchable inductor
+AIP Advances  (December 2017)
+Distance sensor using a cloth inductor
+Journal of Applied Physics  (November 1988)
+On the frequency characteristic of inductor in the filter of Hall thrusters
+Journal of V acuum Science & T echnology A  (August 2010) 04 October 2023 22:58:26
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+An undergraduate physics experiment to measure
+the frequency-dependent impedance of inductors using
+an Anderson bridge
+Andrew James Murraya)
+Photon Science Institute, Department of Physics and Astronomy, The University of Manchester,
+Manchester M13 9PL, United Kingdom
+Carl Hickmanb)
+Department of Physics and Astronomy, University of Manchester, Manchester M13 9PL,
+United Kingdom
+(Received 28 February 2023; accepted 27 June 2023)
+One of the most accurate ways to measure the impedance of an electrical component is to place it
+in a bridge that is then balanced. The most familiar bridge in an undergraduate laboratory is the
+Wheatstone bridge, which can measure resistance to high precision. Other types are, however,
+required for reactive components. This paper describes the use of Anderson’s bridge to measureinductance, allowing both the inductance and resistance of different inductors to be determined.
+The inductors are analysed with different cores: perspex, copper, and steel. Models for the
+inductance that include the effect of skin depth, winding proximity, eddy currents, and core effectsare introduced and compared to measurements in the frequency range from 100 Hz to 100 kHz.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0148114
+I. INTRODUCTION
+Accurate determination of electrical component values is
+essential to many experiments in research and industry, since
+these values are then used to ascertain a physical quantity from
+a measurement. Teaching these measurement skills is an impor-
+tant part of a physics laboratory course. However, the cost of
+running undergraduate lab programs at University level can bevery high, and inevitably there are constraints on the budgets
+that are available. In our laboratories, we address this problem
+by designing and building many of the experiments that are
+required. This has the advantage of lower cost and ease of in-
+house repairs, ensuring a rapid response to any failures that can
+occur. By tailoring and adapting the experiments to the overall
+teaching program, we, therefore, optimize the link between the-
+ory and experiment that is taught in each year.
+The experiments described here were developed for our
+second-year laboratory, and we currently have ﬁve sets of these
+in operation. The design allows students to explore a range of
+ideas on how to take null measurements, how to determine
+complex impedances, and how to systematically relate these to
+different physical processes. The experiments, hence, provide
+an instructive tool for exploration of the physics of electromag-
+netic induction and how this can be measured in a realcomponent. As an example, the Anderson bridge allows non-
+linear terms (as arise when using magnetic cores) to becomeclearly visible once the bridge is balanced. These non-lineareffects cannot be measured using standard commercial induc-tance meters, which demonstrate the advantage of a well-balanced bridge for this type of measurement.
+The Anderson bridge is described in Sec. II, along with
+the more familiar Wheatstone bridge. Our implementation ofthe Anderson bridge is brieﬂy described in Sec. IIIwith full
+schematics being accessible as additional information linkedto this paper.
+1Section IVprovides results from measure-
+ments for different inductors. These are compared to datafrom a commercial meter so that the accuracy of our bridgecan be ascertained. Different inductor models are then con-sidered to understand how the values change with frequency.Section Vsummarizes the results from this work.
+II. BALANCED BRIDGES FOR MEASURING
+IMPEDANCE
+A. The Wheatstone bridge
+One of the most accurate ways to determine a component
+value is to adopt nulling techniques, a process invented by C.
+847 Am. J. Phys. 91(10), October 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 847 04 October 2023 22:58:26
+Wheatstone and S. H. Christie in the 19th century.2,3
+Wheatstone applied these ideas in a balanced bridge arrange-
+ment, consisting of three known resistances and an unknowncomponent under test (see Fig. 1). A direct current (DC) was
+passed into the bridge, allowing the value of the unknowndevice under test (DUT) to be determined. Wheatstone useda galvanometer (ammeter) spanning the bridge to establishthe null condition, since no current ﬂows through the galva-
+nometer coil when balanced, thereby producing a zero (null)reading.
+In the Wheatstone bridge, a low impedance source outputs
+a voltage V
+exand delivers current Iexto the circuit. By apply-
+ing Ohm’s law and Kirchoff’s law, we show in the supple-mentary material1that
+DV¼Va/C0Vb¼VexRBR2R3/C0RDUTR4 ðÞ
+R1R2R3þR4 ðÞ þ R3R4RDUTþR2 ðÞ þRBRDUTþR2 ðÞ R3þR4 ðÞ: (1)
+Note that irrespective of the value of the cross-bridge
+resistor RB, the balance condition of the bridge ( DV¼0) is
+set by the condition R2R3¼RDUTR4, allowing RDUT to be
+calculated if all other values are known. The bridge sensitiv-
+ity increases when RBis large and so it is usual to replace the
+ammeter with a digital voltmeter that has a high input imped-ance (typically Z
+DVM¼10 MX/C17RB). Under these condi-
+tions, Eq. (1)reduces to
+DV¼Va/C0Vb/C131/C131/C131/C131!RB¼1VexR2R3/C0RDUTR4 ðÞ
+R2þRDUT ðÞ R3þR4 ðÞ:(2)
+The condition for a null measurement is unchanged, the
+resistance of the unknown component again given by
+RDUT¼R2R3=R4. The accuracy of the measurement depends
+on how well the balance condition can be achieved, as wellas the uncertainty in the ﬁxed resistances.
+B. The Anderson bridge
+To determine component values when the DUT is reactive
+requires a different type of bridge. Of particular relevance isa measurement of the impedance as a function of the drivingfrequency. This is important for inductors, since they are
+usually wound onto a core whose magnetization and conduc-tivity change with frequency. Inductors are often constructedfrom many turns of wire and so both skin depth in the wireand the proximity of each winding to its neighbor can beimportant. These effects can markedly change how theinductive component responds in a real circuit, compared toan “ideal” inductor. An accurate model of the inductor underdifferent conditions, hence, aids in developing circuits thatuse these.
+Several types of AC-bridges can be used for reactive mea-
+surements. Examples include the Wein bridge, Maxwell’sbridge, Hay’s bridge,
+4and the Anderson bridge.5For the
+experiments described here, the Anderson bridge was selectedsince the condition for balance is independent of frequency, asshown in the supplementary material.
+1Changes measured in
+the DUT under balanced conditions, hence, directly show thefrequency dependence of the component. This bridge furtherintroduces undergraduate physics students to measurement of
+Fig. 1. The Wheatstone bridge. A source (voltage Vex) delivers current Iexto
+the bridge. The current loops (1–4) allow the response of the circuit to be
+determined using Ohm’s law and Kirchoff’s law (Ref. 1). An ammeter A
+(internal resistance RB) determines the null condition where Va¼Vbso that
+no current ﬂows through the ammeter. The bridge is then balanced. RDUTis
+the device under test (DUT). Resistances ðR2;R3;R4Þmust be known with at
+least one varied to achieve balance.Fig. 2. The Anderson bridge. An oscillator delivers a voltage Vex
+¼V0sinðxtÞacross the bridge. The DUT is a real inductor, represented as
+an ideal inductance Lequiv in series with a resistor Requiv.ðR2;R3;R4Þcom-
+plete the bridge. Additional components randCare connected in parallel
+with R4, the balance condition occurring between R2and C. An oscilloscope
+(DSO) can monitor each voltage referenced to the common 0 V line, which
+is set to real earth by the oscillator and DSO. A difference ampliﬁer with
+high input impedance replaces the ammeter and is used to determine the null
+condition when Va¼Vb.
+848 Am. J. Phys., Vol. 91, No. 10, October 2023 A. J. Murray and C. Hickman 848 04 October 2023 22:58:26
+phase shifts between current and voltages and allows them to
+explore the complex mathematics used to describe these.
+Figure 2shows the Anderson bridge used in the experi-
+ments. The inductor (the DUT) is placed in the top left arm
+of the bridge. Resistors R2;R3;R4complete the bridge circuit
+in a similar way to a Wheatstone bridge. Additional series
+components randCare connected in parallel with R4, allow-
+ing the phase shift in this arm to be adjusted to equal that in
+the left hand arm. It is necessary to ensure an equal phase
+shift for balance to be achieved. The bridge voltages Vaand
+Vbare measured across R2andC, their difference deﬁning
+the balance (null) condition. These voltages are referenced to
+real earth in these experiments so that they can be measured
+using an oscilloscope. Coaxial shielded cables can, hence, be
+used throughout, minimizing the effects of extraneous noise
+that may be present in the laboratory.
+Derivation of the balance condition follows the same pro-
+cedure as for the Wheatstone bridge and is presented in the
+supplementary material.1Since the difference ampliﬁer has a
+high input impedance, the analysis is simpliﬁed by assuming
+no current ﬂows across the bridge. The voltages VaandVb
+are then given by
+Va
+Vex¼R2
+2þR2Requiv/C0jxR2Lequiv
+R2þRequiv ðÞ2þxLequivðÞ2;
+Vb
+Vex¼R3R4þR2
+4/C0jxCR4R3R4þR3rþR4r ðÞ
+R3þR4 ðÞ2þxCR 3R4þR3rþR4r ðÞðÞ2: (3)
+The bridge is nulled when Va¼Vb, noting that both are
+complex. To satisfy this condition, both real and imaginary
+parts must independently be equal, leading to the balance
+equations for the Anderson bridge given by
+Requiv¼R2R3
+R4;Lequiv¼CR2
+R4R3R4þrR 3þR4 ðÞ ðÞ :(4)
+The above equations show that the balance criteria do not
+depend upon x.Lequiv andRequiv can, hence, be determined
+by adjusting the network resistors and capacitor to achieve
+balance at any given frequency. Changes in their values as x
+changes then directly measure their frequency dependence.
+III. THE EXPERIMENTAL APPARATUS
+The electronic circuits for the bridge and difference ampli-
+ﬁers are described in the supplementary material linked tothis paper, along with speciﬁcations and purchasing informa-
+tion.1The linear supplies powering these circuits are also
+detailed there.
+The AC signal to the bridge is provided by a Tektronix
+AFG1022 oscillator;6however, the measurements can be
+performed with any low output impedance oscillator (Z out
+/C2050X) that can generate sine waves up to 100 kHz, with a
+peak voltage of around 1 V. The inductors are constructedspeciﬁcally for these experiments, as described below. The
+bridge capacitors (ranging from 100 pF to 100 nF) are
+selected using a rotary switch on the top of the enclosure.One of the settings is left as an open circuit, allowing thebridge to be used as a Wheatstone bridge. This setting allows
+students to explore operation of the bridge by using a known
+resistor in place of the inductor.
+The bridge resistances R
+2;R3;R4, and r(see Fig. 2) are
+each composed of three low-inductance potentiometers con-nected in series with a 30 Xresistor, so that their resistances
+range from 30 to 11 130 X. The 30 Xﬁxed resistance
+ensures the oscillator does not drive into a short circuit if stu-
+dents set all potentiometers along an arm to zero.
+Once students have balanced the bridge using the inductor
+as the DUT, the individual resistances can be selected andmeasured using a 12-way rotary switch that connects them toa digital multimeter. The precision of the measurement
+depends on the accuracy of the multimeter that is adopted.
+(A Keithley 2110 digital voltmeter
+7is used in our experi-
+ments.) An LED next to the potentiometers lights when aresistance measurement is being made, so that students knowthe resistor has been removed from the bridge.
+The voltages ðV
+a;VbÞconnect to a difference ampliﬁer
+internal to the enclosure. The AC output from this stage is
+ampliﬁed by a factor of 10 and can be monitored directly byan oscilloscope. The peak of this signal is also determinedusing an envelope detector, providing a DC signal that is
+directly proportional to the amplitude of the difference sig-
+nal. This stage provides a further gain of 10, resulting inhigh sensitivity for measurement of the null condition.
+The peak detector allows the balance condition to be mea-
+sured using an inexpensive DVM set to measure DC vol-tages. This is advantageous since most commercial DVMs
+cannot measure AC voltages over a wide frequency range. A
+further advantage arises since many oscilloscopes only pro-vide 8-bit voltage resolution, and so do not have the sensitiv-ity to calculate the difference V
+a/C0Vbaccurately. The
+circuits adopted here, hence, provide an inexpensive solution
+to the requirement to accurately determine the balance
+Fig. 3. Geometry of the toroidal inductors showing the windings around the rectangular core and how the ﬂux within a conducting core is calculated. Two coil
+windings are shown around the core. The core height is hc, and the width is ðbc/C0acÞ. The origin O is set at the core centre for reference. To calculate the effect
+of core conductance, an area dA¼dxdy is positioned a distance r from the origin. The distances of dAfrom the sides are ðkx;kyÞ. Attenuation of the B-ﬁeld at
+this point due to the skin effect in the core is, hence, set by the smallest distance to the edge and the skin depth dc. For details of the model, see Sec. IV C 3 .
+849 Am. J. Phys., Vol. 91, No. 10, October 2023 A. J. Murray and C. Hickman 849 04 October 2023 22:58:26
+condition. Details of individual component costs (excluding
+the oscillator, DVM, and oscilloscope) are given in the sup-
+plementary material1with a typical cost of all components
+being/C24$300.
+IV. EXAMPLES FROM DIFFERENT TOROIDAL
+INDUCTORS
+The Anderson bridge is used here to characterize identical
+toroidal inductors that are wound on different cores. This
+allows the effect of the windings and core to be studied sys-tematically as a function of frequency. Each inductor is con-
+structed from N¼450 turns of 0.5 mm diameter enameled
+copper wire closely wound by hand in two layers around thecore, with the two layers having N
+1¼N2¼225 turns. The
+total length of the wire is /C2415:4 m, and it has a DC resis-
+tance RDC¼1:150X. The cores have a rectangular cross
+section with internal wire radii a1¼17.5 mm, a2¼18 mm
+and external wire radii b1¼25.5 mm and b2¼25 mm (see
+Fig.3, with the subscripts 1 and 2 referring to the two layers
+of wire). The heights of the wires were h1¼9 mm and
+h2¼8 mm. The (ideal) self-inductance of the toroids for two
+windings is then given by
+L¼l0lcN1þN2 ðÞ
+2pN1h1lnb1
+a1/C18/C19
+þN2h2lnb2
+a2/C18/C19 /C18/C19
+;(5)
+where l0is the permeability of free space and lcis the rela-
+tive permeability of the core. Students can, hence, estimate a
+value of the inductance by looking up typical values of lc
+for the different core materials. As an example, the induc-
+tance of an air-cored inductor with these dimensions is L
+/C24122lH.
+The cores chosen for study were created speciﬁcally for
+these experiments by our machine shop. They are con-
+structed of Perspex (emulating a non-conductive core with
+lc¼1), copper and steel. Copper is diamagnetic; however,
+the effect is very small under the conditions adopted here sothatl
+cis also set to unity for this core. In contrast, the rela-
+tive permeability of steel varies widely, depending on the
+type of steel used and the ﬁelds generated in the core thatcan lead to saturation and non-linear effects. Typical values
+range from l
+c/C24100 for carbon steel to lc/C24200 000 for
+pure iron. The cores used here are a carbon-based steel andso have l
+caround 100.
+A. Skin effects in the windings
+An “ideal” inductor that is purely reactive does not exist
+under normal conditions, since the coil of wire from which
+the inductor is constructed has resistance. For larger diameterwires, the resistance is small under DC conditions; however,
+for inductors that use many turns of ﬁne wire, the resistance
+may be large. The core of the inductor may also deﬁne theimpedance as a function of frequency.
+8
+Two non-core related factors that inﬂuence the inductance
+are the skin effect within the encircling wire and the proxim-
+ity effect due to coupling of the magnetic ﬁelds in closelypacked wires. Techniques to reduce skin effects include the
+use of Litz wire,9which is composed of many parallel
+strands of ﬁne wire woven to produce low AC resistance.The packing density of the windings has an effect due to theﬁeld from one winding creating eddy currents in its nearest
+neighbors. This “proximity effect” produces currents thattravel on opposite sides of the conductor, rather than cen-
+trally within it. This can dominate over skin depth effectswhen an inductor is closely wound. Both processes dependon the structure as well as the conductivity, shape, anddimensions of the wire that is used. Models for theseeffects
+10,11are discussed in Sec. IV, where experimental
+results are compared to theory.
+The skin effect can be determined using Maxwell’s equa-
+tions for a conductor within which an alternating current ispassing. The skin depth dis the distance inside the conductor
+where the current density and magnetic ﬁeld have fallen to avalue of e
+/C01, compared to that at the surface. This is given by
+dxðÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2
+xl0lwrs
+; (6)
+where xis the angular frequency of the AC-signal, l¼l0lw
+is the permittivity of the c onductor, and ris the conductivity.
+T h ei m p e d a n c eo fac i r c u l a rw i r eo fl e n g t h lwireand radius rwire
+due to the skin effect is given by10
+Zskin¼xlwire
+2prr2
+wireJ0xðÞ
+J1xðÞ¼lwire
+prr2
+wireX1
+k¼0/C01ðÞk
+k!ðÞ2x
+2/C18/C192kþ1 !
+X1
+k¼01
+kþ1ðÞ/C01ðÞk
+k!ðÞ2x
+2/C18/C192kþ1 !/C01
+;
+(7)
+where x¼Að1/C0jÞ;A¼rwire=dðxÞ;j¼ﬃﬃﬃﬃﬃﬃﬃ
+/C01p
+, andðJ0;J1Þ
+are Bessel functions of the ﬁrst kind, shown in Eq. (7)by
+their series expansions. The resistance due to the skin effectis set by the real part of Z
+skinand the reactance by the imagi-
+nary part. For the experimental conditions adopted here,accurate values are obtained by limiting the summationsfrom k¼0t ok¼3. The resistance and inductance due to the
+skin effect are then given by
+R
+skin¼lwire
+prr2
+wire4A12þ4/C15A4þ96/C15
+A12þ2/C15A4þ96/C15/C18/C19
+Lskin¼24lwireA2
+pxrr2
+wireA8þ144A4þ/C15
+A12þ2/C15A4þ96/C15/C18/C19
+; (8)
+where /C15¼13 824 arises from the summations up to k¼3. The
+effect of the skin depth can, hence, be calculated. In the limitwhen x¼0, these equations reduce to R
+skin!A!0lwire=
+rpr2
+wire/C17RDC;Lskin!A!0l0lwlwire=8p/C17LDC, as required.
+B. Proximity effects
+The proximity effect arises due to the packing density of the
+conductors around the core and so depends on the physical con-struction of the inductor. This is a complex problem requiring anumerical solution for a sophisticated analysis. An estimatecan, however, be made following the work of Dowell,
+11who
+calculated the effect for rectangular conductors with a height h,
+width w,a n dw i n d i n gb r e a d t h b. For the inductors described
+here, the wires are closely packed with a circular cross sectionand so a “porosity” or ﬁlling factor g¼N
+lw=bis included to
+allow for the conductor spacing and cross section in each layer.For circular wires of diameter d
+wire,t h i si ss e tt o g¼p=4w i t h
+w¼h¼dwire. Using these approximations, the impedance due
+to the proximity effect is given by
+850 Am. J. Phys., Vol. 91, No. 10, October 2023 A. J. Murray and C. Hickman 850 04 October 2023 22:58:26
+Zprox¼mlTN2
+l
+3rgbh3ahcoth ahðÞþ2ahm2/C01ðÞ tanhah
+2/C18/C19 /C18/C19
+;(9)
+where a¼að1þjÞ;a¼ﬃﬃﬃgp=d,mis the number of winding
+layers, Nlis the number of turns, and lTis the average turn
+length of the wire.
+The resistance Rproxis again set by the real part and the
+reactance ðXLÞprox¼xLproxby the imaginary part. These can
+be simpliﬁed to yield
+Rprox¼mlTN2
+l
+rgbh !
+jsinh 2 jðÞþsin 2 jðÞ
+cosh 2 jðÞ/C0cos 2 jðÞ 
+þ2m2/C01ðÞ
+3sinh jðÞ/C0sinjðÞ
+cosh jðÞþcosjðÞ!
+;
+Lprox¼mlTN2
+l
+rgbh !
+j
+xsinh 2 jðÞ/C0sin 2 jðÞ
+cosh 2 jðÞ/C0cos 2 jðÞ 
+þ2m2/C01ðÞ
+3sinh jðÞþsinjðÞ
+cosh jðÞþcosjðÞ!
+; (10)
+where j¼ah. The effects of skin depth and proximity in the
+windings of the inductor can, hence, be predicted from Eqs.(8)and(10) for comparison to experiment.
+C. Comparison between inductors with different cores
+1. Perspex core
+The toroid with a Perspex core is the simplest to consider,
+since the core has no magnetic or conductive properties and
+so emulates an air-cored inductor. Changes in measurementsas a function of frequency, hence, directly reveal the effects
+of skin depth and proximity in the windings.
+Figure 4shows the results for the inductor wound on
+Perspex. Figure 4(a) shows the resistance measurements
+using the balanced bridge and as measured using a commer-
+cial calibrated LCR meter.
+12Figure 4(b) shows the induc-
+tance. The LCR meter only measures at set frequencies of100 Hz, 120 Hz, 1 kHz, 10 kHz, and 100 kHz, whereas the
+bridge measurements were taken over a wider range from
+100 Hz through to 100 kHz, the uncertainties of around 65%
+being estimated from several measurements at each fre-
+quency. The LCR meter has a quoted uncertainty of 62.5%.The data from the bridge agrees with those from the LCR
+meter, conﬁrming that the bridge electronics are operating
+correctly. The calculations use the conductance of pure
+annealed copper ( r¼59:6/C210
+6S=m) and length of wire as
+given above. The skin effect provides only a small change in
+this frequency range. In contrast, the proximity effect mark-
+edly increases the AC-resistance of the wire. The resistancediverges from the DC resistance at frequencies higher than
+/C2410 kHz, the close-packed calculation with g¼p=4 com-
+paring well with experiment. These results clearly demon-strate that the increase in the AC-resistance is due to the
+close proximity of the wires.
+The inductance (Fig. 4(b)) remains constant up to /C2450
+kHz after which it decreases slightly. The total inductanceL
+Totis the combination of inductance from proximity and
+skin effects with that for an ideal toroid. The model agrees
+well with the data, demonstrating that the small decrease ininductance at higher frequencies is again due to the proxim-
+ity of the windings.
+2. Copper and steel cores
+For inductors with conducting or magnetic cores, the
+impedance depends on both core effects and the coil wire.The inductors studied here have identical winding structures,
+and so the skin and proximity effects due to the windings are
+the same for all inductors. The inductance and resistancechanges due to these effects can, hence, be removed from
+those due purely to the core. For inductors with conductive
+cores, the core resistance and inductance depend on botheddy currents within the core and from changes in lwith
+frequency.
+8
+3. Skin depth effects in copper and steel cored inductors
+By using a copper core, both eddy currents and disloca-
+tions in the core material can be studied without the addi-tional complexity of core magnetization (since l
+Cu
+Cis around
+1.0). Eddy currents created by the ﬁeld from the windings
+produce an opposing ﬁeld within the core (via Lenz’s law).The ﬁeld inside the core then decreases exponentially inward
+from the edges, as set by the core skin depth d
+c.13Since the
+inductance depends on the magnetic ﬂux enclosed by thewindings, the copper-cored inductance, hence, depends on
+this skin depth.
+Fig. 4. Measurements with a Perspex core. (a) Resistance measurements using the bridge and the LCR meter with calculations using the proximity and ski n
+effects. (b) Inductance measurements. The total inductance LTotis the sum of the (ideal) inductance together with that due to wire proximity and skin depth.
+Bridge values chosen for the measurements were R2¼100X;R4¼10 kX;C¼1 nF, with ðR3;rÞvaried to achieve balance.
+851 Am. J. Phys., Vol. 91, No. 10, October 2023 A. J. Murray and C. Hickman 851 04 October 2023 22:58:26
+A simple model often used to describe these effects
+assumes that the B-ﬁeld is constant within a distance dcfrom
+the edges of the core and is zero elsewhere inside the mate-rial. This model is labelled as ( U¼constð1dÞ) in Fig. 5. The
+inductance can then be calculated in the same way as for
+Eq.(5). This model predicts that the inductance decreases as
+the frequency increases. Improvements can be made by con-sidering how the ﬂux changes throughout the core, due toﬁeld penetration into the conductor. Figure 3shows how
+these effects can be estimated for a rectangular core. The
+magnetic B-ﬁeld decreases exponentially from the edge due
+to the skin effect, and so the ﬂux inside the core depends onthe position of an elemental area dA¼dxdy located at a dis-
+tance r¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+x
+2þy2p
+from the origin (set to be at the centre of
+the core structure as shown). The B-ﬁeld is then calculated
+from the smallest distance from dAto the core edge, given
+byk¼minðkx;kyÞ. The ﬂux inside the core for a single wire
+loop is then given by
+Ui¼lcNiI
+pðð
+dAe/C0kx;yðÞ =dcxðÞ
+acþbc/C02x ðÞdxdy : (11)
+Since kdepends on the position of dAwithin the core, this
+equation can be numerically computed by replacing the inte-
+gral with a summation. The inductance is then given by
+Li¼NiUi
+I¼lcN2
+i
+pX
+j;ke/C0kxj;ykðÞ =dcxðÞ
+acþbc/C02xj ðÞDxjDyj: (12)
+Equation (12) can be used to model the frequency depen-
+dence of inductors that have copper and steel cores. The cal-
+culations were carried out from 100 Hz to 100 kHz for theinductors used here, setting the skin depth d
+cfrom Eq. (6).
+The core was subdivided into 106elemental areas with
+Dxj¼ðbc/C0acÞ=1000 and Dyj¼hc=1000. The values of
+k¼minðkx;kyÞwere then determined at each point ðxj;ykÞ.
+For the copper core, lcwas set to unity, whereas for the steel
+core, the relative permeability lc>1. This was unknown forthe cores used here and so was included as a parameter that
+could be adjusted when comparing the model to experiment.
+Figures 5(a) and5(b) shows the result of the calculations
+for solid copper and steel cores compared to data from the
+bridge and LCR meter. The calculation using the simplemodel is only shown for copper, since the calculations using
+Eq.(12) produce improved results that agree reasonably well
+with the data. Since the purity of the copper used in the core
+was not known, a range of values of conductance rare consid-
+ered, with r¼59:6/C210
+6S=m being for pure oxygen-free
+copper. The core used here was from standard copper stock
+and so had a lower conductance due to inclusions and imper-
+fections in the core material. Figure 5(a)shows that a reduced
+core conductance of around 40%–50% of that for pure copperproduces the closest ﬁt to experiment. Although agreement
+between the model and experimental data is reasonable, the
+model does not explain all of the features in the data.
+Figure 5(b) shows the results for a solid steel core. Since the
+type of steel is unknown, the skin effect calculations were car-
+ried out for different values of relative permeability l
+cto assess
+which was closest to the data. A value of lc¼85/C0100 emu-
+lates the data in the low frequency region, whereas lc¼60
+produces better agreement above 500 Hz. The measured and
+calculated inductance for the steel core is much higher than for
+copper or Perspex due to core magnetization. The change in
+inductance as a function of frequency is also much larger.These types of simple steel cores are, hence, most useful at
+lower frequencies.
+The variation in inductance for the steel core arises since the
+relative permeability depends on the relationship between the
+magnetic ﬁeld vectors HandBwithin the material, as well as
+the driving frequency, so that l
+c¼lcðx;BÞ. The relationship
+between HandBis described by a hysteresis curve14that
+depends on both the applied ﬁeld strength and magnetization.
+The non-linearity in lcgenerates odd-harmonics in the
+voltage across the inductor when driven by a pure sine wave.
+This can be measured when the bridge is balanced for agiven driving frequency x, since a residual voltage then
+remains across the bridge, predominantly at the thirdFig. 5. Measurements of inductance and resistance for solid copper and solid steel cores using the bridge and LCR meter, compared to different models. The
+calculations in (a) and (b) are for different values of conductance rand relative core permeability lc. Results from the simple model ( U¼constð1dÞ) are also
+shown in (a). Bridge values for copper were R2¼100X;R4¼10 kX, withðR3;r;CÞbeing varied. For steel, balance was achieved with R4¼10 kXand
+ðR2;R3;r;CÞall requiring adjustment. (c) Third harmonic signal for the steel core when the bridge was balanced at the fundamental driving frequency. (d) and
+(e) Measured resistance relative to the inductance, compared to different models (see the text for details). All models produce nearly identical cur ves.
+852 Am. J. Phys., Vol. 91, No. 10, October 2023 A. J. Murray and C. Hickman 852 04 October 2023 22:58:26
+harmonic (3 x). Figure 5(c) shows the results of this study
+when the bridge was driven by a sinusoidal signal with a
+peak voltage of 1 V. It is seen that the greatest deviation
+from zero is between 10 and 50 kHz, with this non-linear
+effect becoming small above 50 kHz. The Anderson bridge,
+hence, can be used to easily demonstrate these non-lineareffects in the core material to students. Most commercial
+inductance meters cannot provide this information.
+4. Resistive losses in the core
+Models that calculate resistive losses in the core R
+coreare
+more complex than those used to calculate the inductance.Core losses arise due to three main effects. Eddy current
+losses I
+2
+eddyRcorearise due to ﬁeld-generated currents in the
+conductive material (often called “classical” losses).
+Hysteresis losses occur due to the alternating magnetic ﬁeld
+coupling to magnetic domains in a material, creating suddenchanges in the domain walls. Excess losses are considered to
+be due to large scale changes to the domain walls and inclu-
+sions in the material.15These mechanisms are inter-related,
+since the ﬁeld within the core depends on the ﬁeld-generated
+eddy currents, which depends upon the permeability.
+Different analytic models have been proposed to emulate
+these effects, with mixed success. The Steinmetz model and
+its variations16model power losses in the core Pcoredue to
+combined hysteresis and eddy currents using the equation
+Pcoref;BðÞ¼I2
+coreRcore¼KStfaBb
+pk; (13)
+where fis the driving frequency (assumed to be sinusoidal)
+andBpkis the peak ﬁeld in the core. The constants ðKSt;a;bÞ
+can sometimes be obtained from the manufacturer of a com-
+mercial inductor, the numbers varying with the type of mate-
+rial and core construction. Legg17modelled core losses by
+separating the different mechanisms from each other as a
+ﬁrst approximation. His analysis predicts that the effectiveresistance of the core is given by the equation
+R
+corefðÞ¼lcLcorefðÞ aBpkf|ﬄﬄ{zﬄﬄ}
+Hysteresisþvf|{z}
+excessþ gfe
+|{z}
+eddy current !
+;
+(14)
+whereða;v;gÞare constants and e¼2. Under the conditions
+of signiﬁcant skin effects on the core ﬁeld, Mayergoyz18,19
+estimated that ereduces to e¼3=2.
+Figures 5(d) and5(e) show the results for measurement of
+the ratio of core resistance to core inductance for both copper
+and steel cores with ﬁts to different models. The ﬁts producenearly identical results and are dominated by the linear term
+in each model. (Note that the frequency axis is logarithmic in
+these ﬁgures.) The ﬁts for each model, hence, overlap in theﬁgure. Linearity is seen in the example of the exponent afor
+the Steinmetz model, which is within 9% of unity. The analy-
+sis of Legg, hence, suggests that excess losses dominate over
+eddy current losses for the copper core (since there is no hys-
+teresis loss in copper). For the steel core, both hysteresis andexcess losses dominate over those due to eddy currents.
+The copper data, hence, indicate that the main core losses
+are due to the material structure, arising from inclusions and
+impurities in the material. This is supported by the data for
+the inductance [Fig. 5(a)], which also indicates that this core
+has reduced conductivity compared to that of pure copper.The results for the steel core indicate that losses due to eddy
+currents are also less important than hysteresis and excess
+losses. It is, however, not possible to separate their individual
+contributions, since both depend linearly on the driving fre-quency as described by Legg.
+17The non-linearity in lcdem-
+onstrated by the odd-harmonic data shown in Fig. 5(e)
+indicates that hysteresis is important, and so it may be thedominant factor producing core losses. Further investigations
+(e.g., by applying higher drive currents into the inductor)
+could help in identifying the importance of these differentterms; however, this type of measurement is beyond the pre-
+sent apparatus.
+V. CONCLUSIONS
+A new design for an Anderson bridge developed for use in
+undergraduate teaching laboratories has been detailed. The
+bridge allows accurate measurement of the inductance andresistance of a device to be conducted over a wide range of
+frequencies. The ampliﬁed balanced output from the bridge
+can be measured using an oscilloscope (to determine the ACbalance condition) or by using a low-cost digital voltmeter
+that measures the peak value of the difference voltage.
+Details of the design are given, so that others can build simi-lar systems for their undergraduate programs.
+The results from these measurements demonstrate that
+selection of components such as inductors for different appli-
+cations is a complex problem that requires knowledge of thefrequency requirements, the winding structure, the type of
+wire used, and the characteristics of the core material. The
+experiments, hence, show undergraduate physics studentsthat the characteristics of a real component can be very dif-
+ferent to that of the “ideal” components they learn about in
+textbooks. It is important that students who intend to become
+professional experimental physicists learn about these differ-
+ences, so that they can gauge the limitations of any equip-ment that they may use or build in the future.
+The models used here to characterize the effects of proxim-
+ity, skin effects, and changes in the core have been derived spe-
+ciﬁcally for use by students who may not have experience withmanipulating complex numbers. They have, hence, been pre-
+sented as real analytic expressions that can be directly used in
+graphing programs that are available in most laboratories.Students can, hence, test their experimental data against estab-
+lished theories, as is adopted in our second year laboratory
+where we expect students to use these expressions directly. Wealso expect students to derive the expressions for the
+Wheatstone and Anderson bridges given in the supplementary
+material,
+1as this allows them to understand how to solve a
+complex circuit from ﬁrst principles. If these experiments are
+built for a more advanced laboratory, then numerical manipula-
+tion of the models could be considered, so that their limitationswhen compared to the data can be more carefully tested.
+A full set of design schematics and printed circuit board
+layouts for the Anderson bridge described here is available
+from the supplementary material1that accompanies this
+paper, together with a photograph of the assembled die-cast
+boxes showing the layout of components.
+ACKNOWLEDGMENT
+The development of the experiment described here was
+carried out in parallel with work in our research laboratory
+under Grant Nos. EP/W003864/1 and EP/V027689/1.
+853 Am. J. Phys., Vol. 91, No. 10, October 2023 A. J. Murray and C. Hickman 853 04 October 2023 22:58:26
+AUTHOR DECLARATION
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+DATA AVAILABILITY
+The data that support the ﬁndings of this study are avail-
+able from the corresponding author upon reasonable request.
+a)Electronic mail: Andrew.Murray@manchester.ac.uk, ORCID: 0000-0001-
+9546-6644.
+b)Electronic mail: Carl.Hickman@manchester.ac.uk, ORCID: 0009-0004-1289-9727.
+1See supplementary material online for online for circuit schematics andderivations.
+2C. Wheatstone, “An account of several new instruments and processes for
+determining the constants of a voltaic circuit,” Philos. Trans. R. Soc. II,
+303–327 (1843).
+3S. H. Christie, “Experimental determination of the laws of magneto-electric induction in different masses of the same metal, and of its intensity
+in different metals,” Philos. Trans. R. Soc. I, 95–142 (1833).
+4A. S. Morris and R. Langari, Measurement and Instrumentation (Elsevier
+Publishing, Amsterdam, 2021).
+5A. Anderson, “On coefﬁcients of induction,” Philos. Mag. 31(191),
+329–337 (1891).6TektronixAFG1022, <https://www.tek.com/en/arbitrary-function-genera-
+tor/afg1000-manual >.
+7Keithley-DVM, <https://www.tek.com/en/products/keithley/benchtop-
+digital-multimeter >.
+8N. Bowler, “Frequency-dependence of relative permeability in steel,” AIP
+Conf. Proc. 820, 1269–1276 (2006).
+9For details, see wires.co.uk ,<https://www.wires.co.uk/acatalog/litzwire.html >.
+10W. L. Weeks, Transmission and Distribution of Electrical Energy (Harper
+and Row, New York, 1981).
+11P. L. Dowell, “Effects of eddy currents in transformer windings,” Proc.
+IEE.113, 1387–1394 (1966).
+12KeysightU1733C, <https://www.keysight.com/us/en/product/U1733C/ >.
+13B. I. Bleaney and B. Bleaney, Electricity and Magnetism (Oxford U. P.,
+Oxford, 2013).
+14G. E. Fish, “Soft magnetic materials,” Proc. IEEE 78(6), 947–972 (1990).
+15G. Bertotti, “General properties of power losses in soft ferromagnetic
+materials,” IEEE Trans. Magn. 24(1), 621–630 (1988).
+16C. P. Steinmetz, “On the law of hysteresis,” Proc. IEEE 72(2), 197–221
+(1984).
+17V. E. Legg, “Magnetic measurements at low ﬂux densities using the alter-
+nating current bridge,” Bell Syst. Tech. J. 15(1), 39–62 (1936).
+18I. Mayergoyz, Nonlinear Diffusion of Electromagnetic Fields with
+Applications to Eddy Currents and Superconductivity (Academic Press, San
+Diego, 1988).
+19I. Mayergoyz, Mathematical Models of Hysteresis and Their
+Applications (Electromagnetism) , 2nd ed. (Elsevier Academic Press, San
+Diego, 2003).
+854 Am. J. Phys., Vol. 91, No. 10, October 2023 A. J. Murray and C. Hickman 854 04 October 2023 22:58:26

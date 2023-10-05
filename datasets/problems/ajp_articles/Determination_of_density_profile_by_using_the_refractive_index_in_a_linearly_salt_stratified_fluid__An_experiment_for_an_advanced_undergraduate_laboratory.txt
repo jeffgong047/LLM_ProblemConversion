@@ -1,0 +1,412 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| JANUARY 01 2022
+Determination of density profile by using the refractive index
+in a linearly salt-stratified fluid: An experiment for an
+advanced undergraduate laboratory 
+R. C. Cruz-Gómez ; F. A. V elázquez-Muñoz ; J. Salcedo-Castro
+Am. J. Phys.  90, 71–77 (2022)
+https://doi.org/10.1 119/10.0006353
+Articles Y ou May Be Interested In
+An Example of Refractography
+Physics T oday  (September 2019)
+Binarizing Low Resolution Images
+AIP Conference Proceedings  (October 2006)
+Efficient binarizing split learning based deep models for mobile applications
+AIP Conference Proceedings  (September 2021) 04 October 2023 23:00:34
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Determination of density profile by using the refractive index
+in a linearly salt-stratified fluid: An experiment for an advanced
+undergraduate laboratory
+R. C. Cruz-G /C19omeza)
+Departamento de F /C19ısica, Universidad de Guadalajara, Blvd. Marcelino Garc /C19ıa Barrag /C19an y Calzada Ol /C19ımpica,
+C.P. 44840 Guadalajara, Jalisco, Mexico
+F. A . Vel/C19azquez-Mu ~noz
+Departamento de F /C19ısica, Universidad de Guadalajara, Blvd. Marcelino Garc /C19ıa Barrag /C19an y Calzada Ol /C19ımpica,
+C.P. 44840 Guadalajara, Jalisco, Mexico
+J.Salcedo-Castro
+Sino-Australian Research Consortium for Coastal Management, School of Science, University of New South
+Wales, Canberra, Australia
+(Received 6 April 2021; accepted 30 August 2021)
+This paper describes a low-cost laboratory experiment designed to demonstrate the applicability of
+the refractive index to study stratiﬁcation in ﬂuids. The laser refractography method was applied to
+a linearly vertical density proﬁle of a salt (NaCl) stratiﬁed water column. Next, an image
+processing procedure was performed, consisting of the binarization and edge detection of the laserbeam and its subsequent second-order polynomial best ﬁt. Quantitatively, the whole-ﬁeld results
+compared well with the respective measured density proﬁles. This method allows one to obtain
+quantitative measurements of density proﬁles in stratiﬁed ﬂuids with good accuracy, making it asuitable experimental method for laboratory demonstrations on ﬂuids.
+#2022 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/10.0006353
+I. INTRODUCTION
+In spite of being a very interesting physical process, the
+bending of a light ray as it crosses a nonhomogeneous strati-ﬁed ﬂuid is an unfamiliar phenomenon to most students.
+Commonly, undergraduate students may be introduced to
+such physical concepts in advanced laboratory courses.Here, we investigate this phenomenon experimentally by
+observing the deviation of a light ray crossing a transparent
+nonhomogeneous stratiﬁed ﬂuid, where the nonhomogeneityis due to a variation of the refractive index. In laboratory
+experiments, an increase in a ﬂuid’s density is may be
+obtained by the addition of different substances. Thus, ﬂuidlayers of increasing density can be introduced into a tank, for
+example, by using salt or sugar solutions of progressively
+increasing concentration. As a result, this process also varies
+the optical refractive index nwithin the ﬂuid, where nis a
+fundamental parameter that enables us to determine otherproperties of the medium (e.g., its density gradient ﬁeld).
+Quantifying density gradients in stratiﬁed ﬂuids is a topic
+of interest in many ﬁelds of science. For example, in oceanog-
+raphy, there are physical and biological processes affected bythe salinity/density gradient of seawater; salinity is also of cru-
+cial importance for biological productivity, especially in estu-aries.
+1In many geophysical problems, ﬂuid ﬂows are
+characterized by the presence of a stable vertical density gra-dient. A large variety of processes in the atmosphere and
+ocean are signiﬁcantly inﬂuenced by stratiﬁcation effects. In
+practice, density is not measured directly in the ocean; instead,an equation of state based on temperature, salinity, and pres-sure is used. Conductivity-temperature-depth (CTD) instru-ments are the most commonly used devices for implementingthese density proﬁle measurements. Finally, in industry, therelation between the density and refractive index is applied inthe monitoring of sugar content during distillation processes.
+In a stratiﬁed ﬂuid, the density gradient is often of more
+interest than the local value of the density. A classic case ofa miscible ﬂuid with a continuous density distribution is auniformly stratiﬁed ﬂuid with constant buoyancy. In a natu-
+ral environment, the buoyancy period varies from a few
+minutes to hours; in laboratory experiments, the buoyancyperiod is several seconds. In particular, the magnitude ofstratiﬁcation can be represented by the buoyancy frequency
+N(z), also called the Brunt-V €ais€al€a frequency ,
+71 Am. J. Phys. 90(1), January 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 71 04 October 2023 23:00:34
+N2ðzÞ¼/C0g
+q0@qz
+@z; (1)
+where gis the gravitational acceleration, q0is the reference
+density, and qzis the background density as a function of
+height z.
+The relationship between the refractive index nand local
+ﬂuid density qis a problem of no recent origin. This relation
+can be expressed by the Lorentz–Lorenz equation2,3
+n2/C01
+qðn2þ2Þ¼constant : (2)
+This equation arises in the study of refractivity, where the
+constant is determined by a mean molecular polarizability of
+the ﬂuid in response to an applied low-frequency electrical
+ﬁeld, making it difﬁcult to obtain the value of nin many
+cases.3Consequently, we will introduce a linear relationship
+for a ﬂuid, whose density is changed by adding salt (NaCl).4
+Then, we will be able to ﬁnd nby assuming a linear change
+of density with depth, i.e., @qz=@z¼constant. There are
+well-known measurement techniques, whereby a laser is
+used to measure ﬂuid properties, such as particle image
+velocimetry (PIV) and planar laser-induced ﬂuorescence
+(PLIF).10On the other hand, experimental techniques that
+take advantage of laser refractography are performed with
+the help of the “synthetic” Schlieren method based on com-
+puter evaluation of optical distortions in stratiﬁed ﬂuids.5In
+the present paper, a laser refractography method is used to
+investigate the effect of the density gradient on nin a linearly
+stratiﬁed ﬂuid with the aim of evaluating this technique’s
+applicability in experiments, where the density proﬁle needs
+to be obtained in a nonintrusive way. Our objective is to
+study the variation of the refractive index in a ﬁeld of a verti-
+cally varying density induced by different salt concentrations
+(NaCl). We will utilize this nonintrusive method to obtain a
+density proﬁle in a linearly stratiﬁed stable ﬂuid under well-
+controlled laboratory conditions using a laser beam. To ourknowledge, this method has been little exploited in advanced
+ﬂuid dynamics laboratory experiments, despite its relatively
+low-cost and ease of implementation.
+II. THEORY
+The experimental setting consists of a stratiﬁed ﬂuid,
+composed of a stable horizontally homogeneous surface
+layer with density q
+0ðxÞ, laying on a bottom layer with max-
+imum density qzðxÞ. The density increases linearly in the
+vertical direction z. The surface layer has a refractive index
+n0at its top boundary, and the refractive index in this layer
+increases proportionally to density towards the bottom nz.A
+laser beam obliquely crosses the stratiﬁed ﬂuid from the sur-
+face to the bottom with an initial angle h0. Figure 1schemat-
+ically shows the laser beam passing through the linearly
+stratiﬁed ﬂuid, where the beam crosses a density layer of
+thickness dzwith a horizontal displacement dx. The angle
+between the laser beam and the z-axis varies as a function of
+the position in each layer by a differential relation hðxþdxÞ
+with similar changes in the refractive index nðxþdxÞ,a s
+shown in Fig. 1.
+If we know n0and the differential values dxanddz(in
+our experimental photographic images, these correspond to
+the size of pixels), we can ﬁnd the angle hzand therefractive index nzat each layer dzby means of Snell’s law
+as follows:
+nz¼n0sinh0
+sinhz: (3)
+In Eq. (3), the quantity n0sinh0remains constant as we
+move from one inﬁnitesimal layer to the next. Thus, the raypath will constantly bend (with quadratic form) until itreaches the bottom of the container as shown in Fig. 1.
+Equation (3)leads to a nonlinear differential equation
+commonly called the rayequation.
+6However, to ﬁnd nz
+using Eq. (3), it is necessary to know the dxanddzvalues of
+the laser beam path (see Appendix ).
+III. EXPERIMENTAL SETUP AND MEASUREMENT
+TECHNIQUES
+All experiments were performed in the Laboratory of
+Geophysical Fluid Dynamics at the University ofGuadalajara. Two transparent plexiglass tanks were used toobtain the refractograms of the laser beam when crossingthrough the ﬂuid column: A cubic tank with dimensions40/C240/C240 cm
+3and 0.8 cm wall thickness, and a rectangu-
+lar tank with 50 cm length, 20 cm height, and 5 cm widthwith a thickness of 0.4 cm. It is important to take intoaccount the rigidity and transparency of the tanks to avoidoptical effects caused by deﬂections due to the pressure of
+the water column.
+A. Stratification
+Normally, linear stratiﬁcation can be attained in a labora-
+tory by means of the double-bucket technique developed byFortuin
+7and Oster.8In Oster’s method, a propeller stirrer is
+commonly used; however, here we use an inexpensive sub-mersible ﬁsh tank pump. Oster’s method functions by pro-gressively mixing the water in a bucket of fresh water,whose density is q
+0(tank b) with brine of higher density q
+from a second bucket (tank a). This requires establishing andmaintaining a controlled ﬂow rate among three differenttanks, where the third tank gradually receives the resulting
+mixed water from the other two tanks. Figure 2shows the
+schematic diagram of this method. The mixing process canbe described sequentially as follows: (1) The liquid of higherdensity qis in a container separated from the liquid of lower
+Fig. 1. Schematic diagram of a laser beam refraction (continuous green line)
+when crossing a linearly stratiﬁed ﬂuid. Here, nzis the refractive index in
+the different inﬁnitely thin layers, and hzis the refractive angle. Note that
+z-axis increases downward.
+72 Am. J. Phys., Vol. 90, No. 1, January 2022 Cruz-G /C19omez, Vel /C19azquez-Mu ~noz, and Salcedo-Castro 72 04 October 2023 23:00:34
+density q0. Both containers are connected to each other by a
+small oriﬁce in their lower section. (2) This oriﬁce is thenopened so that the liquid of higher density enters the con-
+tainer of the liquid of lower density, where they are mixed
+by the submersible ﬁsh tank pump. (3) As the mixing takesplace, the mixed liquid ﬂows into a third container through atube, where the density gradient column will be created and
+the layer of water with higher density will gradually raise the
+layer of water with lower density. So, a linear stratiﬁcation isapproximated as molecular diffusion smoothes out the
+boundaries between the layers. Therefore, the third tank
+should be ﬁlled slowly to avoid excessive turbulence whenthe ﬂuid enters the tank from the bottom. It is recommended
+to place a porous ﬁlter at the outlet of the tube, which can be
+purchased at any tropical ﬁsh store. (4) If the rate at whichthe denser liquid ﬂows into the container of the less dense
+liquid is exactly half the rate at which the resulting mixed
+liquid ﬂows into the third container, then a linear density gra-dient will form with the denser liquid at the bottom and the
+less dense liquid at the top.
+9After the stratiﬁcation has been
+attained, it is advisable to leave the mixed water to rest forsome time so that the horizontal layers can achieve their
+equilibria and the blurriness caused by the salt disappears.
+The time to reach equilibrium depends on the amount of saltin the mixture. In our setup, for the rectangular tank, theequilibration time was 1 h and, for the cubic tank, it was
+2–4 h. During this time, we expect that the thermal processes
+due to the addition of salt to the ﬂuid will also stabilize. Thiscan also be reversed (with fresh water being added to salt
+water) if a styrofoam ﬂoat is used, and the ﬂuid is always
+added at the surface of the tank.
+The clearness and transparency of the ﬂuid is of great
+importance. It is also feasible to make the mixture with
+chemical-grade sodium chloride (USP) or kosher salt; how-
+ever, it is advisable to ﬁlter the water before being mixedwith any of these solutions. In all experiments, the tanks
+were ﬁlled with water that was ﬁrst passed through a 5 lm
+ﬁlter before generating the mixture. The initial conditionswere exactly the same in every case, the experiments were
+carried out under ambient pressure, and temperature was
+kept constant in the laboratory.All of the measurements were performed with a commer-
+cial 1W green laser (SDLaser 303, 532 nm). The refracto-
+grams were obtained by using a digital camera with optical
+zoom (CANON, EOS REBEL T7, EF-S 18–55 IS II) in orderto avoid aberrations in the image of the beam caused by the
+camera software. It is possible that, even with a good digital
+camera and a good lens, straight lines do not always appearstraight. Therefore, as a calibration procedure, we drew a
+straight line on the outside surface of the tank and aligned
+the laser with it to make sure that deviations from the straightline were imperceptible in freshwater experiments (not
+shown). In all measurements, the laser beam was always on
+the edge of the front wall closest to the camera to avoid thedistortion caused by the refraction associated with the thick-
+ness of the water. This means that if the beam is near the
+front of the tank, the beam image is curved from the stratiﬁ-cation effect (see Fig. 1), but not from any effect of traveling
+laterally through the stratiﬁed ﬂuid. Note that, if the beam is
+located at the back of the tank, both effects are important
+and the second effect has different mathematics. If the beamis put far away from the front side of a tank with a large
+width, then the second effect dominates. A refractogram of
+the homogeneous curvature of the laser beam near the frontwall of the tank of the camera (green line) and its compari-
+son with a continuous straight line (white color) is shown in
+Fig.3.
+B. Measurement techniques
+We relate qtonby ﬁrst assuming a linear relationship
+between the refractive index and concentration, as done by
+Daviero et al.
+4using NaCl. Figures 4(a) and4(b) show the
+comparison of density and the refractive index as a function
+of NaCl concentration in water in units of g/l (mass of salt
+per unit volume of solution). Density was measured by usinga densimeter (Anton-Paar DMA-35) with an accuracy of0.0001 g/ml. The refractive index was measured by using a
+refractometer (Atago PAL-BX/RI) with an accuracy of
+60.0003. The values obtained in our experiment are four
+orders of magnitude higher than these instrumental accura-
+cies, so we can neglect the uncertainties in the measured den-
+sity and refractive index.
+Fig. 2. Schematic diagram of the double-bucket technique for generating lin-
+ear stratiﬁcation. Here, q0is the density of fresh water (tank b), while qin
+the lower layer is salty water whose density value will depend on the desired
+stratiﬁcation (tank a).
+Fig. 3. Photography (RGB) of the bent of the laser beam by refraction (con-tinuous green line) when crossing a linearly stratiﬁed ﬂuid. The thin white
+line shows the uniformity of the bent in all the water column. The white
+arrows show the scale in cm.
+73 Am. J. Phys., Vol. 90, No. 1, January 2022 Cruz-G /C19omez, Vel /C19azquez-Mu ~noz, and Salcedo-Castro 73 04 October 2023 23:00:34
+As in Daviero et al. ,4we found a linear relationship between
+salt concentration and density, as well as the refractive index
+and density, for salt concentrations up to 100 g/l (for con-
+centration between 100 and 200 g/l, the trend line did notshow signiﬁcative changes). These linear ﬁts are shown inFigs. 4(a)and4(b), and regression coefﬁcients are shown in
+the following equations:
+q¼0:999 000 þ0:000 674 C
+salt; (4)
+n¼1:333 300 þ0:000 169 Csalt; (5)
+where Csaltis the concentration of salt (g/l) in the ﬂuid and
+the dimensions of the constant in Eqs. (4)and(5)are l/ml
+and l/g, respectively. With Eq. (4), we can determine the
+density range and the amount of salt needed to obtain thedesired linear proﬁle. Therefore, by combining these equa-tions, we can derive the following direct relation betweendensity and the refractive index:
+q¼q
+0þ3:9882ðn/C0n0Þ; (6)
+where qand the constant are in units of g/ml and the uncer-
+tainty of the constant is 61.8/C210/C03g/ml. Once the strati-
+ﬁcation was attained and the ﬂuid stabilized, in all
+measurements, we put the laser beam at the upper corner,just at the same level of the water surface, so that itobliquely crossed the entire column of water until it reachedthe opposite lower corner to better detect the changes in the
+refracted angle throughout of the ﬂuid column (see Fig. 3).
+Although there is a change in the direction when the lasercrosses the plexiglass (the refractive index is 1.49), we con-sider the initial angle that the beam forms with the freshwa-ter layer on the surface of the tank, so that the initial
+refractive index must be known ( n¼1.333).
+It is, therefore, important that the digital camera focuses
+on the center of the tank and that its ﬁeld of view sees thewhole beam in the tank symmetrically. Because not all labo-ratories commonly have a densimeter like the one we used, itis recommended that the density close to the free surface is
+precisely known; for example, a 1 or 2 cm thick layer of
+fresh water ( q
+0¼0:9990 g/ml).C. Edge detection process of laser beam
+After taking the digital photograph, image processing is
+the next step. This can be done by using a personal computerand any specialized software (e.g.,
+PYTHON ,MATLAB ,OCTAVE ).
+The technical features of the digital camera used are: CMOS
+sensor 24.1 mega pixels, f/3.5–5.6. Each image captured by
+the camera consists in a layered color photography with red,
+green, and blue (RGB) bands. To highlight the laser beam as
+much as possible, we took the layer corresponding to thegreen color. The image of the laser beam is shown in Fig.
+5(a), where it is easily visualized. The next step is to separate
+the laser beam from the rest of the image, which can be doneby binarizing the image in black and white colors, whilemaintaining the same spatial scales in pixels. Figure 5(b)
+shows the binarized matrix, where the laser beam is clearly
+highlighted. The black and white image was processed byusing a simple Canny edge-detection algorithm method.
+12
+After ﬁnding the contours within the detected edges, it ispossible that some edges outside the laser trajectory are stilldetected. It is, therefore, recommended to remove these val-
+ues, for instance, by replacing them with zeros.
+After detecting the average between the upper/lower con-
+tours of thickness of the laser (values of the matrix withones), the curvature at the edges of the laser can be easily ﬁt-
+ted by a second-degree polynomial. Figures 6(a) and6(b)
+show the laser beam contours (white lines) and the bestsecond-degree polynomial ﬁt obtained by nonlinear regres-
+sion. For this stratiﬁcation, the regression z(x)¼6.7852
+/C210
+/C06x2þ0.775 42 xþ40.448 was found, where xandzare
+the pixels (green line). Finally, the spatial scale was con-
+verted to a real scale, and Eq. (6)was applied to the ﬁtted
+curve.
+IV. RESULTS
+Although they are rigid, we believe there may be some
+refraction when the laser beam passes through the tank walls.This effect may result in some curvature in the beam cap-
+tured by the photograph. So, we decided to test the validity
+of our method by measuring the density proﬁle of a
+Fig. 4. Comparison between (a) the density (g/ml) and (b) the refractive index as a function of the concentration of NaCl in (g/l) relative to the freshw ater.
+The dots on each graph represent the measurements obtained with a DMA-35 Anton-Paar densimeter and an Atago PAL-BX/RI refractometer, respectively.
+The blue continuous lines represent the linear regression ﬁt.
+74 Am. J. Phys., Vol. 90, No. 1, January 2022 Cruz-G /C19omez, Vel /C19azquez-Mu ~noz, and Salcedo-Castro 74 04 October 2023 23:00:34
+freshwater column. Furthermore, we tested with different
+stratiﬁcation conditions.
+A. Freshwater column
+As a ﬁrst test, we applied the method previously described
+to a freshwater column in both the rectangular and squaretanks. Here, as in all measurements, the laser was placed
+obliquely at the surface of the ﬂuid. We expected there
+would be no signiﬁcant beam bending. Figure 7shows the
+obtained density proﬁle by a ﬁrst-degree polynomial ﬁt.However, in the cubic tank, there was a slight dispersion inthe measurements possibly due to the laser beam crossing
+the tank walls. The density values in each tank corresponded
+toq
+0¼0:9990 g/ml.
+B. Linearly stratified water column
+In order to study the effectiveness of the method in a linearly
+stratiﬁed water column, the next step was to create a stratiﬁca-tion with different density gradients. Figure 8shows the results
+of four different experiments, for the cubic tank
+[Figs. 8(a)–8(c) ] and the rectangular tank [Fig. 8(d)]. The den-
+sity proﬁles in both tanks were measured every one centimeterfrom the surface to the bottom to avoid perturbations in thewater column. Measurements were made using a syringe to
+take water samples at discrete depths and then measured with
+the Anton Paar DMA-35 densimeter (black circles). Theseproﬁles showed a linear stratiﬁcation. As it can be seen, the val-
+ues obtained by applying our method gave a good approxima-
+tion of the density proﬁle compared to those measured by thedensimeter. For these cases, the difference in the density values
+corresponded to a salt concentration of C
+salt¼(a) 113, (b) 105,
+and (c) 194.5 g/l for the cubic tank and (d) 87 g/l for the rectan-gular tank. The buoyancy (or the Brunt-V €ais€al€a) frequency N(z)
+for each stratiﬁcation was: N¼1.72, 1.61, 2.26, and 1.96 s
+/C01.
+V. COMMENTS AND CONCLUSIONS
+We presented a direct and nonintrusive method to determine
+the density proﬁle in a linearly stable salt-stratiﬁed ﬂuid. This
+method is based on the relationship between optical propertiesof salt water and has the advantage of being easier, quicker,
+and lower-cost than measuring directly with a densimeter. The
+results showed good agreement with those measured by thedensimeter in relatively strong stratiﬁcation. So, this is a goodquantitative tool for measuring the density proﬁle in stratiﬁed
+ﬂuids in relatively deep layers of ﬂuid. The disadvantages of
+this method are the long settling time required for the densitygradient to become linear and that it can only be used in line-
+arly stratiﬁed ﬂuids. We found that the low sensitivity of this
+method cannot “feel” the regions of low-density gradients,where the change in the density layer is like that reported by
+Rinkevichyus et al.
+10We believe this occurs because the varia-
+tion of the refractive index in water is minimum and
+Fig. 6. Image after the edge detection process. In (a), the green solid line shows the best ﬁt obtained by second degree polynomial. In (b), a closer view of the
+white rectangle is represented. The white line shows the scale in cmfor both ﬁgures.
+Fig. 5. Laser beam deﬂected in a stratiﬁed ﬂuid in the cubic tank. The image captured from the green layer of the original photography (RGB) is shown in (a ).
+The digitizing process of the laser beam deﬂection of the same photography after converted to black and white (binarized) is shown in (b). Note that the spatial
+scales are in pixels, and the white arrows show the scale in cm for both ﬁgures.
+75 Am. J. Phys., Vol. 90, No. 1, January 2022 Cruz-G /C19omez, Vel /C19azquez-Mu ~noz, and Salcedo-Castro 75 04 October 2023 23:00:34
+imperceptible to ordinary CCD cameras. We need to pay more
+attention to these low-density gradients regions. However, therefractive index is sensitive to almost any density variation, as
+we found with our method [Eq. (5)], which showed good
+approximation in most of the proﬁles analyzed. In addition, dueto the ﬁt of the second-order polynomial, this method is limitedto the thickness or solidity and transparency of the container
+walls, given that any deformation will signiﬁcantly distort thebeam. Perhaps, the major drawback in the use of this method
+could be the low curvature of the laser beam through the strati-
+ﬁed medium as is the case for the calculation in the nonstrati-ﬁed water layer.
+Fig. 8. Density proﬁles calculated in Eq. (6)from the best ﬁt of the second-degree polynomial of the laser beam (white circles) in a stratiﬁed ﬂuid column and
+comparison with the values measured by the densimeter (black circles). (a)–(c) are for the cubic tank, and (d) is for the rectangular tank. Measuremen t uncer-
+tainty in all experiments on the vertical coordinate on the height of the densimeter measurements was 60.05 cm.
+Fig. 7. Density proﬁles calculated by a ﬁrst-degree polynomial ﬁt of the laser beam in a freshwater column for the (a) cubic and (b) rectangular tanks.
+Measurement uncertainty in all experiments on the vertical coordinate on the height of the densimeter measurements was 60.05 cm.
+76 Am. J. Phys., Vol. 90, No. 1, January 2022 Cruz-G /C19omez, Vel /C19azquez-Mu ~noz, and Salcedo-Castro 76 04 October 2023 23:00:34
+Finally, this study will help decrease the time needed to
+acquire the density proﬁle data in experiments where a linearstratiﬁcation is important. To our knowledge, this is the ﬁrsttime that this method has been used in the calculation of rela-tively large layers of linearly stratiﬁed ﬂuids. These results alsopoint to several directions for future research and introduceundergraduate students to the image processing of digital pho-tography as applied to ﬂuid mechanics. The study describedhere demonstrated the feasibility of a simple laser refractogra-phy experiment, where the students need no special or advancedknowledge on optics, ﬂuid mechanics, nor image processing.
+ACKNOWLEDGMENTS
+The authors gratefully acknowledge the comments and
+discussions with Patrice Le Gal and Anne Cros on earlyversions of the manuscript and the three anonymousreviewers for their helpful comments and suggestions toimprove the quality of this paper.
+APPENDIX: THE EQUATION OF THE RAY
+AND THE REFRACTIVE INDEX
+For values where the density changes in the vertical direc-
+tiondz=dx, we get the following equation (see Fig. 1):
+dz
+dx¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ ﬃ
+1/C0sin2hðxÞq
+sinhðxÞ: (A1)
+For the constant change of the refractive index n(x) refer-
+ring to its value in the air nðx0Þ, we have
+sinhðxÞ¼nðx0Þsinhðx0Þ
+nðxÞ: (A2)
+Substituting the refractive index in Eq. (6), we have
+dz
+dx¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ ﬃ
+n2ðxÞ
+n2
+0sin2hðxÞ/C01s
+: (A3)Finally, the refractive index as a function of the zdepth
+and the angle of incidence h0is
+n2ðzÞ
+n2
+0sin2ðh0Þ¼1þdz
+dx/C20/C212
+: (A4)
+This is known as the rayequation,6where nvaries in each
+layer dz.
+So, the dependence of nwith its density qcan be calcu-
+lated by the Lorentz–Lorenz’s relation2,11
+n2/C01
+qðn2þ2Þ¼constant : (A5)
+a)Electronic mail: raul.cruz@academicos.udg.mx
+1Y. Qian, Y. Zhao, Q. Wu, and Y. Yang, “Review of salinity measurement
+technology bases on optical ﬁber sensor,” Sens. Actuators, B 260, 86–105
+(2018).
+2I. M. Mathews, “Refractive index and density,” J. Franklin Inst. 39(6),
+673–686 (1914).
+3Y. Liu and P. H. Daum, “Relationship of refractive index to mass densityand self-consistency of mixing rules for multicomponents mixtures like
+ambient aerosols,” J. Aerosol Sci. 39, 974–986 (2008).
+4G. J. Daviero, P. J. W. Roberts, and K. Maile, “Refractive index matching
+in large-scale stratiﬁed experiments,” Exp. Fluids 31, 119–126 (2001).
+5Laser Refractography , edited by B. S. Rinkevichyus, O. A. Evtikhieva,
+and I. L. Raskovskaya (Springer, New York, 2010), p. 200.
+6B .R .S u t h e r l a n d ,S .B .D a l z i e l ,G .O .H u g h e s ,a n dP .F .L i n d e n ,“Visualization and measurement of internal waves by ‘synthetic schlieren’.
+Part 1. Vertically oscillating cylinder,” J. Fluid Mech. 390, 93–126 (1999).
+7Bruno Rossi, Optics (Addison Wesley, Reading, Massachusetts, 1957),
+pp. 52–55.
+8J. Fortuin, “Theory and application of two supplementary methods of con-
+structing density gradients columns,” J. Polym. Sci. 44, 505–515 (1960).
+9G. Oster, “Density gradients,” Sci. Am. 213(2), 70–76 (1965).
+10D. F. Hill, “General density gradients in general domains: The two-tank
+method revised,” Exp. Fluids 32, 434–440 (2002).
+11J. F. Canny, “A computational approach to edge detection,” IEEE Trans.
+Pattern Anal. Mach. Intell. PAMI-8 (6), 679–698 (1986).
+12J. T. Howell, “The index of refraction of gases,” Phys. Rev. 6, 81–93
+(1915).
+77 Am. J. Phys., Vol. 90, No. 1, January 2022 Cruz-G /C19omez, Vel /C19azquez-Mu ~noz, and Salcedo-Castro 77 04 October 2023 23:00:34

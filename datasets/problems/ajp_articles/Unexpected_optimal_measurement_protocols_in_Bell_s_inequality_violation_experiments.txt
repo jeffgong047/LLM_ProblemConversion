@@ -1,0 +1,844 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| JANUARY 01 2023
+Unexpected optimal measurement protocols in Bell's
+inequality violation experiments 
+Alicia Negre ; Renaud Mathevet  
+ ; Benoit Chalopin  
+ ; Sébastien Massenot  
+Am. J. Phys.  91, 64–73 (2023)
+https://doi.org/10.1 119/5.0102516
+Articles Y ou May Be Interested In
+Unexpected synthesis of cinnamaldehyde-dimedone adduct using samarium (III) chloride
+AIP Conference Proceedings  (July 2017)
+Establishment of Airborne Nanoparticle Exposure Chamber System to Assess Nano TiO 2 Induced Mice
+Lung Ef fects
+AIP Conference Proceedings  (December 201 1)
+Advanced engineering tools for design and fabrication of a custom nasal prosthesis
+AIP Conference Proceedings  (September 2012) 04 October 2023 22:48:55
+Unexpected optimal measurement protocols in Bell’s inequality
+violation experiments
+Alicia Negre
+ISAE-SUPAERO, Universit /C19e de Toulouse, France
+Renaud Matheveta)
+Universit /C19e Toulouse 3, Universit /C19e Grenoble Alpes, INSA Toulouse, LNCMI UPR CNRS 3228, EMFL,
+F-31062 Toulouse, France
+Benoit Chalopinb)
+Universit /C19e de Toulouse, UPS, LCAR CNRS UMR 5589, IRSAMC, F-31062 Toulouse, France
+S/C19ebastien Massenotc)
+ISAE-SUPAERO, Universit /C19e de Toulouse, France
+(Received 10 June 2022; accepted 26 October 2022)
+Bell’s inequality violation experiments are becoming increasingly popular in the practical teaching
+of undergraduate and master’s degree students. Bell’s parameter Sis obtained from 16 polarization
+correlation measurements performed on entangled photons pairs. We ﬁrst report here a detailed
+analysis of the uncertainty u(S) of Bell’s parameter taking into account coincidence count statistics
+and errors in polarizers’ orientation. We show using both computational modeling and
+experimental measurement that the actual sequence of the polarizer settings has an unexpected and
+strong inﬂuence on the error budget. This result may also be relevant to measurements in othersettings in which errors in parameters may have non-random effects in the measurement.
+#2023
+Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0102516
+I. INTRODUCTION
+Quantum optics experiments based on the generation of
+entangled photons pairs are useful pedagogical tools forundergraduate and master’s degree students.1–5Using the
+polarization properties of photons, they enable manipulation
+of the mathematical formalism in a simple two-dimensionalspace and illustrate the foundations of quantum physics: thepreparation of quantum states and the probabilistic and sta-tistical aspects of projective measurements. It is also possiblewith such experiments to introduce students to recent devel-opments concerning quantum technologies and their applica-
+tions to computing, communications, or sensing.
+6
+The most striking of these quantum optics experiments is
+the violation of Bell’s inequality7,8that demonstrates the
+non-locality of quantum physics. It uses entangled photonpairs to distinguish experimentally between local-realisticand non-local-realistic theories. The Nobel Prize in Physics2022 was awarded to Alain Aspect, John F. Clauser, and
+Anton Zeilinger “for experiments with entangled photons,
+establishing the violation of Bell inequalities and pioneeringquantum information science,”
+9showing the signiﬁcance of
+quantum entanglement in physics nowadays. In addition toresearch in quantum physics, such experiments were devel-oped for pedagogical purposes some 20 years ago
+10,11and
+have become widely available.12
+Improving the signiﬁcance of the violation and closing
+loopholes is a topic for the research literature. In this peda-
+gogical paper, we focus instead on improving the measure-ment error. Usually, the uncertainty in Bell’s parameter iscalculated taking into account only coincidence counts statis-tics.
+10,12,13In our setup, in which the polarizers are rotated
+by hand, we have to consider, furthermore, the experimental
+errors in the polarizers’ orientations. Asking students to con-
+sider the trade-offs between these two main uncertainty sour-ces leads to fruitful discussions.Additionally, during a master’s project, we realized that,
+unexpectedly, the actual experimental sequence of the polar-izers’ orientations had quite a signiﬁcant impact on the errorbudget. As we shall see, this comes from correlationsbetween the different measurements that make up S. We pre-
+sent these results not only because they may allow otherinstructors to help their students minimize the measurement
+error but also because we suspect that similar correlations
+between measurement results may occur unexpectedly inother systems, and we hope that our work will aid instructorsin recognizing those correlations.
+This paper is organized as follows: After the description
+of our experiment and the main theoretical aspects, Bell’sparameter uncertainty is derived analytically by the Gaussianerror propagation method. Then this uncertainty is numeri-cally modelled by a Monte Carlo algorithm in order to better
+describe real experimental sequences. This method allowed
+us to optimize with a genetic algorithm, the measurementprotocol of Bell’s parameter in order to reduce the acquisi-tion time or reinforce the strength of Bell’s inequalityviolation. Finally, we give experimental evidence of ourﬁndings.
+II. BELL’S INEQUALITY IN THE TEACHING
+LABORATORY
+A. Experimental setup
+Our graduate students use the experimental setup shown
+in Fig. 1for measuring Bell’s parameter.
+2,10Entangled pho-
+tons pairs are generated by parametric downconversion in apair of type I beta-barium borate (BBO) crystals15pumped
+by a 30 mW, 405 nm laser diode. A blue photon incident on
+a single BBO crystal is downconverted into a pair of two
+near-infrared photons at 810 nm (called the “signal” and“idler” photons) that are polarized perpendicular to the
+64 Am. J. Phys. 91(1), January 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 64 04 October 2023 22:48:55
+crystallographic axis and are emitted on an cone with a 3/C14
+half angle. The crystallographic axes of the two BBO crys-
+tals are oriented at right angles so that one crystal produces
+downconverted photons horizontally polarized (statejH
+sijHii) and the second produces vertically polarized pho-
+tons (state jVsijVii). A half-wave plate ( k=2) and a quartz
+phase compensator (C) are used to equalize the relativeweights and phases of the horizontal and vertical compo-
+nents so that the photons can be emitted in the theoretical
+state
+jW
+EPRi¼1ﬃﬃﬃ
+2pjHsijHiiþjVsijVii ðÞ : (1)
+The polarizers PAandPBare oriented, respectively, at angles
+aandbfrom the vertical axis (state jVi). We denote their
+eigenstates jVai¼cosajVi/C0sinajHiandjVbi¼cosbjVi
+/C0sinbjHi. The polarizers perform the projection of the pho-
+ton pair state jWionto jVaijVbi, which is a measure of the
+polarization correlation of the photons of the pair.Interference ﬁlters (IFs) placed in front of Geiger mode ava-
+lanche photodiodes (APDs) transmit only photons in a spec-
+tral bandwidth of 10 nm centered at 810 nm. The count rateson each detector are denoted /
+Aand/B. Coincidence detec-
+tion on both detectors is performed in a sc/C259:4 ns temporal
+window with a ﬁeld programmable gate array (FPGA) card(Altera DE2-115) to record only the events that come from
+the same photon pair.16,17The corresponding rate is denoted
+/c. Data are sent from the FPGA card to a computer every
+100 ms.
+B. Theory reminder
+We summarize here brieﬂy the main theoretical aspects,
+following Ref. 10. The targeted Bell state jWEPRiis
+jWEPRi¼1ﬃﬃﬃ
+2pjHsijHiiþjVsijVii ðÞ : (2)
+This maximally entangled state19is then projected on the
+eigenstates jVaijVbiof polarizers AandB. The number of
+coincidences Ncduring the acquisition time Tacqis23
+Nc¼/cTacq¼NpjhVajhVbjWEPRij2¼Np
+2cos2b/C0a ðÞ ;
+(3)
+where Npis the number of coincidences that would be
+detected without the polarizers during the acquisition time.
+We model the experimental photon pair state by a pure
+quantum state jWDCi,10jWDCi¼coshljHsijHiiþsinhlejujVsijVii; (4)
+where DCstands for down-conversion and hlis set by the
+orientation of the half-waveplate ( hl¼45/C14ideally). uis the
+relative phase between states jHsijHiiandjVsijViigenerated
+in either crystal of the BBO pair and can be zeroed by adjust-
+ing the quartz compensator. The number of coincidences for
+this state is
+Nc¼Np/C20
+sin2asin2bcos2hlþcos2acos2bsin2hl
+þ1
+4sinð2aÞsinð2bÞsinð2hlÞcosu/C21
+þC; (5)
+where the parameter Ctakes into account experimental
+imperfections.
+The analysis proceeds by introducing the polarization cor-
+relation coefﬁcient
+Eða;bÞ¼Ncða;bÞþNcða?;b?Þ/C0Ncða;b?Þ/C0Ncða?;bÞ
+Ncða;bÞþNcða?;b?ÞþNcða;b?ÞþNcða?;bÞ;
+(6)
+where a?¼aþ90/C14andb?¼bþ90/C14.Eða;bÞis obtained
+with four coincidence measurements and takes the extremevalues of þ1 and /C01 for polarizations settings that are always
+parallel or always perpendicular ( N
+c¼Np=2o rNc¼0 accord-
+i n gt oE q . (3)).
+Finally, Bell’s parameter Sis obtained by 16 coincidence
+measurements and is deﬁned by
+S¼Eða;bÞ/C0Eða;b0ÞþEða0;bÞþEða0;b0Þ: (7)
+For the Bell state jWEPRi,(hl¼45/C14andu¼0) with a¼/C045/C14;
+a0¼0/C14;b¼/C022:5/C14, and b0¼22:5/C14, Bell’s parameter
+reaches the maximal theoretical value Smax¼2ﬃﬃﬃ
+2p
+. In con-
+trast, local-realistic theories only allow non-entangled pho-
+tons pairs (factorizable states) for which the maximum valueofSis 2.
+C. Experimental results for Bell’s parameter
+A typical sequence of measurements is given in Table IIof
+Appendix A . Since each of the four correlation coefﬁcients of
+Eq.(6)requires four coincidence measurements, 16 values are
+measured for N
+A,NB,a n d Nc. The acquisition time for each
+polarization conﬁguration is Tacq¼10 s. The total number of
+involved photons pairs was found from the sum of two additionalmeasurements:
+Fig. 1. (Color online) Sketch of our typical setup for Bell’s parameter measurement.
+65 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 65 04 October 2023 22:48:55
+Np¼Ncð0/C14;0/C14ÞþNcð90/C14;90/C14Þ¼123806111, from which
+we infer an incident pair rate /p¼1238611s/C01. We compute
+S¼2.590 or S¼2.528 depending on whether or not we subtract
+the accidental coincidences.24In practice, our students use the
+ﬁ r s tv a l u es ow ew i l ld ot h es a m e .T om a k es e n s eo ft h i sr a wnumber, we introduce the notion of error budget to our students,i.e., the estimation of the different sources of uncertainty in the
+measurement.
+D. Analytical estimate of the uncertainty in Bell’s
+parameter
+As described earlier, Bell’s parameter Sis computed from
+16 individual measurements labelled by i2f1…16 g. Each
+measurement involves three random variables ( N
+i;ai;bi),
+where Niis the actual number of coincidences recorded in
+theithmeasurement and aiandbiare the actual polarizer ori-
+entations, which may differ from the desired value. We have
+motorized polarizer mounts (see below) but we don’t use
+them in practical work with students because we think itdiminishes the interest of hands-on experimentation. Thus,the main contributions to our error budget are the count rates
+and the accuracy of the orientations of the polarizers. To the
+best of our knowledge, only the counting uncertainty is usu-ally taken into account. Photon pairs from spontaneous para-metric downconversion follow a Poisson distribution,
+14well
+approximated by a normal distribution for large numbers of
+pairs. We suppose, moreover, that the mean number of pairsinvolved in each measurement is constant and equal to N
+p.
+AllNiare then calculated from Eq. (3)with an associated
+standard deviation uðNiÞ¼ﬃﬃﬃﬃﬃNip.
+When uncertainty in the polarization orientation is
+included, it is usually assumed to follow a normal law cen-tered on the nominal values (second and third columns ofTable IIin the Appendix ) with the same standard deviation
+uða
+iÞ¼uðbiÞ¼dh, accounting for the experimental imper-
+fections when rotating the polarizers, either by hand or with
+motorized rotation mounts.
+A commonly used method to evaluate uncertainty on a
+given parameter is to compute its variance using theGaussian error propagation formula
+uðSÞ2¼X16
+i¼1/C20@S
+@Ni/C18/C192
+uðNiÞ2þ@S
+@ai/C18/C192
+uðaiÞ2
+þ@S
+@bi/C18/C192
+uðbiÞ2/C21
+þX16
+i¼1X
+j6¼i@S
+@hi/C18/C19@S
+@hj/C18/C19
+covðhi;hjÞ (8)
+with hi¼bi/C0aiand where cov ðhi;hjÞis the covariance
+between random variables hiandhj. This term can take into
+account the fact that angular random variables are notindependent.
+We ﬁrst assume all measurements independent and, thus,
+discard the covariance term. u(S) is then given by
+uðSÞ2¼X16
+i¼1@S
+@Ni/C18/C192
+Niþ@S
+@ai/C18/C192
+dh2þ@S
+@bi/C18/C192
+dh2"#
+:(9)
+Computation by hand of such a large formula is a sowewhat
+tedious task (see Appendix B ) but easily carried out usingcomputer algebra. We ﬁnd that, for a perfect Bell state, the
+contribution of the coincidences alone to the variance on Sis
+2=Np. The contribution of the polarizers’ orientation errors is
+much more intricate as trigonometric functions appear both
+in the numerator and denominator in the deﬁnition of S.
+However, in the end, all sum up quite nicely, and we get anoverall 6 dh
+2contribution to the variance. We, thus, ﬁnally
+get
+uðSÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ ﬃ
+2
+Npþ6dh2s
+: (10)
+With Np¼12380 and dh¼0:5/C14(careful manual setting of
+the polarizers) we ﬁnd, with degrees converted into radians
+S¼2:59060:025: (11)
+Our students can safely conclude that Bell’s inequality is
+strongly violated in their experiment.
+We can then discuss on the most efﬁcient way to do the
+experiment. The acquisition time Tacqis indeed the only
+adjustable parameter in the experiment because dhis set by
+the student’s skill. Equation (10) can also be written as
+follows:
+uðSÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2
+/p/C2Tacqþ6dh2s
+: (12)
+For arbitrary long acquisition times rS!ﬃﬃﬃ
+6p
+dh. However,
+in practice, it is no longer very proﬁtable to integrate the sig-nal once the two contributions are equal. For our incident
+pair rate (1238 s
+/C01), this occurs for Tacq/C253:5 s. We com-
+monly choose Tacq¼10 s so that the manipulation lasts a
+reasonable time. The two contributions to the variance of S
+are then, respectively, 1 :6/C210/C04and 4 :6/C210/C04. The
+counting error is much smaller than the angular error, andwe are almost at the limit of the performance of the experi-ment. To improve it we need to reduce dhby implementing
+more precise angular settings using vernier or motorized
+mounts. For lower count rates such an investment could bepointless, which shows the usefulness of making an errorbudget and performing this uncertainty analysis before start-ing the experiment.
+However, the above uncertainty analysis does not cor-
+rectly model real experiments in which only one and notboth polarizers are normally rotated between acquisitions.
+While the N
+ican still be considered as independent variables,
+aiandbiare no longer independent, as one may have in prac-
+ticeaiþ1¼aiorbiþ1¼bi. The analytical Gaussian error
+propagation formula above, which assumes implicitly thatboth angles are reset for each measurement, can, thus, beconsidered as a worst case study. We will introduce a numer-ical approach to deal with such real experimental conditions.
+III. BELL’S PARAMETER UNCERTAINTY
+MODELLING WITH MONTE-CARLOSIMULATIONS
+In order to better determine the statistical uncertainty of
+Bell’s parameter, we implemented a Monte Carlo algo-
+rithm.
+20,21We ﬁrst benchmarked our code against the analyt-
+ical formula (Eq. (10)) using what we call in the following
+66 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 66 04 October 2023 22:48:55
+thestandard sequence where both polarizers are reset for
+each of the 16 measurements. The process for estimating thestatistical uncertainty for Bell’s parameter is as follows:
+(1) Assign a random variable to each input parameter: in our
+case, the 16 triplets ðN
+i;ai;biÞ. The mean number of
+incident photons pairs Npbeing known, the random vari-
+able associated to Nifollows a Poisson distribution with
+a mean value given either in Eq. 3(true Bell state) or in
+Eq.5(non-ideal Bell state). The angular errors are gener-
+ated with a Gaussian distribution of width dh.
+(2) Calculate the associated Bell’s parameter.(3) Repeat the above procedure N
+runstimes.
+(4) The uncertainty u(S) is then identiﬁed as the standard
+deviation rSof Bell’s parameter calculated on the statis-
+tical ensemble.
+We show in Fig. 2the evolution of the standard deviation
+of Bell’s parameter rSas a function of Nrunsfor different val-
+ues of the polarizer orientation uncertainty dhusing the true
+Bell state. We have chosen a large number of photons pairs
+Np¼10 000 so that only the angular error contributes signiﬁ-
+cantly to rS. This ﬁgure illustrates that convergence of theMonte Carlo simulations is obtained typically for Nruns
+¼1000, whatever the chosen value of dh.
+Figure 3(a) shows how this calculated standard deviation
+depends on both the mean total count number Npand the
+polarizers’ angular uncertainty dh.
+For perfect angular setting of the polarizers, dh¼0/C14(pur-
+ple solid line), rSreduces to the counting error with a slight
+deviation from the normal value ð2=NpÞ1=2(dashed blue line)
+at low counts where Poisson and Gauss distributions actually
+differ.
+Conversely, rSreaches a nonzero asymptotic value for
+large Npdepending on the angular uncertainty dh. A linear
+ﬁt (the inset Fig. 3(b)) gives rS/C252:448dh. The slope is not
+signiﬁcantly different fromﬃﬃﬃ
+6p
+/C252:449 obtained with our
+analytical analysis.
+These asymptotic behaviours establish the consistency of
+our analytical and numerical approaches. We can now useour numerical simulations in more realistic cases, where the
+experimenter may rotate a single polarizer from one mea-
+surement to another. As stated before, this operating modeinduces correlations between the a
+i’s and between the bi’s
+that we don’t know how to take into account analytically.
+IV. OPTIMIZING THE EXPERIMENTAL
+PROTOCOL WITH MONTE-CARLO SIMULATIONS
+A. Optimization with the simplest sequences
+Intuitively, we may expect a reduced uncertainty in Sby
+lowering the number of interventions of the experimenter.
+The three sequences shown in Fig. 4are ones that minimize
+the total number of rotations for polarizers A and B. Thesehave only N
+Rot¼17 independent ai’s and bi’s instead of 32:
+for the ﬁrst measurement, the experimenter sets both polar-
+izers and then, for the remaining 15 ones, only one polarizer
+(A or B) is rotated each time. In the following, we call themshort sequences .Fig. 2. (Color online) Evolution and convergence of the standard deviation
+of Bell’s parameter with respect to the size Nrunsof the generated statistical
+ensemble for different values of the polarizers’ orientation uncertainty dh
+ranging from 0/C14to 2/C14by steps of 0 :5/C14.
+Fig. 3. (Color online) (a) Standard deviation rSof the Bell parameter as a
+function of the mean total count number Np(i.e., acquisition time) and polar-
+izers’ angular uncertainty dh. Using the same color code as in Fig. 2. The
+extra dashed blue line corresponds to a normal distribution of events and
+dh¼0/C14(slope /C01=2 in the log-log scale). It deviates from the actual
+Poisson distribution (purple solid line) only at low counts. For large counts
+and ﬁnite dh,rSsettles to a ﬁnite value proportional to dh. Inset (b) Standard
+deviation rSof Bell’s parameter for Np¼106as a function of dh. (M.C.)
+with a linear ﬁt (Lin. Fit.).Fig. 4. (Color online) Three examples of measurement sequences reducing
+the number of rotations for polarizers: the “Snake” (a), the “Frieze 1” (b),
+and the “Frieze 2” (c).
+67 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 67 04 October 2023 22:48:55
+Numerical implementation of such realistic sequences is
+straightforward. For the ﬁrst measurement, both angles are
+randomly chosen. Then, from one measurement to the next,
+we choose a new random value of either aorbaccording to
+the speciﬁed sequence.
+We compare in Fig. 5(a), the standard deviation of Bell’s
+parameter for the standard measurement and the short
+sequences “Snake” and “Friezes 1 and 2” depicted in Fig. 4.
+First, we observe that, globally, the short sequences give
+signiﬁcantly better results, i.e., lower asymptotic uncertainty
+on Bell’s parameter.
+Second, we notice that the shortest sequences are not all
+equally effective (Fig. 5(b)) with Snake performing almost
+20% better than Frieze 2. This is unexpected: it is not only
+the total number of rotations NRotthat matters but also the
+order in which they are performed. Correlations of angularsettings of the polarizers impact Bell’s parameter in a quite
+intricate way.
+B. OPTIMIZATION OF THE STANDARD
+DEVIATION OF BELL’S PARAMETER WITH A
+GENETIC ALGORITHM
+Our inability to explain why some short sequences are bet-
+ter than others implies that there might be better measure-ment sequences than the ones considered thus far. To
+address this issue, an optimization algorithm is needed since
+the total number of possible protocols is 16 !/C252/C210
+13.A s
+we cannot perform an extensive exploration of the whole
+sequences space, we have chosen to use a genetic algorithm
+technique.22
+First, we label the 16 different polarizers’ settings as
+shown in Fig. 6. The visual representation of the experi-
+mental sequences as a path visiting each square of the
+checkerboard (Fig. 4) is equivalent to a single permutation
+of the sequence ½1;…;16/C138more suitable for computer
+handling.
+Accordingly, the “Snake” and the “Frieze” are then
+encoded as the following permutations:
+•Snake: ½1234876591 01 11 21 61 51 41 3 /C138
+•Frieze 1: ½1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10 /C138
+•Frieze 2: ½1 2 3 4 8 12 16 15 14 10 11 7 6 5 9 13 /C138
+We have chosen the following parameters for our genetic
+optimization process:•Np¼100 000 incoming pairs so that the standard devia-
+tion of Bell’s parameter depends essentially on the angularuncertainty of the polarizers’ orientations set to dh¼1
+/C14.
+•A true Bell state is considered for which the number of
+coincidences for each measurement is given in Eq. (3):
+Ni¼ðNp=2Þcos2ðbi/C0aiÞ.
+•The population is formed by 1000 sequences randomly
+chosen for the ﬁrst generation (“parents”). We let the pop-ulation evolve and select the 1000 “children” with lowestuncertainty on Bell’s parameter for the next generation.
+22
+•For each “generation,” Nruns¼2000 iterations are com-
+puted for each “individual” in order to ensure the conver-gence of the Monte-Carlo simulation.
+•The genetic algorithm is used without any constraints:there are no limits on the number of polarizers’ rotations(it is not restricted to one at each step), and there are noconditions between the ﬁrst and the last position ofpolarizers.
+Figure 7shows an example of the optimization process
+provided by the genetic algorithm. For each generation, wedisplay the average value and the lowest value of the uncer-tainty in Bell’s parameter over the whole population. Theefﬁciency of the algorithm is clearly shown by its conver-gence. The best reached value r
+S/C250:014 is almost half of
+the best one obtained for the simple sequences above (seeFig. 8). One quasi optimal sequence is the following:
+½11 7 5 8 12 9 13 14 10 6 2 3 15 16 4 1 /C138. It is quite non-intuitive
+with no particular pattern despite the high symmetry ofBell’s parameter deﬁnition (Fig. 9).Fig. 5. (Color online) (a) Standard deviation of Bell’s parameter as a function of the number of generated pairs for the standard sequence (solid purpl e line)
+and the shorter ones of Fig. 4. (b) Zoom on the asymptotic values showing that the different shortest sequences perform better than the standard sequence
+(rS¼0:043) but are not equally efﬁcient.
+Fig. 6. Labelling of the different polarizers settings.
+68 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 68 04 October 2023 22:48:55
+Consequently, in the budget analysis framework presented
+before, for a given uncertainty level on S, our best sequence
+performs four times faster with dh¼1/C14. The prefactor 6 of
+dh2in the error budget Eq. (10) can then be thought as a
+complicated function of the actual experimental sequence.The optimization we performed corresponds to the minimi-
+zation of this function. We may assume that the reason why
+some sequences result in lower error is the compensationbetween uncertainties, as the angle settings are not indepen-dent. A discussion of the covariance terms in Eq. (8)is pro-
+posed in Appendix C . Even if they are not at the level of
+prediction of Monte Carlo simulations, taking into accountcovariances between angular random variables in theGaussian propagation error formula shows error compensa-
+tions and illustrates the fact than sequences having the same
+number of polarizers rotations do not have the same uncer-tainty on S.
+We were so surprised by such a signiﬁcant yet counter-
+intuitive improvement in the protocol that we thought it
+should be veriﬁed experimentally.
+V. EXPERIMENTAL VERIFICATION OF THE
+QUASI OPTIMAL CONFIGURATION
+A. Automation of measurements
+Comparing two sequences is, however, quite a challenging
+task. Indeed, we need a reliable value not of Bell’s parameter
+itself but of its uncertainty. We, thus, have to repeat thewhole set of 16 measurements a sufﬁcient number of times,
+say/C25100 for each sequence. Moreover, the most important
+parameter is the angular uncertainty, unknown to the experi-
+menter who would have to keep it constant over several
+thousands of angular settings. This is clearly not humanlyfeasible.
+We, thus, automated the measurement of Bell’s parameter
+with computer-controlled motorized rotation mounts for thepolarizers. We programmed different measurement sequen-
+ces, adding random errors in the angles to simulate human
+setting. These errors follow a normal law whose dispersiondhcan be set to any value equal to or greater than the 0 :1
+/C14
+repeatability of our mounts.
+In order to ensure that we were observing the asymptotic
+behavior at large Npin Fig. 8, we set the integration time
+long enough so that Np>104. We compared the “snake”
+and the “optimal” sequences for dh¼060:1/C14, which a
+human cannot do, dh¼0:560:1/C14, a good experimenter, and
+dh¼160:1/C14. We ran the whole set of measurements typi-
+cally 100 times for each dh(see Table I).
+Fordh¼060:1/C14, both conﬁgurations give experimen-
+tally the same standard deviation as only the photon number
+statistics is involved. However, for either dh¼0:560:1/C14or
+dh¼60:1/C14, the “optimal” sequence has a reduced standard
+deviation of Bell’s parameter as compared to the “snake”sequence. As predicted by the genetic algorithm, the optimalsequence does actually perform better.
+It should also be noted that experimental values for the
+statistical uncertainty are quite close to those provided by the
+Monte Carlo models of Fig. 8, despite the fact that the exper-
+imental state we have created is not pure and, therefore, doesnot match the perfect Bell state used in these calculations.This means that the proposed optimal sequence is somewhatrobust with respect to the experimental imperfections.
+Fig. 8. (Color online) Comparison of a quasi-optimized sequence provided
+by the genetic algorithm (light blue dotted dashed line) with the standard
+(solid purple line) and best intuitive (dashed green line) sequences.Fig. 9. (Color online) Example of quasi optimal measurement sequence pro-vided by the genetic algorithm.Fig. 7. (Color online) Average and best standard deviation as a function ofthe number of generations.
+Table I. Statistics of Bell’s parameter measured for the “snake” and the
+“optimal” conﬁguration.
+Configuration Number of measurements S rS
+Snake dh¼060:1/C1486 2.5314 0.0174
+Optimal dh¼060:1/C1485 2.532 0.0176
+Snake dh¼0:560:1/C14107 2.4942 0.0221
+Optimal dh¼0:560:1/C14106 2.5301 0.0149
+Snake dh¼160:1/C14134 2.4712 0.0294
+Optimal dh¼160:1/C14136 2.5213 0.0196
+69 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 69 04 October 2023 22:48:55
+B. Decrease of rSwith acquisition time
+Because the coincidence detection circuit provides count
+numbers each 100 ms,16,17it is possible to post-process the
+data in order to show how the standard deviation of Bell’sparameter converges to its asymptotic value as the number
+of detected pairs increases in much the same way as is easily
+done numerically (Fig. 10).
+Again, for dh¼0
+/C14, both sequences present the same
+behavior with a monotonic square root decrease in the uncer-
+tainty on Swith the total number of detected pairs (not
+shown). More interestingly, as predicted by our Monte Carlosimulations, we observe that the experimental r
+Ssettles
+asymptotically to a ﬁnite value for dh¼0:5/C14anddh¼1/C14.
+This experimentally demonstrates that there are protocols
+that are inherently more robust in dealing with handlingerrors by taking advantage of the correlations that exist in
+the deﬁnition of Bell’s parameter.
+VI. CONCLUSION
+Our initial motivation to understand and quantify uncer-
+tainty in Bell’s parameter Swas to quantify the signiﬁcance
+level and to increase the strength of the violation of Bell’sinequality. However, during a more advanced student pro-
+ject, we uncovered a subtle and unexpected inﬂuence of the
+sequence of measurements performed on the measurementuncertainty. This allowed us to signiﬁcantly improve the per-
+formance of our setup by optimizing the experimental proto-
+col. This discovery may have implications for otherexperiments, even in completely different areas, as it often
+happens that an experimental result combines several indi-
+vidual measurements. We encourage readers to considerother examples where this effect may be seen.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+APPENDIX A: EXPERIMENTAL RESULTS FOR
+BELL’S PARAMETER MEASUREMENT
+Below we provide a typical sequence of measurements for
+the determination of Bell’s parameter. Each of the 16 values
+provided for N
+A,NB, and Ncis integrated over Tacq¼10 s.The number of concidences Ncprovided here is not corrected
+for accidental coincidences. Within this experiment, the rateof accidental coincidences /
+accis about 8 s/C01.
+APPENDIX B: ANALYTICAL CALCULATION
+OF THE UNCERTAINTY ON BELL’S PARAMETER
+WITH THE GAUSSIAN PROPAGATION ERRORMETHOD
+According to Table IIand Eq. (7), Bell’s parameter can be
+written as
+S¼N1þN2/C0N3/C0N4
+N1þN2þN3þN4/C0N5þN6/C0N7/C0N8
+N5þN6þN7þN8
+þN9þN10/C0N11/C0N12
+N9þN10þN11þN12þN13þN14/C0N15/C0N16
+N13þN14þN15þN16:
+(B1)
+By considering a true Bell state jWEPRi¼ð j HsijHii
+þjVsijViiÞ=ﬃﬃﬃ
+2p
+, the number of coincidences Niis given by
+Ni¼ðNp=2Þcos2ðbi/C0aiÞ¼ð Np=2Þcos2hi,Npbeing the
+number of incident pairs. It is then possible from this expres-sion and Eq. (7)to calculate analytically all the partialFig. 10. (Color online) Experimental standard deviation of Bell’s parameter according the measurement time for the “snake” (purple) and the optimiz ed
+sequences (green) for dh¼0:5/C14(a) and dh¼1/C14(b).
+Table II. Sixteen coincidences measurements for the determination of Bell’s
+parameter.
+i a(deg) b(deg) NA=103NB=103Nc
+1 /C045 /C022.5 283 268 4871
+2 45 67.5 307 292 56543 /C045 67.5 281 294 1398
+44 5 /C022.5 308 272 889
+5 /C045 22.5 284 263 1170
+6 45 112.5 307 299 18967 /C045 112.5 282 302 5010
+8 45 22.5 306 266 503690 /C022.5 269 270 4938
+10 90 67.5 308 292 556511 0 67.5 269 292 124412 90 /C022.5 310 274 1170
+13 0 22.5 269 267 567814 90 112.5 309 299 557715 0 112.5 270 299 67616 90 22.5 309 266 1097
+70 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 70 04 October 2023 22:48:55
+derivatives needed to compute the uncertainty of Bell’s
+parameter in the following expression:
+uðSÞ2¼X16
+i¼1@S
+@Ni/C18/C192
+Niþ@S
+@ai/C18/C192
+dh2þ@S
+@bi/C18/C192
+dh2"#
+:
+(B2)
+These derivatives will include the terms cos2ðbi/C0aiÞ.I n
+Table III, we show the value of hi¼bi/C0aifor each measure-
+ment. There are only two values of cos2hi:Cp¼2þﬃﬃﬃ
+2p/C0/C1
+=4
+andCm¼2/C0ﬃﬃﬃ
+2p/C0/C1
+=4.
+1. Coincidence counts contribution
+In evaluating the ﬁrst term in the summation in Eq. (B2),
+it is helpful to start by considering only the measurementsi¼1;…;4, for which the partial derivatives are
+@S
+@N1¼@S
+@N2¼2N3þN4 ðÞ
+N1þN2þN3þN4 ðÞ2; (B3)
+@S
+@N3¼@S
+@N4¼/C02N1þN2 ðÞ
+N1þN2þN3þN4 ðÞ2: (B4)
+From these expressions, we can write
+X4
+i¼1@S
+@Ni/C18/C192
+Ni¼4N1þN2 ðÞ N3þN4 ðÞ
+N1þN2þN3þN4 ðÞ3
+¼4/C2Cp/C2Cm
+Np: (B5)
+By symmetry, the same expression is obtained for i¼5;
+…;8;i¼9;…;12 and i¼13;…;16, resulting in
+X16
+i¼1@S
+@Ni/C18/C192
+Ni¼4/C24CpCm
+Np¼2
+Np: (B6)
+The contribution of the detected coincidences to the variance
+is 2=Np.
+2. Angular contribution
+In evaluating the second and third terms in the summation
+in Eq. (B2), the following expressions are helpful:
+@S
+@ai¼@S
+@Ni@Ni
+@hi@hi
+@ai¼/C0@S
+@Ni@Ni
+@hi; (B7)
+@S
+@bi¼@S
+@Ni@Ni
+@hi@hi
+@bi¼@S
+@Ni@Ni
+@hi; (B8)@Ni
+@hi¼/C0Npcoshisinhi: (B9)
+From these expressions, we can write
+@S
+@ai/C18/C192
+¼@S
+@bi/C18/C192
+¼@S
+@Ni@Ni
+@hi/C18/C192
+:
+Fori¼1;…;4, we have
+X4
+i¼1@S
+@ai/C18/C192
+¼@S
+@N1@N1
+@h1/C18/C192
+þ@S
+@N2@N2
+@h2/C18/C192
+þ@S
+@N3@N3
+@h3/C18/C192
+þ@S
+@N4@N4
+@h4/C18/C192
+¼@S
+@N1/C18/C192@N1
+@h1/C18/C192
+þ@N2
+@h2/C18/C192"#
+þ@S
+@N3/C18/C192@N3
+@h3/C18/C192
+þ@N4
+@h4/C18/C192"#
+¼4N2
+pC2m
+N4
+p@N1
+@h1/C18/C192
+þ@N2
+@h2/C18/C192"#
+þ4N2
+pC2p
+N4
+p@N3
+@h3/C18/C192
+þ@N4
+@h4/C18/C192"#
+:
+Making use of Eq. (B9), this becomes
+X4
+i¼1@S
+@ai/C18/C192
+¼4C2
+m
+N2
+p2N2
+pCpsin2h1hi
+þ4C2
+p
+N2
+p2N2
+pCmsin2h3hi
+¼8CmCpCmsin2h1þCpsin2h3/C2/C3
+:
+Since sin2h1¼2/C0ﬃﬃﬃ
+2p/C0/C1
+=4¼Cmand sin2h3¼2þﬃﬃﬃ
+2p/C0/C1
+=4
+¼Cp, we obtain
+X4
+i¼1@S
+@ai/C18/C192
+¼8CmCpC2
+mþC2
+phi
+¼3
+4: (B10)
+Again, by symmetry, all the angular uncertainties contribute
+the same so we get
+X16
+i¼1@S
+@ai/C18/C192
+dh2þ@S
+@bi/C18/C192
+dh2"#
+¼4/C22/C2X4
+i¼1@S
+@ai/C18/C192
+dh2¼6dh2: (B11)
+The contribution of the error on polarizers’ orientation to the
+variance is 6 dh2.
+Hence, the ﬁnal expression for the uncertainty on Bell’s
+parameter is
+uðSÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ ﬃ
+2
+Npþ6dh2s
+: (B12)
+APPENDIX C: UNCERTAINTY WITH DEPENDENT
+RANDOM VARIABLES
+In the expression for the coincidences Ni¼ðNp=2Þ
+/C2cos2ðbi/C0aiÞ¼ð Np=2Þcos2ðhiÞ, the random variables hiTable III. Angles involved in the determination of the uncertainty of Bell’s
+parameter. Cp¼2þﬃﬃﬃ
+2p/C0/C1
+=4 and Cm¼2/C0ﬃﬃﬃ
+2p/C0/C1
+=4.
+i 12 34 5 6 7 8
+hi¼bi/C0ai(/C14) 22.5 22.5 112.5 /C067.5 67.5 67.5 157.5 /C022.5
+cos2hi Cp Cp Cm Cm CmCm Cp Cp
+i 9 1 01 1 1 21 3 1 4 1 51 6
+hi¼bi/C0ai(/C14)/C022.5 /C022.5 67.5 /C0112.5 22.5 22.5 112.5 /C067.5
+cos2hi Cp Cp Cm Cm CpCp Cm Cm
+71 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 71 04 October 2023 22:48:55
+are not independent of each other if the polarizers are not re-
+orientated for each measurement. An initial attempt toaccount for this dependence uses the enhanced Gaussianerror propagation formula
+uðSÞ
+2¼X16
+i¼1@S
+@Ni/C18/C192
+Niþ@S
+@hi/C18/C192
+uðhiÞ2"#
+þX16
+i¼1X
+j6¼i@S
+@hi/C18/C19@S
+@hj/C18/C19
+covðhi;hjÞ; (C1)
+where cov ðhi;hjÞis the covariance between random variables
+hiandhj. The ﬁrst-order partial derivatives can be positive or
+negative, allowing some sequences to lower u(S).
+With hi¼bi/C0ai, we have uðhiÞ2¼2dh2and cov ðhi;hjÞ
+¼dh2if the measurements iandjhave a common angle.
+Using the formulas of the partial derivatives given inAppendix B 2 , we obtain u(S) from Eq. (C1) and can com-
+pare with Monte Carlo simulations. Results are given inTable IV.
+Compared to the value uðSÞ¼0:043 (Eq. (10) with N
+p
+¼105anddh¼1/C14), a reduction of the uncertainty is effec-
+tively observed when covariances are taken into account(negative partial derivatives) but not at the level of the pre-diction of Monte Carlo simulations or observed in experi-ments, especially for the optimal sequence. Uncertaintycompensations may be more complicated than those of Eq.(C1) due to the nonlinear dependence of r
+Son the angles.
+We developed an additional way to consider the uncer-
+tainty at each measurement of a sequence. We ﬁrst generatevalues of N
+ifor an ideal and deterministic measurement
+using a particular sequence ( Ni¼ðNp=2Þcos2ðbi/C0aiÞand
+Np¼105), resulting in S¼2ﬃﬃﬃ
+2p
+. Then we successively
+replace each value of Niwith a new value calculated when
+the angles include Gaussian-distributed errors, dh¼1/C14and
+re-calculate the value of S(i) at each measurement. Werepeated this process, averaging together the values of S(i)
+obtained at each step until the convergence of the standarddeviation r
+SðiÞof the statistical distribution of S(i). For a
+given sequence, rSð16Þis equal to its standard deviation rS.
+Results are shown in Fig. 11for the following sequences:
+the “Snake,” the “Friezes 1 and 2,” the optimal given by thegenetic algorithm, and a sequence called “1:16” which corre-sponds to the sequence ½12…1 6 /C138where we have added a
+new Gaussian-distributed error to the angle at each step,when a polarizer is rotated.
+The evolution of r
+SðiÞat each measurement is shown. The
+unexpected behaviour is for the optimal sequence, the uncer-tainty in Bell’s parameter stays stable after the 4
+thmeasure-
+ment, implying that error compensation occurs at eachpolarizer rotation after that point. For other sequences, theykeep increasing toward to their value given in Table IV.
+a)ORCID: 0000-0003-2272-5718.
+b)ORCID: 0000-0002-2780-5365.
+c)Electronic mail: sebastien.massenot@isae-supaero.fr, ORCID: 0000-
+0003-2127-0280.
+1E. J. Galvez and M. Beck, “Quantum optics experiments with single
+photons for undergraduate laboratories,” Proc. SPIE 9665 , 966513
+(2007).
+2E. J. Galvez, “Resource Letter SPE-1: Single-photon experiments in theundergraduate laboratory,” Am. J. Phys. 82, 1018–1028 (2014).
+3J. J. Thorn, M. S. Neel, V. W. Donato, G. S. Bergreen, R. E. Davies, and
+M. Beck, “Observing the quantum behavior of light in an undergraduatelaboratory,” Am. J. Phys. 72, 1210–1219 (2004).
+4J. A. Carlson, M. D. Olmstead, and M. Beck, “Quantum mysteries tested:
+An experiment implementing Hardy’s test of local realism,” Am. J. Phys.
+74, 180–186 (2006).
+5J. Brody and C. Selton, “Quantum entanglement with Freedman’s inequal-
+ity,” Am. J. Phys. 86, 412–416 (2018).
+6D. Browne, S. Bose, F. Mintert, and M. S. Kim, “From quantum optics to
+quantum technologies,” Prog. Quantum Electron. 54, 2–18 (2017).
+7J. S. Bell, “On the Einstein–Podolsky–Rosen paradox,” Phys. (Long Island
+City, N.Y.) 1, 195–200 (1964).
+8J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, “Proposed experi-
+ment to test local hidden-variable theories,” Phys. Rev. Lett. 23(15),
+880–884 (1969).
+9The Nobel Prize in Physics 2022. NobelPrize.org. Nobel Prize Outreach
+AB 2022. Wed. 26 Oct 2022, https://www.nobelprize.org/prizes/physics/
+2022/summary/ >.
+10D. Dehlinger and M. W. Mitchell, “Entangled photons, nonlocality, and
+Bell inequalities in the undergraduate laboratory,” Am. J. Phys. 70,
+903–910 (2002).
+11D. Dehlinger and M. W. Mitchell, “Entangled photon apparatus for theundergraduate laboratory,” Am. J. Phys. 70, 898–902 (2002).
+12Turnkey kits are now commercially available, for example, from QuTools:
+<http://www.qutools.com/qued/ >or from Qubitekk: <https://qubitekk.
+com/products/quantum-mechanics-lab-kit/ >.
+13S. Meraner, R. Chapman, S. Frick, R. Keil, M. Prilm €uller, and G. Weihs,
+“Approaching the Tsirelson bound with a Sagnac source of polarization-
+entangled photons,” SciPost Phys. 10, 17–35(2021).
+14T. Larchuk, M. Teich, and B. Saleh, “Statistics of entangled-photon coin-
+cidences in parametric downconversion,” Ann. New York Acad. Sci. 755,
+680–686 (1995).
+15P. G. Kwiat, E. Waks, A. G. White, I. Appelbaum, and P. H. Eberhard,“Ultrabright source of polarization-entangled photons,” Phys. Rev. A. 60,
+R773–R776 (1999).
+16D. Branning, S. Bhandari, and M. Beck, “Low-cost coincidence-counting elec-tronics for undergraduate quantum optics,” A m .J .P h y s . 77, 667–670 (2009).
+17D. Branning and M. Beck, “An FPGA-based module for multiphoton coin-
+cidence counting,” Proc. SPIE 8375 , 83750F1-10 (2012).
+18B. J. Pearson and D. P. Jackson, “A hands-on introduction to single pho-
+tons and quantum mechanics for undergraduates,” Am. J. Phys. 78,
+471–484 (2010).
+19W. J. Munro, D. F. V. James, A. G. White, and P. G. Kwiat, “Maximizingthe entanglement of two mixed qubits,” Phys. Rev. A 64, 030302 (2001).Table IV. Comparison of the uncertainty on Scalculated with covariances
+(Eq. (C1)) and Monte Carlo simulations for Np¼105anddh¼1/C14.
+Sequence Snake Frieze 1 Frieze 2 Optimal
+u(S) (with covariances) 0.0252 0.0260 0.0253 0.0278
+rS(Monte-Carlo) 0.0286 0.0297 0.0327 0.0139
+Fig. 11. (Color online) Evolution of the standard deviation of Saccording
+the number of the measurement for different sequences.
+72 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 72 04 October 2023 22:48:55
+20M. G. Cox and B. R. L. Siebert, “The use of a Monte Carlo method for
+evaluating uncertainty and expanded uncertainty,” Metrologia 43,
+178–188 (2006).
+21Joint Committee for Guides in Metrology, JCGM 101:2008, “Evaluation
+of measurement data-Supplement 1 to the ‘Guide to the expression of
+uncertainty in measurement’—Propagation of distributions using a Monte
+Carlo method.”
+22D. A. Coley, An Introduction to Genetic Algorithms for Scientists and
+Engineers (World Scientiﬁc Publishing, Singapore, 1999).23As usual when measuring coincidence rates, the non-perfect quantum
+efﬁciency of the detection system is irrelevant as long as it is random
+and independent of the photon polarization which is the case here. We
+can, therefore, assume that all pairs transmitted by both polarizers aredetected, or alternatively that undetected photon pairs were not even
+generated.
+24By chance, two uncorrelated counts from noise or background radiationmay be detected in the same temporal window giving a so-called acciden-
+tal coincidence rate /
+acc¼sc/A/B(Ref. 18).
+73 Am. J. Phys., Vol. 91, No. 1, January 2023 Negre et al. 73 04 October 2023 22:48:55

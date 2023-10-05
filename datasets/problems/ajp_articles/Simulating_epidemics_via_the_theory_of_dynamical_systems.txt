@@ -1,0 +1,1202 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| MAY 01 2022
+Simulating epidemics via the theory of dynamical systems 
+
+Giorgio Mantica
+Am. J. Phys.  90, 380–393 (2022)
+https://doi.org/10.1 119/5.0082825
+Articles Y ou May Be Interested In
+Interventions and their ef ficacy in controlling the spread of an epidemic: A numerical study
+Chaos  (March 2022)
+Inhomogeneity of epidemic spreading
+Chaos  (June 2010)
+Resilience of epidemics for SIS model on networks
+Chaos  (August 2017) 04 October 2023 23:09:01
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Simulating epidemics via the theory of dynamical systems
+Giorgio Manticaa)
+Center for Nonlinear and Complex Systems, Universit /C18a dell’Insubria, Como, Italy
+and INFN-Sezione di Milano, INDAM, GNFM, Roma, Italy
+(Received 19 December 2021; accepted 19 December 2021)
+This paper describes a deterministic dynamical model of the epidemic spreading of disease. We
+introduce fundamental concepts from nonlinear dynamics and statistical physics, and use computer
+simulations that can be implemented by advanced undergraduate and by graduate students. It is
+shown that the model can describe real-world phenomena during an epidemic. Due to its simplicityand ﬂexibility, the model is also a useful tool for research.
+#2022 Published under an exclusive license by
+American Association of Physics Teachers.
+https://doi.org/10.1119/5.0082825
+I. INTRODUCTION
+The world has been recently caught off-guard by the ines-
+capable spreading of disease through human interactions.
+Such pervasive spreading was already well known to physi-
+cists and mathematicians working in complex systems and
+statistical physics and to their scientiﬁc ancestors. Perhaps the
+ﬁrst quantitative theory of epidemics was proposed by Daniel
+Bernoulli1in 1766 in the form of two differential equations
+describing the change in time of the number of susceptible (S)
+andrecovered (R) individuals from a disease. This approach
+later evolved into the SIR approach ( Irepresents infected )b y
+Kermack and McKendrick2in 1927. In these early theories,
+individuals are treated in a compartmental (mean-ﬁeld) per-
+spective: the total number of people in each category, S,I,
+andRare the variables of interest. Although this approach is
+still valuable and can predict the evolution of epidemics if
+reliable parameters are available (see, e.g., Refs. 3–6for the
+present pandemic), it has been recently recognized that social
+interactions are typically organized in networks.7,8
+More sophisticated models have been introduced in which
+people (whether susceptible, infected, or recovered) are
+nodes in a network. The transmission of disease is typically
+modeled by a random process: a probability of contagion isassigned to every link between an infected and a susceptibleperson. Percolation theory
+9provides a theoretical description
+of the spreading of infection. Moreover, concepts such asnetwork centrality10explain the varied importance of differ-
+ent individuals in the spread of disease. Network models
+take into account the complex structure of social relations,but they usually overlook the internal dynamics of a singleindividual and the interactions in an infectious–susceptiblepair, which are modeled only by random events occurringwith certain probabilities.
+The goal of this paper is to introduce a dynamical model
+of these interactions that can be exploited for educational
+purposes and research alike. The model combines conceptsfrom dynamical systems and complex networks: the internal(health) state of each person interacts dynamically, not prob-
+abilistically, with the state of other people in the network.Mathematically, the model is a coupled maps network exhib-iting many interesting phenomena.
+11,12
+The model is suggested by a similar treatment of neuronal
+excitation in the cerebral cortex,13where each neuron is rep-
+resented by a dynamical subsystem. During the evolution ofthe full system, a neuron interacts with other neurons (termed
+post-synaptic) to which it sends an excitation that might trig-
+ger these latter neurons to do the same, thus propagating anelectric signal through the network,
+14sometimes producing a
+cascade of excitations. Reference 15considered the extreme
+value statistics of the excitation trees that compose such burstsof neuronal activity, which are experimentally observable.
+16
+In this paper, we discuss a similar dynamical system in
+which the interacting individuals in a network can transmit
+disease to create contagion trees. This simpliﬁed model does
+not reproduce all aspects of reality, but includes some essen-tial features. We will show that the phenomena it reproduces
+are representative of real-world behaviors, as is often the
+case for models of complex systems.
+Our model can be implemented by students with a modi-
+cum of programming skills to visualize many phenomena
+occurring in contagion dynamics. It can also be used to intro-
+duce fundamental concepts in ergodic theory and statisticalmechanics. The suggested problems can serve as projects for
+students of nonlinear dynamics or complex systems courses.
+Finally, being purely deterministic and somewhat realistic,the model can be used to simulate real-world scenarios andtest the validity of stochastic approaches to the description of
+disease transmission.
+II. OUTLINE AND SUMMARY OF RESULTS
+We start in Sec. IIIby describing the general features of
+epidemic spreading, which are summarized in ﬁve assump-
+tions that a theoretical model must satisfy, and then
+380 Am. J. Phys. 90(5), May 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 380 04 October 2023 23:09:01
+introduce a dynamical system that fulﬁlls these assumptions.
+The physio-pathological condition of each individual in apopulation is encapsulated by the value of a continuous vari-able xcorresponding to a healthy but susceptible person and
+to an ill and infectious person, respectively. The evolution ofxfor each individual comprises two parts. Section III A
+deﬁnes the internal dynamics of an individual and Sec. III B
+prescribes the rules by which dynamical variables of individ-uals in a network interact and transmit an infection.
+We distinguish between internal dynamics and network
+interactions. In Sec. IV, we examine the evolution of the
+health of an individual isolated from the network, who can,therefore, be infected only by an outside contact, which isalso modeled dynamically. This evolution is rendered by theone-dimensional dynamical system introduced in Sec. III A,
+which reproduces certain features of disease progression
+observed in reality. The suggested problems show that the
+evolution is ergodic, mixing, and chaotic. These propertiesalso characterize the complete dynamical system includingnetwork interactions, as described in Sec. III B. In particular,
+chaos is particularly important for justifying the adoption ofa probabilistic description, as we show in Sec. V, where we
+discuss the full dynamics of the complex system. We con-sider the evolution of the number of susceptible and infectedindividuals, adopting the compartmental point of view ofRefs. 1and2. This approach yields simple one- and two-
+dimensional ordinary differential equations that accuratelydescribe the results of simulations.
+In Sec. VI, we combine dynamical systems and complex
+network theory and visualize disease transmission in a net-work using a raster plot that shows which individuals are
+infected, by whom, and the evolution of their illness, eventu-ally resulting in recovery or death. We make extensive useof this tool to illustrate various theoretical considerations,the most important of which is the notion of a contagion
+tree, which is a sequence of infections stemming from an ini-
+tially infected individual. Similar entities are called cascadesor avalanches in contexts such as sandpiles, neuronal ﬁrings,and earthquakes.
+14–18We introduce the variables that charac-
+terize these trees in Sec. VI.
+In Sec. VII, we examine how contagion arises in the
+dynamics introduced in Sec. III, which reveals the role of the
+key dynamical concepts of entry and transit times in certainsubsets of phase space, and show that the statistics of thesevariables are described by Poisson processes.
+19,20
+These results provide the dynamical foundation of the sto-
+chastic processes in the compartmental approach of Sec. V.
+This analysis also provides a link between the deterministicdynamical approach and conventional probabilistic descrip-
+tions of contagion and recovery processes, and shows that
+we can apply the stochastic theory developed by Larremoreet al. ,
+21which we review in Secs. VIII andIXand test by
+simulations.
+This theory studies a matrix whose elements are the proba-
+bilities of contagion transmission for each link of the net-work. When the largest eigenvalue of such a matrix exceedsunity, an initial infection can lead to an unending cascade ofillnesses. In Sec. IX A, we compute this eigenvalue in terms
+of the parameters of the dynamical system and compare the-oretical and experimental results. By inducing disease in asingle individual and repeating the simulation many times,we compute the fraction of times that a never-ending conta-gion tree originates. We observe a continuous phase transi-tion of this fraction at a critical value of a parameter j(which gauges the efﬁciency of disease transmission) less
+than that predicted by the theory, while the qualitative criti-cal behavior of this fraction is well reproduced.
+The stochastic theory also predicts the statistical distributions
+of sizes and duration of contagion trees as power laws with an
+exponential cutoff. At the critical value of j, this cutoff van-
+ishes, implying pure power-law distributions without a typicalscale, which are a trademark of critical phenomena. The simula-tions in Sec. IX B conﬁrm the theoretical picture at the same
+experimental critical value of jdetermined in Sec. IX A.T h e
+predicted value of jis lower than that found in the theory in
+Ref.21, indicating enhanced efﬁciency of disease transmission.
+Some concluding observations are discussed in Sec. X.
+III. THE DYNAMICAL MODEL
+Consider a population of Mindividuals, labeled by
+i¼1;2;…;M, in a network. The health state of each person
+is given by a continuous variable x, whose value ranges in
+two intervals, SandI. The state space of a single individual
+is the union of these intervals, X¼S[I, which are drawn
+next to each other in Fig. 1.I fxbelongs to S, the person is
+healthy, but susceptible to the disease, while she is infectedif her physical variable xis in I. Subsets of Iare identiﬁed as
+R, recovery, and F, fatality. In both intervals Sand I, the
+range of xis½0;1/C138: the larger the value of x, the worse the
+health condition—for instance, if xin
+S, the closer xis to
+one, the more the individual is susceptible. The variable x
+evolves in time, which we consider to be discrete, so thatevolution is given by a transformation, a map Ffrom the
+state spaceX¼ð x
+1;x2;…;xMÞ¼XMto itself. We make the
+following assumptions about this map:
+(1) The state of healthy but susceptible individuals varies
+deterministically, but chaotically.
+(2) Transition to illness occurs by contagion from an indi-
+vidual inside (2a) or outside (2b) the social network. In
+the latter case, we speak of an exogenous infection.
+(3) Soon after contagion, disease is mild, but its severity
+increases with time from incubation to illness, leadingeventually to recovery Ror fatality F.
+(4) After recovery, an individual returns to the healthy state
+S, but is susceptible to a new infection.
+Fig. 1. Individual dynamics: the state space Xis composed of two intervals of
+unit length, S(green, left interval) and I(red, right interval). These intervals are
+partitioned as S¼S0[S1, with S0marked in red, and I¼I0[R[F, with R
+marked in green and Fin dark green. The graph of the piecewise linear function
+f(x) is color-coded: red branches map a point xto the interval Iand green
+branches to S. A trajectory xð0Þ! xð1Þ!…!xð8Þis constructed using a
+cobweb diagram (black arrows).
+381 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 381 04 October 2023 23:09:01
+(5) A deceased individual is replaced by a healthy
+individual.
+If assumptions (4) and (5) are not realistic, they can be
+replaced by the following:
+(4b) After recovery, an individual is immune for some time,
+which varies according to the individual.
+(5b) Only a fraction of deceased individuals are replaced by
+new, healthy individuals.
+A. Individual dynamics
+We ﬁrst consider individuals who are isolated from their
+social network, that is, when only (2b) holds. In this case,individuals can only be infected outside their usual interac-tions, such as during travel. Therefore, we can study the evo-lution of a single state variable xinX. To model this
+evolution, consider a simple, one-dimensional dynamical
+system that fulﬁlls all of the assumptions except (2a). Thissystem is depicted in Fig. 1, and consists of a piecewise lin-
+ear function facting on X¼S[I, where the left interval Sis
+shown in green and I(the right interval) in red. The graph of
+fis color-coded, in the sense that the green portions move x
+tof(x) in the green interval Sand the red portions map xto
+f(x) in the red interval I, as indicated by the arrows in the
+example. We have introduced a subset S
+0ofS, where an indi-
+vidual contracts infection outside the network, as in assump-
+tion (2b), and its dynamical variable xmoves from StoI.
+Also note the subsets RandFofI, where the inverse transi-
+tion happens, according to assumptions (4) and (5).
+Trajectories are obtained by repeated application of fstart-
+ing from an initial condition x(0), so that xðnÞ¼fnðxð0ÞÞfor
+n¼0;1;…. Since we are considering a single individual,
+the subscript ilabeling the person is not needed here.
+We take the function fto be
+fðxÞ¼x=rðx/C20rÞ;
+ð1/C0xÞ=ð1/C0rÞðr/C20x/C201Þ;(
+(1)
+with the parameter rin (0, 1). Recall that in both intervals S
+andI, the variable xranges from zero to one. In addition, the
+color rule of Fig. 1means that
+ifxis inS0;then fðxÞbelongs to I;
+S1;then fðxÞbelongs to S;(
+(2)
+and
+ifxis inI0; then fðxÞbelongs to I;
+RorFthen fðxÞbelongs to S;(
+(3)
+where S1isSminus S0andI0isIminus RandF.
+When the dynamical map fis restricted to½0;1/C138according
+to Eq. (1)only, it deﬁnes a well-known dynamical system, the
+asymmetric tent map (symmetric for r¼1/2), which is ergo-
+dic, mixing, and chaotic.22These properties are shared by the
+more complex system deﬁned by Eqs. (2)and(3), for which it
+is possible to have transitions to and from SandI. The blue
+45/C14lines in Fig. 1serve to transfer the value of f(x) to the hor-
+izontal axis, which is useful for successive applications of the
+function f. The trajectory x(n) is obtained by the cobweb dia-
+gram shown by thin black line segments in Fig. 1.In the example shown in Fig. 1,x(0) is in S1and
+xð1Þ¼fðxð0ÞÞalso belongs to S1, while xð2Þ¼fðxð1ÞÞ
+¼fðfðxð0ÞÞÞlies in S0and therefore evolves to x(3) in I.
+This last iteration is a transition from a healthy to a sick
+state. It occurs without contagion from another individual inthe network, and is contracted from outside the network. S
+0
+is therefore the set of susceptible conditions affected by
+exogenous infection, in contrast to S1, where contagion can
+occur only via network contacts. Increasing the size of S0
+increases the frequency of exogenous contagions, thereby
+providing a useful tunable parameter. Moving S0to the left
+or to the right in Saffects the entry point of a trajectory in I,
+a property that we shall exploit.
+We next consider the set of infected conditions I. It is par-
+titioned as I¼I0[R[F.I fxis in I0, an individual is devel-
+oping an infection. The graph of fis drawn in red. When
+x/C20r;fðxÞ¼sx, with s¼1=r>1, which implies that the
+illness is rapidly worsening: fnðxÞ¼snx. At the same time,
+the individual is becoming more and more infectious, as weshall see in Sec. III B.I
+0is, therefore, the set of infectious
+conditions, the Iin SIR models. We can visualize this evolu-
+tion by following the trajectory in Fig. 1as it enters I0at
+time n¼3 and moves to the right until n¼7. Eventually,
+such a trajectory must end in either one of the two adjacentintervals RandF. We associate the former event with recov-
+ery (the Rin SIR) and the latter to fatality.
+The green branch of the graph of f(x)f o r xin the two sub-
+intervals RandFmaps the value of xback to the interval S
+1,
+implying that new individuals replace deceased ones andrecovered individuals can be reinfected. At time n¼8 in Fig.
+1, the trajectory has returned to the susceptible interval S.
+Problem 1 .Code the dynamics generated by Eqs. (1)–(3)
+and simulate a trajectory. For simplicity in programming,
+associate with each physical condition x a second variable y,
+with y¼0 if x is in S and y ¼1 if x is in I. In so doing, each
+point in X is uniquely identiﬁed by the variable z ¼xþy,
+which can also be used in graphical representations (see
+Problem 6 and Fig. 5).
+Problem 2 .Modify the function f for x in R and F to model
+assumptions (4b) and/or (5b).
+Problem 3 .The progression of disease need not be expo-
+nential. When x 2I
+0;0/C20x/C20r, modify the ascending
+branch of f using the Pomeau–Manneville23form fðxÞ¼x
+þCxq, with q >1and C¼ð1/C0rÞ=rq. Investigate the dynam-
+ical implications of this modiﬁcation and of those in
+Problem 2.
+B. Network contagions
+So far, we have described the evolution of the health state
+of an isolated single person, but people interact though a net-work of contacts. We now consider a directed network, typi-cally asymmetrical, where the health state of a given person
+affects a subset of other individuals. For example, Fig. 2
+(top) shows a simple example with four people. The arrowsindicate the direction by which an infection can be transmit-ted. It is seen that individual i
+4can infect both i1andi2, but
+only i1can infect i4. We deﬁne the adjacency matrix Aas
+follows:
+Aij¼1 if individual ican be infected by individual j;
+0 otherwise :(
+(4)
+382 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 382 04 October 2023 23:09:01
+We consider directed networks of Mindividuals (with M
+ranging from 10 000 to 100 000), each one receiving inputfrom m¼5 others, chosen at random. In so doing, the num-
+ber of outgoing links from an individual varies. If this num-ber is zero, then such a person can be infected but cannottransmit the disease. It is possible to experiment with differ-ent values of m.
+Problem 4 .Code the construction of a directed network
+following the simple procedure that we have described. Usea sparse matrix representation for A. Also investigate in the
+successive problems the effect of different network topolo-
+gies, such as those of Erd €os–R /C19enyi, Watts–Strogatz, and
+Barab /C19asi–Albert (see, e.g., Refs. 7and8) and regular latti-
+ces with nearest-neighbor interactions.
+We can now complete the description of the many-
+dimensional dynamical system comprising the full popula-tion by adding the contagion rule. We assume that aninfected person is more likely to infect others the more herdisease has progressed. Similarly, a healthy individual ismore susceptible if his health status is more fragile. As men-tioned, the value xin the interval I
+0is proportional to the
+stage of the disease. Therefore, individuals whose value of x
+at a certain time belongs to I0are infectious and their viral
+charge, that is, their capability to transmit infection is linearinx,VðxÞ¼jx, with the value of the proportionality con-
+stant jin½0;1/C138. This function is plotted as a red dashed line
+over I
+0in Fig. 2. Similarly, individuals whose value of xis in
+S1are susceptible, increasingly with the value of x.
+In Fig. 2, we show a snapshot of the dynamics, in which
+at a given time individuals i1andi2are susceptible and i3
+and i4infectious; i4can infect both i1and i2. Contagion
+occurs when adding Vðxi4Þ(the red arrow) to the xvalue of
+these susceptible individuals makes xexceed the value 1,
+that is, the top boundary of S1, and move to the adjacent
+interval I0.I nF i g . 2, this case occurs for i2but not for i1.
+Therefore, only i2is infected by i4and consequently xi2is
+mapped to I0.
+The contagion rule can be summarized as follows:
+•Compute the maximum viral charge Kitransferred to a
+susceptible individual iby an infectious person jlinked to
+iin the network:Ifxi2S1;Ki¼max
+jfAijVðxjÞwith xj2I0g
+¼jmax
+jfxjwith Aij¼1;xj2I0g: (5)
+•Check whether this viral charge is sufﬁcient to infect indi-
+vidual i; if so, move xitoI0:
+Ifxi2S1andxiþKi>1;then xi!xiþKi/C012I0;
+(6)
+otherwise, do nothing.
+The action of i3oni2(the magenta arrow of size Vðxi3Þ)i n
+Fig. 2could also have induced contagion, but it is over-
+whelmed by that of i4and therefore is not considered.
+Individual i4is the infector of i2, and we write i4¼Ið i2Þ;
+formally, jis the infector of iif he is the one who transmits
+tojthe largest viral charge: Ki¼jVðxjÞ.
+IV. ERGODIC PROPERTIES OF THE INDIVIDUAL
+DYNAMICS
+We start from the individual dynamics deﬁned in Sec.
+III A by setting the infection parameter j¼0. Therefore, it
+is sufﬁcient to consider a single individual state spaceX¼S[I. The map fonXdeﬁnes a one-dimensional dynam-
+ical system that we now investigate.
+We ﬁrst observe that this system is ergodic in a topologi-
+cal sense, because it has a dense trajectory—one thatapproaches arbitrarily close to any other point in X(almost
+all trajectories of the map are such). From a measure theoret-
+ical perspective, the characteristics of this system are even
+more distinctive, because it possesses an ergodic, invariantmeasure lwith density qðxÞ. We refer the interested readers
+to Ref. 22, which combines clarity and instructive examples
+with mathematical rigor. Reference 22provides the theoreti-
+cal background for the material in this section.
+The ergodic physical measure land its density qðxÞ
+(recall that xcan be in SorI) can be obtained by a Birkhoff
+average as follows: for (Lebesgue) almost all initial condi-tions x(0) in X, the frequency of visits of a trajectory
+xðnÞ¼f
+nðxð0ÞÞto any subinterval EofXconverges to the
+integral of the density qðxÞover the same interval, yielding
+the measure lðEÞgiven by
+lim
+N!11
+NXN
+n¼1vEðxðnÞÞ¼ð
+EqðxÞdx¼lðEÞ: (7)
+Here, vEis the characteristic function of the interval Eand
+equals one when its argument belongs to Eand is zero
+otherwise.
+The measure deﬁned by this density, dlðxÞ¼qðxÞdx,i s
+invariant for the motion, which means that, for any set E,
+lðEÞ¼lðf/C01ðEÞÞ. This relation can be interpreted from a
+population perspective. Suppose that a large (possibly inﬁ-nite) number of individuals is distributed in Xwith density
+qðxÞ. If we let each individual move from xtof(x), the den-
+sity function remains unchanged. It is easy to verify that
+when the tent map given by f(x) in Eq. (1)acts from Son
+itself (that is, when no transitions between SandIare possi-
+ble), the invariant density is qðxÞ¼1 for all x. The density
+changes because of the more complicated dynamics stem-
+ming from Eqs. (2)and(3)and described in Fig. 1.
+Fig. 2. Top: directed graph of a network with four individuals. Lower pic-
+ture: health values xiat time nand plot of the viral charge function V(x) (red
+dashed line). Arrows indicate the values Vðxi3ÞandVðxi4Þfor individuals in
+I0and their action on individuals in S1.
+383 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 383 04 October 2023 23:09:01
+Problem 5 .Compute the density function qðxÞof the
+dynamical system (X, f) of Eqs. (1)–(3) by running a long tra-
+jectory and using Eq. (7). Estimate lðS0Þ;lðS1Þ;lðI0Þ;
+lðRÞ, and lðFÞ.
+A plot of the distribution function of l,
+FlðzÞ¼ðz
+0qðsÞds; (8)
+where z¼xþydeﬁned in Problem 1 is shown in Fig. 5for
+j¼0.
+The measure of intervals computed in Problem 5 takes on
+further meaning in view of the Kac theorem and its applica-tions.22,24The measure of a set is equal to the inverse of the
+average return time of a trajectory to the set under consider-ation. Consider, for example, the set F. When xis in F,w e
+are considering a person who dies and is replaced by a newindividual. At the ﬁrst iteration after entering F, the dynam-
+ics moves xback to S(see Fig. 1). The Poincar /C19e return theo-
+rem
+22implies that almost certainly this trajectory will return
+to the set F, that is, the new individual will also die of the
+disease. The Kac theorem estimates the average time for thisto happen as 1 =lðFÞ, which can be large if the denominator
+is small.
+In addition to being ergodic, the transformation fwith the
+measure lis also mixing, which means that almost all initial
+populations characterized by a distribution of values of x, not
+necessarily the invariant density qðxÞ, evolve toward l(see
+Problem 6).
+Problem 6 .Place a large number of different initial con-
+ditions x
+ið0Þ;i¼1;…;M in S using a random number gen-
+erator. Evolve their dynamics for a large time N to obtainthe set of points fx
+iðNÞ¼fNðxið0ÞÞ;i¼1;…;Mg. Order
+this set according to the value of z iðNÞ¼xiðNÞþyiðNÞ. (See
+Problem 1 for the deﬁnition of the variable y.) For any i, plotthe order of z
+iðNÞin the list, divided by M, versus z iðNÞ.
+Observe the convergence of this plot for large N to the distri-bution function F
+lðzÞobtained in Problem 5, independently
+of the choice of the initial conditions x ið0Þ.
+The system is also chaotic, a crucial property that will
+allow us to use a statistical approach. A characteristic ofchaos is sensitive dependence on initial conditions. Observethat the absolute value of the derivative of f(x) is always
+larger than one, which implies that initially close trajectoriesseparate exponentially fast in time. Therefore, a small pertur-bation can dramatically change the course of the evolution.The rate of exponential divergence, k, can be obtained as
+described in Problem 10.
+Problem 7 .Compute the Lyapunov number k,deﬁned as
+k¼ð
+logðjf
+0ðxÞjÞdlðxÞ: (9)
+Employ ergodicity, which guarantees that for all initial con-
+ditions ~x, except for a set of measure zero, the following
+holds :
+k¼lim
+N!11
+NXN
+n¼1logðjf0ðfnð~xÞÞjÞ: (10)
+Ifk>0, the system is chaotic. Although we do not discuss it
+here, notice the relation of kwith the Kolmogorov–Sinai
+entropy of the system.25V. COMPARTMENTAL MODEL
+Let us now consider the full dynamical model, including
+network contagions. The state space is many-dimensional,
+X¼ XM. The evolution is a map F:X!X , which is
+obtained in two steps: First, the health status variable xof
+each individual evolves as prescribed by the transformation
+f, independently of the others. After that, the contagion rules
+in Eqs. (5)and(6)are implemented, thereby deﬁning an
+operatorKthat mixes different components of the state vec-
+tor. In the jargon of complex systems, the resulting system isa coupled maps network given by
+x
+1
+x2
+...
+xM0
+BBBBB@1
+CCCCCA!fðx
+1Þ
+fðx2Þ
+...
+fðxMÞ0
+BBBBB@1
+CCCCCA!Kfðx
+1Þ
+fðx2Þ
+...
+fðxMÞ0
+BBBBB@1
+CCCCCA¼Fx
+1
+x2
+...
+xM0
+BBBBB@1
+CCCCCA:
+(11)
+Problem 8 .Extend the code of Problem 1 to compute the
+evolution in Eq. (11).
+An approach that can be used to describe the evolution of
+the system is a compartmental treatment, following the theo-
+ries of Bernoulli and Kermack–McKendrick discussed in
+Sec.I. The individual dynamics are averaged out because the
+approach describes macroscopic variables: we use the samesymbols, S,I(and S
+0,R,F, etc.) to denote the fraction of the
+total population in each of the corresponding sets or com-
+partments. Transitions between these compartments happens
+stochastically,26according to exogenous infection with rate
+a, recovery with rate b, and network contagion, which is a
+second-order process involving the product IS, characterized
+by the constant c. That is, at every time step a fraction aof
+theSsusceptible individuals becomes sick from exogenous
+contacts and a fraction cIofSbecomes sick by network con-
+tagion, while a fraction bof the infected Irecovers. For the
+moment, we do not consider fatalities [or we assume
+that they are immediately replaced as in assumption (5)].
+These processes are expressed by the ordinary differential
+equations
+d
+dtS¼/C0aSþbI/C0cIS; (12a)
+d
+dtI¼/C0d
+dtS; (12b)
+in which the discrete time nis replaced by the continuous
+variable t.
+We will later discuss the relations of the parameters a,b,
+andcwith those deﬁning the deterministic system in Eq.
+(17) and then again in Sec. VII. We will also obtain their
+value from data, as is done in real-world applications. When
+c¼0, individuals do not interact ( j¼0 implies c¼0) so
+that Eq. (12) also applies to the individual dynamics
+described in Sec. III A. In this case, it is easy to see that the
+system evolves toward an equilibrium value I1given by
+dI=dt¼0, which implies that I1¼a=ðaþbÞ. The conver-
+gence is exponential, with rate /¼aþb.
+More complex is the dynamics due to the nonlinear cou-
+pling term cIS. Since IþS¼1 [by assumption (4), these are
+the two fractions of the full population], we can focus on the
+infected fraction Iand obtain
+384 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 384 04 October 2023 23:09:01
+d
+dtI¼a/C0ðaþb/C0cÞI/C0cI2¼gðIÞ: (13)
+Observe that g(I) is a quadratic function, so that Eq. (13)
+describes the one-dimensional dynamical system pictured inFig.3.
+Problem 9 .Refer to Fig. 3, where g(I) is expressed as
+gðIÞ¼/C0 cðI/C0I
+1ÞðI/C0JÞin terms of its roots I 1and J. The
+arrows indicate the direction of the evolution of I as a func-tion of time: they are directed to the right (red) when dI/dt ispositive and to the left (green) when dI =dt<0,s ot h a tI
+1is
+an attractive ﬁxed point. Because the constants a,b,a n d c
+are all positive, show that Eq. (13) implies that 0<I1<1
+and that the other root J of g(I) is negative and, hence,unphysical. Linearize g(I) about I
+1to compute the rate of the
+asymptotic exponential convergence to the ﬁxed point I 1.
+Problem 10 .Solve the differential equation (13) with the
+initial condition Ið0Þ¼I0to show that
+IðtÞ/C0I1
+I0/C0I1¼A
+e/tþA/C01; (14)
+where
+A¼I1/C0J
+I0/C0J; (15a)
+/¼cðI1/C0JÞ¼cI1þa
+I1: (15b)
+Recall that J and I 1are the roots of g(I) in Eq. (13).
+We can now start comparing theoretical and numerical
+results. We ﬁrst construct a directed network ofM¼100 000, each one receiving input from m¼5 others,
+chosen at random, following Problem 4. In this realization,the maximum number of outgoing links from an individualturns out to be 17. We then run the evolution as discussed inProblem 11.
+Problem 11 .Choose the initial conditions x
+ið0Þ;i¼1;
+…;M arbitrarily in S and compute the evolution of the
+dynamical system in Eq. (11). Record at each time step n the
+fraction of individuals in the sets S, I, R, and F, using thesame letters to denote their values: At time zero, S ð0Þ¼1
+and Ið0Þ¼Rð0Þ¼Fð0Þ¼0. Also compute the fraction of
+individuals infected at each time step, denoting this numberby K(n). After a long span N, draw the asymptotic distribu-tion of z
+iðNÞ¼xiðNÞþyiðNÞas in Problem 6, recalling that
+yi¼0 when x i2S and y i¼1 for x i2I.
+In our implementation of Problem 11, the initial condi-
+tions were placed in Sby a pseudo-random number generator
+simulating a uniform distribution. The map parameterwas r¼0.7 and the intervals were S
+0¼½0:1;0:105/C138;R
+¼½0:8;0:815/C138, and F¼½0:815;0:83/C138. Figure 4displays thequantities S0ðnÞ;RðnÞþFðnÞ, and K(n) versus time (in inte-
+ger units) for j¼0:04. Convergence to an asymptotic value
+is observed, with ﬂuctuations due to the ﬁnite value of M.
+Figure 4also plots I(n) (right scale) and the theoretical func-
+tion IthðnÞprovided by Eq. (13), which reproduces well the
+observed behavior.
+The rates a,b, and ccan be obtained numerically. By
+averaging the ﬂuctuations in the long time limit of the vari-ous quantities and indicating the result by a bar over thesymbol, i.e.,
+/C22S¼lim
+N!11
+NXN
+n¼1SðnÞ; (16)
+we arrive at the relations
+a¼/C22S0
+/C22S;b¼RþF
+/C22I;c¼/C22K
+/C22S /C22I: (17)
+Since /C22S¼lðSÞand similar relations hold for S0,R,F, and I,
+the values of aandbcan also be obtained, thanks to mixing,
+from the asymptotic distribution of the values of xcomputed
+in Problem 11. These measures are indicated in Fig. 5, which
+shows the distribution function FlðxþyÞ[deﬁned in Eq. (8)]
+forj¼0:04 and j¼0. In the latter case, network conta-
+gions are impossible and lis the invariant measure studied
+in Sec. III A and computed in Problems 5 and 6.
+In contrast, the quantity /C22Kcannot be obtained as a mea-
+sure of a set. We shall discuss its computation in Sec. VII.
+Nonetheless, by using the results of Problems 9 and 10 a dif-ferent way can be found to derive the quantities in Eq. (17),
+as is done in Problem 12.
+Problem 12 .Compute the asymptotic value /C22I¼I
+1and ﬁt
+the theoretical curve in Eq. (14) to the observed data I(n) to
+yield the parameters A and /. Manipulate Eq. (15) to obtain
+a,b, and cfrom A, /, and I1. Evaluate the error propaga-
+tion involved in this procedure. Evaluating the error propa-gation is important when estimating contagion probabilitiesand survival rates from experimental data.
+Problem 13 .Consider the case when fatalities are not
+restored in a population (assumption (5b) and Problem 2).In this, the case individuals entering the set F are not
+Fig. 3. Plot of the function g(I) in Eq. (13) (magenta curve) and the associ-
+ated dynamical system. I1andJare its ﬁxed points.
+Fig. 4. The curve Ithin the ﬁgure is computed according to the technique
+described in Problem 12 for j¼0:04. The estimated asymptotic value of
+I(n)i sI1¼0:3159. The theoretical ﬁt Ithis obtained using Eqs. (14) and
+(15)with /¼0:0265 and A¼1.460.
+385 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 385 04 October 2023 23:09:01
+replaced but exit from the dynamics. Simulate the evolution
+of the dynamical system under this condition. Show that thecompartmental description of this situation is obtained by
+adding the term/C0dI to the right-hand side of Eq. (12b) ,
+where dis the probability of the transition from I to F. Let
+UðtÞ¼SðtÞþIðtÞbe the total fraction of individuals surviv-
+ing at time t. Cast the modiﬁed Eqs. (12a) and(12b) in the
+form of a two-dimensional dynamical system in the square
+ðI;UÞ2½0;1/C138/C2½0;1/C138. The results of the simulation of the
+population dynamics are shown in Fig. 6.
+27
+VI. CONTAGION TREES
+In Sec. V, we examined the evolution of the number of
+people in different conditions. We now focus on single indi-viduals and on their relation with others. Raster plots have
+been used to study excitations of neurons in the cerebral cor-
+tex,
+15and can be adapted to visualize the health state of all
+individuals versus time, noting whether they are susceptible,
+infected, recovered, or deceased.An example of a raster plot is shown in Fig. 7for a small
+number of times, n. The individual number, i, is on the verti-
+cal axis. A symbol at the location ( n,i) signiﬁes that the indi-
+vidual ihas been infected at time n. If the symbol is a blue
+square, infection was contracted outside the network:x
+nðiÞ2S0. One such instance is observed at n¼4303 for
+i¼89304. When the infection of iis caused by contagion K
+from another individual of the network, i0¼Ið iÞbeing the
+infector, we use a black asterisk. A vertical red line startingfromðn/C01;i
+0Þand extending to ( n,i) describes this conta-
+gion. A horizontal black segment at ordinate ifrom ( n,i)t o
+ð/C22n;iÞmarks the time interval during which individual i
+remains infected. This segment terminates in a green circle(recovery, when x
+ið/C22nÞ2R) or a red triangle (fatality, when
+xið/C22nÞ2F).
+A full raster plot of the evolution of the network is much
+more complex than that in Fig. 7, because it typically
+involves many initial infections from S0and an intricate pat-
+tern of lines. Contagion trees help quantify the description ofevolution. A contagion tree is a sequence of infectious con-tacts stemming from an originally infected single individual:it represents the effect of a single initiating event. An exam-ple is shown in Fig. 7, where the initial event, an exogenous
+infection, isðn;iÞ¼ð 4303 ;89 304Þ. To simplify the ﬁgure
+and extract quantities amenable to investigation, we deﬁneas nodes the contagion events ( n,i), and join them by lines,
+ðn
+0;i0Þ!ð n;iÞ, where iis infected at time nbyi0, who in
+turn was infected at time n0. These lines are the branches of a
+tree, as used in graph theory. The tree shown in Fig. 8is
+extracted from Fig. 7.
+Problem 14 .Write a code to be implemented on top of the
+dynamics to produce a record of the sequence of contagionevents. Structure its output in a ﬁle with four integer col-umns, n, i, n
+0, and i0, with the provision that ðn0;i0Þ¼ð 0;0Þ
+for x iðnÞ2S0, the exogenous infections at the origin of con-
+tagion trees. Write a code to extract from the latter ﬁle allcontagion trees.
+Contagion trees have deep mathematical, physical, and
+even social signiﬁcance. For example, a chain of subsequentevents follows from a single event like in a nuclear reaction,which needs to be controlled not by graphite bars, but bycontainment measures and individual behavior. A variety ofstatistical quantities can be used to characterize these trees:
+•Z, the size of a tree, which is the number of its nodes, or
+equally, the number of contagion events it contains;
+•G, the generation number, which is the number of levels
+of the tree, and also the length of the longest chain of per-son to person contagions; and
+•D, the duration of a tree, which is the duration of the time
+interval between the ﬁrst and the last contagion.
+We ﬁrst discuss the dynamical process by which these
+trees are created and then consider the statistical propertiesof these quantities in Secs. VIII andIX.
+VII. CHAOTIC DYNAMICS: TRANSIT AND ENTRY
+TIMES
+It is usually assumed that contagion occurs stochastically.
+If two individuals come close, one susceptible, i, and the
+other infectious, j, disease is transmitted from jtoiat ran-
+dom with a probability P
+ijthat can be estimated only a poste-
+riori. This choice of labels, jfor the infector and ifor the
+Fig. 6. Same as Fig. 4, but using the conditions in Problem 13. The theoreti-
+cal line Ithfrom Fig. 4is shown for comparison.
+Fig. 5. Distribution function FlðxþyÞof the invariant measure for Problem
+11 for j¼0:04 (blue dashed curve) and j¼0 (red continuous curve).
+Black lines represent the function f. The intervals marked on the vertical
+axis (not the same scale as the horizontal) yield the measure of the sets S0,S,
+andR[F. Simple linear relations also allow us to compute lðIÞ;lðI0Þ, and
+lðS1Þ.
+386 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 386 04 October 2023 23:09:01
+infected, will be used here and in the remainder of the paper.
+Note their order: i j, which is consistent with Eq. (4).
+Clearly, Pij¼0 if the adjacency matrix Aijis zero. It is
+often assumed that Pijdoes not depend on time. To assess
+whether this approach can be justiﬁed when contagiondynamics is deterministic, as in our model, we need to exam-ine more closely the process of transmission of infections.This analysis involves important characteristics of chaoticdynamics, including two important quantities: the transit andentry times.
+To do the problems suggested in the remainder of this
+paper, we recommend using the parameters in Problem 15.
+Problem 15 .Consider networks constructed in Problem 4
+with m¼5. Let R[F¼½0:8;0:81/C138and S
+0¼½0;jr/C138, where
+r¼0.7 is the parameter in the map f in Eq. (1). The reason
+for this choice will be explained in Sec. VII A (see Eq. (19)
+and the related discussion). Vary M, the number of individu-als and try different networks randomly constructed with the
+same parameters.In Problem 16, we study the probability of infection trans-
+mission P
+ij. We consider one infected individual jat a time
+and disease transmission only to its immediate neighbors. Toperform this simulation, we put a demon at work. In parallelwith reading Problem 16, it would be useful to inspect Fig. 9,
+which illustrates this procedure on a network of M¼10 000,
+with parameters given in Problem 15. We found that increas-ingMor changing the random realization of the network,
+while keeping the number of incoming links mﬁxed, does not
+alter the statistical properties.
+Fig. 7. Raster plot with time on the horizontal axis and individual number on the vertical axis. The blue square at (4303, 89 304) marks the initial conta gion.
+The symbols F,R,S0, and Kdenote the events described in the text.
+Fig. 8. Contagion tree extracted from Fig. 7. Observe that in this tree
+G¼13,Z¼44, and D¼638.
+Fig. 9. A raster plot for Problem 16 for a network of M¼10 000, with labels
+as in Fig. 7. Three exogenous infections are represented by blue squares. The
+ﬁrst occurs shortly before n¼6700 and ends by recovery without reaching
+any other individuals. The second, affecting j¼8627 at n¼6744, lasts much
+longer, up to n¼7102, so that tI¼358. It triggers the contagion (black aster-
+isks) of ﬁve linked individuals, i¼2433 ;3784 ;4918 ;5484 ;7185. Two of
+these, i¼2433 and i¼3784, are infected twice. Note that the ﬁrst infection of
+i¼3784 occurred at n¼6766, soon after j¼8627 became infectious, so that
+in this case tij¼22. The blue line (scale on the right vertical axis) shows the
+number of infected individuals versus time, I(n). When I(n)¼0, the demon
+opens the gate S0to allow a further exogenous infection ( j¼5985 at
+n¼7351) and the procedure is repeated.
+387 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 387 04 October 2023 23:09:01
+Problem 16 .Study the transmission of infection from a
+single individual as follows:
+(a) Place a demon at the gate S 0. The demon allows an
+individual to pass only when no other individual is in I.
+(b) When individual j enters I, record the total time t IðjÞj
+spends in the state I (recall that j can exit I only
+through the set R[F).
+(c) During this time, the sick individual j can infect other
+individuals i according to the dynamical rule in Sec.
+III B. If so, record the delay t ijfrom the time of (exoge-
+nous) infection of j to the time of (transmitted) infection
+of i. Also record the time t IðiÞthat i spends in the set I.
+(d) Observe that when A ij¼1, a particular individual i
+may be infected more than once during a single pas-
+sage of j in the set I. Let N ijequal the number of such
+infections. When N ij>1, deﬁne t ijin step 3 using only
+the ﬁrst infection of i. Obviously, when N ij¼0, t ijis
+not deﬁned.
+(e) To focus only on disease transmission from individual
+j, stipulate that no individual i infected by j can, in
+turn, infect other people.
+(f) Run a long trajectory, so that the initially infected per-
+son j passing through the gate S 0varies dynamically.
+Accumulate statistics as follows.
+(g) For any link i j, when A ij¼1, compute the fraction
+of times P ijthat an infection of j yields one or more
+infections of i. Also compute the mean of these values
+over all pairs i, j for which A ij¼1. Denote this fraction
+byPexp, and call it the experimental probability of dis-
+ease transmission.
+(h) Compute the statistical distribution of infection dura-
+tions t Ifor exogenous and transmitted infections. Do
+the same for the contagion times t ij, averaging the data
+over individuals and infected–infector pairs.
+A. Transit times: Infection duration
+The statistical distributions deﬁned in Problem 16 are plot-
+ted in Fig. 10. We denote by xð/C1Þthe statistical distribution
+of various quantities that are identiﬁed by the symbol in the
+argument of the function. For instance, xðtIÞis the fraction
+of all infections that last tIunits of time, where tIis the length
+of the black horizontal segments in Fig. 9.
+We ﬁrst examine the distribution xðtIÞ. The two histo-
+grams for exogenous and transmitted infections shown in
+Fig. 10almost coincide, because of the choice of map
+parameters that we shall describe. Their values are zero for
+times less than T¼12. For larger values, they decay expo-
+nentially. To explain these results, we use the concept of
+transit times in dynamical systems theory.
+Observe that individuals enter Iin a subset that we label
+asVI, then evolve, and eventually leave Ithrough R[F.
+Therefore, the distribution of tIis that of the transit time of a
+trajectory between two sets in phase space, from VItoR[F:
+forx2VI;sVI!R[FðxÞ¼minfnsuch that fnðxÞ2R[Fg:
+(18)
+We ﬁrst characterize the set VI/C26I. In Problem 16, we
+took into account the fact that an individual can enter Ieither
+by exogenous or transmitted infection. Let us start from the
+ﬁrst. For simplicity, we choose S0¼½0;a/C138, with a/C281, sothat S0is located at the leftmost edge of S. Then, fðS0Þ
+¼½0;a=r/C138is an interval lying at the leftmost end of I. The
+second case occurs when the viral charge in Eqs. (5)and(6)
+is sufﬁcient to move the state xof a susceptible individual
+from StoI. The maximum viral charge is j, so that
+when contagion occurs, xis necessarily mapped to the set
+½0;j/C138/C26I. We then choose parameters satisfying a¼jr,s o
+thatS0¼½0;jr/C138and the two entry sets coincide:
+VI¼0;a=r½/C138¼0;j½/C138/C26I: (19)
+This choice guarantees that the durations of exogenous and
+induced infections are statistically equivalent, as shown inFig.10.
+Next, we consider how trajectories starting in V
+Ireach the
+exit set R[F. Since j/C281, points in VImust ﬁrst undergo
+several iterations before being able to visit the full interval I
+(see Fig. 1). During these initial iterations, their value of x
+increases geometrically, so that we can roughly estimate this
+number as T’logðjÞ=logðrÞ. After this time, a trajectory
+wanders in Ibefore eventually entering the set R[F. Since
+the motion is chaotic, entry times in this set, which can alsobe interpreted as escape times from I,
+28can be described by
+the Poisson random variable PðbÞgiven by19,20
+ProbfPðbÞ>tg¼e/C0btðt/C210Þ: (20)
+Note that bis the rate introduced in Eq. (12)in Sec. V. From
+Eq.(17),bis equal to the ratio lðR[FÞ=lðIÞ. Since the
+measure lappears in Fig. 5to be approximately uniform (as
+it is for the tent map), we can assume that bis approximately
+equal to the length of the interval R[F, i.e.,
+b’jR[Fj: (21)
+This equality leads to the ﬁnal result, which describes the
+distribution of the transit time sVI!R[Fas follows:
+Fig. 10. Histograms of the distributions xðtIÞof infection durations tIfol-
+lowing exogenous infection (label S0, blue squares) or contagion (label K,
+red crosses). The two datasets are empty for tI<T¼12 and are hardly dis-
+tinguishable afterward, when they can be ﬁtted by an exponential Ce/C0bn
+with the decay parameter b¼1:030/C210/C02(black line). Also plotted are
+the distributions xðtijÞof contagion times for j¼5/C210/C03(green circles)
+andj¼1:5/C210/C02(violet triangles). The decay parameters ﬁtting the expo-
+nential curves (black lines) are given by bþ/C23[see Eq. (25)], and are
+1:279/C210/C02and 1 :835/C210/C02, respectively. Data were obtained for a net-
+work deﬁned as in Problem 15 with M¼20 000, m¼5, andjR[Fj¼10/C02.
+388 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 388 04 October 2023 23:09:01
+sVI!R[FðxÞ/C24TþPð bÞ; (22)
+where/C24means that the dynamical variable on the left-hand
+side is characterized by the same distribution of the randomvariable on the right-hand side. These considerationsdescribe well the two data sets in Fig. 10labeled as S
+0andK.
+B. Contagion times
+We now consider the distribution xðtijÞof contagion times
+tij, which is plotted in Fig. 10. Recall that tijis the duration of
+the interval between the infection of jand its transmission to
+i. The distribution of tijstarts with an exponential increase in
+the range½0;T/C138(where the infection duration tIis zero) and
+then decays exponentially, with a rate that increases with j.
+This behavior can be understood as follows: a susceptible per-sonican contract infection from an infected individual jonly
+ifx
+ibelongs to the interval VSðxjÞ¼½ 1/C0jxj;1/C138/C26S;o t h e r -
+wise, jxj, the viral charge transmitted by j, is not sufﬁcient to
+transmit disease.
+In the initial moments of the infection of j,w h e n xj
+belongs to VI¼½0;j/C138/C26I[recall Eq. (19)], the viral charge
+is small, but it increases exponentially with time, so that theprobability of contagion also increases exponentially, whichexplains the observed behavior of the initial part of the distri-bution xðt
+ijÞ.
+A more reﬁned argument is needed to derive the behavior
+of the distribution xðtijÞfor values of tijlarger than T, when
+it is observed to decay exponentially. To motivate ourapproach, see Fig. 9and recall that we compute the variable
+t
+ijat each transit of xjthrough the set Ionly when this pas-
+sage results in one or more infections of i; otherwise, tijis
+not deﬁned (see Problem 16). After time T, the state xjchaot-
+ically moves in Ifor some time until its recovery or death.
+The state xialso evolves chaotically, but in S. The suscepti-
+ble individual icontracts illness from jif, at a time n,xiðnÞ
+belongs to the set VSðxjðnÞÞ. If we assume a uniform distribu-
+tion of xjinI, we can estimate the average duration of the
+interval VSðxjðnÞÞasj=2. Since the distribution of xiinSis
+also approximately uniform, the last quantity yields an esti-mate of /C23, the probability per unit time that x
+ifalls in VSðxjÞ
+given by
+/C23¼Prob xiðnÞ2VSðxjÞ/C8/C9’j
+2; (23)
+which holds if xjhas been in Ifor a time larger than Tand is
+still in I.
+Problem 17 .Use Eqs. (22) and(23) in a continuous time
+approximation to derive the statistical distribution xðtijÞof
+contagion times for values of t ijlarger than T. Show that the
+probability that t ijis deﬁned, that is, i does contract infection
+during a single passage of j in I, is given by
+P/C23;b¼/C23
+/C23þb; (24)
+independent of the pair i, j when A ij¼1. In this case ,
+Probftij¼sþTg¼ð /C23þbÞe/C0ð/C23þbÞsðs/C210Þ: (25)
+Fit the numerical distributions obtained in Problem 16 (see
+Fig. 10) to obtain the decay constants band/C23and compare
+them withjR[Fjandj=2, according to Eqs. (21) and(23).Observe that Eqs. (21)and(23)allow us to use Eq. (24)to
+deﬁne a theoretical value of the transition probability in
+terms of the dynamical parameters as
+Pth¼j
+jþ2jR[Fj; (26)
+which should be compared with P/C23;bandPexpfound in
+Problem 16. The results of these comparisons are presented
+in Table I, which lists data obtained from simulations for a
+network of M¼20 000 constructed as in Sec. III B, which
+was used for Fig. 10. Although for small values of j, these
+values are close to each other, for larger jthe simulation
+valuePexpexceeds the others by a few percent.
+Problem 18 .For aﬁcionados of probability theory, use
+Eqs. (22) and(23) to compute fl, the probability that N ij¼l,
+for l¼0;1;…, where N ijis the number of infections of indi-
+vidual i induced by transmission from individual j in a single
+passage of j in the set I. Compare the result with the numeri-
+cal data obtained in Problem 16.
+We plot in Fig. 11the probabilities fldetermined by simu-
+lations for different values of j, and observe that for small
+values of j,f0andf1account for almost all of the probabil-
+ity of events.
+VIII. PROBABILISTIC THEORY OF EPIDEMICS
+The results of Sec. VIIcan be summarized as follows:
+when an individual jis infected, it remains so for a variable
+time with average /C22s¼Tþ1=b. During this time, it has an
+average probability Pij¼Pthof transmitting its infection
+to another individual iin the directed network for whom Aij
+¼1. This probability does not depend on time nor on the par-
+ticular infected–infector pair i,j.
+It is instructive to adopt the approach of Ref. 21to obtain
+a probabilistic theory of epidemics, although otherapproaches could be adopted.10,29In Ref. 21, the stochastic
+transmission of disease from node to node on a network of
+individuals is considered. Transmission occurs at discrete
+time intervals, which we can take to be spaced by /C22sin our
+model. The theory rests on a relation for the probability
+Table I. Values of band/C23obtained by ﬁtting the statistical distributions of
+xðtIÞandxðtijÞas in Problem 17 for various values of j. The ratio P/C23;bin
+Eq.(24) is compared with the theoretical estimate Pthin Eq. (26) and the
+valuePexpfrom the simulations of Problem 16. Readers can compare the
+reported values of bwith the estimatejR[Fj¼10/C02and of /C23with j=2.
+K b /C23 P/C23;bPexp Pth
+3/C210/C031:0381/C210/C021:467/C210/C030.1238 0.1312 0.130 43
+4/C210/C031:0306/C210/C022:036/C210/C030.1650 0.1677 0.166 67
+5/C210/C031:0300/C210/C022:494/C210/C030.1949 0.2050 0.200 00
+6/C210/C031:0297/C210/C023:066/C210/C030.2294 0.2353 0.230 77
+7/C210/C031:0283/C210/C023:636/C210/C030.2612 0.2672 0.259 26
+8/C210/C031:0291/C210/C024:206/C210/C030.2901 0.2927 0.285 71
+9/C210/C031:0317/C210/C024:708/C210/C030.3134 0.3210 0.310 34
+1/C210/C021:0294/C210/C025:160/C210/C030.3339 0.3475 0.333 33
+1:1/C210/C021:0324/C210/C025:706/C210/C030.3560 0.3713 0.354 84
+1:2/C210/C021:0306/C210/C026:315/C210/C030.3799 0.3898 0.375 00
+1:3/C210/C021:0330/C210/C026:930/C210/C030.4015 0.4114 0.393 94
+1:4/C210/C021:0308/C210/C027:430/C210/C030.4189 0.4330 0.411 76
+1:5/C210/C021:0306/C210/C028:046/C210/C030.4384 0.4519 0.428 57
+1:6/C210/C021:0312/C210/C028:437/C210/C030.4450 0.4653 0.444 44
+389 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 389 04 October 2023 23:09:01
+XjðGÞthat the infection of individual jis the root of a tree of
+Glevels or less (while xjðGÞis the probability of having
+exactly G levels in a tree). Thus,
+XjðGþ1Þ¼YN
+i¼1ð1/C0PijÞþPijXiðGÞ/C2/C3ðj¼1;…;MÞ:
+(27)
+The meaning of Eq. (27) is explained in Ref. 21as follows:
+each factor on the right-hand side is the probability thateither the individual iis not infected by jor, if he is, he gen-
+erates a contagion tree of Glevels at most. To justify Eq.
+(27), we must assume that transmission through different
+pairs i,joccurs independently [hence the product in Eq.
+(27)] and that the propagation of infections is tree-like,
+meaning that during an outbreak there is a single path ofinfection to an individual, which holds only approximatelyto our model.
+In the analysis of Eq. (27), a crucial role is played by h,
+the largest eigenvalue of the matrix P;his real and positive
+due to the Perron–Frobenius theorem.
+22When h>1, there is
+a nonzero probability Hjthat a contagion tree (starting with
+j) never terminates. This probability can be computed as
+Hj¼1/C0lim G!1XjðGÞin Eq. (27). By using the asymp-
+totic form XjðGþ1Þ¼XjðGÞ, Eq. (27) becomes a self-
+consistent condition for Hj,j¼1;…;M.Problem 19 .Perform a stability analysis of the ﬁxed points
+of Eq. (27) as in Ref. 21. Start from an arbitrary vector Xð0Þ
+of components Xjð0Þ;j¼1;…;M, and iterate the map
+described by Eq. (27) to observe the convergence to Xð1Þ.
+Use the matrix P ijcomputed numerically in Problem 16 or the
+theoretical form P ij¼PthAij. In the latter case, compute Hth,
+the average of Hj¼1/C0Xjð1Þ over j. Call this average the
+theoretical probability of having never-ending contagion trees.
+Before describing the numerical results of Problem 19, we
+can make a few observations. Our choice of network topol-ogy allows us to derive the theoretical eigenvalue h. Observe
+that, as described in Sec. III B,P
+jAij¼mfor all i(mis the
+number of incoming links to every individual), so that At=m
+is a stochastic matrix. For this reason, the leading eigenvalue
+ofAismand that of P¼PthAish¼mPth. As a conse-
+quence, the condition h¼1 yields the following theoretical
+critical value Pcfor the probability of transmission above
+which never-ending contagion trees arise:
+Pc¼1
+m¼j
+jþ2jR[Fj/C18/C19
+c: (28)
+Equation (28) has a heuristic explanation: the number of
+links exiting from an individual varies, but it is equal to mon
+the average. If Pthis the probability that any single link does
+transmit disease, then mPthis the average number of trans-
+mitting links from a single individual. If we think of a conta-
+gion tree as a branching process,30criticality is achieved
+when the branching ratio (the average number of successorsof a node) is one, and we obtain Eq. (28).
+The leading eigenvector wofPcan be computed using the
+product P
+kw0on an initial arbitrary vector w0, constructed iter-
+atively for many iterations kwith renormalization. It is found,
+not surprisingly, that the component wjis correlated with the
+number of links exiting j,Lj¼P
+iAij,a ss e e ni nF i g . 12.T h e
+value wjappears in the description of the critical regime.
+IX. STATISTICAL PROPERTIES OF CONTAGION
+TREES AND CRITICALITY
+We can now compare the predictions of the probabilistic
+theory with the results of the simulations on the deterministicmodel.
+Fig. 11. Probability flthat a single infection of an individual jis transmitted
+ltimes to a second person i, averaged over all pairs i,jfor which Aij¼1.
+Note that f0is the probability that the disease contracted by jis not transmit-
+ted to i.
+Fig. 12. Leading eigenvector components wjversus Lj, the number of links
+exiting j. Each dot represents a pair ( Lj,wj),j¼1;…;M. Data were obtained
+for a network with M¼20 000 and m¼5.
+390 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 390 04 October 2023 23:09:01
+Problem 20 .Compute the statistical properties of conta-
+gion trees as follows:
+(1)Place a demon at the gate S 0, which acts as in Problem
+16.
+(2)Change step 5 in Problem 16 so that all infected individ-
+uals i are contagious. That is, let the full dynamics of themodel take place.
+(3)Follow the evolution until either the contagion tree
+started from the individual j entering S
+0terminates (no
+more individuals are in I) or the duration of the treeexceeds a ﬁxed (large) threshold.
+(4)In the former case, compute G, Z, D and accumulate the
+statistics for xðGÞ;xðZÞ, and xðDÞ, where G, Z, and D
+are the number of levels of a tree, the number of itsnodes, and its duration. Otherwise, stipulate that the tree
+never terminates, add one to the count of inﬁnite trees
+and map all values x
+iin I to S (by setting y i¼0 for all i).
+(5)Accumulate the results of a long run of the simulation.
+(6)Compare the fraction of inﬁnite trees, Hexp, withHth
+obtained in Problem 19.
+(7)Plot the distribution functions xð‘Þfor‘¼G;Z;D.
+(8)Repeat steps (3)–(7) for varying values of j, while keep-
+ing the other parameters ﬁxed.
+A. Fraction of infinite trees
+We ﬁrst examine the theoretical prediction for the fraction
+of inﬁnite trees. We choose the parameters used inProblem15 and vary jwhile keeping R[F¼½0:8;0:81/C138.
+Equation (28) implies a theoretical critical value of jas
+follows:
+j
+c¼2jR[Fj
+m/C01; (29)
+which yields jc¼5/C210/C03.
+In Fig. 13, we plot the theoretical value Pthfrom Eq. (26)
+and the numerical value Pexp(from Problem 16 and Table I)
+minus the critical value Pc¼1=m, versus j. As noted in
+Table I, the values of PthandPexpare in agreement in this
+range. The zero intercept of these curves occurs at j¼jc.We also plot in Fig. 13the theoretical value HthðjÞ
+obtained in Problem 19 using the transition matrixP
+ij¼PthðjÞAij. Consistent with the theory, HthðjÞ¼0 for
+j/C20jcand then increases with j, exhibiting a continuous
+phase transition. In the language of statistical mechanics, Hth
+can be interpreted as an order parameter. We then compare
+these data with the function HexpðjÞcomputed in Problem
+20: it also features a phase transition at a lower value of j
+(jexp;c/C254:5/C210/C03), but otherwise is qualitatively similar
+to the theory.
+Atjexp;c¼4:5/C210/C03, the probabilities Pexpðjexp;cÞ
+’Pthðjexp;cÞ’0:184 are smaller than 1 =m¼0:2 in a sta-
+tistically signiﬁcant way. Therefore, there must be anenhancement of disease transmission greater than that pre-dicted by the theory of Ref. 21. An interesting approach in
+Ref.10based on the non-backtracking matrix
+29yields results
+in full agreement with the approach of Ref. 21. We hypothe-
+size that the observed enhancement effect might stem fromtwo reasons. Different branches of a contagion tree mightinteract and a tree might reach an individual more than once,as seen in Fig. 9. Also not all infected individuals spend the
+same time /C22sin the state I, contrary to the simple assumption
+of the stochastic model of Ref. 21, and there exists individu-
+als with long infectious periods, as observed in Sec. VII.
+B. Tree statistics and criticality
+Whatever the cause of the discrepancy between the theo-
+retical and experimental value of jat which inﬁnite trees
+can arise, the important feature is that this value is intimatelyconnected with a crucial property of contagion dynamics:
+when jtakes this value, the network is in a critical state,
+characterized by a power-law distribution of the number ofindividuals infected in a cascade of contagions and of thenumber of levels of this tree. This behavior is at the heart ofcritical phenomena.
+The infectious spreading of disease is similar to other phe-
+nomena occurring in complex systems, which have been
+described by the scaling theory of percolation,
+9crackling
+noise,31and similar phenomena. The results of the theory of
+critical phenomena have been rederived in Ref. 21. When
+the eigenvalue hof the matrix Pis strictly less than one, the
+distributions xjðGÞandxjðZÞdecay exponentially for large
+values of the argument. The same decay occurs for h>1,
+when inﬁnite trees are excluded from the statistics. In these
+sub- and super-critical regimes, these distributions satisfy
+xð‘Þ’C‘/C0ne/C0‘r; (30)
+where ‘isGorZandC,nandrare positive constants.
+Finite size effects32can also explain the exponential cutoff
+of the power-law behavior implied by a positive value of r.
+In the critical case h¼1, that is, at the critical value of j,
+the cutoff parameter rvanishes and xjðGÞbehaves asymp-
+totically as wjG/C02, where wjis the jth component of the lead-
+ing eigenvector of P. Also, xjðZÞ/C24Z/C03=2. The exponents
+nG¼2 and nZ¼3=2 agree with scaling theory.
+The results of Problem 20 verify these theoretical predic-
+tions. In Fig. 14, we plot xðZÞ(obtained by averaging over
+initial individuals jas discussed in Problem 20) for increas-
+ing values of j. We ﬁnd that Eq. (30) well describes these
+data: the experimental value of the exponent nZ¼3=2
+agrees with the theory when pure power-law behavior arisesatj
+exp;cdetermined in Sec. IX A. A quantitative veriﬁcation
+Fig. 13. Theoretical and experimental transition probabilities PthandPexp,
+minus the critical value Pc¼1=m, versus j. The probabilities intersect the
+horizontal axis at the theoretical critical value j¼jc. At the same value,
+the theoretical probability of having an inﬁnite tree Hthshows a phase tran-
+sition. The numerical probability of this event, Hexp, displays a similar tran-
+sition at jexp;c’4:5/C210/C03.
+391 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 391 04 October 2023 23:09:01
+of this important observation can be realized by studying the
+variation with jof the value of robtained by ﬁtting Eq. (30)
+to the experimental distribution xðZÞ. This ﬁt is drawn as a
+continuous curve in Fig. 14for two values of j. We plot in
+Fig.15the values of rversus jwhere the critical behavior
+atjexp;c’4:5/C210/C03is clearly revealed.
+The analysis of the statistical distribution xðGÞof the
+number of levels in a tree, G, is consistent with these conclu-
+sions, and criticality is achieved with the exponent nG¼2.
+X. CONCLUSIONS
+The present pandemic, which is not yet over, has affected
+the entire world. A major effort has been devoted to quench
+it by medical interventions such as vaccines and effective
+cures. To a physicist’s eye, these interventions correspond toadjusting parameters of an otherwise inescapable dynamical
+process of illness and contagion.
+We have proposed a simple and fully deterministic reali-
+zation of contagion dynamics. This realization allowsstudents to do computer simulations of a one-dimensional
+system describing the evolution of the health of a single indi-
+vidual and the dynamics of a network of people. In so doing,
+students will encounter a sequence of fundamental conceptsin nonlinear dynamics and complex systems they can learn
+by doing simulations.
+The critical phenomena discussed in this paper are similar
+to percolation and differ from the situation where criticalityarises in a self-organized way.
+17Criticality is here achieved
+by adjusting a parameter: the transmissibility jor the num-
+ber of linked individuals m, which implies that during a pan-
+demic individual behavior that helps quench the spread of
+disease—such as wearing a mask or being vaccinated—
+reduces jand hopefully lowers the transmissibility below
+the critical value. Otherwise, there is no action left other
+than collectively acting on m, which translates to lockdowns.
+ACKNOWLEDGMENTS
+Partial support for this research was provided by PRIN
+Research Project No. 2017S35EHN “Regular and stochastic
+behavior in dynamical systems” of the Italian Ministry of
+Education, University and Research (MIUR). Part of thecomputations were performed at the computer center of
+INFN at Pisa on an aged machine magniﬁcently maintained
+by Enrico Mazzoni.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conﬂicts to disclose.
+a)Electronic mail: giorgio.mantica@uninsubria.it, ORCID: 0000-0001-
+9604-4283.
+1D. Bernoulli, “Essai d’une nouvelle analyse de la mortalit /C19e caus /C19ee par la
+petite v ^erole,” M /C19em. Math. Phys. Acad. Roy. Sci. Paris (1766). A com-
+plete account of this work, with historical notes, can be found in K. Dietzand J.A.P. Heesterbeek, “Daniel Bernoulli’s epidemiological model revis-ited,” Math. Biosci. 180, 1–21 (2002).
+2W. O. Kermack and A. G. McKendrick, “A contribution to the mathemati-
+cal theory of epidemics,” Proc. R. Soc. London, Ser. A 115, 700–721
+(1927).
+3J. Lourenco, R. Paton, M. Ghafari, M. Kraemer, C. Thompson, P.Simmonds, P. Klenerman, and S. Gupta, “Fundamental principles of epi-demic spread highlight the immediate need for large-scale serological sur-
+veys to assess the stage of the SARS-CoV-2 epidemic,” medRxiv (2020).
+4D. Faranda, I. P. Castillo, O. Hulme, A. Jezequel, J. S. W. Lamb, Y. Sato,
+and E. L. Thompson, “Asymptotic estimates of SARS-CoV-2 infectioncounts and their sensitivity to stochastic perturbation,” Chaos 30, 051107
+(2020).
+5L. Di Domenico, G. Pullano, C. E. Sabbatini, P.-Y. Bo €elle, and V.
+Colizza, “Impact of lockdown on COVID-19 epidemic in ^Ile-de-France
+and possible exit strategies,” BMC Med. 18, 240 (2020).
+6T. Carletti, D. Fanelli, and F. Piazza, “COVID-19: The unreasonable effec-
+tiveness of simple models,” Chaos Solitons Fractals X 5, 100034 (2020).
+7R. Cohen and S. Havlin, Complex Networks: Structure, Robustness and
+Function (Cambridge U. P., Cambridge, 2010).
+8S. Boccaletti, V. Latora, Y. Moreno, M. Chavez, and D. U. Hwang,
+“Complex networks: Structure and dynamics,” Phys. Rep. 424, 175–308
+(2006).
+9D. Stauffer and A. Aharony, Introduction to Percolation Theory , 2nd ed.
+(Taylor and Francis, London, 1994).
+10B. Karrer, M. E. J. Newman, and L. Zdeborova, “Percolation on sparsenetworks,” Phys. Rev. Lett. 113, 208702 (2014).
+11A. Politi, R. Livi, G. L. Oppo, and R. Kapral, “Unpredictable behaviour in
+stable systems,” Europhys. Lett. 22, 571–576 (1993).
+12A. Pikovsky, M. Rosenblum, and J. Kurths, Synchronization: A Universal
+Concept in Nonlinear Sciences (Cambridge U. P., Cambridge, 2003), Vol. 12.
+Fig. 14. Statistical distribution xðZÞof the sizes of contagion trees for vari-
+ous values of j. The ﬁts with jexp;c¼4:5/C210/C03andj¼4:25/C210/C03are
+of the form given in Eq. (30). The former resembles a pure power law at
+criticality because the value of ris very small, while nZ’1:5. Note that
+the data for j¼4:25/C210/C03(subcritical) are similar to those for
+j¼4:75/C210/C03(supercritical). Parameters are chosen from Problem 15.
+Fig. 15. Parameter rin Eq. (30)obtained by ﬁtting the data in Fig. 14plot-
+ted versus j. The same data are shown in logarithmic (right vertical) scale.
+Fitting by a fourth-degree polynomial helps to locate the critical value jexp,
+which agrees with that in Fig. 13.
+392 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 392 04 October 2023 23:09:01
+13N. F. Rulkov, “Modeling of spiking-bursting neural behavior using two-
+dimensional map,” Phys. Rev. E 65, 041922 (2002).
+14J. Beggs and D. Plenz, “Neuronal avalanches in neocortical circuits,”
+J. Neurosci. 23, 11167–11177 (2003).
+15T. Caby and G. Mantica, “Extreme value theory of evolving phenomena in
+complex dynamical systems: Firing cascades in a model of a neural
+network,” Chaos 30, 043118 (2020).
+16N. Friedman, S. Ito, B. A. W. Brinkman, M. Shimono, R. E. L. DeVille,
+K. A. Dahmen, J. M. Beggs, and T. C. Butler, “Universal critical dynamics
+in high resolution neuronal avalanche data,” Phys. Rev. Lett. 108, 208102
+(2012).
+17P. Bak, C. Tang, and K. Wiesenfeld, “Self-organized criticality: An expla-
+nation of the 1/f noise,” Phys. Rev. Lett. 59, 381–384 (1987).
+18D. Sornette, C. Vanneste, and L. Knopoff, “Statistical model of earthquake
+foreshocks,” Phys. Rev. A 45, 8351–8357 (1992).
+19M. Hirata, “Poisson law for Axiom A diffeomorphisms,” Ergodic Theory
+Dyn. Syst. 5, 533–556 (1993).
+20N. Haydn, Y. Lacroix, and S. Vaienti, “Hitting and return times in ergodic
+dynamical systems,” Ann. Probab. 33, 2043–2050 (2005).
+21D. B. Larremore, M. Y. Carpenter, E. Ott, and J. G. Restrepo, “Statistical
+properties of avalanches in networks,” Phys. Rev. E 85, 066131 (2012).
+22A. Boyarsky and P. Gora, Laws of Chaos. Invariant Measures and
+Dynamical Systems in One Dimension (Probability and Its Applications)
+(Birkhauser, Boston, 1997).23Y. Pomeau and P. Manneville, “Intermittent transition to turbulence in
+dissipative dynamical systems,” Commun. Math. Phys. 74, 189–197
+(1980).
+24G. Mantica, “The global statistics of return times: Return time dimensions
+versus generalized measure dimensions,” J. Stat. Phys. 138, 701–727
+(2010).
+25Y. B. Pesin, “Characteristic Lyapunov exponents and smooth ergodic the-ory,” Russ. Math. Surv. 32, 55–114 (1977).
+26L. Bottcher, J. Nagler, and H. J. Herrmann, “Critical behaviors in conta-
+gion dynamics,” Phys. Rev. Lett. 118, 088301 (2017).
+27See <https://elsenaju.eu/Calculator/ODE-System-2x2.htm >provides an
+online solver that can be used to verify solutions of Problem 13 and to
+experiment by changing system parameters and initial conditions, to also
+simulate the cases d¼0 and/or c¼0.
+28L. Bunimovich and A. Yurchenko, “Where to place a hole to achieve a
+maximal escape rate,” Israel J. Math. 182, 229–252 (2011).
+29K. E. Hamilton and L. P. Pryadko, “Tight lower bound for percolation
+threshold on an inﬁnite graph,” Phys. Rev. Lett. 113, 208701 (2014).
+30T. E. Harris, The Theory of Branching Processes (Dover, New York,
+1989).
+31J. P. Sethna, K. A. Dahmen, and C. R. Myers, “Crackling noise,” Nature
+410, 242–250 (2001).
+32C. W. Eurich, J. M. Herrmann, and U. A. Ernst, “Finite-size effects of ava-
+lanche dynamics,” Phys. Rev. E 66, 066137 (2002).
+393 Am. J. Phys., Vol. 90, No. 5, May 2022 Giorgio Mantica 393 04 October 2023 23:09:01

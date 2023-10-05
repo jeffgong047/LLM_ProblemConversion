@@ -1,0 +1,551 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| DECEMBER 01 2022
+Data transmission in a multimode optical fiber using a
+neural network 
+Tom A. Kuusela  
+Am. J. Phys.  90, 940–947 (2022)
+https://doi.org/10.1 119/5.0102369
+Articles Y ou May Be Interested In
+Observing distant objects with a multimode fiber-based holographic endoscope
+APL Photonics  (March 2021)
+Multimoding in Lasers
+Journal of Applied Physics  (July 2004)
+Multimode spherical hydrophone
+J Acoust Soc Am  (August 2005) 04 October 2023 23:22:49
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Data transmission in a multimode optical fiber using a neural network
+Tom A. Kuuselaa)
+Department of Physics and Astronomy, University of Turku, 20014 Turku, Finland
+(Received 9 June 2022; accepted 16 August 2022)
+In digital data transmission, single mode optical ﬁbers are commonly used since they can carry
+very short optical pulses without any signiﬁcant distortions. In contrast, multimode ﬁbers supportmany propagation modes that travel with different speeds; thus, they cannot maintain the shape of
+a light pulse. This feature of multiple propagation modes can be a beneﬁt since it makes possible
+the transmission of data through several channels simultaneously. We demonstrate how multimodeﬁbers can be used to transmit images. Because of the different propagation constants of the modes,
+the transmitted image is scrambled to apparently random speckle patterns. A simple neural network
+can be used to model the transmission through the multimode ﬁber. We show how the neuralnetwork can be trained to recognize a set of patterns with high accuracy.
+#2022 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0102369
+I. INTRODUCTION
+Optical ﬁbers are widely used in data transmission since
+they are able to carry information at higher rates and to longerdistances than copper wires. In telecommunications, opticalﬁbers are commonly single mode ﬁbers (SMF) because oftheir capability to transmit very short optical pulses withoutany distortions. However, single mode ﬁbers can carry infor-mation only in serial form since they consist of a single chan-
+nel. Ever increasing needs to expand telecommunication
+networks and data handling capacities have encouraged theconsideration of data transmission through parallel channelsin multimode ﬁbers (MMFs). These ﬁbers can support up tothousands optical modes, each of which (at least in theory)can be independently used to carry information.
+In MMF endoscopy and other image transfer applications,
+the ﬁber modes can be used to transmit the pixel data of theimage. Unfortunately, this is not straightforward: An imageprojected onto the proximal face of the ﬁber is distorted atthe distal face, where the different propagation constants ofthe ﬁber modes have produced a distorted image that appearsto be a random speckle pattern.
+There are several methods of modeling the image trans-
+mission through MMFs. For example, the distortion due to
+modal dispersion can be undone by phase conjugation meth-
+ods.
+1–3Alternately, in the matrix method, the map between
+the inputs and output amplitude and phase is experimentallymeasured for each input pattern.4–6These methods are not
+very practical since they require an external reference beamat the output in order to extract the complex ﬁeld.In the simplest system, only the intensity of the ﬁber out-
+put is measured by a camera. Although there are some
+attempts to construct the complete transmission matrix of theﬁber from the intensity data only using convex optimiza-tion,
+7the most promising approach is to apply neural net-
+works, which are taught to recognize a set of images. In the
+ﬁrst works on this ﬁeld, the neural networks were simple
+three-layer perceptron with one hidden layer.8,9Later, con-
+volutional neural networks with tens of various layers anddeep learning strategies have been used.
+10,11
+In this paper, we show how a simple two-layer perceptron
+can be implemented to recognize letter images transmittedthrough a short multimode ﬁber. In Sec. II, we introduce the
+basic concepts of optical ﬁbers and show how the different
+modes can be solved. The fundamentals of the simplest neu-ral networks are brieﬂy presented in Sec. III. In Sec. IV, two
+different sets of experiments are explained and their proper-ties explored. Concluding remarks are given in Sec. V.
+II. MULTIMODE FIBERS
+In any homogeneous transparent medium, an optical wave
+is described by the wave function of position rand time t,
+denoted as U¼Uðr;tÞ, which satisﬁes the wave equation
+r
+2U/C01
+c2@2U
+@t2¼0; (1)
+where c¼c0=n,c0is the speed of light in vacuum, and nis
+the index of refraction of the medium. The function U
+940 Am. J. Phys. 90(12), December 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 940 04 October 2023 23:22:49
+represents any component ( x,y,z) of the optical wave’s elec-
+tric or magnetic ﬁeld. Substituting Uðr;tÞ¼UðrÞeixt, where
+UðrÞis the complex amplitude of the wave and xis its angu-
+lar frequency, into Eq. (1)leads to the Helmholtz equation
+r2UðrÞþn2k2
+0UðrÞ¼0; (2)
+where the vacuum wavenumber k0¼x=c0¼2p=k0andk0
+is the vacuum wavelength.
+An optical ﬁber is a cylindrical dielectric waveguide made
+of silica glass.12,13The ﬁber has a central core where the
+light is guided, embedded in an outer cladding. In general,
+the refractive index of the ﬁber is a function n(r) of the radial
+position r. In the step-index ﬁber, nðrÞ¼n1in the core
+(r<a) and nðrÞ¼n2in the cladding ( r>a), where n1andn2
+are constants. In the following, we assume that the radius of
+the cladding is so large that it can be taken to be inﬁnite.
+Each component of the monochromatic electric ﬁeld
+obeys Eq. (2). In a cylindrical coordinate system ( r,/,z),
+this equation is written as
+@2U
+@r2þ1
+r@U
+@rþ1
+r2@2U
+@/2þ@2U
+@z2þn2k2
+0U¼0; (3)
+where U¼Uðr;/;zÞ. Light waves in the ﬁber are traveling
+in the z-direction with the propagation constant b, where the
+z-dependence of Uis of the form e/C0ibz. In addition, because
+of the circular symmetry of the waveguide, each ﬁeld com-
+ponent must not change when the coordinate /is increased
+by 2p. We, thus, assume that the angular solution takes the
+harmonic form e/C0il/, where lis an integer. By substituting
+Uðr;/;zÞ¼uðrÞe/C0il/e/C0ibzinto Eq. (3), we obtain
+@2u
+@r2þ1
+r@u
+@rþn2ðrÞk2
+0/C0b2/C0l2
+r2/C18/C19
+u¼0;
+l¼0;61;62;…: (4)
+In the case of the step-index ﬁber, Eq. (4)should be solved
+separately in the regions r<aandr>a. Excluding solutions
+that go to inﬁnity at r¼0 in the core or at r!1 in the clad-
+ding, we obtain Bessel functions of the ﬁrst kind and order
+lin the core (oscillating functions with decaying amplitude)
+and modiﬁed Bessel functions of the second kind and order
+lin the cladding (decaying exponentially at large x).
+In order to solve for the unknown propagation constant b,
+the boundary conditions should be considered. Most practi-cal ﬁbers are weakly guided ( n
+1/C25n2) and all rays are para-
+xial, i.e., approximately parallel to the ﬁber axis.12The
+longitudinal components of the electric and magnetic ﬁelds
+are then much weaker than the transverse components and
+we can obtain only transverse electromagnetic (TEM) waves.In this approximation, the propagation constant (and corre-
+sponding solutions) can be found by demanding that the sca-
+lar function u(r) and its derivative are continuous at the
+boundary r¼a. It turns out that, for each index value l, there
+are only certain possible values of b. We can, thus, index
+these solutions, which are called modes ,a su
+lmðrÞ. Each of
+these modes has a distinct propagation constant blmand a
+characteristic ﬁeld distribution in the transverse plane. It
+should be noted that blmdepends on the n1,n2, and k0.
+Furthermore, it can be shown that the number of modes Mis
+M/C254
+p2V2; (5)where V/C172pa=k0NA is the so-called ﬁber parameter and
+NA¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+n2
+1/C0n2
+2p
+is the numerical aperture of the ﬁber. For
+typical step-index ﬁbers, the number of modes can be several
+thousands.
+The complete solutions of the transverse electric ﬁeld are
+now
+ET
+lmðr;/;zÞ¼ulmðrÞe/C0iðl/þblmzÞ: (6)
+Since all modes of a ﬁber are known, the propagation of a
+monochromatic beam with an arbitrary ﬁeld distributionalong the ﬁber can be calculated. Any initial ﬁeld satisfyingthe boundary conditions at the input of the ﬁber can bedecomposed into ﬁber modes and presented as a linearcombination
+E
+0ðr;/;0Þ¼X
+l;malmET
+lmðr;/;0Þ; (7)
+where almare complex coefﬁcients. The mode solutions [Eq.
+(6)] give the ﬁeld at the distal face of the ﬁber. In practical
+situations, many modes with various initial phases are
+launched into the ﬁber. Further, each mode propagates witha different velocity. As a result, light emerging from the farend of the ﬁber will be a combination of a number wavesthat differ from each other in phase and ﬁeld distribution. Atany point on the ﬁber end, these waves may add or canceldue to interference and produce complex speckle patterns.An example of the intensity I¼jEj
+2pattern measured at the
+end of the ﬁber is shown in Fig. 1. Although the output inten-
+sity distribution can seem quite random, it should be notedthat this intensity pattern is solely determined by the input
+ﬁeld. However, in practice, it is quite difﬁcult to calculate
+the output ﬁeld because typically the input ﬁeld is not wellknown. Hence, instead of an analytical model, in our appli-cation, we use a neural network that is taught to model thetransmission properties of the ﬁber.
+III. NEURAL NETWORKS
+Artiﬁcial neural networks, often simply called neural net-
+works, are computing systems that mimic the functions of
+biological neural systems.
+14A neural network consists of
+artiﬁcial neurons that model, in a very simple form, the
+Fig. 1. Speckle pattern measured at the end of the step-index ﬁber.
+941 Am. J. Phys., Vol. 90, No. 12, December 2022 Tom A. Kuusela 941 04 October 2023 23:22:49
+neurons of biological brains. An artiﬁcial neuron is a mathe-
+matical function having one or more inputs and one output.The output is a linear or nonlinear sum of the inputs. In gen-
+eral, the inputs are separately weighted before summing and,
+during the teaching process of the neural network, optimalvalues of the weights are searched. By connecting the out-puts of the artiﬁcial neurons to inputs of other neurons, com-
+plex neural networks can be built. In the machine learning,
+neural networks are used in various pattern recognition, dataclassiﬁcation, and regression tasks.
+15–17
+The perceptron is the simplest form of neural networks.18
+It has many inputs and one output, which is a weighted sumof the inputs. In many practical cases, perceptrons are used
+in parallel (see Fig. 2). It has inputs x
+j,j¼1;…;dand out-
+puts yi,i¼1;…;K. The Koutputs are
+yi¼Xd
+j¼1wijxjþwi0; (8)
+where wijis the K/C2ðdþ1Þweight matrix. The terms wi0
+are intercept values to make the model more general. They
+can be interpreted as an extra bias unit x0, which is always
+set toþ1. In our applications, inputs xjare the pixel values of
+the speckle pattern, and the outputs are used to recognize orclassify these patterns.
+The training of the perceptron (or, in general, any neural
+network) means that we try to ﬁnd the optimal values of the
+weights w
+ijthat minimize a given error or cost function. An
+error function measures how far the outputs differ fromspeciﬁed target values. A commonly used error function isthe sum of squared errors
+EðwÞ¼
+1
+2X
+tðrðtÞ/C0yðtÞðwÞÞ2; (9)
+where rðtÞare the target values indexed by t. The target val-
+ues with the corresponding input values make our trainingset of the perceptrons. Next we should select the method to
+update the weights. The gradient descent method is a simple
+yet useful optimization algorithm that is often used inmachine learning to ﬁnd the local minimum of linear sys-tems. In this approach, we climb down the slope of the localor global minimum of E.
+19During the iteration process, the
+step is taken in the direction of the negative gradient of E.
+This guarantees that each change in weighting factor drivesthe error closer to the minimum. The step size is determinedby the value of the learning factor gas well as the slope of
+the gradient. At the minimum, the derivative is zero, and the
+procedure terminates.
+20Thus, we obtain the change of the
+weight wij,Dwij¼/C0g@E
+@wij
+¼/C01
+2g@
+@wijX
+tðrðtÞ
+i/C0yðtÞ
+iÞ2
+¼/C01
+2gX
+t@
+@wijðrðtÞ
+i/C0yðtÞ
+iÞ2
+¼/C0gX
+tðrðtÞ
+i/C0yðtÞ
+iÞ@
+@wijðrðtÞ
+i/C0yðtÞ
+iÞ
+¼/C0gX
+tðrðtÞ
+i/C0yðtÞ
+iÞ@
+@wijrðtÞ
+i/C0XN
+j¼1wijxðtÞ
+jþwi00
+@1
+A
+¼gX
+tðrðtÞ
+i/C0yðtÞ
+iÞxðtÞ
+j: (10)
+The error term ðrðtÞ
+i/C0yðtÞ
+iÞmeasures how far we are from the
+target value. For example, if the output is less than the desired
+output, the update Dwijis positive if the input xðtÞ
+jis positive
+and negative if the input is negative, thus after update the error
+is decreased. The magnitude of the update depends also on the
+input: If xðtÞ
+jis very small its contribution on the weighted sum
+(8)is also very small, therefore it is not wise to allow
+large changes in this direction. After each step, we set
+wij¼wijþDwijand repeat the process until the error func-
+tionEis small enough (see). The learning factor gis some-
+what critical: If too large, the process may never converge,
+Sec. IVwhile if very small, extremely many updates are
+needed and the convergence process is very slow. Before
+the training procedure, the weights are set to small random
+values.
+A perceptron can only approximate the linear functions of
+the inputs. By adding a nonlinear intermediate or hidden
+layer, this multilayer perceptron can model nonlinear func-
+tions.18The input xiis fed to the input layer which act as an
+input of the second hidden layers (see Fig. 3). Each hidden
+unit is a perceptron by itself, and their output is the nonlinear
+weighted sum
+zh¼1
+1þexp/C0Pd
+j¼1whjxjþwh0 !"# ;h¼1;…;H:(11)
+Fig. 2. Kparallel perceptrons where xj,j¼0;…;dare the inputs and yi,
+i¼1;…;Kare the outputs. The bias unit x0¼1. Fig. 3. Neural network with one hidden layer.
+942 Am. J. Phys., Vol. 90, No. 12, December 2022 Tom A. Kuusela 942 04 October 2023 23:22:49
+The output function fðxÞ¼1=ð1þe/C0xÞis just one possible
+choice for the sigmoid (S-shaped) function acting as a continu-
+ous, differentiable version of thresholding function that rangesfrom 0 to þ1( o rf r o m– 1t o þ1a st a n h ðxÞ). The outputs y
+iare
+again normal perceptrons taking the hidden units as inputs
+yi¼XH
+h¼1vihzhþvi0; (12)
+where vihare the weights of the hidden layer. Again we can
+use the same error function as used previously. Because ofthe hidden layer, the updating of weights w
+hjand vihis more
+complicated (see the Appendix ).
+IV. EXPERIMENTS
+A. Experimental setup
+The experimental setup is shown in Fig. 4. As a light
+source, we use a He–Ne laser (Uniphase 1507P, the power0.5 mW). The output power of the laser is reduced by theneutral density ﬁlter, because the intensity is far too high forthe camera, even if very short shutter times are used. Sincethe beam diameter of the laser is quite small, about 1 mm,we use the combination of the concave and convex lens toincrease the collimated beam diameter to 8 mm. A largerbeam diameter makes it easier to implement masks, whichare used to produce various input ﬁelds for the optical ﬁber.In the ﬁrst experiments, we use thin microscopy coverglasses, where the letters (height about 4 mm) are handwrit-ten in permanent ink. In the second experiments, the mask isan opaque plastic sheet with four small holes in a rectangulararrangement. After the mask, the light beam is convertedback to the collimated beam with the diameter of 1 mm. Thisbeam is coupled to the optical ﬁber with a ﬁber collimator
+(Thorlabs F220FC-B). As a multimode ﬁber, we use a step-
+index ﬁber (Thorlabs M43LO2, core diameter 105 lm, NA
+0.22) of the length of 2 m. According to Eq. (5), we can esti-
+mate that, at the laser wavelength of 632 nm, this ﬁber sup-ports about 5300 different modes.
+At the output of the ﬁber, we did not use any lenses but
+projected the speckle pattern directly on the surface of thecamera chip. The distance from the end of the ﬁber isadjusted in such a manner that the speckle pattern covers aslarge area as possible. The digital monochrome camera (IDSUI-1242L) has a CMOS sensor of 1280 /C21024 pixels (with
+area 6.784 /C25.427 mm
+2). Before any data analysis, we crop
+the pictures to the size of 1024 /C21024 pixels. The shuttertime should be optimized in order to fully utilize the dynami-
+cal range of the camera chip. The laser should be allowed to
+warm up long enough to obtain stability (1–2 h), since even
+minor changes in the laser wavelength (or in the wavelengthdistribution) can signiﬁcantly affect the speckle pattern.Likewise, even modest strain on the ﬁber or temperature var-
+iation will change the refractive index of the ﬁber and alter
+mutual phases of the modes producing dramatic changes inspeckles.
+B. Training of the neural network with the letter masks
+Before we can use our neural network to model the ﬁber
+transmission, it is necessary to reduce the amount of data. In
+principle, it would be possible to use the data from every one
+of the more than one million camera pixels but this approachwould not be very practical. Visual inspection of the specklepatterns reveals that the speckles have a certain average size.
+To study this in more detail, we calculate the autocorrelation
+function of the pixel data
+CðdÞ¼
+hXijXiþd;jþdi
+hXiji2; (13)
+where Xijis the pixel data, dis the pixel distance, and h/C1 /C1 /C1i
+means the average over all pixels. The autocorrelation as a
+function of the distance is shown in Fig. 5, where we observe
+that the autocorrelation drops rapidly up to the distance ofabout ten pixels, and at longer distances, the autocorrelationdoes not change much. We interpret that the average size of
+speckles corresponds to the quick drop in the autocorrelation.
+Therefore, we ﬁrst averaged all images over 8 /C28 pixel rec-
+tangles, producing images of the size 128 /C2128 pixels.
+Visually, this averaged image looks very similar to the origi-
+nal one, so obviously no essential information is lost. Thisaveraged image is further reduced by cropping the centralarea of 32 /C232 pixels. Visual inspection of the images
+revealed that most signiﬁcant changes are in this region.
+Finally, we have image data of 1024 pixels, which areformed as an input vector x
+jof the neural network.
+The pixels intensity values are in the range of 0 –255.
+Usually, it is a good idea to normalize the input values so
+that they are all centered around 0 and have the same scale.
+We use the ﬁxed (not individual) scale by ﬁrst subtractingthe value of 128 from the pixel value and then dividing it
+with 128. The initial value of all weights is set on a random
+value between –0.01 and þ0.01. The learning factor gis
+Fig. 4. Experimental setup.
+943 Am. J. Phys., Vol. 90, No. 12, December 2022 Tom A. Kuusela 943 04 October 2023 23:22:49
+either ﬁxed or adaptive. In the latter case, the error function
+is calculated after each iteration step, and if error increasesthe learning factor is decreased by the factor of 0.75.
+In the ﬁrst set of experiments, we use 15 masks with hand-
+written letters from A to O and one blank frame, totally 16frames. We code each letter by a binary number0000 ;0001 ;…;1111 (named as DCBA), so we have four
+outputs y
+i. The error function normalized by the initial error
+(the error without any iteration) summed over all outputs isshown in Fig. 6using two different structures: The simple
+perceptrons with the ﬁxed learning factor of 0.0002 and thenonlinear one with 20 hidden units and adaptive learning fac-tor. At ﬁrst, we ﬁnd that with the linear model the errordecreases more rapidly than with the nonlinear model, butlater the difference is not signiﬁcant. However, if very smallﬁnal error is needed, the nonlinear model reaches the levelwith fewer iterations than the linear one. The normalizederror of 0.001 is reached at about 6000 iterations (linearmodel) and 3500 (nonlinear model). At this error level, themaximum deviation from the target values (0 or 1) is 60.05
+with some letter masks, but in most cases, it is much smaller.We conclude that both the linear and nonlinear neural net-works can be easily trained to recognize 16 letter ﬁgureswith high accuracy. This is a remarkable result since visible
+differences in the speckle patterns of different letter masks
+are surprisingly small.In practical applications, it is important to check how sen-
+sitive the neural network is to various disturbances. First, wedigitally displaced the original camera image (before anyaveraging and cropping) in the example of the letter E (thecorresponding target 0101) in the horizontal direction(orthogonal to the laser beam axis), and the results are shownin Fig. 7. Clearly, we can no longer recognize this letter cor-
+rectly (for example, by setting the threshold value of 0.5 foreach bit) if the displacement is larger than four pixels, about20lm. This is half of the average size of the speckle pattern
+based on the spatial correlation analysis. We can see that theneural network modeling is highly sensitive to this kind ofpattern displacement at the camera end.
+In the next experiment, we moved the mask horizontally
+(orthogonal to the laser beam axis), by use of the translationstage upon which the mask is installed. Again, we use theletter E as an example. The mask is moved a total of61.75 mm, but in the training phase of all letters, the mask
+at the position of 0 mm (i.e., the letter is approximately inthe center of the expanded laser beam) is used. Surprisingly,this letter can be recognized correctly when the shift is in therange –1 to þ0.5 mm, 50 times more than the allowed dis-
+placement in the camera position. Obviously moving themask inside the collimating beam does not dramaticallychange the input ﬁeld or rather the composition of the ﬁeldmodes launched into the ﬁber. The actual mode compositionof the real mask is very difﬁcult to calculate. In general, themodes form a spatial function base: With low values ofindexes landmthe oscillations are slow, and with high index
+values, oscillations are rapid. Since speckle patterns in ourapplication are very complex images, mainly fast compo-nents dominate. We assume that slow components are mostlyresponsible on the mask position and the fast components onthe details of the mask shape.
+We can even increase the allowed range of the mask dis-
+placement by using the additional mask positions of –1.75andþ1.75 mm in the training phase of the letter E. In this
+case, as seen in Fig. 8(b), this letter can be recognized cor-
+rectly over the whole range. In principle, it would be possibleto train our model with shifts in other directions and for allletters, but ﬁnal performance could be difﬁcult to predictsince some interaction between different patterns couldarise.
+Another important feature of our neural network modeling
+is the tolerance against noisy inputs. We added white noiseto each pixel of the averaged and cropped picture and tested
+Fig. 5. Autocorrelation of the pixel data as a function of the distance.
+Fig. 6. Normalized error as a function of iterations of the perceptron type of
+neural network (thin line) and nonlinear neural network (thick line). The sig-
+niﬁcant spike in the thick line means that the error has temporarily
+increased, but the adaptive learning factor has decreased and in further itera-
+tions the error continues decreasing.Fig. 7. The binary outputs of the letter E (the target 0101) as a function ofthe frame shift.
+944 Am. J. Phys., Vol. 90, No. 12, December 2022 Tom A. Kuusela 944 04 October 2023 23:22:49
+how well the letters can be recognized. The results of the
+example letter E are shown in Fig. 9. The noise level is the
+percentage of the maximum value 255 of the pixel. We cansee that even 50%–60% additional noise cannot prevent cor-rect recognition of the letter. This insensitivity against thenoise can be explained by the fact that each output dependson very many inputs and typically all weights are small.
+Therefore, even large changes in few inputs due to the noise
+do not affect much on the output value.
+C. Training binary masks
+In the second set of experiments, we used the mask with
+four holes in a rectangular arrangement. We named the holesas A, B, C, and D. First, we took four images when only oneof these holes was open and all the rest were blocked with a
+small piece of an opaque tape. Next, we taught our neural
+network with only the blank frame and these four imageswith corresponding binary targets 0000, 0001, 0010, 0100,and 1000 using both the simple perceptron and nonlinearneural network with 20 hidden units. With this trained neuralnetwork, we tested how well all other 11 combinations of the
+open hole patterns can be recognized. The results are shown
+in Fig. 10. With the patterns used in the teaching phase, the
+recognition is, of course, perfect. We obtain perfect recogni-tion also with all the rest of the patterns if we put the thresh-old value of 0.5 for each bit. The most critical case is thepattern 1111. There were no signiﬁcant differences in results
+between the perceptron and nonlinear model.At ﬁrst, the results of Fig. 10seem to be quite surprising
+since for example the output intensity distribution with two
+open mask holes is not the sum of output intensity distribu-
+tions of the single open mask holes: We cannot sum intensi-ties but we can sum electric ﬁelds. Let us have two input
+ﬁelds E
+ð1Þ
+0ðr;/;0Þand Eð2Þ
+0ðr;/;0Þcorresponding to these
+two mask holes. At the distal face of the ﬁber, we have
+E¼Eð1Þðr;/;LÞþEð2Þðr;/;LÞ,Lis the length of the ﬁber.
+Now the corresponding intensity is I¼jEj2¼jEð1ÞþEð2Þj2
+¼jEð1Þj2þjEð2Þj2þEð1ÞEð2Þ/C3þEð1Þ/C3Eð2Þ¼I1þI2þI12. The
+neural network can, of course, recognize the intensity pat-
+terns I1andI2very well but clearly it efﬁciently ignores the
+interference term I12. Both Eð1Þand Eð2Þconsist of many
+modes but with mutually different (and almost random)
+phases, thus their interference produces such an intensity dis-
+tribution which appears as a noise in I1andI2. As we know
+about previous experiments, the pattern recognition is rather
+tolerant against noise. As we can see in Fig. 10, this “noise”
+increases when several holes are open, and the accurate pat-
+tern recognition is more difﬁcult.
+V. CONCLUSION
+We have shown how a neural network can be trained to
+recognize letter patterns transmitted through a multimode
+ﬁber. It should be noted that the neural network actually
+models the whole optical path, including the light source, all
+lenses, the masks, the ﬁber, and even the camera. The neural
+network greatly simpliﬁes the system since there is no need
+to know any details or physical properties of the optical com-
+ponents. On the other hand, usually the pattern recognition
+works only with those patterns that have been used in the
+training set. The more advanced deeply hierarchical neural
+network structures can recognize the basic graphical ele-ments of the images, such as lines, circles, arcs, and their
+combinations, and therefore, they are more capable of
+“understanding” images that are not in the training set. On
+the other hand, while neural networks work nicely here, it
+may be difﬁcult to understand why they are so good in this
+kind of task, since all important information produced in the
+training phase is spread in the numerous weights. Even in
+our simple experiments, there are features that are not so
+obvious. The reconstruction of the background rules from
+the neural network weights is still a mostly unsolved
+problem.Fig. 8. The binary outputs of the letter E (the target 0101) as a function of the mask shift. The bit A—solid circle, B—open circle, C—solid rectangle, an dD —
+open rectangle. (a) Only one mask used in training of this letter positioned at the shift of 0 mm. (b) Three masks used in the training of this letter posit ioned at
+the shifts /C01.75, 0, and þ1.75 mm.
+Fig. 9. The binary outputs of the letter E (the target 0101) as a function of
+the noise level.
+945 Am. J. Phys., Vol. 90, No. 12, December 2022 Tom A. Kuusela 945 04 October 2023 23:22:49
+Finally, our basic setup can also be used for other purposes
+than pattern recognition, classiﬁcation, or image reconstruc-tion. As speckle patterns are highly sensitive to ﬁber move-ments, the ﬁber acts like a microphone or vibration sensor.Since the refractive indices of the ﬁber depend on temperature,
+the ﬁber can be used as a thermometer. As the speckles are
+produced by interference of the different modes, these patternsare sensitive to the source wavelength, leading to ﬁber-basedspectrometer, which can achieve picometer resolution.
+21,22
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+DATA AVAILABILITY
+The data that support the ﬁndings of this study are avail-
+able from the corresponding author upon reasonable request.
+APPENDIX: NEURAL NETWORK WITH A HIDDEN
+LAYER
+Since the second layer is a perceptron with the inputs zh,
+we already know how to update the weights vihasDvih¼gX
+tðrðtÞ
+i/C0yðtÞ
+iÞzðtÞ
+h: (A1)
+The ﬁrst layer also consists of perceptrons, but the problem
+is that we do not know the desired values of the outputs of
+the hidden units. Therefore, we use the derivative chain rule
+in order to calculate the gradient
+@E
+@whj¼@E
+@yj@yj
+@zh@zh
+@whj: (A2)
+Now we can write
+Dwhj¼/C0g@E
+@whj
+¼/C0g1
+2@
+@whjX
+tX
+iðrðtÞ
+i/C0yðtÞ
+iÞ2;
+¼gX
+tX
+iðrðtÞ
+i/C0yðtÞ
+iÞvih/C20/C21
+zðtÞ
+hð1/C0zðtÞ
+hÞxðtÞ
+j:(A3)
+The error termP
+iðrðtÞ
+i/C0yðtÞ
+iÞvihis the backpropagated error
+of the hidden unit hproduced by all output units. As with the
+simple perceptron, each error term is weighted by the
+Fig. 10. The binary outputs of the perceptron when the input mask consists of the different combinations of open holes. The cases 0000, 0001, 0010, 0100 , and
+1000 were used in the training.
+946 Am. J. Phys., Vol. 90, No. 12, December 2022 Tom A. Kuusela 946 04 October 2023 23:22:49
+responsibility vihof the hidden unit. The term zðtÞ
+hð1/C0zðtÞ
+hÞis
+the derivative of the nonlinear function (11). After each step,
+we update the weights vih¼vihþDvihandwhj¼whjþDwhj.
+It is important that vihis updated after the update of whj, i.e., we
+use the old values of vihin Eq. (A3).
+a)Electronic mail: tom.kuusela@utu.ﬁ, ORCID: 0000-0002-1436-9138.
+1A. Yariv, “On transmission and recovery of three-dimensional image
+information in optical waveguides,” J. Opt. Soc. Am. 66, 301–306 (1976).
+2A. Gover, C. P. Lee, and A. Yariv, “Direct transmission of pictorial infor-
+mation in multimode optical ﬁbers,” J. Opt. Soc. Am. 66, 306–311 (1976).
+3G. J. Dunning and R. C. Lind, “Demonstration of image transmission
+through ﬁbers by optical phase conjugation,” Opt. Lett. 7, 558–560 (1982).
+4Y. Choi, C. Yoon, M. Kim, T. D. Yang, C. Fang-Yen, R. R. Dasari, K. J.
+Lee, and W. Choi, “Scanner-free and wide-ﬁeld endoscopic imaging byusing a single multimode optical ﬁber,” Phys. Rev. Lett. 109, 203901
+(2012).
+5R. Y. Gu, R. N. Mahalati, and J. M. Kahn, “Design of ﬂexible multi-modeﬁber endoscope,” Opt. Express 23, 26905–26918 (2015).
+6D. Loterie, S. Farahi, I. Papadopoulos, A. Goy, D. Psaltis, and C. Moser,
+“Digital confocal microscopy through a multimode ﬁber,” Opt. Express
+23, 23845–23858 (2015).
+7S. Popoff, G. Lerosey, M. Fink, A. C. Boccara, and S. Gigan, “Image
+transmission through an opaque material,” Nat. Commun. 1, 81 (2010).
+8S. Aisawa, K. Noguchi, and T. Matsumoto, “Remote image classiﬁcation
+through multimode optical ﬁber using a neural network,” Opt. Lett. 16,
+645–647 (1991).
+9R. K. Marusarz and M. R. Sayeh, “Neural network-based multimode ﬁber-optic information transmission,” Appl. Opt. 40, 219–227 (2001).10B. Rahmani, D. Loterie, G. Konstantinou, D. Psaltis, and C. Moser,
+“Multimode optical ﬁber transmission with a deep learning network,”
+Light 7, 69–79 (2018).
+11N. Borhani, E. Kakkava, C. Moser, and D. Psaltis, “Learning to see
+through multimode ﬁbers,” Optica 5, 960–966 (2018).
+12B. E. A. Saleh and M. C. Teich, Fundamentals of Photonics , 2nd ed.
+(Wiley, New Jersey, 2007).
+13I. R. Kenyon, The Light Fantastic: A Modern Introduction to Classical
+and Quantum Optics (Oxford U. P., New York, 2011).
+14J. A. Hertz and R. G. Palmer, Introduction to the Theory of Neural
+Computing (Addison-Wesley, Reading, 1991).
+15C. M. Bishop, Neural Networks for Pattern Recognition (Oxford U. P.,
+Oxford, 1995).
+16R. O. Duda, P. E. Hart, and D. G. Stork, Pattern Classiﬁcation (Wiley,
+New York, 2001).
+17J. Han and M. Kammer, Data Mining: Concepts and Techniques (Morgan
+Kaufmann, San Francisco, 2011).
+18E. Alpaydim, Introduction to Machine Learning , 4th ed. (The MIT Press,
+Cambridge, 2020).
+19The function E(w) is highly complicated, thus we hardly ever ﬁnd the
+global minimum but some of the many local ones. In practice, this means
+that with random initial values of wjwe ﬁnally get different set of wj.
+However, this is not seriously problem as long as the ﬁnal error is less than
+the target value.
+20It is possible, but in practice very unlikely, that we hit exactly to the local
+maximum or inﬂexion point where the derivative is also zero and the pro-
+cess terminates.
+21B. Redding, S. M. Popoff, and H. Cao, “All-ﬁber spectrometer based onspeckle pattern reconstruction,” Opt. Express 21, 6584–6600 (2013).
+22B. Redding, S. M. Popoff, Y. Bromberg, M. A. Choma, and H. Cao,
+“Noise analysis of spectrometers based on speckle pattern reconstruction,”
+Appl. Opt. 53, 410–417 (2014).
+947 Am. J. Phys., Vol. 90, No. 12, December 2022 Tom A. Kuusela 947 04 October 2023 23:22:49

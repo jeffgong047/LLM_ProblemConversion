@@ -1,0 +1,326 @@
+1994: The Communications Network Problem 209
+
+1994: The Communications
+Network Problem
+
+In your company, information is shared among departments on a daily
+basis. This information includes the previous day’s sales statistics and cur-
+rent production guidance.
+It is important to get this information out as
+quickly as possible.
+
+Suppose that a communications network is to be used to transfer blocks
+of data (ﬁles) from one computer to another. As an example, consider the
+graph model in Figure 1.
+
+Figure 1. Example of a ﬁle transfer network.
+
+Vertices V1, V2, . . . , Vm represent computers, and edges e1, e2, . . . , en rep-
+resent ﬁles to be transferred (between computers represented by edge end-
+points). T (ex) is the time that it takes to transfer ﬁle ex, and C(Vy) is the
+capacity of the computer represented by Vy to transfer ﬁles simultaneously.
+A ﬁle transfer involves the engagement of both computers for the entire
+time that it takes to transfer the ﬁle. For example, C(Vy) = 1 means that
+computer Vy can be involved in only one transfer at a time.
+
+We are interested in scheduling the transfers in an optimal way, to min-
+imize the total time that it takes to complete them all. This minimum total
+time is called the makespan. Consider the three following situations for your
+company:
+
+Situation A
+
+Your corporation has 28 departments. Each department has a computer,
+each of which is represented by a vertex in Figure 2. Each day, 27 ﬁles
+must be transferred, represented by the edges in Figure 2. For this network,
+T (ex) = 1 and C(Vy) = 1 for all x and y. Find an optimal schedule and the
+makespan for the given network. Can you prove to your supervisor that
+
+210
+
+Tools for Teaching 1994
+
+your makespan is the smallest possible (optimal) for the given network?
+Describe your approach to solving the problem. Does your approach work
+for the general case, that is, where T (ex), C(Vy), and the graph structure are
+arbitrary?
+
+Figure 2. Network for situations A and B.
+
+Situation B
+
+Suppose that your company changes the requirements for data transfer.
+You must now consider the same basic network structure (again, see Fig-
+ure 2) with different types and sizes of ﬁles. These ﬁles take the amount of
+time to transfer indicated in Table 2 by the T (ex) terms for each edge. We
+still have C(Vy) = 1 for all y. Find an optimal schedule and the makespan
+for the new network. Can you prove that your makespan is the smallest pos-
+sible for the new network? Describe your approach to solving this problem.
+Does your approach work for the general case? Comment on any peculiar
+or unexpected results.
+
+Table 2.
+
+File transfer time data for situation B.
+
+x
+T (ex)
+
+x
+T (ex)
+
+1
+3.0
+
+15
+2.1
+
+2
+4.1
+
+16
+8.0
+
+3
+4.0
+
+17
+3.6
+
+4
+7.0
+
+18
+4.5
+
+5
+1.0
+
+19
+7.0
+
+6
+8.0
+
+20
+7.0
+
+7
+3.2
+
+21
+9.0
+
+8
+2.4
+
+22
+4.2
+
+9
+5.0
+
+23
+4.4
+
+10
+8.0
+
+24
+5.0
+
+11
+1.0
+
+25
+7.0
+
+12
+4.4
+
+26
+9.0
+
+13
+9.0
+
+27
+1.2
+
+14
+3.2
+
+1994: The Communications Network Problem 211
+
+Situation C
+
+Your corporation is considering expansion. If that happens, there are
+several new ﬁles (edges) that will need to be transferred daily. This expan-
+sion will also include an upgrade of the computer system. Some of the 28
+departments will get new computers that can handle more than one trans-
+fer at a time. All of these changes are indicated in Figure 3 and Tables 3–4.
+What is the best schedule and makespan that you can ﬁnd? Can you prove
+that your makespan is the smallest possible for this network? Describe your
+approach to solving the problem. Comment on any peculiar or unexpected
+results.
+
+Figure 3. Network for situation C.
+
+File transfer time data for situation C, for the added transfers.
+
+Table 3.
+
+x
+T (ex)
+
+28
+6.0
+
+29
+1.1
+
+30
+5.2
+
+31
+4.1
+
+32
+4.0
+
+33
+7.0
+
+34
+2.4
+
+35
+9.0
+
+36
+3.7
+
+37
+6.3
+
+38
+6.6
+
+39
+5.1
+
+40
+7.1
+
+41
+3.0
+
+42
+6.1
+
+Table 4.
+
+Computer capacity data for situation C.
+
+y
+C(Vy)
+
+y
+C(Vy)
+
+1
+2
+
+15
+1
+
+2
+2
+
+16
+2
+
+3
+1
+
+17
+1
+
+4
+1
+
+18
+1
+
+5
+1
+
+19
+1
+
+6
+1
+
+20
+1
+
+7
+1
+
+21
+1
+
+8
+1
+
+22
+2
+
+9
+2
+
+23
+1
+
+10
+3
+
+24
+1
+
+11
+1
+
+25
+1
+
+12
+1
+
+26
+2
+
+13
+1
+
+27
+1
+
+14
+2
+
+28
+1
+
+212
+
+Tools for Teaching 1994
+
+Comments by the Contest Director
+
+The problem was contributed by Joe Malkevitch (Dept. of Mathematics
+and Computer Science, York College (CUNY), Jamaica, NY) and Steve Hor-
+ton (Dept. of Mathematical Sciences, U.S. Military Academy, West Point,
+NY).
+
+

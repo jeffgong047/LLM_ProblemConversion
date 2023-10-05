@@ -1,0 +1,706 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| JULY 01 2023
+The game of life as a species model 
+David A. Faux ; Peter Bassom
+Am. J. Phys.  91, 561 (2023)
+https://doi.org/10.1 119/5.0150858
+Articles Y ou May Be Interested In
+Latest Results from the DODO Survey: Imaging Planets around White Dwarfs
+AIP Conference Proceedings  (March 201 1)
+Latest Results From The DODO Survey: Imaging Planets Around White Dwarfs
+AIP Conference Proceedings  (November 2010) 04 October 2023 22:53:56
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+The game of life as a species model
+David A. Fauxa)and Peter Bassomb)
+Department of Physics, University of Surrey, Guildford GU2 7XH, United Kingdom
+(Received 16 March 2023; accepted 3 April 2023)
+Conway’s classic game of life is a two-dimensional cellular automaton in which each cell is alive
+or dead and evolves according to simple rules that depend solely on the number of live cells in its
+immediate neighborhood. The emergence of complex multi-cellular objects provides a fascinatingvehicle for exploration. A variant of the classic game of life is presented, the generalized semi-
+classical game of life, in which each cell contains a qubit that evolves by repeated application of
+birth, death, and survival operators. Species are characterized by just two parameters: a preferredneighborhood liveness representing the tendency to herd and a resilience parameter representing
+species’ vulnerability to environmental changes. This generalized model provides the opportunity
+to model the fortune of species and to compare to available data. The model is shown to mimicenvironmental catastrophes and is illustrated by the model’s prediction of a return to the pre-
+hunting level of the global whale population by 2140. A student-designed predator–prey model is
+shown to qualitatively describe the fate of strongly- and weakly coupled predator–prey systems(snowshoe hare/lynx and rabbit/fox, respectively) and sudden and slow predatory impact (dodo and
+diprotodon, respectively).
+#2023 Author(s). All article content, except where otherwise noted, is licensed under a
+Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0150858
+I. INTRODUCTION
+Conway’s classic game of life was developed in the late
+1960s and became the most popular cellular automaton inhistory.1–3Each cell of a two-dimensional matrix is either 1
+(alive) or 0 (dead) and may change value at each time step
+according to a set of simple evolutionary rules that depend
+solely on the number of live cells in the eight cells of itsimmediate neighborhood, known as the Moore neighbor-hood.
+4The rules dictate for each cell whether a birth (0 !1),
+death (1 !0), or survival (0 !0;1!1) event takes place.
+Conway’s rules are designed to mimic the evolution of a
+society of organisms in which fortunes are based on the localenvironment. If the number of live cells in the neighborhoodis too high or too low, the cell dies due to overcrowding or
+loneliness, but ﬂourishes if the surrounding liveness is opti-
+mum. Repeated application of the evolutionary rules to eachcell at each time step (called a generation) can lead to anextraordinary myriad of complex patterns of live and deadcells.
+5,6Flammenkamp has catalogued 100 static and
+dynamic objects referred to as “ash,” but which are moreoptimistically referred to as “lifeforms.” These objects sup-ply a fascinating example of the development of complexity
+through simple evolutionary rules.
+Conway’s original game of life has been the subject of
+many studies with most of the works published in prominentphysics journals. Common themes include statistics and statis-tical mechanics,
+7,8nonlinear dynamics,9and critical behav-
+ior.8,10There have been numerous adaptations of Conway’soriginal game, including the introduction of a thermodynamic
+variable,7a three-dimensional version,11extension to Turing
+machines,12modiﬁcation to a continuous space,13and proba-
+bilistic adaptations.14
+Of interest here is the quantization of Conway’s game
+introduced and developed by Flitney and Abbott where eachlive-or-dead cell is replaced by a qubit.15–17The underlying
+principles of Conway’s original game are retained with amodiﬁed set of evolutionary rules in which qubits evolve via
+the application of birth, death, and survival operators. The
+game’s creators termed the game “semi-quantum” becausesystems do not evolve time-reversibly. An educational illus-tration of the qubit is provided by L /C19opez-Incera and D €ur.
+18
+The quantization of the game of life moves the game
+toward biological applications. The emerging discipline ofquantum biology studies the evolution of quantum objectsinﬂuenced by the local environment. General quantumaspects of life are discussed in Ref. 19. The semi-quantum
+game of life has a parallel in quantum biology where a qubit
+may represent an exciton produced by a photon in a proteincomplex during photosynthesis.
+20The exciton interacts with
+its environment to inﬂuence the energy transfer dynamics.21
+A simpliﬁed version of the semi-quantum game of life has
+been introduced in which the cell qubit components arerestricted to real numbers. This classical variant is denotedas the semi-classical game of life (SCGOL) to distinguish it
+from the semi-quantum game of life and Conway’s classic
+game. Intriguing new phenomena were discovered duringstudent project work, including chaotic effects and new
+561 Am. J. Phys. 91(7), July 2023 http://aapt.org/ajp VCAuthor(s) 2023.
+ 561 04 October 2023 22:53:56
+lifeforms composed of live cells, dead cells and part-live
+cells, plus objects that mimic seeds.22
+Cellular automata, such as the SCGOL, are ideal for
+undergraduate projects that are designed to extend computa-
+tional skills to matrix-based programming languages such as
+MATLAB .23Moore neighborhood calculations and application
+of boundary conditions are nontrivial problems that can beefﬁciently coded. Graphical presentation is well developed
+and quickly mastered by students. Once the fundamental
+rules are implemented, a wide range of different physicalphenomena can be explored. Mathematical game-based cel-lular automata have been shown to be effective at educatingstudents in the emergence of complexity
+24and logical think-
+ing.25All MATLAB software used in this article is provided in
+the supplementary material.26
+In the following, we generalize the SCGOL model to
+model the evolution of a species by choosing two ﬂexiblychosen parameters: one representing the tendency of a spe-cies to herd and a resilience parameter representing vulnera-
+bility to environmental changes. Section IIdescribes the
+generalized semi-classical game of life (gSCGOL) modeland its evolutionary rules. Section IIIpresents case studies of
+the catastrophic decline and subsequent recovery of a spe-cies, and examples of predator–prey behavior. We summa-
+rize our results in Sec. IVand conclude that gSCGOL
+provides exciting opportunities for original undergraduateresearch. Suggestions for new models are made in Sec. V.
+II. THE GENERALIZED SEMI-CLASSICAL GAME
+OF LIFE
+The rules of the gSCGOL are based on a semi-quantum
+adaptation of Conway’s game proposed by Flitney and
+Abbott.
+15Each cell of a two-dimensional grid is described
+by a normalized qubit jwi, which is a superposition of alive
+j1iand dead j0istates such that
+jwi¼aj1iþbj0i¼a1
+0/C18/C19
+þb0
+1/C18/C19
+¼a
+b/C18/C19
+; (1)
+where aandbrepresent the “liveness” or “deadness” of a cell,
+respectively. In the gSCGOL, aandba r eb o t hr e s t r i c t e dt or e a l
+numbers between 0 and 1. Thus, a cell may be “part live” or,
+in the spirit of Schr €odinger’s cat, a superposition of both dead
+and alive. In practice, the gSCGOL model merely converts the0 or 1 dead-or-alive structure of Conway’s classic game to onewith a liveness density determined by the value of aat each
+cell. No claim to quantum-ness is made nor justiﬁed, even
+though the gSCGOL is underpinned by quantum principles.
+The qubit at each cell location interacts with its Moore
+neighborhood liveness Aand is modiﬁed according to a set
+of evolutionary rules. The Moore neighborhood liveness isdeﬁned as
+A¼X
+8
+k¼1ak; (2)
+where akis the liveness of the kth cell in the Moore neigh-
+borhood surrounding a cell and periodic boundary conditions
+are used. The operators of birth ( ^B), death ( ^D), and survival
+(^S) are given by15
+^B¼11
+00/C18/C19
+^D¼00
+11/C18/C19
+^S¼10
+01/C18/C19
+: (3)Each cell evolves at each generation following the appli-
+cation of a cell-dependent generation operator ^Gaccording
+to the algorithm by Flitney and Abbott designed to mimic
+Conway’s classic game.15The generation operator ^Gappli-
+cable to a cell is constructed from the birth, death, and sur-vival operators, the Moore liveness Afor the cell, and the
+two parameters, A
+0andR. The rules that deﬁne ^Gare pro-
+vided in Table I.
+The gSCGOL is parameterized by A0andR. A 0is the opti-
+mum, or the preferred Moore neighborhood. In Conway’sgame, A
+0¼3 because a cell with exactly three neighbors
+becomes alive if dead and stays alive otherwise. In contrast,the gSCGOL allows any real number in the range1/C20A
+0/C207. The resilience Rdeﬁnes when rule changes take
+place in terms of a change in Aas seen in the ﬁrst column of
+Table I. In Conway’s integer-based games, R¼1, because
+the evolutionary rules may change at each integer value of A
+and each Adiffers by 1 unit. The gSCGOL accommodates
+any choice of Rprovided that A0/C0R/C210 and A0þR/C208.
+The next generation qubit jw0iis obtained by applying the
+generation operation ^Gto each cell in the system
+a0
+b0/C18/C19
+¼^Ga
+b/C18/C19
+: (4)
+The operation is not unitary and so the new state is normal-
+ized to ensure that ja0j2þjb0j2¼1. The system evolves by
+the repeated application of ^Gplus normalization to each cell
+at each generation. The extraordinary complexity of the vari-ous games of life is due to the interaction of each cell withits neighborhood at each generation.
+III. SPECIES MODELS
+Games of life are so-called due to the emergence of aggre-
+gations of live cells that mimic multi-cellular organisms.These complex lifeforms arise from an apparent soup of live
+and dead cells purely by repeated application of simple rules.
+With one exception (the stationary block object shown inFig.2), these lifeforms are not of interest here – it is the rules
+which allow the gSCGOL to act as a novel species modelthat we exploit. Because the parameters A
+0andRcan take on
+many possible values, the gSCGOL provides many moreopportunities for exploring species dynamics.
+The optimum liveness A
+0is the preferred Moore liveness
+and is a measure of the tendency of a species to herd, orequivalently, its sociability or gregariousness. Herding ani-mals possess a large A
+0and solitary creatures, such as bum-
+ble bees and snow leopards, a small value. The resilienceparameter Rrepresents a measure of the sensitivity of the
+species to deviations of Moore liveness from its optimum.
+Table I. The ^Goperator for the gSCGOL game is deﬁned for different
+ranges of the Moore liveness A. The optimum Moore liveness is A0, and the
+resilience parameter is R.
+A ^G
+A/C20A0/C02R ^D
+A0/C02R<A/C20A0/C0Rﬃﬃﬃ
+2p
+þ1/C0/C1
+½ðA0/C0RÞ/C0AÞ/C138^Dþ½A/C0ðA0/C02RÞ/C138^S
+A0/C0R<A/C20A0ﬃﬃﬃ
+2p
+þ1/C0/C1
+½A0/C0A/C138^Sþ½A/C0ðA0/C0RÞ/C138^B
+A0<A/C20A0þRﬃﬃﬃ
+2p
+þ1/C0/C1
+½ðA0þRÞ/C0A/C138^Bþ½A/C0A0/C138^D
+A/C21A0þR ^D
+562 Am. J. Phys., Vol. 91, No. 7, July 2023 D. A. Faux and P. Bassom 562 04 October 2023 22:53:56
+A species such as coral, which is highly sensitive to sea tem-
+perature, has a small value of R, whereas a more robust spe-
+cies, such as ants, have a large value of R. The gSCGOL
+characterizes a species by the values of the parameter pair
+(A0;R).
+A simulation proceeds by ﬁrst deﬁning a species by choos-
+ing the values of ( A0;R). Qubits with random liveness aand
+normalized to unity are assigned to each cell of a two-
+dimensional grid. The gSCGOL rules presented in Table I
+are applied, and the mean liveness haiof the system is
+recorded. The process is repeated until haiﬂuctuates about a
+mean value indicating a steady state liveness has been
+achieved. This step is akin to achieving energy equilibrium
+in molecular dynamics. The system with the parameter pair
+(A0;R) is now ready for the simulation proper to start.
+The environment can be controlled through the resilience R
+and deteriorating environmental conditions can be modeled bydecreasing R. Examples are presented in Sec. III A. Alternatively,
+two species can interact by ﬁrst characterizing each species by
+their values of ( A
+0;R) and then introducing predation rules. The
+two systems run in parallel through the execution of the gSCGOL
+simulation while simultaneously interacting via the predationrules. Examples are presented in Sec. III B.
+A. An environmental catastrophe model
+More than 37,000 species are threatened with extinction.27
+The biggest driving force of species extinction is human
+activity, primarily through loss of habitat,28pollution, cli-
+mate change,29,30and unsustainable hunting and harvesting.
+The second most signiﬁcant cause is due to invasive species,
+leading to predation or the introduction of infectious
+diseases.31–33
+The decline of a species is modeled by a reduction of the
+resilience. The optimum liveness A0remains constant and
+the resilience Ris reduced at each generation. The mean liv-
+eness haiof the system is also recorded at each generation.
+The results for the mean liveness for the parameter sets
+(3:0;R) and (2 :5;R) are shown in Fig. 1. As anticipated, hai
+declines steadily as the resilience Rdrops from R¼2.0 until
+a tipping point is reached whereupon the mean liveness
+drops sharply toward zero. Liveness density maps are dis-
+played for systems with R¼0.93 and R¼2.0 for A0¼3:0.The sudden fall in liveness associated with a small reduc-
+tion in Ris characteristic of catastrophe theories.
+Catastrophe theory was developed by Thom in the 1960s,
+but came into vogue in the 1970s when applied to the biolog-ical and social sciences.34–36The critique by Sussman and
+Zahler provides the most accessible description of catastro-
+phe theory and its applications.35Catastrophe theory predicts
+that35
+x3/C0x¼a: (5)
+Equation (5)was solved for x(representing the mean liven-
+ess) for a(representing resilience) ranging from –0.21 to
+–0.09 in steps of 0.001 to establish the extent to which the
+gSCGOL modelling matches the predictions of the purelymathematical description of an extinction process. The curve
+was scaled and offset to match the gSCGOL data for
+A
+0¼3:0. The result is shown by the solid line for R/H114071:0i n
+Fig. 1. The decline in mean liveness as the resilience is
+reduced is matched by Eq. (5)but only until R/C251 below
+which Eq. (5)offers no solution.
+The dashed line represents the “catastrophe limit” or
+“tipping point” at which point the catastrophe theory predicts
+haidrops instantaneously to zero. The purpose of the com-
+parison is to illustrate the differences in predictions between
+catastrophe theory and the gSCGOL model for R/H113511:0. For
+R/H113511:0, the gSCGOL decline is steep but not inﬁnite and hai
+does not drop to zero. Both differences are important in the
+analysis that follows and illustrates that the gSCGOL offers
+a more realistic description of the decline of species thandoes catastrophe theory.
+We now explore the ability of a species to recover from
+severe population decline. The premise is that once the mean
+liveness haidrops below a pre-chosen threshold, humans
+will act to restore the environment to its original state or
+environmental conditions naturally improve. The system is
+ﬁrst subject to a deteriorating environment modeled by incre-mentally reducing the resilience R. Then, once the pre-
+chosen threshold liveness density has been breached, Rrises
+incrementally.
+Figure 2presents the mean liveness as a function of gener-
+ation displayed in years for three systems, each with the
+parameter set (3 :0;1:0). A constant mean liveness haiis ﬁrst
+Fig. 2. The solid lines display three simulations with the mean liveness pre-
+sented as a function of generation (year) at the optimum liveness A0¼3:0.
+The resilience R¼1.0 for the ﬁrst 50 yr, after which Ris reduced by 0.01
+per annum (indicated by the arrow). Ris then increased by 0.01 per annum
+afterhaihas dropped by 50% (green), 70% (orange), and 90% (blue) as indi-
+cated by dotted lines. The inset shows a “block” object (see the text).
+Fig. 1. The mean liveness for systems with optimum Moore neighborhood
+A0¼3:0 (blue circles) and A0¼2:5 (red triangles) is presented as a func-
+tion of the resilience R. The solid line is ﬁt using Eq. (5)as described in the
+text. The tipping point is indicated by the dashed line. The insets show popu-
+lation densities for the data points shown.
+563 Am. J. Phys., Vol. 91, No. 7, July 2023 D. A. Faux and P. Bassom 563 04 October 2023 22:53:56
+established. After 50 yr (marked by the arrow), the resilience
+is decreased by 0.01 a year reﬂecting a gradual deterioration
+in environmental conditions. At this stage, the population
+density declines identically in each system. In one system,the resilience decline is reversed once the population density
+has declined by 50%. The other two systems follow suit once
+haihas dropped by 70% and by 90%, respectively.
+The horizontal dotted lines indicate the population
+declines of 50%, 70%, and 90%. These act as trigger points
+for the improvement of environmental conditions and areversal of the decline in R. At these points, Rincreases at
+the same rate of 0.01 each year. All populations are found to
+continue to decline after the trigger point when the environ-mental conditions improve. The drop in Rof 0.01 per year is
+too rapid to allow equilibrium liveness to be attained in a sin-
+gle year. and it takes time for populations to recover.Encouragingly, all populations eventually recover.
+We ﬁrst apply the gSCGOL model to qualitatively explore
+the fortune of whales. Whales have been a human resource for
+millennia, but whaling started to increase in the 18th century
+and accelerated signiﬁcantly in the 19th century with the devel-
+opment of harpoon technology.
+37The inﬂuence of American
+whaling spread worldwide and became a multi-million-dollar
+industry by the beginning of the 20th century. It is thought by
+some scientists “that more whales were hunted in the early1900s than in the previous four centuries combined.”
+37Despite
+the reduction in whaling after its peak in the early 1900s, the
+number of whales in the ocean continued to decline. In 1946the International Whaling Commission was established to over-
+see whaling quotas, but whale numbers continued to decline. In
+1982, the International Whaling Commission called for a mora-
+torium on commercial whaling, and the whale population
+s t a r t e dt or e c o v e r .
+The results of a gSCGOL model designed to mimic the
+population of whales in response to human predation are
+shown in Fig. 3. The annual decline commences in 1760 with
+a reduction in resilience of 0.001 per annum. The peak of theslaughter is presumed to occur in about 1900 when the model
+whale population had declined by 70%. This decline acts as
+the trigger point for an improvement in resilience reﬂectingreductions in hunting. From 1900, the resilience is increased
+by 0.001 per annum. The whale population continues to
+decline and reaches a minimum at about 1960 reﬂecting a
+model reduction of more than 90% from the pre-1700 norm.After 1960, the whale population starts to recover, and by
+2020, the population is approximately 2.5 times its 1960 low,but is still 80% below the pre-1700 level. The model predictsthat the whale population will fully recover by about 2140.
+Of course, the decline and recovery of the whale popula-
+tion cannot reliably be quantitatively matched by a modelthat establishes a smooth decline of the species resilience fol-lowed by an equally smooth recovery. In addition, reliablehistorical population data for the actual worldwide whalepopulation are not available. Nonetheless, there are somestriking qualitative similarities between the limited dataavailable and the general features of the gSCGOL model pre-sented in Fig. 3.
+We now return to Figs. 1and2to explore extinction. In
+Fig. 1, the mean liveness with A
+0¼2:5 drops to zero as the
+resilience Ris reduced and the species becomes extinct. In
+this case the gSCGOL has mimicked the fate of the sabre-tooth tiger, the woolly mammoth, the dodo, the Tasmaniantiger, and countless other extinct species. In contrast, forA
+0¼3:0 liveness does not decline to zero as can be seen in
+Figs. 1and2.
+An object (a local persistent conﬁguration) is created that
+is resistant to reduction in resilience. This object is illustratedin the inset of Fig. 2and comprises four fully live cells (liv-
+eness a¼1). This object appears in Conway’s classic game
+as the second most common lifeform called the “block.”6In
+the gSCGOL, the surrounding cells are nearly, but not quite,dead. Their liveness is small such that each live cell has aMoore neighborhood fractionally more than 3 such that theevolutionary rules in Table Ienable survival to the next
+generation.
+The liveness of the cells surrounding the block approaches
+zero as the resilience is reduced. The local environmentimproves as Rincreases, and the liveness of the surrounding
+cells increases and eventually the block evolves into newobjects and the liveness of the system increases. The blockobject therefore acts as a seed. It is able to lie dormant untilthe environmental conditions change so that the seed canevolve. The concept of a seed was introduced in Ref. 22in
+the context of a SCGOL with a lifeform denoted by “qutub”
+containing part-live cells. The qutub remains dormant untilcertain conditions are met, and then evolves when the condi-tions are breached. An analogy is with plant seeds, but cer-tain specialized animal species may exhibit a suddenblossoming of life after a dramatic environment-improvingevent such as rainfall.
+38,39
+In the context of the gSCGOL species model, the appear-
+ance of the block object whose liveness deteriorates slowlyas environmental conditions worsen reﬂects a populationthat has plummeted but has not quite become extinct. A fewsurviving lifeforms remain. These remnants are able toincrease their numbers once the environment improves.There are numerous examples of the rediscovery of speciesthought to be extinct. Two or three species per annum previ-ously considered extinct have been found,
+40most recently
+the Madagascan dusky tetraka.41Their numbers fall so low
+they are difﬁcult to ﬁnd.
+B. Predator–prey modelling
+A predator–prey relationship is a set of complex interac-
+tions between a predator and a prey inﬂuenced by effectssuch as climate, habitat, and competing predators. The gen-eral features of the outcome of such interactions may beFig. 3. A gSCGOL model simulation of the whale population in response to
+human predation with A0¼3:0 and resilience R¼1.0. In 1760 (arrow), Ris
+reduced by 0.001 per annum. Ris increased by 0.001 per annum after the
+population declined by 70% (dotted line).
+564 Am. J. Phys., Vol. 91, No. 7, July 2023 D. A. Faux and P. Bassom 564 04 October 2023 22:53:56
+modeled using the gSCGOL. The starting point is the strong
+predator–prey interdependence illustrated by the lynx and
+the snowshoe hare. In this case the predator exhibits a strong
+reliance on a speciﬁc prey for its food, and suffers if its foodsource is diminished. The fortunes of the predator and preywith less impactful interactions are then explored and illus-
+trated with examples.
+The gSCGOL model starts with two independent species
+characterized by the parameter sets ðA
+0;RÞ¼ð 4:0;1:50Þfor
+the prey and (1 :5;0:49) for the predator. Simulations are ini-
+tially executed with no interaction between the species to
+establish the steady state liveness of each species. The meanliveness is hai
+eq;prey¼0:483 for the prey in the absence of
+predation and haieq;pred¼0:202 for the predator with an
+abundance of food; the subscript denotes the steady state
+independent liveness density.
+After 20 generations, the predator–prey interactions are
+switched on. The resilience of a species is a measure of its
+vulnerability to changes to its environment and the preda-
+tor–prey interaction changes the resilience parameters Ri;prey
+andRi;predat each generation i. A generation does not neces-
+sarily correspond to a single year. We adopt the relations
+Ri;prey¼Rmin;preyþfi;predðRprey/C0Rmin;preyÞ (6)
+fi;pred¼1/C0haii;pred
+haieq;pred(7)
+Ri;pred¼Rpred/C0fi;preyðRpred/C0Rmin;predÞ (8)
+fi;prey¼1/C0haii;prey
+haieq;prey: (9)
+These relations recognize that the resilience of the prey
+diminishes as the predator liveness increases and the resil-ience of predators falls if there is less food. The new parame-
+ters R
+min;prey and Rmin;pred describe the strength of the
+interaction between the two species. All the simulationresults presented in Fig. 4are for R
+min;pred¼0:39, which is
+the minimum value of the resilience that can possibly lead to
+the survival of an isolated predator system with optimum liv-eness A
+0¼1:5. Changes of the single parameter Rmin;prey
+therefore allows outcomes due to different interaction
+strengths and types to be explored.
+Figure 4displays four sets of results. Two sets show both
+the predator and prey population densities as a function ofgeneration. The ﬁrst pair is labeled as lynx and hare and pro-
+vides a classic predator–prey outcome with strong interac-
+tion. The lynx relies heavily on the snowshoe hare for itsnutritional needs.
+42The gSCGOL is executed with
+Rmin;prey¼1:15 with the interaction activated at generation
+20. The population density of the prey drops rapidly. Theresilience of the predator then declines according to Eq. (9)
+due to the scarcity of food, which in turn provides an oppor-
+tunity for the prey to recover. Unlike idealized predator–prey
+distributions modeled by coupled differential equations, themagnitude of oscillations diminishes signiﬁcantly after the
+ﬁrst fall and rise. The ﬁrst predator peak occurs 67 genera-
+tions after the ﬁrst peak of the prey population. After the ﬁrstoscillations, ﬂuctuations are clearly visible in both popula-
+tions beyond 700 generations and a correlation analysis con-
+ﬁrms predator peaks continue to be separated by about 70generations. The distribution of prey liveness is uniform atthe start of the simulation, but the reduced population density
+is not uniform. The prey clusters with empty space betweenthem is shown by the single cluster in the snapshot in Fig. 4.
+This spatial conﬁguration arises to ensure that the preyachieves the optimum Moore neighborhood liveness despitea loss of numbers. We see that the gSCGOL model mimicsnature where populations gather in regions with plentifulfood resources.
+In Canada, the snowshoe hare population cycles approxi-
+mately every 10 yr with dramatic changes in population.
+43
+This behavior is only partially reproduced by the gSCGOLmodel where peaks and troughs may differ by a factor ofthree at most. A gSCGOL cycle repeats every 300 genera-tions corresponding to 10 yr for the real lynx-hare system.The gSCGOL predator cycle lags by about 70 generations,
+or two years, in agreement with observation.
+43Additional
+factors contribute to the rapid ﬂuctuations of the snowshoehare population. The habitat cannot support high hare densi-ties and so starvation and increased predation exacerbatepopulation change. These factors could be included in amodiﬁed gSCGOL model.
+The second example represents the fox, a more diverse
+predator, and the rabbit, its primary prey, Here the predatoris omnivorous and has a broad diet including rodents, birds,and frogs as well as berries and scavenging. The weakerpredator–prey interaction is executed with R
+min;prey¼1:36.
+The rabbit population declines without oscillations to about50% of its predator-free equilibrium. The fox populationdrops by just over 20%.
+The third (dodo) and fourth (diprotodon) systems in Fig. 4
+show the fortunes of a prey in circumstances where the pred-
+ator–prey interaction is one-way. In each case, the predator
+is unaffected by changes in the liveness density of the preyso that the resilience of the predator R
+i;pred¼Rpred is
+unchanged at each generation. The dodo is modeled by aninstantaneous reduction of the resilience from 1.5 to 1.0. Theslower demise of the diprotodon is modeled by the reductionof resilience of 0.0001 per generation.
+The dodo was a large ﬂightless bird found only on
+Mauritius in the Indian Ocean. It is believed that it becameﬂightless due to the abundance of resources and lack of pred-ators on the island. The ﬁrst recorded account of the dodo
+Fig. 4. The mean liveness as a function of generation for four predator-prey
+systems. The hare/lynx and rabbit/fox pairs represent strong and weak inter-
+actions, respectively. The dodo (rapid decline) and diprotodon (slow
+decline) represent gSCGOL models of species that have become extinct at
+least partially due to predation. The inset is the model representation of a
+community of snowshoe hares.
+565 Am. J. Phys., Vol. 91, No. 7, July 2023 D. A. Faux and P. Bassom 565 04 October 2023 22:53:56
+was in 1598 by Dutch sailors who established a small island
+trading settlement. There is scant evidence of impactful
+human predation, but the introduction of non-native species,
+especially pigs and crab-eating macaques, led to the destruc-tion of the ground nests and competition for food.
+44Dodo
+sightings were rare by the 1660s and the best estimate of its
+extinction is 1693.45The dodo is modeled by a single instan-
+taneous drop in resilience to 1.29 in Fig. 4. Assuming one
+generation corresponds to one year, the dodo population
+drops by 90% after 60 yr and is extinct within 99 yr, match-
+ing the observations well.
+The fourth example cites the diprotodon. The diprotodon
+was a large marsupial native of Australia and one of many
+that became extinct about 46,000 yr ago.46The decline of
+large mammals in Australia over a period of a few thousandyears is striking: “All Australian land mammals, reptiles, andbirds weighing more than 100 kg, and six of the seven genera
+with a body mass of 45–100 kg, perished in the late
+Quaternary.”
+46The cause of the Australian megafauna
+extinctions could be due to climatic change, human preda-
+tion, and/or loss of habitat due to human activity.46–48
+Because many of these species survived for millions of years
+and numerous ice ages before the arrival of humans in
+Australia, it is tempting to point the ﬁnger at humans. A kill
+every few months could lead to long-term populationdeclines for animals with a slow rate of reproduction.
+The gSCGOL model for the diprotodon decrements R
+i;prey
+by 0.0001 at each generation. The result is presented in
+Fig.4. The population decline is slow, dropping by just 15%
+after 1200 yr. Thereafter, the rate of population declineincreases mirroring the catastrophe curves seen in Fig. 1.I n
+this model, the diprotodon survives little more than 1500 yr.
+This example highlights the difﬁculties of conservation. Theadverse impact of humans on a species may not be apparent
+until its tipping point is reached.
+IV. SUMMARY
+Cellular automata are widely used in undergraduate phys-
+ics projects and in courses designed to develop students’
+skills, especially in matrix-based programming languages,
+data management, and graphical presentation. Fascinatingcomplex phenomena can be explored on the basis of simple
+algorithmic rules allowing individualized research projects
+in species ecology. Skills developed include learning a pro-gramming language, data management using matrices, appli-cation of boundary conditions widely used in simulations,
+and data interpretation and analysis in the context of often
+very limited literature data. In addition, the gSCGOL modelincreases student understanding of qubits and operators as
+taught in quantum mechanics courses.
+We used the gSCGOL to describe a species through just
+two parameters: the preferred neighborhood liveness A
+0
+describing the tendency of a species to herd and a resilience
+parameter Rrepresenting sensitivity to changes in the local
+environment. The gSCGOL model is shown to mimic envi-ronmental catastrophes in which a species becomes extinctbut, more optimistically, also demonstrates that a population
+can survive in pockets and recover if the local environment
+improves. The decline and recovery of the global whale pop-ulation was modeled using limited qualitative population
+data as a guide and predicted a return to pre-hunting whale
+populations by about year 2140.Predator–prey modeling requires two interacting species
+each with distinct ( A
+0;R) values. Equations of interaction
+were given, and the results were presented for the snowshoe
+hare-lynx and rabbit-fox systems. The dodo and diprotodonwere modeled in the context of systems in which the resil-
+ience of the predator is unaffected by the presence or
+absence of a speciﬁc prey. In all cases, qualitative agreement
+with limited data is obtained.
+The Matlab ﬁles supplied in the supplementary material
+26
+may be used as a basis to tackle some of the suggested prob-
+lems below.
+V. PROBLEMS
+The gSCGOL requires two primary parameters: the pre-
+ferred neighborhood liveness A0and the resilience R. A herd-
+ing species typically has A0/H114074 and the gSCGOL will then
+yield population distributions that mimic herds. A resilience
+R/C251 is a good starting value. Suitable changes in Rat each
+time step are required for some studies and are guided by
+species data. Normally, a time step corresponds to one year(representing the natural breeding cycle) but corals, for
+instance, deteriorate and recover at a much faster rate.
+Example values for predator–prey models may be found inSec. III B.
+Problem 1. The gSCGOL opens up numerous possibilities
+for undergraduate projects where students can study the
+demise and recovery of a species of their choice. Many spe-
+cies have more reliable data available than the whale popula-
+tion studied in Sec. III A . Changes in the Indian elephant
+population due to forest defragmentation
+49,50and loss of
+African elephant populations due to the ivory trade51are
+examples.
+Problem 2. Corals are worthy of exploration because haz-
+ards faced are many and varied. Kayal et al.52provided an
+excellent summary of hazards with sources. The Palmyra
+atoll was newsworthy in July 2022 because of a rapid recov-ery from bleaching as reported by Khen et al.
+53Hughes et al.
+presented the relation between global warming and bleach-
+ing in Ref. 54.
+Problem 3. The woolly mammoth constitutes an obvious
+extinction study, but useful quantitative data are lacking. A
+useful starting point is Ref. 55, which discusses the demise
+of the woolly mammoth due to climate change and human
+impact.
+Problem 4. Numerous near-extinct species are slowly
+recovering, and many others are in the process of decline.Examples for study exploiting the properties of the block
+object discussed in Sec. III A include the Lord Howe Island
+stick-insect, which was considered extinct until a climberdiscovered fresh remains in 1960 and was rediscovered in
+2001 on a cliff,
+56and a presumed extinct nocturnal wolf spi-
+der spotted on a United Kingdom military base for the ﬁrst
+time in 27 yr.57
+Problem 5. More optimistically, the block object discussed
+in Sec. III A can be exploited as a “seed” to model species
+reintroductions. The dramatic success of the red kite in the
+United Kingdom is a prime example of a successful reintro-
+duction with available data.58
+Problem 6. A related and interesting predator–prey study
+on red kites and rabbits is possible using data on red kite
+populations located within high density rabbit areas in
+Spain.59
+566 Am. J. Phys., Vol. 91, No. 7, July 2023 D. A. Faux and P. Bassom 566 04 October 2023 22:53:56
+ACKNOWLEDGMENTS
+This work is dedicated to John Horton Conway, the
+creator of the Game of Life, who made many contributionsto mathematics and who sadly died after contractingCOVID-19 in April 2020.
+60
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts of interest to disclose.
+a)Electronic mail: d.faux@surrey.ac.uk, ORCID: 0000-0002-1903-2374.
+b)Electronic mail: peterbassomwork@gmail.com, ORCID: 0009-0000-
+2145-6531.
+1M. Gardner, “Mathematical games,” Sci. Am. 223, 120–123 (1970).
+2A. Adamatzky, Game of Life Cellular Automata (Springer, Berlin, 2010),
+Vol. 1.
+3Wikipedia, “Conway’s game of life” (2019), https://en.wikipedia.org/wiki/
+Conway%27s_Game_of_Life , accessed on February 21, 2019.
+4T. Ceccherini-Silberstein and M. Coornaert, Cellular Automata and
+Groups (Springer, Berlin, 2013).
+5S. Wolfram, “Universality and complexity in cellular automata,” Phys. D:
+Nonlinear Phenom. 10, 1–35 (1984).
+6A. Flammenkamp, “Top 100 of game-of-life ash objects,” http://
+wwwhomes.uni-bielefeld.de/achim/freq_top_life.html (2004).
+7L. Schulman and P. Seiden, “Statistical mechanics of a dynamical system
+based on Conway’s game of life,” J. Stat. Phys. 19, 293–314 (1978).
+8S. M. Reia and O. Kinouchi, “Conway’s game of life is a near-critical
+metastable state in the multiverse of cellular automata,” Phys. Rev. E 89,
+052123 (2014).
+9J. Garcia, M. Gomes, T. Jyh, T. Ren, and T. Sales, “Nonlinear dynam-ics of the cellular-automaton ‘game of Life’,” Phys. Rev. E 48,
+3345–3351 (1993).
+10P. Bak, K. Chen, and M. Creutz, “Self-organized criticality in the ‘game oflife’,” Nature 342, 780–782 (1989).
+11C. Bays, “Candidates for the game of life in three dimensions,” Complex
+Syst. 1, 373–400 (1987).
+12P. Rendell, in 2011 International Conference on High Performance
+Computing & Simulation (IEEE, 2011), pp. 764–772.
+13S. Raﬂer, “Generalization of Conway’s ‘game of life’ to a continuous
+domain-smoothlife,” arXiv:1111.1567 (2011).
+14G. Aguilera-Venegas, J. L. Gal /C19an-Garc /C19ıa, R. Egea-Guerrero, M. /C19A. Gal /C19an-
+Garc/C19ıa, P. Rodr /C19ıguez-Cielos, Y. Padilla-Dom /C19ınguez, and M. Gal /C19an-Luque,
+“A probabilistic extension to Conway’s game of life,” Adv. Comput.
+Math. 45, 2111–2121 (2019).
+15A. P. Flitney and D. Abbott, “A semi-quantum version of the game of life”
+arXiv:Quant-ph/0208149 (2002).
+16A. P. Flitney and D. Abbott, in Advances in Dynamic Games (Springer,
+Berlin, 2005), pp. 667–679.
+17A. P. Flitney and D. Abbott, in Quantum Aspects of Life , edited by D.
+Abbott, P. C. Davies, and A. K. Pati (World Scientiﬁc, Singapore, 2008),
+pp. 233–250.
+18A. L /C19opez-Incera and W. D €ur, “Entangle me! A game to demonstrate
+the principles of quantum mechanics,” A m .J .P h y s . 87, 95–101
+(2019).
+19D. Abbott, P. C. Davies, and A. K. Pati, Quantum Aspects of Life (World
+Scientiﬁc, Singapore, 2008).
+20G. S. Engel, T. R. Calhoun, E. L. Read, T.-K. Ahn, T. Manc ˇal, Y.-C.
+Cheng, R. E. Blankenship, and G. R. Fleming, “Evidence for wavelike
+energy transfer through quantum coherence in photosynthetic systems,”
+Nature 446, 782–786 (2007).
+21M. Mohseni, P. Rebentrost, S. Lloyd, and A. Aspuru-Guzik,
+“Environment-assisted quantum walks in photosynthetic energy transfer,”J. Chem. Phys. 129, 11B603 (2008).
+22D. A. Faux, M. Shah, and C. Knapp, “Games of life,” Am. J. Phys. 88,
+371–378 (2020).
+23MathworksVR, “What is Matlab?,” https://www.mathworks.com/discovery/
+what-is-matlab.html , accessed on March 11, 2023.
+24G. Faraco, P. Pantano, and R. Servidio, “The use of cellular automata in
+the learning of emergence,” Comput. Educ. 47, 280–297 (2006).25A. Dhatsuwan and M. Precharattana, “Blockyland,” Simulat. Gaming 47,
+445–464 (2016).
+26See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0150858 for folders of MATLAB programs supporting (i) the envi-
+ronmental catastrophe modelling and (ii) the predator prey modelling.
+27International Union for Conservation of Nature and Natural Resources,“The IUCN Red list of threatened species. Version 2021–1” (2021),https://www.iucnredlist.org , accessed on December 2, 2022.
+28M. L. McKinney, “Effects of urbanization on species richness: A review
+of plants and animals,” Urban Ecosyst. 11, 161–176 (2008).
+29D. R. Bellwood, T. P. Hughes, C. Folke, and M. Nystr €om, “Confronting
+the coral REEF crisis,” Nature 429, 827–833 (2004).
+30G. De’ath, K. E. Fabricius, H. Sweatman, and M. Puotinen, Proc. Natl.
+Acad. Sci. U. S. A. 109, 17995 (2012).
+31P. Daszak, L. Berger, A. A. Cunningham, A. D. Hyatt, D. E. Green, and R.
+Speare, “Emerging infectious diseases and amphibian populationdeclines,” Emerg. Infect. Dis. 5, 735–748 (1999).
+32P. Daszak, A. A. Cunningham, and A. D. Hyatt, “Infectious disease
+and amphibian population declines,” Divers. Distrib. 9, 141–150
+(2003).
+33P. D. Roberts, H. Diaz-Soltero, D. J. Hemming, M. J. Parr, N. H.
+Wakeﬁeld, and H. J. Wright, “What is the evidence that invasive speciesare a signiﬁcant contributor to the decline or loss of threatened species? Asystematic review map,” Environ. Evid. 2, 1–7 (2013).
+34R. Thom, Structural Stability and Morphogenesis (CRC Press, Boca
+Raton, FL, 2018).
+35H. J. Sussmann and R. S. Zahler, Synthese 37, 117 (1978).
+36E. C. Zeeman, “Catastrophe theory,” Sci. Am. 234, 65–83 (1976).
+37M. E. Marrero and S. Thornton, “Big ﬁsh: A brief history of whaling”
+(2011), https://www.nationalgeographic.org/article/big-ﬁsh-history-whaling ,
+accessed on January 6, 2023.
+38ABC North and West SA News Item, “Outback phenomenon as ﬂood-ing rains bring scores of ﬁsh to life” (2016), https://www.abc.net.au/
+news/2016-05-16/outback-phenomenon-as-countless-ﬁsh-spring-to-life/7417374 , accessed on January 6, 2023.
+39T. C. Times, “Lake Eyre comes to life as the water ﬂoods into the desert”
+(2019), https://www.canberratimes.com.au/story/6202675/lake-eyre-comes-
+to-life-as-the-water-ﬂoods-into-the-desert/ , accessed on December 2, 2022.
+40T. E. Lee, D. O. Fisher, S. P. Blomberg, and B. A. Wintle, “Extinct or still
+out there? Disentangling inﬂuences on extinction and rediscovery helps toclarify the fate of species on the edge,” Global Change Biol. 23, 621–634
+(2017).
+41Clare Wilson, “Rare bird not seen for 24 years found alive in Madagascan for-ests” (2023), https://www.newscientist.com/article/ 2362126-rare-bird-not-seen-
+for-24-years-found-alive-in-madagascan-forests/ , accessed on March 13, 2023.
+42S. A. Scott, “Spatio-temporal dynamics of snowshoe hare density and rela-
+tionships to Canada Lynx occurrence in northern Maine,” Ph.D. thesis,University of Maine, 2009.
+43Government of the Northwest Territories, “Environment and naturalresources communication,” in Lynx-Snowshoe Hare Cycle ,https://
+www.ecc.gov.nt.ca/en/services/lynx/lynx-snowshoe-hare-cycle , accessed
+on January, 6, 2023.
+44J. P. Hume and M. Walters, Extinct Birds (A&C Black, London, 2012),
+Vol. 217.
+45D. L. Roberts and A. R. Solow, “When did the dodo become extinct?,”Nature 426, 245 (2003).
+46R. G. Roberts, T. F. Flannery, L. K. Ayliffe, H. Yoshida, J. M. Olley, G. J.
+Prideaux, G. M. Laslett, A. Baynes, M. A. Smith, R. Jones et al. , “New
+ages for the last Australian Megafauna: Continent-wide extinction about46,000 years ago,” Science 292, 1888–1892 (2001).
+47G. H. Miller, M. L. Fogel, J. W. Magee, M. K. Gagan, S. J. Clarke, and B.
+J. Johnson, “Ecosystem collapse in pleistocene Australia and a human rolein megafaunal extinction,” Science 309, 287–290 (2005).
+48S. Wroe and J. Field, “A review of the evidence for a human role in the
+extinction of Australian megafauna and an alternative interpretation,”
+Quat. Sci. Rev. 25, 2692––2703 (2006).
+49A. Choudhury, “Human–elephant conﬂicts in Northeast India,” Human
+Dimensions Wildlife 9, 261–270 (2004).
+50H. Padalia, S. Ghosh, C. S. Reddy, S. Nandy, S. Singh, and A. S.
+Kumar, “Assessment of historical forest cover loss and fragmentation
+in Asian elephant ranges in India,” Environ. Monit. Assess. 191, 1–13
+(2019).
+51G. Wittemyer, J. M. Northrup, J. Blanc, I. Douglas-Hamilton, P.Omondi, and K. P. Burnham, “Illegal killing for ivory drives global
+567 Am. J. Phys., Vol. 91, No. 7, July 2023 D. A. Faux and P. Bassom 567 04 October 2023 22:53:56
+decline in African elephants,” P r o c .N a t l .A c a d .S c i .U .S .A . 111,
+13117 (2014).
+52M. Kayal, H. S. Lenihan, A. J. Brooks, S. J. Holbrook, R. J. Schmitt,and B. E. Kendall, “Predicting coral community recovery using multi-species population dynamics models,” Ecol. Lett. 21, 1790–1799
+(2018).
+53A. Khen, M. D. Johnson, M. D. Fox, S. M. Clements, A. L. Carter, and J.E. Smith, “Decadal stability of coral reef benthic communities on Palmyra
+Atoll, central Paciﬁc, through two bleaching events,” Coral Reefs 41,
+1017–1029 (2022).
+54T. P. Hughes, J. T. Kerry, M. /C19Alvarez-Noriega, J. G. /C19Alvarez-Romero,
+K. D. Anderson, A. H. Baird, R. C. Babcock, M. Beger, D. R. Bellwood,
+R. Berkelmans et al. , “Global warming and recurrent mass bleaching of
+corals,” Nature 543, 373–377 (2017).
+55D. Nogu /C19es-Bravo, J. Rodr /C19ıguez, J. Hortal, P. Batra, and M. B. Ara /C19ujo,
+“Climate change, humans, and the extinction of the Woolly Mammoth,”
+PLoS Biol. 6, e790685 (2008).56D. Priddel, N. Carlile, M. Humphrey, S. Fellenberg, and D. Hiscox,
+“Rediscovery of the ‘extinct’ Lord Howe Island stick-insect ( Dryococelus
+australis (Montrouzier)) (Phasmatodea) and recommendations for its con-
+servation,” Biodivers. Conserv. 12, 1391–1403 (2003).
+57Stephanie Pappas, “Gorgeous’ spider presumed extinct found alive and
+kicking at UK Military Base,” in Live Science (2020), https://www.
+livescience.com/extinct-wolf-spider-found-british-military-base.html , accessed
+on January 06, 2023.
+58F. M. Molenaar, J. E. Jaffe, I. Carter, E. A. Barnett, R. F. Shore, J. MarcusRowcliffe, and A. W. Sainsbury, “Poisoning of reintroduced red kites
+(Milvus Milvus) in England,” Eur. J. Wildl. Res. 63, 94 (2017).
+59R. Villafuerte, J. Vi ~nuela, and J. C. Blanco, “Extensive predator persecu-
+tion caused by population crash in a game species: The case of red kites
+and rabbits in Spain,” Biol. Conserv. 84, 181–188 (1998).
+60Colm Mulcahy, “John Horton Conway obituary,” in The Guardian
+Newspaper (2020), https://www.theguardian.com/science/2020/apr/23/john-
+horton-conway-obituary , accessed on January 6, 2023.
+AJP Index to Advertisers
+AAPT Summer 2023 Meeting ......................... Cover 2
+AAPT Membership. ................................ Page 489
+AAPT ComPADRE ................................ Page 491
+APSIT . . ......................................... Page 492
+AAPT Career Center ...................................T O C
+568 Am. J. Phys., Vol. 91, No. 7, July 2023 D. A. Faux and P. Bassom 568 04 October 2023 22:53:56

@@ -1,0 +1,428 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| JULY 01 2023
+Analysis of ill-conditioned cases of a mass moving on a
+sphere with friction 
+Terry W . McDaniel
+Am. J. Phys.  91, 527 (2023)
+https://doi.org/10.1 119/5.0063834
+Articles Y ou May Be Interested In
+Ill-posedness in the Einstein equations
+J. Math. Phys.  (August 2000)
+Introducing Ill ‐ Structured Problems in Introductory Physics Recitations
+AIP Conference Proceedings  (November 2007)
+Well ‐  and ill ‐ considered numerical solution constructions
+J Acoust Soc Am  (April 2005) 04 October 2023 22:53:35
+Analysis of ill-conditioned cases of a mass moving on a sphere
+with friction
+Terry W. McDaniela)
+Model Physics, Tucson, Arizona 85716
+(Received 17 July 2021; accepted 23 April 2023)
+Previous work treated the problem of a mass sliding over a rough spherical surface in broad
+generality, providing both analytic and numerical solutions. This paper examines special cases of2D motion along a surface meridian when the initial speed is precisely chosen so that the sliding
+mass nearly stops before speeding up and subsequently leaving the surface. Carrying the solution
+for these critical cases into the time domain via both an analytical method and numericalintegration adds richness that might otherwise be missed. The numerical method raises practical
+mathematical issues that must be handled carefully to obtain accurate results. Although
+conceptually simple, this classical mechanics problem is an excellent vehicle for students to gainproﬁciency with mathematical analysis tools and further their appreciation for how applied
+mathematics can bring new insight into situations where intuition may fall short.
+#2023 Published
+under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0063834
+I. INTRODUCTION
+The motion of a mass msliding on a spherical surface
+under the inﬂuence of gravity addresses many concepts inelementary classical mechanics and yet offers surpriseseven for experienced physicists. In the absence of friction,
+this problem is accessible to beginning students and
+appears in many introductory mechanics texts (see Refs. 1and 2 of Ref. 3). However, when friction is present,
+1–6an
+unexpected richness in the motion arises that may be hid-
+den in a cursory analysis. A close examination of the widerange of possible behaviors can be carried out within aNewtonian framework using mathematics and a numerical
+analysis that are familiar to undergraduate physics
+students.
+In Ref. 2, Mungan treated 2D motion along a meridian,
+deriving the speed vhðÞof the sliding mass as a function of
+polar angle hand also identifying the condition for the mass
+to remain in contact with the spherical surface: v
+2/C20rgcosh,
+where ris the radius of the surface and gis the gravitational
+acceleration. In Ref. 1, the author extended this work by
+allowing azimuthal motion on the surface and by describingthe motion in the time domain. The present paper focuses ona fascinating feature of the 2D motion—the “notch” in vhðÞ
+where the mass nearly comes to a complete stop before
+speeding up again, leading to a wide plateau in the behaviorofh(t). We also extend the friction coefﬁcient range to [1,
+100].
+In the general case, the availability of analytic solutions
+forvhðÞis somewhat limited (as Ref. 2nicely illustrates),
+and we are forced to turn to numerical solutions. This allows
+us to explore the motion over the full range of variables
+h;tðÞ , initial energy, and coefﬁcient of friction l, without
+limitation. Thus, the problem presents a conceptually simpleenvironment for application of the mathematical tool set that
+undergraduates need to master: calculus, differential equa-
+tions, and numerical techniques.
+We begin by making a close examination of the non-linear
+function vhðÞ;for cases exhibiting the notch behavior, over awide range of l. In Sec. III, we move into the time domain,
+utilizing numerical quadrature of v(h)to yield h(t). This
+reveals the unusual plateau behavior, which is the central
+focus of this paper. Sections IVandVexplore the nature of
+the plateau and its mathematical origin, the role of the bal-ance of forces in this behavior, and the sensitivity of thenear-stopping condition of the sliding mass to initial condi-
+tions. Section VIemploys the work-energy theorem to check
+the accuracy of our numerical solutions.
+II. THE BEHAVIOR OF V(h)
+Three co-planar forces act on the (point) mass as it slides
+over the spherical surface along a meridian (i.e., longitude
+line). The weight of the particle mgcan be separated into
+tangential (toward the sphere’s equator) and normal (towardthe sphere’s center) components. The surface exerts an out-
+ward normal force N, while the retarding force of sliding
+friction ( f¼lN) points tangentially in the direction opposite
+to the motion (toward the sphere’s north pole). The equationsof motion along the normal and tangential directions arefound from Newton’s second law
+NðhÞ/C0mgcosð
+hÞ¼/C0 mr_h2; (1a)
+mgsinðhÞ/C0lNðhÞ¼mr€h: (1b)
+In Eq. (1a), the mass undergoes centripetal acceleration
+v2=r¼r_h2toward the sphere’s center under the resultant
+force of the outward normal and the inward component ofweight. In Eq. (1b), the mass’s acceleration along the circu-
+lar arc results from the difference between the tangentialcomponent of weight and the retarding kinetic friction.
+These coupled differential equations can be solved following
+the procedures described in Refs. 1and2.
+The normalized speed VhðÞ¼vhðÞ=ﬃﬃﬃﬃﬃrgpis given in Eq.
+(A3) of Ref. 2, which we present here in a rearranged form
+for reasons to be discussed shortly,
+527 Am. J. Phys. 91(7), July 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 527 04 October 2023 22:53:35
+Vh;l;V0 ðÞ ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+e2lh21/C02l2 ðÞ þV2
+01þ4l2 ðÞ/C2/C3
+/C02 cos hðÞ1/C02l2 ðÞ /C06lsinhðÞ
+1þ4l2s
+: (2)
+Here, V0¼Vh0ðÞ, where h0is the initial value of hfor
+the motion. We can use v¼r_h¼rdh=dtto carry this solu-
+tion into the time domain,
+ðt
+t0dt¼ﬃﬃﬃr
+grðhtðÞ
+h0dh
+VhðÞ: (3)
+Alternatively, h(t)could be obtained by directly solving the
+second-order ordinary differential equation (1b) after
+substituting N(h)from Eq. (1a), as was done in Ref. 1, but in
+this paper, we choose to solve for h(t)using Eqs. (2)and(3).
+The mass mand spherical radius rare free parameters for
+this problem. Because the motion involves “falling” due togravity on the spherical surface, the radius sets the length
+scale, and an associated characteristic time can be deﬁned as
+s/C17ﬃﬃﬃﬃﬃﬃﬃ
+r=gp
+.
+Plots of V(h)were shown in Refs. 1–4. Clearly, a wide
+range of behaviors is possible, including the intriguing“notch” behavior wherein V(h)approaches and departs from
+zero at angle h
+r(using the notation in Ref. 2). As shown in
+Ref. 2,hr¼tan/C01l. In Figs. 1(a)and1(b), a family of curves
+exhibiting this behavior is shown for coefﬁcients of frictionin the range [1, 100]. For each value of l, the value of V
+0to
+achieve the notch is calculable from Eq. (2)by setting V¼0
+andh¼hr. Hereafter, these special values of V0are denoted
+byV0cand are listed in the caption to Fig. 1.
+When Fig. 1was initially constructed, the near-zero values
+ofV(h)exhibited a kind of “digital noise”; that is, the soft-
+ware evaluating Eq. (2)returned seemingly random discrete
+values of VhðÞ. More detailed investigation revealed the phe-
+nomenon of “catastrophic cancellation,”7which is well
+known in the representation of ﬂoating-point numbers on aﬁnite digital computing machine. There are limited strategiesto remedy this. One is to rearrange or re-factor an algebraicexpression that may be causing difﬁculty. This was done toarrive at Eq. (2)from the corresponding Eq. (A3) of Ref. 2.
+Inspection of these two equations indicates that the exponen-
+tial term e
+2lhcan become dominant in magnitude as l
+increases. Equation (2)is re-factored to have just a single
+exponential appearing. While this is helpful, one discoversthat the co-factor of the exponential in Eq. (2)does increas-
+ingly show near-cancellation as lgrows and V
+0!1.
+Furthermore, because we are concentrating on the regionwhere V!0, the three terms in the numerator under the rad-
+ical also must be nearly canceling. All of these numericaltrends combine to produce an uncertain computational result,so Eq. (2)is evidently ill-conditioned for examining the limit
+of large l, even though it has been recast.
+Because ﬁnite computing machines have hardware-limited
+ﬂoating-point precision, a workable solution can often be
+found in software. Mathematical and scientiﬁc computingsoftware packages, such as Mathematica , often have built-in
+means to set the mathematical precision and/or accuracy ofcomputations. Increasing the number of digits of precisioncan allow successful handling of the problem cited here, andtheMathematica plots of Fig. 1were constructed by tempo-
+rarily increasing the operation to thirty digits of precision viaa software instruction, thus overcoming the inherent machine
+precision of the computer.
+We will return to the topic of the limitations of computer
+numerics in Sec. III, when we address the execution of the
+integration of Eq. (3). Numerical quadrature admits the
+adoption of a wide range of strategic approaches that havebeen developed in numerical analysis for over more than acentury, and especially since the ubiquity of digital comput-ing. Performing accurate numerical quadrature ofteninvolves a level of strategic ﬁnesse beyond merely increasingprecision settings in software, and we turn to this require-ment in our application in Sec. III. (See the supplemental
+material
+4for more details.)
+Fig. 1. (Color online) From left to right, V(h)for special cases with a near-zero
+speed “notch” for values of l¼1;3;10;30;60;100 fg . For each curve, hr
+¼tan/C01land V0c¼{0.719440, 0.958652, 0.996252, 0.999583, 0.999896,
+0.9999625}, respectively. Each curve terminates at the point where the mass
+departs the sphere’s surface, where VhðÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+coshp
+. (a) Using a logarithmic ordi-
+nate shows the depth of the notch. (b) Using a linear ordinate shows the near line-
+arity of VhðÞnear the bottom of the notch.
+528 Am. J. Phys., Vol. 91, No. 7, July 2023 Terry W. McDaniel 528 04 October 2023 22:53:35
+III. NUMERICAL QUADRATURE TO FIND h(T)
+A huge variety of VhðÞbehavior is predicted in Eq. (2).T o
+ﬁnd htðÞ, via Eq. (3)and subsequent inversion, will likely
+require numerical integration due to the relatively compli-
+cated non-linear form of VhðÞ. In this section, we restrict our
+consideration of h(t)to the (arguably) most physically
+interesting—and as it turns out, computationally challenging—
+behaviors that are depicted in Fig. 1: the notch zeroes of V(h)
+become singularities in the integrand of Eq. (3)that need to be
+treated with care.
+In evaluating the right-hand side of Eq. (3), the upper
+bound of the integral will need to be varied from h0tohmax,
+the maximum allowed value of h,which is the polar angle at
+which the normal force goes to zero and the mass leaves thesphere’s surface. This implies that we will need to evaluate
+as many deﬁnite integrals (Eq. (3)) as the number of func-
+tional samples of t(h)that we require, so obtaining a full
+solution will be moderately intensive computationally.
+Alternatively, one might iteratively integrate over the short
+interval [ h
+i,hiþ1] between the current and previous abscissa
+sample and add the result to the cumulative result at the priorsample. The usual strategy when performing a one-
+dimensional integral across a singularity is to split the inte-
+gral into two sub-integrals, one below and one above thedivergence. This is our approach as well, which then raises
+the question of how to accurately evaluate an integral with a
+divergence at one or both limits. In fact, this is a rather com-mon problem in numerical analysis, with a favored approachbeing the so-called double exponential methods .
+8,9Among
+these is the tanh-sinh method,10one of the approaches we
+have employed for our work. It involves a change in varia-bles, using hyperbolic functions to transform an integral
+from /C01/C20x/C201 to one over the entire real line /C01 /C20 x
+0
+/C201:The divergences at x¼61 then appear at x0¼61,
+where their contributions to the integral tend to vanish. Sinceour numerical integration only deals with the diverging inte-
+grand for values of hnear the notch, our need to employ
+“special” quadrature methods may only involve a minorityof our deﬁnite integral evaluations. Whether we call up a
+standard or non-standard method of numerical quadrature,
+many of these utilize non-uniform sampling of the abscissawhen carrying out evaluation of the integrand, either directly
+or by interpolation techniques (e.g., Gaussian methods).
+At this point, we need to draw a clear distinction between
+the inherent sampling within a quadrature evaluation (soft-ware may place this beyond the control of the user), and avoluntary sampling choice that we employ in order to obtain
+smooth and aesthetically pleasing ﬁnal solution plots of h(t).
+The logic of this user-controlled sampling is straightforward(and essentially the same as in numerical quadrature): we
+sample the integrand function more densely when its rate of
+change is high. Since the integrand in Eq. (3)is proportional
+to 1=VhðÞ, integration requires denser sampling as the zero
+ofV(h)is approached from either side. In this work, we
+explored a variety of abscissa samplings, including logarith-
+mic and exponential (both base 10) sampling, as well as arbi-trary base exponential methods.
+4
+A ﬁnal, important improvement in the efﬁciency of the
+numerical integration of Eq. (3)is to replace the exact
+expression of Eq. (2)forV(h)with a composite of two
+smooth interpolated functions found by ﬁtting computed val-
+ues of V(h)evaluated at selected points on either side of hr.
+Such interpolated functions are much easier and faster tointegrate accurately than integrating Eq. (2)directly. The inter-
+polation can be made as accurate and precise as necessary by
+increasing the user-deﬁned abscissa sampling density. This
+overall procedure retains a huge advantage in computationalefﬁciency due to the large number of required evaluations of
+the integrand. Once again, the chosen computational step of an
+accurate numerical interpolation is well-supported by commer-cial software tools, such as Mathematica .
+8
+IV. THE PLATEAUS OF h(T)
+Figure 2was generated using the numerical integration
+techniques discussed above. Since V/v¼rdh=dt, the slope
+ofh(t)approaches zero as Vdoes, giving rise to the plateaus
+shown in Fig. 2(a). These plateaus are extraordinarily ﬂat,
+but become less so (see Sec. VI) and narrower as lincreases
+(Fig. 2(b)). This is consistent with the plots of VhðÞas shown
+in Fig. 1. From Eq. (3), the integralÐ
+dh=VhðÞacross a notch
+is proportional to the elapsed time that the sliding massspends with near-zero speed, i.e., the width of the plateau.
+The initial slope of the h(t)curves at h
+0reﬂects the increase
+Fig. 2. (Color online) (a) From bottom to top, h(t)forV(h)notch cases with
+l¼1;3;10;30;60;100 fg , evaluated from numerical quadrature for t(h).
+The inset for l¼10 illustrates the actual non-zero slope of h(t)when sufﬁ-
+cient care is taken in the quadrature sampling. (b) Normalized plateau dura-
+tion vs l, where the duration is deﬁned as Dt¼t1:01hr ðÞ /C0t0:99hr ðÞ :The
+analytic solutions use Eq. 5(b). Note that in each plot, the timescale is nor-
+malized to the characteristic time s¼ﬃﬃﬃﬃﬃﬃﬃ
+r=gp
+.
+529 Am. J. Phys., Vol. 91, No. 7, July 2023 Terry W. McDaniel 529 04 October 2023 22:53:35
+and approaches toward unity of V0with increasing l,a s
+given in the caption of Fig. 1. At the end of each plateau, h(t)
+bends upward, indicating the resumption of accelerated
+motion. This effect is more pronounced when the frictioncoefﬁcient is small, which simply reﬂects the fact that h
+ris
+further from hmaxfor small l. Each h(t)curve terminates at
+hmax, and as lincreases, hmax!p=2.
+It is interesting to inquire about the limiting values of the
+plateau duration in Fig. 2(b) asl!0 and l!1 . In the
+frictionless case ( l!0), V0¼0, i.e., no stopping is
+expected for any non-zero initial speed. Thus, for h0¼0
+(the situation we are treating in this paper), the mass remains
+at rest at the top of the sphere, so its duration while
+“stopped” is inﬁnite, as Fig. 2(b)suggests. Conversely, when
+l!1 ,V0!1, and the V(h)path is along theﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+cosðhÞp
+“phase boundary” as discussed in Ref. 2and suggested by
+our Figs. 1and4. In this instance, there is no notch, and the
+mass’s speed only reaches zero at the equator. Thus, theduration while nearly stopped is zero, also as Fig. 2(b)
+suggests.
+V. BEHAVIOR IN THE NEIGHBORHOOD
+OF THE V(h)NOTCH
+Just how special is the notch state of V(h)?To answer this
+question, we explored the behavior of V(h)near the notch as
+the initial speed V
+0was varied, for l¼1 and l¼10.V0was
+varied over a logarithmic range about the critical notch valueV
+0c(see Table I). Figures 3(a) and3(b) show plots of V2(h)
+forV0eðÞ¼V0c1þe½/C138 , where e¼6f10/C01
+2;10/C02
+2;…;10/C08
+2g
+and e¼6f10/C08;10/C09;…;10/C015g, for l¼1 and l¼10,
+respectively. (We examine V2(h)rather than V(h)to avoid
+complex numbers (see Eq. (2)). Note that for l¼10, the
+function V(h)is very sensitive to quite small variations in V0,
+while for l¼1, the sensitivity is orders of magnitude
+smaller. Figure 4clearly illustrates that the notch curves of
+Fig. 1represent a dynamical boundary between the mass
+having just sufﬁcient or just insufﬁcient initial energy to
+leave the surface of the sphere. This boundary is a quasi-
+equilibrium state, a very special circumstance whereby themass has just the right energy to almost pause for a ﬁnite
+time with near-zero speed and then resume its motion toward
+the point of departure as the instantaneous forces come outof near-balance.
+Table I. Summary of results from Figs. 1–4. For each value of l, columns
+2–6 show the normalized initial speed needed to generate the notch behav-
+ior; the numerically determined stopping plateau normalized duration (see
+Fig.2(b)); the angular location of the notch; the angular location where the
+mass departs the sphere; and fractional energy loss due to friction.
+l V0cNumerical
+plateau
+duration [ Dt/s] hr(/C14) hmax(/C14) DW/E i
+1 0.719 44 22.37 45.00 69.5758 /C00.584
+3 0.958 652 15.75 71.5651 81.6819 /C00.851
+10 0.996 252 8.999 84.2894 87.426 /C00.955
+30 0.999 583 5.198 88.0908 89.1395 /C00.986
+60 0.999 896 3.631 89.0452 89.5697 /C00.993
+100 0.999 962 5 2.785 89.4271 89.7418 /C00.9955Fig. 3. (Color online) Plots of V2(h)forl¼1 (a) and l¼10 (b), with
+V0eðÞ¼V0c16e½/C138 , where V0cis the initial speed leading to the notch. The
+curve labels indicate the values of efor each curve. Solid and dashed lines
+are for V0<V0cand V0>V0c:In the former case, the mass stops
+permanently at h<hr. In the latter case, V2(h)never reaches zero, and the
+mass speeds up until it exits the sphere at h¼hmax.
+Fig. 4. (Color online) A plot of FtanðhÞ=mfor the notch condition of V(h).
+530 Am. J. Phys., Vol. 91, No. 7, July 2023 Terry W. McDaniel 530 04 October 2023 22:53:35
+VI.h(T)PLATEAUS EXPLAINED
+The plateaus in Fig. 2(a)are linked to the “notches” shown
+in Fig. 1, where the mass’s speed vapproaches zero. For a
+mass moving along a meridian, slowing to a near stop and
+subsequently speeding up implies a net negative tangentialforce transitioning to a net positive force at the notch angle
+h
+r. This is conceptually sensible: as hincreases, the tangen-
+tial weight is monotonically increasing while the tangential
+frictional retardation (proportional to the normal force) is
+steadily decreasing. The net tangential force per unit mass,evaluated using Eqs. (1a)and(1b),i s
+F
+tanhðÞ=m¼gsinh/C0lcosh/C0V2hðÞ/C2/C3/C8/C9
+: (4)
+As shown in Fig. 4,FtanðhÞpasses smoothly through zero at
+hr, just as expected. The slope of Ftanis explored in the sup-
+plementary material.4
+We can use the behavior of FtanhðÞaround its zero-
+crossing at hrto give a physical explanation of the h(t)pla-
+teaus. Consider a linear expansion of FtanhðÞabout hr, using
+dh/C17h/C0hr. Recall that VhrðÞ/C17Vminﬃ0, and set the time
+origin to be zero when dh¼0:Using a Taylor expansion,
+and dropping the subscript, lðdF=dhÞjhr¼mgðcosðhrÞ
+þlsinðhrÞÞ /C17 kl. Since hr¼tan/C01l,kl¼mgﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þl2p
+.
+Newton’s second law becomes kldhðÞ¼mr€h¼mr€dh. This
+is the differential equation for a simple harmonic oscillator
+with a negative “spring constant.” Thus, we expect a solution
+of the form dhðtÞ¼AsinhðctÞþBcoshðctÞ. Substituting this
+trial solution into the differential equation, and using the ini-
+tial conditions dhðt¼0Þ¼0, and _dhjt¼0¼vmin=r, we ﬁnd
+A¼Vmin=1þl2/C0/C11=4,B¼0, and c¼1þl2/C0/C11=4=s,s o
+dhtðÞ¼Vmin
+1þl2 ðÞ1
+4"#
+sinh1þl2/C0/C1 1
+4t/C16/C17
+s: (5a)
+Inversion of Eq. (5a)yields tðdhÞ, which allows us to calcu-
+late the width of the plateau Dt. Deﬁning Dt¼t0:01hr ðÞ
+/C0t/C00:01hr ðÞ ,
+Dt
+s¼2
+1þl2 ðÞ1
+4sinh/C011þl2/C0/C1 1
+4
+Vmin0:01hr !
+: (5b)
+These expressions perfectly replicate the behavior described in
+Figs. 2(a)and2(b). Differentiating Eq. (5a)to obtain the speed,
+we see that the plateau exhibits an inﬂection point at h¼hr,
+since the symmetric cosh function is never zero and is increas-
+ingly positive as one moves away from hrin either direction.
+VII. APPLICATION OF THE WORK-ENERGY
+THEOREM
+To estimate the magnitude of error in our numerical
+results, we asked how well they satisfy the work-energy
+theorem. For each of the curves in Figs. 1and 2,w e
+evaluated fEðhfÞ/C0½ Eðh0ÞþDWðl;hfÞ/C138g=m/C17DE=mand
+dE/C17DE=Eðh0Þ;where Ehf/C0/C1¼Eh0ðÞþDWl;hf/C0/C1,
+EhðÞ¼mgr V2hðÞ=2þcosh/C2/C3
+, and DWl;hðÞ ¼Ðh
+h0Ftan/C1d~s
+¼/C0lrÐh
+h0NhðÞdh.11The relative numerical error dEwas inthe 10/C09–10/C06range for all lwithout taking extraordinary pre-
+cautions in the numerical evaluation of DW. This attests to the
+accuracy of the numerical quadrature procedures, and achieving
+these small values signals a successful computation.
+VIII. CONCLUSION
+Table Isummarizes parameters and quantitative results
+from the ﬁgures and analyses that we have presented. In gen-eral, as friction increases, the notch and stopping condition
+behavior is compressed toward the sphere’s equator (Fig.
+2(a)), and the plateau shortens and steepens. The last column
+is the fraction of the initial energy lost to friction.
+This paper builds on the work of Refs. 1and2by closely
+examining the near-stopping behavior of a mass sliding on a
+rough sphere. The coefﬁcient of sliding friction lhas been
+extended greatly, covering a range of 1–100. The plateau inh(t)has been fully quantiﬁed in terms of its duration, its
+slope’s magnitude relative to the initial mass speed, and the
+sensitivity of initiating its onset. We also identiﬁed the phys-ical source of the plateau using an analytical solution of
+Newton’s second law and carried out extensive numerical
+calculations to increase the understanding of the somewhatunexpected behavior.
+ACKNOWLEDGMENTS
+The author wishes to thank the reviewers for helpful
+comments and suggestions.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conﬂicts to disclose.
+a)Electronic mail: mcterry46@gmail.com, ORCID: 0000-0003-4594-3996.
+1Terry W. McDaniel, “Analyzing the motion of a mass sliding on a sphere
+with friction,” Am. J. Phys. 89, 921–926 (2021).
+2Carl E. Mungan, “Sliding on the surface of a rough sphere,” Phys. Teach.
+41, 326–328 (2003).
+3Tom Prior and E. J. Mele, “A block slipping on a sphere with friction:
+Exact and perturbative solutions,” Am. J. Phys. 75, 423–426 (2007).
+4See supplementary material online for further details on methods of graded
+abscissa sampling employed, and in addition, more information the role of
+forces in this problem and an alternate method of quantifying the plateau
+duration for comparison with Eq. (5b). Extensions of Eqs. (5a) and(5b)
+are also given.
+5F. Gonz /C19alez-Cataldo, G. Guti /C19errez, and J. M. Y /C19a~nez, “Sliding down an
+arbitrary curve in the presence of friction,” Am. J. Phys. 85, 108–114
+(2017).
+6L. Balart and S. Belmar-Herrera, “Particle sliding down an arbitrary con-
+cave curve in the Lagrangian formalism,” Am. J. Phys. 87, 982–985
+(2019).
+7Gerald W. Recktenwald, “Unavoidable errors in computing,” <https://
+vdocument.in/unavoidable-errors-in-computing.html >
+8H. Takahasi and M. Mori, “Double exponential formulas for numerical
+integration,” Publ. RIMS, Kyoto Univ. 9, 721–741 (1974).
+9MATHEMATICA provides an option of explicitly employing the double expo-
+nential method for numerical integration; this is one of many availableoptions supporting numerical quadrature.
+MATHEMATICA also supports many
+options for accurate numerical interpolation.
+10Lingyun Ye, “Numerical quadrature: Theory and computation,” thesis forMaster of Computer Science, Dalhousie University, Halifax, 2006.
+11L. A. del Pino and S. Curilef, “Comment on ‘Sliding down an arbitrarycurve in the presence of friction’ by F. Gonz /C19alez-Cataldo, G. Guti /C19errez,
+and J. M. Y /C19a~nez, Am. J. Phys. 85, 108–114 (2017),” Am. J. Phys. 86,
+470–471 (2018).
+531 Am. J. Phys., Vol. 91, No. 7, July 2023 Terry W. McDaniel 531 04 October 2023 22:53:35

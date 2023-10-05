@@ -1,0 +1,1148 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| MARCH 01 2022
+Quantifying biomolecular diffusion with a “spherical cow”
+model 
+Frederico Campos Freitas ; Sandra Byju ; Asem Hassan ; Ronaldo Junio de Oliveira ; Paul C. Whitford
+Am. J. Phys.  90, 225–238 (2022)
+https://doi.org/10.1 119/5.0075952
+ CHORUS
+Articles Y ou May Be Interested In
+Drift-dif fusion (DrDif f) framework determines kinetics and thermodynamics of two-state folding trajectory
+and tunes dif fusion models
+J. Chem. Phys.  (September 2019)
+Biogas production from co-digestion of cocoa pod husk and cow manure with cow rumen fluid as inoculum
+AIP Conference Proceedings  (September 2020)
+Agrivoltaics to shade cows in a pasture-based dairy system
+AIP Conference Proceedings  (December 2022) 04 October 2023 23:04:57
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Quantifying biomolecular diffusion with a “spherical cow” model
+Frederico Campos Freitas,1,a)Sandra Byju,2,b)Asem Hassan,2
+Ronaldo Junio de Oliveira,1,c)and Paul C. Whitford2,d)
+1Laborat /C19orio de Biof /C19ısica Te /C19orica, Departamento de F /C19ısica, Instituto de Ci ^encias Exatas,
+Naturais e Educac ¸~ao, Universidade Federal do Tri ^angulo Mineiro, Uberaba, MG, Brazil
+2Department of Physics and Center for Theoretical Biological Physics, Northeastern University,
+360 Huntington Avenue, Boston, Massachusetts 02115
+(Received 20 October 2021; accepted 20 October 2021)
+The dynamics of biological polymers, including proteins, RNA, and DNA, occur in very high-
+dimensional spaces. Many naturally occurring polymers can navigate a vast phase space and
+rapidly ﬁnd their lowest free energy (folded) state. Thus, although the search process is stochastic,
+it is not completely random. Instead, it is best described in terms of diffusion along a downhillenergy landscape. In this context, there have been many efforts to use simpliﬁed representations of
+the energetics, for which the potential energy is chosen to be a relatively smooth function with a
+global minimum that corresponds to the folded state. That is, instead of including every type ofphysical interaction, the broad characteristics of the landscape are encoded in approximate energy
+functions. We describe a particular class of models, called structure-based models, that can be used
+to explore the diffusive properties of biomolecular folding and conformational rearrangements.These energy functions may be regarded as the spherical cow for modeling molecular biophysics.
+We discuss the physical principles underlying these models and provide an entry-level tutorial,
+which may be adapted for use in curricula for physics and non-physics majors.
+#2022 Published under
+an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0075952
+I. INTRODUCTION
+When studying a complex system, physicists will typically
+begin by proposing a highly simpliﬁed model that includes afew relevant properties of the system. The broad utilization
+of this strategy inspired the well-known joke in the physics
+community regarding a spherical cow, with several examplesof this approach immortalized by a book entitled by thejoke.
+1That is, when studying a cow, a physicist’s ﬁrst
+approximation is to represent the cow by a sphere of uniformmass and charge density. Starting with this spherical cow,
+physicists will then investigate the properties of the simpli-
+ﬁed system before considering additional details. By itera-tively introducing new features, complex physical systemscan be understood at ever-increasing levels of detail. In con-trast to this approach, traditional biological studies aim to
+provide broad characterizations (e.g., structures and rates) of
+detailed systems (e.g., molecules in a cell). Thus, at ﬁrstglance, it may not be obvious how physicists can effectivelyapply the spherical cow philosophy to biology.
+In the following, we will discuss a spherical cow approach
+to studying molecular biophysics. Speciﬁcally, we willexplain the ideas behind a class of potential energy functions
+called structure-based models.
+2–4These models exploit the
+phenomenological features of biomolecules to provide a sim-pliﬁed version of the energetics. To understand the value ofthese models, it is necessary to recognize that molecular biol-
+ogy techniques can provide only atomic-resolution descrip-tions of long-lived stable structures of biomolecules.
+Accordingly, these conﬁgurations must correspond to deep (at
+least several k
+BT) free energy minima. Inspired by this simple
+observation, structure-based models explicitly deﬁne experi-mental conﬁgurations to be stable. That is, the baseline ver-
+sions of these models do not aim to identify the factors that
+impart stability. Rather, interactions formed in the native(ground state) conﬁgurations are deﬁned to be stabilizing, and
+all other interactions are treated as repulsive, which ensures
+that the spatial arrangements are preserved. Given the crudecharacter of the models, it may be surprising that these simpli-
+ﬁed representations have been able to model a broad range of
+biomolecular processes, ranging from protein folding
+2,5–7to
+the dynamics of protein synthesis by the ribosome.8–10
+We ﬁrst provide a brief introduction to molecular biology
+for physics students, followed by a description of simulation
+techniques and structure-based models. We additionally dis-
+cuss example calculations that can be adopted and integratedin advanced undergraduate or graduate-level physics
+courses. Our intent is to provide students (and instructors)
+with a basic understanding of the biological context andphysical principles. To facilitate the adoption of this mate-
+rial, we provide a repository with step-by-step instructions
+on how to apply the models to simulations.
+225 Am. J. Phys. 90(3), March 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 225 04 October 2023 23:04:57
+II. MOLECULAR BIOLOGY: A PRIMER FOR
+PHYSICS STUDENTS
+Because most physics students have limited exposure to
+biological systems, we ﬁrst provide some biochemical and
+physical–chemical background that is necessary for under-
+standing the physical principles that govern biology. We will
+focus on biological polymers, including proteins and nucleic
+acids. Due to the intimate relationship of structure andfunction, we will discuss both chemical composition and
+empirically determined structural properties. Although our
+discussion can be found in standard biochemistry texts, this
+overview allows for a more focused entry into the simulation
+of biopolymers.
+A. Protein structure
+Proteins have many roles in the cell, including providing
+structural integrity, executing chemical reactions, signaling,
+and regulating gene expression. A protein is a polymer that
+is formed by a sequence of amino acid residues. Each amino
+acid or residue [see Fig. 1(a)] is composed of a common
+amino group (NH
+2), carbon ( Ca), and carboxyl group (CO 2),
+while the “side chain” (usually denoted by the letter R) dif-
+fers for each type of residue. There are 20 naturally occur-
+ring amino acids, each deﬁned by the composition of the R
+group. Each amino acid is linked to the next residue by theformation of a peptide bond, such that a single protein chain
+is called a “polypeptide.” When describing protein struc-
+tures, the N-terminal end is considered the “beginning” of
+the chain, and the end of the chain is the C-terminal tail. If
+we exclude the side chain atoms, we can deﬁne the
+“backbone” of the chain by the repeating set of common
+atoms. Because the backbone atoms are common to each res-idue, amino acids are generally classiﬁed based on the side
+chain (R) composition, where they can be acidic, basic,
+uncharged polar, and non-polar (hydrophobic).There are several dominant classical forces that describe
+the energetics of proteins. Along with the covalently linked
+backbone atoms, there are weaker non-covalent interactions
+that can be formed between all atoms in the chain. The fourtypes of non-covalent interactions that are relevant in biomo-
+lecules are electrostatic, hydrogen bond, van der Waals, and
+hydrophobic interactions. Charged species interact via long-range Coulomb interactions. Hydrogen bonds are directional
+dipole–dipole interactions that can be formed between H
+atoms bound to highly electronegative atoms (donors), suchas N, O, or F, with other electronegative atoms (acceptor
+atoms). The van der Waals interaction accounts for the
+excluded volume due to the exclusion principle as well as a
+net attractive force due to instantaneous dipole–dipole interac-
+tions. Hydrophobic interactions describe the way by whichnon-polar hydrophobic (water-repelling) residues favor aggre-
+gation to minimize exposure to the polar solvent environment.
+To systematically describe a protein, it is necessary to
+decompose its structure into multiple tiers. At the most basiclevel, the primary structure is used to deﬁne the sequence of
+amino acids that are present in a single chain, such as the
+four-amino acid polypeptide in Fig. 1(a). Local structure for-
+mation in short segments (typically 10–20 residues) is called
+the secondary structure, where the two major structural
+motifs are the ahelix and bsheet [see Figs. 1(b) and1(c)]. In
+anahelix, the polypeptide twists to form a right-handed heli-
+cal structure that is stabilized by hydrogen bonds formed
+along the protein backbone. To aid the inspection of thestructure, graphical software will typically display these
+regions as helical ribbons [Fig. 1(b)]. The second common
+structural motif is the bsheet, which is formed when two or
+more spatially adjacent segments of the polypeptide chain
+align in a parallel or anti-parallel arrangement. These ele-
+ments are often shown as aligned arrows [Fig. 1(c)]. At a
+higher level of organization is the tertiary structure of a pro-
+tein, which typically involves the spatial organization of
+Fig. 1. Protein structure: (a) A polypeptide composed of four amino acid residues; the N- and C-terminal ends are marked. Shown is a ball and stick repre senta-
+tion of all non-hydrogen atoms (color coded), with bonds shown as thin cylinders. (b) An ahelix of protein chymotrypsin inhibitor (CI2) with helical ribbons
+representing the polypeptide backbone and side chains shown explicitly using a ball and stick representation. (c) A bsheet of CI2 with aligned arrows repre-
+senting the polypeptide backbone and side chains shown in a ball and stick representation. (d) Tertiary structure of CI2. Cartoon representation of C I2 in its
+folded conformation, with ahelix (purple) and bsheets (yellow) highlighted.
+226 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 226 04 October 2023 23:04:57
+numerous secondary structure elements [Fig. 1(d)]. When a
+portion of the chain assembles into an autonomous unit,
+these elements are often called “domains.” The ﬁnal level of
+organization is the quaternary structure, which refers to theassembly and association of multiple peptide chains.
+B. Structural properties of nucleic acids (RNA and DNA)
+The second class of biomolecules that we will discuss are
+nucleic acids, which are formed by a string of nucleotidemonomers. A nucleotide is composed of a backbone pentose
+sugar, where the carbon atom in the 5
+0position is linked to a
+phosphate group, and a nitrogenous base is covalentlybonded to the 1
+0-carbon atom through a N-glycosidic linkage
+[Figs. 2(a) and 2(b)]. Nucleic acid carbons belonging to
+sugar rings have the prime symbol added to their numbers to
+differentiate them from nucleobase ring carbons. In contrastto proteins, which carry their þ1o r/C01 charge on the side
+chain, the nucleic acid backbone has a negative charge that
+arises from the phosphate group (PO
+/C0
+4). As for proteins, the
+sequence of nucleic acid residues deﬁnes the polymer. Oneach residue, there is a nitrogenous base, which is either a
+purine (adenine, guanine [Figs. 2(c) and2(d)]), or a pyrimi-
+dine (cytosine, uracil, thymine [Figs. 2(e)–2(g) ]). The two
+major classes of nucleic acids (RNA and DNA) are classiﬁedby the presence/absence of a single oxygen atom on the 2
+0
+carbon in the backbone of each residue [Figs. 2(a)and2(b)].
+DNA typically forms the well-known double-stranded
+helix, where hydrogen bonds are formed between comple-mentary bases in the two chains. This stabilizing energyimparted by Watson–Crick base pairing is in addition to that
+associated with the stacking of adjacent bases (hydrophobic
+and van der Waals forces). The most common DNA structureis the right-handed double helix (B form).
+In contrast to DNA, RNA molecules adopt a wide range of
+stable conformations. With this extended versatility, they
+can contribute to functional conformational dynamics in thecell by serving as biomolecular machines (e.g., the ribosome)or performing enzyme activity (e.g., ribozymes). Although
+all RNA molecules have similar components, their functional
+roles have led to the introduction of many different names.For example, RNA associated with gene expression is often
+called mRNA, and RNA present in the ribosome is called
+rRNA. Regardless, RNA can exist in isolation (i.e., individ-
+ual chains), where hydrogen bonds and Coulomb forces sta-
+bilize a range of structural motifs, including the RNA double
+helix (A form), hairpin loops, internal loops, bulges, and
+junctions. Together, these structural elements are referred to
+as the secondary structure of an RNA molecule. These sec-
+ondary structure elements arrange to form functional tertiary
+conformations. In addition to RNA–RNA interactions, the
+large negative charge of RNA chains leads to a strong depen-
+dence of RNA structure on metal ions, including Mg
+2þand
+Kþ.
+C. Protein synthesis, folding, and assembly
+DNA, RNA, and proteins are the key biomolecular com-
+ponents that deﬁne molecular biology. That is, genetic infor-
+mation is coded in DNA, which is then transcribed to mRNA
+sequences. Although the transcription of mature mRNA in
+prokaryotes (single-cell organisms) is performed by RNA
+polymerase, in eukaryotes (multi-cellular organisms), the
+mRNA can be further modiﬁed through a range of processes,
+such as splicing. In both cases, the mature mRNA sequenceis read and translated into a protein sequence by the ribo-
+some. After the ribosome produces a new protein, the protein
+must then fold to carry out any given biological purpose.
+The most common way to begin to think about protein
+folding is to begin with what is known as Levinthal’s para-
+dox.11According to this “paradox,” a random search to ﬁnd
+the folded conformation would require the age of the uni-
+verse. For example, for a polypeptide of 100 amino acid resi-
+dues, with each residue having two allowed conformations,
+there would be a total of 2100possible conformations. If the
+random sampling of conformations occurred every picosec-
+ond, it would require roughly 1010years for a single protein
+to fold. However, protein folding occurs many orders of
+magnitude faster, generally between microseconds andseconds.
+To reconcile the apparent paradox, it was recognized that
+the energy landscapes of proteins must not be random or ﬂat.
+Instead, the energy landscapes may be thought of as being
+funnel-shaped,12where the principle of minimal frustra-
+tion13–16indicates that there is a lack of large-scale energetic
+traps. In this framework, protein folding may be described as
+a diffusive process, where the protein moves along the land-
+scape in the direction of the global minimum. Due to the
+presence of a large energy gap between the native and
+unfolded conformations relative to the scale of the energetic
+roughness, the dynamics in these funneled landscapes yields
+time scales that are consistent with the dynamics in the cell.
+III. THEORETICAL MODELS AND
+COMPUTATIONAL METHODS
+Although experimental molecular biology techniques can
+determine the atomic structures of stable structures, describ-
+ing their dynamics requires an understanding of energetics.
+From a theoretical/computational perspective, we need to
+specify how atoms within a biomolecule interact, typicallyby constructing a suitable potential energy function. Once a
+potential energy function (force ﬁeld) is deﬁned, we use
+numerical techniques to evaluate the associated kinetic and
+thermodynamic properties of the system. The two most
+Fig. 2. Nucleic acids. Each nucleotide is composed of a pentose sugar with
+phosphate group attached to 50carbon and nucleobase attached to the 10car-
+bon: (a) RNA nucleoside with ribose sugar and a phosphate group connected
+to the 50carbon. (b) DNA nucleoside with deoxyribose sugar and a phos-
+phate group connected to the 50carbon. Purine nucleobases are adenine (c)
+and guanine (d). Pyrimidine nucleobases are cytosine (e), uracil (f), and thy-
+mine (g); uracil is unique to RNA as thymine is to DNA.
+227 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 227 04 October 2023 23:04:57
+widely used computational techniques are Monte Carlo and
+molecular dynamics (MD) simulations. For an introduction,
+see Ref. 17. We will focus on MD techniques, because they
+are more widely used to study the kinetics and equilibriumdistributions in proteins. We ﬁrst describe the physical prin-
+ciples behind MD simulations, followed by a discussion of
+the types of force ﬁelds that may be applied in simulations ofbiomolecules.
+A. Molecular dynamics simulations
+Molecular dynamics simulations involve numerically inte-
+grating Newton’s equations of motion, using a discrete time
+step s(generally femtosecond scale). At each step, the
+molecular forces are calculated, the coordinates and veloci-ties are incremented in time, and the process is then
+repeated.
+17In its simplest form, we can use the positions and
+velocities at time t, along with the force ( F¼/C0$U) to deter-
+mine the positions and velocities at time tþsby the
+relations,
+XðtþsÞ¼XðtÞþVðtÞs (1)
+VðtþsÞ¼VðtÞþFðtÞ
+ms: (2)
+Although higher-order approximations, such as the Verlet
+algorithm,18are typically applied in research settings, all
+MD simulations share this approach for determining the time
+sequence of conﬁgurations. By using this simple approach, atrajectory of the motion can be obtained to probe functional
+conformational transitions,
+19ligand binding,20subunit asso-
+ciation,21and folding transitions.22,23We will focus on pro-
+tein folding/unfolding transitions to illustrate the methods
+and physical analyses that are available.
+To integrate Newton’s equations of motion, the potential
+energy function must be deﬁned. The potential energy func-tion contains terms that specify the nature of the interactions
+between bonded and non-bonded atoms. Bonded interactions
+are typically associated with pairs of atoms, triplets thatform angles, or quartets that form dihedral angles. These
+bonded terms deﬁne the covalent bond geometry of the bio-
+molecule and approximate the vibrational properties thatarise from covalent interactions.
+Interactions between non-covalently bonded atoms can be
+divided into several broad classes. Steric repulsion arises
+from atomic exclusion, where two atoms are not allowed tooverlap their electronic densities. In classical MD simula-tions, this effect can be described by many possible func-
+tional forms, although a 1 =r
+12relation is most commonly
+applied. Another major contributor is electrostatic interac-tions. Because classical MD simulations do not explicitly
+describe electrons, partial charges are typically assigned to
+each atom, and the precise values are intended to reﬂect theassociated (average) electronic densities. These charges
+interact via Coulomb potentials, screened-Coulomb poten-
+tials, or other implicit-solvent representations. In addition toelectrostatics, dispersion forces can also lead to attraction
+between atoms. These effects are commonly approximated
+by a 1 =r
+6dependence. As we have described, hydrogen
+bonds can also occur, where proton-mediated interactions
+are formed between two highly electronegative atoms.
+Finally, base–stacking interactions are generally attractive inRNA and DNA and provide a critical contribution to overall
+molecular stability.
+A particularly important factor that inﬂuences the struc-
+ture of biomolecules is the nature of solvent (water) interac-tions. Sometimes, structural water molecules can bind toproteins and form stabilizing hydrogen bonds with acceptor
+groups. In addition, the solvent can mediate hydrophobic
+interactions, which are entropic in nature. The hydrophobiceffect is due to hydrophobic residues being sequestered fromthe solvent, which leads to an increase in the conﬁgurationalentropy of the solvent. We will perform simulations with animplicit-solvent model for which the impact of the solvent isincluded by an effective representation.
+After deﬁning the functional form of different terms in the
+potential energy function, parameters have to be speciﬁed.The parameters can be determined using quantum mechani-cal calculations, semi-empirical comparisons, effective
+parameterization strategies, or phenomenologically based
+arguments. In the latter cases, the energetic terms representeffective interactions between atoms inside the biomolecule.These effective interactions typically account for solventeffects when the solvent is not explicitly modeled, and anyother energetic interactions that are not represented explic-itly, which can include hydrogen bonds, salt bridges, andstructural water molecules.
+B. Coupling to a heat bath
+Biomolecules are constantly bombarded by collisions with
+water and other molecules inside the cell. To describe the
+exchange of energy between the molecule of interest and the
+local environment, it is common for MD simulations to cou-ple the dynamics to an external constant temperature heatreservoir. If the number of particles and volume are also heldconstant, then the canonical NVT ensemble is described.One way to account for coupling to a heat bath is to applyLangevin dynamics. In these applications, we integrateNewton’s equations of motion, and the effect of the solventis taken into account by introducing a drag term and a ran-dom force term,
+m€X¼/C0 r U/C0c_Xþﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2ck
+BTp
+RðtÞ; (3)
+where Xis the position of an atom (out of Natoms), Uis the
+potential energy function, and cis an effective drag coefﬁ-
+cient. The second term represents dissipative momentum
+exchange of the protein with the solvent molecules, and the
+third term represents the random force imparted by collisionswith the solvent atoms. This random force is represented asGaussian white noise with zero mean, and the distribution ofvalues is deﬁned according to the ﬂuctuation-dissipationtheorem.
+24
+C. Structure-based models: The spherical cow
+As discussed in Sec. I, physicists usually begin their study
+of a complex system by proposing a simpliﬁed model (thinkof how many times you have reduced a system to a simpleharmonic oscillator). In the context of understanding the
+physics of molecular biology, an extremely simpliﬁed ver-
+sion of a biomolecule is a structure-based model, which wenow describe.
+We will employ an all-atom structure-based (SMOG)
+model
+3,4to demonstrate how simple force ﬁelds can be used
+228 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 228 04 October 2023 23:04:57
+in conjunction with MD simulations to study the diffusive
+aspects of protein folding. In this model, all non-hydrogenatoms are represented as beads of unit mass. The parameters
+of the force ﬁeld are deﬁned to stabilize a known biomolecu-
+lar structure, which is usually obtained from experiment. Theforce ﬁeld is intended to represent the effective energetics ofthe system, after averaging over electrostatics, van derWaals, and solvent effects. With this approach, the potentialenergy landscape is funneled toward the native conforma-tion. Accordingly, at sufﬁciently low temperatures, the free
+energy landscape will also exhibit funnel-like characteristics.
+In this representation, the absence of non-native attractiveinteractions is in accordance with the principle of minimalfrustration.
+13–15That is, the principle of minimal frustration
+implies a smooth energy landscape, in which native interac-tions provide the dominant contribution to the energetics.
+Although the energy landscape is minimally frustrated, free
+energy barriers can still occur as a result of steric or entropicfactors.
+In this model, the potential energy function is given by
+U¼X
+bonds/C15r
+2ðr/C0r0Þ2þX
+angles/C15h
+2ðh/C0h0Þ2
+þX
+impropers/C15v
+2ðv/C0v0Þ2þX
+backbone /C0dihedrals/C15bbFð//C0/0Þ
+þX
+sidechain /C0dihedrals/C15scFð//C0/0Þ
+þX
+contacts/C15crij
+rij/C18/C1912
+/C02rij
+rij/C18/C196"#
+þX
+non/C0contacts/C15ncrnc
+r/C18/C1912
+; (4)
+where
+Fð/Þ¼ 1/C0cos/ ½/C138 þ1
+21/C0cos 3 / ½/C138 : (5)
+The bond, angle, and improper dihedral terms deﬁne the
+covalent bond structure of the protein. The values of the
+parameters r0and h0are taken from the experimentally
+obtained structure. Non-planar improper dihedrals v0are
+also given the values adopted in the structure. The energyscale is set by /C15, with /C15
+r¼100/C15=˚A2;/C15h¼80/C15=rad2;/C15v
+¼40/C15=rad2for planar dihedrals, and /C15v¼10/C15=rad2for other
+improper dihedrals.
+The dihedral angle terms inﬂuence the local secondary
+structure of the protein. The values of /0are set to those in
+the experimentally obtained structure. This model providesmore stabilizing energy to backbone dihedrals, where thevalues of /C15
+bband /C15scare assigned values such that
+/C15bb=/C15sc¼2.
+Non-bonded interactions include stabilizing interatomic
+contacts as well as steric repulsion between atom pairs that
+are not in contact in the native structure. In this simplestform of the model, non-bonded interactions are all describedby isotropic pairwise interactions. Contact interactions aredeﬁned between any two atoms that are in contact in thenative structure. Native contacts are deﬁned based on the
+shadow algorithm.
+25In this algorithm, any two atoms are
+considered “in contact” in the experimental structure if theyare separated by less than 6 A ˚, not connected by less thanfour bonds, and not occluded by any other atoms. All native
+contacts are given Lennard-Jones-like interactions, with min-
+ima set to r
+ij, the interatomic distances found in the experi-
+mentally obtained structure. Consistent with theoreticalanalyses,16,22,26/C15cis deﬁned such that the amount of energy
+in the contacts is twice the energy in the dihedrals,
+X
+/C15cX
+/C15bbþX
+/C15sc¼2 (6)
+and
+X
+/C15cþX
+/C15bbþX
+/C15sc¼N/C15: (7)
+The inverse 12th power steric repulsion terms between all
+non-contact atoms have rnc¼2:5˚A and /C15nc¼0:1/C15.
+D. Protein folding thermodynamics
+For many protein sequences, there is a well-deﬁned folded
+state that is typically associated with a globular structure. Inthis structure/state, there are many interactions that contrib-
+ute to the stability of the folded protein. Interestingly, many
+proteins reversibly fold and unfold under constant tempera-ture conditions. When the protein is folded, excluded volume
+interactions and topological constraints strongly limit the
+conﬁgurations that may be adopted, and the folded state maybe described as a small ensemble (with low conﬁgurational
+entropy) of structurally similar conﬁgurations. In contrast,
+the unfolded state is characterized by an extended peptidechain, where there is only a small number of native contacts
+that transiently form and break. As a result, the unfolded pro-
+tein can explore a vast range of conﬁgurations. Accordingly,the folded state has low enthalpy and a low entropy, while
+the unfolded state has a higher enthalpy and higher entropy.
+The relative balance between folded and unfolded states
+depends on the thermodynamic stability of each state. In thecanonical ensemble, systems are driven toward macrostates
+that minimize the free energy. We will consider the
+Helmholtz free energy F¼E/C0TS, where Eis the energy, S
+is the entropy, and Tis the temperature. At high tempera-
+tures, there is a greater weight given to entropy, such that
+systems are driven toward high entropy states, thus loweringthe free energy. At low temperatures, the inﬂuence of
+entropy is minimal, and systems are driven toward low
+energy states. In the case of protein folding, there exists atemperature for many proteins at which the folded and
+unfolded states have equal free energies, and are therefore
+equally probable. At this temperature, called the folding tem-perature T
+f, the protein will reversibly interconvert between
+folded and unfolded states indeﬁnitely.
+There are several ways to identify the folding temperature
+of a protein. First, we can deﬁne a reaction coordinate (or
+order parameter), such as the fraction of native contacts thatdistinguishes between the two states. We simulate the system
+at many temperatures and determine the temperature at
+which the reaction coordinate values associated with thefolded state occurs with the same probability as the values
+associated with the unfolded state. Another way to identify
+T
+fis by the behavior of the speciﬁc heat at constant volume
+CV. For temperatures less (greater) than Tf, the protein is pre-
+dominantly in the folded (unfolded) state. For temperatures
+below or above Tf, the macrostate (folded or unfolded) does
+229 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 229 04 October 2023 23:04:57
+not depend strongly on the temperature, and the speciﬁc heat
+will be small. As the temperature approaches the foldingtemperature, the protein abruptly undergoes a pseudo-ﬁrst-order phase transition between the folded and unfoldedstates. This rapid shift is accompanied by a very large change
+in the energy, which will manifest itself as a peak in the spe-
+ciﬁc heat (Fig. 3). The peak in C
+Vindicates the pseudo-phase
+transition temperature, in this case the folding temperature.
+IV. DIFFUSIVE MOTION AND BIOMOLECULAR
+RATES
+To introduce how the concept of diffusion is used to study
+the dynamics of protein folding, we ﬁrst discuss some princi-ples of diffusive dynamics.
+A. Fundamentals of diffusive dynamics
+Diffusion is ubiquitous in ﬁelds ranging from physics and
+chemistry, to economics and other social sciences. From amacroscopic view, we can treat diffusion in terms of the netmovement of a quantity due to a gradient in concentration,which drives particles to lower-concentration regions. Fick’sﬁrst law formalizes the relation between the diffusion coefﬁ-
+cient D, concentration q, and ﬂux as
+27
+J¼/C0D$q; (8)
+where Jis the diffusion ﬂux vector. By applying the principle of
+mass conservation in a closed system, and assuming a constantdiffusion coefﬁcient, we can derive the second Fick’s law27
+@q
+@t¼Dr2q: (9)
+Although Eqs. (8)and(9)provide a deterministic descrip-
+tion of diffusion, the motion of an individual particle islargely random and controlled by noise. Historically, the
+erratic movement of pollen particles in a motionless water
+droplet ﬁrst caught the attention of Robert Brown, and therandom motion that underlies diffusion is now known asBrownian motion. Brownian motion was subsequently ana-lyzed by Einstein in one of his annus mirabilis’ papers.
+28,29
+The relation between the random thermal motion and diffu-
+sion has been discussion by Einstein, Smoluchowski,Langevin, Fokker, among many others.
+For simplicity, we will consider a one-dimensional repre-
+sentation of a diffusive system and write the Brownian
+motion in terms of the Langevin equation as
+md2x
+dt2¼/C0adx
+dtþFrðtÞ; (10)
+where ais the friction coefﬁcient and FrðtÞis a random
+force. This random term arises due to collisions with theenvironment and has the properties that there is no direc-tional bias, hF
+rðtÞi ¼ 0, and sequential collisions are random
+in direction and amplitude, hFrðtÞFrðt0Þi ¼ Bdðt/C0t0Þ.W e
+divide both sides of Eq. (10) bymand rewrite it in terms of
+the particle velocity to ﬁnd
+dv
+dt¼/C0cvþfðtÞ; (11)
+where c¼a=mandfðtÞ¼FrðtÞ=m. Equation (11) obeys the
+same conditions as Eq. (10), and thus hfðtÞi ¼ 0 andhfðtÞfðt0Þi ¼Cdðt/C0t0Þ, with C¼B=m2. By applying these
+conditions to the solution of Eq. (11), we ﬁnd that the solu-
+tion of Eq. (11) is
+hv2i/C0h vi2¼C
+2c1/C0e/C02ct ðÞ ; (12)
+which at long times approaches hv2i/C0h vi2¼C=ð2cÞ.B y
+applying the equipartition theorem to the ﬁrst term, weobtain the explicit temperature dependence,
+C¼2ckBT
+m; (13)
+and consequently B¼2akBT. By using the same strategy,
+we can determine the mean-square displacement of a particlethat is undergoing Brownian motion,
+hx
+2i/C0h xi2¼C
+c2t/C02
+c1/C0e/C0ct ðÞ þ1
+2c1/C0e/C02ct ðÞ/C20/C21
+;
+(14)
+where the left-hand side is the mean-squared displacement as
+a function of time. In the long-time limit, the ﬁrst term ofEq. (14) is dominant and the mean-square displacement
+reduces to30,31
+hx2i/C0h xi2¼2Dt; (15)
+where D¼C=ð2c2Þand D¼B=ð2a2Þ. From Eq. (13),w e
+can write the relation between the diffusion coefﬁcient and
+the temperature as
+D¼kBT
+a: (16)
+Equation (16) is also applicable for two and three dimen-
+sions. If we substitute the friction coefﬁcient for a sphericalparticle of radius rmoving in a liquid of viscosity l, Eq. (16)
+becomes
+D¼kBT
+6plr: (17)
+B. Applying diffusive concepts to biomolecules
+Although the early studies of diffusion provided funda-
+mental insights into the principles that govern stochastic pro-cesses, it was Hendrik A. Kramers who extended these
+concepts to analyze the rates of chemical reactions.
+32–34By
+building on Einstein’s results, he derived general diffusionequations that describe the dynamics in the low and high vis-cosity regimes. The latter, overdamped regime is most rele-vant to the study of biomolecular dynamics and will be used
+here to describe the dynamics of large-scale collective
+processes.
+Protein folding is a self-organizing process that is well
+described in terms of chemical reaction concepts.
+35It is use-
+ful to categorize each accessible structure of a biomoleculeas belonging to the unfolded, partially folded, or fully folded
+ensemble. We use the number of native contacts as the reac-
+tion coordinate, and an ensemble of conﬁgurations is associ-ated with a common number of contacts. If these ensembles
+230 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 230 04 October 2023 23:04:57
+are ordered in terms of their similarity to the folded state, the
+number of conformations that can be accessed decreases dra-
+matically as the folded state is approached.12,14,16The distri-
+bution of conﬁgurations then resembles a funnel-like entity,where the global minimum corresponds to the folded struc-ture. Based on the principle of minimal frustration,
+12,14,16the
+energetic roughness on the funnel must be small relative to
+the difference in energy between the folded (the bottom ofthe funnel) and unfolded states (the top of the funnel). In this
+interpretation, the kinetics of folding is governed by the
+overall slope of the funnel, as well as its roughness, wherethe latter controls the diffusive properties of the molecule.
+Although protein energy landscapes have many dimensions,
+it is often sufﬁcient to consider the free energy as a function of
+only a small number of coordinates. These low-dimensional freeenergy landscapes have two dominant minima that correspondto the unfolded and folded states, similar to the descriptions of
+products and reactants when discussing chemical kinetics.
+Chemical kinetics are often described using single atomic dis-tances or angles. In contrast, folding is a collective process that
+typically requires more elaborate metrics to quantify. A widely
+used coordinate for describing folding is the fraction of nativecontacts that are formed as a function of time.
+2–4As the protein
+folds, more of the native (folded) contacts are formed, and the
+coordinate will adopt larger values. In many proteins, this reac-tion coordinate captures the basic diffusive properties of thefolding process,
+36which allows the system to be described in
+terms of the Fokker–Planck equation. This equation describes
+the time evolution of a stochastic process subject to a determin-istic drift,37
+@
+@tPðx;tÞ¼ /C0@
+@xvþ@2
+@x2D/C20/C21
+Pðx;tÞ; (18)
+where P(x,t) is the probability density of x,vis the drift velocity
+(associated with the external force), and Dis the diffusion coef-
+ﬁcient. Although Eq. (18)is given in terms of the spatial coordi-
+nate x, this relation can be used to describe other stochastic
+processes, and xcan represent either a spatial coordinate or a
+generalized reaction coordinate. In addition, the diffusion coefﬁ-cient Dc a nd e p e n do nt h ev a l u eo f x.
+For short time scales, the solution of Eq. (18) is given by37
+Pðx;tÞ¼/C01ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+4pDðxcÞtp exp /C0x/C0xc/C0vðxcÞt ðÞ2
+4DðxcÞt"#
+;
+(19)
+for the initial condition Pðx;t¼0Þ¼dðxcÞ. Equation (19)
+represents a Gaussian distribution, initially centered at xc,
+moving with velocity vðxcÞ, where the width of the Gaussian
+rincreases as the square root of t(rðtÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2DðxcÞtp
+). The
+drift and diffusion coefﬁcients can be expressed as
+vðxcÞ¼hxðt2Þ i/C0h xðt1Þi
+Dt(20)
+and
+DðxcÞ¼r2ðt2Þ/C0r2ðt1Þ
+2Dt; (21)
+where Dt¼t2/C0t1. In principle, Eqs. (20) and(21) should
+be evaluated in the limit Dt!0 to obtain the drift anddiffusion coefﬁcients from a given dataset. However, in real-
+world applications, Dtonly has to be small enough to ensure
+convergence of both quantities.
+By using Eqs. (20) and(21), it is possible to numerically
+extract the diffusion and drift coefﬁcients directly from a
+time series of values for a speciﬁc reaction coordinate x(t).38
+We will provide an example of how to use these relations
+to quantify diffusive dynamics, which we call the drift–diffusion (DrDiff) approach.39–41To use this approach, one
+discretizes the reaction coordinate values into bins, whereeach bin is centered around x
+cwith a width of dxc. By using
+these binned time values, time-dependent distributions are
+calculated over the interval ½tinitial;tfinal/C138. The functional form
+given by Eq. (19) is then ﬁt to each distribution to provide an
+estimate of the position of the Gaussian center and standarddeviation for each time Dt. Linear regressions for r
+2ðtÞand
+xcðtÞare then evaluated using all the values obtained from
+the time interval considered.
+For systems that are described well in terms of diffusion
+on a one-dimensional landscape, we can obtain several rela-
+tions between diffusion, drift, free energies and rates. For
+example, the free energy proﬁle can be extracted from thedrift velocity and diffusion coefﬁcient using42
+FðxÞ=kBT¼/C0ðx
+xrefvðx0Þ
+Dðx0Þdx0þlnDðxÞþconstant ;
+(22)
+where the additive constant is related to the arbitrary free
+energy of reference state xref. Equation (22) can be derived
+by assuming the equilibrium probability density Peqis a
+solution of the steady-state Fokker–Planck equation, Eq.(18) and that P
+eqðxÞ/exp½/C0FðxÞ=kBT/C138, where F(x) is the
+free energy.42In addition, the mean ﬁrst-passage time sf
+between two points on the proﬁle, which is inversely related
+to the rate, is given by43
+sf¼ðxfold
+xunfdxðx
+0dx0ebFðxÞ/C0Fðx0Þ ½/C138
+DðxÞ; (23)
+where F(x) is the coordinate-dependent free energy proﬁle,
+D(x) is the coordinate-dependent diffusion coefﬁcient, and
+b¼1=kBT. In this context, it is assumed that the coordinate
+increases as a function of the reaction (folding) and that thereis a lower bound of zero.
+Equation (23) can be used to obtain folding time scales if
+x
+unfandxfolddeﬁne the unfolded and folded state minima on
+the free energy proﬁle. The intervening barrier deﬁnes thetransition state ensemble, which is the collection of conﬁgu-rations that have values of the coordinate for which the free
+energy is maximal. In the following, we will use the fraction
+of native contacts as the coordinate for folding, because ithas been shown to exhibit diffusive properties and capturesthe rate-limiting barrier for many systems.
+36
+C. WHAM—weighted histogram analysis method
+The calculation of the thermodynamic properties of a sys-
+tem can be reduced to determining the density of states. We
+will employ the weighted histogram analysis method
+(WHAM) to combine histograms from multiple simulationsperformed with different thermodynamic parameters (tem-perature). Instead of providing a derivation, we provide a
+231 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 231 04 October 2023 23:04:57
+brief introduction to WHAM, so that readers may appreciate
+this statistical mechanics tool.
+The potential of mean force44,45is widely used as a mea-
+sure of the free energy change during biomolecular pro-
+cesses. In terms of the probability distribution pðnÞ,w em a y
+obtain the potential of mean force from the relation
+WðnÞ¼Wðn/C3Þ/C0kBTlnpðnÞ
+pðn/C3Þ/C20/C21
+; (24)
+where n/C3andWðn/C3Þare arbitrary constants, nis the system
+reaction coordinate, and Wis the potential of mean force.
+This approach is useful when there is sufﬁcient Boltzmann
+sampling, although the accuracy of the calculation is limitedby the quality of the data. WHAM is a powerful technique
+that allows one to extract unbiased distributions from data-
+sets that were obtained with or without biasing forces. Assuggested by the name, WHAM estimates the relative
+weights of the sampled histograms to generate a set of unbi-
+ased free energy proﬁles. The algorithm applies the follow-ing arguments. For a set of Zhistograms, the average
+distribution function is given by
+46–48
+hpðnÞi ¼XZ
+i¼1nihpðnÞii
+XZ
+j¼1nje/C0bwjðnÞ/C0fj ½/C138; (25)
+where niis the number of snapshots used to calculate a histo-
+gram/distribution from the ith simulation: hpðnÞii. From Eq.
+(25), the free energy of the ith simulation can be calculated
+from
+bfi¼/C0lnð
+hpðnÞie/C0bwiðnÞdn: (26)
+Equations (25) and(26) were derived by minimizing the
+sampling errors in the overlapping regions of the probabilitydistributions.48In the WHAM algorithm, Eqs. (25) and(26)
+are iteratively evaluated until a self-consistent solution is
+obtained, at which point pðnÞis approximated by hpðnÞi.
+This solution yields temperature-dependent free energy pro-
+ﬁles as well as the speciﬁc heat as a function of temperature.
+We apply a version of WHAM that is distributed with theSMOG2 software package;4details can be found in the
+SMOG2 documentation.
+V. RESULTS
+We discuss an introductory example of how we can quan-
+tify diffusive aspects of protein folding using a simpliﬁed
+model. First, we will discuss how to identify the folding tem-
+perature for a given protein and model. We then discuss thecalculation of free energy barriers and the calculation of dif-
+fusion coefﬁcients from folding trajectories. We close with a
+brief discussion of convergence considerations when apply-ing molecular simulations to study dynamics. For our discus-
+sion, we will simulate and analyze the dynamics of the
+protein chymotrypsin inhibitor 2 (CI2; PDB code 2CI2).
+49
+CI2 was chosen because it has been widely utilized as a
+model protein for the study of folding dynamics. In addition,
+it is a relatively small protein that can be easily simulated,making it an excellent system for demonstrating the techni-
+ques and ideas associated with the analysis of diffusion in
+proteins.
+All simulation results presented here are available at the
+SMOG2_tutorial repository.50The repository also provides a
+ﬁle with instructions on how to replicate the simulated trajec-
+tories and analysis. Due to the stochastic properties of bio-molecular dynamics, individual time traces are not exactly
+reproducible. However, the statistical properties should be
+consistent with our discussion.
+A. Finding the folding temperature
+To study protein folding/unfolding under constant temper-
+ature conditions, it is necessary to ﬁrst identify the folding
+temperature. To do so, we typically start by performing sev-eral constant temperature simulations that span a wide range
+of temperatures. All simulations were performed with the
+GROMACS software package.
+51,52GROMACS is a molecu-
+lar dynamics simulation package that is widely used for the
+simulation of proteins, nucleic acids, and lipids. This pack-age integrates a given potential energy function, as in Eq. (4),
+to determine the time evolution of a system. To visualize the
+simulated trajectory, we use software, such as VMD (visualmolecular dynamics). Because GROMACS does not allow for
+the use of reduced units (the Boltzmann constant is hard
+coded), a reduced temperature of 1 corresponds to a
+GROMACS temperature of 120. That is, in reduced units, the
+Boltzmann constant is set equal to 1. However, becauseGROMACS uses a value of 0 :008 31 /C251=120 for the
+Boltzmann constant, a numerical value of /C25120 in
+GROMACS is equivalent to k
+BT¼1. In structure-based mod-
+els, room temperature corresponds to approximately 0.5
+Fig. 3. Schematic of the temperature dependence of the average energy and
+speciﬁc heat for a protein. The speciﬁc heat exhibits a large peak around the
+folding temperature Tf.
+232 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 232 04 October 2023 23:04:57
+reduced energy units. For the ﬁrst iteration (iteration 1 in Fig.
+4), the simulations were performed at eight different tempera-
+tures ranging from 0.67 to 1.25 (in reduced temperature units).WHAM was then used to combine the data from all tempera-tures and generate a speciﬁc heat curve (Fig. 4;r i g h t - h a n d
+curve). This initial set of simulations gives a pronounced peakatT/C251:015. Because it is possible that poor (non-Boltzmann)
+sampling can lead to artiﬁcial peaks in C
+V, we next performed
+additional simulations near the candidate folding temperature.In iteration 2, six additional simulations were performed fortemperatures ranging from 0.99 to 1.03, and the simulationsfrom both iterations were then combined using WHAM.Perhaps surprisingly, we see a clear shift in the C
+Vpeak to
+lower temperatures. Based on this result, we performed ﬁveadditional simulations (iteration 3) near the new candidatefolding temperature of /C251:0. In this example, we repeated the
+process for a total of four iterations. Between the third andfourth iterations, there were minimal changes in C
+V,which
+implies that Tf/C250:994.
+After identifying the folding temperature, we typically
+perform a much longer simulation at the folding temperature
+to obtain a large number of spontaneous folding and unfold-
+ing events. We performed a single simulation at the foldingtemperature of 109time steps, which is 100 times longer in
+duration than the initial simulations. We will refer to thislong simulation as the “trajectory.” Figure 5shows the num-
+ber of native contacts Q(t) as a function of time. A zoomed-
+in view of the simulation indicates there is a clear separationbetween the folded (high Q) and unfolded (low Q) states
+where abrupt transitions occur. In total, /C2580 transitions
+between folded and unfolded states were found. The plot onthe top right in Fig. 5shows two well deﬁned peaks in the
+probability distribution. The peak at Q/C25450 is associated
+with the folded state, and the one centered at Q¼50 corre-
+sponds to the unfolded state. For reference, the native struc-
+ture has 597 native contacts. The fact that the ensemble offolded conﬁgurations only has /C2580% of the native contacts
+formed may be surprising. This difference between the theo-retical maximum and the most probable value can be under-stood in terms of simple thermodynamic considerations.That is, when all contacts are formed the protein adopts a
+highly compact form, which is associated with strong steric
+interactions that conﬁne the chain. In other words, forming
+all contacts simultaneously is entropically disfavored.
+B. Calculating drift velocities and diffusion coefficients
+Unlike applications of diffusion that describe the ﬂux of
+particles that arise from a concentration gradient, diffusion
+in protein folding describes the probability ﬂux between themembers of a conformational ensemble. To describe this
+ensemble, it is often suitable to choose reaction coordinates
+to measure the “folded-ness” of the system. Although thereis no guarantee that a given coordinate will be suitable for
+the analysis of diffusion, we will ﬁnd that the number of con-
+tacts is suitable for describing the kinetics and thermody-namics of this protein.
+Although textbooks often describe a diffusion coefﬁcient
+as a constant, it can also be time and coordinate depen-
+dent.
+40,53–55In the context of protein folding, there have
+been many techniques applied to quantify diffusive proper-
+ties56,57from experiments58,59and simulations.38,60,61
+Fig. 4. The speciﬁc heat as a function of temperature (in reduced units) for a
+structure-based model of the protein CI2. To ﬁnd an initial estimate of the
+folding temperature, we evaluate the temperature where CVreaches a peak
+value. As the sampling is enhanced (iterations 1–4), the peak maximum
+shifts and moves closer to the correct folding temperature value of Tf
+¼0.994.
+Fig. 5. Number of native contacts Qas a function of time (top). In this tra-
+jectory, there are /C2580 transitions between the folded (high Q) and unfolded
+(low Q) states. The inset on the right shows the corresponding probability
+density. The bottom plot shows a zoomed-in perspective, which highlights
+the transition events and relative stabilities of the folded and unfolded states.
+The transition state ensemble in the gray region corresponds to conﬁgura-
+tions that successfully cross the underlying free energy barrier.
+233 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 233 04 October 2023 23:04:57
+To introduce the analysis and interpretation of diffusive
+dynamics, we apply the DrDiff approach described in Sec.IV B to evaluate both the drift and diffusion coefﬁcients as
+well as the free energy proﬁle from a simulated dataset.
+We analyze a long constant-temperature simulation (see
+Fig. 6) to estimate the coordinate dependent diffusion and
+drift coefﬁcients. As mentioned in Sec. VA, this simulation
+includes more than 80 folding/unfolding events where theprotein spontaneously samples fully folded and unfoldedconﬁgurations. Figure 6(a) shows the diffusion coefﬁcient
+calculated using Eq. (21). The diffusion coefﬁcient increases
+with the number of native contacts and then decreases as thefolded state is reached. We additionally calculate the drift
+velocity [see Fig. 6(b)], which is zero at distinct values of Q.
+Intuitively, these states should correspond to free energy
+minima and maxima. The diffusion and drift coefﬁcientswere then used to estimate the free-energy proﬁle using Eq.
+(22). Based on the time traces, there are two deep free energy
+minima that are separated by a clear barrier [Fig. 6(c)]. By
+comparing the probability density peaks with the free energy
+curve, it is clear that the two minima are more highly sam-
+pled than the transition state, which is the region where thefree energy is no less than 1 k
+BTbelow the peak value.
+The increase in the diffusion coefﬁcient from the unfolded
+state to the transition state [Fig. 6(a)] reveals how entropic
+factors can inﬂuence diffusive properties. That is, duringfolding, a protein must initially collapse, where it becomes
+increasingly difﬁcult to form additional contacts due to a
+high level of residual disorder in the chain. However, once acritical set of contacts is formed, the protein is sufﬁciently
+conﬁned that the rearrangements that result in formation of
+additional contacts are essentially the only allowablemotions.
+C. Calculating the free energy barrier
+There are several techniques to determine the free energy
+from a simulation. The most direct method is to evaluate the
+potential of mean force from the probability density, using
+F
+eq¼/C0KBTlnPðQÞ½/C138 þ C; (27)
+where P(Q) is the probability density for the chosen reaction
+coordinate Q, and Cis an arbitrary constant. The green curve
+in Fig. 7represents the free energy calculated from Eq. (27).
+Figure 7also displays the free energy proﬁle calculated from
+multiple simulations at different temperatures that are com-
+bined using WHAM. In addition, the free energy was esti-
+mated based on Eq. (22), where the drift and diffusion
+coefﬁcients were obtained from the DrDiff approach. The
+three techniques were applied to demonstrate the suitability
+of the reaction coordinate for describing the diffusiveprocess.
+Fig. 6. (a) Coordinate-dependent diffusion coefﬁcient obtained using
+DrDiff, Eq. (21). The diffusion coefﬁcient increases from the unfolded state
+until the end of the transition state (gray shaded area) and then decreases as
+the protein approaches the folded state. (b) Coordinate-dependent drift coef-
+ﬁcient extracted from the trajectory data. The gray shaded area shows the
+transition state, deﬁned as the region where the free energy is within kBTof
+its peak value at the barrier. (c) Probability density as a function of the num-
+ber of native contacts (blue, peaks near Q¼50 and 450), alongside the free
+energy proﬁle integrated from Eq. (22) (red, peak near Q¼250).
+Fig. 7. Comparison of the free energy proﬁles obtained by three different
+techniques. The green curve presents the free energy obtained from the tra-
+jectory probability density, using Eq. (27). In black is the free energy inte-
+grated from the coordinate-dependent drift and diffusion coefﬁcients using
+Eq.(22). Both are compared with the result from WHAM (red). The gray
+shaded area is the transition state ensemble.
+234 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 234 04 October 2023 23:04:57
+We ﬁnd that the main features of the free energy proﬁle at
+Tfare the same using the three techniques we considered.
+The positions of the minima and barrier are the same,
+although there are small differences in the barrier heights.The agreement suggests that the kinetics are well described
+in terms of one-dimensional diffusion along our chosen reac-
+tion coordinate. We stress that agreement between the meth-ods is not guaranteed for an arbitrary dynamical system. It is
+possible that some systems when described by certain coor-
+dinates may appear to exhibit subdiffusive dynamics, even ifthe underlying dynamics is not truly subdiffusive.
+62
+D. Convergence and sampling considerations
+We now discuss the importance of both duration and fre-
+quency of data storage/analysis when estimating kinetic and
+thermodynamic quantities from simulations. Because these
+considerations are not unique to a particular form of analysis,the general strategies can be applied to other areas as well.
+To illustrate a simple method for verifying convergence,
+we analyze fragments of the long trajectory used for the pre-
+vious calculations. First, we analyzed the initial 10
+6time
+steps of the simulation using DrDiff. The results will be
+referred to as 1M and contain the ﬁrst ten percent of the tra-
+jectory (ﬁle Q-119 :5:segment1 :dat in the tutorial repository).
+Figure 8(a) shows the free energy proﬁle (dashed blue line)
+estimated from these dataset. As expected, the free energy is
+undeﬁned for small values of Qbecause no unfolding transi-
+tions occurred in these initial frames, and hence, the
+unfolded conformations were not represented. The diffusion
+coefﬁcient is also very noisy in the transition state region,and no values are available for the unfolded ensemble. Next,
+the ﬁrst 5 /C210
+6trajectory steps, referred to as 5M, were ana-
+lyzed and the results are displayed in Fig. 8(dashed orange
+lines). This part of the simulation included only four folding/
+unfolding transitions. Nonetheless, the diffusion coefﬁcientsand free energies from the 5M dataset are comparable with
+those obtained from the complete trajectory (80 transitions).
+Another challenge when calculating diffusive properties is
+the choice of the proper frequency for saving/analyzing sim-ulated frames. For the DrDiff approach, it is necessary that
+the reaction coordinate changes by small increments between
+saved conﬁgurations. To illustrate the inﬂuence of this point,
+the results from the complete saved trajectory were com-
+pared to the results obtained when only every wth frame is
+considered, where wis known as the stride value. A stride
+value of w¼1 means that all conﬁgurations were saved,
+keeping the original trajectory intact. A stride value of
+w¼10 means that every tenth conﬁguration is saved, result-
+ing in a trajectory ten times smaller with a time step ten
+times longer. Figure 9shows how the different stride values
+impact the convergence of the diffusion coefﬁcient values.
+As expected, larger deviations are observed as wis
+increased. Interestingly, the positions of the free energy min-
+ima and barrier were insensitive to the stride value
+[Fig. 9(a)]. In contrast, the free energy barrier height changed
+by nearly 2 k
+BTaswwas varied. This dependence on whigh-
+lights how, even when describing the same system, various
+thermodynamic and kinetic properties may converge at dif-
+ferent rates. Accordingly, it is always necessary to verify the
+convergence and robustness of each quantity analyzed. In
+research studies, a more extended and iterative process thanthe one we discussed here is typically required to ensure that
+there is a satisfactory level of convergence.
+VI. REMARKS
+There are many opportunities for physicists to identify
+novel problems in the biological sciences. We have dis-
+cussed how a spherical-cow-like model can be used to obtain
+insights into the diffusive dynamics of protein folding. Our
+discussion represents only the beginning of what may be
+explored with these models. Although protein folding is a
+Fig. 8. Results from a complete trajectory at the folding temperature (total)
+compared with results from three subsets: (a) Free energy integrated from
+Eq.(22) for different trajectory segments (dashed lines) alongside the full
+trajectory (solid black line). The numbers are related to the ﬁle numbersavailable in the repository. (b) Corresponding coordinate-dependent diffu-
+sion coefﬁcients obtained using DrDiff via Eq. (21). With no transitions, the
+1M trajectory segment (ﬁrst 10
+6time steps) shows discrepancies in the tran-
+sition state and low Qvalues. All other analyzed segments show free energy
+proﬁles and diffusion coefﬁcient curves that agree with those generated
+from analysis of the complete trajectory. The gray shaded area is the transi-
+tion state region.
+Fig. 9. Results from a complete trajectory (total) compared with the resultsof trajectory subsets saved after skipping every wtime steps, with wvarying
+from 2 to 10: (a) Free energy integrated from Eq. (22) for ﬁve values of
+wapplied to the trajectory at T
+f. The positions of the free energy minima are
+the same, despite the different values of w, while the barrier is reduced by
+/C252kBTwhen wis increased. (b) The corresponding coordinate-dependent
+diffusion coefﬁcient is obtained via Eq. (21).A s wincreases, the deviations
+from the total trajectory (black) increase because there are fewer sampled Q
+values and because the drift-diffusion analysis is based on short-time
+dynamics, some of which is missed as wis increased. The gray shaded area
+is the transition state region.
+235 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 235 04 October 2023 23:04:57
+mature ﬁeld, the ideas developed in this context can be
+applied to a broad range of biological processes. For exam-
+ple, the study of reaction coordinates and diffusion is provid-
+ing insights into the relation between structure, energetics,
+and dynamics in very large molecular assemblies, such as
+bacterial9and eukaryotic63ribosomes. We expect that as the
+physics community continues to investigate areas of biology,
+new questions will be posed and answered, which will reveal
+the organizing principles of molecular biological processes.
+ACKNOWLEDGMENTS
+P.C.W. was supported by NSF Grant No. MCB-1915843.
+Work at the Center for Theoretical Biological Physics was
+also supported by the NSF (Grant No. PHY-2019745).
+F.C.F. was ﬁnanced by the Coodenac ¸~ao de Aperfeic ¸oamento
+de Pessoal de N /C19ıvel Superior-Brasil (Capes)-Finance Code
+001. Financial support for R.J.O. was provided by Fundac ¸~ao
+de Amparo /C18a Pesquisa do Estado de Minas Gerais
+(FAPEMIG, No. APQ-00941-14) and Conselho Nacional de
+Desenvolvimento Cient /C19ıﬁco e Tecnol /C19ogico (CNPq, Nos.
+438316/2018-5 and 312328/2019-2).
+APPENDIX: SIMULATION VISUALIZATION
+TUTORIAL
+Visual molecular dynamics (VMD) is a powerful three-
+dimensional (3D) molecular visualization and analysis soft-ware package64that stands out in its capability to visualize
+extremely large biomolecules and arbitrary graphics objects
+along with its long molecular dynamics trajectories. In addi-
+tion, VMD includes a powerful scripting interface that sup-
+ports TCL-based commands64,65for manipulating
+visualizations and performing analyses.
+Platform-speciﬁc VMD can be downloaded.66Once VMD
+is installed, it starts with three default windows: VMD Main,
+VMD OpenGL Display, and VMD console. We explore the
+basic capabilities of VMD by going through the steps
+required to generate various representations of the chymo-
+trypsin inhibitor 2 protein.
+(1) Download the PDB formatted ﬁle of the chymotrypsin
+inhibitor 2 protein (ID:2CI2) from the RCSB Protein
+Data Bank.67This protein can be found using the search
+option on the PDB webserver.
+(2) To load the atomic structure ﬁle (.pdb) of the molecule,
+select File !New Molecule in the VMD Main window
+and use the Browse option to choose the.pdb ﬁle in the
+Molecule File Browser window; then press Load. You
+will be able to see the 2CI2 molecule in the OpenGL
+Display, and the.pdb ﬁle will be listed in the Mainwindow.
+(3) To modify the 3D visualization of the molecule, there
+are three modes by which the mouse may be used to alter
+the perspective/view: rotation, translation, and scaling.
+The mouse mode can be chosen from VMD Main
+!Mouse !R, T, or S.
+(4) VMD also provides options to choose the mode of depth
+perception when viewing the molecule. VMD Main
+!Display !Perspective (strong depth perception)/
+Orthographic (low depth perception). We ﬁnd that larger
+molecules are much easier to view with Orthographic,
+though Perspective is usually sufﬁcient for smallsystems. Although the default background color is black,
+it is often desirable to use other colors such as white. Tochange the background color in the OpenGL Display towhite, go to VMD Main !Graphics !Colors
+!Display (under Categories) !Background (under
+Names) !white.
+(5) VMD has many options available for graphical represen-
+tations of the molecule and atom selections. The graphi-
+cal representations window can be accessed from VMD
+Main !Graphics !Representations. This will provide
+options for Atom Selection, Drawing Method, ColoringMethod, etc. The default representation is “Lines” forStyle, “Name” for Color and “all” for Selection. It is pos-sible to either edit the default representation or createadditional representations using Create Rep option.
+(6) The different options available for Drawing Methods can
+be found under Draw style. We have found that the mostuseful representations are VDW (sphere for each atom),Tube (representing only backbone traces) andNewCartoon [protein secondary structure; similar to Fig.1(b)].
+(7) Similarly, there are several options available to color the
+molecule or the selection based on for example, Name(atom type), ResType (residue type), SecondaryStructure, and Backbone.
+(8) The selection tab provides the keywords or single words
+you can string together using Boolean operators (e.g.,not protein) to generate atom selections of your interest.
+(9) VMD also supports loading trajectories from molecular
+simulations into the loaded molecule. To load a trajec-tory of a molecule, ﬁrst select the molecule in VMDMain window, followed by File !Load Data into
+Molecule. The Molecule File Browser window pops upand Load Files for option will have the moleculeselected. At this point, use the Browse option to selectthe trajectory ﬁle and press load. When following theaccompanying tutorial,
+41the trajectory ﬁles will have the
+sufﬁx “.xtc”. The loaded trajectory can then be viewedusing the animation tools at the bottom of the Mainwindow.
+a)ORCID: 0000-0001-9195-9900.
+b)ORCID: 0000-0003-0220-195X.
+c)ORCID: 0000-0003-4860-309X.
+d)Author to whom correspondence should be addressed: p.whitford@nor-
+theastern.edu, ORCID: 0000-0001-7104-2265.
+1J. Harte, Consider a Spherical Cow: A Course in Environmental Problem
+Solving (University Science Books, Sausalito, 1988).
+2C. Clementi, H. Nymeyer, and J. Onuchic, “Topological and energetic
+factors: What determines the structural details of the transition state
+ensemble and ‘en-route’ intermediates for protein folding? An investi-
+gation for small globular proteins,” J. Mol. Biol. 298(5), 937–953
+(2000).
+3P. C. Whitford, J. K. Noel, S. Gosavi, A. Schug, K. Y. Sanbonmatsu, and
+J. N. Onuchic, “An all-atom structure-based potential for proteins:
+Bridging minimal models with all-atom empirical forceﬁelds,” Proteins
+75(2), 430–441 (2009).
+4J. K. Noel, M. Levi, M. Raghunathan, H. Lammert, R. L. Hayes, J. N.
+Onuchic, and P. C. Whitford, “SMOG 2: A versatile software package for
+generating structure-based models,” PLoS Comput. Biol. 12(3), e1004794
+(2016).
+5M. Cheung, J. Finke, B. Callahan, and J. Onuchic, “Exploring the interplaybetween topology and secondary structural formation in the protein folding
+problem,” J. Phys. Chem. B 107(40), 11193–11200 (2003).
+6L. Chavez, J. Onuchic, and C. Clementi, “Quantifying the roughness on
+the free energy landscape: Entropic bottlenecks and protein folding rates,”
+J. Am. Chem. Soc. 126(27), 8426–8432 (2004).
+236 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 236 04 October 2023 23:04:57
+7S. Yang, S. Cho, Y. Levy, M. Cheung, H. Levine, P. Wolynes, and J.
+Onuchic, “Domain swapping is a consequence of minimal frustration,”Proc. Natl. Acad. Sci. U. S. A. 101(38), 13786–13791 (2004).
+8J. K. Noel and P. C. Whitford, “How EF-Tu can contribute to efﬁcient
+proofreading of aa-tRNA by the ribosome,” Nat. Commun. 7, 13314
+(2016).
+9M. Levi, J. K. Noel, and P. C. Whitford, “Studying ribosome dynamicswith simpliﬁed models,” Methods 162–163 , 128–140 (2019).
+10M. Levi, K. Walak, A. Wang, U. Mohanty, and P. C. Whitford, “A steric
+gate controls P/E hybrid-state formation of tRNA on the ribosome,” Nat.
+Commun. 11, 5706 (2020).
+11C. Levinthal, “How to fold graciously,” in Mossbauer Spectroscopy in
+Biological Systems (University of Illinois, Urbana, 1969), Vol. 67, pp.
+22–24.
+12P. E. Leopold, M. Montal, and J. N. Onuchic, “Protein folding funnels: A
+kinetic approach to the sequence-structure relationship,” Proc. Natl. Acad.
+Sci. U. S. A. 89(18), 8721–8725 (1992).
+13J. Bryngelson and P. Wolynes, “Spin glasses and the statistical mechanics
+of protein folding,” Proc. Natl. Acad. Sci. U. S. A. 84(21), 7524–7528
+(1987).
+14J. D. Bryngelson and P. G. Wolynes, “Intermediates and barrier crossingin a random energy-model (with applications to protein folding,” J. Phys.
+Chem. 93(19), 6902–6915 (1989).
+15J. Bryngelson and P. Wolynes, “A simple statistical ﬁeld-theory of hetero-
+polymer collapse with application to protein folding,” Biopolymers
+30(1–2), 177–188 (1990).
+16J. D. Bryngelson, J. N. Onuchic, N. D. Socci, and P. G. Wolynes,
+“Funnels, pathways, and the energy landscape of protein-folding: A syn-thesis,” Proteins 21(3), 167–195 (1995).
+17H. Gould, J. Tobochnik, and W. Christian, An Introduction to Computer
+Simulation Methods: Applications to Physical Systems (CreateSpace
+Independent Publishing Platform, Scotts Valley, 2017).
+18L. Verlet, “Computer ‘experiments’ on classical ﬂuids. I.Thermodynamical properties of Lennard-Jones molecules,” Phys. Rev.
+159, 98–103 (1967).
+19M. Levi and P. C. Whitford, “Dissecting the energetics of subunit rotation
+in the ribosome,” J. Phys. Chem. B 123, 2812–2923 (2019).
+20D. L. Mobley, J. D. Chodera, and K. A. Dill, “Conﬁne-and-release
+method: Obtaining correct binding free energies in the presence of proteinconformational change,” J. Chem. Theory Comput. 3(4), 1231–1235
+(2007).
+21H. Kim, S. C. Abeysirigunawarden, K. Chen, M. Mayerle, K. Ragunathan,Z. Luthey-Schulten, T. Ha, and S. A. Woodson, “Protein-guided RNAdynamics during early ribosome assembly,” Nature 506(7488), 334–338
+(2014).
+22M. Eastwood and P. Wolynes, “Role of explicitly cooperative interactionsin protein folding funnels: A simulation study,” J. Chem. Phys. 114(10),
+4702–4716 (2001).
+23K. Lindorff-Larsen, S. Piana, R. Dror, and D. Shaw, “How fast-foldingproteins fold,” Science 334(6055), 517–520 (2011).
+24R. Kubo, “The ﬂuctuation-dissipation theorem,” Rep. Prog. Phys. 29(1),
+255–284 (1966).
+25J. K. Noel, P. C. Whitford, and J. N. Onuchic, “The shadow map: A gen-eral contact deﬁnition for capturing the dynamics of biomolecular foldingand function,” J. Phys. Chem. B 116(29), 8692–8702 (2012).
+26H. Lammert, P. G. Wolynes, and J. N. Onuchic, “The role of atomic level
+steric effects and attractive forces in protein folding,” Proteins 80,
+362–373 (2012).
+27R. Pathria and P. D. Beale, “Fluctuations and nonequilibrium statistical
+mechanics,” in Statistical Mechanics , 3rd ed., edited by R. Pathria and P.
+D. Beale (Academic, Boston, 2011), pp. 583–635.
+28A. Einstein, “On the motion of small particles suspended in liquids at restrequired by the molecular-kinetic theory of heat,” Ann. Phys. 17, 549–560
+(1905).
+29A. Einstein, “Investigations on the theory of the Brownian movement,”Ann. Phys. 19, 371–381 (1906).
+30T. Tom /C19e and M. J. de Oliveira, Stochastic Dynamics and Irreversibility
+(Springer-Verlag GmbH, New York, 2015).
+31M. A. Islam, “Einstein–Smoluchowski diffusion equation: A discussion,”Phys. Scr. 70(2–3), 120–125 (2004).
+32H. Kramers, “Brownian motion in a ﬁeld of force and the diffusion model
+of chemical reactions,” Physica 7, 284–304 (1940).
+33H. Brinkman, “Brownian motion in a ﬁeld of force and the diffusion the-
+ory of chemical reactions,” Physica 22(1–5), 29–34 (1956).34H. Brinkman, “Brownian motion in a ﬁeld of force and the diffusion the-
+ory of chemical reactions. II,” Physica 22(1–5), 149–155 (1956).
+35N. D. Socci, J. N. Onuchic, and P. G. Wolynes, “Diffusive dynamics of the
+reaction coordinate for protein folding funnels,” J. Chem. Phys. 104(15),
+5860–5868 (1996).
+36S. S. Cho, Y. Levy, and P. G. Wolynes, “P versus Q: Structural reactioncoordinates capture protein folding on smooth landscapes,” Proc. Natl.
+Acad. Sci. U. S. A. 103(3), 586–591 (2006).
+37H. Risken, The Fokker-Planck Equation (Springer Berlin Heidelberg,
+Berlin, Heidelberg, 1996).
+38S. Yang, J. N. Onuchic, and H. Levine, “Effective stochastic dynamics ona protein folding energy landscape,” J. Chem. Phys. 125(5), 054910
+(2006).
+39R. J. de Oliveira, “Stochastic diffusion framework determines the free-energy landscape and rate from single-molecule trajectory,” J. Chem.
+Phys. 149(23), 234107 (2018).
+40F. C. Freitas, A. N. Lima, V. D. G. Contessoto, P. C. Whitford, and R. J.
+D. Oliveira, “Drift-diffusion (DrDiff) framework determines kinetics andthermodynamics of two-state folding trajectory and tunes diffusion mod-els,” J. Chem. Phys. 151(11), 114106 (2019).
+41The associated computational tools are available for download at <https://
+github.com/ronaldolab/DrDiff >.
+42D. I. Kopelevich, A. Z. Panagiotopoulos, and I. G. Kevrekidis, “Coarse-
+grained kinetic computations for rare events: Application to micelle for-mation,” J. Chem. Phys. 122(4), 044908 (2005).
+43A. Szabo, K. Schulten, and Z. Schulten, “First passage time approach
+to diffusion controlled reactions,” J. Chem. Phys. 72(8), 4350–4357
+(1980).
+44J. G. Kirkwood, “Statistical mechanics of ﬂuid mixtures,” J. Chem. Phys.
+3(5), 300–313 (1935).
+45B. Roux, “The calculation of the potential of mean force using computer-
+simulations,” Comput. Phys. Commun. 91(1–3), 275–282 (1995).
+46A. Ferrenberg and R. Swendsen, “New Monte-Carlo technique for study-
+ing phase-transitions,” Phys. Rev. Lett. 61(23), 2635–2638 (1988).
+47A. Ferrenberg and R. Swendsen, “Optimized Monte-Carlo data-analysis,”
+Phys. Rev. Lett. 63(12), 1195–1198 (1989).
+48S. Kumar, D. Bouzida, R. Swendsen, P. Kollman, and J. Rosenberg,
+“The weighted histogram analysis method for free-energy calculationson biomolecules. 1. The method,” J. Comput. Chem. 13(8),
+1011–1021 (1992).
+49C. A. McPhalen and M. N. G. James, “Crystal and molecular structure ofthe serine proteinase inhibitor CI-2 from barley seeds,” Biochemistry
+26(1), 261–269 (1987).
+50See<https://github.com/smog-server/SMOG2_tutorial >for the repository
+with instructions on how to make the simulations and all the simulated
+data analyzed in this work.
+51E. Lindahl, B. Hess, and D. van der Spoel, “GROMACS 3.0: A packagefor molecular simulation and trajectory analysis,” J. Mol. Model. 7(8),
+306–317 (2001).
+52M. J. Abraham, T. Murtola, R. Schulz, S. P /C19all, J. C. Smith, B. Hess, and E.
+Lindahl, “GROMACS: High performance molecular simulations throughmulti-level parallelism from laptops to supercomputers,” SoftwareX 1–2,
+19–25 (2015).
+53J. Chahine, R. J. Oliveira, V. B. P. Leite, and J. Wang, “Conﬁguration-dependent diffusion can shift the kinetic transition state and barrier heightof protein folding,” Proc. Natl. Acad. Sci. U. S. A. 104(37), 14646–14651
+(2007).
+54R. J. Oliveira, P. C. Whitford, J. Chahine, V. B. P. Leite, and J. Wang,“Coordinate and time-dependent diffusion dynamics in protein folding,”Methods 52, 91–98 (2010).
+55R. B. Best and G. Hummer, “Coordinate-dependent diffusion in protein
+folding,” Proc. Natl. Acad. Sci. U. S. A. 107(3), 1088–1093 (2010).
+56K. Schulten, Z. Schulten, and A. Szabo, “Dynamics of reactions
+involving diffusive barrier crossing,” J. Chem. Phys. 74(8), 4426–4432
+(1981).
+57M. Gruebele, “The fast protein folding problem,” Annu. Rev. Phys. Chem.
+50(1), 485–516 (1999).
+58V. Munoz and W. A. Eaton, “A simple model for calculating the kinetics
+of protein folding from three-dimensional structures,” Proc. Natl. Acad.
+Sci. U. S. A. 96(20), 11311–11316 (1999).
+59J. Kubelka, J. Hofrichter, and W. A. Eaton, “The protein folding ‘speed
+limit’,” Curr. Opin. Struct. Biol. 14(1), 76–88 (2004).
+60G. Hummer, “From transition paths to transition states and rate coef-
+ﬁcients,” J. Chem. Phys. 120(2), 516–523 (2004).
+237 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 237 04 October 2023 23:04:57
+61S. V. Krivov and M. Karplus, “Diffusive reaction dynamics on invariant free
+energy proﬁles,” P r o c .N a t l .A c a d .S c i .U .S .A . 105(37), 13841–13846 (2008).
+62S. V. Krivov, “Is protein folding sub-diffusive?,” PLoS Comput. Biol.
+6(9), e1000921 (2010).
+63F. C. Freitas, G. Fuchs, R. J. de Oliveira, and P. C. Whitford, “The dynam-
+ics of subunit rotation in a eukaryotic ribosome,” Biophysica 1(2),
+204–221 (2021).64W. Humphrey, A. Dalke, and K. Schulten, “VMD: Visual moleculardynamics,” J. Mol. Graph. 14(1), 33–38 (1996).
+65J. Ousterhout, TCL and the TK Toolkit (Addison-Wesley, Reading, MA,
+1994).
+66See <https://www.ks.uiuc.edu/Research/vmd/ >for more information
+about the VMD software.
+67The PDB Protein Data Bank is located at <https://www.rcsb.org/ >.
+238 Am. J. Phys., Vol. 90, No. 3, March 2022 Freitas et al. 238 04 October 2023 23:04:57

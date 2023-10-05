@@ -1,0 +1,562 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| APRIL 01 2023
+Projectile motion with quadratic drag 
+John L. Bradshaw  
+Am. J. Phys.  91, 258–263 (2023)
+https://doi.org/10.1 119/5.0095643 04 October 2023 22:51:05
+Projectile motion with quadratic drag
+John L. Bradshawa),b)
+Department of Chemistry, Biochemistry, Physics, and Engineering, Indiana University of Pennsylvania,
+Indiana, Pennsylvania 15701
+(Received 12 April 2022; accepted 30 December 2022)
+Two-dimensional coupled nonlinear equations of projectile motion with air resistance in the form
+of quadratic drag are often treated as inseparable and solvable only numerically. However, when
+they are recast in terms of the angle between the projectile velocity and the horizontal, theybecome completely uncoupled and possess analytic solutions for projectile velocities as a function
+of that angle. The equations relating the time and position coordinates to this angle are not
+integrable in terms of elementary functions but are easy to integrate numerically. Additionally,energy equations explicitly including dissipation terms can be developed as integrals of the
+equations of motion. One-dimensional numerical integrations can be treated in a pedagogically
+straightforward way using numerical analysis software or even within a spreadsheet, making thistopic accessible to undergraduates. We present this approach with sample numerical results for
+velocity components, trajectories, and energy-balance of a baseball-sized projectile.
+#2023 Published
+under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0095643
+I. INTRODUCTION
+Projectile motion is central to introduce the concepts of
+motion and the foundations of classical mechanics in highschool and ﬁrst-year college physics courses. At this level,the effects of air resistance are usually neglected to be left
+for an upper-level mechanics course where linear (Stokes)
+and quadratic (Newtonian) drag models are introduced.Although linear drag is completely analytic, it is valid only
+at low Reynolds numbers (low speed, small size, or high vis-
+cosity). Quadratic drag dominates for many practical appli-cations in air, but only one-dimensional cases, vertical-only
+or horizontal-only, are treated in most textbooks and many
+classrooms. Two-dimensional quadratic drag is described bya set of coupled nonlinear differential equations that are solv-
+able only numerically, see Parker’s treatment.
+1Here, we
+show that the numerical approach can be combined with aninsightful analytical treatment, resulting in a more compre-
+hensive presentation.
+Prior treatments of quadratic drag by Parker,1Ray and
+Fr€ohlich,2Hayen,3and Mungan4are most relevant to this
+presentation. Parker reduced the coupled nonlinear equations
+of two-dimensional quadratic drag to a single, time-implicit,
+numerically integrable scalar equation from which velocitycomponents and horizontal and vertical displacements werenumerically determined.
+1More recently, Ray and Fr €ohlich,
+using a similar approach, succeeded in inverting their scalar
+equation to obtain a time-explicit solution to the equations ofmotion.2Both approaches are beyond an undergraduate
+level.
+Hayen took an alternate and less-well-known approach.3
+Earlier work (Refs. 2–5 in Hayen’s paper) showed that an
+analytic, time-implicit solution for the velocity components
+is obtained when the equations of motion are recast in terms
+of the angle /¼tan/C01vy=vx/C0/C1; however, this work is also
+beyond the undergraduate level. In this paper, we introduce
+the/-angle approach at an advanced undergraduate level,
+elaborate on the role of energy dissipation by derivingenergy equations as integrals of the equations of motion, and
+use this approach to quantitatively describe how quadratic
+drag inﬂuences the short-, intermediate-, and long-timeproperties of a projectile trajectory. Mungan treats energy
+dissipation, albeit in the vertical direction only;4Hayen also
+brieﬂy treats energy dissipation.3
+The integrals for time and distance as a function of /must
+be done numerically. Our approach, like that of Timberlake
+and Hasbun,5is to provide exposure to the underlying algo-
+rithms before using commercial numerical analysis software.Spreadsheet applications are well-suited to this purpose. In
+the supplementary material, we provide an Excel
+VRﬁle for
+numerical integration using the fourth order Runge–Kutta
+(RK4) method; embedded pdf documents within the Excel
+ﬁle introduce the RK4 method for spreadsheets and describe
+ﬁve example RK4 integrations.6
+In this analysis, we neglect buoyancy effects.7This is jus-
+tiﬁed when the projectile density is large compared to the airdensity. Additionally, we neglect the added mass effect8
+from projectile acceleration and lift from projectile spin.Erlichson and Davies consider spin and lift in golf-ball tra-
+jectories; see Nathan’s website and Clanet’s paper for spin
+effects in baseball trajectories.9–12
+This paper is organized as follows: The vector relations
+that deﬁne the equations of motion are developed in Sec. II,
+as well as the analytic parts of the solution and the integrals
+for the non-analytic parts. Energy equations are derived in
+Sec. III. Numerical results for a smooth, baseball-sized pro-
+jectile launched at low-to-moderate velocities and at various
+angles of inclination are shown in Sec. IV. Section Vdis-
+cusses the numerical results, and Sec. VIis a summary and
+conclusion with suggestions on how this approach may be
+used in the classroom.
+II. VECTOR FORMULATION, EQUATIONS
+OF MOTION, AND SOLUTION
+Figure 1deﬁnes the main variables that will be used: ~ris
+the position of the particle, ~vis its velocity, and ~FDand~Fg
+are the drag and gravitational forces, respectively. We also
+deﬁne the unit vector tangent to the trajectory ^t¼~v=~vjj, the
+unit vector perpendicular to the plane of motion
+^k¼~FD/C2~Fg=~FD/C2~Fg/C12/C12/C12/C12/C12/C12, and the unit normal vector as
+258 Am. J. Phys. 91(4), April 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 258 04 October 2023 22:51:05
+^n¼^k/C2^t. The angle between the horizontal direction and
+the velocity vector is /. At time t¼0, the position vector is
+~r0¼x0^iþy0^j, the launch angle is /0, and the launch veloc-
+ity is ~v0¼vx0^iþvy0^j. The following relationships will be
+used throughout this paper:
+^t¼cos/^iþsin/^j;^n¼/C0sin/^iþcos/^j; (1)
+~FD¼/C0bv2^t¼/C0bv2cos/^iþsin/^j/C0/C1
+;~Fg¼/C0mg^j;
+(2)
+and
+~v¼v^t¼vx^iþvy^j¼vcos/^iþvsin/^j;v¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+v2
+xþv2
+yq
+:
+(3)
+In Eq. (2), we have written the quadratic drag force magni-
+tude as bv2, where bis a constant related to the drag coefﬁ-
+cient, which is discussed in Sec. IV.
+The equation of motion in the vector form is md~v=dtðÞ ¼~FD
+þ~Fg,w h e r e mis the mass of the projectile. To obtain the equa-
+tions of motion in the tangential ^tand normal ^ndirections, write
+md~v=dtðÞ ¼md v ^tðÞ=dt¼md v =dtðÞ ^tþvd^t=dt/C0/C1 /C2/C3
+¼md v =dtðÞ ^t/C2
+þvd^t=d//C0/C1
+d/=dtðÞ /C138 ¼md v =dtðÞ ^tþvd/=dtðÞ ^n/C2/C3
+and ~Fg
+¼/C0 mgsin/^t/C0mgcos/^n. Using these relations and ~FDfrom
+Eq.(2),w eh a v e
+mdv
+dt¼/C0bv2/C0mgsin/; (4a)
+and
+mvd/
+dt¼/C0mgcos/; (4b)
+for the tangential and normal directions, respectively. We
+rewrite Eq. (4b)as
+d/
+dt¼/C0gcos/
+v: (5)
+Equation (5)allows us to recast the equations of motion in
+terms of the angle /. Using Eqs. (2)and(3), the equation of
+motion in the x-direction is
+mdvx
+dt¼/C0bv2cos/: (6)The time derivative in Eq. (6) is now rewritten as
+dvx=dt¼dvx=d/ ðÞ /C1d/=dtðÞ . Then using Eq. (5), Eq. (6)
+becomes
+dvx
+d/¼1
+v2
+t/C1v3
+x
+cos3/; (7)
+where we have identiﬁed the terminal velocity vt¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+mg=bp
+.
+Separating and integrating Eq. (7)yields
+ðvx
+vx0dvx
+v3
+x¼1
+v2
+tð/
+/0sec3/d/; (8)
+where vx0¼v0cos/0is the x-component of the launch veloc-
+ity. Integrating yields
+/C01
+21
+v2
+x/C01
+v2
+x0/C20/C21
+¼1
+21
+v2
+t/C20tan/
+cos//C0tan/0
+cos/0
+þlnsec/þtan/ jj
+sec/0þtan/0 jj/C18/C19 /C21
+;
+where lndenotes the natural logarithm. Solving for vx
+yields
+vx¼vx0"
+1þvx0
+vt/C18/C192/C26tan/0
+cos/0/C0tan/
+cos/
+þlnsec/0þtan/0 jj
+sec/þtan/ jj/C18/C19 /C27#/C01=2
+: (9)
+Since tan /0is undeﬁned for /0¼6p=2, Eq. (9)is not valid
+for vertical motion. For launch with vx>0, we have
+/C0p=2</0<p=2 and /C0p=2<//C20/0; for launch with
+vx<0,p=2</0<3p=2 and /0/C20/<3p=2. From vx,
+we determine the vector components vy¼vxtan/and
+v¼vxsec/without the need for solving the equations of
+motion in the y- and tangential directions.13
+Equation (5)determines the elapsed time tat a given /as
+t¼/C01
+gð/
+/0v/ðÞ
+cos/d/; (10)
+where t¼0 when /¼/0:As a check on the sign: Note
+from Fig. 1that as the projectile moves along the trajectory,
+time tincreases whereas /starts at /0and, subsequently,
+decreases .
+To calculate trajectories, we determine the x- and y-posi-
+tions by integration of dx¼vxdtanddy¼vydtas
+x¼x0þðt
+0vxdt¼xo/C01
+gð/
+/0v2d/; (11a)
+and
+y¼y0þðt
+0vydt¼y0/C01
+gð/
+/0v2tan/d/; (11b)
+respectively, where we use dt¼dt=d/ðÞ d/and Eq. (5)to
+change the variable of integration to /. The integrals in Eqs.
+(10) and (11) are not expressible in terms of elementary
+functions.Fig. 1. A schematic diagram of a projectile trajectory.
+259 Am. J. Phys., Vol. 91, No. 4, April 2023 John L. Bradshaw 259 04 October 2023 22:51:05
+III. ENERGY EQUATIONS
+An alternate approach to solve Newton’s second law is to
+use the work-energy theorem, which in the present analysis
+is used to shed additional light on how projectile motion in
+the presence of drag deviates from the familiar parabolic tra-
+jectory in the absence of air resistance. Mechanical energy is
+progressively converted into thermal energy, leading to a dis-
+sipation integral and energy-related constants of the motion.
+Multiplying each side of Eq. (4a) bytdtand integrating
+yields
+mðv
+v0vdv¼/C0bðt
+t0v3dt/C0mgðt
+t0vsin/dt: (12)
+We use dt¼dt=d/ðÞ d/and Eq. (5)to change the variable
+of integration to /in the ﬁrst term on the right-hand-side of
+Eq.(12). For the second term on the right-hand-side, we sub-
+stitute vy¼vsin/;vy¼dy=dtðÞ and change the variable of
+integration to y. Integrating, rearranging, and introducing
+v2
+t¼mg=byield
+1
+2mv2
+0þmgy 0¼1
+2mv2þmgy/C0m
+v2
+tð/
+/0v4/ðÞ
+cos/d/:(13)
+The terms on the left-hand side of Eq. (13) are the initial
+kinetic and potential energy; the ﬁrst two terms on the right-
+hand side are the kinetic and potential energy at a point /in
+the trajectory, respectively.
+The last term on the right-hand side of Eq. (13)is the posi-
+tive work done by the projectile in moving through the air.
+The resistive force of the air against the projectile is the drag
+force and is anti-parallel to the projectile velocity, as shownin Fig. 1. The force of the projectile against the air is equal
+in magnitude and opposite in the direction by Newton’s third
+law. The positive work done by the projectile in moving
+through a pathlength dsis the force-displacement-product
+bv
+2ds. Then using ds¼ds=dtðÞ dt;dt¼dt=d/ðÞ d/;and
+dt=d/¼/C0v/ðÞ=gcos/from Eq. (6)yields the integrand in
+Eq.(13). Since the angle /decreases throughout the motion,
+the minus sign in front of the integral makes the work always
+positive-valued . That is, there will always be energy loss
+throughout the trajectory and, hence, the trajectory will be
+asymmetric. This last term in Eq. (13) is not integrable in
+terms of elementary functions.
+Energy equations are obtained similarly from the x-andy-
+direction equations of motion. However, only two of thethree equations in the x-,y-, and t-directions are independent;
+the result for Eq. (6)is
+1
+2mv2
+x0¼1
+2mv2
+x/C0m
+v2
+tð/
+/0v4/ðÞcos/d/: (14)
+Equations (13) and (14) determine two energy-related
+constants of the motion. Since tan /¼vy=vx, all of the trig-
+onometric functions are simply related to the dynamicalvariables v
+xand vy:Thus, Eq. (14) relates v0and /0
+¼tan/C01vy0=vx0/C0/C1to the dynamical variables vyand vx.
+Equation (13) relates the total initial energy of the projec-
+tile1
+2mv2
+0þmgy 0and /0to a different function of the
+dynamical variables y,vy,a n d vx.
+IV. NUMERICAL RESULTS
+We consider a smooth, spherical, baseball-sized projectile
+of diameter 7.5 cm and mass 0.15 kg. Averaging online data
+for the drag coefﬁcient of a smooth spherical projectile
+within the regime of quadratic drag yields b¼0.0012 kg/m
+for the coefﬁcient of the quadratic drag force FD¼bv2.14
+Projectile trajectories were calculated within Excel using
+the RK4 method; these are plotted in Fig. 2(a)forv0¼40 m/s
+and selected values of /0.I nF i g . 2(b), trajectories for /0
+¼50/C14and selected v0values are plotted. All trajectories are
+observed to be asymmetric about a vertical axis through the
+peak. We note three characteristics of these plots. (1) InFig. 2(a), the magnitude of the angle of impact, /
+ijj,i s
+always larger than /0. In Fig. 2(b),/ijjalways increases
+with increasing launch velocities. (2) For any trajectory, at aconstant value of the height y, the magnitude /jjafter the
+peak is observed to be larger than /jjprior to the peak. (3) In
+Fig.2(a), for launch angles from /
+0¼80/C14to 40/C14, the range
+increases and the maximum height decreases compared to
+trajectories with larger launch angles. However, at /0¼20/C14,
+both the range and maximum height are smaller than thosefor the /
+0¼40/C14trajectory.
+Qualitatively, we can explain the trajectory asymmetries
+by noting that since the horizontal velocity component vx
+always experiences an antiparallel drag force, it constantly
+decreases throughout the trajectory. Conversely, the vertical
+component vyalways decreases on the way up and always
+increases on the way down.3Quantitatively, the time evolu-
+tion of the slopes tan /¼vy=vxof the trajectory curves in
+Fig.2are
+Fig. 2. Projectile trajectories. (a) Trajectories for v0¼40 m/s and launch angles of /0¼80/C14,6 0/C14,4 0/C14, and 20/C14. (b) Trajectories for /0¼50/C14and launch
+velocities of 40, 30, 20, and 10 m/s.
+260 Am. J. Phys., Vol. 91, No. 4, April 2023 John L. Bradshaw 260 04 October 2023 22:51:05
+d
+dttan/ðÞ ¼d
+d/tan/d/
+dt¼/C0g
+vx; (15)
+where we used v¼vx=cos/and Eq. (5)ford/=dt. Because
+the trajectory asymmetries derive from the vxterm in Eq.
+(15), we exhibit these components below and discuss their
+properties in Sec. V.
+Figure 3shows the horizontal velocity vxfrom Eqs. (9)
+and(10);ln v x=vx0 ðÞ is graphed on the vertical axis, time in
+seconds on the bottom horizontal axis and in multiples of thetime scale s¼v
+t=g¼3:5 s on the top horizontal axis. We
+graph ln v x=vx0 ðÞ to show short-time, intermediate, and long-
+time approach-to-asymptotic behavior as well as the role of
+the natural time constant swhich we discuss in Sec. V.
+Figure 3(a)shows ln v x=vx0 ðÞ versus time for v0¼40 m/s and
+the same /0values as Fig. 2(a). Figure 3(b)shows ln v x=vx0 ðÞ
+versus time for /0¼50/C14and the same v0values as Fig. 2(b).
+We note ﬁve characteristics of the plots in Fig. 3. (1) In
+Fig. 3(a), all ln v x=vx0 ðÞ curves start at the origin with the
+same slope that is initially unchanging in time, regardless oflaunch angle. (2) In Fig. 3(b), all ln v
+x=vx0 ðÞ curves start at
+the origin with different initial slopes, depending on launchspeed v
+0with smaller magnitude slopes for smaller v0:(3)
+For both Figs. 3(a)and3(b), effects from the drag force bv2
+emerge after about one second with all curves showing a
+deviation from the initial slopes. (4) For both Figs. 3(a) and
+3(b), the slopes begin to approach a constant asymptotic
+value of /C01=s(dashed lines in Figs. 3(a) and3(b)) starting
+near 6 s. (5) In the intermediate-time regime, /C241s<t/H113516s ,
+the velocity plots show curvatures connecting short-time tolonger-time behavior. We discuss the origin of these charac-teristics in Sec. V. The y-component velocities v
+yshow simi-
+lar regimes of behavior. The vybehavior is explained once
+the origin of the vxvelocities is explained in Sec. V;vy
+curves are not plotted.
+In Fig. 4, we plot curves for the energy terms in Eq. (13)
+for a trajectory of v0¼40 m/s, /0¼50/C14. The curve labeled
+1 is the kinetic energy from the x-component of the velocityð1=2Þmv
+2
+x, which begins to decay as /C24e/C02t=safter about 6 s.
+The curve labeled 2 is the y-direction kinetic energy, ð1=2Þmv2
+y.This curve is zero at the trajectory peak of t/C242.4 s and
+shows an approach to the asymptotic value of ð1=2Þmv2
+tat
+the longest times shown. Curve 3 is the gravitationalpotential energy; this reaches a maximum at the maximumheight at t/C242.4 s and approaches the asymptotic behavior
+mgy/C24C/C0mgv
+ttafter about 6 s with Cbeing a positive
+constant. Curve 4 is the accumulated dissipation integral,ðm=v
+2
+tÞÐ/0
+/v4=cos/d/¼bÐt
+0v3dt. This term approaches an
+asymptotic behavior of 1 =2ðÞ mv2
+tþmgy after about 6 s,
+balancing the long-term potential-plus-kinetic energy
+dependence. The sum of these four curves is the initial
+total energy, 1 =2ðÞ mv2
+0¼116.4 J for all time, indicating
+that all energy processes are accounted for. Finally, sincethe slope of curve 4 approaches the absolute value of theslope of curve 3, this indicates that the power dissipatedto air resistance asymptotically approaches mgv
+t.
+Fig. 3. Plots of the logarithm of normalized horizontal velocity ln v x=vx0 ðÞ versus time. (a) ln v x=vx0 ðÞ versus time for v0¼40 m=s and launch angles of
+/0¼80/C14,6 0/C14,4 0/C14, and 20/C14. (b) ln v x=vx0 ðÞ versus time for /0¼50/C14and v0¼40, 30, 20, and 10 m/s. The top horizontal axes are time in multiples of
+s¼vt=g¼3:5s .
+Fig. 4. Energy graphs for a v0¼40 m/s, /0¼50/C14trajectory. (1) Long-
+dashed: x-direction kinetic energy, ð1=2Þmv2
+x, (2) Gray-line: y-direction
+kinetic energy, ð1=2Þmv2
+y, (3) Short-dashed: gravitational potential energy,
+mgy, and (4) Dark-line: energy dissipated, bÐt
+0v3dt.
+261 Am. J. Phys., Vol. 91, No. 4, April 2023 John L. Bradshaw 261 04 October 2023 22:51:05
+V. DISCUSSION
+As noted in Sec. IV, the details of the asymmetries in
+Figs. 2(a)and2(b)depend on the properties of the vxcompo-
+nents that are observed in Figs. 3(a)and3(b)to fall into three
+regimes: a short-time regime, 0 <t/H113511 s, an intermediate
+regime, 1 /H11351t/H113516 s, and a long-time regime, t/H114076 s. Here,
+we discuss the physical origin of these regimes.
+We isolate the short-time behavior exhibited in Figs. 3(a)
+and3(b) by Taylor-series-expanding Eqs. (5)and(9)using
+/¼/0þ/C15, where /C15is small and negative-valued. This
+yields /C15’/C0gtcos/0=v0for Eq. (5)and vx’vx0½1þ/C15vx0=ð
+vtÞ2sec3/0/C138for Eq. (9)to ﬁrst order in /C15. Using these rela-
+tions, we ﬁnd vx’vx01/C0v0=vtðÞ t=s ½/C138 for short times. For
+t=s/C281,vxis unchanged from its value in the absence of air
+resistance. Drag effects emerge as the quantity v0=vtðÞ t=s
+becomes signiﬁcant compared to unity. Thus, the natural
+time constant semerges as an indicator of how long it takes
+for air resistance to affect the motion. Also, the initial slopesof the graphs in Fig. 3agree with the predictions of the
+short-time v
+xvstrelation.
+The intermediate-time regime occurs over an interval of
+about 1–6 s or 0 :3s/H11351t/H113511:7s. In this region, the slope of the
+ln v x=vx0 ðÞ curves changes from no noticeable drag effects to
+the asymptotic slope of /C01=s. We can explain this using an
+integrated form of Eq. (6). Multiplying each side of Eq. (6)
+by 1 =mðÞ dt=vxðÞ yields dvx=vx ðÞ ¼/C0 b=mðÞ vdt. Integrating
+this equation from time t1tot2yields
+lnvx2
+vx1/C18/C19
+¼/C01
+s1
+vtðt2
+t1vdt; (16)
+where vx1andvx2are the x-direction velocities of the projec-
+tile at times t1and t2, respectively, and we identify b=m
+¼1=svtðÞ:The slope of a ln v x=vx0 ðÞ graph vs time in an
+interval Dt¼t2/C0t1(that is, the slopes of the curves in
+Fig.3) is obtained by dividing Eq. (16)byDt,
+1
+Dtlnvx2
+vx1/C18/C19/C20/C21
+¼/C01
+s1
+vt1
+Dtðt2
+t1vdt"#
+: (17)
+The term on the left-hand side of Eq. (17) is the slope of the
+graphs in Fig. 3. We identify theÐ2
+1vdthi
+=Dtterm on the
+right-hand-side of Eq. (17) as the time-averaged velocity of
+the projectile over the interval Dt. For durations Dtwhere the
+average velocityÐ2
+1vdthi
+=Dtis noticeably smaller than vt,
+Eq.(17) indicates that the slopes of the ln v x=vx0 ðÞ curves are
+noticeably shallower (more positive) than /C01=s. For exam-
+ple, at the trajectory peak of the /¼80/C14plot in Fig. 3(a),
+vy¼0 and v¼vx; this corresponds to the minimum magni-
+tude average velocity and minimum slope shown at about
+s/C251:0. We conclude that the maximum changes in curvature
+in Fig. 3(a)occur for the larger launch angle trajectories where
+vxis smaller and vis small for longer durations, near the top
+of the trajectory. In the long-time regime, vapproaches vt,
+and Eq. (17) indicates that the slope approaches /C01=s;t h u s ,
+vx/C24e/C0t=sasymptotically.
+The long-time behavior of vxis veriﬁed using d, the differ-
+ence between /and the asymptotic limit of /C0p=2,
+d¼/þp=2, as the expansion parameter. We Taylor-series-
+expand vxfrom Eq. (9), keeping terms to order d3and ﬁndvx=vt/C24d/C0c1d3. Equation (5),d/=dt¼/C0gcos/=v, simpli-
+ﬁes to dd=dt¼/C0gd=vtin this limit; integrating yields
+d/C24c2e/C0t=s:Combining this relation with the vx=vtrelation
+to ﬁrst order in dyields vx/C24e/C0t=s, verifying the result from
+theln v x=vx0 ðÞ plots in Figs. 3(a) and3(b). Additionally, we
+note vy¼vxtan/and tan /¼sin/=cos//C24ð /C0 1þd2=2Þ=
+d/C0d3=3/C0/C1
+in this limit. Combining these relations yields
+vy/C24vt/C01þd2=6/C0/C1
+,o rvyþvt/C24e/C02t=sasymptotically. This
+agrees with previous results3,15obtained for a projectile
+dropped from a height; this is expected as the trajectory isessentially one-dimensional in this limit.
+The last characteristic noted from Fig. 2(a) relates to the
+trajectory maximum heights and ranges for launch anglesgreater and less than the launch angle for maximum range.
+In Fig. 2(a), the launch angle for maximum range occurs at
+about /
+0¼40:1/C14. For any /0within 40 :1/C14</0<90/C14, the
+horizontal distance at maximum height decreases withincreasing launch angle. For any /
+0within 0/C14</0/H1135140.1/C14,
+the horizontal distance to the maximum height decreaseswith decreasing /
+0. Hayen3gives an exact numerical solu-
+tion for the maximum range for quadratic drag and proofsfor several geometric properties of the trajectory.
+VI. SUMMARY AND CONCLUSION
+The treatment of projectile motion with quadratic drag
+posited here is not completely analytic in terms of elemen-tary functions and so requires numerical analysis. However,it offers the opportunity to introduce a fundamental problemin a new way with beneﬁts for student comprehension andpreparation for more advanced topics. The aspects of this
+topic that require a numerical approach can be addressed
+using numerical software packages or instructor-developed orstudent-developed spreadsheets for numerical integration. Apremise of this paper is that the students can learn more aboutprojectile motion with dissipation when they are calculatingprojectile trajectories, parameters, and energy quantities. Inthe supplementary material, an Excel ﬁle with example RK4integrations, for example, ﬁrst order equations, the quadratic
+drag trajectory formulas developed here, and an RK4 routine
+for the time-dependent, coupled second-order x-a n d y-equa-
+tions of motion is available for instructor use.
+6
+The development of energy equations is a neglected topic
+for both linear and quadratic drag, and one- and two-dimensional motion. Since linear drag is completely analytic,the energy-equation approach of Sec. IIIcan be applied with
+all results in terms of elementary functions; for one-dimensional quadratic drag, the energy equations are alsocompletely analytic.
+16Numerous homework-level problems
+investigating energy non-conservation can be developed for
+student instruction.
+For two-dimensional quadratic drag, checking that the dissi-
+pation integral in Eq. (13)quantitatively explains energy non-
+conservation also involves accounting for vx,vy, and height y.
+Multiple homework-level projects involving spreadsheet cal-
+culations, perhaps at selected trajectory points such as the
+maximum height at H¼/C0 1=gðÞÐo
+/0v2tan/d/or the range
+R¼/C0 1=gðÞÐ/i
+/0v2d/at the impact point can be created.
+Alternatively, the numerical aspects of two-dimensional
+quadratic drag can be treated in a course in computationalphysics or within the context of a senior honors project. Forexample, in Fig. 2, the impact angle /
+idepends on the initial
+262 Am. J. Phys., Vol. 91, No. 4, April 2023 John L. Bradshaw 262 04 October 2023 22:51:05
+launch parameters, v0and/0. How does /ivary with v0and
+/0? Does solving Eq. 11(b) for/¼/iwhen y0andy¼0
+explain the dependence? Can one ﬁnd an efﬁcient parameter-ization for /
+iin terms of v0and/0? As another example,
+Ray and Fr €ohlich2recently published a time-explicit solution
+to the quadratic drag problem for the velocities vxand vy.
+Does this time-explicit solution work well in the approach-to-asymptotic regime? Does the time-explicit solution pro-vide a better or more efﬁcient way to calculate the projectiletrajectories xtðÞ,ytðÞ?
+ACKNOWLEDGMENTS
+The author gratefully acknowledges the anonymous
+referees whose extensive comments improved this paper.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conﬂicts of interest.
+a)Electronic mail: bradshaw@iup.edu.
+b)ORCID: 0000-0002-4229-2764.
+1G. W. Parker, “Projectile motion with air resistance quadratic in the
+speed,” Am. J. Phys. 45(7), 606–610 (1977).
+2S. Ray and J. Fr €ohlich, “An analytic solution to the equations of the
+motion of a point mass with quadratic resistance and generalizations,”
+Arch. Appl. Mech. 85, 395–414 (2015).3J. C. Hayen, “Projectile motion in a resistant medium. Part I: Exact solu-
+tion and properties,” Int. J. Non-Linear Mech. 38, 357–369 (2003).
+4C. E. Mungan, “Energy-based solution for the speed of a ball moving ver-
+tically with drag,” Eur. J. Phys. 27, 1141–1146 (2006).
+5T. Timberlake and J. E. Hasbun, “Computation in classical mechanics,”
+Am. J. Phys. 76(4,5), 334–339 (2008).
+6See the supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0095643 for the Excel ﬁle containing ﬁve example RK4 integra-
+tions with two embedded, descriptive pdf documents.
+7Buoyancy effects can be added ex post facto by replacing gof the gravita-
+tional force F*
+g¼/C0mg^jwith/C24g¼g1/C0qf=q/C0/C1, where qfis the ﬂuid
+(air) density and qis the average projectile density, see Ref. 15.
+8J. Pantaleone and J. Messer, “The added mass of a spherical projectile,”
+Am. J. Phys. 79(12), 1202–1210 (2011).
+9H. Erlichson, “Maximum projectile range with drag and lift, with particu-
+lar application to golf,” Am. J. Phys. 52(4), 357–362 (1983).
+10J. M. Davies, “The aerodynamics of golf balls,” J. Appl. Phys. 20(9),
+821–828 (1949).
+11See http://baseball.physics.illinois.edu/aero.html for spin effects and
+numerous other articles regarding baseball trajectories.
+12C. Clanet, “Sports ballistics,” A n n u .R e v .F l u i dM e c h . 47(1), 455–478 (2015).
+13When the y- and ^t-direction equations are recast in terms of /, they
+become the well-known Bernoulli differential equations with solutions
+given by vy¼vxtan/andv¼vxsec/, respectively, see Ref. 3.
+14R. Clift, J. R. Grace, and M. E. Weber, Bubbles, Drops and Particles
+(Academic Press, Cambridge, 1978), online data at <https://commons.
+wikimedia.org/wiki/File:CX_SPHERE.png >
+15P. T. Timmerman and J. P. van der Weele, “On the rise and fall of a ball
+with linear or quadratic drag,” Am. J. Phys. 67(6), 538–546 (1999).
+16J. L. Bradshaw, “Energy equations for projectiles with linear and quadratic
+drag,” Eur. J. Phys. 44, 025001 (2023).
+263 Am. J. Phys., Vol. 91, No. 4, April 2023 John L. Bradshaw 263 04 October 2023 22:51:05

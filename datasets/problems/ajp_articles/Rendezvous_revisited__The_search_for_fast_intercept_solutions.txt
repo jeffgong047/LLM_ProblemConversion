@@ -1,0 +1,633 @@
+
+View
+Online
+Export
+CitationCrossMarkAUGUST 01 2023
+Rendezvous revisited: The search for fast-intercept
+solutions 
+Eric M. Edlund  
+Am. J. Phys.  91, 595–602 (2023)
+https://doi.org/10.1 119/5.0095559
+Articles Y ou May Be Interested In
+Interception and rendezvous: An intuition-building approach to orbital dynamics
+Am. J. Phys.  (June 2021)
+The delicate dance of orbital rendezvous
+Am. J. Phys.  (August 2019)
+Formation algorithms of sequential control for spacecraft rendezvous with low-thrust
+AIP Conference Proceedings  (December 2018) 04 October 2023 22:54:39
+Rendezvous revisited: The search for fast-intercept solutions
+Eric M. Edlunda)
+Department of Physics, SUNY Cortland, Cortland, New York, 13045
+(Received 11 April 2022; accepted 1 June 2023)
+Orbital interception scenarios typically involve a chaser that is actively maneuvered to encounter
+an inertial target and may be undertaken for a variety of purposes, including docking spacecraft orcolliding with an asteroid for planetary defense studies. Viable intercept trajectories are
+constrained by the free-fall path of the target and by auxiliary conditions such as the available time
+or fuel budget. Whereas a constraint on the time to intercept is central to the (extensively studied)
+Lambert problem, a less common but more visually compelling constraint is that of the available
+fuel for intercept. This was the basis of a recent study [E. M. Edlund, Am. J. Phys. 89, 559–566
+(2021)], which analyzed one of the two families of possible intercept solutions that were identiﬁed.
+The second family, studied in more detail here, describes intercepts at all points in the orbit and has
+the interesting property that it admits fast-intercept solutions. This work concludes the analysis ofthis problem; it develops a general condition that describes both families of intercepts, presents
+representative solutions, and considers the sensitivity of these solutions to errors in the control
+parameters.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0095559
+I. INTRODUCTION
+Long before space travel was considered a possibility,
+there was great interest in the intercept problem, ﬁrst madefamous by Lambert in 1761. The Lambert problem, as it isnow known, seeks the velocity of a body given astronomicalmeasurements of its position at two times. The solution
+allows the position of the body to be determined at any later
+time, thereby providing great predictive capability. Thisproblem spurred seminal developments in celestial mechan-ics and analysis by some of the best minds of the time.
+1,2
+There is a long and rich history of the literature stemming
+from the Lambert problem, which was reinvigorated in the1950s with the development of spaceﬂight. Modern incarna-tions of this problem often have a goal of ﬁnding the thrust
+vector that will allow an actively maneuverable craft to inter-
+cept an inertial target (meaning a craft on a “free-fall” or“ballistic” path) at a speciﬁc time.
+A number of recent articles have focused on interesting
+and insight-building problems involving orbital dynamics,including analysis of the Lambert problem using a searchmethod
+3and using the Hohman transfer in introductory
+physics courses.4An analysis of close-proximity rendezvous
+using the Clohesy–Wiltshire equations was presented in Ref.5, a set of multi-thrust methods for achieving escape velocity
+from an initially circular orbit was given in Ref. 6, and a
+detailed analysis of Kepler’s problem that examines all pos-sible paths between two points in space was provided in Ref.7. Reference 8approached the intercept problem by consid-
+ering a constraint of a speciﬁed Dv, which can be thought of
+as a constraint on the quantity of available fuel. Therefore, itwas argued that this particular variation is an excellent prob-lem for undergraduate students, because (in contrast to a
+constraint on the intercept time) the velocity constraint is
+more readily visualized and developed deeper intuition formotion on elliptical trajectories. A simple HTML-Javascriptsimulator was provided to help visualize and gamify thisstudy of orbital dynamics.
+While the work of Ref. 5identiﬁed two possible families
+of intercept solutions, it analyzed only the ﬁrst family inwhich intercept/rendezvous occurs after an integer number
+of chaser orbits. However, the second family of intercept sol-
+utions is particularly interesting, because it allows for fast
+intercepts that occur before the target has completed a full
+orbit. Such fast-intercept maneuvers may be relevant to plan-
+etary defense against civilization-threatening asteroids or
+comets where a short, but not pre-determined, time may be
+of the essence.
+9The Planetary Defense Coordination Ofﬁce,
+a division within NASA, tracks known threats and develops
+mitigation plans.10As part of that effort, NASA’s DART
+mission successfully intercepted the asteroid Dimorphos, the
+smaller of a double-asteroid pair, on September 26 of 2022
+to test deﬂection by kinetic impact.11Other recent develop-
+ments in this line of work include space debris collectors12
+and an actively maneuvering Russian satellite thought to bea satellite hunter of sorts.13
+One can, of course, ﬁnd solutions to the intercept problem
+using a “guess-and-check” method, where initial parameters
+are guessed, the trajectories are checked (using something
+like the HTML-javascript program distributed with Ref. 5),
+and then the parameters are iterated until an acceptable solu-
+tion is found. This approach is effective but falls short ofwhat is typically expected of a physics analysis in at least
+three important ways. First, such calculations necessarily
+rely on an external tool to plot the trajectories and, therefore,
+outsources the physics analysis to someone else. Second,
+guess-and-check solutions typically require many iterations
+and are not very efﬁcient, especially if one wants to examine
+a wide range of parameters. Third, when a solution is ﬁnally
+realized, one has no way of determining whether it is in any
+way ideal or optimal. In contrast, an analytic solution
+requires greater initial effort, but also rewards with physical
+insight and provides great ﬂexibility to efﬁciently explore
+parameter dependency and the sensitivity of solutions to
+errors.
+This paper proceeds with some preliminaries and a recap
+of important results in Sec. II, followed by a formal deﬁni-
+tion of the problem and derivation of the intercept condition
+in Sec. III, with a discussion of solutions in Sec. IV A and
+sensitivity of solutions in Sec. IV B . A brief analysis of the
+595 Am. J. Phys. 91(8), August 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 595 04 October 2023 22:54:39
+rendezvous maneuver is covered in Sec. Vwith concluding
+thoughts presented in Sec. VI.
+II. PRELIMINARIES
+The overall goal of this work is to calculate the two thrusts
+that are required for: (a) interception (the meeting of space-craft) and (b) rendezvous (the matching of speeds followinginterception). There exist multiple methods for calculatingsuch maneuvers. References 6,8, and 14discuss a number of
+aspects of the intercept problem and its historical relevance.Reference 14, in particular, analyzes an intercept problem
+that is very similar to that discussed presently but in therotating reference frame of the target and using small param-eter expansions. The analysis presented here is differentfrom these other analyses in that it views all motion in the
+planet’s inertial frame, provides a method for exact solu-
+tions, and considers a constraint that is equivalent to a givenquantity of fuel. This section begins by deﬁning the coordi-nate system and initial conditions for this problem.
+A. The coordinate system and initial conditions
+The analysis presented here builds on that of Ref. 5and
+uses the same coordinate system and symbolic representa-tions. Figure 1shows the coordinates used to describe the
+target and the chaser, the phase ( /) of the chaser’s trajectory,
+and the two families of intercept solutions. Since interceptscan occur only where the two orbits intersect, the ﬁrst familyof intercept locations occurs at the chaser’s initial positionand the second family exists at an angle of 2 /, measured
+clockwise from this initial position.
+The dynamic variables describing the positions of the craft
+will be identiﬁed using the subscripts: cfor chaser, tfor tar-
+get, and ifor initial conditions. Both craft begin on circular
+orbits of the same radius so that r
+c;i¼rt;i¼r0, and the target
+will continue on this circular orbit after the chaser makes itsintercept maneuver. The initial motion of both craft is takento be counter-clockwise, which deﬁnes the sense of positive
+angular motion. The angular positions of the craft are mea-sured relative to the initial position of the chaser; the target
+is initially separated from the chaser by a known angle, so
+thath
+c;i¼0 and ht;i¼h0. Angles in equations will be
+expressed in radians, whereas angles in subsequent ﬁgureswill be expressed in degrees to aid in understanding.
+Time is measured from the completion of the chaser’s
+engine burn, which is modeled as being instantaneous so that
+the chaser’s position at the start and end of the burn ish
+c¼0. The orbital period of the target is T0¼2pr0=v0, with
+orbital frequency x0¼v0=r0, where v0¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+GM=r0p
+is the
+linear speed of a craft on a circular orbit of radius r0. Here, G
+is the universal gravitational constant, and Mis the mass of
+the central gravitational body. The engine burn modiﬁes thechaser’s velocity by Dvdirected at an angle of aclockwise
+from forward such that the radial and azimuthal components
+of the chaser’s initial velocity are v
+c;r;i¼DvsinðaÞand
+vc;h;i¼v0þDvcosðaÞ, respectively. The normalized thrust
+is deﬁned as d¼Dv=v0. A typical scale for many space mis-
+sions is d/C250:05, but this can be greatly exceeded in special
+missions. For example, Ref. 14presents a ﬂight plan for the
+Apollo 11 mission wherein the third stage of the Saturn Vrocket would use d/C250:41 to propel the lunar lander from
+Earth orbit to the moon.15In addition, normalized thrusts
+exceeding unity were achieved on the Voyager missions.
+The following discussion refers to “fast-intercept” maneu-
+vers, which are intercepts that occur before the target hascompleted a full orbit. Before completing an in-depth analy-sis, two predictions for fast-intercept maneuvers are madefor the case where the target leads the chaser. First, it seems
+rather intuitive that a larger Dvshould result in a smaller
+intercept time when the chaser is properly oriented (in thesense of Eq. (13)) for a fast-intercept maneuver. Therefore,
+as the impulse is increased, we anticipate that the angular
+coordinate at which intercept occurs should decrease.
+Second, thrusts that are directed purely forward will placethe chaser in an orbit with a larger period and will onlyincrease the distance between the craft. Instead, thrust
+maneuvers directed both forward and inward (with
+270
+/C14/C20a<360/C14) are likely candidates for fast-intercept sol-
+utions. While the overall orbital period after such a maneu-ver is longer than that of the target, such maneuvers work
+because the modiﬁed orbit initially takes the chaser to a
+lower altitude. Furthermore, an inward maneuver with somedegree of reverse thrust (180
+/C14/C20a/C20270/C14) will also place
+the chaser onto a lower altitude orbit that will quicklyadvance the chaser’s phase relative to the target. Therefore,
+we expect that fast-intercept maneuvers will require thrust
+angles between 180
+/C14and 360/C14. These predictions will be
+revisited in Sec. IV A when some sample solutions are
+examined.
+B. The relationship between control parameters and
+trajectory parameters
+Following the engine burn that propels it onto an intercept
+trajectory, the chaser will follow a path that is described by:
+rchcðÞ¼r01þ/C15cos/ðÞ
+1þ/C15coshcþ/ ðÞ/C18/C19
+; (1)
+where /C15is the eccentricity of the orbit and /is the phase
+angle. Textbook descriptions of elliptical orbits typicallyFig. 1. The coordinate system used in this problem, showing the target with
+angular coordinate hton a circular orbit of radius r0. The chaser has radial
+coordinate rcand angular coordinate hcat some time tfollowing the inter-
+cept maneuver. The angular positions of all craft are measured counter-
+clockwise from the chaser’s original position. The phase angle of the ellipse,
+/, is the angle of the major axis of the chaser’s elliptical orbit and is mea-
+sured in the clockwise sense. The initial thrust vector of the chaser is shown
+at the right along with the resultant velocity vector.
+596 Am. J. Phys., Vol. 91, No. 8, August 2023 Eric M. Edlund 596 04 October 2023 22:54:39
+present this expression with the numerator being simply r0.
+The modiﬁed form (1)is required so that the chaser has a
+radius of r0athc¼0, as required by the initial conditions.
+The eccentricity /C15and orbital phase angle /can be related
+to the control parameters danda, as derived in the
+Appendix . These relationships are
+/C15¼dﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+sin2aðÞð1þdcosaðÞÞ2þcos2aðÞð2þdcosaðÞÞ2q
+;
+(2)
+and
+tan/ðÞ¼tanaðÞ1þdcosaðÞ
+2þdcosaðÞ/C18/C19
+: (3)
+When /C15<1, the semi-major axis of the chaser’s elliptical
+path is denoted as a. Then, the maximum radial excursion
+(apogee) is ð1þ/C15Þa, which occurs when hcþ/¼p. It fol-
+lows from Eq. (1)that a¼r0ð1þ/C15cosð/ÞÞ=ð1/C0/C152Þ. The
+period of the chaser’s elliptical orbit can be calculated from
+Kepler’s third law, T2
+c¼ð4p2=GMÞa3, and expressed in
+terms of problem parameters as
+Tc¼T01þ/C15cos/ðÞ
+1/C0/C152/C18/C193=2
+: (4)
+The normalized period ( Tc=T0) is plotted as a function of a
+in Fig. 2for a range of d. The orbital period relationship will
+enter the generalized intercept condition in Sec. IIIwhen
+accounting for the time required for the chaser to complete
+multiple orbits.
+III. DERIVATION OF THE GENERALIZED
+INTERCEPT CONDITION
+In general, the chaser could complete two thrust maneu-
+vers. The ﬁrst is the thrust required for interception, which is
+the condition that the chaser and target are coincident inspace and time. The second is the thrust required for rendez-
+vous, wherein the chaser matches the target’s velocity.
+Obviously, the second maneuver would not be applicable in
+the case of an intentional collision, as with the DART mis-
+sion. The thrust required for rendezvous is easily found once
+the intercept problem is solved. The interception problem ismore difﬁcult and is the focus of this section.
+The intercept condition is determined as follows: Analysis
+of the radial coordinate determines where the orbits intersect,
+and therefore, the locations at which intercept can occur. Theangular positions of the target and chaser are then expressed
+as functions of time. The intercept condition is found by
+requiring that the two craft have the same angular position
+(modulo 2 p), which must also occur at one of the two points
+where the orbits intersect.
+A. The radial intersection condition
+While it is possible to draw an ellipse and a circle that
+intersect at four locations, the chaser’s elliptical orbit can
+intersect the target’s circular orbit at a maximum of two
+locations since the center of the target’s orbit must coincidewith one of the ellipse’s foci, as illustrated in Fig. 1. This is
+readily proven by requiring the radial position of the chaser
+(r
+c) be equal to that of the target ( r0) and solving for the
+angular position of the intersection, denoted as hx. Using Eq.
+(1)with rc¼r0provides the radial intersection condition
+cosðhxþ/Þ¼cosð/Þ, from which two families of solutions
+emerge. The obvious solution that hx¼2pwas the focus of
+the analysis in Ref. 5. The second intersection solution is
+hx¼2p/C02/ 0/C20/<p;
+4p/C02/p /C20/<2p;(
+(5)
+where hxis limited to the range ½0;2pÞ. This expression for hx
+can be thought of as a function of /or as a function of a
+(when dis speciﬁed) through the relationship between /anda
+described in Eq. (3). Both of these forms are shown in Fig. 3.
+B. The angular equations of motion
+Unlike the Lambert problem where time is an explicit con-
+straint, time is not speciﬁed in this problem and will
+Fig. 2. The normalized orbital period of the chaser as a function of acalcu-
+lated using Eq. (4). The maximum value of the normalized orbital period for
+a normalized thrust of d¼0:40 is about 125 at a¼0/C14, corresponding to an
+eccentricity of 0.96, which shows that this case is approaching an unbound
+orbit.Fig. 3. The intersection angle of the two orbits, hx, is plotted against /
+(black dashed) and a(solid orange) for the case of d¼0:20. The very weak
+dependence of /ondmeans that the hxvsacurves shown here can be taken
+as representative for a broad range of d.
+597 Am. J. Phys., Vol. 91, No. 8, August 2023 Eric M. Edlund 597 04 October 2023 22:54:39
+therefore be algebraically eliminated. As the target travels in
+uniform circular motion, its angular position evolves in time
+as
+httðÞ¼h0þx0t: (6)
+There is no corresponding analytic expression for the chas-
+er’s angular position as a function of time. However, it is pos-sible to describe the inverse relationship for the chaser (time as
+a function of the angular position). This relationship can be
+derived from the speciﬁc angular momentum of the chaser,l
+c¼r2
+c_hc, which is a constant of the motion after the engine
+burn. This equation can be solved for time as a function of the
+chaser’s angular position by expressing rcin terms of husing
+Eq.(1), separating the angular and time variables, and integrat-
+ing between the initial and ﬁnal coordinates. Doing so yields
+t¼T01þ/C15cos/ðÞ ðÞ3=2
+2pðhc
+0dh
+1þ/C15coshþ/ðÞ ðÞ2;(7)
+where the expression has been simpliﬁed using x0¼v0=r0
+and lc¼r0v0ð1þ/C15cosð/ÞÞ1=2, which is an alternate form
+forlcthat is presented in Eq. (A6) of the Appendix .
+Critically, the chaser’s angular position appears as the upperlimit of the integral. This result is valid for any ﬁnal angleand for any values of /C15and/, which means that parabolic
+and hyperbolic paths are also potential intercept trajectories.
+Evaluated at h
+c¼2p, the integral in Eq. (7)is equal to
+2p=ð1/C0/C152Þ3=2, which reproduces the chaser’s orbital period
+given in Eq. (4). If the chaser completes more than one orbit,
+its angular coordinate can be expressed as hc¼2pncþh0
+c,
+where nc2Ncounts the number of whole orbits and
+h0
+c2½0;2pÞ. Therefore, the time required to travel the total
+angular distance is then nctimes the orbital period plus the
+remainder described in Eq. (7)evaluated at h0
+c. That is,
+t¼ncTcþ1
+x01þ/C15cos/ðÞ ðÞ3=2
+/C2ðh0
+c
+0dh
+1þ/C15coshþ/ðÞ ðÞ2: (8)
+The integral can be evaluated numerically or analyti-
+cally.3,16,17The analytic solution is presented here for the
+sake of completeness. Deﬁning the second term on the RHS
+of Eq. (8)asIðh0
+c;/C15;/Þ=x0, the analytic expression for this
+integral is
+Ih0
+c;/C15;//C0/C1
+¼1þ/C15cos/ðÞ
+1/C0/C152/C18/C193=2
+qh0
+cþ//C0/C1
+/C0q/ðÞ/C2/C3
+;
+(9)
+where the new quantity, q, is given by
+qzðÞ¼wzðÞ/C0/C15sinðwzðÞÞ; (10)
+which itself depends on another quantity w,
+wzðÞ¼2 tan/C01ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1/C0/C15
+1þ/C15r
+tanz
+2/C18/C19 !
+: (11)
+Equations (9)–(11) are collectively known as Kepler’s equa-
+tion. They have the advantage that they do not require anynumerics, but they are rather complicated and their physical
+origin is not very transparent. When using these equations,
+care must be taken to enforce continuity in was the inverse
+tangent function jumps between þp=2 and /C0p=2 when z
+passes through p. Additionally, the RHS of Eq. (8)is
+described using only Iðh0
+c;/C15;/Þso that readers may use their
+preferred method for evaluating the integral.
+As was done for the chaser, the angular position of the
+target can be described as a multiple of 2 pplus a remainder
+using ht¼2pntþh0
+t,w h e r e nt2Nandh0
+t2½0;2pÞ.U s i n g
+this form for the angular position of the target and elimi-
+nating time in Eq. (6)by replacing it with the RHS of Eq.
+8gives
+2pntþh0
+t¼h0þncx0TcþIh0
+c;/C15;//C0/C1
+: (12)
+This equation describes the angular position of the target as a
+function of the angular position of the chaser.
+C. The intercept condition
+The intercept condition is realized when the angular coor-
+dinates of the target and chaser are the same and also at an
+orbital intersection point, that is, h0
+t¼h0
+c¼hx. Imposing
+these constraints in Eq. (12) yields the generalized intercept
+condition,
+2pntþhx¼h0þncx0TcþIhx;/C15;/ ðÞ : (13)
+It is important to note that, unlike Eq. (12) which is true for
+any values of aandd, Eq. (13) is true only for particular val-
+ues of these parameters, since intercept requires precision
+coordination of the target and chaser. The intercept problem
+is solved with the discovery of particular values of aandd
+that satisfy Eq. (13). In analyzing this problem, it must be
+recalled that /C15and/are functions of aanddthrough Eqs.
+(2)and(3), respectively, and hxis a function of /through
+Eq.(5).
+We brieﬂy pause to consider how Eq. (13) should be inter-
+preted. The origin of this equation is Eq. (6), which describes
+the angular position of the target as a function of time. The
+second and third terms on the RHS of Eq. (13) represent the
+time (multiplied by x0) required for the chaser to travel to an
+intersection point of the orbits. Therefore, the RHS repre-sents the actual angular position of the target when the
+chaser is at an orbital intersection point h
+x. The LHS should
+be interpreted as the goal of having the target also at the
+same intersection point . It is worth noting that limiting
+the solution space to hx¼0 eliminates the second term on
+the LHS and the integral term on the RHS, which reproduces
+Eq. (18) of Ref. 5that describes the intercept condition for
+the ﬁrst family of solutions.
+IV. SOLUTIONS FOR THE SECOND FAMILY
+OF INTERCEPT LOCATIONS
+This search for intercept solutions proceeds by treating a
+as the sole unknown control parameter, taking the normal-
+ized thrust, d, as speciﬁed. Phrased as a question, the inter-
+cept condition asks “For what values of ais Eq. (13) true
+when dis speciﬁed?” Due to the transcendental nature of Eq.
+(13), solutions cannot be found analytically; they can be
+found by scanning through all possible values of aand iden-
+tifying those values which satisfy Eq. (13).
+598 Am. J. Phys., Vol. 91, No. 8, August 2023 Eric M. Edlund 598 04 October 2023 22:54:39
+A. Intercept solutions
+Figure 4presents two fast-intercept solutions
+(nc¼nt¼0) for d¼0:04 and d¼0:40, as representative
+cases. The normalized thrust used in the second case should
+be considered a strong thrust as it is close to the limitd
+escape¼ﬃﬃﬃ
+2p
+/C01/C250:41 for escape from orbit due to a for-
+ward thrust maneuver. Both cases assume initial conditions
+where the target leads the chaser ( h0>0), though it should
+be noted that negative values of h0would also be perfectly
+acceptable. The thin blue curves in Fig. 4represent the RHS
+of Eq. (13), the actual position of the target when the chaser
+is located at a crossing of the orbits ( hx). The thick orange
+lines represent the LHS of Eq. (13), the angular location of
+the orbital intersection. Notably, it seems that these fast-intercept solutions require a>180
+/C14, and it is clear that
+larger values of dachieve intercept more quickly (in agree-
+ment with the predictions of Sec. II A). The trajectories for
+these two fast-intercept solutions are presented in Fig. 5.
+Notably, the second solution with d¼0:40 will grossly
+overshoot the target if there is not a rendezvous maneuver or
+collision with the target.
+Figure 6illustrates the solution space for the generalized
+intercept condition when d¼0:39 and h0¼15/C14, allowingfor multiple orbits of the chaser and target. The value of d
+¼0:39 was chosen for its relevance to the sensitivity analy-
+sis discussed in Sec. IV B . Intercept solutions with hin the
+range of 0/C14–360/C14are the fast-intercept solutions with nt¼0,
+whereas those above 360/C14are multi-orbit solutions with
+nt¼1. Table Ilists the numerical values for these intercept
+solutions.
+B. Sensitivity to variations in a
+Trajectory corrections are almost always needed in real
+missions to compensate for guidance errors, mechanical
+inaccuracies, and measurement uncertainties. A trajectory isconsidered efﬁcient and stable as long as required correc-
+tions are much smaller than primary mission maneuvers. The
+Cassini–Huygens mission, for example, was designed with adeep-space maneuver (DSM) Dvof approximately 450 m/s,
+along with many smaller trajectory correction maneuvers
+(TCMs), all of which were less than 10% of the primarythrust.
+18The use of small corrections is only possible when
+the trajectories are relatively insensitive to errors in the ini-
+tial thrust vector.
+The following sensitivity analysis considers only the effect
+of variations in the angular control variable, a, though aFig. 4. The thick orange curves represent the LHS of Eq. (13), and the thin blue curves represent the RHS of that equation for (a) d¼0:04 and (b) d¼0:40.
+The initial angular separation is h0¼15/C14in both cases. The numerical values next to each crossing identify ( a,h): the thrust angle which solves the fast-
+intercept problem, and the angle at which intercept occurs.
+Fig. 5. Strobe-effect illustration of the trajectories of the chaser (orange, thick) and the target (blue, thin), plotted at 20/C14increments of the target, for the inter-
+cept solutions identiﬁed in Fig. 4for (a) d¼0:04 and (b) d¼0:40. The black dotted line between the points identiﬁes position pairs at equal intervals of time.
+The black dots interior to the orbits identify the center of force.
+599 Am. J. Phys., Vol. 91, No. 8, August 2023 Eric M. Edlund 599 04 October 2023 22:54:39
+similar analysis could be conducted for variations in d.
+With the ﬁrst family of intercept solutions analyzed inRef. 5, it was straightforward to search for optimal (stable)
+solutions because aonly appeared in the RHS of the inter-
+cept condition. Proving the existence of stable solutionsamounted to showing that, for some intercept solutions, thederivative of the RHS of the intercept condition withrespect to ais zero. This led to the conclusion that perfectly
+forward or reverse thrusts are optimal for this ﬁrst family ofsolutions.
+For the generalized intercept condition, an analytic treat-
+ment of stability is much more difﬁcult on account of themany ways in which both the LHS and RHS of Eq. (13)
+depend on a. Instead of mathematically proving the exis-
+tence of stable solutions, the intercept solutions identiﬁedin Fig. 6are inspected for their sensitivity to small variations
+ina. In particular, the boxed region in Fig. 6is expanded in
+Fig.7, showing that the two curves are tangent to each other
+for intercept solution b. Thus, the existence of stable solu-
+tions for the generalized intercept condition is proved viaexample, though it is not yet known whether stable, fast-intercept solutions exist.Stability analysis must also take into account the steepness
+of the curves’ slopes in the vicinity of the solution. As an
+example, assume that a mission can tolerate a deviation of 1
+/C14
+between the positions of the craft. Figure 7shows that a 1/C14
+output error arises from a 65/C14input error for this solution,
+corresponding to a sensitivity ratio (output variation/inputvariation) of about 0.2. In contrast, intercept solutions c–g
+from Fig. 6have sensitivity ratios of order 10 and would,
+therefore, be unlikely candidates for an intercept mission.
+Interestingly, solution ahas an impressive sensitivity ratio of
+about 0.5 despite the fact that the curves are not tangent atthe solution point, a result of the relatively weak gradients in
+this vicinity. Even if the curves cross, low-sensitivity solu-
+tions can still arise if the crossing is near one curve’s inﬂec-tion point as in Fig. 4(a).
+V. RENDEZVOUS
+The thrust required for rendezvous can be derived from the
+equations of motion or from symmetry arguments, both of
+which are described here. The chaser’s velocity components
+are given in Eqs. (A1) and(A2) from the Appendix . Evaluating
+the azimuthal velocity component at the intersection angle
+d e s c r i b e di nE q . (5)results in v
+c;h¼v0þDvcosðaÞ,w h i c hi s
+the same as the initial state. Evaluation of the radial component
+of velocity gives vc;r¼/C0Dv0sinðaÞ, which means that the
+radial velocity at interception is exactly opposite to the initialradial velocity. The same conclusion can be surmised from the
+symmetry of the problem using Fig. 1, where the velocity com-
+ponents have the same magnitude and the radial component
+must have changed sign. It follows that the rendezvous maneu-
+ver at the second family of intercept locations requires a thrustof magnitude Dvdirected at an angle of p/C0a.
+VI. CONCLUSIONS
+Implementing a fuel constraint (a speciﬁed Dv) in the
+intercept problem offers pedagogical advantages compared
+to the Lambert problem: a constant magnitude thrust vector
+with a variable direction is easier to visualize than the ﬁxedtime-to-interception formulation. The analysis presented inFig. 6. The thick orange curves represent the LHS of Eq. (13), and the thin
+blue curves represent the RHS of that equation for d¼0:39 and h0¼15/C14.
+The points labeled a–g are all possible solutions occurring before the target
+has completed two full orbits. The dashed box indicates the parameter range
+shown in Fig. 7.
+Table I. List of numerical values for the solutions presented in Fig. 6.
+Figure 6tag nt nc ah x ht hc
+a 0 0 317/C1456/C1456/C1456/C14
+b 0 1 186/C14355/C14355/C14715/C14
+c1 0 7 6/C14230/C14590/C14230/C14
+d 1 1 113/C1495/C14455/C14455/C14
+e 1 1 266/C14198/C14558/C14558/C14
+f 1 2 236/C14295/C14655/C141015/C14
+g 1 3 196/C14348/C14708/C141428/C14Fig. 7. Intercept solution bidentiﬁed in the dashed box of Fig. 6. The gray
+bands identify the range of afor which the target and chaser have an angular
+separation of 1/C14or less around the ideal intercept location, resulting in an
+allowable uncertainty on aof about 5/C14.
+600 Am. J. Phys., Vol. 91, No. 8, August 2023 Eric M. Edlund 600 04 October 2023 22:54:39
+this work extends the intercept problem that was introduced
+in Ref. 5by analyzing solutions occuring at the second fam-
+ily of intersection locations. The culmination of this work isEq.(13), which is the most general statement of the intercept
+condition for this problem.
+In addition to presenting a general intercept condition that
+allows intercept locations to be calculated, this work hasshown how fast-intercept solutions (occurring before the tar-get has completed one full orbit) can be calculated. The exis-tence of solutions that are stable with respect to variations inawas proven through an example with d¼0:39 and
+h
+0¼15/C14. It is not known whether there exist low-sensitivity
+fast-intercept solutions or whether there exist interceptsolutions that are simultaneously insensitive to variations inbothaandd. There are, of course, many other rich and chal-
+lenging problems that could be further examined using the
+framework and analytical methods described here, includinga mathematical expression for the stability of solutions to thegeneralized intercept condition, the existence of low-sensitivity fast-intercept maneuvers, initial orbits that are notcircular, and initial conditions that are not co-orbital.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+APPENDIX: DERIVATION OF THE EQUATIONS
+FOR /C15AND /
+This derivation of the equations for /C15and/in terms of the
+control parameters, danda, follows the logic presented in
+Ref. 5. Two equations of constraint are developed and
+merged to derive these key relationships. One constraintemerges from kinematics and angular momentum, and theother from conservation of total energy. At t¼0, after the
+engine burn has been completed, the mass, angular momen-tum, and total energy of the chaser are constants of themotion. Since any function of these quantities must also be aconstant of the motion, the following analysis considers thespeciﬁc angular momentum and the speciﬁc total energy,
+being the angular momentum and total energy divided by the
+mass. The speciﬁc angular momentum is l
+c¼rvh. Referring
+to the velocity components described in Fig. 1, it follows
+that lc¼r0v0ð1þdcosðaÞÞimmediately after the engine
+burn has concluded. This constant of the motion can be usedwith Eq. (1)to solve for the azimuthal velocity through
+v
+h¼lc=r, which gives
+vc;h¼v0ð1þdcosaÞðÞ1þ/C15coshcþ/ ðÞ
+1þ/C15cos/ðÞ: (A1)
+An expression for the radial velocity can be derived using
+the chain rule in Eq. (1),vr¼ðdr=dhÞ_h¼ðdr=dhÞðvh=rÞ,
+together with the prior result to give
+vc;r¼v0ð1þdcosaÞðÞ/C15sinhcþ/ ðÞ
+1þ/C15cos/ðÞ: (A2)
+The ﬁrst constraint is found by taking the ratio of the
+radial and azimuthal velocities, using Eqs. (A2) and(A1) ,
+and equating this to the ratio of velocities from the initialconditions as depicted in Fig. 1. This yields/C15sin/ðÞ
+1þ/C15cos/ðÞ¼dsinaðÞ
+1þdcosaðÞ: (A3)
+The second constraint results from consideration of the spe-
+ciﬁc total energy of the chaser, ec¼1
+2ðv2
+c;rþv2
+c;hÞ/C0GM=r,
+which can be calculated using the prior results. Noting that
+Newton’s second law analyzed for the target on its circular
+orbit gives GM¼r0v2
+0,w eh a v e
+e¼1
+2v2
+0
+ð1þ/C15cos/ðÞ Þ2/C2
+/C152/C01þ2/C15ð1þdcosaðÞ ðÞ2
+/C01þ/C15cos/ðÞ ðÞ Þ coshþ/ðÞ/C3
+: (A4)
+Equation (A4) must actually be independent of angle in order
+foreto be a constant of the motion. Therefore, the coefﬁ-
+cient of the cos ðhþ/Þmust be identically zero. This yields
+the second constraint,
+1þ/C15cos/ðÞ¼1þdcosaðÞ ðÞ2: (A5)
+This result also allows the speciﬁc angular momentum of the
+chaser to be expressed as
+lc¼r0v01þ/C15cos/ðÞ ðÞ1=2: (A6)
+Finally, the two constraints, Eqs. (A3) and(A5) , can be
+combined to solve for /C15and/. These expressions are
+/C15¼dﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+sin2aðÞð1þdcosaðÞÞ2þcos2aðÞð2þdcosaðÞÞ2q
+;
+(A7)
+and
+tan/ðÞ¼tanaðÞ1þdcosaðÞ
+2þdcosaðÞ: (A8)
+Useful reference points for characterizing the scale of /C15are
+its minimum and maximum values. The minimum of Eq.
+(A7) is/C15¼d, which occurs at a¼90/C14and 270/C14. A maxi-
+mum of /C15¼dð2þdÞoccurs at a¼0/C14and 180/C14. It was
+shown in Ref. 5that/has very weak dependence on d, such
+that the approximation tan ð/Þ¼1
+2tanðaÞis accurate to
+within 0 :5/C14ford/C200:05.
+a)Electronic mail: eric.edlund@cortland.edu, ORCID: 0000-0001-5320-
+4996.
+1J. L. Lagrange, M/C19ecanique Analytique, Vol. II (Acad /C19emie des Sciences,
+Paris, 1788).
+2C. F. Gauss, Theory of the Motion of the Heavenly Bodies Moving about
+the Sun in Conic Sections: A Translation of Gauss’s “Theoria Motus”(Little, Brown and Co., Boston, MA, 1857).
+3I. R. Gatland, “Gravitational orbits and the Lambert problem,” Am. J.
+Phys. 90(3), 177–178 (2022).
+4A. M. Capece and J. L. Gazley, “The Hohman transfer as an application
+for teaching introductory physics,” Am. J. Phys. 89(11), 1002–1008
+(2021).
+5B. W. Carroll, “The delicate dance of orbital rendezvous,” Am. J. Phys.
+87(8), 627–637 (2019).
+6P. R. Blanco and C. E. Mungan, “High-speed escape from a circular orbit,”
+Am. J. Phys. 89(1), 72–79 (2021).
+7R. W. Easton, R. L. Anderson, and W. Lo, “Conic transfer arcs for
+Kepler’s problem,” Am. J. Phys. 90, 666–671 (2022).
+8E. M. Edlund, “Interception and rendezvous: An intuition-building
+approach to orbital dynamics,” Am. J. Phys. 89, 559–566 (2021).
+601 Am. J. Phys., Vol. 91, No. 8, August 2023 Eric M. Edlund 601 04 October 2023 22:54:39
+9L. M. Smallwood, D. M. Katz, and M. W. Richmond, “Near earth objects:
+A brief review and a student project,” Am. J. Phys. 72(2), 264–279 (2004).
+10NASA, “Planetary defense coordination ofﬁce,” 2022. <https://www.
+nasa.gov/planetarydefense/overview >
+11A. F. Chang, A. S. Rivkin, P. Michel, J. Atchison, O. Barnouin, L. Benner,
+N. L. Chabot, C. Ernst, E. G. Fahnestock, M. Keuppers, P. Pravec, E.
+Rainey, D. C. Richardson, A. M. Stickle, and C. Thomas, “AIDA DART
+asteroid deﬂection test: Planetary defense and science objectives,” Planet.
+Space Sci. 157, 104–115 (2018).
+12T. Pultarov, “Astroscale’s space junk removal satellite aces 1st orbital
+test,” 2021. <https://www.space.com/astroscale-ﬁrst-space-junk-capture-
+demonstration >
+13W. J. Hennigan, “Exclusive: Strange Russian spacecraft shadowing U.S.
+spy satellite, general says,” 2020. <https://time.com/5779315/russian-
+spacecraft-spy-satellite-space-force/ >.14L. J. Rich /C19e, G. M. Colton, and T. A. Guillory, “Apollo 11 ﬂight plan,” NASA
+(1969). <https://www.hq.nasa.gov/alsj/a11/a11ﬂtpln_ﬁnal_reformat.pdf >
+15The NASA report on the Apollo 11 ﬂight plan (Ref. 14) calls for an ini-
+tially circular orbit at an altitude of 100 nautical miles, and a Dvfor the
+trans-lunar injection (TLI) maneuver of 10 451 feet per second. These val-
+ues provide an estimate of d/C250:409, assuming an optimal escape maneu-
+ver using a forward thrust at a¼0/C14.
+16H. Goldstein, C. P. Poole, and J. Safko, Classical Mechanics (Pearson,
+London, 2011).
+17H. D. Curtis, Orbital Mechanics for Engineering Students (Elsevier,
+Amsterdam, 2014).
+18T. Goodson, B. Bufﬁngton, Y. Hahn, N. Strange, S. Wagner, and M.
+Wong, “Cassini-Huygens maneuver experience: cruits and arrival at
+Saturn,” AASI-AIAA Astrodynamics Specialist Conference (AIAA, Reston,
+VA, 2005), p. AAS 05-286.
+602 Am. J. Phys., Vol. 91, No. 8, August 2023 Eric M. Edlund 602 04 October 2023 22:54:39

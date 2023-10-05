@@ -1,0 +1,1092 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| JUNE 01 2023
+Beyond the ABCDs: A better matrix method for geometric
+optics by using homogeneous coordinates 
+Theodore A. Corcovilos
+Am. J. Phys.  91, 449 (2023)
+https://doi.org/10.1 119/5.0083069
+Articles Y ou May Be Interested In
+Morphology of symmetric ABCD tetrablock quaterpolymers studied by Monte Carlo simulation
+J. Chem. Phys.  (November 2016)
+Model of the Human Eye Based on ABCD Matrix
+AIP Conference Proceedings  (April 2008)
+Behavior intention for athlete post retirement life using Acylic Behavior Change Diagram (ABCD)
+AIP Conference Proceedings  (June 2023) 04 October 2023 22:52:54
+Beyond the ABCDs: A better matrix method for geometric optics
+by using homogeneous coordinates
+Theodore A. Corcovilosa)
+Department of Physics, Duquesne University, Pittsburgh, Pennsylvania 15282
+(Received 21 December 2021; accepted 14 February 2023)
+Geometric optics is often described as tracing the paths of non-diffracting rays through an optical
+system. In the paraxial limit, ray traces can be calculated using ray transfer matrices (colloquially,ABCD matrices), which are 2 /C22 matrices acting on the height and slope of the rays. A known
+limitation of ray transfer matrices is that they only work for optical elements that are centered and
+normal to the optical axis. In this article, we provide an improved 3 /C23 matrix method for
+calculating paraxial ray traces of optical systems that is applicable to how these systems are
+actually arranged on the optical table: lenses and mirrors in any orientation or position (e.g., in
+laboratory coordinates), with the optical path zig-zagging along the table. Using projectiveduality, we also show how to directly image points through an optical system using a point
+transfer matrix calculated from the system’s ray transfer matrix. We demonstrate the usefulness of
+these methods with several examples and discuss future directions to expand the applications ofthis technique.
+#2023 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0083069
+I. INTRODUCTION
+Geometric optics describes light as non-diffracting rays
+traveling through media and surfaces using the laws of
+reﬂection and refraction. Assuming that the optical system oflenses, mirrors, etc., has a rotational axis of symmetry (theoptical axis), we can deﬁne the paraxial approximation asthe limit where the ray height hrelative to the axis is much
+smaller in magnitude than other lengths in the system, suchas radii of curvature or focal lengths, and the slope mthe ray
+makes with the optical axis has a magnitude much smaller
+than one. In this paraxial limit, the effect of optical elements,
+such as lenses and mirrors, may be approximated by linearfunctions of a ray’s height and slope. This approximation isoften the ﬁrst step in designing optical systems and is alsoone of the ﬁrst optics topics presented to students (yieldingthe Gaussian and Newtonian image equations, the lens-maker’s equation, etc.).
+Under these conditions, the laws of reﬂection and refrac-
+tion at planar and spherical surfaces may be replaced by their
+Taylor series approximations to ﬁrst order in handmand,
+therefore, may be expressed as matrix equations.
+1–4These
+matrices are known as ray transfer matrices (RTM), or“ABCD matrices” after their typical parameterization. In thisarticle, we revisit the ABCD matrices from a geometric per-spective, rather than a strictly algebraic one, and use geomet-ric insight into expand the functionality of our matrix
+representation. We do this by introducing a homogeneous
+coordinate representation of lines, showing that the ray trans-fer matrices are already applicable in this system, and thenadding geometric transformations to our set of allowed opera-tions. The ideas that we present here are implicit in advancedtreatments of optics, for example, the geometric optics chap-ters of Born and Wolf,
+5but have not been previously ﬂeshed
+out into an easy-to-use form. We ﬁll in the missing steps, and
+the end result is a set of relatively simple algebraic rules formodelling almost any common optical setup.
+The key new calculational tool that we use, expressing
+lines and points in homogeneous coordinates (deﬁned in Sec.III), is well known in the computer graphics communitywhere it is used to express rotations, translations, afﬁne
+transformations (e.g., shears), and perspective transforma-
+tions as matrices.
+6Homogeneous coordinates are also a natu-
+ral setting for projective geometry (particularly oriented
+projective geometry7), which was a common mathematical
+description of geometric optics from the Italian Renaissance8
+up until the mid-1900s.9Unfortunately, work in this area
+was largely abandoned when digital computers became via-
+ble for full, non-paraxial ray tracing using the exact laws ofreﬂection and refraction.10,11
+In our work, we express rays as oriented lines in homoge-
+neous coordinates and identify the matrices that correspond
+to common optical elements favoring direct ray tracing cal-culations using the laws of reﬂection and refraction. This
+takes us beyond the augmented ABCD matrices used by
+some authors2,12–18to fully consistent geometric treatment.
+A better understanding of the geometry underlying the ray
+transfer matrices is also helpful in solving the inverse prob-lem of ﬁnding a set of optical elements needed to produce a
+given optical transformation.19,20Most optical modelling
+involves the analysis of rays through the optical system, but
+by invoking one other new math tool, projective duality, we
+expand this idea to analyzing points as well. In other words,
+we can calculate images directly without tracing rays. We
+call this transformation of points the point transfer matrix ,
+which we obtain from an algebraic manipulation of the raytransfer matrix.
+The outline of this article follows: We begin in Sec. II
+with a review of the paraxial ray transfer matrices as typi-
+cally used in two-dimensional or axially symmetric optical
+systems. Next, we show how RTMs are a disguised form of
+general linear operators on the vector space of lines repre-sented in homogeneous coordinates (Sec. III). Because we
+are using homogeneous coordinates, we can also consider
+optical elements decentered or rotated with respect to the
+optical axis, which we discuss in Sec. IValong with an
+example. Careful treatment of algebraic signs allows us topreserve the propagation direction of our rays, which we
+explore in Sec. Vto derive orientation-preserving RTMs for
+reﬂective elements. By requiring a coincident point and line
+449 Am. J. Phys. 91(6), June 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 449 04 October 2023 22:52:54
+to remain so after imaging, we ﬁnd a key new result that we
+call point transfer matrices (PTMs) (Sec. VI) and provide
+some examples demonstrating how PTMs simplify imaging
+calculations and the analysis of optical systems (Sec. VII).
+Finally, we close in Sec. VIII with a discussion of what
+would be required to extend these results to three-
+dimensional systems and the complications that arise therein.
+The supplementary material21contain an alternative deri-
+vation of the PTMs using Grassmann exterior algebra (an
+algebra that uses different “grades” to represent the geomet-
+ric ideas of lines, areas, and volumes), leading to a compactproof of the Scheimpﬂug principle of tilt-shift photography,
+as well as example python code for implementing our work.
+In particular, the python code contains calculations for theexamples in this main text and additional examples that weomitted to save space.
+II. RAY TRANSFER MATRICES
+Before introducing our new concepts, we will brieﬂy review
+the ray transfer matrices as conventionally used. We refer read-
+ers to Refs. 1–4for detailed derivations. Several conventions
+exist in the literature regarding the ordering of elements and theimplementation of the index of refraction. We will follow the
+convention of the textbook by the Pedro ttis.
+3
+We deﬁne an incoming ray vector r¼ðh;mÞTrepresent-
+ing a ray with slope mrelative to the optical axis and cross-
+ing the input plane of the optical system at height h. (We use
+Tto indicate matrix transposition.) The coordinate origins of
+the object/image spaces are centered on the ﬁrst/last surfacesof the optical system, as shown in Fig. 1. The incoming ray
+transforms into the outgoing ray r
+0¼ðh0;m0ÞTthrough the
+following relation:
+h0
+m0 !
+¼AB
+CD !
+h
+m !
+; (1)
+where A;B;C;Dare real-valued constants obeying AD/C0BC
+6¼0 such that this ray transfer matrix is invertible. In particu-
+lar, the matrix determinant is equal to the ratio of the incom-
+ing and outgoing indices of refraction, AD/C0BC¼n=n0,
+which is often unity for common optical systems.3This makes
+the determinant a useful check on computational results. The
+relationship described by Eq. (1)is shown schematically in
+Fig. 1. Note that some references, such as the popular text-
+book by Hecht,4use different conventions for the ray vectors
+and matrices. A common choice is to multiply the slope in the
+ray vector by the index of refraction, yielding the “reducedslope.” We prefer to use the geometric slope to avoid compli-
+cations in our transformation operators (Sec. V).
+The ray transfer matrices are particularly useful because
+whole optical systems may be summarized by the product of
+the matrices of their components, with the sequence writtenfrom right to left (ﬁrst element right-most). If we exchange
+the input and output ends of the optical system (or equiva-
+lently, reverse time), the resulting ray transfer matrix is thematrix inverse of the original system RTM.
+III. RAYS AND RAY TRANSFER MATRICES
+IN HOMOGENEOUS COORDINATES
+In this section, we introduce a homogeneous representa-
+tion of lines in a plane, which consists of a set of three coefﬁ-
+cients, as opposed to the more familiar height and slopedeﬁnition above. This will require us to replace the 2 /C22
+ABCD matrices with 3 /C23 ray transfer matrices. The addi-
+tional row and column provide the additional degrees of free-dom that we need to implement the key results that follow in
+later sections.
+Given a ray vector r¼ðh;mÞ
+T, we could equivalently say,
+that the ray falls along the line given by the equationy¼mxþh. It will be helpful to us to rewrite the equation
+for the line in the form axþbyþc¼0 and use the coefﬁ-
+cients a,b, and cto deﬁne a vector representation of the line:
+r¼ðc;a;bÞT. (Note the order of the coefﬁcients, which
+we’ve chosen to facilitate comparisons of our matrices with
+the conventional version.) For example, our standard rayabove is described by the rearranged equation /C0mxþy/C0h
+¼0, corresponding to the ray vector r¼ð /C0 h;/C0m;1ÞT.
+Multiplying the line equation or the vector rby a positive
+scalar does not change the geometric line it represents, so
+this is a homogeneous representation of the line (Fig. 2).
+Although it is not necessary for our calculations, if we wishto normalize the ray vector r, a convenient choice is to
+require a
+2þb2¼1. With this normalization, it turns out
+that aand bequal the direction cosines of the line with
+respect to the xandyaxes, respectively, and jcjis the per-
+pendicular distance from the line to the coordinate origin. If
+care is taken with signs during calculations (see Sec. Vfor
+how reﬂections must be handled), the rays expressed thisway are oriented (have a well-deﬁned forward direction).
+For a ray ðc;a;bÞT, the direction of propagation, measured
+counter-clockwise from the positive x-axis to the forward-
+going side of the ray, is the angle /¼arctan ð/C0a=bÞ;where
+Fig. 1. Ray transfer matrix. The incoming ray renters the optical system
+(gray box) and is transformed into the outgoing ray r0according to the
+ABCD matrix in Eq. (1). The slopes of the rays are exaggerated for clarity.
+Note that the incoming coordinate system ( x,y) has its origin at the input
+plane of the system and that the outgoing coordinate system ðx0;y0Þhas its
+origin at the output of the system. The horizontal line represents the optical
+axis of the system.Fig. 2. (Color online) Representation of the ray ðc;a;bÞTas the oriented line
+axþbyþc¼0. The coefﬁcients of the equation can be used to calculate
+thex- and y-intercepts, slope, and distance from the origin. Note that for this
+particular oriented line, a;b>0 and c<0.
+450 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 450 04 October 2023 22:52:54
+it is necessary to add pradians to the value of /in case
+b<0 to match the forward direction of the ray.22The propa-
+gation direction of paraxial rays in our convention is givenby the sign of b: left-to-right rays have b>0 and right-to-left
+rays have b<0 (see Sec. Vfor more detail).
+If the conventional 2 /C22 ray transfer matrix of an optical
+system is known, the corresponding ray transfer matrix inhomogeneous coordinates for nonreﬂecting systems (see
+Sec. Vfor the reﬂecting case) is
+M¼AB 0
+CD 0
+0010
+B@1
+CA:
+Using the height-slope deﬁnition of the ray vectors, the ray
+transfer equation reads as
+/C0h
+0
+/C0m0
+10
+B@1
+CA¼AB 0
+CD 0
+0010
+B@1
+CA/C0h
+/C0m
+10
+B@1
+CA:
+Compare this with Eq. (1). The RTMs for common optical
+elements are summarized in Table I. The additional row and
+column will have no apparent purpose at ﬁrst, but they pro-vide additional degrees of freedom that we will exploit laterfor coordinate transformations to represent decentered androtated optical elements (Sec. IV), consistent handling of ori-
+entation (Sec. V), and imaging of points (Sec. VI).
+IV. COORDINATE TRANSFORMATIONS
+The 2 /C22 ray transfer matrices assume that the optical sys-
+tem has axial symmetry. In our expanded 3 /C23 formulation,
+we can incorporate off-axis and rotated elements.
+2,14,15We add
+to our repertoire of ray transfer matrices a matrix Rhthat rotates
+a ray by angle hcounter-clockwise about the origin and a
+matrix Tu;vthat translates a ray by uin the x-direction and vin
+they-direction,
+Rh¼10 0
+0 cos h/C0sinh
+0 sin hcosh0
+B@1
+CA;Tu;v¼1/C0u/C0v
+01 0
+00 10
+B@1
+CA:
+(2)
+Note that a translation matrix with only horizontal displace-
+ment is equivalent to the propagation matrix from Table I.
+These coordinate transformation matrices are exact in the
+sense that they are not linear approximations with respect totheir arguments, in contrast to the refractive surface matricesand spherical mirror matrices in Table I.
+The ray transfer matrices given earlier in Table Iassume
+the elements are located at the origin and normal to the opti-cal axis. We can use the TandRmatrices above to walk
+between optical elements without the restriction that they lieon the optical axis or that they are oriented normally to theoriginal optical axis. We can represent an element Mthat is
+rotated and then translated into a new position by
+M
+0¼MR/C01
+hT/C01
+u;v; (3)
+where the outgoing coordinate axes are centered and aligned
+with the axis of the optical element, rather than the originaloptical axis. Note that the inverses are simply R/C01
+h¼R/C0hand
+T/C01
+u;v¼T/C0u;/C0v. Equation (3)respects the traditional application
+of the ray transfer matrices, where the input rays and outputrays are speciﬁed in different coordinate systems. The inputrays are measured relative to a coordinate origin located at theﬁrst surface of the optical system, and the output rays are mea-sured relative to a coordinate origin located at the ﬁnal surface,as shown earlier in Fig. 1. As a simple example of Eq. (3),t a k e
+Mto be the identity matrix and then translate along the axis by
+a distance d. The resulting matrix is
+M
+0¼IT/C01
+d;0¼1d0
+0100010
+B@1
+CA;
+which is exactly the expanded form of the propagation
+matrix in Table I.
+In some applications (e.g., when mechanical dimensions
+are needed for prototyping an optomechanical layout), it ispreferable to restore the original coordinate system. Thischoice of output coordinates is accomplished byTable I. Summary of ray transfer and point transfer matrices.
+Element RTM PTM
+General form for
+centered elementsAB 0
+CD 0
+0010
+B@1
+CAD/C0C 0
+/C0BA 0
+00 AD/C0BC2
+643
+75
+Thin lens of focal
+length f10 0
+/C01=f10
+00 10
+B@1
+CA11 =f0
+0100012
+643
+75
+Free-space propaga-
+tion over distance d1d0
+0100010
+B@1
+CA10 0
+/C0d10
+00 12
+643
+75
+Refraction at a ﬂat
+normal surface from
+index of refraction n
+ton
+0100
+0n=n00
+0010
+B@1
+CAn=n000
+01000 n=n
+02
+643
+75
+Refraction at a curved
+surface centered on
+the axis from index
+of refraction nton0
+with radius of curva-
+tureR(R>0i s
+convex)10 0
+n/C0n0
+Rn0n
+n00
+00 10
+BB@1
+CCAn
+n0/C0n/C0n0
+Rn00
+010
+00n
+n02
+666643
+77775
+Reﬂection at a plane
+surface/C010 0
+01000 /C010
+B@1
+CA/C010 0
+01000 /C012
+643
+75
+Reﬂection at a spheri-
+cal surface with the
+radius of curvature R
+(R>0 is convex)/C010 0
+2=R10
+00 /C010
+B@1
+CA/C012 =R 0
+01000 /C012
+643
+75
+Translation by dis-
+placement ( u,v)1/C0u/C0v
+01 000 10
+B@1
+CA100
+u10
+v012
+643
+7
+5
+Rotation by angle h 10 0
+0 cos h/C0sinh
+0 sin h cosh0
+B@1
+CA10 0
+0 cos h/C0sinh
+0 sin h cosh2
+643
+75
+451 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 451 04 October 2023 22:52:54
+M0¼Tu;vRhMR/C01
+hT/C01
+u;v: (4)
+This construction places the image space coordinate system
+to be coincident with the object space coordinate system,which contrasts with the typical convention for ray transfer
+matrices that treat the object space and image space indepen-
+dently (Fig. 3).
+Several expressions other than Eq. (2)are found in the litera-
+ture for handling decentered or tilted optical elements.
+2,12–18For
+example, the rotation operator is often given as2,14
+R0
+h¼10 0
+01 /C0h
+00 10
+B@1
+CA:
+This operator is in fact not a rotation but a shear , a vertical
+displacement proportional to the horizontal coordinate. Ashear is approximately equal to a rotation for sufﬁciently
+small angles, but we prefer the exact rotation formalism.
+The beneﬁt we gain over other implementations is that our
+Eq.(2)does not require small parameters, for example, jhj/C281
+in the rotation matrix, because we are transforming the whole
+coordinate system rather than just the rays themselves. In particu-
+lar, plane mirrors of any orientation may be exactly modelled(see Sec. V), allowing the model to include, for example, path-
+folding mirrors along a beam. Thus, long as our rays do not stray
+too far from our transformed optical axis, the paraxial approxi-mation is still valid even if the mechanical layout of the system
+is not along a single axis. A similar method is described by Lin
+18
+for transforming coordinates in non-paraxial ray tracing (e.g., for
+implementation by computers), but Lin does not make the con-nection that these results apply to the paraxial case as well.
+A. Example: Tilted window
+Consider a window of thickness dand index of refraction
+ntilted by a small angle h(Fig. 4). The ray transfer matrix
+for this system referenced back to the incoming coordinatesystem is (remembering to read the order of terms from right
+to left),
+M¼ R
+hTd;0|ﬄﬄ{zﬄﬄ}
+return to
+original coords :Mrefðn;1Þ|ﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄ}
+back
+surfaceT/C01
+d;0|{z}
+window
+thicknessMrefð1;nÞ|ﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄ}
+front
+surfaceR/C01
+h|{z}
+rotate;
+/C251/C0d1/C01
+n/C18/C19
+/C0dh1/C01
+n/C18/C19
+01 0
+00 10
+BBB@1
+CCCA;
+where h2and higher-orders terms have been discarded in
+keeping with the paraxial approximation (rays must stay nearthe transformed optical axis). Applying this RTM to an input
+rayð0;0;1ÞTcoincident with the input optical axis gives an
+output ray,
+1/C0d1/C01
+n/C18/C19
+/C0dh1/C01
+n/C18/C19
+01 0
+00 10
+BBB@1
+CCCA0
+0
+10
+B@1
+CA
+¼/C0dh1/C01
+n/C18/C19
+0
+10
+BBB@1
+CCCA;
+showing that the outgoing ray is parallel to the original opti-
+cal axis and has been displaced upward by a distancedh1/C01=n ðÞ . This agrees to within the paraxial limit with
+the direct calculation of the displacement of a ray parallel to
+the optical axis through a tilted plate using Snell’s Law (e.g.,problem 2–8 of Pedrotti
+3), which is
+Dh¼dsinðh/C0h0Þ
+cosðh0Þ/C25dh1/C01
+n/C18/C19
+;
+where the angle of incidence of the ray inside the window,
+h0, is given by sin ðh0Þ¼sinðhÞ=n, and we use the small-
+angle approximation in keeping with the paraxial limit
+needed for consistency with the refracting surfaces.
+V. ORIENTATION AND REFLECTIONS
+Reﬂections require special attention if we wish to include
+orientation in our homogeneous representation.7,23The con-
+vention of direction introduced in Sec. IIIcan be summa-
+rized: for the homogeneous ray r¼ðc;a;bÞTrepresenting
+the line axþbyþc¼0, the ray is oriented left-to-right if
+b>0 and right-to-left if b<0. (This explains our choice of
+signs for the ray vectors in homogeneous coordinates.) The
+case b¼0 (vertical rays) does not occur in the paraxial limit,
+but we may still identify rays with a>0 as going down and
+rays with a<0 as going up. The ﬁnal case is a¼b¼0, rep-
+resenting the line inﬁnitely far away encircling the plane.
+For these ideal lines, c>0 circulates counter-clockwise, and
+c<0 goes clockwise. The null ray vector ð0;0;0ÞTis unde-
+ﬁned geometrically.
+Now, consider the action of a plane mirror coincident
+with the yaxis on an incoming ray ðc;a;bÞT¼ð /C0 h;/C0m;1ÞTFig. 3. (Color online) The effects of applying the rotation operator Rh(left)
+and translation operator Tu;v(right) to an optical element using Eq. (4).
+Fig. 4. (Color online) Tilted window of thickness dand index of refraction n
+at an angle hrelative to normal incidence. The angle of incidence inside the
+window is denoted h0. The path of the ray is shown as a thick red line with
+the original optical axis as a dashed line.
+452 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 452 04 October 2023 22:52:54
+(Fig. 5). We require both the slope of the ray and its orienta-
+tion to change signs. The RTM equation that satisﬁes this is
+/C010 0
+010
+00 /C010
+B@1
+CA/C0h
+/C0m
+10
+B@1
+CA¼h
+/C0m
+/C010
+B@1
+CA:
+The presence of the negative coefﬁcient in the bottom right
+element of the RTM is the indicator of reﬂection.
+Generalizing, we see that the recipe for converting the stan-dard 2 /C22 RTM of reﬂective elements into an RTM for ori-
+ented homogeneous coordinates is
+M
+reflective ¼ð /C0 1ÞAB 0
+CD 0
+0010
+B@1
+CA:
+Speciﬁcally, the RTMs for a plane mirror normal to the axis
+and a spherical mirror with the center of curvature on theaxis are
+M
+plane mirror ¼/C010 0
+01000 /C010
+BB@1
+CCA;
+M
+sph:mirror¼/C010 0
+2=R10
+00 /C010
+BB@1
+CCA;
+where R>0 for a convex mirror.
+A. Example: Retroreflector
+A retroreﬂector can be made from a pair of plane mirrors
+intersecting at right angles (Fig. 6). Using our rotation oper-
+ator from Eq. (2), we can build a system ray transfer matrix
+that also respects the orientation of the rays. Note that our
+rotation angles are 645/C14, which are not small. Care must be
+taken when ordering the RTMs. We’ll assume that theincoming ray r
+0¼ð /C0 h;/C0m;1ÞTﬁrst strikes the upper mir-
+ror and then strikes the lower mirror. Choosing a different
+input ray may require the user to change the order of themirrors, depending on which surface is struck by the ray
+ﬁrst.
+The RTM for the upper mirror ( M
+1) is generated by a 45/C14
+rotation of a plane mirror situated at the origin:M1¼R45/C14Mplane mirror R/C01
+45/C14;
+¼10 0
+01ﬃﬃﬃ
+2p/C01ﬃﬃﬃ
+2p
+01ﬃﬃﬃ
+2p1ﬃﬃﬃ
+2p0
+BBBBB@1
+CCCCCA/C010 0
+010
+00 /C010
+B@1
+CA
+/C210 0
+01ﬃﬃﬃ
+2p1ﬃﬃﬃ
+2p
+0/C01ﬃﬃﬃ
+2p1ﬃﬃﬃ
+2p0
+BBBBB@1
+CCCCCA;
+¼/C0100
+00 1
+01 00
+B@1
+CA: (5)
+Similarly, the lower mirror ( M
+2) has the RTM,
+M2¼R/C045/C14Mplane mirror R/C01
+/C045/C14¼/C010 0
+00 /C01
+0/C0100
+@1
+A:(6)
+We do not need any translation operator between the two
+mirrors because both mirrors pass through the coordinate ori-
+gin. The passage of the ray from one mirror to the next is not
+explicitly part of the RTM (other than the order of the optical
+elements). In other words, the position of the optical ele-ments determines the RTM, not the path of the rays. We
+choose an incoming ray r
+0¼ð /C0 h;/C0m;1ÞTwith h>0 such
+that it will strike mirror M1ﬁrst, yielding the reﬂected ray,
+r1¼M1r0¼ðh;1;/C0mÞT:
+This ray follows the line hþx/C0my¼0, propagating from
+right to left ( b<0). After the second reﬂection in M2, the
+ﬁnal ray is
+r2¼M2r1¼ð /C0 h;m;/C01ÞT;
+which is antiparallel to the incoming ray, as expected, with a
+yintercept of – hand propagating right to left ( b<0). Note
+also that the method works for any angular separation
+between the mirrors by including the appropriate angles in
+Eqs. (5)and(6).Fig. 5. (Color online) Incoming ray (red) striking a plane mirror and reﬂect-
+ing (blue). Both the ray’s slope and its orientation change sign, resulting in
+the ray vector shown.Fig. 6. (Color online) Incoming ray (red) striking two mutually perpendicu-
+lar mirrors ( M1andM2) and reﬂecting twice (purple and blue rays). The out-
+going ray is antiparallel to the incoming ray. The dashed line shows the
+bisector of the incoming and outgoing rays, which passes through the inter-
+section of the mirrors.
+453 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 453 04 October 2023 22:52:54
+VI. POINT TRANSFER MATRICES
+Our next goal is to ﬁnd a linear operator for our optical
+system that maps points in the object space of our optical
+system onto points in the image space. We’ll call this opera-
+tor the point transfer matrix (PTM) of the system in analogy
+to the ray transfer matrices discussed above. Before we do
+that, we need to describe how we treat points.
+A. Homogeneous points
+We express a point with coordinates ½x;y/C138using homoge-
+neous coordinates as a column vector ½1;x;y/C138T. (We use
+square brackets to denote point vectors and round brackets to
+denote ray vectors to avoid ambiguity.) The added dimension
+will allow us to rotate and translate points similarly to how
+we manipulated the rays above in Sec. V. The term
+“homogeneous” means that we can multiply our point vector
+by any non-zero scalar without changing its physical mean-
+ing. More generally, we express points as p¼½w;x;y/C138T.
+We’ll say, the points are “normalized” if w¼1. For other
+w6¼0, the corresponding physical point is located at the
+position ½x=w;y=w/C138. For w¼0, we interpret the point to be
+inﬁnitely far away in the direction of slope y/x(taking the
+limit w!0þ). The inclusion of inﬁnite (or “ideal”) points is
+a key feature of homogeneous coordinates. In optics, we can
+use this notation to describe objects inﬁnitely (or practically
+inﬁnitely) far away, such as distant stars. For additional
+details about the algebraic relationships between rays and
+points, see Sec. 1 of the supplementary material.
+Generalizations to three dimensions (and more) can be foundin Refs. 6,7, and 23–26 .
+B. Maintaining coincidence
+To motivate our deﬁnition for point transfer matrices, con-
+sider a ray r¼ðc;a;bÞTthat passes through a point ½x;y/C138,
+represented by homogeneous coordinates as the column vec-
+torp¼½1;x;y/C138T(see Fig. 7) The coincidence relationship
+from above can be stated,
+cþaxþby¼pTr¼0:
+Now, let’s image this ray and point through an optical sys-
+tem with ray transfer matrix Mand a yet-to-be-determined
+point transfer matrix /C22M,
+r0¼Mr;p0¼/C22Mp:The resulting image-space ray r0and point p0should also be
+coincidental. This requires
+0¼p0Tr0¼ /C22Mp/C0/C1TMrðÞ ¼pTð/C22MTMÞr:
+The ﬁnal expression reproduces the original coincidence
+relation provided that /C22MTMis a scalar times the identity
+matrix, or equivalently, that /C22MTis a scalar times M/C01.A
+more rigorous derivation (see Sec. 2 of the supplementary
+material21) shows that the proper scalar factor is det ðMÞ,
+yielding a point transfer matrix,
+/C22M¼detðMÞðM/C01ÞT: (7)
+/C22Mcan be calculated using this expression because the ray
+transfer matrix Mis necessarily invertible. If the 2 /C22R T M
+is known, the corresponding PTM is
+/C22M¼D/C0C 0
+/C0BA 0
+00 ðAD/C0BCÞ2
+643
+75: (8)
+In the more general case (e.g., when using the coordinate
+transformations of Sec. V), Eq. (7)holds.
+One can also show that /C22Mis equal to the adjugate [27]o f
+the ray transfer matrix M, which can be calculated even in
+the (unphysical) case det ðMÞ¼0 using cofactor expansion.
+When combining optical elements
+ðM2M1Þ¼detðM2M1ÞððM2M1Þ/C01ÞT;
+¼detðM2ÞdetðM1ÞðM/C01
+1M/C01
+2ÞT;
+¼detðM2ÞðM/C01
+2ÞTdetðM1ÞðM/C01
+1ÞT¼/C22M2/C22M1;
+so the PTMs get multiplied in order from right to left, just
+like the RTMs.
+In summary, if we know the ray transfer matrix Mof the
+optical system, which transforms rays using r0¼Mr, then
+we can use Eq. (7)to calculate the equivalent point transfer
+matrix /C22Mthat transforms points using p0¼/C22Mp.
+C. Dimensional analysis and units
+As in the traditional ABCD formalism, our matrices and
+vectors contain mixed dimensionality. For completeness, the
+units of the matrix elements of our RTM and PTM are given
+here, where Lis the unit of length,
+RTM/C241 LL
+L/C0111
+L/C01110
+B@1
+CA;
+PTM/C241L/C01L/C01
+L 11
+L 112
+643
+75:
+The ray vectors rand point vectors pin normalized form
+have the dimensions,
+r/C24ðL;1;1ÞT;p/C241;L;L½/C138T:
+Because we are using homogeneous representations, the vec-
+tors may be multiplied by any positive dimensionful scalar
+without changing their geometric meaning.Fig. 7. (Color online) Schematic representation of the effects of the ray
+transfer matrix Mand the point transfer matrix /C22M. The incoming ray r(red
+line) intersects an object point p(blue point). The lens creates the outgoing
+rayr0, which must intersect the image point p0. The ray vectors are related to
+the ray transfer matrix by r0¼Mr, and the point vectors are related to the
+corresponding point transfer matrix by p0¼/C22Mp.
+454 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 454 04 October 2023 22:52:54
+VII. POINT-TRANSFER EXAMPLES
+Here, we present four examples showing how the PTMs
+simplify calculations.
+A. Deriving Gauss’s lens equation
+As a simple example employing the point-transfer matrix
+consider a thin lens of focal length f. Reading the ray transfer
+matrix elements ABCD from Table Iand inserting them into
+the point transfer matrix, we get the equation,
+w0
+x0
+y02
+643
+75¼11 =f0
+0100012
+643
+751
+xy2
+643
+75¼1þ
+x
+f
+x
+y2
+6643
+775; (9)
+where the input point is the normalized point at the position
+½x;y/C138. (Recall our sign convention for the coordinates as
+shown in Fig. 1:xandx0increase along the direction of prop-
+agation, so that if we follow the usual convention in our opti-cal drawings of light entering from the left, a real object has
+x<0 and a real image has x
+0>0.) The resulting output is
+the normalized point
+^x0¼x0
+w0¼x
+1þðx=fÞ¼1
+ð1=xÞþð 1=fÞ;
+^y0¼y0
+w0¼y
+1þðx=fÞ¼^x0
+xy:
+The ﬁrst line agrees with the Gaussian lens equation giving the
+location of the image, and the second line gives the imagemagniﬁcation ^x
+0=x. The sign of w0before normalization gives
+the orientation of the image: w0>0 indicates upright and
+w0<0 indicates inverted. Our formulation also easily handles
+the special case when the object (image) point is inﬁnitely far
+away (the homogeneous weight w(w0) goes to zero) as well as
+virtual objects and virtual images, corresponding, respectively,tox=w>0a n d x
+0=w0<0 in the usual case where the optical
+system is aligned with the x-axis.
+B. Imaging an infinite object point
+To see how the PTMs are used in numerical calculations,
+consider a simple single-lens camera pointed at the horizonto photograph a star inﬁnitely far away. The parallel rays
+from the star will converge at the back focal plane of the
+lens, at a height equal to minus the angular height of the star,times the focal length of the lens.
+For concreteness, we can also show this using our point
+transfer matrix for a star 10 milliradians above the horizon (Fig.
+8)a n da n f¼50 mm lens. The resulting image of the star may
+be found using the point transfer matrix for a thin lens,11 =50 0
+010
+0012
+643
+750
+/C01
+0:012
+643
+75¼/C00:02
+/C01
+0:012
+643
+75/C171
+50
+/C00:52
+643
+75;
+with implied length units of millimeters. The last step is the
+normalization of the point vector. In this example, the objectpoint is inﬁnitely far away in the direction of slope
+¼arctan ð0:01=/C01Þ/C25/C0 0:01 (so the star is above the optical
+axis ( y>0) and before the lens ( x<0)). The ﬁnal normalized
+image point has height y
+0¼/C00:5 mm and is located at x0¼
+50 mm after the lens, corresponding to the back focal planeof the lens as expected. Note that we do not need any explicitreference to the light rays to perform the calculation. Thisexample demonstrates one advantage of this method: usinghomogeneous coordinates allows us to treat both ﬁnite andinﬁnite objects/images in the same way without resorting tospecial cases. A naive application of Gauss’s lens equation
+with an inﬁnite object distance would not tell us the vertical
+position of the image because the linear magniﬁcation isundeﬁned in this instance.
+C. Analysis of a compound lens
+For our next example (adapted from Examples 6.6 and 6.7
+of Hecht
+4—note that we use a different convention for the
+ray transfer matrices than Hecht), consider a compound lenssystem with the ray transfer matrix (length units of cm),
+M¼AB
+CD !
+¼0:867 1 :338
+/C00:198 0 :848 !
+;
+and an object 20 cm in front of the lens with a height of
+0.1 cm. We would like to locate the resulting image positionand height.
+Hecht’s solution has several steps: (1) Extend the system
+matrix Mwith a propagation matrix of length 20 cm in front
+of the lens (for the object position) and propagation ofunknown length dafter the lens (for the image position) so
+that the system matrix now includes both the object andimage points. (2) Algebraically set the Belement of the
+resulting product matrix to zero. This enforces the conditionthat the ﬁnal ray height is independent of the incoming rayslope (i.e., an image forms). With this constraint, one cansolve for the unknown length dto locate the image plane. (3)
+Identify the magniﬁcation as the Aelement of the resulting
+matrix. This is true due to the fact that we set B¼0 above,
+meaning that the image ray height only depends on theobject ray height, which gives us the magniﬁcation.
+Our solution is much more direct. First, we construct the
+point transfer matrix from the original ray transfer matrix(without additional propagations) using Eq. (8)and multiply
+this by the homogeneous position vector p¼½1;x;y/C138
+Tfor the
+object point. This gives us the image point p0.
+p0¼/C22Mp¼0:848 0 :198 0
+/C01:338 0 :867 0
+00 12
+643
+751
+/C020:0
+0:12
+643
+75;
+¼/C03:112
+/C018:678
+0:12
+643
+75/C171
+6:002
+/C00:0322
+643
+75:Fig. 8. (Color online) Calculating the image of a star by treating the star as
+an object point inﬁnitely far away. The location of the star in homogeneous
+coordinates is ½0;/C01;0:01/C138T, the lens has a focal length of f¼50 mm, and
+the star’s image is at ½1;x;y/C138T¼½1;50;/C00:5/C138T(after normalization). The
+length units of the vectors are millimeters.
+455 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 455 04 October 2023 22:52:54
+After performing the matrix multiplication, we only need to
+normalize the resulting image point vector (ﬁnal step above)
+to read off the coordinates of the image: 6 :002 cm past the
+lens at a height of /C00:032 cm. We’ve been able to replace
+the algebraic multiplication of matrices containing unknown
+variables and solving for an unknown distance with a directnumerical calculation.
+Taking this example one step farther, we can also calcu-
+late the front and back focal points of the lens system easily.
+The back focal point (BFP) is the image of an ideal (inﬁnite)object point on the axis: ½0;/C01;0/C138
+T. The image of this point
+is
+0:848 0 :198 0
+/C01:338 0 :867 0
+00 12
+643
+750
+/C01
+02
+643
+75¼/C00:198
+/C00:867
+02
+643
+75/C171
+4:38
+02
+643
+75;
+where the last step is normalization. Reading off the coordi-
+nates, the BFP is located 4.38 cm past the ﬁnal optical
+surface. To ﬁnd the front focal point (FFP), we invert the
+point-transfer matrix of the system (i.e., time reversal) andthen follow the same procedure using a ray coming from the
+reverse direction, ½0;1;0/C138T.
+D. Misaligned thin lens
+A common laboratory task is to take a collimated laser
+beam and focus it through a pinhole located at the backfocal point of a converging lens (for example, to build a
+spatial ﬁlter or to inject the beam into a ﬁber). If the pinhole
+is in a ﬁxed position, but the beam doesn’t quite hit thehole, a common remedy is to move the lens slightly in thetransverse direction. Another common tactic in the lab is to
+intentionally tilt a lens to prevent back-reﬂections from
+causing interference fringes. As long as these shifts aresmall, the induced aberrations can be neglected. Here, we
+analyze this conﬁguration for small displacements and
+small tilts of the lens.
+Let’s model our laser beam as a point source inﬁnitely far
+away, parallel to the optical axis and ignore diffraction
+effects. The corresponding (inﬁnite) point vector is
+p¼½0;1;0/C138
+T. In essence, we’re approximating the laser
+beam as a pencil of parallel rays. We’ll assume a converging
+lens of focal length f. First, let’s consider what happens to
+the image if we translate the lens by a distance dperpendicu-
+lar to the optical axis. We do this by applying the point trans-
+lation operator /C22T0;dto the lens PTM. The resulting system
+matrix /C22Mis
+/C22M¼/C22T0;d/C22Mthin lens ðfÞ/C22T/C01
+0;d;
+¼100
+010
+d012
+6643
+77511 =f0
+010
+0012
+6643
+77510 0
+01 0
+/C0d012
+6643
+775;
+¼11 =f0
+010
+0d=f12
+6643
+775;
+and the image point p0isp0¼/C22Mp¼11 =f0
+010
+0d=f12
+643
+750
+1
+02
+643
+75¼1=f
+1
+d=f2
+643
+75/C171
+f
+d2
+643
+75;
+where the last step is the normalization of the point vector.
+We see that the beam is still focused on the back focal plane(x
+0¼f), but the focus point is displaced vertically by the
+same amount as the lens, d.
+If we tilt the lens, the system PTM is
+/C22M¼/C22Rh/C22Mthin lens ðfÞ/C22R/C01
+h;
+¼10 0
+0 cos h/C0sinh
+0 sin h cosh2
+643
+7511 =f0
+010
+0012
+643
+75
+/C210 0
+0 cos h sinh
+0/C0sinhcosh2
+643
+75;
+¼1 cos ðhÞ=fsinðhÞ=f
+01 0
+00 12
+643
+75:
+Applying this to the object point, we get
+p0¼/C22Mp¼1 cos ðhÞ=fsinðhÞ=f
+01 0
+00 12
+643
+750
+1
+02
+643
+75;
+¼cosðhÞ=f
+1
+02
+643
+75/C171
+f=cosðhÞ
+02
+643
+75;
+/C251
+fð1þh2=2Þ
+02
+643
+75:
+Thus, up to the ﬁrst order in the angle h, tilting the lens has
+no effect on the location of the beam focus.
+VIII. OUTLOOK AND CONCLUSION
+The results we’ve presented (summarized in Table I) are
+restricted to two-dimensional systems or three-dimensional
+systems with axial symmetry. To consider general three-dimensional systems, we will need a different approach. The
+homogeneous ray transfer matrices are linearizations of the
+propagation equations of Hamiltonian optics,5,28restricted to
+the paraxial regime. A similar approach can be used to
+expand the work here to three-dimensional optics. Rays in
+three dimensions may be represented homogeneously in 3Dusing a set of 6 Pl €uker coordinates.7,17,29These may be fur-
+ther reduced to 5 non-trivial coordinates for paraxial rays in
+3D (e.g., near the zaxis).16Geometric Algebra,23,24,26,30–32
+following Dorst’s description of the algebra of lines33and
+earlier work on 2D optical systems by Sugon and
+McNamara,34–37is an intriguing mathematical system for
+approaching this problem that we are looking into.
+Although the path to describing rays in 3D is straight-
+forward, the key difﬁculty in extending the point transfer
+matrices to 3D is that points in 3D do not necessarily image
+456 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 456 04 October 2023 22:52:54
+onto points. A converging cylindrical lens is a simple exam-
+ple: it images a point source of light onto a line. The generalbehavior in 3D requires deﬁning a point as the intersectionof three non-coplanar lines (not two lines, as one mightnaively assume),
+33and then studying how those lines trans-
+form, noting that the three output lines may not converge tothe same image point (e.g., because of astigmatism). Thisleads to the geometric theory of line complexes.
+38As a tanta-
+lizing bonus, Arnaud’s representation of Gaussian laserbeams as complex-valued rays12,39may also be interpreted
+as skew line complexes.40We are still investigating how to
+use this correspondence to build a geometric representationof the paraxial optics of Gaussian beams that is more ﬂexiblethan the complex beam parameter formalism.
+14The complex
+beam parameter itself comes from the expression of diffrac-tion integrals using RTMs described by Collins41and the
+related extension of the diffraction integrals by Bandres to
+include small rotations and translations.42
+In conclusion, we have shown that enhancing the ABCD
+ray transfer matrices (RTM) by applying them in a homoge-neous coordinate system greatly expands their usefulness.With a fairly modest change in interpretation of the RTM tobetter capture their geometric content, we added the capabil-ity to describe translated and rotated optical elements andkeep track of the ray propagation directions. Finally, wedemonstrated that a simple mathematical operation convertsthe RTMs into point transfer matrices (PTM), simplifyingimaging calculations. We hope that our examples demon-strate the advantages of using this system and can be ajumping-off point for more advanced applications.
+ACKNOWLEDGMENTS
+The authors gratefully acknowledge Christian Faber,
+Steven De Keninck, and Leo Dorst for helpful suggestions,especially regarding the underlying geometric ideas here.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors declare no conﬂicts of interest.
+a)corcovilost@duq.edu, ORCID: 0000-0001-5716-1188.
+1Klaus Halbach, “Matrix representation of Gaussian optics,” Am. J. Phys.
+32, 90–108 (1964).
+2A. Gerrard and J. M. Burch, Introduction to Matrix Methods in Optics
+(Dover, New York, 1994).
+3Frank L. Pedrotti, Leno M. Pedrotti, and Leno S. Pedrotti, Introduction to
+Optics , 3rd ed. (Pearson, Harlow, 2007), Chap. 18.
+4Eugene Hecht, Optics , 5th ed. (Pearson, 2017), Chap. 6.
+5Max Born and Emil Wolf, Principles of Optics , 7th ed. (Cambridge, New
+York, 1999), Chap. 4.
+6Matt Pharr, Jakob Wenzel, and Greg Humphreys, Physically Based
+Rendering: From Theory to Implementation , 3rd ed. (Morgan Kaufmann,
+Cambridge, MA, 2016).
+7Jorge Stolﬁ, Oriented Projective Geometry: A Framework for Geometric
+Computations (Academic Press, 2014).
+8H. S. M. Coxeter, Projective Geometry , 2nd ed. (Springer, New York,
+2003).
+9Enzo Cambi, “Projective formulation of the problems of geometrical
+optics. I. Theoretical foundations,” J. Opt. Soc. Am. 49, 2–15 (1959).
+10Donald P. Feder, “Automatic optical design,” Appl. Opt. 2, 1209–1226
+(1963).
+11C. G. Wynne and P. M. J. H. Wormell, “Lens design by computer,” Appl.
+Opt.2, 1233–1238 (1963).12J. A. Arnaud, Beam and Fiber Optics (Academic, New York, 1976).
+13Wang Shaomin, “Matrix methods in treating decentred optical systems,”
+Opt. Quantum Electron. 17, 1–14 (1985).
+14A. E. Siegman, Lasers (University Science Books, 1986).
+15Anthony A. Tovar and Lee W. Casperson, “Generalized beam matrices:
+Gaussian beam propagation in misaligned complex optical systems,”J. Opt. Soc. Am. A 12, 1522–1533 (1995).
+16Psang Dain Lin and Chi-Kuen Sung, “Matrix-based paraxial skew ray-
+tracing in 3D systems with non-coplanar optical axis,” Optik 117,
+329–340 (2006).
+17P. D. Lin and C.-C. Hsueh, “6 /C26 matrix formalism of optical elements
+for modeling and analyzing 3D optical systems,” Appl. Phys. B 97,
+135–143 (2009).
+18Psang Dain Lin, New Computation Methods for Geometrical Optics , Vol.
+178 (Springer, Singapore, 2014).
+19Xiyuan Liu and Karl-Heinz Brenner, “Minimal optical decomposition ofray transfer matrices,” Appl. Opt. 47, E88–E98 (2008).
+20Anthony A. Tovar and Lee W. Casperson, “Generalized beam matrices.
+IV. Optical system design,” J. Opt. Soc. Am. A 14, 882–894 (1997).
+21See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0083069 for a more rigorous proof of Eq. (7)and an additional
+application of that proof. The supplement also contains example pythoncode showing how to apply our method to solve the examples given in the
+main text.
+22Equivalently, one may use the two-argument form of the arctangent:
+/¼arctan2 ða;/C0bÞ.
+23Leo Dorst, “A guided tour to the plane-based geometric algebra PGA”
+(2020), intended as replacement for Chap. 11 of Ref. 26.
+24Chris Doran and A. N. Lasenby, Geometric Algebra for Physicists
+(Cambridge U. P., Cambridge, 2007).
+25Sergei Winitzki, Linear Algebra via Exterior Products (Lulu, 2020),
+Version 1.3.
+26Leo Dorst, Daniel Fontijne, and Stephen Mann, Geometric Algebra for
+Computer Science (Morgan Kaufmann, Amsterdam, 2007).
+27Gilbert Strang, Linear Algebra and Its Applications , 4th ed. (Cengage
+Learning, Belmont, CA, 2006).
+28Kurt Bernardo Wolf, Geometric Optics on Phase Space (Springer-Verlag,
+Berlin, 2004).
+29Julius Pl €uker, “On a new geometry of space,” Proc. R. Soc. London 14,
+53–58 (1865).
+30David Hestenes, “Oersted Medal Lecture 2002: Reforming the mathemati-cal language of physics,” Am. J. Phys. 71, 104–121 (2003).
+31Alan Macdonald, Linear and Geometric Algebra (CreateSpace
+Independent Publishing Platform, 2011).
+32C. Doran, D. Hestenes, F. Sommen, and N. Van Acker, “Lie groups asspin groups,” J. Math. Phys. 34, 3642–3669 (1993).
+33Leo Dorst, “3d oriented projective geometry through versors of Rð3;3Þ,”
+Adv. Appl. Clifford Algebras 26, 1137–1172 (2016).
+34Quirino M. Sugon and Daniel J. McNamara, “A geometric algebra refor-
+mulation of geometric optics,” Am. J. Phys. 72, 92–97 (2003).
+35Quirino M. Sugon and Daniel J. McNamara, “Ray tracing in spherical
+interfaces using geometric algebra,” Adv. Imaging Electron Phys. 139,
+179–224 (2006).
+36Quirino M. Sugon and Daniel J. McNamara, “Paraxial meridional ray trac-ing equations from the uniﬁed reﬂection-refraction law via geometric alge-bra,” arXiv:0810.5224 (2008).
+37Quirino M. Sugon, Jr. and Daniel J. McNamara, “Poisson commutator-
+anticommutator brackets for ray tracing and longitudinal imaging via geo-metric algebra,” arXiv:0812.2979 (2008).
+38H. Pottman and J. Wallner, Computational Line Geometry (Springer, New
+York, 2001).
+39Jacques Arnaud, “Representation of Gaussian beams by complex rays,”Appl. Opt. 24, 538–543 (1985).
+40Paul D. Colbourne, “Generally astigmatic Gaussian beam representation
+and optimization using skew rays,” in SPIE Proceedings , Vol. 9293, edited
+by Mariana Figueiro, Scott Lerner, Julius Muschaweck, and John Rogers(Kohala Coast, Hawaii, United States, 2014) p. 92931S.
+41Stuart A. Collins, “Lens-system diffraction integral written in terms ofmatrix optics,” J. Opt. Soc. Am. 60, 1168–1177 (1970).
+42Miguel A. Bandres and Manuel Guizar-Sicairos, “Paraxial group,” Opt.
+Lett. 34, 13–15 (2009).
+457 Am. J. Phys., Vol. 91, No. 6, June 2023 Theodore A. Corcovilos 457 04 October 2023 22:52:54

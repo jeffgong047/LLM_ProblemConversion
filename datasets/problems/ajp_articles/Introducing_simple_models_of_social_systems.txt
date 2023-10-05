@@ -1,0 +1,510 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| JUNE 01 2022
+Introducing simple models of social systems 
+Pablo Jensen
+Am. J. Phys.  90, 462–468 (2022)
+https://doi.org/10.1 119/5.0086028
+Articles Y ou May Be Interested In
+The coef ficient of restitution for collisions of happy balls, unhappy balls, and tennis balls
+American Journal of Physics  (November 2000)
+Happy Balls, Unhappy Balls, and Newton's Cradle
+The Physics T eacher  (March 2010)
+A formal method for categorizing unhappy users in social network using novel sentimental direct and in-
+direct feedback comparing logistic regression over random forest
+AIP Conference Proceedings  (May 2023) 04 October 2023 23:11:08
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Introducing simple models of social systems
+Pablo Jensena)
+Laboratoire de Physique, Institut Rh ^onalpin des Systemes Complexes, IXXI, Universit /C19e de Lyon, ENS de Lyon,
+UCB Lyon 1, CNRS, F-69342 Lyon, France
+(Received 21 January 2022; accepted 16 February 2022)
+Learning to model social systems can foster critical thinking about the applications of
+mathematical methods to social issues and also lead to professional opportunities. I introduce an
+intriguing simple model proposed by Thomas Schelling to understand urban segregation. It shows
+that even when individual agents seek mixed neighborhoods, they can collectively create asegregated city that makes everyone unhappy. The model can be presented as a simple role-playing
+game or by a computer program. At a more advanced level, the methods of statistical physics
+provide a way to calculate equilibrium states corresponding to segregated conﬁgurations. I alsodiscuss why physics inspired models have difﬁculties in understanding the complex dynamics of
+real social systems.
+#2022 Published under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0086028
+I. INTRODUCTION
+Many physicists have contributed to the emerging ﬁeld of
+computational social science1by studying simple models of
+social systems (for reviews, see Refs. 2–4). Social networks
+and digital devices provide trajectories that leave digitaltrails, just as particles in a bubble chamber leave trails oftheir trajectories, creating an abundance of data that form thebasis for mathematical approaches to social systems. Social
+modeling is also an essential component of the work by the
+Intergovernmental Panel on Climate Change. Integratedassessment models
+5try to understand how human behavior
+inﬂuences climate change and how to reduce emissions in anefﬁcient way. Teaching about simple social models, both atthe undergraduate and graduate levels, helps develop intui-
+tion about social systems and fosters critical thinking about
+their analysis by formal methods.
+In this paper, I discuss an intriguing and popular model
+proposed by the economist Thomas Schelling in the late1960s and then widely studied by scientists from manyﬁelds, including physicists. As discussed in Sec. II,
+Schelling’s segregation model
+6shows that even when indi-
+vidual agents seek mixed neighborhoods, they can, collec-tively, end up creating a segregated city that makes everyoneunhappy. In Sec. III, I present two ways of introducing the
+model, starting with a simple role-playing game in which
+students directly experience the increase in segregation as
+they individually aim at a more mixed neighborhood. Thesecond approach is a simulation that helps explore andunderstand the model’s main features in a systematic way.Section IVexplains how statistical physics can go beyond
+simulations to calculate the equilibrium states corresponding
+to segregated conﬁgurations. In the ﬁnal epistemological sec-
+tion, I argue that, although simple models are useful forphysical systems, their usefulness is more limited for social
+systems. In short, they might be useful for improving our
+thinking and intuition, but they do not help answer many
+questions about real social systems, because social systemscannot be meaningfully manipulated in laboratories.
+II. THE SCHELLING SEGREGATION MODEL
+At the end of the 1960s, Thomas Schelling addressed an
+important question: How can we explain “segregation by
+color” in the United States? Our intuition suggests that the
+overall state of a city reﬂects the characteristics of individu-
+als. If people wanted to live in mixed environments, neigh-
+borhoods should spontaneously bring together people of
+different types. Instead, Schelling argued that “the interplay
+of individual choices […] is a complex system with collec-tive results that bear no close relation to individual intent.”
+Perhaps an overall segregated state could be achieved by
+individuals seeking diversity.
+To test his intuition, he modeled the city as a chessboard
+with each square representing a dwelling, which can be
+occupied by a red or green agent or be empty. Each day, an
+agent is chosen at random and is offered a random empty
+dwelling. The agent calculates whether this movementincreases its satisfaction. If it does, it moves; if not, it stays
+put. Then, another agent and another empty square are cho-
+sen at random, and the process is repeated.
+To complete the creation of this virtual city, we need to
+specify how the agent’s satisfaction (or utility in economists’
+jargon) depends on the color composition of its neighbor-
+hood. For computational simplicity, Schelling chose an ele-
+mentary satisfaction function, equal to zero up to a thresholdconcentration of opposite-color neighbors, and equal to one
+above. I choose here utility functions leading agents to
+462 Am. J. Phys. 90(6), June 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 462 04 October 2023 23:11:08
+strictly prefer mixed neighborhoods with as many reds as
+greens to segregated ones, making the result more striking aswe will ﬁnd in the following. A simple example is given in
+Fig.1. (A more complex is studied in Sec. IV C.)
+Our intuition tells us that, because individuals move to
+improve their satisfaction, and satisfaction is highest whenneighborhoods are mixed, the city should approach mixing.
+The appeal of this virtual city is that it shows that this intui-
+tion is incorrect, and that the dynamics leads to a segregatedcity, where most inhabitants are dissatisﬁed (see Fig. 2). I
+suggest that readers stop here and take a moment to under-
+stand the origin of the apparent paradoxical result before I
+provide an explanation.
+The explanation of the paradox is that when an agent chooses
+to move, it takes into account only the change of its own satis-
+faction. Thus, when a red agent leaves a predominantly green
+neighborhood to move to a mixed one, thereby increasing itsown utility, it penalizes all its former nei ghbors (greens or reds),
+because the former place is now more dominated by greens. Its
+new neighbors are also unhappy, because their neighborhood isnow slightly red. The overall utility decreases, because the
+losses of these many agents (old and new neighbors) are not
+compensated by the gain made by the mover. Because thedynamics is governed by “selﬁsh” individuals, this particular
+gain inexorably leads to a situation where everyone is unhappy.
+Note that segregation is not observed when the utility func-
+tion is symmetric, for example, by setting uðqÞ¼0f o r q
+/C21q
+2¼0:65 in Fig. 1. However, symmetry means that agents
+do not “see” the color of other agents (because it plays no role
+in their worldview, i.e., their utility function), which makesany analogy with racial segregation questionable.III. IMPLEMENTING THE SCHELLING MODEL
+A. A simple role-playing game
+A striking way to understand Schelling’s model is to
+implement it in the classroom. The class is divided into two
+groups, each wearing sports’ bibs or clothes of the same
+color. Chairs are then placed in rows to form a square or a
+rectangle. Students are assigned random seats to start and
+then the teacher chooses a student and an empty chair ran-
+domly, either intuitively or by using dice or a simple random
+number generator. The student then calculates his/her change
+in satisfaction and decides whether to move to the empty
+chair or not. When the utility is identical at both the initial
+and suggested locations, the student can either choose to stay
+or to move. I recommend using a simple satisfaction function
+with only three levels, as in Fig. 1. For example, if the clos-
+est four neighbors are taken into account to compute the util-
+ity, it is 0 when there is either zero or one student of the
+same color in the neighborhood, 1/2 when there are strictly
+more than two, and 1 when there are exactly two. These
+numbers have to be proportionally adapted for seats on the
+square borders, which have fewer neighbors, when there are
+empty chairs in the neighborhood of the student, and whenthe teacher includes the closest eight neighbors (instead of
+four) to calculate the satisfaction. The details do not change
+the ﬁnal segregated state. In practice, the minimal size for a
+meaningful game is a 5 /C25 square (for about 20 students and
+ﬁve empty chairs).
+As students move and see others become their neighbors or
+leave, they will realize that, even when each of them prefers
+mixed neighborhoods, they collectively reach a segregated
+Fig. 1. (Color online) (a) A simple utility function given by uðqÞ¼0i fq/C20q1¼0:35;uðqÞ¼1=2i fq/C21q2¼0:65, and uðqÞ¼1i fq1/C20q/C20q2, where qis
+the proportion of same color neighbors. (b) For this utility function, the green (light) agent in the center has maximum satisfaction in the left conﬁg uration
+(mixed neighborhood), low satisfaction in the middle conﬁguration (neighborhood entirely of its color), and zero satisfaction in the right conﬁgur ation (neigh-
+borhood entirely of the other color). Neighborhoods can be deﬁned by the closest four agents (top, down, left, right) or by the eight closest agents (ad ding the
+four agents along the diagonals). In the examples in the ﬁgure, both deﬁnitions of the neighborhood lead to the same satisfaction.
+Fig. 2. (Color online) The inhabitants are initially randomly distributed in the different squares. As they move to increase their satisfaction, the colors separate
+and the city ends up being totally segregated. I use periodic boundary conditions and the utility function described in Sec. IV C and Fig. 5.
+463 Am. J. Phys., Vol. 90, No. 6, June 2022 Pablo Jensen 463 04 October 2023 23:11:08
+conﬁguration, where most are unhappy, because they end up
+being surrounded by too many students wearing the same
+color. The personal experience of decreasing satisfaction as
+students wearing the same color leave their neighborhood
+when it is not mixed enough, to join a more balanced place,
+helps students understand the origin of the apparent paradox,which is difﬁcult to understand, even for experienced scien-
+tists, when they are shown only simulation results.
+B. A NetLogo simulation program
+NetLog is a free, simple, and popular multi-agent pro-
+grammable modeling environment, which runs on almost
+any current computer.7I provide a program8to simulate the
+Schelling model to explore different dynamics as a function
+of the model parameters, either for large or small systems
+(see Figs. 2and3). The graphical interface allows users to
+vary the initial conﬁguration and the model parameters: sat-
+isfaction functions, city size, proportion of empty slots,
+neighborhood size, percentage of green/red agents, initial
+conﬁguration, and temperature (see Sec. IV). It also displays
+the evolution of the average utility and a quantitative segre-gation indicator.
+IV. SOLVING SCHELLING’S SEGREGATION
+MODEL
+To check the robustness and generality of the results, it is
+important to go beyond the simulations and show that segre-
+gation is the stable stationary conﬁguration. Statistical phys-
+ics provides the tools to ﬁnd the global equilibrium state and
+to calculate the probabilities of different conﬁgurations such
+as those in Fig. 2.9
+Two ideas are needed to connect the microscopic and
+macroscopic levels. The ﬁrst is the addition of noise in the
+decision rule for moving to avoid being blocked inuninteresting states, because no agent can ﬁnd a location that
+strictly improves its satisfaction. This noise is interpreted as
+a temperature in physics, and in economics, as the effect of
+features that are not explicitly included in the utility func-tion, but that still affect the decision to move in real settings
+(for example, urban facilities and friends).
+10The second idea
+is to introduce bounded neighborhoods (Fig. 4), that is, non-
+overlapping city blocks such that each block can be treated
+as a single entity with a utility function that depends on the
+number of each type of agent within the block.9The bounded
+neighborhoods provide a means for building a city state
+function as a sum of individual block functions, which
+depend only on the number of agents in each block. In thefollowing, I summarize the nature of the analytical solution
+to the Schelling model for the case of agents of a single color
+(vacant cells play the role of the other color) with a speciﬁcform of the utility function. I refer the reader to Refs. 9and
+11for a more detailed solution of the general case of a two-
+color population with arbitrary utility functions, for which
+the approach is similar but more cumbersome.
+A. Defining the city: Agents and utility function
+The city is divided into Qnon-overlapping blocks, each
+containing Hlocations or cells (see Fig. 4). A microscopic
+city conﬁguration is given by the occupation status of eachof the HQlocations. The city can also be described at a
+coarse-grained level, by giving the number of agents n
+q(or
+the density qq¼nq=H/C201) in each block q(q¼1…Q).
+The total number of agents is conserved so that
+Q/C01PQ
+q¼1qq¼q0. I assume that all agents share the same
+utility function uðqÞ. Thus, the utility within a block q
+depends only on the density of the agents qqin that block.
+The total utility is given by U¼HP
+qqquðqqÞ. Note that
+coarse-grained conﬁgurations are degenerate, because for a
+Fig. 3. (Color online) Screen capture of Netlogo’s program display. The utility functions given in Fig. 1and used in Sec. III A are shown on the left. A descrip-
+tion of the different parameters is given in the Information tab of the program.
+464 Am. J. Phys., Vol. 90, No. 6, June 2022 Pablo Jensen 464 04 October 2023 23:11:08
+given value of qq>0, there are many different microscopic
+conﬁgurations.
+At each iteration, an agent and a vacant cell in another
+block are chosen at random. The agent moves into this emptycell with probability
+PðDuÞ¼1
+1þe/C0Du=T; (1)
+where Duis the change in the utility if the chosen agent
+moves and Tis the temperature. In this way, the set fqqg
+varies as the system evolves.
+B. Finding the stationary state
+I now show how to ﬁnd the stationary probability distribu-
+tionPðxÞof the microscopic conﬁguration x. We know from
+statistical physics12that if there exists a state function L(x)
+that governs the transition probabilities PðDuÞ, then the
+dynamics satisﬁes detailed balance and the distribution ofthe stationary probability distribution PðxÞis given by
+PðxÞ¼1
+ZeFðxÞ=T; (2)
+where Zis the partition function, FðxÞ¼LðxÞþTSðxÞ, and
+the entropy Sfor large His given by the standard expression
+SðxÞ¼HX
+qsðqqÞ; (3)
+with
+sðqÞ¼/C0 qlnq/C0ð1/C0qÞlnð1/C0qÞ: (4)
+The key to solving the Schelling model is to deﬁne a link
+function L(x) such that Du¼DL, thereby linking individual
+behavior ( Du) to collective behavior ( DL). It is simple to
+check that, for bounded neighborhoods,
+LðxÞ¼HX
+q‘q; (5)with
+‘q¼XNq
+nq¼0uðnq=HÞ (6)
+satisﬁes the condition Du¼DL.13Lmay be interpreted as
+the cumulative effect of the individual utilities gained by
+agents as they progressively enter the city from a reservoir atu¼0. An analogy can be drawn between Land the energy of
+a capacitor that is progressively charged from q¼0 to some
+q¼Q, because the energy required to increase its charge
+increases as qincreases. Here, the utility gained by an agent
+entering the city increases as the city ﬁlls up ( u>0, by
+deﬁnition).
+In this interpretation, segregation arises because agents do
+not collectively maximize their total satisfaction Ubut the
+state function F. This state function generalizes the concept
+of free energy to systems driven by individual dynamics.
+In the continuous limit of large H,‘
+qbecomes
+‘ðqÞ¼ðq
+0uðq0Þdq0: (7)
+AsT!0, the probability PðxÞis dominated by the conﬁgu-
+rations that maximize the sumP
+q‘ðqqÞunder the constraint
+of a ﬁxed q0¼Q/C01PQ
+q¼1qq. To perform this maximization,
+we can follow methods used to study phase transitions (such
+as liquid-vapor coexistence12). The point is whether the
+stationary state is homogeneous or inhomogeneous. Thehomogeneous state at density q
+0is unstable against phase
+separation if there exist two densities q1and q2such that
+cfðq1Þþð 1/C0cÞfðq2Þ>fðq0Þ. The parameter c(0<c<1)
+corresponds to the fraction of blocks with density q1in the
+two phase state with a fraction 1 /C0chaving density q2.
+C. Results for a specific utility function
+To focus on the effects of the agents’ utilities and not on
+entropic contributions, I now solve the model in the limit
+T!0. I also set q0¼1=2 so that the optimal equilibrium
+Fig. 4. City composed of Q¼36 blocks each containing H¼100 cells with q0¼1=2. (a) Mixed state: Agents are distributed homogeneously between the
+blocks, qq¼1=2 for all q. (b) Segregated conﬁguration: Agents are positioned on 22 blocks with mean density q¼0:82; the other blocks are empty. Note that
+(b) is a metastable state and not the stable equilibrium predicted by statistical physics, which is 36 =ﬃﬃﬃ
+3p
+’21 blocks with density q¼0:86 (see Sec. IV C).
+465 Am. J. Phys., Vol. 90, No. 6, June 2022 Pablo Jensen 465 04 October 2023 23:11:08
+qq¼1=2 for all blocks can be reached using the triangular
+utility function given in Fig. 5.
+By elementary integration, we ﬁnd
+‘ðqÞ¼q2ðq/C201=2Þ
+1
+2q2þ3
+2q/C03
+8ðq/C211=2Þ:8
+><
+>:(8)
+For a segregated state with Nsblocks of density qs>1=2,
+(Q/C0Ns) empty blocks, and the constraint qsNs=Q¼q0
+¼1=2, we ﬁnd that the maximum value of the link function
+LðqsÞ¼Ns‘ðqsÞis reached for a segregated state with
+density qs;max¼ﬃﬃﬃ
+3p
+=2’0:87>1=2, and Ns;max=Q¼1=
+ð2qs;maxÞ¼1=ﬃﬃﬃ
+3p
+’0:58. For this density, the normalized
+(per agent) link function L/C3value is
+L/C3
+max¼Lmax=ðq0HQÞ¼2ls;maxNs;max
+Q
+¼ﬃﬃﬃ
+3p
+2ﬃﬃﬃ
+3p
+/C01/C0/C1
+’0:63: (9)
+Readers can check that this value is higher than that
+obtained for any conﬁguration with Nblocks of density
+q/C211=2 and ( Q–N) empty blocks, including the mixed con-
+ﬁguration ( q¼1=2;N¼Q), for which L/C3
+mixed¼1=2. Thus,
+the system will evolve to a segregated state and not to themixed conﬁguration that maximizes the global utility. The
+mixed equilibrium state is unstable because at T>0, there is
+a nonzero probability that an agent accepts a slight decreasein its utility and moves to another block with densityq¼1=2. Agents remaining in their former blocks now have
+a lower utility and are more likely to leave, which empties
+the block, because each move away further decreases the
+utility of the remaining agents.
+Using simulations to ﬁnd the stable ( q
+s;max) equilibrium of
+the block Schelling model is tricky, because segregatedstates with Nblocks of density q>1=2;q6¼q
+s;maxare
+metastable with high activation barriers to move to the state
+N61, reﬂecting the difﬁculty of emptying or ﬁlling an entire
+block. (An example of such a metastable state is given inFig. 4(b).) States that contain a block with q<1=2 are
+unstable.V. SIMPLE MODELS AND SOCIAL COMPLEXITY
+Due to its simplicity, the Schelling model provides a use-
+ful introduction to the modeling of social systems for physics
+students. After 15 years of teaching this topic to pre-
+doctorate students, I found that it is also important to havethem realize that physicists’ tools may not be adapted to the
+modeling of real social systems. I focus here on two main
+reasons and refer readers to Refs. 14and15for a further
+discussion.
+Traditional applications of statistical physics are based on
+a simple idea: Each particle can be characterized by a set of
+characteristics that remain unchanged in different situations.
+This assumption is fruitful, because nuclei are not affectedby chemical reactions, and the same particles can collec-tively form a gas, a liquid, or a solid, depending on an exter-
+nal parameter such as the temperature. Physicists are
+tempted to consider that the statistical physics approach tosocial behavior means trying to “understand regularities at
+large scale as collective effects of the interaction among sin-
+gle individuals, considered as relatively simple entities.”
+2
+However, it is difﬁcult to ﬁnd “stable nuclei” for humans.When we try to derive internal characteristics from observed
+behaviors, we ﬁnd that these characteristics depend on the
+context used to interpret the behavior.
+15Also, as social sci-
+entists have understood long ago, humans care about how
+we model them, and their behavior may change in response
+to model results. For example, Wilke and Bergstrom arguethat when models suggest that an epidemic is likely to endsoon, onerous control measures feel like overkill, people
+relax, and the epidemic persists.
+16Social systems also lack
+global conservation laws (energy and momentum) that areso helpful for their physical counterparts. For example,
+atmospheric models have a huge number of degrees of free-
+dom and are difﬁcult to model. Nevertheless, weather andclimate models have proven reliable, thanks in part to theuse of conservation laws. Lacking such conservation laws,
+models of social systems are unable to predict much of
+social dynamics. Indeed, complex economic models that tryto predict economic growth fare no better than a much sim-
+pler model: growth of next year will be the same as this
+year’s.
+17
+Another problem makes social systems difﬁcult to model:
+The dependence of effects of a given cause on the context.For example, the price of an apartment may rise or decrease
+when it is one ﬂoor higher. When there is an elevator, the
+price is likely to increase if the apartment is brighter, but ifthere is not an elevator, the price likely decreases because of
+the additional effort required to climb the stairs. This depen-
+dence can be compared to nonlinear effects, which alsomake some physical systems difﬁcult to understand.
+In addition, physics has progressed by transforming its
+objects in the laboratory.
+18,19Galileo minimized friction
+because he could not describe it mathematically, and materi-
+als were made as pure crystals before quantum physics coulddescribe them.
+20The need for simpliﬁcation suggests that for
+physicists’ models to become relevant for social systems,
+human behavior would have to be simpliﬁed. The value ofsimpliﬁcation is conﬁrmed by the usefulness of physicists’tools for the case of pedestrian and trafﬁc ﬂows,
+21where our
+actions are strongly channeled by social constraints.
+However, going further in the taming of people would needcollective approval in democratic societies.
+Fig. 5. (Color online) Asymmetrically peaked individual utility as a function
+of the block density q. The utility is deﬁned as uðqÞ¼2qifq/C201=2 and
+uðqÞ¼3=2/C0qifq>1=2. Agents strictly prefer half-ﬁlled neighborhoods
+(q¼1=2). They also prefer overcrowded ( q¼1) neighborhoods to empty
+ones ( q¼0).
+466 Am. J. Phys., Vol. 90, No. 6, June 2022 Pablo Jensen 466 04 October 2023 23:11:08
+VI. CONCLUSIONS
+Our intuition suggests that the observation of a segregated
+city implies that its dwellers actively seek it. By formalizingthis idea, the Schelling model allows us to understand that
+we can end up with segregated conﬁgurations even when all
+individuals are looking for diversity. The same global state isreached when individuals seek segregation. Therefore,observing a global segregated state does not allow us todeduce anything about individual preferences.
+22
+The small number of assumptions makes this model of
+much interest. We can understand the results and the causali-ties at work in depth without being overwhelmed by thecomplexity of the real world: Selﬁshness leads to unfavor-
+able situations because individuals make decisions without
+considering the wishes of their neighbors, old and new. Wecan study these effects in detail and show why they are, onaverage, stronger than the speciﬁc utility obtained by themover, leading to an overall negative effect. The applicationof statistical physics to the model improves our understand-ing by calculating its stationary states.
+Models inspired from physics can expand the conceptual
+toolbox of other disciplines. For example, analogies between
+economic systems and the random ﬁeld Ising model have
+suggested that large ﬂuctuations of the economy (such asstock exchange price jumps) can arise from endogenousdynamics, and not only from external shocks, as assumed bymost economic models.
+3However, most physical models
+need to be adapted to respect the speciﬁcity of the system ofinterest. For example, pedestrians do not always behave as
+granular matter, as initially assumed by many physicists,23
+and geographical space is not homogeneous.24Moreover,
+successful interdisciplinary collaborations need time: it hastaken decades for physicists to build meaningful epidemio-logical models and achieve recognition for their importantcontributions.
+25
+The difﬁculties of social models inspired from physics do
+not mean that it is impossible to conceptualize or to quantifyhuman collective behaviors. Statistical tools or quantitative
+indicators are essential to improve public knowledge (is
+unemployment rising?), or to make appropriate decisions(how efﬁcient are vaccines?). The key point is to ﬁnd con-ceptualizations that are relevant for human societies.
+26
+VII. SUGGESTED PROBLEMS
+The Schelling model provides many further avenues for
+exploration. I list them from the easiest to the most difﬁcult.
+(1) Explore the effects of changing the utility function to
+check the importance of the agents’ preferences forunmixed neighborhoods of their own color (see the dis-cussion on the symmetry of the utility function at the endof Sec. II).
+(2) An optimal result (a mixed city) can be reached by forc-
+ing movers to pay a tax proportional to the utility change
+they impose on their neighbors.
+9To incorporate the
+effects of a tax, we can write the probability of a moveas
+PðDCÞ¼1
+1þe/C0DC=T; (10)
+whereDC¼DuþaðDU/C0DuÞ;Duis the change of the
+agent’s own utility, and DUis the change of the totalutility. The parameter 0 /C20a/C201 weights the contribu-
+tion of the other agents’ utility variation in the calcula-tion of the cost Cand can be interpreted as a degree of
+cooperativity (or altruism). For a¼0, the probability of
+a move depends only on the selﬁsh interest of the chosenagent, and when a¼1, it depends only on the collective
+utility. Compute the total satisfaction as a function of a
+to interpolate between the two limiting behaviors of indi-
+vidual and collective dynamics.
+(3) Explore the role of temperature. This variable is already
+implemented in the NetLogo program and can also betreated analytically. Show that noise makes the segre-gated phase disappear for T>1=2.
+(4) Mix two kinds of agents (selﬁsh and altruist) to explore
+how rapidly the system goes beyond the reach of analyti-cal tools and shows “compositional chaos.”
+27Write a
+simulation program and measure the evolution of theaverage agent utility in the stationary state as a functionof the proportion of altruists. Show that even an inﬁnites-imal proportion of altruists has dramatic effects on theaverage agent utility.
+a)Electronic mail: pablo.jensen@ens-lyon.fr, ORCID: 0000-0001-9912-
+2849.
+1D. Lazer et al., “Computational social science,” Science 323, 721–723 (2009).
+2C. Castellano, S. Fortunato, and V. Loreto, “Statistical physics of social
+dynamics,” Rev. Mod. Phys. 81, 591–646 (2009).
+3J. Ph. Bouchaud, “Crises and collective socio-economic phenomena:
+Simple models and challenges,” J. Stat. Phys. 151, 567–606 (2013).
+4J. Ph. Bouchaud and J. P. Nadal (eds.), Special Issue on “From statistical
+physics to social sciences,” C. Phys. 20(4), 241–386 (2019).
+5An introduction to Integrated Assessment Models can be found <https://
+www.carbonbrief.org/qa-how-integrated-assessment-models-are-used-to-study-climate-change >.
+6T. C. Schelling, “Dynamic models of segregation,” J. Math. Sociol. 1,
+143–186 (1971).
+7NetLogo website <http://ccl.northwestern.edu/netlogo/ >.
+8See supplementary material at https://www.scitation.org/doi/suppl/10.1119/
+5.0086028 for the program, and it runs smoothly with NetLogo-4.1.3
+version.
+9S. Grauwin, E. Bertin, R. Lemoy, and P. Jensen, “Competition betweencollective and individual dynamics,” Proc. Nat. Acad. Sci. U. S. A. 106,
+20622–20626 (2009).
+10D. McFadden, “Conditional logit analysis of qualitative choice behavior,”
+Front. Economet. 76, 689–708 (1974).
+11S. Grauwin, F. Goffette-Nagot, and P. Jensen in, “Dynamic models of resi-
+dential segregation: An analytical solution,” J. Public Econ. 96, 124–141
+(2012).
+12H. Callen, Thermodynamics and an Introduction to Thermostatistics (John
+Wiley & Sons, New York, 1985); M. Evans and T. Hanney,
+“Nonequilibrium statistical mechanics of the zero-range process and
+related models,” J. Phys. A: Math. Gen. 38, R195–R240 (2005); Lectures
+by Miranda Holmes-Cerfon, available at <https://cims.nyu.edu/ /C24holmes/
+teaching/asa19/ >, accessed on March 1, 2022 are useful for understanding
+Markov chains.
+13Grauwin et al. have demonstrated (Ref. 11) that a potential function exists
+in the continuous neighborhood case only for very speciﬁc (linear) utility
+functions. The key analytical advantage of blocks is that the neighbors ofan agent’s neighbors are also its own neighbors.
+14M. Buchanan, The Social Atom: Why the Rich Get Richer, Cheaters Get
+Caught, and Your Neighbor Usually Looks like You (Bloomsbury, London,
+2007); D. Watts, Everything is Obvious: Once You Know the Answer
+(Crown, New York, 2011); N. Silver, The Signal and the Noise (Penguin,
+London, 2012).
+15P. Jensen, Your Life in Numbers: Modeling Society through Data
+(Springer, Berlin, 2021).
+16C. O. Wilke and C. T. Bergstrom, “Predicting an epidemic trajectory isdifﬁcult,” Proc. Nat. Acad. Sci. U. S. A. 117, 28549–28551 (2020).
+467 Am. J. Phys., Vol. 90, No. 6, June 2022 Pablo Jensen 467 04 October 2023 23:11:08
+17T. Jobert and L. Persyn, “Quelques constats sur les previsions conjonctur-
+elles de la croissance francaise,” Rev. Econ. Polit. 122, 833–849 (2012).
+18A. Pickering, The Mangle of Practice (University of Chicago Press,
+Chicago, 1995); B. Latour, “The ‘Topoﬁl’ of Boa Vista—A photo-philosophical montage,” Common Knowl. 4, 145–187 (1995).
+19P. Jensen, “An ontology for physicists’ laboratory life,” in Reset Modernity! ,
+edited by B. Latour and C. Leclercq (MIT Press, Cambridge, 2016).
+20L. Hoddeson, E. Braun, and J. Teichmann, Out of the Crystal Maze:
+Chapters from the History of Solid-State Physics (Oxford U. P., Oxford,
+1992).
+21D. Helbing, “Trafﬁc and related self-driven many-particle systems,” Rev.
+Mod. Phys. 73, 1067–1141 (2001).
+22T. C. Schelling, Micromotives and Macrobehavior (Norton, New York,
+1978). Note that these individual models neglect structural effects, such as
+explicitly racial zoning ordinances. See, for example, R. Rothstein, TheColor of Law. A Forgotten History of How Our Government Segregated
+America (Liveright, New York, 2017).
+23M. Moussa €ıd, D. Helbing, and G. Theraulaz, “How simple rules determine
+pedestrian behavior and crowd disasters,” Proc. Natl. Acad. Sci. U.S.A.
+108, 6884–6888 (2011).
+24P. Jensen, “Network-based predictions of retail store commercial catego-
+ries and optimal locations,” Phys Rev E 74, R035101 (2006).
+25As illustrated by the long-standing commitment of Alex Vespignani and
+Vittoria Colizza in modeling epidemics. See, for example, A. Vespignani,
+H. Tian, C. Dye et al. , “Modelling COVID-19,” Nat. Rev. Phys. 2,
+279–281 (2020).
+26J. Dewey, The Public and Its Problems: An Essay in Political Inquiry
+(Pennsylvania State U. P., Pennsylvania, 2012).
+27P. Jensen, T. Matreux, J. Cambe et al. , “Giant catalytic effect of altruists
+in Schelling’s segregation model,” Phys. Rev. Lett. 120, 208301 (2018).
+468 Am. J. Phys., Vol. 90, No. 6, June 2022 Pablo Jensen 468 04 October 2023 23:11:08

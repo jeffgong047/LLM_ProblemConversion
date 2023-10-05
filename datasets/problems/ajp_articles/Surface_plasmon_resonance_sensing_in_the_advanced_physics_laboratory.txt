@@ -1,0 +1,1391 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| NOVEMBER 01 2022
+Surface plasmon resonance sensing in the advanced
+physics laboratory 
+Alaa Adel Abdelhamid ; David Kerrigan ; William Koopman ; Andrew W erner ; Zachary Givens ; Eugenii U. Donev
+Am. J. Phys.  90, 865–880 (2022)
+https://doi.org/10.1 119/5.0070022 04 October 2023 23:21:26
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Surface plasmon resonance sensing in the advanced physics
+laboratory
+Alaa Adel Abdelhamid,a)David Kerrigan, William Koopman,b)and Andrew Werner
+Department of Physics and Astronomy, The University of the South, Sewanee, Tennessee 37383
+Zachary Givens and Eugenii U. Donevc)
+Department of Physics, Engineering, and Astronomy, Austin Peay State University, Clarksville,
+Tennessee 37044
+(Received 3 September 2021; accepted 19 July 2022)
+We present a set of experiments and computations suitable for introducing upper-level
+undergraduate physics and engineering students to the interdisciplinary ﬁeld of nanoplasmonics forperiods ranging from a week-long advanced laboratory session to a summer research project. The
+end product is a tunable optoﬂuidic device capable of detecting changes in a ﬂuid medium as low
+as 0.002 refractive index units. The sensing element—a thin gold ﬁlm on a glass prism coupled to amicroﬂuidic cell—owes its sensitivity to the bound nature of the surface plasmon–polariton waves
+that are resonantly excited by evanescently coupled light at the gold–ﬂuid interface. Pedagogically,
+surface plasmon resonance (SPR) sensing immerses students in the rich physics of nanoscale opticsand evanescent waves in constructing and operating a precision apparatus and in developing
+theoretical, analytical, and numerical models to aid both in the physical understanding and
+engineering optimization of the SPR sensor.
+#2022 Published under an exclusive license by American
+Association of Physics Teachers.
+https://doi.org/10.1119/5.0070022
+I. INTRODUCTION
+The simple geometry of the ﬂat interface between a trans-
+parent dielectric and a noble-metal conductor plays host toremarkable optical phenomena arising from the coupling ofelectromagnetic waves with collective plasma oscillations ofthe conduction electrons. Key manifestations of this couplingare surface plasmon–polaritons (SPPs)—hybrid electric
+polari zation–pho tonevanescent waves that propagate along
+the metal–dielectric interface with amplitude that decays
+exponentially with distance in both the perpendicular direction(due to being surface-bound modes) and longitudinal direction(due to resistive losses in the metal). The resonant nature ofSPP waves and the fact that most of their electromagnetic ﬁeldis concentrated in the dielectric medium
+1make them exqui-
+sitely sensitive to minuscule changes in the medium’s refrac-tive index; moreover, under the speciﬁc conditions forexciting the surface plasmon resonance (SPR), the electric-
+ﬁeld intensity at the metal–dielectric interface is enhanced by
+at least an order of magnitude relative to the incident wave.
+2–5
+These features enable dynamic detection of changes in refrac-tive index on the order of 10
+/C06or better,6,7as well as label-
+free analysis of the kinetics of biomolecular interactions, suchas protein binding to surfaces and immunoassays, and have
+led to the development of a variety of SPR sensing techniques,
+devices, and applications.8–14
+This paper builds upon previous reports on incorporating
+SPR-based projects into undergraduate physics and chemis-try curricula.15–24What sets our contribution apart is the
+tutorial-style pedagogical integration of physical insights,
+theoretical models, student-programmed analytical computa-
+tions, and numerical simulations with student-performedprecision angular measurements of SPR reﬂectance curvesand real-time sensing of large and small refractive-indexchanges—measured using readily customizable opto-
+microﬂuidic setups constructed by students with affordable
+off-the-shelf components. We provide a wealth of references,curated with upper-level physics/engineering undergraduatesand their instructors in mind, to books, literature reviews,
+and recent research articles on the fundamentals and specif-
+ics of SPPs and SPR sensing as well as to all the necessarymaterials properties, software, and hardware components(with current prices listed in the references) to facilitate rapid
+reproduction of the experiments and simulations described
+herein. We also list in the conclusion a dozen or so carefullysourced recommendations for extensions to this project.
+865 Am. J. Phys. 90(11), November 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 865 04 October 2023 23:21:26
+In our experience, the SPR sensing experiments foster stu-
+dent ingenuity and resourcefulness, especially in experimen-
+tal design, while the ability to verify measured results
+computationally encourages students to strive for high accu-racy and precision.
+An SPR sensor based on SPP evanescent waves responds
+to changes in the dielectric environment with a shift of the
+angle-dependent monochromatic reﬂectance curve. The sen-
+sor can be optimized for differentiating between various ﬂu-ids with the help of computer simulations. Surface plasmons
+generated in a prism-based optical setup offer a variety of
+hands-on opportunities for undergraduate students to deepentheir understanding of electromagnetism in the context of
+applied optics, to practice their laboratory and computational
+skills, and to engineer a functional device with a high sensi-tivity-to-simplicity ﬁgure of merit. We showcase here theopportunities for student engagement and learning afforded
+by our versatile, relatively inexpensive optoﬂuidic setup.
+The tasks involved in constructing and optimizing the SPRsensor vary in difﬁculty, so instructors can select the appro-
+priate level of challenge for their students, be it for a week-
+long advanced laboratory session, a semester-long capstoneproject, or a summer research experience. Students get an
+introduction to the ﬁeld of nanoplasmonics and a chance to
+appreciate the power of combining precision experimentalwork with realistic computational modeling. For some stu-dents, the end product itself—a seemingly simple yet surpris-
+ingly sensitive device—represents a memorable milestone in
+their undergraduate physics careers. This article describes:the SPP dispersion relation (Fig. 1); the resonant conditions
+for exciting SPP waves with a prism (Fig. 2); the experimen-
+tal SPR setup constructed and modiﬁed by students (Fig. 3);
+the computations performed by students with the Fresnel
+equations formalism to verify and optimize the operation of
+the SPR sensor (Figs. 4and5); the computed and experimen-
+tal sensorgrams obtained by students from real-time detec-tion of relatively large (Fig. 6), small (Figs. 7and8), andtiny (Fig. 9) refractive-index changes in a ﬂuid medium; the
+computed sensitivity of the SPR sensor (Fig. 10); and a
+numerical simulation of the SPR reﬂectance curve with the
+ﬁnite-element method (Fig. 11).
+II. METHODS
+A. SPP dispersion relation
+Being hybrid electromagnetic modes of light coupled to
+coherent electron-density oscillations on a metal surface,
+SPP waves travel more slowly than light waves on the
+dielectric side of the interface (i.e., in the sensing environ-
+ment) and have a larger-than-light wavevector k
+SPP
+xand
+momentum /C22hkSPP
+xin the direction of SPP propagation ( x-axis
+in Figs. 1(a)and2) at a given energy and angular frequency
+x:kSPP
+x/C17Re½~kSPP
+xðxÞ/C138>kxðxÞ. After swapping (for conve-
+nience) the kxandxaxes in Fig. 1(b), we see that the SPP
+dispersion curve (solid line) for a generic metal–dielectric
+interface always lies below the corresponding light line
+x¼ðckx=sinhiÞ=ﬃﬃﬃﬃedp¼ckx=ðndsinhiÞin the dielectric
+medium of refractive index nd¼ﬃﬃﬃﬃedp, where cis the vacuum
+speed of light. Thus, in Fig. 1(b), the x¼ckx=sinhilight
+line in vacuum ( nd¼nvac¼1) does not intersect the SPP
+curve either at the arbitrary incident angle hi¼60/C14(dotted
+line) from the surface normal or at any other angle, includingh
+i¼90/C14(dashed-dotted-dotted line) when the incoming
+light grazes the metal–vacuum interface.
+SPP waves cannot be excited externally by freely propa-
+gating light on the dielectric side of the same interface
+because the incoming photons carry insufﬁcient momentum
+to match the in-plane momentum of the plasmon–polaritons.
+Physically, the increased SPP momentum is due to the strong
+coupling between light and surface charges—in essence the
+light ﬁeld has to “drag” the electrons along the surface.4This
+fundamental characteristic of SPP modes manifests itself inthe shape of the dispersion curve [Fig. 1(b)]. The simplest
+Fig. 1. (a) Schematic of two transverse-magnetic (TM) electromagnetic waves on either side of the interface between a semi-inﬁnite dielectric mediu m(z<0)
+and a semi-inﬁnite metallic medium ( z>0), as described in the main text. The arrowheads on the kdandkmwavevectors point in both directions since no
+assumptions are made regarding the nature of these waves (e.g., incident or scattered wave in the dielectric region). In fact, surface modes like SPPs (squiggly
+curves), being bound to the interface, correspond to solutions with no incident wave present, only a scattered wave in the dielectric and a transmitte d wave in
+the metal (Ref. 25). As noted below and discussed in the main text, anypropagating wave impinging on the dielectric side of the interface, regardless of angle
+of incidence hi, would not have a sufﬁciently large x-component of the wavevector to excite SPP modes at the same interface, i.e., kx<kSPP
+x. After Ref. 25, (b)
+dispersion relations of normalized longitudinal wavevector Kplotted with swapped axes as a function of normalized angular frequency Xfor light in vacuum
+at incident angle hi¼60/C14(dotted line), light in vacuum at hi¼90/C14(dashed-dotted-dotted line), light in glass of refractive index nd¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2:969p
+¼1:723 at
+hi¼60/C14(dashed-dotted line), SPPs at a single metal–vacuum interface (solid curve), and asymptotic “Fr €ohlich mode” of SPPs at large wavevectors (dashed
+horizontal line). Note that light coming from vacuum cannot excite metal– vacuum SPPs even at grazing incidence ( hi¼90/C14;kx!kx;max¼k)—i.e., no inter-
+sections exist between the SPP dispersion curve for a given interface and its corresponding light lines—whereas, for instance, light of angular freq uency
+x¼0:6xpcoming from the glass medium can couple resonantly to a metal– vacuum SPP mode at hi¼60/C14(circle).
+866 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 866 04 October 2023 23:21:26
+dispersion relation between the longitudinal wavevector
+component and the angular frequency of the SPP wave,
+kSPP
+xðxÞ, can be derived for a single metal–dielectric inter-
+face as follows.26
+(i) Consider, as depicted in Fig. 1(a), an electromagnetic
+wave with wavevector kd¼ðkd;x^x;0^y;kd;z^zÞin a
+semi-inﬁnite dielectric medium (subscript “d”) occu-
+pying the z<0 half-space and its counterpart wave
+with wavevector km¼ðkm;x^x;0^y;km;z^zÞin the adja-
+cent semi-inﬁnite metallic medium (subscript “m”)
+occupying the z>0 region; the interface lies in thexy-plane at z¼0. The dielectric has a real-valued rel-
+ative permittivity ed>0, whereas a good plasmonic
+metal like gold has a complex-valued relative permit-tivity with a large negative real part Re ½~e
+m/C138/C280 and a
+small positive imaginary part Im ½~em/C138/C28/C0 Re½~em/C138.
+Both media are assumed to be nonmagnetic (i.e., rela-tive magnetic permeability of unity). To simplify thederivation of the SPP dispersion relation withoutaltering its functional form, we ignore for now theohmic losses in the metal, responsible for dissipationof optical energy into thermal energy, by setting
+Im½~e
+m/C138¼0 and Re½~em/C138/C17em<0.
+(ii) From the boundary condition of continuity imposed
+on the tangential electromagnetic ﬁelds, the longitudi-nal component of the wavevector must also be con-served at the interface: k
+d;x¼km;x/C17kx. In addition,
+the longitudinal and perpendicular components of thewavevector are linked by a general dispersion rela-tion, which for the metal is k
+2
+xþk2
+m;z¼emðx=cÞ2.
+Since k2
+x>0 and em<0, it follows that km;zmust be
+an imaginary number, whereby the wave inside themetal is evanescent and decays exponentially awayfrom the interface. The next steps involve using thecontinuity boundary conditions for the electric andmagnetic ﬁelds to obtain an equation relatingk
+d;z;km;z;ed, and em, which in turn will lead to kxðxÞ,
+that is, kSPP
+xðxÞ.
+Fig. 2. Schematics and photographs of prism-based microﬂuidic assembly
+for SPR sensing via attenuated total reﬂection (ATR) in Kretschmann-
+Raether conﬁguration. (a) The p/C0polarized HeNe laser beam enters a high-
+index isosceles ( A¼55.6/C14) or equilateral ( A¼60.0/C14) prism at external angle
+hext, measured outside the prism counterclockwise from the normal to its
+base, such that the beam is incident on the base at a counterclockwise inter-
+nal angle hintgreater than the critical angle for total internal reﬂection (TIR)
+from the prism (“input”) medium into the dielectric ﬂuid (“output”) medium.
+Clockwise angle ais what students manually increment (Ref. 34) and con-
+vert (Ref. 35) to internal angle via Snell’s law and the prism geometry:
+hint¼A/C0sin/C01½ðnair=n1Þsina/C138. Owing to the Au layer ( d3¼50 nm), TIR
+becomes ATR, most strongly attenuated at the resonant angle for excitation
+of surface plasmon–polaritons (SPPs) at the Au–ﬂuid interface given in Eq.
+(7). The Au ﬁlm (3) is commercially deposited on an SF10 glass slide (100)
+coated with an ultrathin Ti ﬁlm (2) for adhesion ( d2¼2 nm). The resulting
+sensor chip (Ref. 36), comprising layers (100), (2) and (3), is seen between
+the SF10 glass prism (Ref. 37) (1) and microﬂuidic assembly in (b) top-view
+and (c) base-view photos (scale: any prism edge ¼30 mm), and (d)
+exploded-view schematic (thicknesses not to scale). The sensor chip is inter-
+faced on its glass side to the prism with index-matching liquid (10) and
+secured with rubber bands; on the Au side, the chip is glued to the self-adhesive microﬂuidic cell (Ref. 38); dielectric ﬂuid (4) is injected with a
+syringe into the 0.4-mm-deep channel via aquarium tubing (Ref. 39).
+Fig. 3. (a) Schematic and (b) photograph of one of our Kretschmann-
+Raether (see Fig. 2) experimental setups for SPR sensing. The linear polar-
+izer can be rotated to vary the incident intensity of the already polarized
+HeNe laser; the half-wave plate is rotated to ensure a p/C0polarized incident
+beam, whereby the electric ﬁeld oscillates in the plane of incidence. The
+50:50 non-polarizing beamsplitter sends half of the incident light to themicroﬂuidic prism assembly and half to a ﬁxed reference detector to correct
+for instabilities in the laser output. The incident angle is adjusted by means
+of a manual-stage goniometer equipped with a vernier scale (1 arc min preci-
+sion). Light reﬂected off the sensing assembly is collected with a movable
+detector. Neutral-density (ND) ﬁlters reduce the effects of stray light on the
+reference and SPR signals. Signals are digitized in the DAQ unit and sent to
+the computer for further processing and storage.
+867 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 867 04 October 2023 23:21:26
+Fig. 4. Measured and simulated SPR reﬂectance curves for air ( nair¼1:000 28) or DI H 2O(nH2O¼1:3317) as the dielectric ﬂuid. (a) The experiment with air
+was conducted on the setup in Fig. 3; experiment 1 with water was conducted on a modiﬁed setup using a stabilized laser (details in the main text). (b)
+Experiment 2 with water was conducted on a further -modiﬁed setup using the detector-arm assembly pictured in the inset (details in the main text).
+Simulations using the Fresnel equations for p/C0polarization were performed with the WinSpall software (Ref. 49), which takes into account reﬂections from
+the entrance and exit faces of the prism. The measured curves were scaled vertically by different multiplicative factors to equate the experimental a nd simu-
+lated reﬂectance values near the critical angle for TIR. The measured curve for air in (a) is also shifted horizontally by /C00:76/C14to correct for an initial misalign-
+ment of the experimental setup (Ref. 61). Also shown in (b) is a curve (solid line) simulated andﬁtted with WinSpall that matches well most of the experiment
+2 data points after adjusting the properties of the Ti and Au layers as ﬁtting parameters (see upper legend) (Ref. 63). Note: The scaled measured data for water
+from Experiments 1 and 2 largely overlap when plotted on the same axes; the Fresnel-calculated curve for water in (a) is replotted as the dotted line in ( b).
+Fig. 5. (a) Simulated SPR reﬂectance curves for air, DI H 2O, ethanol (EtOH), and isopropyl alcohol (IPA) as the dielectric ﬂuid in Fig. 2(a)(see the main text
+for refractive indices). Left and right vertical arrows indicate internal angles of incidence hI
+int¼57.5/C14andhII
+int¼60.8/C14, respectively. Simulations were per-
+formed in MATLAB using the Fresnel equations for p/C0polarization. (b) SPR sensorgrams calculated from the curves in (a) at hI
+intin the lower panel and hII
+int
+in the upper panel. Time intervals are arbitrarily set to 100 s.
+868 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 868 04 October 2023 23:21:26
+(iii) We consider transverse magnetic (TM) modes with
+the magnetic-ﬁeld vector H¼Hy^yparallel to the
+interface and oscillating in the y-direction, since it
+turns out that no transverse electric (TE) bound modes
+exist at metal–dielectric interfaces. Physically, TEmodes do not correspond to viable solutions for SPP
+waves at a metal–dielectric interface, because the
+purely transverse electric ﬁeld has no componentsalong the direction of SPP propagation and therefore
+cannot excite the crucial longitudinal electron oscilla-
+tions (i.e., the surface-charge density wave).
+5Making
+the customary plane wave ansatz ,eik/C1r, where ris a
+position vector, and deﬁning the real-valued quanti-
+ties bd/C17ikd;z¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+k2
+x/C0edðx=cÞ2q
+and bm/C17/C0ikm;z
+¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+k2
+x/C0emðx=cÞ2q
+, the magnetic ﬁelds in the dielec-
+tric [Eq. (1a)] and metal [Eq. (1b)] take the following
+forms:
+Hdðz<0Þ¼Hd;0eikd/C1r^y¼Hd;0eikxxeþbdz^y; (1a)Hmðz>0Þ¼Hm;0eikm/C1r^y¼Hm;0eikxxe/C0bmz^y: (1b)
+The ﬁeld amplitudes in the dielectric and metal are Hd;0
+andHm;0, respectively. The 6signs in the z-direction
+exponentials are chosen to ensure that the ﬁelds d ecay
+away from the interface in either medium.
+(iv) The electric ﬁelds Ecan be obtained from the
+Ampere–Maxwell law in the absence of external cur-
+rent sources:r/C2H¼eð@E=@tÞ, wherer/C2! ik/C2
+and @=@t!/C0 ixwhen operating on a plane wave
+eik/C1rwith harmonic time dependence e/C0ixt. Thus, not-
+ing from above that kd;z¼/C0ibdandkm;z¼þibm, the
+electric-ﬁeld vectors in the dielectric [Eq. (2a)] and
+metal [Eq. (2b)] become
+Edðz<0Þ¼1
+/C0xedðkx^x/C0ibd^zÞ/C2ð Hd;0eikd/C1r^yÞ
+¼Hd;0
+xedð/C0ibd^x/C0kx^zÞeikxxeþbdz; (2a)
+Emðz>0Þ¼1
+/C0xemðkx^xþibm^zÞ/C2ð Hm;0eikm/C1r^yÞ
+¼Hm;0
+xemðibm^x/C0kx^zÞeikxxe/C0bmz: (2b)
+(v) Applying boundary conditions of continuity of the
+tangential magnetic ﬁelds in Eqs. (1a) and(1b) and
+the tangential components of the electric ﬁelds in Eqs.
+(2a)and(2b), we obtain at the origin ( x¼z¼0)
+Hd;yjx;z¼0¼Hm;yjx;z¼0)Hd;0¼Hm;0/C17H0; (3a)
+Ed;xjx;z¼0¼Em;xjx;z¼0)Hd;0/C0ibd
+xed¼Hm;0ibm
+xem:(3b)
+(vi) Combining Eqs. (3a) and(3b) and rearranging give
+bd=bm¼/C0ed=em. Squaring both sides and using the
+deﬁnitions of bdand bmfrom step (iii), we get
+e2
+d=e2
+m¼ðk2
+x/C0edx2=c2Þ=ðk2
+x/C0emx2=c2Þ, which can
+be rearranged, with kx!kSPP
+x, to yield the SPP dis-
+persion relation
+kSPP
+x¼x
+cﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃedem
+edþemr
+: (4)
+Fig. 6. SPR sensorgrams measured with the setup in Fig. 3for air, DI H 2O,
+isopropyl alcohol (IPA), and ethanol (EtOH) as the dielectric ﬂuid in the
+microﬂuidic channel (see main text for refractive indices). Internal angle of
+incidence: (a) hII
+int¼60.8/C14; (b) hI
+int¼57.5/C14. Intensity spikes are caused by
+air bubbles transiting the microﬂuidic channel. The reﬂected signal is not
+normalized to the laser reference.
+Fig. 7. Simulated SPR reﬂectance curves for air, DI H 2O, and saline solu-
+tions of different NaCl concentrations as the dielectric ﬂuid in Fig. 2(a)(see
+ﬁgure legend or main text for refractive indices). Left and right vertical
+arrows indicate internal angles of incidence hI
+int¼57.5/C14andhII
+int¼60.8/C14,
+respectively. Simulations were performed with Fresnel equations for p/C0
+polarization, implemented in MATLAB by advanced lab students.
+869 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 869 04 October 2023 23:21:26
+Equation (4), which retains its functional form for complex-
+valued relative permittivities, can be used to quantify theearlier assertion that the SPP wavevector (momentum) at ametal–dielectric interface always exceeds the in-plane wave-vector (momentum) of light that is incident on the sameinterface from the dielectric half-space. For instance, for agold–air interface at 632 :8n m [ ~e
+m¼~eAu¼/C011:740
+þ1:2611i (Ref. 27) and ed¼n2
+air¼1:000553 (Ref. 28)] and
+grazing incidence ( hi¼90/C14, hence kx¼ðx=cÞsinhi!kx;max
+¼x=c¼k), the complex-valued form of Eq. (4)gives
+Re½~kSPP
+x/C138/C251:05k. As mentioned above, the increase in wave-
+vector and momentum is a consequence of the binding of theSPP hybrid wave to the interface due to the interaction of the
+electromagnetic wave with the surface charges.29While the
+above treatment follows Ref. 26, most plasmonics-related
+books4,5,26,30,31and tutorial articles22,32include some version
+of the derivation of Eq. (4). There is a trove of key concepts
+from classical electrodynamics that students can (re)discover
+on the road to the SPP dispersion relation such as the wave
+equation, eigenmodes, evanescent waves, wavevectors,
+boundary conditions, polarization ( p/TM works, s/TE does
+not), and the complex-valued, frequency-dependent optical
+constants of a metal in the framework of the Drude–Lorentz
+model.
+B. Idealized model of plasmonic metals
+Here, we present the simplest version of the Drude–
+Lorentz model, the so-called lossless Drude model for the
+dispersion of the relative permittivity of an idealized metal,
+in order to use the resulting functional form of emðxÞin Eq.
+(4). The complete derivation is also found in most
+Fig. 8. SPR sensorgrams (a) calculated from the curves in Fig. 7and (b)
+measured with the setup in Fig. 3for DI H 2O and saline solutions of differ-
+ent NaCl concentrations as the dielectric ﬂuid (see main text for refractiveindices). Lower and upper panels in each part correspond to internal angles
+of incidence h
+I
+int¼57.5/C14andhII
+int¼60.8/C14, respectively. Time intervals in (a)
+are arbitrarily set to 100 s. Intensity spikes in (b) are caused by air bubbles
+transiting the microﬂuidic channel. The reﬂected signal in (b) is normalized
+to the laser reference.
+Fig. 9. SPR sensorgrams measured with the setup in Fig. 3at (nominal)
+internal angle of incidence hI
+int¼57.5/C14for DI H 2O(nH2O¼1:3317) vs (a)
+0.5 wt. % NaCl solution ( n0:5wt%¼1:3339) and (b) bottled mineral water
+(unknown refractive index). The reﬂected signal is normalized to the laserreference.
+870 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 870 04 October 2023 23:21:26
+plasmonics books (for example, Refs. 26and31), so here we
+only sketch out the physical reasoning. Considering theunbound and undamped response of a free electron of massmand charge – eto an external time-harmonic electric ﬁeld
+E¼E
+0e/C0ixt, Newton’s equation of motion in one dimension
+(1D), m€x¼/C0eE, yields the electron’s displacement in terms
+of the driving ﬁeld’s amplitude and angular frequency:x¼ðe=mÞð1=x
+2ÞE. A “gas” of Nsuch free electrons per unit
+volume has polarization P¼/C0Nex, which is equivalent to
+the volume density of the electron’s dipole moment – ex.
+Recalling two equivalent deﬁnitions of the electric displace-ment, namely, D¼e
+me0E¼e0ðEþP=e0Þ, where e0is the
+permittivity of vacuum, and plugging in the above expres-sions for Pandx, we arrive at the relative permittivity of the
+lossless metal as a function of angular frequency
+e
+mðxÞ¼1/C0Ne2
+e0m1
+x2¼1/C0x2
+p
+x2: (5)
+The combination of constants xp/C17ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+Ne2=ðe0mÞp
+is known
+as the (bulk) plasma frequency and corresponds to the natu-
+ral frequency of the longitudinal collective oscillations of thefree-electron gas. For gold, /C22hx
+p¼8:708 eV (Ref. 33), where
+/C22his the reduced Planck constant. Recasting the angular fre-
+quency and longitudinal wavevector in units of the plasmafrequency, X/C17x=x
+pandK/C17ckx=xp, and using these deﬁ-
+nitions in Eqs. (4)and(5), we get em¼1/C01=X2and
+KSPP¼Xﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+X2/C01
+2X2/C01s
+: (6)
+The non-radiative (“bound”) branch of Eq. (6)is the SPP dis-
+persion relation for the metal–vacuum interface plotted asthe solid curve in Fig. 1(b). By convention, the axes have
+been swapped to display the dispersion relation as XðK
+SPPÞ
+and its equivalent form xðkSPP
+xÞ.
+C. Prism-coupling of incident light to SPP Waves
+In this work, we use the method of attenuated total reﬂec-
+tion (ATR), depicted in Fig. 2(a) in the so-called
+Kretschmann-Raether conﬁguration,40,41to bridge the
+momentum (and kx) gap between SPP modes of energy
+/C22hx¼1:9587 eV and incident light of angular frequency x,
+which corresponds to the well-known red wavelengthk
+0¼ð2pc=xÞ=nair¼632:8 nm of a helium-neon (HeNe)
+laser operating in air of refractive index28nair¼1:00028.
+We thereby excite SPP waves on the surface of a gold (Au)ﬁlm of nominal thickness d
+3¼50 nm and index of refrac-
+tion27~n3/C17~nAuðk0Þ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+~eAuðk0Þp
+¼0:18377þ3:4313i, where
+the nominal relative permittivity ~eAuis both complex-valued
+(signifying dissipation) and dispersive (dependent on x,o r
+k0—but see Ref. 42). In principle, on the “output” side of the
+Au ﬁlm is the ﬂuid of real-valued dispersive permittivity ed
+and refractive index n4/C17ndðk0Þ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+edðk0Þp
+that we wish to
+sense via the SPP waves by monitoring the changes in inten-
+sity with time of the SPR reﬂectance curve at a particular,judiciously chosen angle of incidence (more on this choicelater on). On the “input” side of the Au ﬁlm is an SF10glass prism
+37of refractive index43n1/C17nSF10ðk0Þ¼1:7231,
+such that n1>n4. The incoming p/C0polarized (i.e., the
+electric ﬁeld vector oscillates in the plane of incidence) andcollimated laser beam now has sufﬁcient momentum to
+Fig. 10. Fresnel-simulated sens itivity of the SPR sensor to changes Dnin bulk
+refractive index ndof the dielectric ﬂuid in the channel. The curves belonging to
+the two extremes of ndare marked by arrows. (a) SPR reﬂectance curves for
+pure DI H 2O and 20 hypothetical ﬂuids with refractive indices uniformly span-
+ning the range nH2O60:001, i.e., nd¼f1:3307…1 :3327g; the inset magniﬁes
+a region of internal angles hintaround the SPR dip. (b) Change in reﬂec-
+tance curves, DRðhint;ndÞ/C17Rðhint;ndÞ/C0R0ðhint;nH2OÞ, for the ﬂuids in
+(a); ﬂat line at zero is for DI H 2O. (c) Map of DRðhint;ndÞat tenfold the
+Dnresolution of (b). (d) Curves and (e) map of relative percentage
+change in reﬂectance, DRðhint;ndÞ=R0ðhint;nH2OÞ, for a magniﬁed angular
+region.
+871 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 871 04 October 2023 23:21:26
+excite SPPs at the Au–ﬂuid interface because it enters the Au
+ﬁlm from the higher-index glass medium at an angle of inci-dence h
+intthat is greater than the critical angle for total inter-
+nal reﬂection (TIR). Energy and momentum are transferred
+to the SPP waves by the evanescent wave that tunnels from
+the prism-Au interface towards the Au–ﬂuid interface,through the Au layer, which is why the ﬁlm thickness is akey parameter, as discussed later on. On an x–vs– k
+xplot
+[Fig. 1(b)], the light line in the SF10 glass prism has a shal-
+lower slope than the light line in the dielectric ﬂuid whenﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃeprismp>ﬃﬃﬃﬃﬃﬃﬃﬃﬃefluidp, which allows for the prism light line to
+intersect the SPP dispersion curve and resonantly excite SPP
+modes of matching angular frequency and longitudinalwavevector.22
+In practice, an adhesion-promoting titanium (Ti) layer44
+of nominal thickness d2¼2 nm and index of refraction45
+~n2/C17~nTiðk0Þ¼2:7039þ3:7651i is sandwiched between the
+Au layer and the substrate. The effects of adhesion layerparameters on sensor performance were analyzed computa-tionally in Ref. 46. The substrate is a 1-mm-thick slide made
+of the same type of high-index glass (SF10) as the prism; it
+is not depicted in Fig. 2(a)but is visible in Figs. 2(b)–2(d) .
+Index-matching liquid of refractive index 1.725 ð/C25n
+SF10),47
+shown schematically in Fig. 2(d), is applied with a pipette
+between the SF10 glass slide (100) and the SF10 glass prism
+(1) to provide a continuous medium for the laser beam; that
+is, the index-matching liquid (10) removes the air gap
+between the substrate and the prism, effectively extendingthe prism material up to the Ti ﬁlm (2). The self-adhesivemicroﬂuidic cell
+38and Au(3)þTi(2)/C0SF10(100) sensor
+chip36[see Fig. 2(d)], both obtained commercially, were
+assembled together by a student in a matter of minutes.
+The resonant condition for exciting SPP waves at the
+Au–ﬂuid interface is obtained22by setting the longitudinalwavevectors kprism
+xandkSPP
+xapproximately equal (neglecting
+the dissipative properties of the gold ﬁlm embodied in
+Im½~eAu/C138). Canceling out the common factor x=c, we get
+n1sinhres
+int/C25ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+e0
+Auðk0Þedðk0Þ
+e0
+Auðk0Þþedðk0Þs
+; (7)
+where k0¼632:8n m ; n1¼1:7231 for the prism; hres
+intis the
+resonant internal angle of incidence for the minimum reﬂec-
+tance (dip) of the SPR curve; e0
+Au/C17Re½~eAu/C138¼ðRe½~nAu/C138Þ2
+/C0ðIm½~nAu/C138Þ2, hence e0
+Auðk0Þ¼ð 0:18377Þ2/C0ð3:4313Þ2
+¼/C011:740 for the gold ﬁlm; and ed¼n2
+dfor the dielectric
+ﬂuid. Solving Eq. (7)forhres
+intwith air as the ﬂuid in the chan-
+nel, having ndðk0Þ¼nair¼1:00028, puts the SPR dip at
+37:4/C14, which agrees well with the rigorous analytical calcula-
+tion based on the Fresnel equations [cf. solid line minimum
+at 37 :50/C14in Fig. 4(a)]. With pure water48ofndðk0Þ¼1:3317
+inside the channel, hres
+int¼57:0/C14, also in good agreement with
+the rigorously calculated location of the reﬂectance dip [cf.
+solid line minimum at 57 :16/C14in Fig. 4(a)]. This seemingly
+simple veriﬁcation of the resonant angles offers an excellent
+opportunity to emphasize to students the importance of pair-
+ing algorithmic computation (e.g., the Fresnel equations,
+accurate but “clueless” about the nature of surface plasmons)
+with physical reasoning (e.g., the SPP dispersion relation or
+the cause of the reﬂectance minimum).
+D. Physical interpretations
+The two most frequently stated (equivalent) explanations
+for the reﬂectance dip (e.g., in Fig. 4) involve, on the one
+hand, the total conversion of the missing light into surface
+plasmons that carry the energy away along the interface and
+Fig. 11. Comparison of numerically computed (ﬁnite-element met hod, FEM) and analytically calculated (Fresnel formalism) SPR reﬂectance curves for a 50-nm gold
+(Au) ﬁlm on high-index glass ( nSF10¼1:725) in vacuum, illuminated by a monochromatic ( k0¼632:8 nm) transverse-magnetic ( Hy/C0polarized) plane wave
+launched from the glass medium. (Note: The titanium adhesion layer is not present in order to reduce the computational cost.) Inset (i) shows the FEM ge ometry and
+mesh; perfectly matched layers (PML) absorb reﬂected and transmitted waves. Insets (ii) and (iii) show FEM images of Ex,t h e x-component of the electric ﬁeld in the
+xz-plane, at the resonant incident angle of 37.5/C14(orangersymbol) and halfway up the SPR dip at 38.2/C14(blue/H17005symbol). Insets (iv) and (v) show FEM images of
+pdiss, the total power dissipation density in the Au ﬁlm in the xz-plane, at the two angles. The simulated and analytical reﬂectance ( R) curves are in close agreement, hav-
+ing a small sum of squared residuals SSR ¼P701
+i¼1½RFEMðhiÞ/C0RFresnelðhiÞ/C1382¼0:00365.
+872 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 872 04 October 2023 23:21:26
+thus prevent it from reaching the detector, and on the other,
+destructive interference between the TIR light and the SPP
+light emitted back into the prism as radiation damping.4In
+other words, SPPs excited via wavevector-matching with a
+prism are inherently leaky waves : They lose energy not only
+through Joule heating due to absorption inside the metal,
+characterized by a non-radiative, intrinsic damping term cin
+in the propagation wavevector along the interface, but also
+due to leakage radiation into the prism from excited wave-
+vectors within the prism light cone (Fig. 1(b)), adding a radi-
+ative damping term cradto the propagation loss.
+From a microscopic point of view, intrinsic damping
+occurs when the electromagnetic ﬁeld of the SPPs exciteselectron–hole pairs at the Fermi level of the metal, and sub-
+sequent de-excitation generates phonons (collective lattice
+vibrations) that heat up the ﬁlm.41Macroscopically, it stems
+from Im½~em/C138, the imaginary part of the metal permittivity
+[neglected in the lossless Drude model of Eq. (5)], so that
+the complex-valued form of Eq. (4)yields cin¼Im½~kSPP
+x/C138.
+When the metallic medium has a small ﬁnite thickness, as in
+the Kretschmann-Raether conﬁguration [Fig. 2(a), ignoring the
+adhesion layer for now], the evanescent SPP waves tunnel back
+through the metal ﬁlm and transform into propagating plane
+waves in the prism medium. This back-radiation, emitted by the
+SPPs propagating at the metal–dielectric interface, is in anti-
+phase with the incoming light and interferes with it destructively
+at the metal–prism interface. In the case of Rmin/C17Rðhres
+intÞ¼0
+(see below), the destructive interference is complete and the
+back-radiation is also converted into thermal energy of the metal
+ﬁlm.41We note that Eq. (4)(or its complex-valued form) is
+strictly valid only for a semi-inﬁnite metal: As the metal thick-
+ness decreases, the metal–prism interface approaches the met-
+al–dielectric interface, where the SPPs propagate, and modiﬁes
+the resonance wavevector approximately as ~kSPP
+x!~kSPP
+x
+þD~kSPP
+x. The real part of D~kSPP
+xcontains the dependence on the
+metal ﬁlm thickness and causes a shift in the angular pos ition of
+the resonance, while the imaginary part constitutes the radiative
+damping contribution, that is, crad¼Im½D~kSPP
+x/C138.41
+Together, cinandcradmake up the imaginary part of the
+SPP wavevector, Im ½~kSPP
+xþD~kSPP
+x/C138. For a plasmonic metal
+ﬁlm of the optimum thickness, illuminated with evanescent
+incident light at the resonant angle in the Kretschmann-
+Raether conﬁguration, the destructive interference can be
+essentially perfect and result in a vanishing reﬂected beam
+intensity, and thus undetectable leakage radiation, when both
+the “critical coupling” condition cin¼cradand the resonance
+condition kx¼kSPP
+xare fulﬁlled.5,30With transmittance and
+reﬂectance both zero (and absent any scattering from per-
+fectly smooth surfaces), conservation of energy requires that
+the whole of the incident power be absorbed in the plasmonic
+ﬁlm, increasing its temperature. A numerical simulation of
+this absorption is depicted in Fig. 11[inset (iv)].
+As noted by Raether,41the form of the SPR curve around
+the reﬂectance minimum depends on the sum of the damp-
+ing terms, cinþcrad. Since cincan be regarded as constant
+to ﬁrst order, the full width at half maximum (FWHM) is
+dominated by crad, in turn determined by the metal ﬁlm
+thickness.5
+A further, somewhat counterintuitive insight can be
+obtained from electric-ﬁeld penetration depths (or decay
+lengths) into the dielectric ( dd) and metal ( dm), which, being
+related as eddd¼jemjdm, can be used to approximate thefraction of the SPP electric-ﬁeld energy in the dielectric
+medium asðjemj=edÞ2. Therefore, SPP waves experience
+larger propagation loss for lossless dielectrics with higherrefractive indices (and permittivities e
+d), because a larger
+fraction of the SPP energy resides within the lossy metal.5A
+consequence of this relative increase in non-radiative damp-ing is clearly apparent in Fig. 4(a):e
+H2O>eairmakes the
+SPR curve for water wider than the curve for air.
+E. Fresnel equations
+The simulated SPR curves in Fig. 4were generated with
+the feature-rich (but black-box) freeware programWinSpall.49In addition, students used WinSpall to check
+their own MATLAB50implementations of the Fresnel equations
+as part of a “virtual SPR sensor” advanced lab project duringthe COVID-19 pandemic. The Fresnel equations formalism,as applied to a stack of two thin ﬁlms (Ti and Au) sand-wiched between two semi-inﬁnite dielectric media (glass andﬂuid), is summarized below. At the interface between non-magnetic media jandl, with j;l¼1;2;3;4 andjl/C0jj¼1
+according to the layer ordering in Fig. 2(a), the amplitude
+reﬂection ( r
+jl) and transmission ( tjl) coefﬁcients for the elec-
+tric ﬁeld of a p/C0polarized incident plane wave can be writ-
+ten as4,26
+rjl¼n2
+lbj/C0n2
+jbl
+n2
+lbjþn2
+jbl; (8)
+tjl¼2n2
+lbj
+n2
+lbjþn2
+jblnj
+nl: (9)
+The in-plane x-component of the wavevector inside the
+prism medium of refractive index n1iskx¼k0n1sinhint,
+and the z-component of the wavevector in medium jis
+bj¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+k2
+0n2
+j/C0k2
+xq
+, where k0¼2p=k0is the wavenumber of
+the incident light and njis the index of refraction of the jth
+medium.
+One strategy51,52for calculating the total reﬂectance of the
+Prism(1)–Ti(2)þAu(3)–Fluid(4) stack in Fig. 2(a)is, ﬁrst, to
+derive a recursive formula for the reﬂection coefﬁcient of ageneric slab of thickness d
+jsurrounded by an input medium
+and an output medium, either of which can be an adjacentslab (here: Au or Ti) or a semi-inﬁnite environment (here:prism or ﬂuid). We will write the slab reﬂection coefﬁcientsasr
+input ;output—with a comma—to distinguish them from the
+single-interface coefﬁcients in Eqs. (8)and(9). Second, we
+apply the slab formula to the last thin-ﬁlm layer encounteredby the incident laser beam, Au(3), to obtain r
+Au/C0slab/C17r2;4.
+Third, we move backwards to the preceding thin-ﬁlm layer,Ti(2), and apply the slab formula to obtain r
+Ti/C0slab/C17r1;4,
+which will contain the single-interface reﬂection coefﬁcient
+r12between the Prism(1) input medium and Ti(2) (see Eq.
+(8)) and the effective reﬂection coefﬁcient r2;4from the other
+interface. In essence, r1;4will combine coherently the effects
+ofr12;r23;r34, and the phase changes accumulated by the
+reﬂected light during multiple (mathematically, inﬁnite) tripsinside the slabs. Fourth, the absolute square of r
+1;4will yield
+the desired total reﬂectance R.
+Let us consider a slab, designated as medium (3), surrounded
+by input medium (2) and output medium (4). A p/C0polarized
+plane wave with electric-ﬁeld amplitude E2impinges on
+873 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 873 04 October 2023 23:21:26
+slab 3 from input medium (2) and partially reﬂects with
+amplitude E2 3¼r23E2. The transmitted partial wave
+enters the slab with amplitude t23E2, advances by phase fac-
+tor exp½ib3d3/C138, reﬂects from the output interface with coefﬁ-
+cient r34, advances by another phase factor exp ½ib3d3/C138,a n d
+ﬁnally transmits backwards through the input interface with
+coefﬁcient t32; thus, the amplitude of this one-round-trip
+partial wave is: Eð1Þ
+3/C104¼t32t23r34exp½2ib3d3/C138E2. A partial
+wave that undergoes one r34reﬂection, one r32reﬂection, and
+another r34reﬂection before reentering the input medium—
+i.e., makes two round-trip passes across the slab—reemerges
+with amplitude Eð2Þ
+3/C104¼t32t23ðr32Þ1ðr34Þ2ðexp½2ib3d3/C138Þ2E2
+¼r32r34exp½2ib3d3/C138Eð1Þ
+3/C104. It follows then that a partial wave
+that makesðmþ1Þround-trip passes across the slab is even-
+tually reﬂected back into the input medium with amplitude
+Eðmþ1Þ
+3/C104¼t32t23ðr32Þmðr34Þmþ1ðexp½2ib3d3/C138Þmþ1E2¼rm
+32rm
+34
+/C2exp½2mib3d3/C138Eð1Þ
+3/C104. Therefore, the total wave reﬂected
+by the slab results from an inﬁnite summation of the above
+partial waves: r2;4E2¼E2 3þEð1Þ
+3/C104þEð2Þ
+3/C104þ/C1/C1/C1þ Eðmþ1Þ
+3/C104
+þ/C1/C1/C1þ Eð1Þ
+3/C104. Factoring out Eð1Þ
+3/C104from all but the ﬁrst terms
+on the right and dividing both sides by E2,w eo b t a i nt h e
+reﬂection coefﬁcient for slab 3
+r2;4¼r23þEð1Þ
+3/C104X1
+m¼0rm
+32rm
+34exp 2 mib3d3½/C138 ; (10a)
+¼r23þt32t23r34exp 2i b3d3½/C138
+/C2X1
+m¼0ðr32r34exp 2i b3d3½/C138Þm; (10b)¼r23þt32t23r34exp 2i b3d3½/C138
+1/C0r32r34exp 2i b3d3½/C138; (10c)
+¼r23þð1/C0r2
+23Þr34exp 2i b3d3½/C138
+1/C0ð/C0 r23Þr34exp 2i b3d3½/C138; (10d)
+¼r23þr34exp 2i b3d3½/C138
+1þr23r34exp 2i b3d3½/C138: (10e)
+In going from Eq. (10b) to Eq. (10c) ,w eh a v eu s e dt h e
+result for the sum of a geometric series of common ratio q,
+namelyP1
+m¼0qm¼1=ð1/C0qÞ.I nE q . (10d) ,w eh a v e
+substituted the relations rlj¼/C0rjlandtjltlj¼1/C0r2
+jl,w h i c h
+can be readily veriﬁed by interchanging the jandlindices
+in Eqs. (8)and(9). Equation (10e) is the slab reﬂection
+coefﬁcient for the Au(3) layer in Fig. 2(a),i . e . ,
+rAu/C0slab/C17r2;4. Applying the formula recursively, we obtain
+the slab reﬂection coefﬁcient rTi/C0slab/C17r1;4for the preced-
+ing Ti(2) layer
+r1;4¼r12þr2;4exp 2i b2d2½/C138
+1þr12r2;4exp 2i b2d2½/C138: (11)
+Substituting Eq. (10e) into Eq. (11), combining terms, and
+taking the absolute square, we arrive at the total reﬂectance
+for the Prism(1)–Ti(2) þAu(3)–Fluid(4) system, R¼jr1;4j2,
+in terms of the single-interface reﬂection coefﬁcients andphase factors
+R¼/C12/C12/C12/C12r12þr23exp 2i b2d2½/C138þr34exp 2iðb2d2þb3d3Þ½/C138 þ r12r23r34exp 2i b3d3½/C138
+1þr12r23exp 2i b2d2½/C138þr12r34exp 2iðb2d2þb3d3Þ½/C138 þ r23r34exp 2i b3d3½/C138/C12/C12/C12/C122
+: (12)
+Equation (12)models53,54the ratio Rof the reﬂected power
+to the incident power in the input medium, which for our
+SPR sensor is SF10 glass (see also Ref. 55). The dependence
+of the total reﬂectance on the angle of incidence inside the
+glass, i.e., RðhintÞ, stems from kxby proxy of the rjl’s and
+bj’s.
+When additional thin layers are added (e.g., see Ref. 56),
+combining multiple single-interface Fresnel coefﬁcients into
+slab reﬂection coefﬁcients becomes a rather burdensome and
+error-prone endeavor. An elegantly powerful alternative57to
+the Fresnel formalism that readily scales up to an arbitrarynumber of layers is the transfer-matrix method (TMM),
+which starts with the fundamental boundary conditions for
+the electric and magnetic ﬁelds at each interface to produce a
+2/C22 characteristic matrix for each layer. The total reﬂection
+and transmission coefﬁcients for the entire multilayer stackare then obtained from the product of the characteristic
+matrices, multiplied on the order of encounter by the incident
+light. The TMM approach is described in detail in Ref. 51,
+among others.III. RESULTS AND DISCUSSION
+A. Simulated and measured SPR reflectance
+The microﬂuidic cell glued to an Au þTi–SF10 sensor
+chip pressed against an SF10 prism with rubber bands, allvisible in Figs. 2(b) and2(c), are part of our SPR sensing
+setup depicted schematically in Fig. 3(a)and photographed
+in Fig. 3(b). This particular version of the setup, which was
+built by a student as a capstone project, uses a typical HeNelaser (632.8 nm, 5 mW, linearly polarized), a linear polarizer,a half-wave plate, a non-polarizing beamsplitter, a manualgoniometer (from a vintage spectroscope
+58), and reference
+and SPR reﬂectance detectors59connected to a data acquisi-
+tion (DAQ) interface.60Since the laser itself produces a line-
+arly polarized beam and its cylindrical case can easily berotated by hand, the polarizer and the waveplate are there forconvenience rather than necessity. Moreover, the referencedetector can also be omitted if a stabilized laser is available,or if the expected reﬂectance variations caused by changingthe ﬂuids substantially exceed the output ﬂuctuations of the
+874 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 874 04 October 2023 23:21:26
+non-stabilized laser during the measurement interval (e.g., see
+Fig.6). With air as the ﬂuid in the sensing channel, a student
+measured the SPR curve (circles) in Fig. 4(a)with the setup in
+Fig.3. The reﬂectance signal detected at each manually adjusted
+internal incident angle was automatically normalized by the ref-erence signal. For a meaningful comparison with the theoreticalreﬂectance curve (solid line) predicted by the Fresnel equations(see below), the measured curve was also scaled vertically by amultiplicative factor of 0. 0288 to make the experimental and
+simulated reﬂectance values in Fig. 4(a)equal at h
+int¼35:6/C14.
+This angle corresponds to the measured data point that is closestto the nominal critical angle hair
+c¼sin/C01½nair=nSF10/C138¼35:5/C14
+for TIR at an SF10–air interface. The good qualitative agree-
+ment between experiment and theory in Fig. 4(a)gave the stu-
+dent, who had obtained both curves, a conﬁdence-boostingsense of “ownership” of the project, while also providing a
+critical check of the experimental setup—and subsequent
+correction.61
+Figures 4(a)(water) and 4(b)show the work of a summer
+research student at a different institution. This student, whowas guided in part by the notes of a former classmate fromthe advanced lab course they had completed in the previoussemester, constructed two modiﬁed versions of the setup inFig.3and measured SPR curves for distilled water (H
+2O) in
+the microﬂuidic channel. Both modiﬁed conﬁgurations dis-pensed with the polarizer, beamsplitter, ﬁlters, referencedetector and bulky goniometer, and instead incorporated anintensity-stabilized HeNe laser,
+62a precision rotation
+stage,34a pinhole (to reduce the laser beam diameter to about
+1 mm), and a pivoted detector arm with multiple degrees offreedom. The ﬁrst modiﬁed conﬁguration, which was used tomeasure the reﬂectance data for experiment 1 (triangles) in Fig.4(a), included an additional 1-mm pinhole in front of the detec-
+tor port to limit its acceptance angle and thus better control howthe reﬂected beam illuminated the photodiode. The trade-offwas that it took signiﬁcantly longer to collect the data comparedwith the original setup because the position of the pinhole-covered detector had to be adjusted with sub-millimeter preci-sion for each data point. After multiplying by a factor of 0. 0529
+to match the simulated reﬂectance at h
+int¼50:8/C14,n e a rt h e
+critical angle hH2O
+c¼sin/C01½nH2O=nSF10/C138¼50:6/C14for TIR at an
+SF10–H 2O interface, experiment 1 data agree well with the
+SPR curve (solid line) calculated using the Fresnel equations.
+For the second modiﬁcation of the SPR setup, the student
+replaced the detector pinhole with an adjustable iris, coupledthe detector into the top port of a cube containing an integrat-ing sphere,
+64and attached the assembly to the pivoted detec-
+tor arm [see the inset in Fig. 4(b)]. This conﬁguration, albeit
+more expensive, greatly simpliﬁed the measurement proce-
+dure since the orientation of the detector was largely irrele-
+vant, provided that the reﬂected laser beam entered the irisopening (about 5 mm) placed directly in front of one of the0.5-in. ports of the cube. The experiment 2 data in Fig. 4(b),
+also for a H
+2O-ﬁlled sensing channel, represent an average
+of three sets of measurements taken with this modiﬁed con-ﬁguration and scaled vertically by a factor of 0.0231 duringthe ﬁtting process (see below). The good agreement with theexperiment 1 data and the Fresnel calculation (prior to ﬁt-ting) for water in Fig. 4(a)testiﬁes to the robust versatility of
+the optical setup.
+Going beyond Fresnel calculations with the nominal mate-
+rials and geometry parameters, we can get an even bettermatch via nonlinear ﬁtting
+63[Fig. 4(b)]. Although we leave
+further exploration of this aspect of SPR for future work, wepoint out that the ﬁtting parameters listed in the upper legend
+of Fig. 4(b) imply that the width of the reﬂectance curve
+depends sensitively on the thickness and optical constants ofboth the “active” plasmonic layer (gold) and the adhesionlayer (titanium). Actually, tweaking the parameters awayfrom their best-ﬁt values reveals that the complex-valuedpermittivity ~e
+fit
+Tiof the Ti layer has a relatively weak effect on
+the reﬂectance curve for changes in either part of a couple ofunits, whereas increasing the Ti layer thickness by just2.5 nm, for instance, widens the FWHM of the curve by0:5
+/C14and lowers its maximum reﬂectance by about 15%.
+Categorizing the speciﬁc type(s) of damping, such as chemi-
+cal interface damping,65imposed on the SPPs by the adhe-
+sion layer requires methodical study, as its permittivity andthickness jointly affect the effective permittivity of the adhe-sion–plasmonic bilayer system.
+46,65,66Qualitatively, it
+appears that the presence of the Ti layer in our SPR sensorincreases both the intrinsic ( c
+in) and radiative ( crad) SPP
+damping commensurately for a wide range of values of theTi permittivity and thickness, evidenced by R
+minremaining
+close to zero, hence cin/C25crad, even as the FWHM increases.
+The effects of adjusting the best-ﬁt values of the Au per-
+mittivity ~efit
+Auare stronger because the SPP waves propagate
+along the Au–dielectric interface and the Au layer constitutesa larger volume fraction of the adhesion–plasmonic effectivemedium. For instance, making Re ½~e
+fit
+Au/C138more negative by two
+units downshifts the reﬂectance minimum by 1/C14, whereas
+increasing the dissipative part Im ½~efit
+Au/C138by the same amount
+widens the FWHM by 3 :5/C14, lowers the maximum reﬂectance
+by about 15%, and raises Rminby 10%. On the other hand,
+decreasing Im½~efit
+Au/C138by 0.6—cf. the ﬁtting parameters on the
+last line of the upper legend in Fig. 4(b)—narrows the
+FWHM by 1/C14, raises the maximum reﬂectance by about 5%,
+and lowers Rminby a factor of 5. Decreasing the Au layer
+thickness by 3.37 nm widens the FWHM by 1/C14and mini-
+mizes Rminfrom 10/C02to 10/C07, yet making the Au layer even
+thinner raises Rminwhile continuing to widen the FWHM. In
+general, as the plasmonic metal thickness decreases, theback-radiation ﬁeld increases and reduces the reﬂectancebecause it is in antiphase with the ﬁeld of the incoming light.Conversely, as the metal thickness increases towards thesemi-inﬁnite limit, the back-radiation disappears ( c
+rad!0)
+and the reﬂectance approaches a value close to unity.41
+Based on the ﬁtting parameters listed in Fig. 4(b)and the
+preceding discussion, we hypothesize that the moderateFWHM mismatch between the (vertically scaled) experiment1/2 data points in Fig. 4(a/b) and the Fresnel-calculated (but
+not ﬁtted) SPR curve in Fig. 4(a/b) is most likely caused by
+(i) the actual thicknesses of the Ti and Au layers differingfrom the nominal values speciﬁed by the vendor
+36by
+aboutþ1 nm and –5 nm, respectively; and (ii) the actual
+imaginary part of the permittivity of our Au ﬁlm being 50%larger than the literature value,27possibly due to the ﬁlm’s
+morphology.67
+B. Calculated and measured SPR sensorgrams
+Although the students’ MATLAB implementation of Eq.
+(12)forRðhintÞneeded only about 50 lines of code to gener-
+ate the SPR curves in Figs. 5(a)and7, adding another few
+dozen lines to create the simulated SPR sensorgrams in Figs.5(b)and8(b)noticeably increased the students’ engagement
+with the project when they perceived how their code repro-duced, virtually but realistically, the sensing behavior of the
+875 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 875 04 October 2023 23:21:26
+real-world SPR device pictured in Fig. 3(b), which had been
+constructed by their peers before COVID-19.
+Figure 5(a)shows the simulated SPR reﬂectance curves of
+four clear, transparent ﬂuids, conveniently chosen to effectrelatively large real-time changes of refractive index n
+4as
+one ﬂuid displaces another in the microﬂuidic channel of theexperimental SPR sensor: air ( n
+air¼1:00028), deionized
+water (DI H 2O:nH2O¼1:3317), isopropyl alcohol68(IPA:
+nIPA¼1:3758), and ethanol69(EtOH: nEtOH¼1:3604). The
+vertical arrows indicate values of the incident angle, hI
+int
+¼57.5/C14andhII
+int¼60.8/C14, that correspond to the ﬁxed internal
+angles used in the sensing experiments. At this point, if notearlier, it ought to become apparent to students that simula-tions are an indispensable tool for optimizing the SPR sensorfor a particular combination of dielectric ﬂuids. In Fig. 5(a),
+the SPR curves for EtOH and air nearly intersect at h
+I
+int,
+whereas at hII
+intall four curves have distinct reﬂectance val-
+ues. Although the refractive indices of EtOH and air differby 30%, the calculated sensorgram in the lower panel of Fig.5(b), extracted from the data at h
+I
+intin Fig. 5(a), predicts only
+an 8% difference in detection signal between the two ﬂuids.And should hI
+intbe inadvertently set to 57.2/C14instead of 57.5/C14,
+the air and EtOH signals would differ by a mere 0.2%.Clearly, hI
+intisnota judicious choice for operating angle if
+one intends to reliably distinguish in time between n4ðtÞ
+¼nEtOHandn4ðtÞ¼nairusing this particular SPR sensor. No
+such difﬁculties in signal differentiation arise at hII
+int¼60:8/C14,
+as demonstrated with the calculated sensorgram in the upperpanel of Fig. 5(b). The experimental sensorgrams in Fig. 6
+conﬁrm the above predictions calculated with the Fresnelequations. The reﬂected intensity signal measured at h
+II
+int
+¼60.8/C14as a function of time [Fig. 6(a)] allowed for the
+unambiguous detection of air vs. DI H 2O vs. IPA/EtOH.
+Even for IPA vs. EtOH, the lowest measured percentage dif-ference in the signals was 16%. (The intensity spike around720 s was caused by an air bubble transiting the sensingchannel.) At h
+I
+int¼57.5/C14, however, the measured signals for
+air and EtOH were virtually indistinguishable [Fig. 6(b)], as
+predicted in the calculated sensorgram in Fig. 5(b) (lower
+panel). We note that the reﬂected intensities in Fig. 6were
+not normalized to the reference signal split off from the inci-dent light [Fig. 3(a)], which is evident in the recurrent dips
+[e.g., near 1850 s in Fig. 6(b)] due to ﬂuctuations in the out-
+put of the non-stabilized laser. In fact, it was the observedlaser instability that prompted the student to improve theSPR setup by adding the reference arm; in the experimentsdescribed below, the reﬂected intensity was normalized bythe concurrently collected reference signal.
+Having established that the SPR sensor operated as
+expected for relatively large real-time changes in refractive
+index, Dn
+4ðtÞ, the student performed further Fresnel simula-
+tions and sensing experiments, the latter by consecutivelyinjecting saline solutions with different concentrations intothe microﬂuidic channel. The refractive index increases asmore sodium chloride (NaCl) is dissolved, but it does so bysomewhat smaller increments Dn
+4ðtÞthan was the case with
+the sequence of organic solvents discussed above. Saline sol-utions with the following speciﬁc concentrations of NaCl inDI H
+2O, in weight percent (wt. %), were prepared because
+nominal refractive index values were readily available fromRef. 70(albeit for 589 nm instead of 633 nm): n
+0:5wt%¼1:3339 ;n6wt%¼1:3435 ;n12wt%¼1:3541 ;n18wt%¼1:3648),
+and n24wt%¼1:3757. The simulated SPR curves in Fig. 7
+predict that such relatively small changes in n4due to theadded NaCl should produce easily observable horizontal
+shifts in the SPR curves. Even shifts of less than 1/C14in the
+resonant angle can result in large reﬂectance changesbecause of the steepness of the curves, to which the SPR sen-sor owes its sensitivity. Furthermore, Fig. 7demonstrates
+that the internal incident angles h
+I
+intandhII
+intfrom the above
+experiments (marked by vertical arrows) are suitable for thedifferential sensing of the four saline solutions, DI H
+2O, and
+air, with the sole exception of n18wt%vs.nairathI
+int, where
+those two SPR curves happen to intersect.
+Calculated and measured sensorgrams for DI H 2O and the
+four NaCl solutions are presented in Figs. 8(a) and8(b),
+respectively. The lower panels of both parts of the ﬁgure cor-respond to hI
+int¼57.5/C14, while the upper panels correspond to
+hII
+int¼60.8/C14. In Fig. 8(a), the concentration of NaCl in the
+ﬂuid, and hence the refractive index, increases 0–24 wt. %with (arbitrary) time, and the resulting sensorgrams resembleupward (for h
+I
+int) and downward (for hII
+int) “stairs” of varying
+“step” heights. If we neglect the short-duration spikes due totransient air bubbles, the experimental sensorgram for hI
+intin
+Fig.8(b) “runs upstairs” as predicted, before dropping back
+down to the initial intensity level when DI H 2O is reinjected
+into the microﬂuidic channel. Considering the individualstep heights, the largest sequential step-up (again ignoringthe air spikes) corresponds to sensing a change in NaCl con-centration from 6 to 12 wt. %, in agreement with the calcu-lated sensorgram, but the measured intensity change from 18to 24 wt. % NaCl is unexpectedly better resolved than its cal-
+culated counterpart. A look back at Fig. 7, and especially the
+intersections of the left vertical arrow with the 18 wt. % and24 wt. % curves, suggests that the actual experimental valueofh
+I
+intmight have been somewhat larger than 57.5/C14to yield a
+larger measured difference in intensity between these twoSPR curves. Nevertheless, it is unlikely that hI
+intwould have
+exceeded 57.7/C14, since this angle is where the DI H 2O and
+6 wt. % NaCl curves intersect in the simulations (Fig. 7). If
+we now consider the experimental sensorgram for hII
+int(ignor-
+ing the air spikes), plotted in the upper panel of Fig. 8(b),i t
+“runs downstairs” from DI H 2O to 24 wt. %, again in accor-
+dance with the calculations. The largest sequential non-air-bubble step-down occurs between 12 wt. % and 18 wt. % inthe calculated sensorgram but not in the measurements.Here, too, one might reasonably attribute this discrepancy toa minor systematic error in determining the experimental
+angle of incidence, though such arguments would be ques-
+tionable because the experimental and simulated SPR curveshave different widths [e.g., Fig. 4(a)]. One could do better by
+ﬁrst ﬁtting the simulated SPR curves to their measured coun-terparts for air and/or water [e.g., Fig. 4(b)], which might
+yield a larger value of e
+00
+Au/C17Im½~eAu/C138¼2Re½~nAu/C138Im½~nAu/C138,
+indicative of stronger dissipation of the SPP waves in thegold layer.63
+C. Bulk sensitivity of the SPR sensor
+The experimental sensorgrams in Fig. 9showcase the sen-
+sitivity of our SPR setup to changes in the bulk refractiveindex of the dielectric ﬂuid. In Fig. 9(a),D IH
+2O and
+0.5 wt. % NaCl solution are clearly distinguished in thereﬂected signal at the angle of incidence hI
+int, despite causing
+a periodic change in the ﬂuid’s refractive index of onlyDn
+4ðtÞ¼0:0022. The results in Fig. 9(b) are noisier but
+indicative of even higher sensitivity: the capability to detectan even (presumably) smaller Dn
+4ðtÞin the reﬂected signal
+876 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 876 04 October 2023 23:21:26
+alternating between DI H 2O and bottled mineral water from
+a grocery store. Students interested in precision measure-ments might even attempt to detect reﬂectance changesbetween different brands of bottled water before segueinginto advanced signal-enhancing techniques such as lock-inampliﬁcation.
+Following Ref. 6, we can express the overall sensitivity S
+of an SPR sensor as the product of the sensitivity (i.e., ratioof small changes) of the output signal—here, the reﬂectanceR—to the effective index n
+SPP
+effof the SPP mode and the sen-
+sitivity of the effective index to the refractive index ndof the
+dielectric medium: S¼ðdR=dnSPP
+effÞðdnSPP
+eff=dndÞ. The ﬁrst
+factor depends on the method of SPP excitation (prism orgrating) and modulation (intensity, angular or wavelength),while the second factor does not, since it represents theintrinsic properties of the SPP mode. In principle, the second
+factor can be calculated as a (numerical) partial derivative of
+the SPP dispersion relation for the appropriate interface in amultilayer stack, which in turn can be approximated by thesingle-interface dispersion relation in Eq. (4). For in-depth
+treatments of sensitivity and resolution, we refer the inter-ested reader to Refs. 6and71; briefer overviews of the per-
+formance metrics for SPR sensors are given in Refs. 1and8.
+Instead, here we take a more utilitarian approach to semi-quantifying the sensitivity of our SPR sensor.
+In Fig. 10, we use the Fresnel formalism to simulate the SPR
+reﬂectance Ras a function of the internal angle of incidence h
+int
+inside the prism for hypothetical dielectric ﬂuids that have
+refractive indices ndwithin60.001 units of the nominal refrac-
+tive index nH2O¼1:3317 of pure water. The goal is to get an
+idea of how much (or little) Rchanges for small changes Dn
+in the refractive index of the dielectric ﬂuid. Although the21 SPR curves plotted in Fig. 10(a) are separated by just a frac-
+tion of a degree (see inset), their steepness in the regions ofh
+int¼55:0–57 :0/C14andhint¼57:5–59 :5/C14enables changes in
+reﬂectance ofjDRj/C250:01–0.04 for Dn¼60:001 (Fig. 10(b) ).
+Figure 10(c) displays a color map of DRin theDn–hintspace to
+aid in visualizing the angular regions that would result in thelargest absolute reﬂectance changes as the bulk refractive indexof the medium in the microﬂuidic channel deviates fromn
+d¼nH2O¼1:3317.
+Since the resonant angle hres
+intdecreases/increases as ndis
+decreased/increased [Eq. (7)], the SPR curves for the hypo-
+thetical ﬂuids shift to the left for Dn<0 and to the right for
+Dn>0 with respect to the curve for pure water ( Dn¼0).
+These angular shifts push the Dn<0 curves lower
+(DR<0)/higher ( DR>0) than the pure water curve for
+angles below/above hint/C2557:15/C14; and vice versa for the
+Dn>0 curves. If we assume, as a rough estimate based on
+the trace in Fig. 9(b), thatjDRjmin/C250:01 is the minimum
+reﬂectance change that can be reliably measured in our SPRsensor as is, then Figs. 10(b) and10(c) imply that a minimum
+change ofjDnj
+min¼0:0003 refractive index units (RIU)
+should be detectable if the sensor is set to an angle within therange h
+int¼56:0/C14–56:5/C14.
+When the reﬂected signal is not normalized and has an
+arbitrary baseline (e.g., Fig. 6), a more useful measure for
+the minimum detectable deviation in intensity is the relative
+reﬂectance change at each angle of incidence and index ofrefraction, expressed as a percentage of the reﬂectance forpure water: DRðh
+int;ndÞ=R0ðhint;nH2OÞ. Figure 10(d) ) plots
+this ratio for the 20 hypothetical ﬂuids and pure water, andFig.10(e) maps it at ﬁner Dnincrements. Again taking the
+trace in Fig. 9(b) as a rough benchmark, we estimatejDR=R
+0jmin/C253%, which in Figs. 10(d) and10(e) corre-
+sponds tojDnjmin¼0:0001 RIU for the range of
+hint¼56:8–57 :0/C14. However, the corresponding reﬂectance
+change within this angular range in Fig. 10(b) is about 0.001,
+which is an order of magnitude smaller than the earlier esti-mate forjDRj
+minfrom the signal and noise in Fig. 9(b).
+Moreover, the sensitivity of an SPR sensor operated in inten-sity modulation mode is inversely dependent on the photonﬂux,
+72so it is reasonable to expect that the much lower
+reﬂectance nearer 57 :0/C14than 56 :0/C14[Fig. 10(a) ] would further
+degrade the ability to detect tiny changes in reﬂected inten-sity. Therefore, the earlier estimate of jDnj
+min¼0:0003 RIU
+is more representative of the actual limit of detection for ourSPR sensor without extra signal enhancement.
+The above analysis hints at the educational value of com-
+bining precision measurements with realistic simulations ofthe physical system. It offers students opportunities to designand implement improvements to the SPR setup (e.g., lock-indetection
+23) and computational model (e.g., ﬁtting the SPR
+curve, as in Fig. 4(b)), delve into the extensive litera-
+ture6,8,72–75on noise, sensitivity, resolution, limit of detec-
+tion, and ﬁgure of merit of SPR sensors, and uncoverdiscrepancies between experiment and model. On the lastpoint, for instance, a comparison of the experimental data inFig.9with the model curves in Fig. 10(b) suggests that, in
+order to have measured positive changes in intensityDI¼I/C0I
+H2O, the actual angle of incidence must have been
+hint<57:2/C14<hI
+int¼57:5/C14(nominal setting) if the refractive
+index of the DI H 2O was, as it should have been, smaller
+than the refractive index of either the 0.5 wt. % NaCl solu-tion or the mineral water. In hindsight, the 0 :017
+/C14(1 arc min)
+angular precision of the manual-stage goniometer58(or
+0:083/C14for the manual rotation stage34used in subsequent
+iterations of the SPR setup) would have permitted scanningthe angular range h
+int¼56:0/C14–58:0/C14with sufﬁcient resolu-
+tion to observe a reversal of the sign of DRand pinpoint the
+optimal angle for detecting the signal in Fig. 9(b).
+D. Numerical computation of the SPR curve
+Before closing, we outline another component of the SPR
+project that we are yet to formally introduce to students.Figure 11shows the result of a numerical computation of an
+SPR reﬂectance curve with the ﬁnite-element method (FEM)using the Wave Optics module of the commercial softwareCOMSOL Multiphysics
+VR.76Open-source FEM and ﬁnite-
+difference time-domain software packages (e.g., FreeFEMand MEEP) are also available at the time of writing. In FEM,the algorithm solves Maxwell’s equations numerically bysubdividing the computational domain into small geometricpatches with locally deﬁned polynomial approximations ofthe solution called ﬁnite elements [e.g., inset (i) in Fig. 11],
+and stitching the elements together under conditions of conti-
+nuity of the tangential components of the electric and mag-netic ﬁelds.
+77While the technical details of the FEM
+formalism fall outside the scope of the typical advanced labprogram, we believe that hands-on practice with such a pow-erful computational tool in the context of SPR sensing wouldbe beneﬁcial to undergraduate physics and engineering stu-dents. Together with the spherical (or spheroidal) metalnanoparticle in a homogeneous medium, which can besolved analytically with the Mie theory formalism, the SPRsensor geometry belongs to the only other class of plasmonicsystems that allows exact solutions: the ﬂat multilayer stack.
+877 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 877 04 October 2023 23:21:26
+Thus, in the non-trivial process of trying to obtain the close
+match of the numerical, FEM-computed SPR curve to the
+analytical, Fresnel-simulated SPR curve in Fig. 11, we envi-
+sion that students would learn about computer-aided design,meshing, convergence, Floquet-Bloch boundary conditions,perfectly matched layers (to prevent back-reﬂections from
+domain boundaries), scattering (S-) parameters, and evanes-
+cent waves—in addition to the workﬂow involved in settingup, solving, and post-processing a real-world application of
+electromagnetic theory. The last step naturally lends itself to
+appealing visualizations of otherwise abstract quantities,such as the highly enhanced longitudinal electric ﬁeld pre-sent in the SPR sensor at the resonant angle [inset (ii)] and
+its dramatic weakening just 0.7
+/C14past the bottom of the dip
+[inset (iii)]. For example, visualizing the power dissipationdensity on-resonance [inset (iv)] and off-resonance [inset
+(v)] would reﬁne the students’ intuitive understanding of
+where inside the metal layer most of the optical losses takeplace—i.e., within a skin depth of the interface where theSPP waves propagate. And if a student dares to explore
+beyond the few analytically solvable systems, they could,
+with a reasonable amount of effort, modify the FEM modelin Fig. 11to simulate, for example, a periodic array of nano-
+droplets on the gold surface instead of a continuous ﬂuid
+medium, or the effects on the SPR curve of surface rough-ness
+78or nanopatterning of the gold ﬁlm, or the enhancement
+in SPR sensing performance due to the presence of metallic
+nanoparticles.79So even though a 2D FEM model would
+have worked as well, it is with a view to s(t)imulating suchnon-analytical scenarios that we implemented the full-wave
+3D FEM model shown in Fig. 11.
+IV. CONCLUSION
+We have described in detail a simple, sensitive optoﬂuidic
+setup based on the surface plasmon resonance phenomenon
+that we have found to be effective in engaging undergraduate
+physics and engineering students in advanced lab andresearch-style settings. The combination of relativelystraightforward and inexpensive construction, hand-on preci-
+sion measurements, robust sensing functionality, and
+challenging-to-attain
+80but illuminating congruence of theo-
+retical, analytical, numerical, and experimental results make
+SPR sensing an advanced undergraduate project worth con-
+sidering. Some potentially fruitful extensions include: imple-menting the TMM51,57orS-matrix81alternatives to the
+Fresnel formalism; systematic ﬁtting of the simulated SPR
+curves to determine the thickness and refractive index of thin
+ﬁlms;82–86using refractometry,87,88ellipsometry,85,86and
+proﬁlometry or atomic force microscopy89to obtain refer-
+ence refractive index and ﬁlm thickness values; incorporat-
+ing an optical chopper and a lock-in ampliﬁer23to improve
+the signal-to-noise ratio and detect even smaller RIU frac-tions; automating measurements of the SPR reﬂectance
+curves or sensorgrams (e.g., with motorized rotation stage
+and detector arm or a syringe pump90); fabricating and char-
+acterizing thin dielectric overlayers86,91to observe92the
+effect of thickness41,93,94on the SPR curve and compare sur-
+face3,95–97vs. bulk71,75,93sensitivity of the SPR sensor;
+depositing plasmonic ﬁlms (gold,18silver,18copper97)i n
+house and investigating how the metallic ﬁlm thickness
+affects the resonance;41,44,98numerically simulating surface
+roughness,78performance-enhancing metallic nanopar-
+ticles,79or nanoscale droplets of dielectric ﬂuid on top of thegold layer. Furthermore, the variety of possible hardware
+conﬁgurations and software implementations of our SPRsensor encourages students to put forth their creativity andresourcefulness, and take ownership of their advanced labexperience.
+ACKNOWLEDGMENTS
+E.U.D. acknowledges an inspiring discussion with Dr.
+Ben Lawrie at Oak Ridge National Laboratory. A.A.A.thanks the Career Center at the University of the South forfunding part of this work. Z.G. gratefully acknowledgesﬁnancial support from the Tennessee Space GrantConsortium, part of the National Space Grant College andFellowship Project funded through a NASA training grant.E.U.D. gratefully acknowledges start-up funding fromAustin Peay State University’s Department of Physics,Engineering, and Astronomy. All authors thank the threeanonymous reviewers whose thoughtful comments wereinstrumental in improving the paper.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+a)ORCID: 0000-0002-9069-694X.
+b)ORCID: 0000-0002-4236-9522.
+c)ORCID: 0000-0003-0555-219X. Electronic mail: doneve@apsu.edu
+1J. Homola, “Present and future of surface plasmon resonance biosensors,”
+Anal. Bioanal. Chem. 377, 528–539 (2003).
+2R. Gordon, “Surface plasmon nanophotonics: A tutorial,” IEEE
+Nanotechnol. Mag. 2, 12–18 (2008).
+3A. Shalabney and I. Abdulhalim, “Sensitivity-enhancement methods for
+surface plasmon sensors,” Laser Photonics Rev. 5, 571–606 (2011).
+4L. Novotny and B. Hecht, Principles of Nano-Optics , 2nd ed. (Cambridge
+U. P., Cambridge, 2012).
+5Modern Plasmonics , edited by A. A. Maradudin, J. R. Sambles, and W. L.
+Barnes (Elsevier, Amsterdam, 2014).
+6M. Piliarik and J. Homola, “Surface plasmon resonance (SPR) sensors:Approaching their limits?,” Opt. Express 17, 16505–16517 (2009).
+7A. V. Kabashin, S. Patskovsky, and A. N. Grigorenko, “Phase and ampli-
+tude sensitivities in surface plasmon resonance bio and chemical sensing,”
+Opt. Express 17, 21191–21204 (2009).
+8J. Homola, “Surface plasmon resonance sensors for detection of chemical
+and biological species,” Chem. Rev. 108, 462–493 (2008).
+9H. H. Nguyen, J. Park, S. Kang, and M. Kim, “Surface plasmon resonance:
+A versatile technique for biosensor applications,” Sensors 15,
+10481–10510 (2015).
+10P. Singh, “SPR Biosensors: Historical perspectives and current
+challenges,” Sens. Actuators B Chem. 229, 110–130 (2016).
+11C. M. Miyazaki, F. M. Shimizu, and M. Ferreira, “Surface plasmon resonance
+(SPR) for sensors and biosensors,” in Nanocharacterization Techniques , edited
+by A. L. Da R /C19oz, M. Ferreira, F. de Lima Leite, and O. N. Oliveira (William
+Andrew Publishing, New York, 2017), Chap. 6, pp. 183–200.
+12S. A. Perdomo, J. M. Marmolejo-Tejada, and A. Jaramillo-Botero,
+“Review—Bio-nanosensors: Fundamentals and recent applications,”
+J. Electrochem. Soc. 168, 107506 (2021).
+13Q. Duan, Y. Liu, S. Chang, H. Chen, and J. h Chen, “Surface plasmonic
+sensors: Sensing mechanism and recent applications,” Sensors 21,
+5262 (2021).
+14H. Kurt, P. Pishva, Z. S. Pehlivan, E. G. Arsoy, Q. Saleem, M. K.Bayazit, and M. Y €uce, “Nanoplasmonic biosensors: Theory, structure,
+design, and review of recent applications,” Anal. Chim. Acta 1185 ,
+338842 (2021).
+15A. S. Barker, “An optical demonstration of surface plasmons on gold,”Am. J. Phys. 42, 1123–1126 (1974).
+16H. J. Simon, D. E. Mitchell, and J. G. Watson, “Surface plasmons in silver
+ﬁlms—A novel undergraduate experiment,” Am. J. Phys. 43, 630–636
+(1975).
+878 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 878 04 October 2023 23:21:26
+17J. D. Swalen, J. G. Gordon, M. R. Philpott, A. Brillante, I. Pockrand, and
+R. Santo, “Plasmon surface polariton dispersion by direct optical observa-tion,” Am. J. Phys. 48, 669–672 (1980).
+18P. Orfanides, T. F. Buckner, M. C. Buncick, F. Meriaudeau, and T. L.
+Ferrell, “Demonstration of surface plasmons in metal island ﬁlms and the
+effect of the surrounding medium—An undergraduate experiment,” Am. J.
+Phys. 68, 936–942 (2000).
+19B. K. Lavine, D. J. Westover, L. Oxenford, N. Mirjankar, and N. Kaval,
+“Construction of an inexpensive surface plasmon resonance instrument foruse in teaching and research,” Microchem. J. 86, 147–155 (2007).
+20E. S /C19anchez, “Surface plasmon resonance laboratory,” in AAPT Summer
+Meeting - Workshop 38: Advanced Labs , American Association of Physics
+Teachers Conference Proceedings, Portland, Oregon, July 17–21 (2010).
+21Y. Tang, X. Zeng, and J. Liang, “Surface plasmon resonance: An introduc-tion to a surface spectroscopy technique,” J. Chem. Educ. 87, 742–746
+(2010).
+22O. Pluchery, R. Vayron, and K.-M. Van, “Laboratory experiments forexploring the surface plasmon resonance,” Eur. J. Phys. 32, 585–599
+(2011).
+23P. W. R. Connolly and A. Kaplan, “Demonstrating the angular, wave-
+length and polarization dependence of surface plasmon resonance on thin
+gold ﬁlms—An undergraduate experiment,” Am. J. Phys. 84, 775–779
+(2016).
+24B. J. McFarland, Measuring Novel Protein-Protein Binding with Surface
+Plasmon Resonance in the Physical Chemistry Lab (ACS, Washington,
+D.C, 2018), Chap. 2, pp. 15–31.
+25E. C. Le Ru and P. G. Etchegoin, Principles of Surface-Enhanced Raman
+Spectroscopy: And Related Plasmonic Effects (Elsevier, Amsterdam,
+2009).
+26U. Hohenester, Nano and Quantum Optics (Springer, New York, 2020).
+27M. N. Polyanskiy, “Refractive index of Au (Gold) - Johnson and Christy
+(1972),” in Refractive Index Database ; retrieved from <https://refracti-
+veindex.info/?shelf ¼main&book¼Au&page¼Johnson >on May 30,
+2022.
+28M. N. Polyanskiy, “Refractive index of Air - Ciddor (1996),” in Refractive
+Index Database ; retrieved from <https://refractiveindex.info/
+?shelf¼other&book¼air&page¼Ciddor >on May 30, 2022.
+29W. L. Barnes, A. Dereux, and T. W. Ebbesen, “Surface plasmon subwave-
+length optics,” Nature 424, 824–830 (2003).
+30S. A. Maier, Plasmonics: Fundamentals and Applications (Springer
+ScienceþBusiness Media, New York, 2007).
+31D. Sarid and W. A. Challener, Modern Introduction to Surface Plasmons:
+Theory, Mathematica Modeling, and Applications (Cambridge U. P.,
+Cambridge, 2010).
+32J. M. Pitarke, V. M. Silkin, E. V. Chulkov, and P. M. Echenique, “Theoryof surface plasmons and surface-plasmon polaritons,” Rep. Prog. Phys. 70,
+1–87 (2006).
+33L. J. M. Herrera, D. M. Arboleda, D. C. Schinca, and L. B. Scaffardi,“Determination of plasma frequency, damping constant, and size distribu-
+tion from the complex dielectric function of noble metal nanoparticles,”
+J. Appl. Phys. 116, 233105 (2014).
+34Newport Corp., “High-performance rotation stage (5 arcmin vernier scale),
+Model 481-A-S,” USD 375 at <https://www.newport.com/p/481-A-S >on
+May 19, 2022.
+35E. U. Donev, “Interactive plot of hintvs.a,” made with Desmos Graphing
+Calculator ,<https://www.desmos.com/calculator/uv8cf3uya1 >.
+36Platypus Technologies, LLC, “SPRchip (50-nm Au, 2-nm Ti [private com-
+munication], 1 mm x 18 mm x 18 mm SF10 Glass), 5 chips, SKU SPR-1000-050,” USD 330 at <https://www.platypustech.com/product/sprchip >
+on May 30, 2022.
+37Ealing Catalog USA, “Equilateral Prism (30 mm, SF10 Glass), Part Num.24-2966-000,” USD 120 at <https://www.ealingcatalog.com/30-mm-equi-
+lateral-prism-sf10-glass.html >on March 22, 2022.
+38ibidi GmbH, “sticky-Slide VI 0.4 (self-adhesive underside, 6 bottomless
+channels,” USD 360 per 15 slides at <https://ibidi.com/sticky-slides/65-
+sticky-slide-vi-04.html >on March 22, 2022. The company also offers free
+samples upon request.
+39PetSmart LLC, “Aquarium Mini Airline Tubing (6 ft), Item Num.5098119,” USD 5 at <https://www.petsmart.com/ﬁsh/ﬁlters-and-pumps/
+air-and-water-pumps/top-ﬁn-aquarium-mini-airline-tubing-5098119.html >
+on May 20, 2022.
+40E. Kretschmann and H. Raether, “Notizen: Radiative decay of non radia-tive surface plasmons excited by light,” Z. Naturforsch. A 23, 2135–2136
+(1968).41H. Raether, Surface Plasmons on Smooth and Rough Surfaces and on
+Gratings (Springer, Berlin, 1988).
+42Strictly speaking, a frequency-dispersive quantity, e.g., ~nAuðxÞ, is mathe-
+matically equivalent to the same quantity expressed as a function of thevacuum wavelength k
+vac¼2pc=x. Although kvac¼632:991 nm for the
+red HeNe laser, we chose to use the HeNe wavelength in air,
+k0¼632:8 nm, and express the dispersive quantities in terms of the latter
+since it is much more common in the literature and, e.g.,
+~nAuðk0Þ/C25 ~nAuðkvacÞ
+43M. N. Polyanskiy, “Refractive index of SF10 - SCHOTT,” in Refractive
+Index Database ; retrieved from <https://refractiveindex.info/
+?shelf¼glass&book¼SF10&page¼SCHOTT >on May 30, 2022.
+44B. A. Sexton, B. N. Feltis, and T. J. Davis, “Characterisation of gold sur-
+face plasmon resonance sensor substrates,” Sens. Actuators A Phys. 141,
+471–475 (2008).
+45M. N. Polyanskiy, “Refractive index of Ti (Titanium) - Johnson andChristy (1974),” in Refractive Index Database ; retrieved from <https://
+refractiveindex.info/?shelf ¼main&book¼Ti&page¼Johnson >on May
+30, 2022.
+46J. B. Maurya and Y. K. Prajapati, “Inﬂuence of adhesion layer on perfor-mance of surface plasmon resonance sensor,” IET Optoelectron. 12,
+168–175 (2018).
+47Cargille Laboratories, “Refractive index liquids, series M, Cat. Num.1815X,” USD 70 at <https://www.cargille.com/refractive-index-liquids/ >
+on May 30, 2022. Refractive index speciﬁed at 589.3 nm and 25.0
+/C14C.
+48M. N. Polyanskiy, “Refractive index of H 2O (Water) at 24.0/C14C - Daimon
+and Masumura (2007),” in Refractive Index Database ; retrieved from
+<https://refractiveindex.info/?shelf ¼main&book¼H2O&page¼Daimon-
+24.0C >on May 30, 2022.
+49Resonant Technologies GmbH, “Simulate Resonant SPR Curves with
+WinSpall ,”<http://www.res-tec.de/tutorial2-01.html >.
+50The MathWorks, Inc., “MATLAB for Students,” <https://www.math-
+works.com/products/matlab/student.html .
+51J. Peatross and M. Ware, Physics of Light and Optics , 2015 ed. (2022
+rev.); available at <https://optics.byu.edu >.
+52Baptiste Augui /C19e, “Fresnel formulae,” retrieved from <https://web.archi-
+ve.org/web/20170718202555/https://cran.r-project.org/web/packages/pla-nar/vignettes/fresnel.html >on May 24, 2022.
+53E. U. Donev, “Implementation of Eq. (12) for air and water,” made with
+Mathematica ; available at <https://www.wolframcloud.com/obj/
+ec6c22ca-a471-4b85-823f-5717120a21fe >.
+54E. U. Donev, “Implementation of Eq. (12)for air, water, saline solutions,
+ethanol, and isopropanol,” made with Microsoft Excel ; available at
+<https://www.compadre.org/AdvLabs/items/detail.cfm?ID ¼16105 >.
+55Presuming the input medium to be semi-inﬁnite, Eq. (12)does not include
+reﬂection or refraction of the laser beam as it ﬁrst enters the prism [Fig.2(a)]. However, WinSpall does account for the prism’s geometry and
+reﬂections from the entrance and exit faces, which explains why the
+WinSpall-calculated SPR curves for H
+2O in Fig. 4have a lower overall
+reﬂectance than the curves calculated with Eq. (12)in Figs. 5(a)and7.
+56A. Khattak and L. Wei, “Fano resonance hybrid waveguide-coupled plas-
+monic sensor using transparent conductive oxide in the near-infrared
+range,” Photonics 9, 189 (2022).
+57P. Pereyra and A. Robledo-Martinez, “On the equivalence of the summa-
+tion and transfer-matrix methods in wave propagation through multilayers
+of lossless and lossy media,” Eur. J. Phys. 30, 393–401 (2009).
+58American Optical Corp., “AO Spencer Spectrometer,” retrieved from
+<https://www2.humboldt.edu/scimus/Instruments/AO_Spectroscope/
+AO_SpectroMan.html >on May 20, 2022.
+59PASCO Scientiﬁc, “High-Sensitivity Light Sensor, Item Num. CI-6604,”
+USD 175 at <https://www.pasco.com/products/sensors/science-workshop/
+ci-6604 >on May 30, 2022.
+60PASCO Scientiﬁc, “550 Universal Interface, Item Num. UI-5001,” USD
+600 at <https://www.pasco.com/products/interfaces-and-dataloggers/ui-
+5001 >on May 30, 2022.
+61The experimental curve in Fig. 4(a)is plotted with a horizontal offset of
+/C00:76/C14relative to the original data. The mismatch between the measured
+and calculated SPR dips alerted the student to a slight misalignment in the
+optical setup, which they identiﬁed and corrected before proceeding withthe sensing experiments.
+62Thorlabs, Inc., “Stabilized HeNe Laser, Item Num. HRS015B,” USD 4760at<https://www.thorlabs.com/thorproduct.cfm?partnumber ¼HRS015B >
+on May 30, 2022.
+879 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 879 04 October 2023 23:21:26
+63We used the WinSpall software (Ref. 49) to perform a proof-of-principle
+ﬁt of the Fresnel equations to one of our measured SPR curves; see Fig.
+4(b). The six ﬁtting parameters were the thicknesses and complex indices
+of refraction of the Ti and Au layers, with the following best-ﬁt values:
+dfit
+Ti¼2:82 nm, dfit
+Au¼45:14 nm, ~nfit
+Ti¼2:9611þ1:9568i, and
+~nfitAu¼0:2735þ3:4394i. However, determining the optical parameters of
+thin metal ﬁlms from SPR measurements is a non-trivial, inverse-type
+problem (Refs. 82,84, and 85) that was beyond the scope of the current
+work, so we did not pursue curve-ﬁtting any further. The nominal Ti and
+Au parameters were used in all Fresnel calculations other than the ﬁt in
+Fig.4(b).
+64Thorlabs, Inc., “Integrating sphere (200, 3 ports), item Num. 2P3,” USD
+1130 at <https://www.thorlabs.com/thorproduct.cfm?partnumber ¼2P3>
+on May 30, 2022.
+65D. T. Debu, P. K. Ghosh, D. French, and J. B. Herzog, “Surface plasmon
+damping effects due to Ti adhesion layer in individual gold nanodisks,”
+Opt. Mater. Express 7, 73–84 (2017).
+66B. Lahiri, R. Dylewicz, R. M. De La Rue, and N. P. Johnson, “Impact of
+titanium adhesion layers on the response of arrays of metallic split-ring
+resonators (SRRs),” Opt. Express 18, 11202–11208 (2010).
+67P.-T. Shen, Y. Sivan, C.-W. Lin, H.-L. Liu, C.-W. Chang, and S.-W. Chu,
+“Temperature- and roughness-dependent permittivity of annealed/unan-
+nealed gold ﬁlms,” Opt. Express 24, 19254–19263 (2016).
+68M. N. Polyanskiy, “Refractive index (CH 3)2CHOH (Isopropanol) - Sani and
+Dell’Oro (2016),” in Refractive Index Database ; retrieved from <https://
+refractiveindex.info/?shelf ¼organic&book¼propanol&page¼Sani-formula >
+on May 30, 2022.
+69M. N. Polyanskiy, “Refractive index C 2H5OH (Ethanol) - Rheims et al. ,
+1997,” in Refractive Index Database ; retrieved from <https://refractivein-
+dex.info/?shelf¼organic&book¼ethanol&page¼Rheims >on May, 2022.
+70D. R. Lide (editor), CRC Handbook of Chemistry and Physics , 83rd ed.
+(CRC Press, Florida, 2002).
+71E. M. Yeatman, “Resolution and sensitivity in surface plasmon micros-
+copy and sensing,” Biosens. Bioelectron. 11, 635–649 (1996).
+72B. Ran and S. G. Lipson, “Comparison between sensitivities of phase andintensity detection in surface plasmon resonance,” Opt. Express 14,
+5641–5650 (2006).
+73G. G. Nenninger, M. Piliarik, and J. Homola, “Data analysis for opticalsensors based on spectroscopy of surface plasmons,” Meas. Sci. Technol.
+13, 2038–2046 (2002).
+74J. T. Hastings, “Optimizing surface-plasmon resonance sensors for limit ofdetection based on a Cramer-Rao bound,” IEEE Sens. J. 8, 170–175
+(2008).
+75C.-T. Li, T.-J. Yen, and H. f Chen, “A generalized model of maximizingthe sensitivity in intensity-interrogation surface plasmon resonance bio-
+sensors,” Opt. Express 17, 20771–20776 (2009).
+76COMSOL, Inc., COMSOL MultiphysicsVR,<https://www.comsol.com >.
+77A. V. Lavrinenko, J. Lægsgaard, F. Schmidt, N. Gregersen, and T.Søndergaard, Numerical Methods in Photonics (CRC Press, Florida,
+2014).
+78T. Treebupachatsakul, S. Shinnakerdchoke, and S. Pechprasarn, “Analysisof effects of surface roughness on sensing performance of surface plasmon
+resonance detection for refractive index sensing application,” Sensors 21,
+6164 (2021).
+79A. Philip and A. R. Kumar, “The performance enhancement of surfaceplasmon resonance optical sensors using nanomaterials: A review,” Coord.
+Chem. Rev. 458, 214424 (2022).80W. L. Barnes, “Comparing experiment and theory in plasmonics,” J. Opt.
+A: Pure Appl. Opt. 11, 114002 (2009).
+81D. Barchiesi, “A classroom theory of the surface plasmon polariton,” Eur.
+J. Phys. 33, 1345–1357 (2012).
+82H. E. de Bruijn, B. S. F. Altenburg, R. P. H. Kooyman, and J. Greve,
+“Determination of thickness and dielectric constant of thin transparent
+dielectric layers using surface plasmon resonance,” Opt. Commun. 82,
+425–432 (1991).
+83J.-J. Chyou, C.-S. Chu, F.-C. Chien, C.-Y. Lin, T.-L. Yeh, R. C. Hsu, and
+S.-J. Chen, “Precise determination of the dielectric constant and thickness
+of a nanolayer by use of surface plasmon resonance sensing and multiex-
+periment linear data analysis,” Appl. Opt. 45, 6038–6044 (2006).
+84J. Salvi and D. Barchiesi, “Measurement of thicknesses and optical proper-
+ties of thin ﬁlms from surface plasmon resonance (SPR),” Appl. Phys. A
+115, 245–255 (2014).
+85L. Tao, S. Deng, H. Gao, H. Lv, X. Wen, and M. Li, “Experimental inves-
+tigation of the dielectric constants of thin noble metallic ﬁlms using a sur-
+face plasmon resonance sensor,” Sensors 20, 1505 (2020).
+86N. Andam, S. Refki, H. Ishitobi, Y. Inouye, and Z. Sekkat, “Optical char-
+acterization of ultra-thin ﬁlms of azo-dye-doped polymers using ellipsom-
+etry and surface plasmon resonance spectroscopy,” Photonics 8,4 1
+(2021).
+87T. A. Wilson and W. F. Reed, “Low cost, interferometric differential
+refractometer,” Am. J. Phys. 61, 1046–1048 (1993).
+88C.-C. Cheng, “Refractive index measurement by prism autocollimation,”
+Am. J. Phys. 82, 214–216 (2014).
+89H. Jussila, T. Albrow-Owen, H. Yang, G. Hu, S. Aksimsek, N. Granqvist,H. Lipsanen, R. C. T. Howe, Z. Sun, and T. Hasan, “New approach for
+thickness determination of solution-deposited graphene thin ﬁlms,” ACS
+Omega 2, 2630–2638 (2017).
+90NanoSPR Devices, “Syringe Pump [with control software],” USD 300 at
+<https://nanospr.com/syringe-pump/ >on May 27, 2022.
+91H. Morgan and D. M. Taylor, “A surface plasmon resonance immunosen-
+sor based on the streptavidin-biotin complex,” Biosens. Bioelectron. 7,
+405–410 (1992).
+92Software Spectra, Inc., “Animation of SPR curve with varying thickness
+of SiO 2overlayer,” <https://www.sspectra.com/Animate7.html >.
+93T. Akimoto, S. Sasaki, K. Ikebukuro, and I. Karube, “Refractive-index andthickness sensitivity in surface plasmon resonance spectroscopy,” Appl.
+Opt.38, 4058–4064 (1999).
+94W. M. E. M. M. Daniyal, Y. W. Fen, J. Abdullah, A. R. Sadrolhosseini,and M. A. Mahdi, “Design and optimization of surface plasmon resonance
+spectroscopy for optical constant characterization and potential sensing
+application: Theoretical and experimental approaches,” Photonics 8, 361
+(2021).
+95D. Barchiesi, N. Lidgi-Guigui, and M. L. de la Chapelle,
+“Functionalization layer inﬂuence on the sensitivity of surface plasmon
+resonance (SPR) biosensor,” Opt. Commun. 285, 1619–1623 (2012).
+96D. Barchiesi and T. Grosges, “Plasmonics for biosensors: Numerical meth-
+odology to evaluate the inﬂuence of uncertainties on the optical proper-
+ties,” Mater. Today: Proc. 1, 225–228 (2014).
+97D. Barchiesi, T. Gharbi, D. Cakir, E. Anglaret, N. Fr /C19ety, S. Kessentini, and
+R. Ma ^alej, “Performance of surface plasmon resonance sensors using cop-
+per/copper oxide ﬁlms: Inﬂuence of thicknesses and optical properties,”
+Photonics 9, 104 (2022).
+98S. Ekgasit, C. Thammacharoen, and W. Knoll, “Inﬂuence of the metal ﬁlm
+thickness on the sensitivity of surface plasmon resonance biosensors,”
+Appl. Spectrosc. 59, 661–667 (2005).
+AJP Index to Advertisers
+AAPT Winter 2023 Meeting. . ......................... Cover 2
+AAPT Membership. ................................ Page 801
+AAPT ComPADRE ................................ Page 803
+APSIT . . ......................................... Page 804
+AAPT Career Center ...................................T O C
+880 Am. J. Phys., Vol. 90, No. 11, November 2022 Abdelhamid et al. 880 04 October 2023 23:21:26

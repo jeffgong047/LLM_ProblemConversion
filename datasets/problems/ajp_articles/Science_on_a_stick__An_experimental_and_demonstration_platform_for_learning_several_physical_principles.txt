@@ -1,0 +1,321 @@
+
+View
+Online
+Export
+CitationCrossMarkFEBRUARY 01 2023
+Science on a stick: An experimental and demonstration
+platform for learning several physical principles 
+Dhananjay V . Gadre ; Harsh Sharma ; Sangeeta D. Gadre ; Smriti Srivastava
+Am. J. Phys.  91, 1 16–121 (2023)
+https://doi.org/10.1 119/5.0080881
+Articles Y ou May Be Interested In
+A Pictorial Approach to Lenz’ s Law
+Phys. T each.  (April 2018)
+Lenz’ s law in the kitchen
+The Physics T eacher  (May 1999)
+A multidimensional framework of conceptual change for developing chemical equilibrium learning
+AIP Conference Proceedings  (January 2018) 04 October 2023 22:49:27
+Science on a stick: An experimental and demonstration platform
+for learning several physical principles
+Dhananjay V. Gadrea)and Harsh Sharmaa)
+Department of Electronics and Communication Engineering, Netaji Subhas University of Technology,
+New Delhi 110078, India
+Sangeeta D. Gadreb)
+Department of Physics, Kirori Mal College, University of Delhi, New Delhi 110078, India
+Smriti Srivastavac)
+Department of Instrumentation and Control Engineering, Netaji Subhas University
+of Technology, New Delhi 110078, India
+(Received 4 December 2021; accepted 10 December 2022)
+We share the design for a simple apparatus that, when paired with an Arduino processor and a
+computer, can be used in a wide range of laboratory measurements: observing linear kinematics,
+conﬁrming Faraday’s and Lenz’s laws, measuring magnetic moments, and observing the effects of
+eddy currents. The setup is simple, inexpensive, easy to replicate, and can even be fabricated andused by students working at home.
+#2023 Published under an exclusive license by American Association of
+Physics Teachers.
+https://doi.org/10.1119/5.0080881
+I. INTRODUCTION
+Internet e-commerce companies, such as Amazon,
+Sparkfun, and Sunrom, have enabled easy access to embed-
+ded computers, electronic components, sensors, and fabrica-
+tion tools. This, in turn, has enabled the teaching communityto create science demonstration and pedagogy activities forthe classroom that could help kindle and retain student inter-
+est in STEM subjects.
+We propose a DIY experimental apparatus that focuses on
+the linear motion of a magnet falling through a coil posi-tioned on a vertical acrylic tube. It consists of easily avail-
+able electronic and other components, common household
+items such as a plastic clothespin, and an Arduino platformconnected to a desktop/laptop computer running a custom
+PYTHON code. This method enables veriﬁcation of kinematics
+equations, estimation of acceleration due to gravity alongwith veriﬁcation of Faraday’s law and Lenz’s law, and esti-
+mation of the magnet’s dipole moment using this single
+experimental setup.
+II. EXPERIMENTAL DETAILS
+A. Science on a stick apparatus
+The block diagram in Fig. 1describes the simple appara-
+tus that forms the science on a stick experimental and dem-onstration platform. It consists of a transparent acrylic tube,
+which is 50 cm long, with an inner diameter of 15.4 mm and
+an outer diameter of 20 mm. The tube is held vertically usinga wooden stand. A ﬂexible measuring tape, also called sew-
+ing tape or tailor’s tape, is pasted along the length of the tube
+for measuring the distance from the top of the tube.
+A coil of wire is wound on a plastic bobbin made out of a
+PVC pipe that ﬁts comfortably around the acrylic tube. Our
+bobbin has an inner diameter of 22 mm and is 1.5 mm thick.
+Using a 50 m enamelled copper wire to wind the coil resultedin 630 turns with an average radius Rof 12.6 mm and a
+length aof 2.5 cm. A household plastic clothespin is used to
+hold the bobbin at any required position on the acrylic tube.Two strong cylindrical neodymium magnets that are
+12 mm diameter and 8 mm long are stacked together (to
+increase the length of the magnet) and dropped through theacrylic tube. The magnets are initially held in place at thetop of the acrylic tube by another plastic clothespin. The
+clothespin is opened to release the magnets into the tube,
+which increases the reproducibility of the drop conditionscompared to hold and release the magnet by hand. Two reed
+switches are employed: one at the top of the tube and another
+one at the bottom after the coil. They consist of a pair of tinyferromagnetic contacts in a hermetically sealed glass enclo-sure. The contacts are normally open, and they close when a
+magnetic ﬁeld is applied. These reed switches are connected
+to the Arduino to detect the passing magnet to start and endthe data acquisition process for recording the voltageinduced across the coil. Figure 2shows a picture of this
+experimental setup. It is recommended to use padding at the
+bottom of the tube so that the magnets do not shatter whenthey exit the tube, and eye protection should be worn in casethey do shatter.
+B. Signal processing circuits and programs
+Figure 3shows the schematic diagram of the Arduino-
+based signal processing circuit. The output of the coil is con-nected to a simple signal conditioning circuit based on theLM358 dual op-amp using a connector labeled “COIL” in
+the schematic diagram. The output of the op-amp is fed to
+the analog input (labeled A0) of the Arduino. Two digitalinput pins (D3 and D4) on the Arduino are used to read thestatus of the reed switches. The reed switches and associated
+components are mounted on external PCBs (described
+below) and connected to the Arduino circuit through twoconnectors labeled “TOP-SWITCH” and “BOTTOM-
+SWITCH” in the schematic diagram. An LED labeled
+“LED1” is for power-on indication while an LED labeled“LED2” and a push-button labeled “USER-SW” is for diag-nostics. Figure 4shows a photograph of the circuit. The
+power supply for the system is þ5 V and is derived from the
+USB interface to the Arduino.
+116 Am. J. Phys. 91(2), February 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 116 04 October 2023 22:49:27
+The system uses two reed switches. Each reed switch and
+other associated components are soldered on a zero PCBrectangle and glued to a piece of the PVC pipe. Figure 5
+shows the schematic diagram of the reed-switch-based cir-cuit, and Fig. 6shows several versions of the reed switch cir-
+cuits. We found that reed switches do not exhibit uniformsensitivity to magnetic ﬁelds, requiring adjustments to thelengths of the tubes. As seen in the photograph, the tube wastrimmed such that when the magnets used for our experimentwere brought just inside the top of the tube, it turned on theattached reed switch. The state of the reed switch was dis-played on the LED labeled “SW-ON.”
+A custom
+PYTHON code (available on our GitHub reposi-
+tory1) on the computer system triggers the Arduino to moni-
+tor the top most reed switch. When a sufﬁcient magneticﬁeld is detected, it starts recording the coil voltage throughthe analog input pin, encodes the 10-bit values, and transferseach value to the computer system, where the
+PYTHON code
+plots the voltage as a function of time. The data acquisitionof the coil voltage stops when the bottom reed switch detects
+the falling magnet.
+The software for this setup consists of two parts: one pro-
+gram runs on the Arduino and another suite of programs runson the desktop/laptop computer system. The Arduino pro-gram can be downloaded into the Arduino through the
+Fig. 2. A picture of the experimental setup.
+Fig. 3. Relevant part of the schematic diagram of the analog processing circuit together with an Arduino for the science on a stick setup.
+Fig. 1. Block diagram for science on a stick setup.
+117 Am. J. Phys., Vol. 91, No. 2, February 2023 Gadre et al. 117 04 October 2023 22:49:27
+Arduino Integrated Development Environment (IDE).2The
+part of the program that runs on the laptop/desktop computer
+is the PYTHON code that communicates with the Arduino pro-
+gram (as explained below) to acquire and store the coil volt-age and time stamp data in CSV (comma separated values)format ﬁles. These ﬁles can then be processed with an addi-
+tional
+PYTHON program or with Microsoft Excel to extract the
+velocity, peak voltage, and other information.
+The Arduino program communicates with the computer
+running the PYTHON code at 115 200 bits per second. The for-
+mat of data is 8N1 (i.e., 8 data bits, no parity, and 1 stop bit).Each analog sample is encoded by the on-chip ADC of the
+Arduino into a 10-bit number. This 10-bit number is trans-
+ferred to the
+PYTHON code using 2-bytes by the Arduino. The
+time interval between samples achieved by this setup is0.42 ms. Figure 7(a) (the left column) shows the ﬂow chart
+of the code that runs on the Arduino.
+The
+PYTHON code waits for the user to press the start button
+and then sends a trigger command to the Arduino setup asshown in the ﬂowchart in Fig. 7(b) (the right column).In response, the Arduino setup starts sending encoded data
+from the coil voltage once it receives a hardware triggerfrom the top reed switch. It continuously samples the ADCand transmits the data to the PC until the bottom reed switchis triggered. The Arduino then transmits an “end of data”symbol to the PC and waits for further trigger commandsfrom the PC. The
+PYTHON code maintains two buffers for the
+incoming data: one buffer stores the voltage data and the sec-ond buffer stores the corresponding time stamp at which asample was received. The process of receiving data and stor-ing it in the buffers is terminated when the
+PYTHON code
+receives the end of data symbol from the Arduino setup. The
+PYTHON code then plots the received voltage data as a func-
+tion of time and also stores the voltage and time-stamp datain the CSV format in an external ﬁle on the computer for fur-ther processing. The
+PYTHON code is capable of acquiring a
+single set or multiple sets of data and plotting them over asingle time scale as seen in Fig. 8.
+III. RESULTS AND DISCUSSION
+A. Kinematics of linear motion
+Kinematics of linear motion deals with the displacement s,
+time t, initial velocity u, ﬁnal velocity v, and acceleration g
+Fig. 4. Photograph of the analog processing circuit for the science on a stick
+setup.
+Fig. 5. Reed switch circuit.
+Fig. 6. Photograph of three reed switch circuits. The tube lengths are
+adjusted to compensate for the sensitivity of the switch, as described in the
+text.
+Fig. 7. Flowchart for the (a) Arduino data collection program and ﬂowchart
+for the (b) Python program running on the computer.
+118 Am. J. Phys., Vol. 91, No. 2, February 2023 Gadre et al. 118 04 October 2023 22:49:27
+experienced by an object in motion. To verify the equation
+s¼utþð1=2Þgt2, the magnet is treated as the object that
+experiences acceleration. The magnet is dropped with zero
+initial velocity, and the top reed switch, placed at a distanceh
+0from the top of the tube, is activated as the magnet passes
+by it at speed u. A zero offset of the time is required for this
+experiment (but not for other discussions in this paper) to
+obtain a linear graph between sandt2:t0¼ð2h0=gÞ1=2is set
+to be the time at which the magnet passes through the coil.In our experiment, h
+0¼0:03 m.
+When the magnet enters and leaves the coil, a voltage is
+induced across the coil with two peak voltages with opposing
+polarities, as shown in Fig. 8. The position of the center of
+the coil (where the induced voltage is zero) is measured withthe help of the measuring tape on the tube to provide thevalue of s. The corresponding time tis measured at a point
+of zero induced voltage. The coil is placed at different posi-
+tions on the tube, and the linear relationship between sandt
+2
+is plotted in Fig. 9. The slope of the line is 4.89 60.21 m/s2,
+and the resultant value of gis 9.7960.42 m/s2. The slope
+and standard error are calculated using the curve_ﬁt functionfrom the scipy PYTHON library. This same data can be
+plotted to estimate gfrom the relationships v¼uþgtand
+v2/C0u2¼2gs.
+B. Faraday’s law of electromagnetic induction
+Our setup demonstrates Faraday’s law of electromagnetic
+induction and can be used to perform quantitative experi-
+ments by varying the rate of change of magnetic ﬂux through
+the coil.
+Using the voltage curves in Fig. 8, we determine the size
+of the ﬁrst voltage peak in each curve, which is given inTable I. As expected, these voltages increase as the coil is
+moved down the tube, since the magnet is falling faster
+when it reaches the coil. We also note that the amplitude of
+the induced voltage when the magnet enters the coil issmaller than the amplitude of the induced voltage (of oppo-site polarity) when the magnet leaves the coil. This isbecause the magnet is accelerating downward, so that its exit
+velocity is higher than its entrance velocity.
+In Fig. 10, the squares of these peak voltages recorded in
+Table Iare plotted vs the position of the coil. Faraday’s law
+predicts the linearity of this relationship, since the rate ofchange of the magnetic ﬂux through the coil is proportional
+Fig. 8. Plots showing voltage induced across the coil with time when the
+coil is placed at different positions on the tube from 12 cm (extreme left) to
+30 cm (extreme right) at intervals of 2 cm. The positions are measured fromthe top of the tube.
+Fig. 9. Variation of swith t2. The slope of the linear graph is 4.89 60.21 m/s2.Table I. Distance of the coil from the top of the tube and corresponding
+induced voltage across the coil.
+Distance (cm) First peak voltage (V)
+12 2.84
+14 3.0116 3.1418 3.4520 3.5322 3.6824 3.9126 3.9928 4.1430 4.37
+Fig. 10. A graph of square of the maximum induced voltage ðEmaxÞ2across
+the coil vs position of the coil on the tube. The position of the coil is mea-
+sured from the top of the tube. The magnet is also released from the top of
+the tube.
+119 Am. J. Phys., Vol. 91, No. 2, February 2023 Gadre et al. 119 04 October 2023 22:49:27
+to the speed of the magnet, and the square of the speed of the
+magnet is proportional to the distance through which the
+magnet falls.
+C. Induced voltage through the coil due to motion
+of a magnet
+Even though the magnet is not very much smaller than the
+coil, the dipole approximation of the magnetic ﬁeld yields a
+reasonably good ﬁt. The variables are deﬁned in Fig. 11: the
+moving magnet has magnetic moment m; the coil extends
+from htohþaon the zaxis; ais the height of the coil; and
+the average radius of the coil is R. Let the position of the
+magnet be represented by fðtÞon the zaxis at time t.
+To ﬁnd the ﬂux due to the dipole through a loop of the
+coil, we use a very handy trick involving mutual inductances.The magnetic dipole mcan be modeled as a small current
+loop of radius rand current I
+rsuch that m¼pr2Ir. This
+dipole loop is separated from the coil loop at position zby a
+distance z/C0fðtÞ. Since the dipole loop radius r/C28R, the
+ﬂux through the dipole loop due to a current IRin the coil
+loop would be essentially due to the on-axis ﬁeld of the loop:U
+r¼ðpr2l0IRR2=2Þ½ðz/C0fðtÞÞ2þR2/C138/C03=2. However since
+the mutual inductances are equal, M¼Ur=IR¼UR=Ir,s o
+we can ﬁnd
+UR¼l0mR2
+ðz/C0fðtÞÞ2þR2hi3=2: (1)
+From Faraday’s law of induction, the induced voltage across
+the coil is
+E¼/C0dUR
+dt¼/C0dUR
+dfðtÞdfðtÞ
+dt¼/C0 vdUR
+dfðtÞ; (2)
+where dfðtÞ=dtis the velocity vof the magnet. Hence, Eis
+given by the equationE¼3
+2l0mvR2 z/C0fðtÞ
+ðz/C0fðtÞÞ2þR2hi 5
+2: (3)
+Making the approximation that all Ncoils are located at
+the position z¼h,
+E¼3
+2l0mvR2 h/C0fðtÞ
+ðh/C0fðtÞÞ2þR2hi 5
+2: (4)
+In order to obtain the expression for extreme induced volt-
+ageEmaxacross the coil at z¼h, we differentiate Eq. (4)
+with respect to fðtÞand equate it to zero. The possible solu-
+tions are
+fðtÞ¼h6R
+2: (5)
+From Eqs. (4)and(5), the expression for extreme voltage
+Emaxinduced across the coil at z¼hdue to the moving mag-
+net is
+Emax¼724
+25ﬃﬃ ﬃ
+5pl0mvN
+R2: (6)
+The expression of extreme value of voltage induced across
+the coil given in Eq. (6)indicates that Emaxand velocity of
+the magnet have a linear relation for a given coil. This is ver-iﬁed by our experimental setup by plotting peak of induced
+voltage E
+maxwith the velocity of the magnet v, measured at
+different positions of the tube as shown in Fig. 12. The plot
+is a straight line. This plot also helps in indirect measurement
+of the velocity of the magnet at a given position on the tube
+by knowing the value of Emaxat that position.
+D. Estimation of the dipole moment of the magnet
+The slope of the line in Emaxvsvgraph in Fig. 12predicts
+the dipole moment mof the falling magnet. Using Eq. (6)
+and the slope of the best ﬁt line, 1.69 60.07 V s/m, results
+Fig. 11. The apparatus showing positions of the coil and the magnet on the
+tube from the origin at the top of the tube.
+Fig. 12. A graph showing linear relation between the peak induced voltage(E
+max) across the coil and the velocity ( v) of the magnet, when the coil is
+placed at different positions on the tube. The slope of the line is 1.69 60.07
+V s/m.
+120 Am. J. Phys., Vol. 91, No. 2, February 2023 Gadre et al. 120 04 October 2023 22:49:27
+in the value m¼0:7960:03 Am2. (Slope and standard error
+are calculated using curve_ﬁt function from the scipy PYTHON
+library.)
+The magnetic dipole moment was also found by using
+an iPhone magnetic ﬁeld sensor to measure the ﬁeld alongthe axis of the dipole.3,4The magnetic ﬁeld of a dipole on
+the axis is Bz¼l0m=2pz3. The slope of the graph Bzvs 1=z3
+isð1:39/C210/C0760:02/C210/C07ÞTm3, yielding m¼0:79
+60:01 Am2.
+E. Demonstration of Lenz’s law
+The setup described in this paper can also be used to dem-
+onstrate Lenz’s law. In this demonstration, two LEDs of dif-ferent colors (red and green) are connected in parallel withthe coil with opposite orientations. When the falling magnetpasses through the coil, current is induced in the loop, andthe two LEDs, connected in parallel, glow one after the otherin a very short interval of time, as shown in Fig. 13, left
+image. When the magnet orientation is reversed, the order inwhich two LEDs glow is also reversed, as shown in Fig. 13,
+right image.
+F. Effect of eddy currents on the motion of a magnet
+The effect of an eddy current on the motion of a free fall-
+ing magnet can be easily demonstrated with this experimen-tal setup using a few pieces of aluminium foil. We folded alength of the foil four times, pressed it neatly, and cut lengthsthat were wide enough to wrap around the acrylic tube. Thecoil was ﬁxed at the bottom of the tube. The magnet was
+dropped into the tube, and the induced voltage was recorded
+without the foil. Then, we wrapped the foil around the
+acrylic tube above the coil. The magnet was again droppedinto the tube, and the coil voltage was recorded. The induced
+voltage peaks were smaller and occurred later in the presence
+of foil, demonstrating that the magnet was slowed down bythe foil.
+IV. CONCLUSION AND FUTURE WORK
+A simple and inexpensive setup, which is easy to create
+and deploy, has been designed for use in a laboratory. Thetotal cost of the setup, not including the desktop/laptop
+computer or the Arduino, is around US$20. This work has
+explored some of the phenomena that can be demonstratedusing this apparatus. In future experiments, we hope to fur-
+ther explore the effect of eddy currents when the foil is
+placed around the tube.
+ACKNOWLEDGMENTS
+The authors acknowledge useful discussions with our
+colleague Professor Harish Parthasarathy. The authors
+acknowledge our students Naman Puri and Mudit Aggarwalfor help with the experiments. The authors also acknowledge
+the insightful comments and suggestions by the two
+anonymous reviewers at American Journal of Physics .
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts of interest to disclose.
+a)Electronic addresses: dvgadre@gmail.com, ORCID: 0000-0002-7692-
+0976 and harsh.sharma@wsu.edu, ORCID: 0000-0002-0334-4269.
+b)Electronic mail: sdgadre@gmail.com, ORCID: 0000-0003-0701-8839.
+c)Electronic mail: smriti.nsit@gmail.com, ORCID: 0000-0001-5678-7058.
+1Seehttps://github.com/cedt/SoS for Python and Arduino code ﬁles, sche-
+matic and board layout ﬁles, etc.
+2<https://docs.arduino.cc/software/ide-v1 >for downloading Arduino IDE.
+3Unofre Pili, Renante Violanda, and Claude Ceniza, “Measurement of g
+using a magnetic pendulum and a smartphone magnetometer,” Phys.
+Teach. 56, 258–259 (2018).
+4Martin Connors, “Measurement and analysis of the ﬁeld of disk magnets,”
+Am. J. Phys. 40, 308–311 (2002).
+Fig. 13. A magnet passing through the coil lights up one LED ﬁrst and then
+the other LED in quick succession (left image). By reversing the pole of the
+falling magnet, facing the coil, the sequence of lighting of the LEDs is
+reversed (right image).
+121 Am. J. Phys., Vol. 91, No. 2, February 2023 Gadre et al. 121 04 October 2023 22:49:27

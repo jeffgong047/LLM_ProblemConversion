@@ -1,0 +1,1062 @@
+
+View
+Online
+Export
+CitationCrossMarkJUNE 01 2022
+Voronoi cell analysis: The shapes of particle systems 
+Emanuel A. Lazar  
+ ; Jiayin Lu ; Chris H. Rycroft  
+Am. J. Phys.  90, 469–480 (2022)
+https://doi.org/10.1 119/5.0087591
+Articles Y ou May Be Interested In
+Voronoi Space Division of a Polymer
+AIP Conference Proceedings  (April 2004)
+Markovian milestoning with V oronoi tessellations
+J. Chem. Phys.  (May 2009)
+Voronoi diagrams in barrier gas discharge
+Appl. Phys. Lett.  (October 2002) 04 October 2023 23:11:12
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Voronoi cell analysis: The shapes of particle systems
+Emanuel A. Lazara)
+Department of Mathematics, Bar-Ilan University, Ramat Gan 5290002, Israel
+Jiayin Lub)
+John A. Paulson School of Engineering and Applied Sciences, Harvard University, 29 Oxford Street,
+Cambridge, Massachusetts 02138
+Chris H. Rycroftc)
+John A. Paulson School of Engineering and Applied Sciences, Harvard University, 29 Oxford Street,
+Cambridge, Massachusetts 02138 and Mathematics Group, Lawrence Berkeley National Laboratory,
+1 Cyclotron Road, Berkeley, California 94720
+(Received 7 February 2022; accepted 8 February 2022)
+Many physical systems can be studied as collections of particles embedded in space, often
+evolving in time. Natural questions arise concerning how to characterize these arrangements—are
+they ordered or disordered? If they are ordered, how are they ordered and what kinds of defects dothey possess? Voronoi tessellations, originally introduced to study problems in pure mathematics,
+have become a powerful and versatile tool for analyzing countless problems in pure and applied
+physics. We explain the basics of Voronoi tessellations and the shapes that they produce anddescribe how they can be used to characterize many physical systems.
+#2022 All article content, except
+where otherwise noted, is licensed under a Creative Commons Attribution (CC BY) license ( http://creativecommons.org/
+licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0087591
+I. INTRODUCTION
+Physical systems can often be abstracted as large sets of
+point-like objects in space, with each point representing, forexample, the position of an atom, colloidal particle, organ-ism, or celestial body. Fundamental questions arise whenstudying these systems regarding the manner in which theirconstituent particles are organized. Are they ordered or dis-
+ordered? If they are ordered, are the particles arranged in a
+crystal-like fashion, and if so, what kind? Systems that areprimarily ordered often contain defects of varying dimensionand kind, all of which can impact the macroscopic static anddynamic properties of a system. How can these defects beclassiﬁed? In systems that are nominally disordered, such asliquids, glasses, and granular materials, how can the disorder
+be described in a practical and effective manner?
+Voronoi tessellations provide a natural tool for converting
+questions about the arrangements of particles into ones aboutpolygons and polyhedra, possibly irregular, and about how theyﬁt together to tile space. The analysis of these shapes can tell usmuch about particle-like systems on a wide range of scales.
+II. VORONOI CELLS
+Given a discrete set of particles, the Voronoi cell of each
+particle is the region of space closer to it than to any otherparticle.
+1The term Voronoi tessellation is typically used to
+denote the collection of all Voronoi cells of a set of particles.Formally, given a metric space ( M,d) and a discrete set of
+particle positions fs1;s2;…g/C26M, the Voronoi cell of a par-
+ticle siis the set
+VðsiÞ¼f x2Mjdðx;siÞ/C20dðx;sjÞ;8i6¼jg: (1)
+In many applications, the space Munder consideration is
+R2orR3, or some subregion thereof, and the metric dis the
+standard Euclidean one. In two dimensions, Voronoi cells
+are convex polygons that together partition space, while in
+three dimensions, they are convex polyhedra.
+Figure 1shows examples of particles and their Voronoi
+cells in two- and three-dimensional systems. The Voronoicells have different areas and volumes as well as different
+numbers of edges and faces. The shape of each Voronoi cell
+describes the order in the vicinity of a particle and in the sys-tem more generally. In perfect crystals, for example, all
+Voronoi cells are identical, whereas in disordered ones, there
+can be signiﬁcant variation of their properties.
+Voronoi cells also provide a scale-free mechanism to
+characterize adjacencies between particles: two particlesare deﬁned to be neighbors if and only if they share a
+Voronoi edge (in R
+2)o rf a c e( i n R3). If edges are drawn
+between all such neighbors, this results in the Delaunay tri-angulation, another widely used construction in computa-
+tional geometry2(see Sec. IV E). Voronoi tessellations and
+Delaunay triangulations are sometimes referred to as dualobjects, because each can be used to construct the other.
+469 Am. J. Phys. 90(6), June 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 469 04 October 2023 23:11:12
+Decomposing a region into polyhedral tiles through the
+Voronoi tessellation has proven to be a powerful tool in
+many branches of science and engineering.3
+In some cases, the particles being analyzed may have dif-
+ferent radii ri. A natural method to handle this case is to gen-
+eralize the deﬁnition in Eq. (1),
+VðsiÞ¼f x2Mjdðx;siÞ/C0ri/C20dðx;sjÞ/C0rj;8i6¼jg:(2)
+This deﬁnition results in an alternative tessellation referred to as
+the Voronoi S cell; if all riare identical, these cells are equiva-
+lent to those deﬁned by Eq. (1). Although it is possible to
+directly work with S cells,4,5they are much more difﬁcult to
+compute and analyze, because they typically have curved,
+hyperboloidal f aces and are, thus, no l onger convex polyhedra.
+For this reason, it is useful to consider a different generalization,
+VðsiÞ¼f x2Mjdðx;siÞ2/C0r2
+i/C20dðx;sjÞ2/C0r2
+j;8i6¼jg;
+(3)
+which is referred to as the radical Voronoi tessellation. In
+Euclidean space, the radical Voronoi tessellation results in
+convex polyhedra, which well-approximate many features of
+Voronoi S cells6at substantially lower computational cost.
+They are, therefore, a popular choice in analyzing systems of
+particles with unequal radii.7–9In the remainder of this arti-
+cle, we focus on the original Voronoi tessellation given in
+Eq.(1), although many of the results generalize to the radical
+Voronoi tessellation via an adjustment of the positions of the
+planar Voronoi faces.
+A. Construction
+The deﬁnition given by Eq. (1)does not directly lend itself
+to a practical algorithm for constructing Voronoi cells. It is,
+thus, productive to also think about Voronoi cells from an
+alternative perspective. Consider the two particles in
+Fig. 2(b) and the line separating them. On one side of theline lies the region of space closer to the magenta particle,
+and on the other side lies the region of space closer to the
+yellow one; points on the line itself are equidistant to the two
+particles. If these were the only particles in the system, we
+would be left with two Voronoi cells, one on each side of the
+dividing line. Each of these Voronoi cells is called a half-space. In three-dimensional spaces, the two Voronoi cells are
+separated by a plane instead of a line.
+Imagine now adding a third particle to the system, as in
+Fig. 2(c). The set of points closer to the magenta particle
+than to the new yellow particle is again a half-space and is
+bounded by a separate line. Because the Voronoi cell of the
+magenta particle consists of all points closer to it than to any
+of the other particles, it can be thought of as the intersection
+of these two half-spaces. Formally, we use
+H
+ij¼fx2Mjdðx;siÞ/C20dðx;sjÞg (4)
+to denote the half-space of all points as close or closer to si
+than to sj, and then deﬁne the Voronoi cell of sias the inter-
+section of all such half-spaces,
+VðsiÞ¼\
+jHij; (5)
+where jindexes all other particles in the system. Figures
+2(d)–2(f) contain points at which multiple lines intersect;
+such points are equidistant to three particles. Figure 2(g)
+shows the ﬁnal Voronoi cell, constructed by considering the
+central particle and the neighboring yellow ones; it is theintersection of ﬁve half-spaces.
+Particles located far away from a central particle do not
+inﬂuence its Voronoi cell, because associated half-spaces
+completely contain the intersection of half-spaces associatedwith closer particles. The shape of a Voronoi cell is, thus,
+generally determined only by nearby particles.
+The deﬁnition provided by Eqs. (4)and(5), thus, moti-
+vates a simple constructive algorithm for building Voronoi
+cells: iteratively cut the region around a particle s
+iby inter-
+secting half-spaces. Figure 3illustrates the cutting of a three-
+dimensional Voronoi cell through a half-space associated
+with an added particle.
+B. Algorithmic and computational aspects
+The time and memory necessary to compute and represent
+a Voronoi tessellation of an entire system increases with the
+number of particles. In a system of nparticles, constructing
+the Voronoi cell of each particle requires, in theory, comput-
+ing the intersection of n/C01 half-spaces, and so calculating
+all Voronoi cells would require consideration of Oðn2Þhalf-
+spaces.10However, as described in Sec. II A, usually only
+the half-spaces for nearby particles inﬂuence the Voronoi
+cell. This consideration allows efﬁcient algorithms to bedesigned11that ﬁrst initialize the candidate Voronoi cell to
+ﬁll the entire domain, and then sweep outward, performing
+Fig. 1. (Color online) (a) Voronoi tessellation in two dimensions. For a set of
+particles shown by the yellow circles, the blue network divides the space into
+polygonal regions called Voronoi cells, each of which contains the area closerto one particle than to any other. The outline of one Voronoi cell is shown in
+red. (b) Three-dimensional Voronoi tessellation for a set of particles shown as
+yellow spheres. The blue lines show the entire Voronoi tessellation, while the
+red lines highlight a single Voronoi cell as a convex polyhedron.
+Fig. 2. (Color online) (a) A central magenta particle and ﬁve nei ghboring yellow particles; (b)–(f) construction of the Voronoi cell of the central particle, shown as a
+series of intersections of half-spaces, where each is deﬁned by the central particle and one of its neighbors. (g) The completed Voronoi cell of the cen tral particle.
+470 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 470 04 October 2023 23:11:12
+half-space intersections for particles of increasing separation,
+until a termination criterion is reached and it is possible to
+guarantee that any particles further away cannot possibly
+affect the Voronoi cell shape. For example, if the candidate
+Voronoi cell is contained within a sphere Sof radius R, and
+all particles within the sphere of radius 2 Rhave been consid-
+ered, then we can guarantee that the Voronoi cell computa-
+tion is complete, because the half-space for any particle
+further away will completely contain S.
+For typical particle arrangements that are evenly distrib-
+uted, each Voronoi cell requires O(1) half-space intersec-
+tions, meaning that the total computation time scales linearly
+with the number of particles. However, in certain pathologi-
+cal cases, the computation time may not be linear. For exam-
+ple, in three dimensions, deﬁne L¼f /C0 n;/C0ðn/C01Þ;…;ng,
+and consider the two sets of particles P1¼f ð 1;k;0Þjk2Lg
+and P2¼ fð/C0 1;0;kÞjk2Lg. Then, the Voronoi cell for a
+particle in P1contains a face for every particle in P2and vice
+versa, and, thus, each Voronoi cell requires O(n) half-space
+intersections in this case, meaning that the total computation
+time will scale at least quadratically.
+In two dimensions, Voronoi cells can also be constructed
+using a “walking method.”12,13This approach traces around
+the edges and vertices of the Voronoi cell, directly construct-
+ing it without explicitly considering the half-spaces.
+Efﬁcient implementations allow this procedure to be per-
+formed in O(1) time for a typical Voronoi cell.14However,
+unlike half-space intersections, this method does not have an
+obvious generalization to higher dimensions.
+Because each Voronoi cell can be computed and analyzed
+independently, the cell-based perspective is well-suited to
+current computational hardware, where parallelism is
+emphasized. A typical workﬂow could involve calculating a
+Voronoi cell, storing its statistics, and then deleting it and
+moving onto the next. On a multi-core or parallel computer,
+each thread or process can compute subsets of Voronoi cells
+independently of the rest. A drawback of the cell-based
+approach is that it lacks explicit topological information
+about how the cells are connected together—it is not
+straightforward to identify common faces, edges, and verti-
+ces between cells. This can be a problem once the effects of
+numerical rounding error of ﬂoating point arithmetic15are
+accounted for. In a typical situation in two dimensions, three
+Voronoi cells will meet at a single vertex [see Fig. 4(a)].
+However, if the particles are precisely aligned, then it is pos-
+sible that four or more cells meet at one vertex. In this case,
+due to numerical rounding error, one or more Voronoi cells
+may have additional small faces, leading to inconsistent
+topology between the cells [see Fig. 4(b)]. This problem is
+not unique to R2and happens in arbitrary dimensions.InRn, it occurs when nþ1 precisely aligned particles are
+equidistant to a single point.
+There are computational methods for eliminating these dis-
+crepancies. For example, the Voronoi cells can be computed
+using an exact arithmetic system (e.g., GMP16) that eliminates
+rounding error, albeit for substantially higher computational
+cost. However, in many cases, this problem has a limitedeffect on the results of interest. Cell-based computations, such
+as surface area and volume, are not sensitive to small topolog-
+ical changes. Furthermore, even though these numerical errors
+may introduce spurious faces and edges, it is still possible to
+develop a topological framework in which such errors are
+anticipated and accounted for (see Secs. III B andIII C).
+Alternatively, algorithms exist that can compute the full
+Voronoi tessellation as a single mesh, i.e., returning a full
+graph of blue edges as shown in Fig. 1. These approaches
+require building a global data structure for the mesh and,
+thus, are less amenable to parallelization when compared to
+the cell-based perspective. When the Voronoi cells areextracted from this mesh they will have internally consistent
+topology. Some popular methods for computing the full
+Voronoi tessellation include the Fortune sweeping algo-
+rithm
+17,18and the incremental approach, whereby the mesh
+is continually updated as new particles are added.19,20
+Another method is to use lift-up mapping, projecting a parti-
+cles2Rnto a paraboloidal surface ðs;jjsjj2Þ2Rnþ1. The
+hyperplanes tangential to the surface form facets exactly
+matching the Voronoi tessellation when projected back to
+Rn. This method can be efﬁciently implemented in arbitrary
+dimensions using the Quickhull algorithm.21
+A variety of software packages are available for computing
+the Voronoi tessellation. The Qhull library22computes Voronoi
+cells using the Quickhull algorithm and forms the basis ofVoronoi computations in MATLAB. The Computational
+Geometry Algorithms Library (CGAL)23has routines for cal-
+culating a variety of geometrical constructions, including the
+Voronoi tessellation. Voro þþ is a software library for per-
+forming cell-based computations and has both a command-line
+utility and a C þþapplication programming interface for calcu-
+lating statistics of Voronoi cells.24,25Voroþþ is incorporated
+into the OVITO software package for visualizing and analyz-
+ing particle systems26and is integrated into the Large Atomic/
+Molecular Massively Parallel Simulator (LAMMPS) for parti-
+cle simulation.27–29Several parallel implementations are also
+available. Starinshak et al.30use a parallel divide-and-conquer
+approach, where each processor computes Voronoi cells in a
+Fig. 4. (Color online) (a) Typical case where three Voronoi cells (blue poly-
+gons) for three particles (yellow circles) meet at a vertex in two dimensions.
+(b) Special case where four Voronoi cells meet at a vertex that is equidistant
+from four particles; ﬂoating-point errors could lead to additional small edges
+(red) for some cells. (The Voronoi cells would normally touch but are
+spaced slightly apart from each other for illustrative purposes.)
+Fig. 3. (Color online) (a) A central particle and its Voronoi cell; the cell canbe represented as a collection of vertices and edges that represent an arbi-
+trary irregular polyhedron. (b) Consideration of an additional neighboring
+particle results in intersecting the Voronoi cell with an additional half-space,whose boundary is shown in magenta. (c) The updated Voronoi cell.
+471 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 471 04 October 2023 23:11:12
+subdomain, after which they are joined together. Other exam-
+ples include PARAVT31and a GPU implementation.32
+III. THE SHAPES OF VORONOI CELLS
+As the Voronoi cell of a particle is constructed using infor-
+mation about neighboring particles, its geometric and topo-
+logical features, in turn, reﬂect important structuralinformation about the spatial arrangements of particles, bothlocally and globally. We consider several examples.
+A. Geometric aspects
+In continuum mechanics, density is modeled as a property
+that varies continuously in space. This viewpoint is difﬁcult
+to justify when modeling systems at the atomic scale,
+because mass in such systems is localized at discrete points.A reasonable question, thus, arises as to how density should
+be deﬁned and analyzed, and the volume of a Voronoi cell is
+often used for this purpose. In ﬁnite systems, the averagearea or volume of all Voronoi cells is equal to one divided
+by the average particle density. The variation of particle den-
+sity throughout a system can also be captured through thegeometric properties of Voronoi cells. Voronoi cells with
+small areas and volumes indicate particles in densely packed
+regions; conversely, those with large areas or volumes indi-cate particles whose neighbors are located far away. SectionIV C discusses an example of using Voronoi volumes to ana-
+lyze a granular material simulation.
+The variation in the areas and volumes of Voronoi cells can
+also be indicative of structural abnormalities. In low-temperature crystalline systems, for example, the Voronoi cells
+of bulk crystal particles are nearly identical. Therefore,
+Voronoi cells with signiﬁcantly larger or smaller areas and vol-umes can be indicative of localized defects such as vacancies
+and interstitials as well as dislocations and grain boundaries.
+33
+In addition to the geometric features of individual Voronoi
+cells, the consideration of their distributions can also reﬂectinformation about global order. In perfect crystals, for exam-
+ple, all Voronoi cells have identical volumes and surface
+areas. At low temperatures, these distributions are narrowlyconcentrated around their mean values. As the system is
+heated and becomes increasingly disordered, these distribu-
+tions become broader. These differences can be observed inFig.5, which illustrates both ordered and disordered systems.
+Although the Voronoi cell areas of particles in the crystals
+are nearly identical, there is considerable variance in thosebelonging to disordered regions.B. Topological aspects
+Topology is the mathematical study of connectivity and
+shape,
+34and a thorough analysis of the topologies of individ-
+ual Voronoi cells, as well as their distributions over entire
+systems, can provide much insight about local arrangements
+and global ordering. Unlike geometric properties such asarea and volume, topological ones, such as the number of
+edges or faces of a Voronoi cell, are typically discrete, even
+non-numeric. Indeed, the manner in which faces of a three-dimensional Voronoi cell are arranged relative to one
+another is captured through the isomorphism class of the
+cell’s edge graph; this classiﬁcation is typically representedin the language of graphs instead of numbers.
+35
+In solid-state physics, the unique Voronoi cell of a crystal
+lattice is often referred to as the Wigner–Seitz cell of the
+system.36,37In some two-dimensional crystals, for example,
+every Voronoi cell is a hexagon. Particles whose Voronoi
+cells have more than or fewer than six edges can be identiﬁed
+as belonging to defects. For example, Figs. 5(a)–5(c) illustrate
+crystalline systems in which most Voronoi cells have six
+edges. In contrast, Voronoi cells of many particles lying along
+the grain boundary in Fig. 5(b) have more or fewer edges.
+In contrast to crystals, nominally disordered systems such
+as liquids and gases exhibit a substantially wilder set of parti-
+cle arrangements, reﬂected in a larger variation of their topo-
+logical features. Instead of a single polyhedral-shaped tilecentered at each lattice point (i.e., the Wigner–Seitz cell),
+disordered systems are tiled by a large assortment of
+Voronoi polyhedra. All simple polyhedra, for example,appear with some frequency as Voronoi cells in the ideal
+gas,
+38providing an endless pool of Voronoi cell types for
+classifying particle arrangements.
+The topology of a Voronoi cell in two dimensions can be
+characterized by its number of edges. This classiﬁcation can
+be reﬁned by further considering the number of edges of theVoronoi cell’s neighbors; such a classiﬁcation is adopted in
+Fig.5. The topology of a Voronoi cell in three dimensions is
+more delicate due to the added complexity of describing themanner in which faces of a polyhedra are arranged. This task
+can be done using an algorithm of Weinberg
+39originally
+designed to determine whether two planar graphs are isomor-phic. Because edge graphs of three-dimensional Voronoi
+cells are always planar,40Weinberg’s graph-tracing algo-
+rithm provides a systematic description of Voronoi celltopologies.35,41This classiﬁcation of local structure avoids
+some inherent limitations of more conventional methods.41,42
+Furthermore, it facilitates the a priori enumeration of
+Voronoi topologies associated with particle structures.41
+Fig. 5. (Color online) (a) Defect-free crystal, (b) two crystals meeting along a grain boundary, (c) crystal–liquid interface, (d) liquid, and (e) an ideal gas.
+Particles whose Voronoi cells and neighbors are all hexagons are colored yellow; all others are colored blue.
+472 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 472 04 October 2023 23:11:12
+The VoroTop43program is a command-line utility for cal-
+culating Voronoi topologies of three-dimensional particlesystems. The program uses the Voro þþsoftware library
+24to
+compute the individual Voronoi cells and then performsadditional topological analysis. By considering special fami-lies of Voronoi topologies associated with given crystallinesystems, VoroTop facilitates the automated identiﬁcation of
+defects in crystalline systems as well as automated statistical
+characterization of disordered systems.
+C. Stability
+If the properties of Voronoi cells are to be useful for clas-
+sifying local structure, then it is important to understand themanner in which those properties can change under smallperturbations of particle positions. This issue is important toconsider because measurement error is inevitable whenworking with experimental data. Even numerical codes, inwhich particle coordinates are known precisely, are subjectto rounding and approximation error.
+The volume of a Voronoi cell is a continuous function of
+particle positions, and small perturbations of the particlecoordinates, thus, result in small changes in cell volumes.
+Likewise, most geometric features of Voronoi cells, such as
+perimeters and surface areas, are continuous functions ofparticle positions.
+44When geometric quantities are used for
+classiﬁcation purposes, thresholds for the range of possiblevalues must be chosen. Even small errors in the measure-ments of particle positions can result in classiﬁcationerrors.
+Unlike geometric properties of Voronoi cells, topological
+ones can change abruptly under small perturbations of parti-cle coordinates.
+45,46For example, the number of edges or
+faces of a Voronoi cell can change under arbitrarily smallperturbations of particle positions. Figure 6illustrates a per-
+fect and perturbed square lattice in which particles are col-ored according to the number of edges of their Voronoi cells.Small perturbations of the particles, which can be seen as
+representative of thermal vibrations or measurement errors,
+result in Voronoi cells that are topologically distinct fromthose in the unperturbed case.
+47,48This instability arises
+from symmetries of the lattice which result in points equidis-tant to four neighboring particles. Small perturbations breakthis symmetry, resulting in topological changes.
+This instability can be understood by considering an
+abstract conﬁguration space of all possible local arrange-ments of particles,
+41schematically illustrated in Fig. 7.
+Voronoi topology provides a natural means of segmentingthis space into regions representing particles with a givenlocal structure. Particles in unstable crystals correspond topoints located on the boundary of several such regions, and
+so perturbations of particle positions, corresponding to small
+perturbations in this space, typically result in different
+Voronoi cell topologies. The set of all topologies that can
+result from small perturbations can then be associated with a
+given structure type, allowing for a simple method for deal-
+ing with experimental error and thermal vibrations.
+41
+Combinatorial factors limit the number of types that canresult from small perturbations, corresponding to the number
+of regions meeting at the representative point in the conﬁgu-
+ration space. In many cases, a complete set of types that can
+result from small perturbations can be determined analyti-
+cally or numerically.41,49
+Not all lattices and crystals are unstable in this sense. In
+two dimensions, for example, the hexagonal lattice, whose
+unique Voronoi cell is a regular hexagon, is stable under
+small perturbations; cf. Fig. 5(a). This arrangement of par-
+ticles corresponds to a point in the interior of a region of con-
+ﬁguration space with ﬁxed Voronoi topology. In three
+dimensions, the body-centered cubic lattice is stable,
+whereas the majority of common crystals, such as the simplecubic, face-centered cubic, hexagonal close packed, and dia-
+mond crystals, are not.41
+IV. APPLICATIONS
+In recent decades, Voronoi tessellations and their general-
+izations have been used to analyze countless problems
+throughout the physical sciences, as well as in the life scien-
+ces, engineering, and pure mathematics. For example,
+Voronoi tessellations have found broad use in computational
+ﬂuid dynamics,50–52secure data compression and transmis-
+sion,53–56machine learning,57–59quantum error correction,60,61
+and a wide range of biological, chemical, and ecological prob-
+lems.62–65Even a brief survey of the dozens of such applica-
+tions is well beyond the scope of this article. Instead, we
+mention several examples of particular interest to physicists
+and detail how Voronoi tessellations are used in their analysis.
+A. Crystals and defects
+Many common materials such as diamonds, table salt, and
+most everyday metals, are crystalline in nature. Although the
+bulk of these materials are highly ordered, the underlying
+structure is punctuated by defects of various dimensions and
+Fig. 6. (Color online) Particles and their Voronoi cells in a (a) perfect and
+(b) perturbed square lattice. Particles are colored according to the number of
+edges of their Voronoi cells.
+Fig. 7. (Color online) Voronoi topology segments the conﬁguration space ofthe possible arrangements of particles into regions representing particles
+with a ﬁxed kind of local structure. Particles in unstable crystals correspond
+to points located at the boundary of several such regions. Small perturba-tions of particle positions result in different Voronoi cell topologies.
+473 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 473 04 October 2023 23:11:12
+kinds.37,66Material scientists wish to understand these
+defects, because they impact macroscopic material propertiessuch as strength and ductility.67To study defects, computa-
+tional material scientists often use supercomputers to simu-
+late systems with millions, or even billions, of atoms.However, without a way to automate the accurate identiﬁca-tion of the defects, the massive amount of data is not useful.
+Automating the analysis of large atomistic data sets, thus,
+motivates the development of methods to identify and clas-sify defects using local structural data.
+Figure 8illustrates a two-dimensional system with two
+crystals, a boundary between them, and a localized vacancy.
+Particles are colored according to their Voronoi cell areas
+and topologies in Figs. 8(b) and8(c), respectively. Although
+the vacancy defect is associated with Voronoi cells with
+above-average areas, corresponding to a decrease in the local
+density, area changes resulting from thermal ﬂuctuations ofother particles in the system make it difﬁcult to identify thedefects by the analysis of Voronoi cell areas alone. When
+colored according to Voronoi topologies, particles belonging
+to the two bulk crystals appear locally ordered, and theirVoronoi cells all have six edges. Those adjacent to the grainboundary and vacancy have more than or fewer than six
+edges. This observation suggests using the topology of
+Voronoi cells to identify, and possibly classify, defects incrystalline systems.
+Although this example is two-dimensional, this approach
+is also effective in three dimensions and enables the accurate
+identiﬁcation of defects in crystalline systems at high tem-
+peratures, where conventional methods fail.
+41,43,49
+B. Disordered systems
+Although originally introduced to study crystalline sys-
+tems, Voronoi cells also have a long and storied history inthe study of liquids, glasses, and other nominally disorderedsystems. In the early 1930s, John D. Bernal, the great pioneer
+of x-ray diffraction and founder of protein crystallography,
+initiated a study of simple liquids.
+68–70Bernal suggested
+looking at the Voronoi cells of particles, and considering notonly their number of faces but also the number of edges of
+each face. This detailed analysis of Voronoi cells enabled
+him to describe the structure of liquids through a topologicaldescription of their constituent particles.
+Despite lacking crystalline order, nominally disordered
+systems can still be distinguished from one another and ana-
+lyzed through local structural features. For example, liquid
+copper and an ideal gas are both disordered, and yet arestructurally distinct. One of the challenges in studying disor-dered systems is meaningfully describing and accurately
+identifying different kinds of structural order.The distribution of Voronoi topologies can be effectively
+used for this purpose.
+71–74In particular, a detailed list of the
+Voronoi topologies and their observed frequencies providesimportant structural insight into local structure character.Icosahedral symmetry, studied in the context of liquids andglasses,
+75is nothing but a single type of local structure, and
+has shed light on the tension between local energy-minimizing and entropy-maximizing principles in determin-ing how particles arrange in disordered systems. Althoughour understanding of the distribution of local Voronoi topol-ogies in general systems is still incomplete, these data havebeen recently used to identify phase transitions in supercriti-
+cal ﬂuids.
+76–78
+C. Granular flows
+Voronoi tessellations have also been successful in charac-
+terizing the dynamics of granular ﬂows. Despite being com-mon in everyday experience, granular materials havesurprisingly complex mechanical properties: in some situa-tions, they behave like solids and support stress, whereas in
+other situations, they can ﬂow like liquids.
+79This complex
+behavior has prompted much study in the past several deca-des to fully understand the mechanics of granular media.80,81
+A key quantity of interest is how closely packed the particles
+are. If they are tightly packed, they will become jammed82
+and behave like a solid, but in order to ﬂow, there must besome free volume for the particles to move past each other.The notion of free volume has been extensively studied formany amorphous materials
+83,84and has also been used as the
+basis for simple models of granular drainage.85,86
+Voronoi cells are useful for precisely characterizing the
+local volume fraction, i.e., what proportion of space is occu-pied by the particles. A simple approach is shown in Fig.9(a), where a small pink square of volume V
+sis drawn.
+Twelve particles with volume Vphave centers inside the
+square. Thus, the local volume fraction can be estimated as12V
+p=Vs. However, this measurement is sensitive to small
+changes in the particle positions: if the center of a particlemoves outside the box, the volume fraction will become11V
+p=Vs, which is a 8% relative change. This change is prob-
+lematic, because small ﬂuctuations of the packing fraction ofseveral percent can have a large effect on the mechanicalproperties. This calculation can be improved by computingthe Voronoi cells for the particles. The pink square volume
+can be replaced by the total volume V
+vof the Voronoi cells
+[Fig. 9(b)], resulting in a more faithful representation of the
+space associated with the particles and a more accurate com-putation of the local volume fraction.
+To illustrate this method, we performed a granular discrete-
+element simulation, where the position, velocity, and angularvelocity of each particle are integrated using Newton’s laws.We simulate 140 000 particles of diameter dusing
+LAMMPS,
+27,28where parameters in the inter-particle contact
+model are derived from Rycroft et al.87with a Coulomb
+friction coefﬁcient of 0.5. Particles are ﬁrst poured into a con-tainer of width 140 dand thickness 12 dusing periodic bound-
+ary conditions in the thickness direction. Figure 9(c) shows a
+snapshot of the simulation, where the bottom layer of particlesshown in yellow are frozen in place. The remaining particlesare all physically identical but are colored in alternating bandsof width 8 d.F i g u r e 9(d) shows the local packing fraction,
+achieving a value of /C2563%, which is typical of random close
+packing.
+88
+Fig. 8. (Color online) (a) Two adjacent crystals and a vacancy defect. (b)
+Particles are colored according to the areas of their Voronoi cells. Those withlarger areas are colored red, and those with smaller ones are colored blue. (c)
+Particles are colored according to the number of Voronoi cell edges.
+474 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 474 04 October 2023 23:11:12
+A section of the frozen particles are then slowly raised a dis-
+tance of 4 :7d. Figure 9(e) shows how the layers of particles
+are deformed, but it is visually difﬁcult to see any change inthe packing fraction. However, the Voronoi-based calculation
+demonstrates that two bands of lower packing fraction form in
+regions undergoing high shear, where particles must moveapart slightly in order to move past one another. Such analyses
+can be used to probe the mechanics of granular media.
+89
+Voronoi volumes have been used to probe a variety of
+aspects of granular media. Although Fig. 9(b) demonstrates
+the computation of the local packing fraction in a small
+region, the same principle can be used to deﬁne the local
+packing fraction at the level of each particle by dividing theparticle volume by its Voronoi cell volume. This approach
+has been used to examine local volume ﬂuctuations
+90–93and
+dynamic jamming fronts.94The use of Voronoi cell faces to
+identify neighboring particles95and the examination of
+Voronoi cell anisotropy96,97have also proven fruitful in the
+study of granular media and other amorphous systems.
+D. Astronomy
+In the examples we have considered so far, the particles
+around which the Voronoi cells are constructed have repre-
+sented atoms or other small-scale objects. Voronoi tessellations
+have also found applications when the particles under consid-eration are of astronomical scale. In an attempt to understand
+the Universe and its origins, astronomers have spent recent
+decades imaging and cataloging the observable sky, carefullymapping out its stars, galaxies, and other celestial bodies.
+Dozens of digital surveys, such as the Two Micron All Sky
+Survey
+98and the Sloan Digital Sky Survey,99have generated
+many petabytes and exabytes of data from which scientists
+have culled novel insight into many secrets of the cosmos.
+To fully exploit the breathtakingly large amount of
+recorded data, scientists have been eager to develop auto-mated computational techniques to aid in its analysis.
+Voronoi tessellations have consequently been used to study
+the large scale distribution of galaxies
+100as well as toidentify individual astronomical objects such as galaxy
+groups and clusters,101haloes,102voids,103and ﬁlaments.104
+Each of these studies has provided insight into the early his-
+tory of the universe, its evolution, and its large-scale
+structure.
+E. Numerical analysis
+One important problem that arises in modeling countless
+physical systems is the numerical solution of partial differen-tial equations on domains with nontrivial shapes.
+A necessary ﬁrst step in solving many such problems is the
+discretization of the domain, and Voronoi tessellations arecommonly used for this purpose.
+105–108Here, we illustrate
+how to solve one such problem using both a uniform mesh and
+an adaptive one, both constructed using Voronoi tessellations.
+As shown in Fig. 10(a) , our computational domain Xis
+the club shape from a standard playing card deck, which we
+chose due to its sharp corners and concave creases. We use
+the ﬁnite element method109to solve the two-dimensional
+Laplace equation,
+Duðx;yÞ¼0; (6)
+subject to a Dirichlet boundary condition on the boundary
+@X. To test the accuracy of different meshes, we use the
+method of manufactured solutions110,111to build a reference
+analytical solution of the problem. Because the imaginary
+part of an analytic function is harmonic and is, thus, a solu-
+tion to Laplace’s equation, we construct an exact referencesolution as
+u
+refðx;yÞ¼bþcImX4
+k¼1akðxþyiÞ/C0ð xkþykiÞ ½/C1381=6 !
+;
+(7)
+where ( xk,yk) are the four corners of the concave creases of
+the club shape, akare arbitrary constants, and we choose the
+branch cuts of the fractional powers to not intersect with X.
+Fig. 9. (Color online) (a) A simple method to estimate local volume fraction is based on counting the particles in a small control volume (purple square ). (b)
+By modifying the control volume to be given by the Voronoi cells of the particles, the local volume fraction can be calculated more accurately. (c) Snap shot of
+a granular discrete-element simulation using 140 000 particles of diameter dpoured into a container of width 140 dand thickness 12 d. The yellow particles are
+frozen in place, and the dark blue and light blue particles are colored in layers of 8 d. (d) Local particle density calculated using Voronoi volumes; see color
+key on right. (e) Snapshot of particles after a section of the frozen particles has been slowly raised by 4 :7d. (f) The corresponding local particle density, show-
+ing two bands of lower density; see color key on right.
+475 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 475 04 October 2023 23:11:12
+The constants bandcare chosen to normalize urefto have
+maximum value 1 and minimum value /C01o nX. The solu-
+tionurefis smooth in Xand varies most rapidly near the four
+concave creases.
+We aim to solve Laplace’s equation where the Dirichlet
+condition is set to urefon the boundary @X. Because the solu-
+tion to the Laplace equation is unique in this case, it mustequal u
+refeverywhere on X. Thus, we can compare our numer-
+ical solution ^uðx;yÞtourefto test the accuracy of the numeri-
+cal method. We use a piecewise linear tria ngular mesh.109To
+generate such a mesh, we ﬁrst create a Voronoi tessellationand then use it to construct the dual Delaunay triangulation byconnecting points that share a Voronoi edge.
+2The Delaunay
+triangulation has the property that for any triangle, no otherpoints are in the circumcircle of the triangle. Delaunay trian-gulations are attractive for use with ﬁnite element methods,because the deﬁnition disfavors thin triangles that have smallinternal angles and lead to large numerical errors.
+We, therefore, need to compute a Voronoi tessellation of
+Xusing evenly distributed points. To do this, we use a cen-
+troidal Voronoi diagram,
+112where each point coincides with
+the weighted center of mass, or centroid, of its Voronoi cell.A centroidal Voronoi diagram can be computed via Lloyd’salgorithm.
+112,113For an initial arbitrary set of points, Lloyd’salgorithm iteratively moves the points to transform the corre-
+sponding Voronoi diagram into a centroidal Voronoi dia-gram. The algorithm is as follows:
+(1) Choose ninitial points and compute their associated
+Voronoi diagram.
+(2) Compute the centroid for each of the Voronoi cells.(3) Move each point to its Voronoi cell’s weighted centroid
+location.
+(4) Repeat steps (2) and (3) until a stopping criterion is satis-
+ﬁed, such as a maximum number of iterations or a mini-mum distance of point movement.
+Figure 11illustrates how Lloyd’s algorithm works. As
+seen in Fig. 11(a) , we ﬁrst choose 11 random points in the
+unit square and compute their corresponding Voronoi dia-gram. We then implement Lloyd’s algorithm for 20 itera-
+tions. After 20 iterations, as seen in Fig. 11(d) , we obtain a
+Voronoi diagram where the points are uniformly distributedin the domain, and their Voronoi cells are of similar sizes.
+Figure 10(a) shows a centroidal Voronoi diagram of X
+using n¼1468 points. From here, the corresponding
+Delaunay triangulation can be computed, and the ﬁnite ele-
+ment method can be implemented. The numerical solution ^u
+is shown in Fig. 10(b) . Figure 10(c) shows the absolute errors,
+Fig. 10. (Color online) (a) The Voronoi diagram associated with a uniform triangular mesh of the club shape domain X,u s i n g n¼1468 points. (b) The correspond-
+ing Delaunay triangular mesh for the uniform mesh. The numerical solution ^uof the Laplace equation Du¼0 is shown on the uniform mesh. (c) The absolute errors
+jj^u/C0urefjjof the numerical solution for the uniform mesh. (d) The Voronoi diagram for the adaptive mesh, using n¼1468 points. (e) The corresponding Delaunay
+triangulation and the numerical solution of the Laplace equation on the mesh. (f) The absolute errors of the numerical solution for the adaptive mesh.
+476 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 476 04 October 2023 23:11:12
+j^uðx;yÞ/C0urefðx;yÞj, for the numerical solution, indicating
+that the largest errors are near the four concave creases. This
+is expected because the solution varies most rapidly there.
+To improve the accuracy, we can modify our mesh to use
+adaptive resolution. To do so, we introduce a spatially vary-
+ing density ﬁeld qðx;yÞin the computation of the Voronoi
+cell centroids. Speciﬁcally, the weighted centroid cof a
+Voronoi cell Vis
+c¼ð
+VxqðxÞdx
+ð
+VqðxÞdx; (8)
+where x¼ðx;yÞ2R2. Equation (8)requires computing inte-
+grals over V. We do this by dividing the Voronoi cell into a set
+of triangles and using a quadrature rule on each of them.15,114
+The density ﬁeld can be set manually, but here we use an
+automatic procedure that forces the triangles in the interior
+of the domain to be large, the triangles near the boundary to
+be small, while ensuring a smooth gradation in meshsize.106,114–116Figure 10(d) shows the resulting Voronoi tes-
+sellation using the same number of n¼1468 points. The
+points of the resulting CVD distribute more densely around
+the corners and the concave creases of the shape and less
+densely in the interior of the three lobes. Figure 10(e) shows
+the corresponding Delaunay triangulation and the ﬁnite-
+element solution. Because the mesh resolution is increased
+in the regions where urefvaries most rapidly, the numerical
+errors are reduced when compared to the uniform mesh, as
+shown in Fig. 10(f) .We can also compare the errors of the two cases by deﬁn-
+ing an L1error norm,
+jjejj1¼1
+Að
+Xj^uðx;yÞ/C0urefðx;yÞjdx dy ; (9)
+where Ais the area of X. The integral in Eq. (9)is numeri-
+cally computed via a quadrature rule on the Delaunay trian-
+gles. The resulting jjejj1for the adaptive mesh is 0.001 459
+and 0.004 764 for the uniform mesh. Hence, by using an
+adaptive mesh instead of a uniform one, we can improve the
+accuracy of the numerical solution by a factor of three for
+the same amount of computational work.
+V. CONCLUSIONS
+Voronoi tessellations provide a natural framework for
+describing and analyzing arrangements of particles on a wide
+range of scales. Careful analysis of geometric and topologi-
+cal features of their constituent polyhedron-shaped cells can
+provide insight not readily apparent from other perspectives.
+Despite being introduced over a century ago as an abstract
+mathematical concept, Voronoi tessellation continues to ﬁndnew applications in many contemporary research problems.
+In the last decade, there has been much interest in data-
+driven approaches in science, such as the analysis of large
+databases,117and the use of new machine learning meth-
+ods.118These approaches often rely on the construction of
+simple descriptors of a system, and Voronoi cell features
+have proven highly useful, such as for screening high-
+throughput databases119,120and for predicting properties of
+crystalline structures.121
+VI. SUGGESTED PROBLEMS
+We suggest several problems suitable for motivated stu-
+dents, perhaps as part of a course in computational physics.
+Those marked with a?might form the basis of a semester-
+long research project.
+(1) Accurately measuring particle positions in experimental
+systems can be difﬁcult. Drawing quantitative conclu-
+sions based on Voronoi tessellations of such data, thus,
+presents signiﬁcant challenges. Let’s anticipate the error
+of Voronoi cell features as a function of measurementerror in a simple system. Consider a square lattice in the
+plane, and displace each of its points by adding an inde-
+pendent and identically distributed random perturbation,
+such as a two-dimensional Gaussian. How do the distri-
+butions of areas and perimeters depend on the magnitudeof the perturbations?
+(2) Repeat problem (1) in three dimensions for a cubic lat-
+tice and consider the distributions of cell volumes and
+surface areas. How do they depend on the magnitude of
+the random perturbations? How do the distributions of
+topological features of the Voronoi cells, such as thenumber of edges or faces, depend on the magnitude of
+the perturbations?
+(3) Images of the Voronoi cells can be computed with a simple
+procedure in two dimensions. Consider a number of particles
+fs
+1;s2;…g2R2, and deﬁne an image covering a rectangle
+inR2. For each pixel location xin the image, assign it a dif-
+ferent color based on computing argmin jdðx;sjÞto ﬁnd the
+nearest particle.122This procedure will work for any distance
+metric. Try computing the Voronoi cells for different
+Fig. 11. (Color online) A simple illustration of Lloyd’s algorithm. (a) The
+initial random points and the associated Voronoi diagram. (b) After one iter-
+ation, the points moved to the centroids of their Voronoi cells, as indicated
+by the directional arrows, where the red points were the old point locations
+and the blue points are the current point locations. The blue points form a
+new Voronoi diagram. (c) The points and their associated Voronoi diagram
+after ten iterations. (d) The points and their associated Voronoi diagram after20 iterations. Compared to (a), the points distribute more uniformly in the
+domain, and their Voronoi cells are of similar sizes.
+477 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 477 04 October 2023 23:11:12
+p-norms,15where dðx;yÞ¼j j x/C0yjjp, and compare their
+shapes to Voronoi cells with the Euclidean norm.123
+(4) Instead of coloring pixels according to the nearest parti-
+cle as in problem (3), try coloring particles according to
+the second nearest particle. What do the images look likein this case?
+(5)
+?Computing Voronoi cells in arbitrary domains has sev-
+eral subtleties. Consider the particle arrangement in Fig.
+12(a) . If the Voronoi cells are restricted to the domain U
+shown, then one of the Voronoi cells breaks into two dis-connected components [see Fig. 12(b) ]. Can criteria be
+placed on the shape of the domain and/or the positions of
+the particles to avoid this? Can the Voronoi cell deﬁni-tion be modiﬁed to ensure that each Voronoi cell is a sin-
+gle connected component?
+(6)
+?Use a molecular dynamics simulator package, such as
+LAMMPS, to model a crystalline system at temperaturesjust below melting. What features of the Voronoi cells
+indicate that the system is still crystalline? Then, heat the
+system until it has melted. What features of the Voronoicells reﬂect the fact that the system has melted?
+(7)
+?Although icosahedral symmetry has been primarily
+studied in the context of many glasses, symmetric parti-
+cle arrangements also appear in many other nominallydisordered systems. Even an ideal gas, for example, con-
+tains Voronoi cells that are very symmetric, including
+tetrahedra, cubes, and icosahedra. Model a liquid at dif-ferent temperatures and pressures. What kinds of ordered
+patterns, indicated by symmetric Voronoi cells, can be
+observed in these otherwise disordered systems?
+(8)
+?X-ray diffraction patterns are often used to characterize
+ordered and disordered systems. What relations can be found
+between x-ray diffraction patterns and the distribution of
+Voronoi cell features such as areas, volumes, and topologies?
+ACKNOWLEDGMENTS
+This research was supported by a grant from the United
+States—Israel Binational Science Foundation (BSF), Jerusalem,
+Israel through Grant No. 2018/170. C. H. Rycroft was partiallysupported by the Applied Mathematics Program of the U.S.
+DOE Ofﬁce of Science Advanced Scientiﬁc Computing
+Research under Contract No. DEAC02-05CH11231.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors declare that they have no conﬂicts of interests
+related to this article.a)Electronic mail: mlazar@math.biu.ac.il, ORCID: 0000-0002-5552-5299.
+b)Electronic mail: jiayin_lu@g.harvard.edu
+c)Electronic mail: chr@seas.harvard.edu, ORCID: 0000-0003-4677-6990.
+1G. Vorono €ı, “Nouvelles applications des parame `tres continus /C18al at h /C19eorie
+des formes quadratiques. Deuxie `me m /C19emoire. Recherches sur les paral-
+l/C19elloe`dres primitifs,” J. Reine Angew. Math. 134, 198–287 (1908),
+https://eudml.org/doc/149291 .
+2J. A. D. Loera, J. Rambau, and F. Santos, Triangulations: Structures for
+Algorithms and Applications (Springer-Verlag, New York, 2010).
+3A. Okabe, B. N. Boots, K. Sugihara, and S. N. Chiu, Spatial
+Tessellations: Concepts and Applications of Voronoi Diagrams (John
+Wiley & Sons, New York, 1992).
+4N. N. Medvedev, V. P. Voloshin, V. A. Luchnikov, and M. L. Gavrilova,“An algorithm for three-dimensional Voronoi S-network,” J. Comput.
+Chem. 27(14), 1676–1692 (2006).
+5M. Pinheiro, R. L. Martin, C. H. Rycroft, and M. Haranczyk, “High accu-
+racy geometric analysis of crystalline porous materials,” CrystEngComm
+15, 7531–7538 (2013).
+6C. L. Phillips, C. R. Iacovella, and S. C. Glotzer, “Stability of the double
+gyroid phase to nanoparticle polydispersity in polymer-tethered nano-
+sphere systems,” Soft Matter 6, 1693–1703 (2010).
+7S. C. van der Marck, “Network approach to void percolation in a pack of
+unequal spheres,” Phys. Rev. Lett. 77, 1785–1788 (1996).
+8S. Sastry, D. S. Corti, P. G. Debenedetti, and F. H. Stillinger,
+“Statistical geometry of particle packings. I. Algorithm for exact deter-mination of connectivity, volume, and surface areas of void space in
+monodisperse and polydisperse sphere packings,” Phys. Rev. E 56,
+5524–5532 (1997).
+9L. Yi, K. Dong, R. Zou, and A. Yu, “Radical tessellation of the packingof ternary mixtures of spheres,” Powder Technol. 224, 129–137 (2012).
+10F. Aurenhammer, “Voronoi diagrams—a survey of a fundamental geo-
+metric data structure,” ACM Comput. Surv. 23(3), 345–405 (1991).
+11J. L. Bentley, B. W. Weide, and A. C. Yao, “Optimal expected-time algo-
+rithms for closest point problems,” ACM Trans. Math. Software 6,
+563–580 (1980).
+12K. E. Brassel and D. Reif, “A procedure to generate Thiessen polygons,”Geogr. Anal. 11(3), 289–303 (1979).
+13R. G. Cromley and D. Grogan, “A procedure for identifying and storing a
+Thiessen diagram within a convex boundary,” Geogr. Anal. 17, 167–174
+(1985).
+14A. Maus, “Delaunay triangulation and the convex hull of n points inexpected linear time,” BIT Numer. Math. 24, 151–163 (1984).
+15M. T. Heath, Scientiﬁc Computing: An Introductory Survey (McGraw-
+Hill, New York, 2002).
+16The GNU Multiple Precision Arithmetic Library, <https://gmplib.org >.
+17S. Fortune, “A sweepline algorithm for Voronoi diagrams,” in
+Proceedings of the Second Annual Symposium on Computational
+Geometry , SCG ’86 (ACM, New York, 1986), pp. 313–322.
+18S. Fortune, “A sweepline algorithm for Voronoi diagrams,” Algorithmica
+2(1–4), 153–174 (1987).
+19P. J. Green and R. Sibson, “Computing Dirichlet tessellations in the
+plane,” Comput. J. 21(2), 168–173 (1978).
+20D. Lee and B. Schachter, “Two algorithms for constructing a Delaunay
+triangulation,” Int. J. Comput. Inf. Sci. 9(3), 219–242 (1980).
+21C. B. Barber, D. P. Dobkin, and H. Huhdanpaa, “The Quickhull algorithm
+for convex hulls,” Trans. Math. Software 22(4), 469–483 (1996).
+22Seehttp://qhull.org/ for more information about the Quickhull algorithm
+and code.
+23A. Fabri and S. Pion, “CGAL: The computational geometry algorithmslibrary,” in Proceedings of the 17th ACM SIGSPATIAL International
+Conference on Advances in Geographic Information Systems (ACM,
+New York, 2009), pp. 538–539.
+24C. H. Rycroft, “Voro þþ: A three-dimensional Voronoi cell library in
+Cþþ,” Technical Report No. LBNL-1430E (Lawrence Berkeley
+National Laboratory, Berkeley, CA, 2009).
+25C. H. Rycroft, “Voro þþ: A three-dimensional Voronoi cell library in
+Cþþ,”Chaos 19(4), 041111 (2009).
+26A. Stukowski, “Visualization and analysis of atomistic simulation data
+with OVITO—the open visualization tool,” Model. Simul. Mater. Sci.
+Eng.18(1), 015012 (2010).
+27Seehttps://www.lammps.org/ for more information about the LAMMPS
+Molecular Dynamics Simulator code.
+28S. Plimpton, “Fast parallel algorithms for short-range molecular dynami-cs,”Comput. Phys. 117(1), 1–19 (1995).
+Fig. 12. (Color online) (a) For the nine points shown by the yellow circles, the
+Voronoi tessellation in a rectangular domain is shown in black. The outline of a
+domain Uis shown in purple. (b) If the Voronoi tessellation is restricted to U,t h e n
+one of the Voronoi cells, shown in blue, is split into two disconnected components.
+478 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 478 04 October 2023 23:11:12
+29K. Vollmayr-Lee, “Introduction to molecular dynamics simulations,”
+Am. J. Phys. 88(5), 401–422 (2020).
+30D. P. Starinshak, J. Owen, and J. Johnson, “A new parallel algorithm for
+constructing Voronoi tessellations from distributed input data,” Comput.
+Phys. Commun. 185(12), 3204–3214 (2014).
+31R. Gonz /C19alez, “PARAVT: Parallel Voronoi tessellation code,” Astron.
+Comput. 17, 80–85 (2016).
+32N. Ray, D. Sokolov, S. Lefebvre, and B. L /C19evy, “Meshless Voronoi on the
+GPU,” ACM Trans. Graph. 37(6), 1–12 (2018).
+33M. Ashby, F. Spaepen, and S. Williams, “The structure of grain bound-
+aries described as a packing of polyhedra,” Acta Metall. 26(11),
+1647–1663 (1978).
+34S. Willard, General Topology (Courier Corporation, Reading, MA, 2012).
+35E. A. Lazar, J. K. Mason, R. D. MacPherson, and D. J. Srolovitz,
+“Complete topology of cells, grains, and bubbles in three-dimensionalmicrostructures,” Phys. Rev. Lett. 109(9), 95505 (2012).
+36E. Wigner and F. Seitz, “On the constitution of metallic sodium,” Phys.
+Rev.43(10), 804–810 (1933).
+37N. W. Ashcroft and N. D. Mermin, Solid State Physics (Holt, Rinehart
+and Winston, New York, 1976).
+38E. A. Lazar, J. K. Mason, R. D. MacPherson, and D. J. Srolovitz,“Statistical topology of three-dimensional Poisson-Voronoi cells and cell
+boundary networks,” Phys. Rev. E 88(6), 063309 (2013).
+39L. Weinberg, “A simple and efﬁcient algorithm for determining isomor-
+phism of planar triply connected graphs,” IEEE Trans. Circuit Theory
+13(2), 142–148 (1966).
+40E. Steinitz, “Polyeder und raumeinteilungen,” Encyk der Math Wiss 12,
+38–43 (1922).
+41E. A. Lazar, J. Han, and D. J. Srolovitz, “Topological framework for local
+structure analysis in condensed matter,” Proc. Natl. Acad. Sci. U. S. A.
+112(43), E5769–E5776 (2015).
+42P. S. Landweber, E. A. Lazar, and N. Patel, “On ﬁber diameters of contin-
+uous maps,” Am. Math. Mon. 123(4), 392–397 (2016).
+43E. A. Lazar, “VoroTop: Voronoi cell topology visualization and analysis
+toolkit,” Modell. Simul. Mater. Sci. Eng. 26(1), 015011 (2017).
+44D. Reem, “The geometric stability of Voronoi diagrams with respect to
+small changes of the sites,” in Proceedings of the Twenty-Seventh Annual
+Symposium on Computational Geometry (ACM, New York, 2011), pp.
+254–263.
+45F. Weller, “Stability of Voronoi neighborship under perturbations of thesites,” in CCCG (1997).
+46M. A. Goberna and V. N. V. de Serio, “On the stability of Voronoi cells,”
+Top20(2), 411–425 (2012).
+47H. Leipold, E. A. Lazar, K. A. Brakke, and D. J. Srolovitz, “Statistical
+topology of perturbed two-dimensional lattices,” J. Stat. Mech. 2016 (4),
+043103.
+48E. A. Lazar and A. Shoan, “Voronoi chains, blocks, and clusters in per-turbed square lattices,” J. Stat. Mech. 2020 (10), 103204.
+49E. A. Lazar and D. J. Srolovitz, “Topological analysis of local structure
+in atomic systems,” in Statistical Methods for Materials Science: The
+Data Science of Microstructure Characterization , edited by J. Simmons,
+C. Bouman, L. Drummy, and M. De Graef (CRC, Boca Raton, 2018).
+50N. P. Weatherill, “Delaunay triangulation in computational ﬂuid dynamics,”
+Comput. Math. Appl. 24(5–6), 129–150 (1992).
+51V. Springel, “Hydrodynamic simulations on a moving Voronoi mesh,”
+arXiv:1109.2218 (2011).
+52G. A. Bres, S. T. Bose, M. Emory, F. E. Ham, O. T. Schmidt, G. Rigas,
+and T. Colonius, “Large-eddy simulations of co-annular turbulent jet
+using a Voronoi-based mesh generation framework,” AIAA Paper No.2018-3302, 2018.
+53N. Ahuja, B. An, and B. Schachter, “Image representation using Voronoitessellation,” Comput. Vis., Graphics, Image Process. 29(3), 286–295
+(1985).
+54H. Rom and S. Peleg, “Image representation using Voronoi tessellation:
+Adaptive and secure,” in Proceedings CVPR’88: The Computer Society
+Conference on Computer Vision and Pattern Recognition (IEEE
+Computer Society, Los Alamitos, CA, 1988), pp. 282–283.
+55Q. Du, M. Gunzburger, L. Ju, and X. Wang, “Centroidal Voronoi tessella-
+tion algorithms for image compression, segmentation, and multichannel
+restoration,” J. Math. Imaging Vis. 24(2), 177–194 (2006).
+56M. Melkemi and K. Hammoudi, “Voronoi-based image representation
+applied to binary visual cryptography,” Signal Process. Image Commun.
+87, 115913 (2020).57D. Heath and S. Kasif, “The complexity of ﬁnding minimal Voronoi cov-
+ers with applications to machine learning,” Comput. Geom. 3(5),
+289–305 (1993).
+58M. Khoury and D. Hadﬁeld-Menell, “Adversarial training with Voronoiconstraints,” arXiv:1905.01019 (2019).
+59K. Fukami, R. Maulik, N. Ramachandra, K. Fukagata, and K. Taira,
+“Global ﬁeld reconstruction from sparse sensors with Voronoitessellation-assisted deep learning,” arXiv:2101.00554 (2021).
+60J. W. Harrington, Analysis of Quantum Error-Correcting Codes: symplec-
+tic Lattice Codes and Toric Codes (California Institute of Technology,
+California, 2004).
+61V. V. Albert, J. P. Covey, and J. Preskill, “Robust encoding of a qubit ina molecule,” Phys. Rev. X 10(3), 031050 (2020).
+62D. M. Sussman, M. Paoluzzi, M. C. Marchetti, and M. L. Manning,
+“Anomalous glassy dynamics in simple models of dense biologicaltissue,” Europhys. Lett. 121(3), 36001 (2018).
+63A. Shahmoradi and C. O. Wilke, “Dissecting the roles of local packing
+density and longer-range effects in protein sequence evolution,” Proteins
+84(6), 841–854 (2016).
+64R. Votel, D. A. Barton, T. Gotou, T. Hatanaka, M. Fujita, and J. Moehlis,
+“Equilibrium conﬁgurations for a territorial model,” SIAM J. Appl. Dyn.
+Syst. 8(3), 1234–1260 (2009).
+65C. W. Stewart and R. van der Ree, “A Voronoi diagram based population
+model for social species of wildlife,” Ecol. Modell. 221(12), 1554–1568
+(2010).
+66C. Kittel and P. McEuen, Introduction to Solid State Physics (John Wiley
+& Sons, New York, 1976), Vol. 8.
+67W. D. Callister, Fundamentals of Materials Science and Engineering
+(John Wiley & Sons, New York, 2000), Vol. 471660817.
+68J. D. Bernal and R. H. Fowler, “A theory of water and ionic solution, with
+particular reference to hydrogen and hydroxyl ions,” J. Chem. Phys. 1(8),
+515–548 (1933).
+69R. Fowler and J. Bernal, “Note on the pseudo-crystalline structure of
+water,” Trans. Faraday Soc. 29(140), 1049–1056 (1933).
+70J. Bernal, “An attempt at a molecular theory of liquid structure,” Trans.
+Faraday Soc. 33, 27–40 (1937).
+71J. G. Montoro and J. Abascal, “The Voronoi polyhedra as tools for struc-
+ture determination in simple disordered systems,” J. Phys. Chem. 97(16),
+4211–4215 (1993).
+72Y. Cheng, J. Ding, and E. Ma, “Local topology vs. atomic-level stresses
+as a measure of disorder: Correlating structural indicators for metallic
+glasses,” Mater. Res. Lett. 1(1), 3–12 (2013).
+73P. Derlet, “Correlated disorder in a model binary glass through a
+local SU (2) bonding topology,” Phys. Rev. Mater. 4(12), 125601
+(2020).
+74D. Han, D. Wei, J. Yang, H.-L. Li, M.-Q. Jiang, Y.-J. Wang, L.-H. Dai,
+and A. Zaccone, “Atomistic structural mechanism for the glass transition:
+Entropic contribution,” Phys. Rev. B 101(1), 014113 (2020).
+75H. J/C19onsson and H. C. Andersen, “Icosahedral ordering in the Lennard-
+Jones liquid and glass,” Phys. Rev. Lett. 60(22), 2295–2298 (1988).
+76T. J. Yoon, M. Y. Ha, E. A. Lazar, W. B. Lee, and Y.-W. Lee,
+“Topological characterization of rigid–nonrigid transition across the
+Frenkel line,” J. Phys. Chem. Lett. 9(22), 6524–6528 (2018).
+77T. J. Yoon, M. Y. Ha, W. B. Lee, Y.-W. Lee, and E. A. Lazar,
+“Topological generalization of the rigid–nonrigid transition in soft-sphere
+and hard-sphere ﬂuids,” Phys. Rev. E 99(5), 052603 (2019).
+78T. J. Yoon, M. Y. Ha, E. A. Lazar, W. B. Lee, and Y.-W. Lee,
+“Topological extension of the isomorph theory based on the Shannon
+entropy,” Phys. Rev. E 100(1), 012118 (2019).
+79H. M. Jaeger, S. R. Nagel, and R. P. Behringer, “Granular solids, liquids,
+and gases,” Rev. Mod. Phys. 68, 1259–1273 (1996).
+80P. Jop, Y. Forterre, and O. Pouliquen, “A constitutive law for dense gran-
+ular ﬂows,” Nature 441, 727–730 (2006).
+81D. L. Henann and K. Kamrin, “A predictive, size-dependent continuum
+model for dense granular ﬂows,” Proc. Natl. Acad. Sci. U. S. A. 110(17),
+6730–6735 (2013).
+82C. S. O’Hern, L. E. Silbert, A. J. Liu, and S. R. Nagel, “Jamming at zero
+temperature and zero applied stress: The epitome of disorder,” Phys. Rev.
+E68, 011306 (2003).
+83D. Turnbull and M. H. Cohen, “Free-volume model of the amorphous
+phase: Glass transition,” J. Chem. Phys. 34(1), 120–126 (1961).
+84M. H. Cohen and G. S. Grest, “Liquid-glass transition, a free-volume
+approach,” Phys. Rev. B 20, 1077–1098 (1979).
+479 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 479 04 October 2023 23:11:12
+85H. Caram and D. C. Hong, “Random-walk approach to granular ﬂows,”
+Phys. Rev. Lett. 67, 828–831 (1991).
+86C. H. Rycroft, Y. L. Wong, and M. Z. Bazant, “Fast spot-based multiscale
+simulations of granular drainage,” Powder Technol. 200(1–2), 1–11
+(2010).
+87C. H. Rycroft, A. Dehbi, T. Lind, and S. G €untay, “Granular ﬂow in
+pebble-bed nuclear reactors: Scaling, dust generation, and stress,” Nucl.
+Eng. Des. 265, 69–84 (2012).
+88S. Torquato, Random Heterogeneous Materials: Microstructure and
+Macroscopic Properties (Springer, New York, 2002).
+89C. H. Rycroft, K. Kamrin, and M. Z. Bazant, “Assessing continuum pos-
+tulates in simulations of granular ﬂow,” J. Mech. Phys. Solids 57(5),
+828–839 (2009).
+90C. H. Rycroft, G. S. Grest, J. W. Landry, and M. Z. Bazant, “Analysis ofgranular ﬂow in a pebble-bed nuclear reactor,” Phys. Rev. E 74, 021306
+(2006).
+91J. G. Puckett, F. Lechenault, and K. E. Daniels, “Local origins of volumefraction ﬂuctuations in dense granular materials,” Phys. Rev. E 83,
+041301 (2011).
+92H. Suikkanen, J. Ritvanen, P. Jalali, and R. Kyrki-Rajam €aki, “Discrete
+element modelling of pebble packing in pebble bed reactors,” Nucl. Eng.
+Des.273, 24–32 (2014).
+93P. Gago, D. Maza, and L. Pugnaloni, “Ergodic-nonergodic transition in
+tapped granular systems: The role of persistent contacts,” Papers Phys.
+8(1), 080001 (2016).
+94S. R. Waitukaitis, L. K. Roth, V. Vitelli, and H. M. Jaeger, “Dynamic
+jamming fronts,” Europhys. Lett. 102(4), 44001 (2013).
+95A. Panaitescu and A. Kudrolli, “Epitaxial growth of ordered and disor-
+dered granular sphere packings,” Phys. Rev. E 90, 032203 (2014).
+96N. Guo and J. Zhao, “Local ﬂuctuations and spatial correlations in granu-
+lar ﬂows under constant-volume quasistatic shear,” Phys. Rev. E 89,
+042208 (2014).
+97J. M. Rieser, C. P. Goodrich, A. J. Liu, and D. J. Durian, “Divergence of
+Voronoi cell anisotropy vector: A threshold-free characterization of local
+structure in amorphous materials,” Phys. Rev. Lett. 116, 088001 (2016).
+98M. Skrutskie, R. Cutri, R. Stiening, M. Weinberg, S. Schneider, J.
+Carpenter, C. Beichman, R. Capps, T. Chester, J. Elias et al. , “The two
+micron all sky survey (2MASS),” Astron. J. 131(2), 1163–1183 (2006).
+99D. G. York, J. Adelman, J. E. Anderson, Jr., S. F. Anderson, J. Annis, N.
+A. Bahcall, J. Bakken, R. Barkhouser, S. Bastian et al. , “The Sloan digital
+sky survey: Technical summary,” Astron. J. 120(3), 1579–1587 (2000).
+100I. Vavilova, A. Elyiv, D. Dobrycheva, and O. Melnyk, “The Voronoi tes-
+sellation method in astronomy,” in Intelligent Astrophysics , edited by I.
+Zelinka, M. Brescia, and D. Baron (Springer, New York, 2021), Vol. 39,
+pp. 57–79.
+101M. Ramella, W. Boschin, D. Fadda, and M. Nonino, “Finding galaxyclusters using Voronoi tessellations,” Astron. Astrophys. 368(3), 776–786
+(2001).
+102M. C. Neyrinck, N. Y. Gnedin, and A. J. Hamilton, “VOBOZ: An almost-parameter-free halo-ﬁnding algorithm,” Mon. Not. R. Astron. Soc.
+356(4), 1222–1232 (2005).
+103M. C. Neyrinck, “ZOBOV: A parameter-free void-ﬁnding algorithm,”
+Mon. Not. R. Astron. Soc. 386(4), 2101–2109 (2008).104R. E. Gonz /C19alez and N. D. Padilla, “Automated detection of ﬁlaments in
+the large-scale structure of the universe,” Mon. Not. R. Astron. Soc.
+407(3), 1449–1463 (2010).
+105Q. Du and M. Gunzburger, “Grid generation and optimization based on
+centroidal Voronoi tessellations,” Appl. Math. Comput. 133, 591–607
+(2002).
+106Q. Du and D. Wang, “Tetrahedral mesh generation and optimizationbased on centroidal Voronoi tessellations,” Int. J. Numer. Methods Eng.
+56(9), 1355–1373 (2003).
+107L. Ju, M. Gunzburger, and W. Zhao, “Adaptive ﬁnite element methods
+for elliptic PDEs based on conforming centroidal Voronoi–Delaunay tri-angulations,” SIAM J. Sci. Comput. 28(6), 2023–2053 (2006).
+108L. Ju, T. Ringler, and M. Gunzburger, “Voronoi tessellations and their
+application to climate and global modeling,” in Numerical Techniques for
+Global Atmospheric Models (Springer, New York, 2011), Vol. 80, pp.
+313–342.
+109C. Johnson, Numerical Solution of Partial Differential Equations by the
+Finite Element Method (Cambridge U. P., Cambridge, 1987).
+110K. Salari and P. Knupp, “Code veriﬁcation by the method of manufac-
+tured solutions,” Sandia Report No. SAND2000-1444 (2000).
+111P. J. Roache, “Code veriﬁcation by the method of manufactured sol-utions,” Trans. ASME 124, 4–10 (2002).
+112Q. Du, V. Faber, and M. Gunzburger, “Centroidal Voronoi tessellations:
+Applications and algorithms,” SIAM Rev. 41(4), 637–676 (1999).
+113S. Lloyd, “Least squares quantization in PCM,” IEEE Trans. Inf. Theory
+28(2), 129–137 (1982).
+114J. Tournois, P. Alliez, and O. Devillers, “2D centroidal Voronoi tessella-
+tions with constraints,” Numer. Math. J. Chin. Univ. 3(2), 212–222
+(2010).
+115P. Alliez, D. Cohen-Steiner, M. Yvinec, and M. Desbrun, “Variationaltetrahedral meshing,” in SIGGRAPH ’05: ACM SIGGRAPH 2005
+Courses (ACM, New York, 2005), p. 10.
+116Q. Du and D. Wang, “Recent progress in robust and quality Delaunay
+mesh generation,” J. Comput. Appl. Math. 195(1–2), 8–23 (2006).
+117J. J. de Pablo, N. E. Jackson, M. A. Webb, L.-Q. Chen, J. E. Moore, D.
+Morgan, R. Jacobs, T. Pollock, D. G. Schlom, E. S. Toberer, J. Analytis,
+I. Dabo, D. M. DeLongchamp, G. A. Fiete, G. M. Grason, G. Hautier, Y.
+Mo, K. Rajan, E. J. Reed, E. Rodriguez, V. Stevanovic, J. Suntivich, K.
+Thornton, and J.-C. Zhao, “New frontiers for the materials genome initia-tive,” npj Comput. Mater. 5(1), 41 (2019).
+118L. Zdeborov /C19a, “New tool in the box,” Nat. Phys. 13(5), 420–421 (2017).
+119T .F .W i l l e m s ,C .H .R y c r o f t ,M .K a z i ,J .C .M e z a ,a n dM .H a r a n c z y k ,
+“Algorithms and tools for high-throughput geometry-based analysis of crystalline
+porous materials,” Microporous Mesoporous Mater. 149(1), 134–141 (2012).
+120L . - C .L i n ,A .H .B e r g e r ,R .L .M a r t i n ,J .K i m ,J .A .S w i s h e r ,K .J a r i w a l a ,C .
+H. Rycroft, A. S. Bhown, M. W. Deem, M. Haranczyk et al. ,“In silico
+screening of carbon-capture materials,” Nat. Mater. 11(7), 633–641 (2012).
+121L. Ward, R. Liu, A. Krishna, V. I. Hegde, A. Agrawal, A. Choudhary,
+and C. Wolverton, “Including crystal structure attributes in machine
+learning models of formation energies via Voronoi tessellations,” Phys.
+Rev. B 96, 024104 (2017).
+122The notation argmin xfðxÞis the value of xfor which f(x) is a minimum.
+123For a vector z¼ða;bÞ2R2, the p-norm is deﬁned as
+jjzjjp¼ð jajpþjbjpÞ1=p.
+AJP Index to Advertisers
+AAPT Summer 2022 Meeting ......................... Cover 2
+AAPT Membership. ................................ Page 401
+AAPT ComPADRE ................................ Page 403
+APSIT . . ......................................... Page 404
+AAPT Career Center ...................................T O C
+480 Am. J. Phys., Vol. 90, No. 6, June 2022 Lazar, Lu, and Rycroft 480 04 October 2023 23:11:12

@@ -1,0 +1,686 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| JUNE 01 2023
+Simulating gravitational motion, gas dynamics, and
+structure in the cosmos
+J. W. Powell ; L. Caudill ; O. Young
+Am. J. Phys.  91, 478 (2023)
+https://doi.org/10.1 119/5.0144906
+Articles Y ou May Be Interested In
+Comparison of CORSIKA and COSMOS simulations
+AIP Conference Proceedings  (September 201 1)
+IRAC Deep Survey Of COSMOS
+AIP Conference Proceedings  (October 2007)
+Model of an Oscillating Cosmos which Rejuvenates during Contraction
+J. Math. Phys.  (December 2004) 04 October 2023 22:53:08
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Simulating gravitational motion, gas dynamics, and structure
+in the cosmos
+J. W. Powell,a)L.Caudill,b)and O. Youngc)
+Department of Physics, Reed College, Portland, Oregon 97201
+(Received 8 December 2022; accepted 8 March 2023)
+We provide introductory explanations and illustrations of the N-body hydrodynamics code Charm
+N-body GrAvity solver (ChaNGa). ChaNGa simulates the gravitational motion and gas dynamics
+of matter in space with the goal of modeling galactic and/or cosmological structure and evolution.
+We discuss the algorithm for leapfrog integration and smoothed particle hydrodynamics andcomputer science concepts used by the program, including the binary data structure for the particle
+positions. Our presentation borrows from the doctoral dissertation of J. Stadel, U. Washington,
+2001. Problems are provided in order to use ChaNGa to learn or solidify some cosmologicalconcepts.
+VC2023 Author(s) .All article content, except where otherwise noted, is licensed under a Creative Commons
+Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0144906
+I. INTRODUCTION
+N-body hydrodynamic simulations of the cosmos and iso-
+lated galaxies1,2have been crucial in establishing Lambda
+cold dark matter (Lambda refers to dark energy) as the stan-dard model of cosmology.3Due to the fundamental nature of
+gravity, computationally challenging densities occur in astro-
+physical situations. Simulations developed by several groups
+have yielded trustworthy predictions of the incrediblydiverse structure of the cosmos and galaxies, and severalsimulations of very differing kinds have given the sameresults, thanks to the AGORA project.
+4
+ChaNGa (Charm N-body GrAvity solver) is an example
+of a highly parallel N-body hydrodynamic code.5The phys-
+ics of star formation, supernovae feedback, and cooling areincluded in ChaNGa.
+Our goal is to provide an accessible, but thorough explana-
+tion of how to use this N-body hydrodynamic code by addingto ChaNGa’s GitHub wiki
+6and many YouTube presenta-
+tions. We also hope to provide a deeper appreciation for how
+computer science data structures are used to constructChaNGa. For example, ChaNGa is written in the parallelprogramming language CHARM þþ, which won a Gordon
+Bell prize.
+7Although we have not attempted to provide an
+exhaustive description of the code, we focus on the detailsthat are most relevant to the physics.
+Sections II–IV discuss gravitational motion and the
+ChaNGa’s approach to treat it. Section Vdescribes several
+considerations for a simulation of an inﬁnite (or at least verylarge) universe. Section VIdescribes a technique for soften-
+ing gravitational forces at small distances to avoid problems
+that would otherwise arise in the calculation of the forces.Section VII describes the method by which ChaNGa
+accounts for the presence of gas in the universe. Section VIIIgives some of the results of ChaNGa, and Sec. IXprovides
+some suggested problems.
+II. NEWTONIAN GRAVITY AND NUMERICAL
+INTEGRATION
+Gravity is responsible for Kepler’s three laws, which are
+commonly derived in junior-level mechanics without any
+mention of computers. The difference between the N¼2 and
+N>2 systems is huge despite the fact that Newton’s laws
+and the universal law of gravitation are the same for both.
+The gravitational force between two massive particles m
+1
+andm2in three dimensions is given by
+~F1¼/C0~F2¼Gm 1m2
+j~r2/C0~r1j3ð~r2/C0~r1Þ; (1)
+where ~r1and~r2denote the position vectors of the two par-
+ticles. Codes capable of treating the N-body problem relativ-
+istically do not currently exist.8Because the forces are
+additive, the gravitational force acting on the ith particle in a
+system of three or more particles is
+~Fi¼XN
+j6¼iGm imj
+j~rj/C0~rij3ð~rj/C0~riÞ: (2)
+Equation (2)gives the Newtonian approximation to gravity.
+We need only to substitute Eq. (2)into Newton’s second law
+and solve the resulting second-order differential equation for
+all the particles to model a galaxy. The resulting equation
+has no analytical solutions9forN>2. Rather than trying to
+derive the exact trajectories for N/C292 particles, we need to
+use a numerical integration technique to approximate the
+trajectories.
+478 Am. J. Phys. 91(6), June 2023 http://aapt.org/ajp VCAuthor(s) 2023.
+ 478 04 October 2023 22:53:08
+A common numerical method for force integration for
+N-body codes,10which is similar to the method adopted by
+ChaNGa,9is known as leapfrog integration. Any numerical
+integration algorithm requires dividing the time into discretesteps. The algorithm for leapfrog integration (derived by a
+Taylor expansion) is9
+~vnþ1
+2¼~vn/C01
+2þ~anDt; (3)
+~rnþ1¼~rnþ~vnþ1
+2Dt: (4)
+The form of Eq. (3)suggests the etymology of “leapfrog”:10
+Given initial values for the position and velocity, we ﬁrst use
+Eq.(3)to update the velocity and then use the new velocity
+in Eq. (4)to update the position. We repeat the process many
+times, alternating between velocity and position in a mannersimilar to the game “leapfrog.”
+Although Eqs. (3)and(4)give the algorithm in a compact
+form and provide insight into a familiar technique, they arenot the equations that ChaNGa actually uses in its implemen-tation. Instead, ChaNGa uses what is known as the “kick-drift-kick” form of the algorithm, which can be written as
+9,11
+~vnþ1
+2¼~vnþ~anDt
+2; (5)
+~rnþ1¼~rnþ~vnþ1
+2Dt; (6)
+~vnþ1¼~vnþ1
+2þ~anþ1Dt
+2: (7)
+From the form of Eqs. (5)–(7) , we see where the name “kick-
+drift-kick” arises. At each step, we ﬁrst update the intermediatevelocity term ~v
+nþ1
+2using the current gravitational acceleration
+(equal to the force per unit mass acting as the kick), then update
+the position ~rnþ1according to this new velocity (Eq. (6)treats
+the particle as though it is moving in the absence of externalforces, i.e., drifting), and then update the velocity ~v
+nþ1using
+the gravitational acceleration at the new spatial position.
+There are several reasons why the kick-drift-kick form of
+the leapfrog algorithm is favored by ChaNGa. Paramountamong these is a concept known as multi-stepping .5The
+number of computations in Eqs. (5)–(7) made during a ﬁxed
+time interval largely determines the accuracy of this integra-tion algorithm. Because the method is an approximation inwhich particles move with a ﬁxed velocity between timesteps, the smaller the time step, the more accurate the trajec-tories. There is a tradeoff in terms of run-time, and so ratherthan pursuing increasingly small time steps, the goal is usu-
+ally to ﬁnd the number of time steps compared to the dura-
+tion of the time interval for which the accuracy is goodenough. Because gravity is spatially dependent, what consti-tutes sufﬁcient temporal resolution is closely linked with theparticle density. Regions with higher particle density willnaturally require smaller time steps to achieve the same levelof physical accuracy that can be attained in a lower densityregion with a larger time step.
+1,9,11
+One approach to this problem would be to increase the
+number of time steps globally to be suitable to the desiredlevel of accuracy in high density regions, but doing so would
+introduce a large number of extraneous calculations for low
+density regions and, thus, would be computationally wasteful.1
+The solution is to assign time steps on a per-particle basis;that is, each particle gets its own time step in accordancewith the density of its surrounding particles (multi-stepping).The kick-drift-kick method ensures that such an individualized
+time-step assignment is possible, as long as the time step sizesof all particles are related by powers of two.
+9,12
+III. A HIERARCHICAL DATA STRUCTURE
+FOR THE PARTICLE POSITIONS:THE BARNES–HUT ALGORITHM
+Due to the complex nature of the N-body problem, another
+challenge is run-time efﬁciency. To understand the challenge,
+note that the net acceleration in the leapfrog algorithm in Eqs.
+(5)–(7) is the result of the large sum of gravitational interac-
+tions in Eq. (2)forN/C291. From the form of Eq. (2),w es e e
+that for a system of Nparticles, each particle experiences N–1
+gravitational interactions. If we were to write a program withjust the information from Sec. II, our program would need to
+perform N– 1 force calculations Ntimes or /C24N
+2calculations
+at each time step.8This number might be acceptable for small-
+scale computations, say for N¼100–1000, but the current state
+of computational astrophysics is such that simulations involveNwell in the millions and often evolve over thousands of time
+steps.9,11Programs need to accommodate this level of scale,
+which requires methods to speed up the gravitational force cal-culation process.
+The solution employed by ChaNGa is to use a data struc-
+ture designed to speed up the access to the huge amount of
+initial positions data: A tree structure. The most well-known
+implementation of such a structure is the Barnes–Hut algo-rithm.
+13Barnes–Hut offers an approximation of the gravita-
+tional force acting on a particle in logarithmic time(O½logNÞ], making the total force calculation per time step
+OðNlogNÞ, a gargantuan improvement from the polynomial
+time direct summation method.
+In the following, we introduce the standard Barnes–Hut
+algorithm to familiarize the reader with the general approach
+to the Gordon-Bell-prize-winning solution for speeding up
+the N-body problem. We will then discuss some of the modi-ﬁcations employed by ChaNGa and the motivations behindthem. Readers who wish a more in-depth or speciﬁc treat-ment of Barnes–Hut might be interested in the seminal 1986paper,
+13or more accessible sources such as Refs. 15and9.
+The fundamental principle behind the Barnes–Hut algo-
+rithm is to reduce the number of force calculations per-formed for each particle by applying a center-of-mass
+approximation for the force exerted by collections or clusters
+of distant particles.17More explicitly, for distant clusters—
+particles that are far from the particle whose acceleration wewant to calculate but are close to each other17—the algo-
+rithm determines the center of mass and total mass of thecluster and then performs a single gravitational force calcula-tion instead of many force calculations, which contribute lit-tle to improve the accuracy of the total force.
+As noted in Ref. 9, the nature of gravitation is such that
+for a sufﬁciently distant cluster of identical particles, the
+force contribution associated with each particle will beroughly the same (both in magnitude and direction), so theapproximation is justiﬁed. Of course, the distance constitutesthe main underlying assumption for the approximation,meaning it does not hold for nearby particles, for whichdirect summation is still performed. Because this approachrelies heavily on distance, we need to establish a way to
+determine what constitutes “far enough” for a center-of-mass
+approximation and “close enough” for particles to be consid-ered part of the same cluster. We might be tempted to simply
+479 Am. J. Phys., Vol. 91, No. 6, June 2023 Powell, Caudill, and Young 479 04 October 2023 22:53:08
+compare the distances of all the particles in the simulation,
+but such a process would be OðN2Þ,9and be no better than
+direct summation.
+The Barnes–Hut algorithm is a clever solution to this
+problem, which starts with a process known as domain
+decomposition , or the repeated decomposition of the initial
+volume into smaller subvolumes. It is useful to deﬁne thewidely used term node in the context of hierarchical data
+structures: “each node represents a portion of the 3D spacecontaining the particles in that volume.”
+5The Barnes–Hut
+algorithm uses an octree decomposition data structure,9,13
+which involves recursively dividing cubical volumes into
+eight subvolumes, hence, the name. (This decomposition isnot the scheme ChaNGa uses, but understanding the basicoctree decomposition method is helpful as an introduction tothe method in ChaNGa.) A summary of octree decomposi-
+tion is as follows:
+(1) Begin with the volume containing all particles, this vol-
+ume is the root node of the octree.
+(2) Make the ﬁrst decomopostion by dividing the root node
+evenly into eight subvolumes.
+(3) If there are no particles in one of the subvolumes/nodes,
+discard it.
+(4) If two or more particles are present in a subvolume,
+divide it evenly into eight daughter subvolumes/nodes.Then inspect each daughter node individually.
+(5) Repeat steps 2–4 until each node contains at most one
+particle.
+In total, the complexity of constructing the octree is
+OðNlogNÞ.
+13
+Figure 1gives an example of this process for a system of
+four particles. The nodes vary in size according to their cor-responding level in the tree structure. Only boxes containingmore than one particle are subdivided into daughter nodes,and division is performed recursively until each node con-tains one or zero particles. In practice, the number of par-ticles which is the threshold for further decomposition ishigher than one and is a parameter that can be varied toadjust the resolution. See Ref. 17for an excellent description
+of this process.
+We still need to discuss how this hierarchical data struc-
+ture expedites the force calculation, an insight which mayyet elude all but the most computer-savvy readers.
+The next step involves the center of mass calculations. The
+implementation of the algorithm as described in Ref. 13is such
+that the data structure representing a node in the tree has attrib-utes corresponding to the total mass and center of mass for theparticles which it contains. For nodes containing only one parti-
+cle (“leaf nodes” in the language of the tree metaphor), these
+values are trivial, so it is most efﬁcient to propagate this infor-mation backward through the data structure, i.e., leaves-to-root,a process which is also OðNlogNÞ.
+13
+If we examine the analogous two-dimensional Quadtree
+data structure depicted in Fig. 2, we see that the center of
+mass and total mass calculation would begin with node 4,whose attributes would be calculated using the positions andmasses of particles a and b. We can then use these attributesof node 4, as well as the mass and position of particle d, tocompute the total mass and center of mass of node 2 and soon. Nodes containing more than one particle can then betreated as pseudoparticles with their own associated mass
+(the total mass of the particles) and position (the center ofmass position).Once all the pseudoparticle nodes in the system have been
+assigned their mass and center of mass attributes, all themachinery necessary to begin force calculations is in place.The algorithm for calculating the force on a given particle p
+involves a traversal of the Octree, where ‘is the side length
+of the cubical region represented by the current node, Dis
+the distance between pand the node’s center of mass, and h
+is an accuracy parameter set at the start of the simulation,usually /C241. The algorithm for each particle is
+13
+(1) Start at the root node.
+(2) If ‘=D<h, compute the gravitational force between the
+current node and p, and add it to the total force acting
+onp.
+(3) Otherwise, traverse one layer down the tree (away from
+the root node) and perform step 2 for each daughternode.
+Once these steps have been completed, the gravitational
+inﬂuence of each particle on pis accounted for either by a
+direct force calculation or by a center of mass approxima-tion. For large N, this process involves performing order
+logNforce calculations for each particle, and, thus, the over-
+all run time of the algorithm is OðNlogNÞ.
+Fig. 1. A visual representation of an Octree decomposition for four particles
+taken from Ref. 14. The ﬁgure on underneath gives an alternative visualiza-
+tion of the decomposition. The purple node at the top corresponds to the
+entire original volume. The next layer down is orange-pink with three kinds
+of boxes in that row: no color for no particles, orange–pink with a black dotindicating a single particle, and an orange– pink box with no black dots indi-
+cating that there are two or more particles in that node (two particles in this
+example). These nodes require further decomposition.
+480 Am. J. Phys., Vol. 91, No. 6, June 2023 Powell, Caudill, and Young 480 04 October 2023 22:53:08
+IV. BARNES–HUT MODIFICATIONS
+The description we have provided of the Barnes–Hut grav-
+itational force computation closely follows Ref. 13, but as
+mentioned, there are several changes in the ChaNGa code.Most of these changes are described in Ref. 20. One notable
+change is that ChaNGa does not actually use the center ofmass of faraway clusters to approximate their gravitational
+inﬂuence. Instead, ChaNGa performs an operation known as
+a multipole expansion (usually discussed for electric ﬁelds)for improved force accuracy,
+5see Ref. 17for an excellent
+description of multipole expansions for N-body simulations.
+Also see the discussion of multipole expansions in Ref. 18.
+Due to the similarities between Newtonian gravity and theelectric ﬁeld, multipole expansions can be used to approxi-mate the gravitational potential produced by clusters of mas-sive particles.
+A multipole expansion effectively amounts to an inﬁnite
+sum of terms with increasing angular dependence.
+19The ﬁrst
+(or zeroth order) term is a monopole, or a point source,which has no angular dependence. The ﬁrst few higher orderterms are the dipole, quadrupole, and hexadecapole terms inthe electromagnetism context,
+18,19or in Ref. 20in the
+N-body simulation context. ChaNGa performs a multipoleexpansion to third order, including all terms up to and
+including hexadecapole,5which is faster and more accurate
+than a quadrupole order expansion.20
+Another notable difference between the Barnes–Hut algo-
+rithm and that employed by ChaNGa is the precise structure
+of the spatial decomposition tree. As we discussed in Sec.
+III, the algorithm recursively divides the spatial domain into
+even sections of eight, resulting in a data structure called an
+octree (see Fig. 1). Instead, the spatial decomposition per-
+formed by ChaNGa employs a binary tree rather than an
+octree, meaning the domain is recursively divided into sec-tions of two rather than eight. This change is consistent with
+the approach used by the N-body code PKDGRAV,20from
+which ChaNGa inherits much of its gravitational force
+calculation.5
+The justiﬁcation for using a binary tree rather than an
+octree is that a binary tree structure offers advantages for
+parallelization, particularly when distributing the computa-
+tion over an arbitrary number of processors,20a feature
+which has become of central importance in high performance
+computing.
+Although the precise details of ChaNGa’s spatial binary
+tree implementation are not easy to learn from the literature,
+ChaNGa explicitly inherits much of its gravitational force
+calculation from PKDGRAV,5and the details of which can
+be found in Ref. 20. Because of this intellectual inheritance,
+a brief discussion on PKDGRAV’s domain decompositionmethod is warranted to provide a better understanding of
+what is implemented in ChaNGa. Aside from the overall dif-
+ference in an organizational structure, a crucial difference
+between the Barnes–Hut Octree and the binary trees used by
+contemporary simulation codes is that in binary tree data
+structures space is often not divided up evenly. Instead,
+daughter nodes are sized dynamically in accordance withsome bisection scheme, often related to the number of par-
+ticles per daughter node. An example of such a binary tree
+algorithm (in two dimensions) is the k-D tree , depicted in
+Fig. 3(a). This algorithm involves recursively bisecting
+nodes through their longest axis such that both daughter
+nodes contain approximately the same number of particles.
+Note that in Fig. 3, the ﬁrst bisection is done such that each
+daughter node contains 15 particles, then 8, and ﬁnally 4.
+The k-D tree offers a good ﬁrst look into spatial binary trees
+with dynamically sized nodes, but it also presents problems in
+terms of force error and run time efﬁciency.
+20The decomposi-
+tion method used by PKDGRAV is depicted in two dimensions
+in Fig. 3(b). By comparing this diagram to its neighbor repre-
+senting the k-D tree, it is clear that there is more going on here
+than explained in the caption (Fig. 4). You can gain a better
+understanding of spatial binary trees by reading the appropriate
+section of Ref. 20.
+To better understand what is shown in Fig. 3, we note that
+the spatial binary tree decomposition really has only one fun-
+damental difference from the k-D tree: The “squeezing” of
+daughter nodes to minimize the volume they represent. At
+every step, PKDGRAV’s binary tree compresses the volume
+of the node being examined to the smallest rectangle (rectan-
+gular prism in three dimensions) that contains all the par-
+ticles in the node. Because the bounding box is nowconsidered to be the node’s volume, it is bisected through its
+longest axis into two daughter nodes containing roughly
+equal numbers of particles, which are then squeezed them-
+selves. This process is repeated until each node is under the
+Fig. 2. A two-dimensional analogue of the Barnes–Hut Octree, known as a
+Quadtree. Such ﬁgures are better understood initially by removing all the
+subvolumes and starting from scratch. Only domain decomposed subvo-
+lumes that have more than one particle are shown in (a). The numbers next
+to the circles in (b) refer to a particular node in the text. This image was
+taken from Ref. 16.
+481 Am. J. Phys., Vol. 91, No. 6, June 2023 Powell, Caudill, and Young 481 04 October 2023 22:53:08
+maximum particle count for a leaf node, which for ChaNGa
+is usually around 8–12.5
+We have so far discussed two of the fundamental modiﬁca-
+tions to the Barnes–Hut algorithm employed by ChaNGa,namely, the use of a hexadecapole order multipole expansionfor the gravitational force approximation at large distances andthe use of a spatial binary tree structure rather than an octree.There is another aspect of the gravitational force calculationthat should be mentioned, namely, ChaNGa’s approach to par-allelization, because large-scale parallelization is a primary rea-son for the code.
+21A detailed description of the parallelization
+process can be found in Sec. 4 of Ref. 5.
+We have described how ChaNGa uses a spatial binary tree
+to handle the gravitational force calculation. Although it iscorrect that the binary tree is the fundamental data structure,ChaNGa’s force calculation involves not one but a numberof spatial binary trees, each representing a subregion of the
+simulation volume containing a subset of the overall particlecount, divided among the processors allotted to the computa-tion.
+5To facilitate this approach, ChaNGa performs an initial
+domain decomposition step not described by the spatialbinary tree or octree, in which the simulation volume isdivided into a number of subregions containing an equalnumber of particles according to a space-ﬁlling curve algo-rithm.
+5The space-ﬁlling curve passes through each discrete
+spatial cell containing a particle, Fig. 4. The resulting spatial
+decomposition looks different from a binary tree or octree.
+This space-ﬁlling curve algorithm initially occurs to balancethe computational load across the processors being used. Thecode iterates through a number of potential decompositionsuntil all bins (subregions) are sufﬁciently optimal.
+5All the
+particles in each bin are then assigned to a data object calledatree piece , so that each tree piece represents a subset of the
+overall volume. Each tree piece then performs a spatialbinary decomposition of its assigned subvolume (using abounding box method similar or identical to the one we have
+described), and the gravitational force calculation begins.
+5
+The term “tree piece” is closely associated with another
+concept in ChaNGa; a chare . Chares are important in form-
+ing checkpoints for long simulations, and chares are essen-tially tree pieces.
+5Note that, because particles are assigned
+to tree pieces in accordance with the initial space-ﬁllingcurve decomposition, no single processor has direct accessto all the particles in the simulation, but all particles interactwith each other gravitationally. Because of this dichotomy,ChaNGa also facilitates communication across processors toallow remote access to nodes that are part of different tree
+pieces.
+5Communication across processors involves a
+network.
+V. BOUNDARY CONDITIONS AND EWALD SUMS
+We know that the observable universe spans a distance of
+approximately 13 /C2109light years. Even very large simula-
+tions, such as those performed as part of the IllustrisTNGproject,
+23have computational volumes with widths only in
+hundreds of millions of light years. Thus, even exceptionally
+large simulations model regions, which constitute only asmall fraction of the universe. Because gravity acts atlarge distances, this limitation is a problem for realistic
+Fig. 3. Images representing a standard k-D tree domain decomposition (a)
+and the spatial binary tree decomposition used by PKDGRAV (b). The k-D
+tree is constructed with a maximum of four particles per leaf cell. On theright, the bounds have been squeezed before bisection. The dashed lines
+indicate bisectors. The differences between the two decompositions are
+much more pronounced for a more highly clustered distribution. In that case,
+the spatial locality of the spatial binary tree would be much improved over
+the k-D tree. k-D trees can have pathological problems with certain distribu-
+tions (Ref. 20), so the spatial binary tree is the best choice. The name spatial
+binary tree comes from “spatially bisecting the bounding box.” This imageand caption are taken from Ref. 20.
+Fig. 4. The left-hand side is a square divided into four sub-squares with the
+“curve” going through each of the four sub-squares. The curve looks likethe letter “N,” which might not look like a curve. The ﬁgure is helpful in
+understanding the meaning of a space-ﬁlling curve, because we can see the
+interpretation of the “space” that is required to understand the acronym
+“space-ﬁlling curve.” That is, there are only four “points”—instead of an
+inﬁnite number—in this space. The right-hand ﬁgure is intended to help gen-
+eralize the point of the left-hand subﬁgure. The ﬁgures are from Ref. 22.
+482 Am. J. Phys., Vol. 91, No. 6, June 2023 Powell, Caudill, and Young 482 04 October 2023 22:53:08
+simulations. Before discussing an approach to this problem,
+we ﬁrst discuss an important concept of the currently
+accepted cosmological model: The cosmological principle.
+The cosmological principle states that the universe is both
+isotropic and homogeneous.24Being isotropic means that the
+universe looks the same in all directions. Similarly, homoge-
+neous means that the universe looks the same at all locations.
+Readers who have looked at the night sky may object,
+because the universe does not look the same in all directions
+and there are distinct features such as stars and constella-
+tions. Similarly, others might argue that the universe must
+look a little different for someone in the Andromeda galaxy.
+The cosmological principle needs to be understood in the
+context of distance scales: On some scales, the universe is
+isotropic and homogeneous, but on others, it deﬁnitely is not.
+The cosmological principle does not state that on a scalesuch as our observational perspective, the universe cannot
+contain distinct features, but rather that at sufﬁciently large
+scales (relative to our perspective), the two assumptions
+hold.25
+The cosmological principle provides justiﬁcation for
+modeling a simulation volume as a single cell in an inﬁnite
+(or at least very large) three-dimensional grid of perfectly
+identical cubes, which is the approach taken by ChaNGa.
+Such codes use periodic boundary conditions, because the
+structure of the simulation volume is repeated over a periodic
+lattice.20This approach addresses the issues that arise from a
+ﬁnite simulation volume, but it is then necessary to treat the
+gravitational force calculation over an inﬁnite lattice, which
+might seem no less daunting. The solution adopted by
+ChaNGa is to break up the calculation into long-range and
+short-range components.11,20The short-range calculation is
+performed as an extension of the Barnes–Hut algorithm
+described in Sec. IIIby including a number of neighboring
+lattice cells (usually 26 of them20) in the Barnes–Hut force
+calculation. The long-range gravitational contribution is then
+accounted by Ewald sums,5,20,27where the simulation cell is
+repeated exactly in every direction so that the long range
+force can be calculated as a sum over all these repeated cells.
+VI. FORCE SOFTENING
+Another issue related to the gravitational force calculation
+is how to handle the gravitational force between particles at
+very small distances. From Eq. (1), we can see that the inter-
+particle force increases very quickly at small particle separa-
+tions. This inﬁnite force for zero separation presents a
+problem, because it can be difﬁcult to handle very large
+forces computationally,9leading to unphysical results.20
+Hence, it is important for an N-body code to implementsome kind of softening to impose a limit on the magnitude of
+the force. In ChaNGa, this force softening is closely relatedto the handling of smoothed particle hydrodynamics (see
+Sec. VII) and involves a spline softening kernel,
+5,20which
+effectively cuts off the gravitational force at zero interparti-
+cle separation, while maintaining the usual Newtonian grav-
+ity at distances greater than the softening length.26
+VII. SMOOTH PARTICLE HYDRODYNAMICS
+We see that a robust and efﬁcient computational treatment
+of gravity is no simple task. There remain several nuances,
+which have been discussed only superﬁcially or have been
+omitted entirely.5,20,26,28We could write a book just on theworkings of a single sufﬁciently advanced N-body code.20
+Nevertheless, there is another crucial element of ChaNGa
+that we would be remiss to not discuss at least brieﬂy: gas
+dynamics.
+Everything we have discussed about ChaNGa so far has
+been related to predicting the motion of inﬁnitesimal point
+masses under the inﬂuence of a mutual gravitational force.
+Clearly, this calculation is crucial for computational astrophys-ics: Gravity is a dominant force in the cosmos. Nevertheless,
+simulating the motion of particles under the inﬂuence of grav-
+ity would be sufﬁcient only if we lived in a universe that con-sisted purely of discrete, massive bodies such as stars and darkmatter. In particular, a purely gravitational simulation would
+ignore the signiﬁcant amounts of gas and dust present in our
+universe, which also play a signiﬁcant role in galaxy formationand cosmological structure.
+9Gravity inﬂuences the motion of
+gas and dust, but additional considerations need to be made for
+the dynamics of the gas itself. To handle gas physics, N-bodycodes turn to ﬂuid mechanics and treat the gas as a continuous
+ﬂuid medium, a reasonable approximation at a macroscopic
+scale.9,29The fundamental equation of ﬂuid dynamics is the
+nonlinear Navier–Stokes equation. This nonlinearity leads tomany more challenges.
+There exist two approaches to ﬂuid dynamics: the
+Eulerian description and the Lagrangian description.29The
+Eulerian description considers what is happening at ﬁxedlocations (or points) in space as a ﬂuid medium ﬂows
+through these points. In contrast, the Lagrangian description
+considers the dynamic evolution of individual pieces of mat-ter representing “ﬂuid elements” as they travel through
+space.
+29Broadly speaking, there are two types of N-body
+simulation codes that treat gas dynamics: grid-based (alsoknown as mesh-based) codes, which follow the Eulerian
+description by considering a simulation grid and tracking the
+ﬂow of gas through that grid, and particle-based codes, suchas ChaNGa, which follow the Lagrangian description bytracking the spatial motion of individualized gas “parcels.”
+26
+One of the advantages to the Lagrangian approach is that
+it is a fairly natural extension of the Barnes–Hut based gravi-
+tational force calculation described in Sec. III.5The particles
+involved in the gravitational force calculation are also used
+to discretize a gas, effectively representing the “parcels” for
+the Lagrangian approach.9This important and elegant step is
+accomplished through a process known as smoothed particle
+hydrodynamics, which uses the particles present in the simu-
+lation to derive continuous ﬂuid quantities (such as the pres-sure and temperature) spanning the surrounding region of
+space.9,11In this sense, the particles can be thought of as
+being “smoothed out” over space, smudged into a continuousparticle-ﬂuid that represents the gas.
+We brieﬂy provide a more technical description of the
+smoothing method used for smoothed particle hydrodynamics.
+A more detailed description is given in Sec. 5 of Ref. 26.
+ChaNGa’s implementation of smoothed particle hydrodynam-ics follows Ref. 26. The method involves using a smoothing
+kernel to continuously map ﬂuid quantities (provided by the
+representative particles) to the region of space around the par-ticles.
+9The smoothing calculation is given by11
+hfð~rÞi ¼ð
+fð~rjÞWðj~ri/C0~rjj;hÞdVð~rjÞ; (8)
+where fð~rjÞis the ﬂuid quantity (such as the density) being
+mapped onto space for a representative particle, hfð~rÞiis its
+483 Am. J. Phys., Vol. 91, No. 6, June 2023 Powell, Caudill, and Young 483 04 October 2023 22:53:08
+average value computed at position ~r,Wis the smoothing
+kernel function, and his the smoothing length.9Equation (8)
+can be approximated as a sum over particles11
+hfð~riÞi ¼X
+jVjfjWðj~ri/C0~rjj;hÞ: (9)
+A depiction of the smoothing process is shown in Fig. 5.
+VIII. RESULTS
+So far we have introduced N-body hydrodynamic simula-
+tion methods at the conceptual level, because most research-
+ers do not write code from scratch. In the following, we give
+a brief overview of the user’s perspective when running asimulation in ChaNGa on a laptop or desktop computer.
+Running a ChaNGa simulation on a supercomputer requires
+considerably more infrastructure.
+31
+Given that you have access to a computer running Linux,
+doing a simulation in ChaNGa requires only the code itself,
+a parameter ﬁle, and an initial conditions ﬁle. ChaNGa is a
+complicated piece of software, and as such is supported by anumber of dependencies. This complexity, as well as that ofits dependencies, can lead to some difﬁculties in the installa-
+tion process. For those having trouble installing the software,
+see Ref. 32and the supplementary material, which provides
+some detailed notes on ChaNGa installation.
+33
+ChaNGa simulates the gravitational motion and gas
+dynamics of matter in space with the goal of modeling galac-
+tic and/or cosmological structures. The initial conditions’ ﬁleis a binary ﬁle (not human readable) that provides the initial
+positions and velocities of all particles in the simulation.
+11
+These initial conditions cannot be arbitrarily assigned and
+must be computed in a manner that approximates observa-
+tions of the early universe via the cosmic microwave back-
+ground measured by the Wilkinson microwave anisotropyand Planck probes.
+34,35For a discussion of the generation of
+initial conditions for the AGORA project using MUSIC,36
+see Chap. 1 of Ref. 11. A more elementary and well-
+documented program for producing initial conditions that
+works well with ChaNGa is pyICs.37The initial conditions
+provide the starting point by giving the initial position andvelocity values for all the particles; these values are assigned
+to be approximately consistent with observation.
+We used the software visualization tool pynbody40to
+generate the image in Fig. 6based on the cube300 simula-
+tion.42Pynbody is suggested because it is particularly
+ChaNGa friendly, and the documentation is excellent. Theﬁbrils of density corresponding to light blue are of greatimportance for transporting gas to and from galaxies, andtheir physics is of great interest.
+41The purple dots in the ﬁla-
+ment represent galaxies.
+Our goal has been to extend the presentations of the N-
+body hydrodynamic code ChaNGa given in Refs. 5and31to
+make using ChaNGa more accessible. Some advanced topicsat the heart of ChaNGa have regretfully been left out. It ishoped that others with experience using ChaNGa might take
+up the challenge of providing a part two on possible topics
+such as the CHARM þþ language and how it works with
+various kinds of hardware.
+IX. SUGGESTED PROBLEMS
+A few suggested problems are provided to guide the
+reader in both the analysis of the simulation results and basic
+concepts in cosmological physics.
+Problem 1 . Units in ChaNGa are interesting and require
+attention. Provide a detailed derivation of the results formass units in ChaNGa wiki example number two under“Understanding Units,” which is under “Code Units.”
+38The
+derivation will get the reader ready to understand the units
+and value of the Hubble constant in problem2. Reference 39
+is extensive and requires some study before ﬁnding “CodeUnits.”
+Problem 2 . Imagine that you are responsible for creation
+and that one of your tasks is to create a multiverse. Simulate
+a universe that has a Hubble constant H
+0that is, say, roughly
+half the value of the presently accepted value. Use ChaNGaand cube300 to generate a H
+0=2 universe and demonstrate
+that the simulation behaves as expected. Note: This problemis a bit—possibly very—tricky, but once the data are found/
+obtained and compared, the result is very clear.
+This problem depends strongly on understanding the mate-
+rial in the supplementary material.42For example, it provides
+Fig. 5. (Color online) Depiction of a smoothing kernel Wapplied to a dis-
+crete set of particles. The blue-ﬁlled circles represent the particles, his the
+smoothing length, and the curve represents the value of the smoothing kernel
+for all points in space. The frame of reference in the lower left is intended to
+help understand the arguments of W. The vector ~ri/C0~rjis shown in the plane
+of the blue-ﬁlled circles (Ref. 30).
+Fig. 6. A visualization of the cosmos at redshift zero based on a cube300
+test simulation in the ChaNGa directory. (Reference 42provides details for
+running cube300.) Note the web-like pattern of the density: In many regions,
+the density is zero. The ﬁbril-like paths at densities indicated by light blue
+are often called ﬁlaments.
+484 Am. J. Phys., Vol. 91, No. 6, June 2023 Powell, Caudill, and Young 484 04 October 2023 22:53:08
+the Hubble constant parameter and explains the issue of ini-
+tial conditions for this simulation.
+Problem 3 . Use Pynbody to demonstrate that, in fact,
+cube300 is a dark matter only simulation. The installation
+documentation for Pynbody from GitHub is quite good.41
+Some knowledge of Python 3 is necessary to use Jupyter to
+access the low-level abilities of Pynbody for the solution to
+this problem.
+ACKNOWLEDGMENTS
+The authors gratefully acknowledge Reed College for
+summer research internship support. J.W.P. would also like
+to acknowledge ACCESS Allocation (No. AST200020) forsupporting this project.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts of interest to disclose.
+a)Electronic mail: dna@reed.edu, ORCID: 0000-0002-3764-2395.
+b)ORCID: 0000-0001-8374-9559.
+c)ORCID: 0000-0002-0074-1883.
+1V. Springel et al. , “The cosmological simulation code GADGET-2,” Mon.
+Not. R. Astron. Soc. 364, 1105–1134 (2005).
+2P. F. Hopkins et al. , “Galaxies on FIRE (feedback in realistic environ-
+ments): Stellar feedback explains cosmologically inefﬁcient star for-
+mation,” Mon. Not. R. Astron. Soc. 445, 581–603 (2013).
+3C. S. Frenk and S. D. M. White, “Dark matter and cosmic structure,” Ann.
+Phys. 524, 507–534 (2012).
+4J.-H. Kim et al. , “The high-resoluton galaxy simulations comparison pro-
+ject. II Isolated disk test,” Astrophys. J. 833, 14–34 (2016).
+5H. Menon et al. , “Adaptive techniques for clustered N-body cosmological
+simulations,” Comput. Astrophys. Cosmol. 2, 1–23 (2015).
+6See<https://github.com/N-BodyShop/changa/wiki/ChaNGa >.
+7See, for example, <https://charm.cs.illinois.edu/sc21 >and <https://
+awards.acm.org/bell >.
+8A. J. Rantala, “Forming galaxies in cosmological zoom-in simulations,”
+M.S. thesis, University of Helsinki, 2014.
+9B. Cummings, “N-body simulation of cosmological structure,” Honor’sthesis, Reed College, 2020.
+10T. R. Quinn, N. Katz, J. Stadel, and G. Lake, “Time stepping N-body sim-ulations,” e-print arXiv:astro-ph/9710043 (1997).
+11M. Burdorf, “Analyzing cosmological evolution through N-body simula-
+tion of dark and luminous matter using ChaNGa,” Honor’s thesis, Reed
+College, 2021.
+12M. Zemp et al. , “An optimum time-stepping scheme for N-body simu-
+lations,” Mon. Not. Roy. Astron. Soc. 376, 273–286 (2007).
+13J. Barnes and P. Hut, “A hierarchical O(N log N) force-calculation algo-
+rithm,” Nature 324, 446–449 (1986).
+14See<https://developer.apple.com/documentation/gameplaykit/gkOctree >
+for help understanding tree algorithms.
+15Barnes–Hut Galaxy Simulator, <https://www.cs.princeton.edu/courses/
+archive/fall03 >and <https://www.cs.princeton.edu/cs126/assignments/b
+arnes-hut.html >.
+16See https://www.cs.princeton.edu/courses/archive/fall03/cs126/assignmen
+ts/barnes-hut.html for help understanding the famos Barnes-Hut algorithm.
+17J. Demmel, CS 267 Course , U.C. Berkeley, <youtube.com/watch?v
+¼N1byczSpjiQ >.18D. Grifﬁths, Introduction to Electrodynamics (Pearson, Boston, 2013),
+Sec. 3.4.
+19D. Harrison, <https://phys.libretexts.org/Bookshelves/Mathematical_Physics_
+and_Pedagogy/Mathematical_Methods/The_Multipole_Expansion >(2021).
+20J. G. Stadel, “Cosmological N-body simulations and their analysis,” Ph.D.
+dissertation, University of Washington, 2001. This thesis is on construct-
+ing the code PKDGRAV, a progenitor of ChaNGa.
+21P. Jetley, F. Gioachin, C. Mendes, L. Kale, and T. Quinn, “Massively par-allel cosmological simulations with ChaNGa,” in Proceedings of IEEE
+International Symposium on Parallel and Distributed Processing, IPDPS
+(IEEE, 2008), pp. 1–12.
+22S. Aluru and F. E. Sevilgen, “Parallel domain decomposition and load bal-
+ancing using SpaceFilling curves,” Eng. Comp Sci. 34, 1–7 (1997).
+23J. P. Naiman et al. , “First results from the IllustrisTNG simulations: A tale
+of two elements—chemical evolution of magnesium and europium,” Mon.
+Not. Roy. Astron. Soc. 477, 1206–1224 (2018).
+24B. W. Carroll and D. A. Ostlie, An Introduction to Modern Astrophysics ,
+2nd ed. (Pearson, San Francisco, 2007).
+25J. Schombert, Lecture notes, <http://abyss.uoregon.edu/ /C24js/cosmo/
+lectures/lec05.html >(2021).
+26J. W. Wadsley, J. Stadel, and T. Quinn, New Astron. 9, 137–158 (2004).
+27L. Hernquist, F. R. Bouchet, and Y. Suto, “Application of the Ewald
+method to cosmological N-body simulations,” Astrophys. J. Suppl. 75,
+231–240 (1991).
+28J. W. Wadsley, B. W. Keller, and T. R. Quinn, “GASOLINE2: A modernsmoothed particle hydrodynamics code,” Mon. Not. Roy. Astron. Soc.
+471, 2357–2369 (2017).
+29B. K. Shivamoggi, Fluid Dynamics (John Wiley & Sons, New York,
+1998).
+30The image in Ref. 22was uploaded to Wikipedia by Jlcercos and is
+licensed under Creative Commons.
+31See<https://portal.xsede.org/ >for help outstanding help obtaining super-
+computer time, training, and help. It has changed to https://access-ci.org/ .
+32See<https://github.com/N-BodyShop/changa >for easily available con-
+cise help installing ChaNGa. Supple. Mat. 2 also helps a bit.
+33L. Caudill, “Installing ChaNGa,” Research Report, Reed College(2020).
+34C. L. Bennett et al. , “Nine-year Wilkinson Microwave anisotropy probe
+(WMAP) observations: Final maps and results,” Astrophys. J. Suppl. 208,
+1–54 (2013).
+35Planck Collaboration, “Planck 2015 results XIII,” Cosmological
+Parameters, AA 594, 1–63 (2016).
+36O. Hahn and T. Abel, “Multi-scale initial conditions for cosmological sim-
+ulations,” Mon. Not. Roy. Astron. Soc. 415, 2101–2121 (2011).
+37J. Herpich et al. , “How to bend galaxy disc proﬁles–II. Stars surﬁng the
+bar in type-III discs,” Mon. Not. Roy. Astron. Soc. 470, 4941–4955
+(2017).
+38See<https://github.com/N-BodyShop/changa/wiki/ChaNGa-User-Guide >
+to understand the ﬁrstproblem.
+39See <https://github.com/N-BodyShop/tipsy >also understand the ﬁrst
+problem and the ﬁle format associated with ChaNGa.
+40A. Pontzen et al. , “pynbody: Astrophysics simulation analysis for
+Python,” Astrophys. Source Code Library, Report ID: Ascl:1305.002
+(2013).
+41N. Mandelker, P. G. van Dokkum, J. P. Brodie, F. C. v. d. Bosch, andD. Ceverino, “Cold ﬁlamentary accretion and the formation of metal-
+poor globular clusters and halo stars,” Astrophys. J. 861, 148–169
+(2018).
+42See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0144906 for super important introductory user information for
+understanding how to run ChaNGa simulations, i.e. crucial for the all
+important second problem. The ﬁrst Suppl. Doc. is by far the most impor-
+tant. The second Suppl. Doc. provides some suggestions on ChaNGa
+installation.
+485 Am. J. Phys., Vol. 91, No. 6, June 2023 Powell, Caudill, and Young 485 04 October 2023 22:53:08

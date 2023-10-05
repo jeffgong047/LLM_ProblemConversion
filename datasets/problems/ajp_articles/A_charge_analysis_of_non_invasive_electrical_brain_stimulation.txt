@@ -1,0 +1,1193 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| APRIL 01 2023
+A charge analysis of non-invasive electrical brain
+stimulation 
+Maurice M. Klee  
+Am. J. Phys.  91, 264–277 (2023)
+https://doi.org/10.1 119/5.0085625
+Articles Y ou May Be Interested In
+Isolation and molecular detection of Salmonella from broiler chickens in Baghdad city
+AIP Conf. Proc.  (September 2023)
+The sum rule for spectroscopic factors in the seniority scheme of identical particles
+J. Math. Phys.  (January 1987) 04 October 2023 22:51:11
+A charge analysis of non-invasive electrical brain stimulation
+Maurice M. Kleea)
+National Institutes of Health (retired), Bethesda, Maryland 20892
+(Received 18 January 2022; accepted 6 December 2022)
+The brain is an electric organ. As such, for well over a hundred years, physicists, engineers,
+biologists, and physicians have used electromagnetic theory to try to understand how the brainworks and to diagnose and treat disease. The ﬁeld of electro-neuroscience is immense with
+thousands of papers being published each year. In this paper, we provide physics students with an
+introduction to the ﬁeld using a conventional model of the head that employs four concentric
+spheres having different conductivities to represent the scalp, skull, cerebrospinal ﬂuid (CSF), and
+the brain itself. To ground the discussion, we use the speciﬁc case of non-invasive DC electricalstimulation of the brain through electrodes applied to the surface of the scalp, a procedure known
+as transcranial DC stimulation or tDCS. Currently, tDCS is under clinical investigation for such
+diseases as depression, anxiety, and chronic pain as well as to enhance the performance of athletesand the training of ﬁghter pilots. We solve the corresponding physics problem from a charge
+perspective and explain why the charge distributions look the way they do using what we call the
+“sensing pixel” technique. This paper can introduce students to the ways in which electromagnetictheory is being applied to problems in neuroscience; in this case, the problem of how to non-
+invasively stimulate the brain to treat disease or improve performance.
+#2023 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0085625
+I. INTRODUCTION
+Motivating students to engage with electromagnetic theory
+has been and continues to be a challenge for physics teach-ers.
+1Fortunately, electromagnetic theory is today at the heart
+of neuroscience. It is used both to interpret electrical signalsrecorded from the brain such as the electroencephalogram
+(EEG) and to understand the effects on the brain of the elec-
+trical stimulation used in the treatment of such diseases asdepression, anxiety, and chronic pain. The latter problem ofunderstanding the effects of electrical stimulation on thebrain will be our focus here.
+Not only is brain electricity something that students will
+hear about in the news throughout their lives, it is intrinsi-cally interesting because it relates to how our bodies work.As it turns out, our brains are wired so that the default modeis to think about ourselves.
+2Giving students the opportunity
+to do that academically in a physics class can only be good.
+The brain with all its details is, of course, too complicated
+for a student’s ﬁrst look into brain electricity (see, for exam-ple, Fig. 1(a)). In this paper, we use a well-established elec-
+trical model for the brain: A set of concentric spheres havingdifferent electrical conductivities that represent a scalp (skin)layer, a skull (bone) layer, a cerebrospinal ﬂuid (CSF) layer,and a central brain (Fig. 1(b)).
+3–10For context, the concentric
+sphere model was the ﬁrst model used by psychologists to
+interpret electroencephalograms and is still used as a com-parator for more accurate models.
+11Hence, having studied
+the sphere model, physics students can walk across campusto the psychology department and have a starting point for aconversation. There they are likely to ﬁnd that psychologistsand others working on electrical brain stimulation are well-versed in modeling since grant applications to fund suchwork, e.g., to the NIH’s National Institute of Mental Health,often include modeling results.
+12
+With the concentric sphere model under their belts, stu-
+dents can move on to more complicated models wheredetails of the actual geometry of the brain are included such
+as the folding pattern of the cerebral cortex (gray matter)
+where the bodies of neurons are located, the nerve ﬁbertracks (white matter) upon which action potentials travel
+between neurons, the cavities (ventricles) that lie deep in the
+brain and are ﬁlled with cerebrospinal ﬂuid, and the collec-tions of nerve cells (basal ganglia) that lie at the base of thebrain and serve as relays for nerve ﬁbers going to (afferents)
+and coming from (efferents) the cerebral cortex. In addition
+to modeling the brain’s geometry more accurately, advancedmodels, such as that of Ref. 13, address the effects of aniso-
+tropic conductivities, the skull’s compact and spongy bone,
+and the fact that besides the cerebral cortex, a human headincludes a person’s cerebellum, eyes, and brain stem, and is
+supported by neck muscles and the vertebrae of the spinal
+column.
+The brain’s most important cell type is, of course, the neu-
+ron (Fig. 2) with its cell body, dendritic tree for receiving
+inputs from other neurons through synapses (both chemical
+and electrical), and its nerve ﬁber (axon) for sending outputs(action potentials) to other neurons and to effectors such as
+muscles. The billions of neurons and trillions of connections
+through synapses provide the brain with its dynamic behav-ior. The dynamics of groups of neurons is itself the subjectof extensive modeling (see, for example, Ref. 14).
+More than 100 years ago, Ram /C19on y Cajal, the 1906 recipi-
+ent of the Nobel Prize for Medicine, studied the organization
+of neurons within the brain and gave us drawings of the typeshown in Fig. 3. Even these drawings are highly simpliﬁed
+compared to the actual structure of the brain since they show
+the volumes between cells as empty space where in factthose volumes are ﬁlled with even more neurons and with
+supporting cells and structures, e.g., glial cells and blood
+vessels, in a seemingly chaotic arrangement as revealed inelectron micrographs.
+15Today’s models of brain electricity
+have a long way to go to reach these levels of detail. To aid
+in the journey, a variety of computer programs for solving
+264 Am. J. Phys. 91(4), April 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 264 04 October 2023 22:51:11
+the relevant electromagnetic ﬁeld problems have been devel-
+oped, many of which are open source. Table Isets forth
+examples of programs that have been used to study electrical
+brain stimulation.16
+The charge distributions presented herein were calculated
+using the technique the author previously published in thisjournal (Ref. 26) as extended below in Sec. IIto include
+interfaces between conductors having different conductivi-ties such as the interfaces between the scalp, skull, CSF, andbrain spheres of Fig. 1(b). The technique employs calcula-
+tion cells of the type shown in Fig. 4. In the model, these cal-
+culation cells sense electric ﬁelds at their faces. Thecalculation cells are, thus, referred to as “sensing pixels.”
+As will be discussed and illustrated below, sensing pixels
+provide a mechanism for understanding why a charge distri-bution for a particular geometry and set of conductivitieslooks the way it does. As will be shown in Sec. III, charge
+accumulation at a particular location can be understood bysimply asking the question “what would a sensing pixel atthe location sense” or more precisely, what electric ﬁeldsfrom what neighboring charges would the sensing pixelsense most strongly. In Sec. III, using these questions from
+physics, we explore the clinical question: “What is the effec-tiveness of transcranial electrical stimulation for differentstimulation setups?”
+In addition to calculations performed using the sensing
+pixel technique, calculations were also performed using theﬁrst of the programs of Table I, i.e., the
+MATLABVRprogramsdeveloped by Professor Sergey N. Makarov and colleagues
+at the Worcester Polytechnic Institute and the Athinoula A.Martinos Center for Biomedical Imaging at the
+Massachusetts General Hospital. Like the sensing pixel tech-
+nique, the Makarov code calculates charge distributionsdirectly rather than ﬁrst calculating a potential distribution
+and then converting it into a charge distribution by comput-
+ing the change in the normal electric ﬁeld that occurs at aninterface between media of different conductivities (see Ref.
+27and Eqs. (8)and(9)below).
+Downloads of the Makarov software
+28include examples
+that employ detailed head geometries derived from MRIscans such as those available online through the NIH’s
+Human Connectome Project.
+29The Makarov code has been
+optimized for fast execution with reasonable storage require-ments and thus can be a good place to start for students inter-
+ested in further study of brain electricity from a charge
+perspective. Whether one uses the sensing pixel technique,
+the Makarov software, one of the other programs of Table I,
+or some other approach, once the distribution is in hand, the“what would a sensing pixel sense” question can be brought
+to bear to ﬁgure out what caused the distribution to look the
+way it does.
+The remainder of this paper is organized as follows. In
+Sec. II, we present the sensing pixel technique. In Sec. III,
+we set out and solve a representative brain electricity prob-
+lem; namely, we explore where charges accumulate whenDC electrical current is applied to the brain through surface
+electrodes on the scalp in the procedure known as transcra-
+nial DC stimulation (tDCS). The details of the method used
+Fig. 2. A typical neuron having dendrites that receive inputs from other neu-
+rons that are summed at the neuron’s axon hillock to trigger action potentials
+that travel along the neuron’s axon (shown myelinated in this ﬁgure) to pre-
+synaptic terminals that release neurotransmitters that act on other neurons or
+effectors such as muscle cells. Drawing by Casey Henley, Foundations of
+Neuroscience (Michigan State University Libraries, East Lansing, Michigan
+2021). Licensed under a Creative Commons Attribution Non-Commercial
+Share-Alike (CC-BY-NC-SA) 4.0 International License.
+Fig. 3. Drawings from an 1899 book by Ram /C19on y Cajal entitled
+Comparative Study of the Sensory Areas of the Human Cortex , showing (left
+to right) the arrangements of neurons in the visual cortex of an adult, the
+motor cortex of an adult, and the cortex of infant. User: Looie496 created
+ﬁle; Santiago Ram /C19on y Cajal created artwork; public domain via Wikimedia
+Commons.
+Fig. 1. Cross sections of (a) a human head; and (b) a four concentric sphere
+model for same. Human head drawing adapted from: Pearson Scott
+Foresman, Public Domain, via Wikimedia Commons.
+265 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 265 04 October 2023 22:51:11
+to calculate charge and potential distributions for this prob-
+lem using the sensing pixel technique are set forth at the endof Sec. III. We conclude in Sec. IVwith a summary of the
+types of diseases to which tDCS has been applied to give stu-dents a sense of the breadth of real-world problems in whichbrain electricity plays a role.
+Before turning to the body of the paper, we note that from
+a historical perspective, the calculation of charge distribu-tions, as we do here, is a relatively recent phenomenonreaching back to around the middle of the twentieth century
+when in 1948 Professor Arnold Sommerfeld published the
+charge distribution on a straight wire carrying a steady cur-rent.
+30Charge distributions as a central theme for teaching
+electromagnetic theory are even more recent, the ﬁrstedition of Professors Ruth W. Chabay’s and Bruce A.Sherwood’s innovative text not appearing until 1995.
+31
+Instead of charge distributions, potential distributions havebeen the norm.
+This potential-centric approach can be traced back to the
+nineteenth century when Maxwell (1831–1879) unequivo-cally taught that, in practice, potentials, not charges, are the
+way to solve electromagnetic problems. In his famous A
+Treatise on Electricity and Magnetism , Maxwell described
+the potential approach as the “inverse method” and attributedits success to the work of such mathematical giants as Pierre-Simon Laplace (1749–1827), Johann Carl Friedrich Gauss(1777–1855), Sim /C19eon Denis Poisson (1781–1840), and
+George Green (1793–1841), who in 1828 ﬁrst coined theword “potential.”
+32Maxwell contrasted the “inverse meth-
+od” with the “direct method” where one starts with a chargedistribution and then uses the charge distribution to calculate
+a potential distribution (the charge-ﬁrst approach). In the
+eighteenth and nineteenth centuries when Maxwell, Laplace,Gauss, Poisson, and Green did their work, the direct methodwas of little practical use, as Maxwell made clear in theTreatise (emphasis added):
+In the direct method the potential is calculated
+from the distribution of electricity by a process ofintegration….In the inverse method the partialdifferential equations are…given, and we have to
+find the potential and the distribution of electricity.
+It isonly in problems in which the distribution of
+electricity is given that the direct method can be
+used. When we have to find the distribution on a
+conductor we must make use of the inverse
+method.
+33
+Fast forward 150 years. Today, we are not limited to
+potential-ﬁrst approaches, but using computers can take a
+direct, charge-ﬁrst approach. The sensing pixel technique
+that we will be using here is one example of that approach
+and, as we will see, it can help students break down the com-
+plicated world of brain science into bite-size pieces through
+its “what would a sensing pixel sense” question.
+II. THE SENSING PIXEL TECHNIQUE
+A. Overview
+The sensing pixel technique is a method for calculating
+and interpreting the charge distribution on the surface of a
+conductor during current ﬂow through the conductor (Ref.
+26). The technique uses a set of three-dimensional calcula-
+tion cells (“pixels”) that cover the conductor’s surface and
+contain internal charge. The pixels have two major faces that
+are parallel to one another and a set of side faces (e.g., three
+side faces in the case of triangular pixels) which extend
+between the major faces.
+It is important to note that sensing pixels are not actually
+present on the interfaces between media of different conduc-
+tivities but are virtual constructs used to calculate and inter-
+pret charge distributions. Students can be asked to imagine
+sensing pixels covering the interfaces and further imagine
+that the sensing pixels are able to sense charges in their sur-roundings with some charges being sensed more strongly
+than others. Students can complete the exercise by applying
+this “sensing” ability to discuss why some sensing pixels
+accumulate charge of one sign, others accumulate charge ofTable I. Brain stimulation modeling software.
+Calculation Open Representative
+Software Originator MethodaSource Citation
+BEM-FMM Worcester Poly. Mass. General BEM YesbRef.10
+SPHERE City University of New York (CUNY) Analytic Yes Ref. 9
+ROAST City University of New York (CUNY) FEM YesbRef.17
+COMETS2 Hanyang University FEM YesbRef.18
+SimNBIS DRCMR, TUD, MPIcFEM Yes Ref. 19
+DUNEuro WWU M €unsterdFEM Yes Ref. 20
+SciRun CIBCeFEM Yes Ref. 21
+HD-ExploreTMHD-TargetsTMSoterix Medical FEM No Ref. 22
+NEVRelectric ﬁeld analytics Neuroelectrics FEM No Ref. 23
+COMSOL MultiphysicsVRCOMSOL FEM No Ref. 24
+AbaqusVRSimulia FEM No Ref. 25
+ANSYSVRMaxwellVRANSYS FEM No Ref. 10
+aBEM—boundary element method for charge distribution; FEM—ﬁnite element method.
+bUses MATLABVR, which is widely available but not open source.
+cDanish Research Centre for Magnetic Resonance; Technical University of Denmark; Max Planck Institute for Biological Cybernetics.
+dWestf €alische Wilhelms-Universit €at M€unster.
+eCenter for Integrative Biomedical Computing, Scientiﬁc Computing and Imaging Institute, University of Utah.
+266 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 266 04 October 2023 22:51:11
+the opposite sign, and still others hardly accumulate any
+charge. They can use the analysis of the charge distributionsassociated with transcranial DC electrical stimulation dis-cussed below in Sec. IIIas a guide for their own analysis.
+While sensing pixels provide a relatively simple construct
+for modeling surface charge distributions, actual surfacecharges are very complex, especially for biological systemswhere molecules of various types (lipids, proteins, sugars,etc.) form the interfaces and the charge carriers are ions andlarger molecules, including neurotransmitters, which ebb andﬂow to and from the interface. In many cases, the interfacesare not even passive but have embedded proteins that
+actively move molecules from one side of the interface tothe other consuming energy in the process. While all bioelec-tricity models face these challenges, in terms of mathemati-cal complexity, a sensing pixel analysis may be moreintuitive to some students than, for example, a ﬁnite elementanalysis whose algorithms provide little insight into why thedistributions it calculates look the way they do.
+B. The sensing pixel
+Figures 4(a)and4(b)show a sensing pixel and the surface
+of a sphere covered with sensing pixels. The major faces ofthe pixel are parallel to one another and separated by a smalldistance (exaggerated in Fig. 4(a)) so that the pixel has an
+internal volume that can hold charge. In accordance with thesensing pixel technique, surface charge distributions are cal-culated by treating each pixel as a “sensor” that responds tothe electric ﬁeld at its conductive faces due to charges inother pixels and charges at applied current sources and sinks(collectively, the “external charges”). More particularly, thepixels respond to the normal components of the electric ﬁeldat their faces with the tangential components causing chargeto move along the interfaces but not causing charge to enteror leave the pixels.
+Through a feedback process implemented as a series of
+time steps or, more generally, iteration steps (see below), thepixels’ internal charges adjust themselves until, at steadystate, a balance is achieved at each pixel between the chargeﬂuxes at the pixel’s two conductive faces. Speciﬁcally, atsteady state, all the charge that enters through one conduc-tive face must leave through the other conductive face orelse the pixel will still have a changing internal charge andthus will not be at steady state. Note that the charge ﬂuxes atthe two faces only need to be balanced (equal in magnitudewith one being a ﬂow into the pixel and the other a ﬂow outof the pixel) and do not need to be zero except in the casewhere one of the media at the interface is non-conductive. Inthat case, the charge ﬂow at the non-conductive face is zero,and thus, the charge ﬂow at the conductive face must also bezero for the pixel to be at steady state.
+Students can think of the process of reaching steady state
+as a series of steps in which at each step, the pixels’ internalcharges are adjusted in response to the then-existing externalcharges. As shown in Fig. 4(a), each pixel has a higher con-
+ductivity face and a lower conductivity face. A given pixelcan have one of four “sensing” relationships with externalcharge: The external charge can be positive and on the pix-el’s higher conductivity side, the external charge can be posi-tive and on the pixel’s lower conductivity side, the externalcharge can be negative and on the pixel’s higher conductivityside, and the external charge can be negative and on the pix-el’s lower conductivity side. Table IIsets forth the four cases
+and the effect of the external charge on the pixel for eachcase.
+34
+In addition to the four cases of Table II, there is a ﬁfth possi-
+ble relationship between an external charge and a sensing pixelin which the charge is in the plane of the pixel. As shown inRef.26, a pixel cannot sense co-planar charge and thus the ﬁfth
+relationship has no effect on a pixel’s internal charge.
+We work through Table II’s ﬁrst case and leave the other
+three cases as exercises. The geometry for this case is that ofFig.4(c)with qtaken as positive; such a positive charge can
+be charge at a source or in another pixel.
+Fig. 4. (a) A “sensing pixel” having a higher conductivity face and a lower
+conductivity face. (b) A spherical interface covered with a coarse mesh of
+sensing pixels. (c) The sensing pixel “senses” a charge qbased on the pixel’s
+solid angle Xas seen from the charge. Equations (2)and(3)below use the
+solid angle of the pixel’s higher conductivity face designated as XShgh q
+where the arrow in the subscript indicates that the charge qis looking at the
+higher conductivity face Shgh.
+267 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 267 04 October 2023 22:51:11
+For our assumed pixel geometry, the electric ﬁeld distribu-
+tion produced by an external charge is substantially identicalat the pixel’s two major faces since the faces are parallel,have the same shape, and are spaced close to one another.For case 1, the positive external charge ( þq) on the pixel’s
+higher conductivity side will produce inﬂow to the pixel onthat side and outﬂow on the lower conductivity side. By deﬁ-nition, the conductivity on the higher conductivity side is
+greater than the conductivity on the lower conductivity side.
+Consequently, from Ohm’s law ( J¼rE), the inﬂow and
+outﬂow of charge due to þqwill be out of balance with the
+inﬂow being greater than the outﬂow.
+This imbalance will cause positive charge to accumulate
+in the pixel. The accumulated internal positive charge willproduce an electric ﬁeld distribution at the pixel’s higherconductivity face that opposes the ﬁeld due to þqand a dis-
+tribution at the lower conductivity face that enhances theﬁeld due toþq. When the internal charge reaches a level
+where the opposition at the higher conductivity face and theenhancement at the lower conductivity face are sufﬁcient toproduce charge inﬂows and outﬂows that are in balance, thesteady state will have been reached.
+This balancing process takes place at all the pixels and
+because the external charge for any given pixel includes thecharges in all the other pixels, reaching steady state becomesa feedback process in which the pixels interact with oneanother to balance each pixel’s inﬂow and outﬂow. Thesteady state is then that charge distribution for the set of pix-els that gives balanced charge ﬂux for each of the pixels.Students can visualize the process mechanistically as the
+charge in each pixel “sensing” the charge in neighbors and
+all the pixels cooperating with one another to make everypixel in balance.
+C. The sensing pixel equations
+To provide accurate results, the sensing pixel technique
+calculates charge ﬂuxes using solid angles, speciﬁcally, the
+solid angles of a given pixel as seen from each of the exter-nal charges (Fig. 4(c)). As is well known, the solid angle X
+of a surface Sas seen from an observation point Ois given
+by
+X¼ð
+S^r/C1^n
+r2da; (1)
+where ^ris a unit vector from the point Oto an element daof
+S,ris the magnitude of the distance between Oandda, and
+^nis the outward unit normal to Satda.
+Solid angles automatically take into account the varia-
+tion in the electric ﬁeld produced by a point charge atdifferent locations on the face of a sensing pixel. For pixels
+that are near to one another, solid angles work much betterthan calculating charge ﬂuxes using just the electric ﬁeldat the center of a face (the center point method). Solid
+angles for triangular pixels can be calculated with a mini-
+mal number of computational steps using the algorithm ofRef. 35.
+In Ref. 26, the conductor was assumed to be surrounded
+by a non-conductor such as air, and thus, one of the pixel’smajor faces was treated as conductive and the other as non-conductive.
+36In order to calculate charge distributions in the
+brain, the requirement that one of the pixel’s major surfaces
+is non-conductive needs to be relaxed since only the inter-face between the scalp and the air is of this type. We, there-fore, treat both of the pixel’s major faces as conductive withconductivities that are higher/lower relative to one another(r
+hghandrlow).
+We assume that the rhgh(rlow) face is in contact with the
+higher (lower) conductivity medium and that charge reaches
+the face by passing through the medium. The charge ﬂuxthrough the higher (lower) conductivity face, thus, dependson the value of r
+hgh(rlow), which controls the ﬂow of charge
+to the face. With regard to the internal structure, we assumethat the pixels are small both in terms of thickness and sur-
+face area so that as seen from other pixels, the internal
+charge can be considered as concentrated at the center of thepixel. Charge needs to be able to ﬂow between the faces inorder to pass between the conductive media. Thus, the inter-nal volume of the pixel needs to be conductive but the partic-ular value of its conductivity need not be speciﬁed. Rather,
+the conductivity only needs to be ﬁnite so that the resistance
+across the pixel and thus the potential drop produced by cur-rent passing through the pixel is insigniﬁcant for ourassumed very thin pixel.
+In a typical application, we use the sensing pixel technique
+to ﬁnd the steady-state charge q
+ss
+spin each sensing pixel when
+the above-discussed “balancing” of charge ﬂuxes for all thepixels has been achieved. The mathematical details are given
+in supplementary material A.37In the following, we provide
+an explanation for each of the factors that affect the transferof charge in each time (iteration) step Dt. It should be noted
+that at steady state, free charge can only exist on interfacesand, when used, at sources and sinks located within the bodyof a conductor (see Eqs. (4)–(7) ), since at any other location,
+charge that is free to redistribute will rapidly decay based on
+the medium’s time constant which for biological ﬂuids istypically in the nanosecond range.
+38
+We deﬁne the parameters: rdiff¼rhgh/C0rlow;rsum¼rhgh
+þrlow; and Rgain=loss¼rdiff=rsum. In supplementary material
+A,37we use these parameters and Coulomb’s law, Ohm’s
+law and charge conservation to derive the following equa-
+tions for: (i) the accumulation of charge ( qsp) in a sensing
+pixel having two conductive faces during a stepDt¼t
+nþ1/C0tn, and (ii) the steady state charge ( qss
+sp) in the
+pixel when the charge transfers are in balance
+qspðtnþ1Þ¼ 1/C0Dtrsum
+2e0/C18/C19
+qspðtnÞ
+/C0Dtrdiff
+4pe0X
+j6¼spqjðtnÞXShgh qj6DtIappl (2)
+andTable II. Charge-pixel relationships.
+Case 1 Positive charge on the pixel’s Seeks to make the pixel’s
+higher conductivity side internal charge positive
+Case 2 Positive charge on the pixel’s seeks to make the pixel’s
+lower conductivity side internal charge negative
+Case 3 Negative charge on the pixel’s Seeks to make the pixel’s
+higher conductivity side internal charge negative
+Case 4 Negative charge on the pixel’s Seeks to make the pixel’s
+lower conductivity side internal charge positive
+268 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 268 04 October 2023 22:51:11
+qss
+sp¼/C0Rgain=loss
+2pX
+j6¼spqss
+jXShgh qj6ð2e0=rsumÞIappl:(3)
+In these equations, XShgh qjis the solid angle (Fig. 4(c))o f
+the pixel’s higher conductivity face Shghas seen from charge
+qjwith the unit normal ( ^nhgh)t oShghpointing outward from
+the face. Accordingly, from Eq. (1), charges on the higher
+conductivity side of the pixel will have negative solid angles
+and thus in view of the minus sign before the terms contain-ingX
+Shgh qjin these equations, when those charges are posi-
+tive, they will seek to move positive charge into the pixel
+(Table II, case 1). Switching the sign of the charge or switch-
+ing the side of the pixel on which the charge is located
+results in the opposite effect (Table II, cases 2 and 3).
+Switching both the sign and the side leads to the originaleffect (Table II, case 4).
+Equation (2)embodies: (1) ﬂow of charge into or out of
+the pixel’s faces due to the pixel’s own electric ﬁeld, (2)
+ﬂow of charge into or out of the pixel’s faces due to the ﬁelds
+of external charges, and (3) the direct introduction or
+removal of charge from the interior of the pixel. Speciﬁcally,Eq.(2)’s ﬁrst term and, in particular, the negative portion of
+the term is a self-term that reﬂects the change in the pixel’s
+internal charge due to ﬂow of the internal charge out of thepixel during Dt. Outward ﬂow can occur through both of the
+pixel’s major surfaces and thus the self-term depends on
+r
+sum¼rhghþrlow.
+The second term in Eq. (2)reﬂects current ﬂow into or
+out of the pixel during Dtdue to all of the other charges in
+the system (the external charge). Thus, this term is the“what would a sensing pixel sense” term. The term depends
+onr
+diff¼rhgh/C0rlowsince current ﬂow through the pixel’s
+lower conductivity face is always in the opposite directionfrom that through its higher conductivity face because the
+outward normals for those faces point in opposite
+directions.
+The last term in Eq. (2)(and Eq. (3)) represents the intro-
+duction of applied current ( I
+appl) directly into a sensing pixel.
+In the case of electrical brain stimulation, the applied currentcomes from an external source. In the most basic forms of
+tDCS, the source is a small battery. Sensing pixels can also
+be used to model biological cells in which case I
+applcan rep-
+resent electrochemical processes that move charged ions
+across biological membranes.
+Rather than being introduced into a sensing pixel located
+on the surface of a conductor, the applied current can also be
+introduced into the body of the conductor. From Eqs. (11)
+and(12)of Ref. 26, the equations that govern the accumula-
+tion of charge at an anode ( þIappl) and cathode (/C0IapplÞfor
+that case areqanodðtnþ1Þ¼ 1/C0Dtranod
+e0/C18/C19
+qanodðtnÞþDtIappl (4)
+and
+qcathðtnþ1Þ¼ 1/C0Dtrcath
+e0/C18/C19
+qcathðtnÞ/C0DtIappl; (5)
+where ranodandrcathare the conductivities of the media in
+which the anode and cathode are located. In the terminology
+of Ref. 26, the anode and cathode are each in a “category II”
+calculation cell for which charge accumulation only dependson the local conductivity and I
+appl, and not on charges exter-
+nal to the calculation cell. The steady state charges in this
+case are
+qss
+anod¼ranod
+e0Iappl (6)
+and
+qss
+cath¼rcath
+e0Iappl: (7)
+The parameter Rgain=loss¼rdiff=rsumin the ﬁrst term of
+Eq.(3)combines the competing effects of rdiffandrsum,
+with rdiffreﬂecting gain resulting from external charges and
+rsumreﬂecting loss from outward ﬂow of internal charge.39
+The closer Rgain=lossis to 1.0 (its maximum value), the greater
+the net effect of external charges. High Rgain=lossvalues
+require high rhgh=rlowratios, e.g., ratios above 20:1 to
+achieve Rgain=lossvalues above 0.9. As shown in Table III, for
+the representative conductivity values used here, the pixelsof the air-scalp, scalp-skull, skull-CSF, and CSF-brain inter-
+faces have R
+gain=lossvalues sufﬁciently high for the pixels to
+interact strongly with external charge and, thus, are impor-tant to include in the brain model. Other interfaces having
+lower ratios such as the gray matter/white matter interface
+whose R
+gain=lossratio is only 0.37,40can, at least in the ﬁrst
+instance, be excluded from the analysis.
+In practice, to perform a simulation, Eq. (2)is written for
+each sensing pixel in the system using values of rsumand
+rdiffappropriate for the interface on which the pixel is
+located. When current is introduced/removed from the body
+of one or more of the conductors using category II calcula-
+tion cells as opposed to being introduced/removed fromsensing pixels at interfaces, this set of equations is combined
+with one or more of Eqs. (4)and(5). Through a series of
+steps, the system is moved forward from initial conditions,e.g., no charge anywhere in the system, to steady state,
+Table III. Interface properties.
+InterfaceRadius
+(mm)r’s
+(S/m) Rgain=loss ^nhghmaxjqss
+spj
+(elementary charges)
+Two electrodes Five electrodes
+Air-scalp 75 0.000 !0.465 1.00 Inward 4 :5/C21044:6/C2104
+Scalp-skull 70 0.465 !0.010 0.96 Outward 1 :9/C21042:0/C2104
+Skull-CSF 65 0.010 !1.650 0.99 Inward 1 :4/C21042:3/C2103
+CSF-brain 60 1.650 !0.200 0.78 Outward 1 :5/C21021:4/C2102
+269 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 269 04 October 2023 22:51:11
+with the charge values for the prior step ( tn) being used to
+calculate the charge values for the current step ( tnþ1).
+The series of steps is the time path by which the system
+reaches steady state when (1) the system’s dimensions are
+sufﬁciently small so that the time required for light to cross
+the system (the retardation effect) is much smaller than the
+system’s time constant and (2) capacitive effects are small so
+that each of the conductive media can be treated as having
+the permittivity of free space ( e0). Biological systems and, in
+particular, the brain satisfy the ﬁrst criterion, but not the sec-
+ond since biological media are known to have signiﬁcantdielectric constants.41However, the steady state ﬁelds and
+currents depend only on media conductivities and not on
+dielectric constants and, thus, can be found using e0as the
+value of e.42The charge distributions of Sec. IIIand the com-
+parison of the sensing pixel technique with the Markarov
+software of Ref. 28in supplementary material C and with
+the analytic solution of Ref. 4in supplementary material D
+use the e¼e0approach.37For this approach, Dtin the above
+equations is an iteration step, not actual time.43The sensing
+pixel technique can be extended to the case where e6¼e0,
+but the analysis becomes more complicated and does not
+change the steady state solution.
+Before leaving the equations of the sensing pixel tech-
+nique, it is of interest to note that the terms including Iapplin
+Eqs. (2)–(7) can be used to make the “impressed current”
+construct often used in making models of bioelectric ﬁelds
+less “artiﬁcial and mysterious.”44Starting in the 1960s, a
+concept took hold in the ﬁeld of bioelectricity that current,
+rather than charge, is the originating source for the electric
+ﬁelds produced by electrically active organs such as the brain
+and the heart.
+According to this concept, cells of the brain and the heart
+generate electrical current densities and those current densi-ties are the underlying sources of the electrical potentials of
+the electroencephalogram (EEG) and electrocardiogram
+(ECG) that clinicians measure. See, for example, Refs.
+45–47 where Plonsey introduces “an applied (impressed)
+current density J
+i” whose divergence is a volume current
+source density/C0Iv, Malmivuo and Plonsey modify
+Maxwell’s equations to include Ji(Jiin their notation), and
+Nunez and Srinivasan while advocating the use of impressed
+currents ( JSin their notation), acknowledge that “[t]he intro-
+duction of this pseudo-current may, at ﬁrst, appear artiﬁcial
+and mysterious.” They go on to say, that the use of pseudo-
+currents “turns out to be useful,” but by then, students new to
+the ﬁeld may be lost.
+As a physicist, the late Professor G €unter Scharf of the
+University of Zurich and colleagues “protested” that “a cur-
+rent density cannot be the source of the electric potential. A
+static electric ﬁeld must come from a charge density, a cur-rent density generates a magnetic ﬁeld…[and to say, other-
+wise] makes ﬁctitious physics and abandons Maxwell’s
+electrodynamics as ﬁrst principle.”48
+The Iapplterms of Eqs. (2)–(7) show that where current
+is applied, charge accumulates. Thus, both views, i.e., the
+view that impressed currents are the source of biopoten-
+tials and the view that charges are the source, can be seen
+as correct provided it is understood that the impressed cur-rents of Plonsey, Malmivuo and Plonsey, and Nunez and
+Srinivasan do not produce electric ﬁelds directly but only
+indirectly through the localized charge accumulations they
+produce.49III. ELECTRICAL STIMULATION FROM A
+CHARGE PERSPECTIVE
+A. Transcranial DC stimulation (tDCS)
+The goal of studying brain electricity, whether from a
+charge perspective or some other perspective, is, of course,
+to diagnose and treat disease. To that end, electrical brain
+stimulation is an active frontier in neuroscience. Novelexperimental techniques have been developed for applying
+current to the brain and mapping its distribution. Notably
+examples include the work of Grossman et al. , which
+showed that the beat frequency produced by electrical stimu-
+lation at two closely spaced frequencies can be used to con-
+trol the depth within the brain at which neurons are
+stimulated,50and that of V €or€oslakos et al. where the level of
+applied current needed to affect the activity of brain circuits
+was studied using, among other things, electrode arrays
+implanted in human cadaver brains.51
+Novel techniques for modeling electrical brain stimulation
+are also under development including the sensing pixel tech-
+nique. In this paper, we apply the technique to the represen-
+tative problem of electrical current applied to the brain
+through electrodes located on a patient’s scalp. Because the
+current must pass through the skull (cranium) to reach the
+brain, such stimulation is known as “transcranial” (across-
+the-cranium) stimulation.
+Various waveforms for transcranial stimulation have been
+studied clinically including DC, AC, and random stimula-
+tion.52Transcranial DC stimulation (tDCS) is most com-
+monly used and is the type of stimulation we will examine
+here. Clinical studies have shown that tDCS is therapeuti-
+cally beneﬁcial for some patients, i.e., we know that it often
+works. However, we are still largely in the dark as to how itworks.53Our goal here will be to provide a physics perspec-
+tive for looking at the problem, speciﬁcally, a charge per-
+spective since ultimately it must be charge that makes tDCS
+work.
+B. Choosing the number and arrangement of stimulating
+electrodes
+Two questions that always need to be addressed in design-
+ing a tDCS protocol are: (1) how many electrodes to use;
+and (2) where to put them.54The goal of tDCS is often to
+achieve enhanced brain excitability in a selected portion of
+the brain while limiting those portions where excitability is
+reduced. As a general rule of thumb, enhanced brain excit-
+ability is found in the region of the brain where positive cur-
+rent is introduced into the brain (e.g., under the anode) and
+reduced brain excitability is found where that current is
+removed from the brain (e.g., under the cathode).55
+As our pedagogical vehicle for illustrating the effects of
+the number of electrodes and their locations, we will use the
+two conﬁgurations for performing tDCS shown in Fig. 5,
+which are representative of some of the conﬁgurations cur-
+rently in clinical use.
+The conﬁguration of Fig. 5(a)uses one anode (þIappl) and
+one cathode (/C0Iappl), while that of Fig. 5(b)uses ﬁve electro-
+des consisting of a central anode ( þIappl) surrounded by four
+cathodes which divide up the return current equally ( /C01
+4Iappl
+each) and are equally spaced from the anode in a circle-like
+pattern. In both cases, the electrodes are electrically con-
+nected to a subject’s head using, for example, a saline
+270 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 270 04 October 2023 22:51:11
+solution or a conductive gel to reduce the electrode-scalp
+resistance.
+Electrode technology is itself a ﬁeld of active investiga-
+tion. A comprehensive discussion of the types of phenomena
+that can affect electrode impedance during electrical stimula-
+tion can be found in the text Bioimpedance & Bioelectricity
+Basics (Ref. 56, Chapter 7); representative approaches for
+including electrode structure in models of electrical brain
+stimulation can be found in Professor Makarov’s text (Ref.
+39, Chapter 8) and in Ref. 6.
+During a tDCS session, a controlled amount of current is
+applied to the subject’s head using the electrodes for a treat-
+ment period which begins with ramping up the current and
+ends with ramping it down. Typical values are 1–2 mA for
+the applied current, 20 min for the treatment period, and
+ramp-up/ramp-down periods of 30 s, but other values arealso used. A controller, such as that shown in Fig. 5(a), will
+have settings for each of these treatment parameters. Further
+information regarding the equipment and procedures for per-
+forming tDCS currently in use can be found in Ref. 57.
+C. Calculating charge distributions for the two and five
+electrode cases
+Electrode conﬁgurations of the type shown in Fig. 5have
+previously been modeled using the ﬁnite element method
+(FEM) with the results reported in terms of electric ﬁeld
+magnitudes and directions.7,58,59The ﬁelds have been well-
+described but their origins less so. Speciﬁcally, the underly-
+ing charge distributions which produce the ﬁelds have notbeen reported. Using the sensing pixel technique, we will
+calculate the charge distributions and use them to provide
+students with an introduction to the types of problems where
+basic principles of electricity and magnetism are being used
+in current research.
+Table IIIsets forth the values used in the calculations for:
+(1) the radii of the air-scalp, scalp-skull, skull-CSF, and
+CSF-brain interfaces, and (2) the conductivities ( r’s) on the
+opposing sides of those interfaces. The values for these
+parameters are based on those previously used in concentric
+sphere models of the brain.
+7The table also sets forth the
+directions of the normals at the higher conductivity sides of
+the sensing pixels which cover the interfaces ( ^nhgh) and the
+maximum magnitude of charge in a pixel for each interface
+(maxjqss
+spj) for an applied current of 1 mA. Unlike charge
+densities that vary as 1 =r2with a change in scale, a chargedistribution expressed in terms of charge per pixel values is
+invariant to a change in scale provided the geometric distri-bution of the pixels relative to one another and relative to thelocations of the sources and sinks remains the same.
+26Thus,
+for electrodes at the same relative locations, the max jqss
+spj
+values of Table IIIapply for sets of sphere radii both larger
+and smaller than the set of the table.
+The concentric sphere model with uniform conductivities
+in each layer highly simpliﬁes the geometry and heterogene-ity of an actual brain. However, the model retains sufﬁcientdetail to illustrate such basic phenomena as the effects on thebrain of different electrode montages and the shunting ofcurrent away from the brain by the layers that lie betweenthe stimulating electrodes and the brain, speciﬁcally, thescalp and CSF layers. The model is, thus, a Goldilocks-typesolution to the challenge of introducing students to realworld problems where their knowledge of electromagnetictheory can be applied while lessening the risk that the mes-sage will become lost in the details.
+Figure 6shows the results of the calculations, speciﬁcally,
+the calculated charge distributions on the air-scalp, scalp-skull,skull-CSF, and CSF-brain interfaces for the two electrode andﬁve electrode cases, as well as the potential distributions (cal-
+culated in Sec. III F) produced in the brain for the two cases.
+The calculation parameters for the ﬁgure are discussed inSec.III G.
+Charge and potential distributions of the type shown in
+Fig.6can be used as a ﬁrst step in selecting electrode mon-
+tages likely to achieve desired clinical results. For example,from Fig. 6, we can see that if stimulation having a wide spa-
+tial distribution is desired, then a two electrode system couldbe chosen, while for a more focused effect, a ﬁve electrodeapproach may be better. Our goal, however, is not to makestudents into clinicians. Rather, it is to illustrate how thesensing pixel technique can help in understanding brain elec-tricity. To do so, we will analyze in detail one rather peculiaraspect of the charge distributions of Fig. 6. With that analysis
+in hand, interested students can apply the sensing pixel tech-nique to other aspects of the Fig. 6charge distributions or
+other charge distributions that may be of interest.
+D. Explaining why the skull-CSF’s charge distribution is
+different from the rest
+The aspect of the charge distributions of Fig. 6that we
+will explain using the sensing pixel technique is the factthat for both the two electrode and the ﬁve electrode cases,
+Fig. 5. (Color online) Two electrode and ﬁve electrode tDCS conﬁgurations. Source: Soterix Medical, Inc.; Iappldesignations added.
+271 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 271 04 October 2023 22:51:11
+the charge distribution on the skull-CSF interface is the
+reverse of the charge distributions on the other interfaces,
+i.e., the charges on all of the other interfaces are positive
+near anodes (þIappl) and negative near cathodes ( /C0Iapplor
+/C01
+4Iappl), while on the skull-CSF interface, they are negative
+near anodes and positive near cathodes. We ask: Why does
+this happen?
+The answer starts at the anode and cathode pixels. The
+geometry we are using to model the head has no corners,
+edges, or closely spaced surfaces where feedback between
+pixels can produce high levels of charge (see Ref. 26). As a
+result, as detailed in supplementary material B,37the highest
+charge magnitudes occur at the anode and cathode where the
+current is applied and removed from the system.
+As discussed in Sec. IIand summarized in Table II,i n
+accordance with the sensing pixel technique, positive (nega-
+tive) charges on the higher conductivity side of a sensing
+pixel seek to load positive (negative) charges into the pixel
+with the opposite effect for positive (negative) charges on
+the lower conductivity side. In other words, a “source”
+charge external to a “target” pixel seeks to make the targetpixel have the same sign charge as the source charge when
+the source charge is on the target pixel’s higher conductivity
+side and charge of the opposite sign when the source charge
+is on the target pixel’s lower conductivity side. This “rule,”
+along with the directions of ^nhghin Table III, is all that is
+needed to explain qualitatively why positive/negative
+charges accumulate in the sensing pixels near the anodes/
+cathodes on the air-scalp, scalp-skull, and CSF-brain interfa-
+ces, while just the opposite occurs on the skull-CSF
+interface.
+From the directions of ^nhghin Table III, we see that the
+large charge levels of the anodes/cathodes are on the higher
+conductivity sides of the pixels on the air-scalp, scalp-skull,
+and CSF-brain interfaces. Consequently, from the above
+rule, the large positive charges of the anodes seek to make
+nearby pixels of the air-scalp, scalp-skull, and CSF-brain
+interfaces positive (case 1 of Table II), and the large negative
+charges of the cathodes seek to make their nearby pixels neg-
+ative (case 3 of Table II). The signs for the charges on the
+air-scalp, scalp-skull, and CSF-brain interfaces are, thus, as
+shown in Fig. 6. For the skull-CSF interface, on the other
+Fig. 6. (Color online) Charge and potential distributions for the two and ﬁve electrode cases. The charge distributions are looking down from above; t he poten-
+tial distributions are in a plane passing through the brain’s center, the anode, and the cathode or two of the cathodes for the two and ﬁve electrode case s, respec-
+tively. Blue: negative potentials and charges; red: positive potentials and charges; gray: the zero potential line and charge magnitudes near zero
+(/C200:03 maxjqss
+spjin Table III). Color scale applies to all charge distributions. For Iappl¼1 mA, the spacing between equipotential lines is 1 mV. Thus, for the
+two electrode case, the equipotential lines extend from –6 mV to þ6 mV and for the ﬁve electrode case, from 0 mV to þ3 mV, the negative potentials within
+the brain not reaching –1 mV for this case. To facilitate comparison, the same sphere diameter is used in all plots.
+272 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 272 04 October 2023 22:51:11
+hand, the large charge levels of the anodes/cathodes are on
+the lower conductivity sides of the pixels on that interfaceand, thus, when those large charge levels are sensed by thosepixels, the charges in the skull-CSF pixels, as shown in Fig.6, end up having a sign opposite to that of the nearby ano-
+des/cathodes (cases 2 and 4 of Table II).
+Supplementary material B sets forth a more quantitative
+explanation for the difference in the behavior of the skull-CSF interface compared to the other interfaces using theexpression for the steady state charge in a sensing pixel ofEq.(3).
+37The bottom line is the same: Pixels on the air-
+scalp, scalp-skull, and CSF-brain interfaces follow a straight-forward positive-near-positive and negative-near-negativeparadigm, while pixels on the skull-CSF interface follow apositive-near-negative and negative-near-positive paradigmwhich at ﬁrst glance appears counter-intuitive but which isreadily understood using a “what would a sensing pixelsense” analysis.
+Although we have concentrated on the effects of anode/
+cathode charges, as is evident from the ﬁrst term of Eq. (3),
+all of the charges in the system contribute to the charge in agiven pixel. Often it will be straightforward to identify thepixels whose charges most inﬂuence the charge in a givenpixel and thus an analysis like that used above may be sufﬁ-cient. However, it can become challenging when some inﬂu-ential neighbors have charges of one sign and others of the
+opposite sign, as in the case of the pixels on the CSF-brain
+interface where the skull-CSF charges are the closest chargesand have a sign opposite to that of the other interfaces. Ascan be seen from the values of max jq
+ss
+spjfor the CSF-brain
+interface given in Table III, the net effect of the charges in
+other pixels on the pixels of this interface is very small sothat the charges on the CSF-brain interface are almost zero.Thus, computer calculations may be needed either initiallyor to conﬁrm a back-of-the-envelope prediction. In eithercase, the sensing pixel technique has a role to play, namely,to provide a “does it make sense” check on, and an explana-tion for, the results of the computer calculations.
+E. Calculating the amount of current that passes through
+the brain
+Once calculated, a charge distribution can be used to cal-
+culate various parameters of interest for the particular prob-lem being solved. We illustrate this for our tDCS problem bycalculating the amount of current that enters parts of thebrain and then leaves through other parts at steady state. InSec.III F, we make a further use of the calculated charge dis-
+tribution to compute the steady state potential distributionwithin the brain plotted in the bottom row of Fig. 6.
+We calculate the current that crosses into the brain through
+the CSF-brain interface ( I
+br csf) using the facts that: (1) at
+interfaces between layers, the normal current density mustbe continuous for the charge at the interface to be at steadystate since if the normal current density on one side of theinterface were different from the normal current density onthe other side, the charge at the interface would still bechanging (increasing or decreasing) and not at steady state;and (2) the normal electric ﬁeld at the interface must be dis-continuous by an amount equal to ðR
+freeþRboundÞ=e0,27
+where Rfreeis the interfacial, free charge, surface density and
+Rbound is the interfacial, polarization charge, surface density,
+which for the e¼e0approach used herein is zero. We, thus,
+can writercsfEcsf
+n¼rbrEbr
+n (8)
+and
+Ebr
+n/C0Ecsf
+n¼Rfree
+e0; (9)
+where the En’s are the normal components at the interface of
+the electric ﬁelds in the CSF and brain. In these equations,
+the normal has been taken as pointing into the brain. Solving
+these equations for the normal inward current density at theCSF-brain interface, i.e., J
+br
+n¼rbrEbr
+n, we have
+Jbr
+n¼rcsf/C1rbr
+rcsf/C0rbr/C1Rfree
+e0: (10)
+Using our previously calculated values of qss
+spfor the pixels
+of the CSF-brain interface plotted in Fig. 6and the areas of
+the pixels ( Asp) known from the discretization used to divide
+the interface into pixels, we can immediately calculate
+Rfree¼qss
+sp=Aspfor each pixel and thus Jbr
+nfrom Eq. (10).
+Since rcsf>rbr, the Jbr
+nvalues for pixels containing positive
+charge will be positive and those with negative charge will
+be negative. By adding up the Jbr
+n/C1Aspvalues, i.e., the qss
+sp
+values, for just the positive pixels, and multiplying by
+ðrcsf/C1rbrÞ=ððrcsf/C0rbrÞe0Þ, we arrive at our desired value
+for the current entering the brain ( Ibr csf), the current leaving
+the brain being of the same magnitude but ﬂowing outwardthrough the CSF-brain interface rather than inward.
+Table IVshows the results of this process for the CSF-
+brain interface, as well as for the scalp-skull and skull-CSF
+interfaces for an applied current of 1 mA. As can be seen, for
+the two electrode case, just 21% of the applied current reaches
+the brain, with 56% being directly shunted between the anode
+and cathode by the scalp layer without reaching any deeper
+into the head, 1% being shunted by the low conductivity skull
+layer, and 22% by the high conductivity CSF layer. The
+amount of current entering the brain is even less for the ﬁve
+electrode case with 82% of the applied current being shunted
+through the scalp layer, 1% through the skull layer, and 12%
+through the CSF layer, leaving a paltry 5% to do the work of
+inﬂuencing the electrical activity of brain cells.
+Similar high levels of shunting by a scalp layer or by a
+combination of a scalp layer and a CSF layer were found for
+a three-sphere concentric sphere model in Refs. 3and6and
+for a four-sphere model in Ref. 8. High levels of shunting
+were also found in Ref. 40for a realistic head model that
+included scalp, skull, CSF, gray matter, white matter, eye,
+muscle, and air compartments.
+While the amount of current entering the brain can be
+increased by increasing the level of applied current, safety con-
+siderations and patient comfort come into play as the current
+is increased. The typical upper limit for applied current is
+2 mA, although higher levels have been used in some studies.60
+Table IV. Inwardly transferred positive current.
+I Two electrodes Five electrodes
+(Iappl¼1:00 mA) (1 anode/1 cathode) (1 anode/4 cathodes)
+Iskul sclp 0.44 mA 0.18 mA
+Icsf skul 0.43 mA 0.17 mA
+Ibr csf 0.21 mA 0.05 mA
+273 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 273 04 October 2023 22:51:11
+The values in Table IVare for an applied current of 1 mA so
+there is room to increase the current level within the brain butit will still be a fraction of the current levels in other layers
+especially the level in the scalp where the current can cause
+tingling/itching sensations and localized reddening of the skin.
+The values in Table IVare sensitive to the particular val-
+ues used for the conductivities of the various layers, as wellas to their thicknesses. More generally, the amount of currentreaching the brain and its distribution once there depends onthe details of the head’s and the brain’s geometries. In terms
+of clinical practice, these sensitivities have led to the belief
+by many that the full beneﬁts of tDCS and other forms ofelectrical stimulation will only be achieved through person-alized medicine which takes into account the unique featuresof each person’s anatomy.
+61
+F. Calculating the potential distribution in the brain
+In addition to calculating the amount of current entering
+the brain, the calculated charge distributions can also be
+used to calculate potential distributions within the brain. Thetransition from a charge distribution to a potential distribu-tion simply involves computing the combined (superim-posed) effects of the system’s charges at a set of ﬁeld points;i.e., we compute
+Uðx;y;zÞ¼X
+jqj
+4pe0r; (11)
+where ( x,y,z) is a ﬁeld point, qjis the jthcharge, and ris
+the magnitude of the distance between qjand the ﬁeld point.
+The electric ﬁeld distribution can also be obtained from the
+charge distribution using superposition. In this case, we have
+Eðx;y;zÞ¼X
+jqj
+4pe0r2^r; (12)
+where ^ris a unit vector that points from qjto the (x,y,z) ﬁeld
+point.
+The bottom row of Fig. 6illustrates the use of Eq. (11)to
+generate equipotential plots within the brain sphere for the
+two and ﬁve electrode cases. The spacing between equipo-tential lines (1 mV for an applied current of 1 mA) is thesame in the two plots thus allowing a direct comparison ofthe potential distributions for the two cases. As discussed inRef. 58, the goal of the ﬁve electrode system is to produce
+more focused effects on the brain. This is clearly seen in Fig.
+6where the equipotential lines extend throughout the brain
+for the two electrode case but are highly localized under theanode for the ﬁve electrode case. As acknowledged in Ref.58, focusing comes at the cost of overall weaker ﬁelds. This
+is evident in Fig. 6where the ﬁelds for the ﬁve electrode
+case are plainly much weaker than those for the two elec-
+trode case. The weaker ﬁelds can be attributed to the greatershunting through the scalp layer for the ﬁve electrode casediscussed above in connection with Table IV.
+G. Calculation parameters for Fig. 6
+The charge and potential distributions of Fig. 6were cal-
+culated using 5,120 triangular pixels for each of the air-
+scalp, scalp-skull, skull-CSF, and CSF-brain interfaces for a
+total of 20,480 pixels. To reduce storage requirements, solidangle calculations were performed for only the 500 nearestneighbors of each pixel. For more distant pixels, the fast
+multipole method (FMM) of Ref. 62as applied to electrical
+brain stimulation in Ref. 10was used along with global
+charge conservation at the end of each step to compensatefor the coarser approximations for the ﬁelds acting at the pix-els provided by the FMM. The FMM precision was set at1/C210
+/C05. Solid angles were calculated using the technique
+of Ref. 35.
+The anodes and cathodes were modeled as groups of pix-
+els on the air-scalp interface sharing a common vertex andarranged as a polygon about the vertex with the applied cur-rent equally divided among the members of the group.Pixelization of a spherical surface using triangles producesboth pentagon and hexagon groupings of pixels (see Fig.4(b)). Consequently, depending on their locations on the air-
+scalp interface, the electrodes were either composed of ﬁve
+or six pixels and had somewhat different areas. Speciﬁcally,
+each of the anode and cathode electrodes for the two elec-trode case had six pixels and an area of 0.77 cm
+2; the anode
+for the ﬁve electrode case had six pixels and an area of0.83 cm2; and two of the cathodes for the ﬁve electrode case
+had six pixels and two had ﬁve pixels, with the six pixel elec-trodes each having an area of 0.87 cm2and each of the ﬁve
+pixel electrodes having an area of 0.64 cm2.
+For the two electrode case, the polar angle on the scalp of
+each of the anode and cathode vertices was 28/C14with azi-
+muthal angles of 0/C14and 180/C14. For the ﬁve electrode case, the
+anode was located on the vertical axis and the same 28/C14polar
+angle was used for each of the cathode vertices with azi-muthal angles of 0
+/C14,9 0/C14, 180/C14, and 270/C14. In practice, disc
+electrodes of the type modeled here are routinely used withﬁve electrode montages but less so with two electrode mon-tages where the applied current is often spread out over anarea of the scalp using square or rectangular, saline-soaked,conductive pads.
+An iteration step on the order of ten percent of the sys-
+tem’s smallest e
+0=rratio was found to work successfully. In
+the concentric sphere model for a human head of Fig. 1(b),
+the cerebrospinal ﬂuid (CSF) has the highest conductivityand thus the smallest ratio, i.e., 5 :4/C210
+/C012for the rvalue
+of 1.65 S/m for the CSF of Table III, and thus, a step of
+5:4/C210/C013was used in the calculations. Constant anodal
+and cathodal currents were introduced into the electrode pix-els starting at t¼0 and continuing thereafter. In approxi-
+mately 2,500 steps, the system reached its steady state.
+The charge distributions of Fig. 6are normalized distribu-
+tions obtained by dividing the charge in each pixel by thevalue of maxjq
+ss
+spjof Table IIIfor the interface on which the
+pixel is located. In this way, the large differences in magni-
+tudes for the four interfaces does not obscure the differences
+in their distributions as would occur for global normalizationusing the maxjq
+ss
+spjvalue for the air-scalp interface. As a
+result of the normalization, the single color bar above thehorizontal line in Fig. 6applies to all of the charge distribu-
+tions. We note that charge densities can be obtained from thecharge per pixel values plotted in Fig. 6by simply dividing
+by pixel areas, the resulting distributions on the interfacesbeing visually the same.
+The potential distributions of the last row of Fig. 6were
+calculated using Eq. (11)along with the technique discussed
+in Sec. 4.2.4 of Makarov et al. (Ref. 39) to deal with the sin-
+gularities in the potentials that occur as one approaches apixel’s centroid. For an applied current of 1 mA, the magni-tudes of the electric ﬁeld distributions corresponding to these
+274 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 274 04 October 2023 22:51:11
+potential distributions are on the order of 0.2 mV/mm for the
+two electrode case where, as shown in Fig. 6, the potential
+range is about 12 mV and less for the ﬁve electrode case
+where the potential range is about 3 mV.
+Validation of the sensing pixel technique was performed
+both qualitatively and quantitatively. A qualitative compari-son was performed using the two-electrode, four-layer, con-
+centric sphere model of Sec. 3.2 of Ref. 10. Charge
+distributions for this problem were calculated using the opensource code of Ref. 28. The same sphere radii (92, 86, 80,
+and 78 mm), electrode locations (a polar angle of 45
+/C14for
+each of the anode and cathode), and media conductivities(0.43, 0.01, 1.79, and 0.33 S/m) were used as in Ref. 10. The
+calculated charge distributions are shown in supplementary
+material C.
+37These charge distributions follow the same pat-
+terns as in Fig. 6. As was demonstrated in Sec. III, the pat-
+terns are readily understood using the “what would a sensing
+pixel sense” question.
+The sensing pixel technique was also validated quantita-
+tively using the analytic solution of Ref. 4for the problem of
+polar stimulation of a three sphere model for a human head
+(scalp, skull, brain). Speciﬁcally, the electric ﬁeld at the cen-
+ter of the brain was calculated by applying Eq. (12) to a
+charge distribution calculated using the sensing pixel tech-nique with the same pixel density as in Fig. 6. The same
+sphere radii and conductivity values were used as in Ref. 4.
+The numerically calculated electric ﬁeld was then multipliedby Ref. 4’s brain conductivity, i.e., 0.450 S/m, to give a cur-
+rent density value of 0.0375 A/m
+2. The analytic current den-
+sity of Eq. (30) of Ref. 4was 0.0370 A/m2, a difference of
+1.2%. The analytic and numerical solutions can be expectedto differ since the analytic solution assumes that the anode
+and cathode are point sources, while in the numerical calcu-
+lations, they each had an area of 1.25 cm
+2. The code used for
+the quantitative validation is set forth in supplementary
+material D. The supplementary materials also include a
+MATLABVRscript for the code.37
+H. Student project
+While some students may be motivated to acquire one of
+the programs of Table Iand use the program to study the
+electrical and geometric parameters that affect brain stimula-
+tion, other students may ﬁnd a less ambitious project more
+approachable. Figure 7illustrates a resistor network that canbe used for this purpose. In this model, the scalp, skull, CSF,
+and brain layers are represented by sets of resistors labeled1–4. The resistors are arranged so that in each layer, the cur-
+rent can ﬂow both tangentially and radially. The source and
+sink are labeled 5 and 6.
+The model is purely qualitative. Nonetheless, it can be
+used to examine trends produced by, for example, changes insource and sink locations and/or the conductivities (resistan-
+ces) of the various layers. Also, students can easily imple-
+ment the model using the LTspice
+VRprogram which Analog
+Devices, Inc. distribute at no charge at its website. To getstudents started, an LTspice
+VRscript for the Fig. 7circuit is
+included in the supplementary material.37
+IV. CONCLUSION
+This introduction to brain electricity merely scratches the
+surface of the on-going efforts to understand the electrical
+behavior of the brain and to use that understanding to treat
+disease. As a benchmark, for tDCS alone, a 2016 reviewlisted over three hundred references relating to the applica-tion of the technique to pain, depression, post-stroke rehabil-
+itation, dystonia, multiple sclerosis, epilepsy, dementia,
+schizophrenia, autism, and attention disorders, as well as tosuch other clinical challenges as Parkinson’s disease, cere-bral palsy, primary progressive aphasia, consciousness disor-
+ders, Alzheimer’s disease, tinnitus, addiction, and craving.
+63
+Since that time, hundreds of additional references relating to
+potential uses of tDCS to treat disease have been pub-lished.64In addition to its use in connection with diseases,
+transcranial electrical stimulation has also been used to
+enhance the performance of healthy subjects, e.g., athletes,and to speed up the training of ﬁghter pilots.65tDCS is an
+example of a “forward” problem where the stimulationparameters are under the control of the modeler and the
+question being asked is how will the brain respond to current
+applied using those parameters. The brain’s neurons them-selves generate electrical currents which produce the mad-deningly small voltages of the electroencephalogram (EEG)
+at the surface of the scalp (in the microvolt range). The phys-
+ics problem of determining the locations, magnitudes, andorientations of the sources within the brain that producethose small voltages is known as the “inverse” problem and
+is acknowledged to be even more challenging than the for-
+ward problem.
+66
+More challenges arise when one drops down from the
+macro scale to the more micro scale of individual cells. Thereone ﬁnds the complex electrical behavior of cell membranes
+including their pores that use charged proteins to control the
+passage of ions between extracellular and intracellular mediaand thereby generate excitatory and inhibitory synapticpotentials and ultimately action potentials. Linking the activi-
+ties of individual cells and the gross potentials measured
+experimentally are the brain circuits, including circuits wheregroups of neurons coordinate their electrical activities to pro-duce rhythmic potentials, observable in electroencephalo-
+grams, whose frequencies change with different levels of
+brain activity, e.g., between waking and sleeping.
+67Adding
+all these problems up, it is evident that there is no shortage ofresearch problems for students to choose from.
+Commercially, tDCS is just one part of a much larger
+ﬁeld recently given the moniker “electroceuticals.” In 2019,
+it was estimated to be a $23 billion industry projected togrow to more than $60 billion by 2029.
+68Many have
+ Fig. 7. Resistor network for modeling tDCS.
+275 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 275 04 October 2023 22:51:11
+proclaimed that we are now in the “golden age of neuro-
+science.” Necessarily, a thorough understanding of electro-magnetic theory will be needed as we progress through that
+age since at bottom the brain is an electric organ. The basic
+physics problem that we have solved here can serve as astarting point for helping interested students engage withthis exciting age.
+ACKNOWLEDGMENTS
+The author thanks the anonymous referees for their
+valuable comments and suggestions that helped improve themanuscript.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has patents and applications relating to electro-
+physiology and neural activity.
+a)Electronic mail: mmk@mauriceklee.com, ORCID: 0000-0001-5703-
+543X.
+1B. Parks, “Research-inspired problems for electricity and magnetism,”
+Am. J. Phys. 74(4), 351–354 (2006).
+2M. L. Meyer and M. D. Lieberman, “Why people are always thinking
+about themselves: Medial prefrontal cortex activity during rest primes
+self-referential processing,” J. Cognitive Neurosci. 30(5), 714–721 (2018).
+3S. Rush and D. Driscoll, “Current distribution in the brain from surface
+electrodes,” Anesth. Analg. 47(6), 717–723 (1968).
+4S. Rush and D. Driscoll, “EEG electrode sensitivity—An application of
+reciprocity,” IEEE Trans. Biomed. Eng. 16(1), 15–22 (1969).
+5M. Ferdjallah et al. , “Potential and current density distributions of cranial
+electrotherapy stimulation (CES) in a four-concentric-spheres model,”
+IEEE Trans. Biomed. Eng. 43(9), 939–943 (1996).
+6P. Miranda et al. , “Modeling the current distribution during transcranial
+direct current stimulation,” Clin. Neurophysiol. 117(7), 1623–1629
+(2006).
+7A. Datta et al. , “Transcranial current stimulation focality using disc and
+ring electrode conﬁgurations: FEM analysis,” J. Neural Eng. 5(2),
+163–174 (2008).
+8P. Faria et al. , “A ﬁnite element analysis of the effect of electrode area and
+inter-electrode distance on the spatial distribution of the current density in
+tDCS,” J. Neural Eng. 8(6), 066017 (2011).
+9J. Dmochowski et al. , “The point spread function of the human head and
+its implications for transcranial current stimulation,” Phys. Med. Biol.
+57(20), 6459–6477 (2012).
+10S. Makarov et al. , “Boundary element fast multipole method for modeling
+electrical brain stimulation with voltage and current electrodes,” J. Neural
+Eng. 18(4), 0460d4 (2021).
+11S. Conte and J. Richards, “The inﬂuence of the head model conductor on
+the source localization of auditory evoked potentials,” Brain Topogr.
+34(6), 793–812 (2021).
+12M. Bikson et al. , “Rigor and reproducibility in research with transcranial
+electrical stimulation: An NIMH-sponsored workshop,” Brain Stimulation
+11(3), 465–480 (2018).
+13S. Rampersad et al. , “Simulating transcranial direct current stimulation
+with a detailed anisotropic human head model,” IEEE Trans. Neural Syst.
+Rehabilitation Eng. 22(3), 441–452 (2014).
+14N. Carnevale and M. Hines, The Neuron Book (Cambridge U. P.,
+Cambridge, 2006).
+15P. Nahirney and M. Tremblay, “Brain ultrastructure: Putting the piecestogether,” Front. Cell Dev. Biol. 9, 629503 (2021).
+16The software packages of Table Iare for the calculation of potentials,
+ﬁelds, and current ﬂows associated with electrical brain stimulation. Avariety of software packages are also available for analyzing recordings of
+the electric and magnetic ﬁelds produced by brain activity, i.e., electroen-
+cephalograms (EEGs) and magnetoencephalograms (MEGs), including
+EEGLab, MNE, Brainstorm, and FieldTrip, all of which are open source.
+17Y. Huang et al. , “Realistic volumetric-approach to simulate transcranial
+electric stimulation-ROAST—A fully automated open-source pipeline,”
+J. Neural Eng. 16(5), 056006 (2019).18C. Lee et al. , “COMETS2: An advanced MATLAB toolbox for the numer-
+ical analysis of electric ﬁelds generated by transcranial direct current stim-
+ulation,” J. Neurosci. Methods 277, 56–62 (2017).
+19G. Saturnino et al. , “SimNIBS 2.1: A comprehensive pipeline for individu-
+alized electric ﬁeld modelling for transcranial brain stimulation,” in Brain
+and Human Body Modeling: Computational Human Modeling at EMBC
+2018, edited by S. Makarov et al. (Springer Nature Switzerland AG,
+Cham, Switzerland, 2019), Chap. 1, pp. 3–25.
+20S. Schrader et al. , “DUNEuro—A software toolbox for forward modeling
+in bioelectromagnetism,” PloS One 16(6), e0252431 (2021).
+21M. Dannhauer and S. Frisby, “BrainStimulator: A SCIRun5-based toolkit for
+modeling of transcranial electromagnetic stimulation,” <https://www.sci.
+utah.edu/images/software/SCIRun/BrainStimulatorTutorial.pdf >, accessed
+on July 1, 2022.
+22J. Dmochowski et al. , “Optimized multi-electrode stimulation increases
+focality and intensity at target,” J. Neural Eng. 8(4), 046011 (2011).
+23P. Miranda et al. , “The electric ﬁeld in the cortex during transcranial cur-
+rent stimulation,” Neuroimage 70, 48–58 (2013).
+24O. Seibt et al. , “Computational ﬁnite element method (FEM) forward
+modeling workﬂow for transcranial direct current stimulation (tDCS) cur-rent ﬂow on MRI-derived head: Simpleware and COMSOL Multiphysics
+tutorial,” preprint bioRxiv 704940 (2019).
+25Y. Huang et al. , “Measurements and models of electric ﬁelds in the in vivo
+human brain during transcranial electric stimulation,” eLife 6, e18834
+(2017).
+26M. Klee, “Surface charges from a sensing pixel perspective,” Am. J. Phys.
+88(8), 649–660 (2020).
+27M. Zahn, Electromagnetic Field Theory: A Problem Solving Approach
+(Wiley, Hoboken, NJ, 1979), p. 166.
+28Computer code for Ref. 10can be found at https://tmscorelab.github.io/
+EEG_MEG-Modeling-Website/ andwww.dropbox.com/sh/gf2jpx5gi0oso8m/
+AADed5hdZXZExszPb6Od2slva?dl .
+29D. van Essen et al. , “The WU-Minn human connectome project: An over-
+view,” NeuroImage 80, 62–79 (2013); J. Elam et al. , “The human connec-
+tome project: A retrospective,” ibid.244, 118543 (2021).
+30A. Sommerfeld, Electrodynamics (Academic, New York, 1952), pp.
+125–130; ﬁrst published as Elektrodynamik – Vorlesungen €uber
+Theoretische Physik, Band 3 (Dietrich’sche Verlagsbuchhandlung,
+Wiesbaden, 1948).
+31R. W. Chabay and B. A. Sherwood, Electric and Magnetic Interactions
+(Wiley, New York, 1995).
+32George Green, An Essay on the Application of mathematical Analysis to
+the theories of Electricity and Magnetism (T. Wheelhouse, Nottingham,
+England, 1828).
+33James Clerk Maxwell, A Treatise on Electricity and Magnetism , 3rd ed.
+(Clarendon Press, Oxford, 1891), Vol. I, pp. ix, 123.
+34In Table II, we refer to the external charge “seeking to make” a pixel’s
+internal charge positive or negative, rather than simply saying that theexternal charge “makes” the internal charge positive or negative, because
+through the interplay of all of the charges of the system with the pixel, the
+charge in a pixel is not merely that which an individual external chargewould produce if acting alone, but depends on the net effect of all of theexternal charges. Thus, while an individual external charge seeks to makethe internal charge positive or negative, it does not necessarily achieve
+that result because the effects of other charges in the system may be stron-
+ger and cause the internal charge to have the opposite polarity.
+35A. van Oosterom and J. Strackee, “The solid angle of a plane triangle,”
+IEEE Trans. Biomed. Eng. 2, 125–126 (1983).
+36In Ref. 26, the conductor was assumed to be homogeneous, isotropic, and
+non-polarizable with a conductivity that did not vary with time. It was fur-
+ther assumed that the Drude model applied to the conductor and that
+inductive effects are insigniﬁcant. The same simplifying assumptions aremade here for each of the head’s conductive layers.
+37See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0085625 for supplementary materials A–D, where A derives
+Eqs. (2) and (3), B applies Eq. (3) to the skull–CSF interface, C contains aqualitative comparison with Ref. 10, and D contains a quantitative com-
+parison with Ref. 4. The supplementary material also includes a Matlab
+VR
+script for supplementary material D and a LTspice VRscript for Fig. 7 .
+38M. Klee, “Biology’s built-in Faraday cages,” Am. J. Phys. 82(5), 451–459
+(2014).
+39Therdiff=rsumratio has also been referred to in the literature as an interfa-
+ce’s “conductivity contrast.” See S. Makarov et al. ,Low-Frequency
+276 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 276 04 October 2023 22:51:11
+Electromagnetic Modeling for Electrical and Biological Systems Using
+MATLAB (Wiley, Hoboken, NJ, 2016), p. 312.
+40A. Datta et al. , “Validation of ﬁnite element model of transcranial electri-
+cal stimulation using scalp potentials: Implications for clinical dose,”J. Neural Eng. 10(3), 036018 (2013).
+41C. Wenger et al. , “Improving tumor treating ﬁelds treatment efﬁcacy in
+patients with glioblastoma using personalized array layouts,” Int. J.
+Radiat. Oncol. Biol. Phys. 94(5), 1137–1143 (2016).
+42Reference 39, pp. 292–293. See also Ref. 33, p. 455, Eq. (17); Ref. 27,p .
+186, Eqs. (15) and (20); R. Plonsey and R. Collin, Principles and
+Applications of Electromagnetic Fields (McGraw-Hill, New York, 1961),
+p. 179, Eqs. (5.54a) and (5.54b); and I. W. McAllister and G. C. Crichton,
+“Analysis of the temporal electric ﬁelds in lossy dielectric media,” IEEE
+Trans. Electr. Insul. 26(3), 513–528 (1991).
+43In cases where xe=r/C281, where xis the angular frequency, the electrical
+behavior of biological systems is often modeled parametrically as the
+product of a time-varying factor f(t) times a steady state solution. See, for
+example, Ref. 39, Sec. 1.1.4; R. Plonsey and D. Heppner, “Considerations
+of quasi-stationarity in electrophysiological systems,” Bull. Math.
+Biophys. 29(4), 657–664 (1967); C. Bossetti et al., “Analysis of the quasi-
+static approximation for calculating potentials generated by neural stim-
+ulation,” J. Neural Eng. 5(1), 44–53 (2008). Even for media having very
+high dielectric constants, the xe=rratio is small for many of the frequen-
+cies used for electrical brain stimulation. The low end of those frequencies
+is on the order of 1–45 Hz, which is used for transcranial AC stimulation(see The Stimulated Brain: Cognitive Enhancement Using Non–Invasive
+Brain Stimulation , edited by R. Kadosh (Elsevier, Amsterdam,
+Netherlands, 2014)), while the high end is on the order of 100–300 kHz,
+which is used to treat brain tumors (see Ref. 41). For these frequencies, a
+dielectric constant of 5,000 e
+0, and a conductivity of 0.25 S/m, the xe=r
+ratio ranges from/C241/C210/C06to/C243/C210/C01. Thus, the parametric model is
+justiﬁed in some cases, but not in others. Compare G. Gaugain et al.,“Quasi-static approximation error of electric ﬁeld analysis for transcranial
+current stimulation,” preprint arXiv:2204.03555 (2022), which questions
+whether capacitive effects can be ignored in full brain models even for very
+low frequencies.
+44P. Nunez and R. Srinivasan, Electric Fields of the Brain: The
+Neurophysics of EEG , 2nd ed. (Oxford U. P., New York, 2006), p. 166.
+45R. Plonsey, Bioelectric Phenomena (McGraw-Hill, New York, 1969),
+pp. 203–204.
+46J. Malmivuo and R. Plonsey, Bioelectromagnetism: Principles and
+Applications of Bioelectric and Biomagnetic Fields (Oxford U. P.,
+New York, 1995), pp. 456–457.
+47Reference 44, pp. 166–169, 592–597.
+48G. Scharf and C. Scharf, “Electrophysiology of living organs from ﬁrst
+principles,” preprint arXiv:1006.3453 (2010); see also, for example, O. D.
+Jeﬁmenko, Electricity and Magnetism: An Introduction to the Theory of
+Electric and Magnetic Fields , 2nd ed. (Electret Scientiﬁc Company, Star
+City, WV, 1989), p. 297: “…as far as the calculation of the stationary elec-
+tric ﬁeld inside (or outside) a current-carrying conductor is concerned, the
+current as such may be completely ignored, and only the charge distribu-
+tion on the surface and in the interior of the conductor needs to be taken
+into account. Thus the stationary ﬁelds of current-carrying conductors, just
+like the electrostatic ﬁelds, have electric charges as their sources.”
+49Some students will be familiar with the fact that charges accumulate at the
+locations where current is introduced into a conductor as a result of having
+been assigned problem 34 of Chapter 3 of Ref. 27, or having studied
+Example 7.2 of D. J. Grifﬁths, Introduction to Electrodynamics , 4th ed.
+(Pearson, Boston, 2013) or Example 9-5.1 of Ref. 48.
+50N. Grossman et al. , “Noninvasive deep brain stimulation via temporally
+interfering electric ﬁelds,” Cell169(6), 1029–1041 (2017).
+51M. V €or€oslakos et al. , “Direct effects of transcranial electric stimulation on
+brain circuits in rats and humans,” Nat. Commun. 9(1), 1–17 (2018).
+52Kadosh, Ref. 43, Chap. 2.
+53A. Liu et al. , “Immediate neurophysiological effects of transcranial electri-
+cal stimulation,” Nat. Commun. 9(1), 1–12 (2018). (Despite more than
+4000 publications (PubMed) on TES [Transcranial Electrical Stimulation]
+in the past decade, we lack a mechanistic understanding of the mechanism(or mechanisms) by which this technique produces beneﬁcial or deleteri-
+ous effects.); A. Fertonani and C. Miniussi, “Transcranial electrical stimu-lation: What we know and do not know about mechanisms,”Neuroscientist 23(2), 109–123 (2017).
+54K. Caulﬁeld and M. George, “Optimizing transcranial direct current stimu-
+lation (tDCS) electrode position, size, and distance doubles the on-targetcortical electric ﬁeld: Evidence from 3000 Human Connectome Projectmodels,” preprint bioRxiv https://doi.org/10.1101/2021.11.21.469417
+(2021); A. Molero-Chamizo et al., “Standard non-personalized electricﬁeld modeling of twenty typical tDCS electrode conﬁgurations via thecomputational ﬁnite element method: Contributions and limitations of two
+different approaches,” Biology 10(12), 1230–1252 (2021).
+55M. Nitsche and W. Paulus, “Excitability changes induced in the human
+motor cortex by weak transcranial direct current stimulation,” J. Physiol.
+527(3), 633–639 (2000).
+56S. Grimnes and Ø. Martinsen, Bioimpedance & Bioelectricity Basics , 3rd
+ed. (Academic Press, Cambridge, MA, 2015).
+57Practical Guide to Transcranial Direct Current Stimulation: Principles,Procedures and Applications , edited by H. Knotkova et al. (Springer, New
+York, 2019); H. Thair et al. , “Transcranial direct current stimulation
+(tDCS): A beginner’s guide for design and implementation,” Front.
+Neurosci. 11, 641 (2017); A. Woods et al. , “A technical guide to tDCS,
+and related non-invasive brain stimulation tools,” Clin. Neurophysiol.
+127(2), 1031–1048 (2016).
+58A. Datta et al. , “Gyri-precise head model of transcranial direct current
+stimulation: Improved spatial focality using a ring electrode versus con-ventional rectangular pad,” Brain Stimul. 2(4), 201–207 (2009).
+59A. Datta et al. , “Inter-individual variation during transcranial direct current
+stimulation and normalization of dose using MRI-derived computational
+models,” Front. Psychiatry 3(91), 91 (2012).
+60M. Bikson et al. , “Safety of transcranial direct current stimulation:
+Evidence based update 2016,” Brain Stimul. 9(5), 641–661 (2016).
+61A. Datta et al. , “Individualized model predicts brain current ﬂow during
+transcranial direct-current stimulation treatment in responsive strokepatient,” Brain Stimul. 4(3), 169–174 (2011).
+62Z. Gimbutas and L. Greengard, “Simple FMM libraries for electrostatics,
+slow viscous ﬂow, and frequency-domain wave propagation,” Commun.
+Comput. Phys. 18(2), 516–528 (2015).
+63Jean-Pascal Lefaucheur, “A comprehensive database of published tDCS
+clinical trials (2005–2016),” Clin. Neurophysiol. 46(6), 319–398 (2016).
+64For a review of various recent references, see E. Gianni et al. , “tDCS ran-
+domized controlled trials in no-structural diseases: A quantitative review,”Sci. Rep. 11(1), 1–18 (2021).
+65See, for example, R. Fields, “Amping up brain function: Transcranial stim-
+ulation shows promise in speeding up learning,” Sci. Am. 25(2011),
+available at http://www.scientiﬁcamerican.com/article/amping-up-brain-
+function/ ; J. Choe et al. , “Transcranial direct current stimulation modulates
+neuronal activity and learning in pilot training,” Front. Human Neurosci.
+10(34), 1–25 (2016); E. Strickland, “A new kind of juice,” IEEE Spectrum
+53, 34–40 (2016); A. Kamali et al. , “Transcranial direct current stimula-
+tion to enhance athletic performance outcome in experienced body-
+builders,” PloS One 14(8), 1–20 (2019).
+66Efforts to calculate the potentials produced by active neurons typically
+use, a potential-centric approach. A charge-ﬁrst approach can be found inS. Makarov et al. , “Boundary element fast multipole method for enhanced
+modeling of neurophysiological recordings,” IEEE Trans. Biomed. Eng.
+68(1), 308–318 (2021).
+67G. Buzs /C19akiet al. , “The origin of extracellular ﬁelds and currents-EEG,
+ECoG, LFP and spikes,” Nat. Rev. Neurosci. 13(6), 407–420 (2012).
+68Alliance for Advancing Bioelectronic Medicine, “Building a bioelectronic
+medicine movement 2019: Insights from leaders in industry, academia,and research,” Bioelectronic Med. 6, 1–11 (2020); see also L. Peeples,
+“Core concept: The rise of bioelectric medicine sparks interest amongresearchers, patients, and industry,” Proc. Natl. Acad. Sci. 116(49),
+24379–24382 (2019); A. Park, “Why it’s time to take electriﬁed medicineseriously,” TIME, October 24, 2019, available at https://time.com/
+5709245/bioelectronic-medicine-treatments/ .
+277 Am. J. Phys., Vol. 91, No. 4, April 2023 Maurice M. Klee 277 04 October 2023 22:51:11

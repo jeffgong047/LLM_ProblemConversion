@@ -1,0 +1,603 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| MAY 01 2023
+Flexible, low-cost phase-sensitive detection for the
+undergraduate laboratory with a T eensy microcontroller 
+Jerome Fung  
+ ; Christopher L. W eil 
+Am. J. Phys.  91, 395 (2023)
+https://doi.org/10.1 119/5.0126691
+Articles Y ou May Be Interested In
+Comparison of processing speed between Arduino Due and T eensy 3.6 boards in a system identification
+application
+J Acoust Soc Am  (March 2018)
+Speech envelope enhancement to improve cocktail-party listening
+J Acoust Soc Am  (October 2021)
+Audiologic evaluation of the tympan open source hearing aid
+J Acoust Soc Am  (March 2018) 04 October 2023 22:52:21
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, andhow they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to the
+IL&D editor for consideration.
+Flexible, low-cost phase-sensitive detection for the undergraduate
+laboratory with a Teensy microcontroller
+Jerome Funga)and Christopher L. Weilb)
+Department of Physics and Astronomy, Ithaca College, Ithaca, New York 14850
+(Received 16 September 2022; accepted 17 January 2023)
+We perform phase-sensitive detection with an inexpensive microcontroller, the Teensy 3.5. The
+programming and pricing of this microcontroller is similar to that of commonly used Arduino
+microcontrollers, but the Teensy 3.5 offers superior hardware performance. Our Teensy-based phase-sensitive detector can operate either with an external reference signal or by internally generating a
+reference signal. Additionally, we have developed an open-source graphical user interface for
+controlling the instrument. We demonstrate that our phase-sensitive detector exhibits good linearityin amplitude and phase, even with 25 mV signals dominated by larger-amplitude noise. We also use
+our phase-sensitive detector in a simple laboratory measurement: determining the distance
+dependence of the intensity of a light-emitting diode (LED) with the room lights on. Our instrumentis a useful tool for teaching students about phase-sensitive detection and can be a viable low-cost
+alternative to commercial lock-in ampliﬁers.
+#2023 Published under an exclusive license by American
+Association of Physics Teachers.
+https://doi.org/10.1119/5.0126691
+I. INTRODUCTION
+Phase-sensitive detection is a widely used experimental
+technique for recovering the signal amplitude at the fre-quency of a reference oscillator, even when signal ampli-tudes are present at other frequencies. In one classicexample, Libbrecht et al. used a lock-in ampliﬁer and a sinu-
+soidal input current to measure the /C2480 mXresistance of a
+brass wire.
+1Another common application is the measure-
+ment of weak optical signals from laser-induced ﬂuorescenceor scattering by chopping the laser beam at a known fre-
+quency. Phase-sensitive detection is also a concrete demon-
+stration of the utility of Fourier analysis and orthogonalfunctions. Accordingly, considerable attention has been paidto practical experiments or demonstrations involving phase-sensitive detectors
+1–3as well as the pedagogical aspects of
+using them.4
+Phase-sensitive detection is typically performed with dedi-
+cated commercial lock-in ampliﬁers. Several recent studieshave introduced low-cost alternatives to commercial instru-ments, particularly in the context of undergraduate laborato-ries. Xu et al. used a commercial modulator/demodulator
+integrated circuit for phase-sensitive measurements in anupper-division analytical chemistry laboratory.
+5Their
+approach, however, needed external op-amp-based ﬁlteringand phase-shifting circuits that require moderately sophisti-cated knowledge of analog electronics to understand.Nooruddin and Roy performed phase-sensitive detection
+with an AVR microcontroller to which they added additional
+memory.
+6This approach also required signiﬁcant external
+hardware and, moreover, was only demonstrated with anexternal reference oscillator. In addition, Stimpson et al.
+introduced a lock-in detector based on a ﬁeld-programmablegate array (FPGA) that was capable of high-frequency
+(50 MHz) performance comparable to that of dedicated com-
+mercial instruments.
+7While much less expensive than a
+commercial lock-in ampliﬁer, the FPGA-based device usedby Stimpson and co-workers is an order of magnitude moreexpensive than the integrated circuits or microcontrollers
+used by Xu et al. or Nooruddin and Roy.
+8
+A particularly promising idea was proposed by Schultz,
+who performed phase-sensitive detection with an ArduinoUno microcontroller.9In addition to their popularity with
+electronics hobbyists, Arduino microcontrollers have foundincreasingly widespread use in physics laboratories, includ-ing for experiments in electronics,
+10,11controlling mirror
+galvanometers in a confocal microscope,12performing data
+readout in gamma ray spectroscopy,13and as a general-
+purpose measuring device in beyond-ﬁrst-year laborato-ries.14,15Arduino microcontrollers are inexpensive, and
+students can ﬁnd abundant resources to learn how to program
+and use them. While Schultz did not present test data to char-
+acterize the device’s performance, the Arduino Uno micro-controller that was used has signiﬁcant hardware constraints
+395 Am. J. Phys. 91(5), May 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 395 04 October 2023 22:52:21
+that restrict its utility for practical laboratory measurements.
+The Arduino Uno has only 2 kB of onboard RAM, whichlimits the amount of digitized data it can store. Its analog-to-
+digital converters are limited to 10 bits of resolution. In addi-
+tion, the Arduino Uno has no onboard true digital-to-analogconversion, necessitating the use of a clever but cumbersome“bit-banging” scheme for generating a sinusoidal reference
+signal.
+Here, we introduce the use of a Teensy 3.5 microcontroller
+for phase-sensitive detection.
+16The Teensy 3.5 combines the
+ease of use of an Arduino with much better hardware speciﬁ-cations (see the supplementary material
+28for a summary
+comparing the speciﬁcations of the Teensy 3.5 and the
+Arduino Uno). Teensy microcontrollers can be programmed
+like Arduinos and are compatible with most Arduino soft-ware libraries. However, the Teensy 3.5 is based on theARM Cortex-M4 microprocessor, which is much more capa-
+ble than the AVR Atmega 328P microcontroller at the heart
+of an Arduino Uno. The Teensy 3.5 has 256 kB of onboardRAM, two analog-to-digital converters with up to 13 bits ofresolution, and two digital-to-analog converters with 12 bitsof resolution. Like an Arduino, the Teensy 3.5 has the disad-
+vantage of only being able to handle positive signals (from 0
+to 3:3 V), although most of its pins are 5 V-tolerant.
+In this paper, we show how its improved hardware speciﬁ-
+cations enable the Teensy 3.5 to ﬂexibly and effectively per-form phase-sensitive detection. Our phase-sensitive detector,
+unlike those of Schultz and Nooruddin and Roy,
+6,9can oper-
+ate using either an external reference oscillator or anexternally-generated reference signal and allows users to eas-ily control the low-pass ﬁltering that the detector must per-form. After reviewing the theory of phase-sensitive detection
+in Sec. II,w ed e s c r i b ei nS e c . IIIthe Teensy software and the
+PYTHON -based graphical user interface we have developed to
+acquire and save data using a Teensy. Then, in Sec. IV,w e
+present detailed test data that show that our Teensy-based
+phase-sensitive detector can faithfully recover the amplitude
+and phase of sinusoidal input signals, even when those signalsare dominated by noise. Finally, we show for the ﬁrst timethat a microcontroller-based phase-sensitive detector canmake a useful laboratory measurement by measuring the
+inverse-square distance dependence of the intensity of a blink-
+ing light-emitting diode (LED) with a photodiode.
+1The use of
+phase-sensitive detection enables these measurements to beperformed when the room lights are fully on and are the domi-
+nant contribution to the raw photodiode signal.
+II. PHASE-SENSITIVE DETECTION
+In phase-sensitive detection, the amplitude and phase of a
+sinusoidal input signal can be recovered by mixing the input
+with a reference signal of the same frequency followed by
+low-pass ﬁltering. Consider an input signal V
+inconsisting of
+a sinusoidal component with a DC offset17
+Vin¼VDCþV0sinðxtþ/Þ: (1)
+Here, VDCdenotes the DC offset, which we include explicitly
+because it is always present in the positive-only signals readby the Teensy 3.5, and we wish to recover the amplitude V
+0
+and the phase /of the sinusoidal component. Given Vin,
+recovering both V0and/requires mixing with both in-phase
+and out-of-phase reference signals. Multiplying the inputsignal by a unit-amplitude in-phase reference signal sin ðxrtÞ
+yields the in-phase mixed signal Vx,
+Vx¼VinsinðxrtÞ; (2)
+¼VDCþV0sinðxtþ/Þ ½/C138 sinðxrtÞ: (3)
+Expanding this expression and applying trigonometric sum
+and difference identities leads to
+Vx¼VDCsinðxrtÞþV0
+2cosðx/C0xrÞtþ/ ½/C138ð
+/C0cosðxþxrÞtþ/ ½/C138 Þ : (4)
+Similarly, the out-of-phase mixed signal Vyis given by mul-
+tiplying the input signal by cos ðxrtÞ,
+Vy¼VincosðxrtÞ; (5)
+¼VDCcosðxrtÞþV0
+2sinðx/C0xrÞtþ/ ½/C138ð
+þsinðxþxrÞtþ/ ½/C138 Þ : (6)
+Suppose that the input and reference frequencies are equal:
+x¼xr. Then,
+Vx¼VDCsinðxrtÞþV0
+2cos//C0V0
+2cosð2xrtþ/Þ;(7)
+and
+Vy¼VDCcosðxrtÞþV0
+2sin/þV0
+2sinð2xrtþ/Þ:(8)
+Each of these mixed signals has three components: a con-
+stant term and two terms that oscillate at angular frequenciesx
+rand 2 xr. If the mixed signals are low-pass ﬁltered to
+remove all but the constant terms, then the ﬁltered signals
+Vx;filtandVy;filtare given by
+Vx;filt¼V0
+2cos/; (9)
+and
+Vy;filt¼V0
+2sin/: (10)
+Vx;filtis often called the in-phase output , which vanishes
+when /¼p=2, and Vy;filtis called the quadrature output ,
+which vanishes when /¼0. The input amplitude V0can be
+recovered via
+V0¼2ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+V2
+x;filtþV2
+y;filtq
+; (11)
+and the input phase /is via
+/¼tan/C01Vy;filt
+Vx;filt/C18/C19
+: (12)
+If, however, the input sinusoid has a different frequency
+than the reference signal, x6¼xr, then all the terms in Eqs.
+(4)and(6)will oscillate. Herein lies the power of phase-
+sensitive detection for measuring signals in the presence of
+396 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 396 04 October 2023 22:52:21
+noise, which, in general, will be a superposition of signals
+with many other frequencies: only the component of the
+input at the reference frequency xrleads to constant terms in
+the output. Input components at other frequencies lead to
+oscillating contributions in the output that, in principle, can
+be eliminated by low-pass ﬁltering.
+This argument reveals several requirements on the low-
+pass ﬁlter that is needed. The ﬁlter must signiﬁcantly attenu-
+ate the components with angular frequencies xrand 2 xrthat
+are present in Eqs. (7)and(8). In addition, any noise compo-
+nents with angular frequencies near xrwill cause low-
+frequency variations in the mixed signals that should also be
+attenuated. As we will discuss, such considerations inﬂuence
+the choice of ﬁlter settings for a given measurement.
+III. IMPLEMENTATION OF PHASE-SENSITIVE
+DETECTION ON A TEENSY 3.5
+Our implementation of phase-sensitive detection uses a
+Teensy 3.5 for processing and/or generating the reference
+signal, digitizing the signal of interest, mixing, and ﬁltering.
+These operations are implemented in a software program, orsketch , that runs on the Teensy and is written in the Arduino
+language, which is a subset of C. The Teensy itself is con-
+trolled by a graphical user interface (GUI) written in
+PYTHON
+that allows a novice user to control data acquisition settings,visualize the results, and save the data if desired without
+needing to be familiar with programming or compiling
+Teensy code. The ﬂow chart in Fig. 1illustrates the overall
+software design.18
+A. GUI: Controlling data acquisition
+While Teensy sketches can run autonomously, in many
+applications (including ours) it is useful to have the Teensy
+controlled by a host computer. Typically, a Teensy is con-
+nected to a host computer with a USB cable. Subsequently,
+the computer can communicate with the Teensy like any
+serial device. We choose to use PYTHON and its Tkinter GUI
+library for our control program because they are open-source, well-documented, and readily available on all com-
+mon platforms.19In addition, we use the pyserial library for
+PYTHON to communicate with serial devices without low-
+level programming.20
+Figure 2shows a screenshot of the GUI main window.
+Upon startup, the software lists the serial connections avail-
+able to the host computer. The user then selects the serial
+port to which the Teensy is connected and enters parameters
+relevant to the acquisition, including the reference mode
+(external or internal), the signal sampling rate, the number of
+samples to acquire, and ﬁltering settings. In the external ref-
+erence mode, the user can select the duration of the counting
+interval for measuring the frequency of the external refer-
+ence signal, and in internal reference mode, the user can
+select the frequency of the reference sinusoid generated by
+the Teensy. Sensible defaults are provided for the user.
+When the user clicks the “Run” button on the GUI, the
+program opens a serial connection to the Teensy, veriﬁes
+that the acquisition parameters fall within sensible bounds,
+encodes the acquisition settings as a string, and transmits this
+control string to the Teensy. Subsequently, the GUI waits for
+data to be collected by and transmitted from the Teensy. A
+text window within the GUI allows the user to monitor com-
+munication to and from the Teensy.B. Reference signals
+Meanwhile, the sketch running on the Teensy has been
+waiting to receive a control string from the host computer.Once the Teensy receives and parses the control string, theTeensy’s behavior depends on the selected acquisition mode.
+In the external reference mode, the user connects an exter-
+nal reference signal (a TTL square wave) to digital pin 13 ofthe Teensy (see the supplementary material
+28for more
+details about the hardware connections). Typically, the exter-
+nal reference signal is generated by a device that is also driv-
+ing or modulating the signal to be measured. We ﬁrst use theTeensy FreqCount library to measure the external referencefrequency.
+21This interrupt-driven library measures the fre-
+quency by counting the number of rising edges on pin 13during a user-controllable interval. After determining the
+external reference frequency, we trigger the digitization of
+the signal of interest from a rising edge of the external refer-ence signal. We do not monitor the external reference signalwhile the signal of interest is digitized and assume that thereference frequency remains stable.
+The internal reference mode requires generating a sinusoi-
+dal reference signal with user-controllable frequency. Here,we take advantage of the Teensy’s digital-to-analog convert-
+ers (DACs). We precompute a lookup table with values cor-
+responding to one period of a sine wave and store the valuesin memory. To allow the value output by the DAC to beupdated rapidly (at up to megahertz frequencies) without tax-ing the CPU, which might be busy digitizing the signal ofinterest, we use a technique called direct memory access(DMA). Using DMA, the lookup table values in memory can
+be transferred to a destination when triggered by an event
+without needing to use the CPU. In our case, the destinationis the DAC, and the event triggering a DMA transfer is theelapsing of a predetermined number of processor clockcycles, chosen to give the desired reference frequency. Weuse a hardware feature of the ARM Cortex microprocessorcalled the programmable delay block to perform DMA trig-
+gering with precise timing based on the processor clock.
+Conveniently, the Teensy libraries include functions thatallow high-level use of DMA. In order for phase measure-ments to be meaningful, we begin digitizing the signalimmediately after enabling DMA, which activates the gener-ation of the reference signal.
+C. Signal digitization
+In both external and internal reference modes, the next
+step is to digitize the signal of interest, which is connected toa pair of differential pins on the Teensy, A10 and A11 (seethe supplementary material
+28for more details). We use one
+of the two analog-to-digital converters (ADC) on theTeensy, both of which perform the successive approximationprocess, and use a standard Teensy library to control the
+ADC.
+22We operate the ADC in 12-bit differential mode to
+reject any common-mode noise. To control the timing of thedigitization and sample the signal of interest at the frequencychosen by the user, we use the Teensy IntervalTimer library,which calls a user-written function at regular intervals usinghardware interrupts.
+23Our function performs an analog-to-
+digital conversion and stores the result as a two-byte short
+integer in an array in memory. The number of samples that
+can be stored is limited only by the 256 kB of memory avail-able on the Teensy.
+397 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 397 04 October 2023 22:52:21
+Fig. 1. Flowchart showing the logical ﬂow and interactions between the PYTHON GUI running on the host computer and the sketch running on the Teensy. Our
+phase-sensitive detector operates in batch mode rather than continuously. After receiving an instruction from the host computer (and, if needed, me asuring the
+external reference frequency), the Teensy acquires the number of samples speciﬁed by the user, processes the samples, and transmits the results to th e host
+computer.
+Fig. 2. (Color online) Screenshot of the graphical user interface for controlling the phase-sensitive detector.
+398 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 398 04 October 2023 22:52:21
+D. Mixing, filtering, and data output
+To avoid having to store additional large arrays in mem-
+ory, subsequent processing steps on the Teensy are per-
+formed by looping over the array of digitized signal valuesand processing one value at a time. The signal must be
+mixed, lowpass ﬁltered, and the results transmitted back to
+the host computer. Since we know the time tof each sample
+relative to the start of acquisition as well as the reference fre-
+quency f
+r¼xr=ð2pÞ, it is straightforward to mix by multi-
+plying each sample by sin ðxrtÞand cos ðxrtÞ.
+Lowpass ﬁltering is somewhat more involved. We per-
+form recursive ﬁltering , which is also known as inﬁnite
+impulse response ﬁltering .24The user can choose the number
+of ﬁlter stages, where a one-stage (or one-pole) recursive ﬁl-ter is equivalent to an analog RCﬁlter. The ﬁltering scheme
+is implemented as follows: Let x
+1;x2;…;xndenote the val-
+ues of a digitized signal to be ﬁltered and let y1;y2;…;yn
+denote the values of the ﬁlter output. Then, for a one-stage
+recursive ﬁlter, the nth value of the output is given by
+yn¼a0xnþb1yn/C01; (13)
+where a0andb1are coefﬁcients related to the ﬁlter corner
+frequency fc25and the sampling frequency fsamp,
+a0¼1/C0expð/C02pfc=fsampÞ; (14)
+b1¼expð/C02pfc=fsampÞ: (15)
+To implement this single-stage scheme, we need to store the
+preceding value of the output yn/C01, but we do not need to
+work with the entire output signal at once.
+Sharper attenuation of signals with f>fccan be achieved
+using higher-order ﬁlters. While more elaborate schemes arepossible, we ﬁnd it effective to simply cascade multiple
+single-stage ﬁlters. Users can choose to use up to four ﬁlter
+stages. The only complication involved in using a higher-order ﬁlter is that additional coefﬁcients and previous values
+of the output need to be stored (see the supplementary mate-
+rial
+28for more details). We note that fcrefers to the corner
+frequency associated with each stage rather than the ﬁlter as
+a whole. Speciﬁcally, while fcgives the frequency at which
+the signal power is attenuated by 3 dB for a single-stage ﬁl-
+ter, the 3 dB frequency for a higher-order low-pass ﬁlter is
+less than fc. We subsequently demonstrate the effects of
+choosing different ﬁlter settings, something that is useful for
+students to explore.
+The user has two choices regarding the data transfer from
+the Teensy to the host computer. By default, the Teensy
+transfers the raw digitized signal, the ﬁltered outputs Vx;filt
+andVy;filt, the calculated amplitude V0[Eq.(11)], and the cal-
+culated phase /[Eq. (12)]. Having the complete raw signal
+can be helpful for troubleshooting and can also allow a userto re-analyze the data with different ﬁlter settings. However,
+since data transfers over USB are relatively slow, there is an
+optional “fast mode” in which the complete signals are nottransferred. Instead, averaged values of V
+0and/are calcu-
+lated with each step of the loop over the digitized signal, and
+only the averaged values are returned to the Teensy when theloop terminates.
+When operating in “normal mode,” in which the complete
+signals are transferred back to the host computer, the GUI
+also visualizes the results for the user. Speciﬁcally, the GUIuses the matplotlib visualization library to display (in new
+windows) graphs of the recovered amplitude and phase aswell as the raw digitized signal.
+26We have found that being
+able to see the raw digitized signal is particularly helpfulwhen troubleshooting connections to the Teensy and thebehavior of the system under test. If desired, the user cansave the generated graphs.
+More often, however, a user will want to save the raw sig-
+nals themselves. These can then be graphed or subjected to
+further analysis. Tkinter conveniently implements platform-native dialog windows for saving ﬁles. The signals are savedin a plain text ﬁle that can subsequently be opened with awide variety of software tools, including spreadsheets.
+IV. CHARACTERIZATION AND TESTING
+A. External reference mode: Amplitude and phase
+linearity
+To demonstrate that our Teensy-based phase sensitive
+detector works as expected, we tested the linearity of ampli-tude and phase measurements in external reference mode.(Additional test data collected in internal reference mode aregiven in the supplementary material.
+28) For these measure-
+ments, we connected 250 Hz sinusoidal signals with a 1 VDC offset from a Rigol DG1022 arbitrary waveform genera-tor (AWG) to the Teensy differential inputs and connectedthe AWG’s sync output signal to pin 13.
+We ﬁrst consider varying the amplitude of the input sig-
+nal, which we measured simultaneously using a BK
+Precision 2831E digital multimeter due to inaccuracies in the
+amplitude controls of the AWG. The blue circles in Fig. 3(a)
+show that the amplitudes recovered from phase-sensitivedetection are linearly proportional to the input amplitudes, asexpected. (The orange squares are measurements with addednoise, discussed in Sec. IV C.) The linearity persists down to
+signals with an amplitude as low as 13 mV. The blue solidline is a linear ﬁt with a slope of 0.995 76 60.000 07 and an
+intercept of ð/C02:460:4Þ/C210
+/C03V. The slope should be 1,
+and the intercept should be 0; while both of the experimentalvalues are close to their expected values, in each case therange of experimental uncertainty does not include theexpected value. Accuracy limitations for both the multimeterwe used for voltage measurements ( /C240:5%) and the ampli-
+tude controls of the AWG (2%) could be contributing
+factors.
+Phase measurements exhibit closer to ideal behavior. For
+the measurements shown via the blue circles in Fig. 3(b),w e
+ﬁx the input amplitude at 100 mV and use the AWG to varythe phase of the input signal relative to the sync output. Thesolid blue line is a linear ﬁt with a slope of 1 :001460:0003
+and an intercept of ð1:5860:03Þ8. We have noted at least
+two contributions to the nonzero intercept, which physicallymeans that for an input signal that is in phase with the exter-nal reference signal, the detected phase is not exactly 0.There is a delay of several microseconds associated with thestartup of the Teensy IntervalTimer used to digitize the sig-nal at regular intervals, which causes a phase delay. In addi-tion, it takes the Teensy ADC approximately /C246lst o
+perform a conversion. Both of these effects cause the ﬁrst
+sampled voltage of an in-phase sinusoid to be slightly abovethe DC offset level, leading to a small, positive phase error.These delays lead to larger phase errors at higher referencefrequencies.
+399 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 399 04 October 2023 22:52:21
+Further data characterizing how our phase-sensitive detec-
+tor rejects signals close to, but not equal to, the reference fre-quency may be found in the supplementary material.
+28
+B. Effect of filter settings
+A particularly useful pedagogical feature of our phase-
+sensitive detector is that students can readily observe the
+effects of changing the lowpass ﬁlter settings. Speciﬁcally,students can observe the effect of varying the number of ﬁl-
+ter stages as well as the corner frequency f
+cof each stage.We demonstrate these effects in Fig. 4, where we consider
+the detected output given a 250 Hz input sinusoid with a
+nominal amplitude of 0 :5 V and a phase angle of 45/C14in the
+external reference mode. Comparing the output signals withone-stage ﬁlters with f
+c¼1 and 5 Hz, while both the ampli-
+tude and phase outputs exhibit small-amplitude ﬂuctuations
+about their DC levels, the ﬂuctuations are less pronounced
+when fc¼1 Hz. This is not surprising since the primary con-
+tribution to the output noise turns out to be a component atthe reference frequency f
+r¼250 Hz, which will be more
+sharply attenuated when fcis smaller. However, the sharperFig. 3. (Color online) (a) Output amplitude from phase-sensitive detection in external reference mode for input signals with different amplitudes. Input signals
+are 250 Hz sinusoids with a 45 8phase shift generated by a Rigol DG1022 arbitrary waveform generator. Blue open circles: no added noise. Orange squares:
+with added Gaussian white noise with a 500 mV RMS level. The blue solid line and orange dashed line are linear ﬁts. We obtain similar results for other val ues
+of the input phase. (b) Output phase for input signals with different phases. Symbols are the same as in (a). All sinusoidal input signals in (b) have 100 mV
+amplitude. Both the amplitude and phase measurements show good linearity.
+Fig. 4. (Color online) Output amplitude (a) and phase (b) signals for different ﬁlter settings. The input signal is a 250 Hz, 1 V peak-to-peak sine wave w ith
+/¼458. The sampling frequency is 10 kHz.
+400 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 400 04 October 2023 22:52:21
+attenuation for fc¼1 Hz comes at a price: The amplitude
+signal, in particular, takes longer to reach its equilibrium DCvalue.
+A better strategy for attenuating noise in the output is to
+increase the number of ﬁlter stages. The noise in the signals
+with a two-stage ﬁlter with f
+c¼5 Hz is signiﬁcantly reduced.
+Noise is suppressed even further with a four-stage ﬁlter, but
+increasing the number of stages also increases the time
+needed for the signals to reach equilibrium.
+We can more carefully examine the output noise and the
+effects of different ﬁlter settings by calculating power spec-
+tra of the output signals via fast Fourier transforms. Figure 5
+shows power spectra for the last 2000 points in the amplitudesignals of Fig. 4(a); the points in the spectra with f¼0 are
+omitted for clarity. In all cases, the noise decreases as f
+increases due to the low-pass ﬁltering. However, the powerspectra have prominent spikes at f
+r¼250 Hz and its harmon-
+ics. As expected, decreasing fcand increasing the number of
+ﬁlter stages both result in better suppression of the noise
+spikes. Indeed, for the four-stage, fc¼5 Hz ﬁlter, there is no
+visible spike in the power spectrum at fr. Performing similaranalyses could be a useful pedagogical exercise for a student
+learning to use our phase-sensitive detector.
+C. External reference measurements with added noise
+A more stringent test of the performance of our phase-
+sensitive detector is to intentionally add noise to the input. We
+use the circuit shown in Fig. 6to add a 250 Hz sine wave gener-
+ated by one channel of a Rigol DS1022 AWG (the signal of
+interest) to white noise with a RMS level of 0 :5V a n da1 :5V
+DC offset generated by the other channel of the AWG. The cir-
+cuit consists of two stages. The ﬁrst stage is a summing junc-
+tion based on a LF411 op-amp, powered by an external power
+supply.27Since the output of the summing junction inverts the
+sum of its inputs, the second stage is an inverting ampliﬁer with
+ag a i no f /C01 so that the ﬁnal output is positive.
+The detected amplitude and phase for different input signals
+with added white noise are shown via the orange squares in Fig.3. The measurements retain good linearity even when the signal
+amplitude is as low as 25 mV, which is much smaller than the
+noise. The dashed orange line in Fig. 3(a)is a linear ﬁt to the
+amplitude measurements with a slope of 0 :99660:004 and an
+intercept of /C00:0862 mV. For the phase measurements in Fig.
+3(b), the signal amplitude is ﬁxed at 100 mV. The linear ﬁt to
+the phase measurements has a slope of 1 :01360:005 and an
+intercept of ð1:960:5Þ8. (The same timing issues that affect
+the phase measurements without added noise result in a similar
+nonzero intercept for the phase measurements here.) The linear-
+ity of these measurements demonstrates the power of phase-
+sensitive detection even in the presence of noise.
+D. Noise tolerance
+We can also characterize the tolerance of our phase-sensitive
+detector to noise at frequencies far from the reference frequency
+using the same adder circuit shown in Fig. 6. For a commercial
+lock-in ampliﬁer, the relevant ﬁgure of merit is the dynamic
+reserve, which is the ratio of the amplitude of the largest-
+tolerable noise signal and the amplitude of the signal of interest
+that would correspond to a full-scale output (typically selected
+by the user), expressed in decibels. This deﬁnition is not directlyrelevant to our phase-sensitive detector, where the noise toler-
+ance is fundamentally limited by the performance of the
+Teensy’s ADC. No sinusoidal noise signal can have an ampli-
+tude larger than 1 :65 V (so that it falls within the 0 –3:3 V oper-
+ating range). Moreover, the ADC cannot be sensitive to any
+signal with an amplitude smaller than the voltage correspondingFig. 5. (Color online) Power spectra of output signals for different ﬁlter set-
+tings. The input signal is a 250 Hz, 1 V peak-to-peak sine wave with
+/¼458. The four-stage ﬁlter with fc¼5 Hz most effectively attenuates the
+noise at the input frequency and its harmonics.
+Fig. 6. Schematic diagram of the circuit for external reference tests with added noise. Here, R¼10 kX. The summing ampliﬁer adds the test signal and white
+noise generated on separate channels of a Rigol DS1022 function generator with a gain of unity and inverts the sum. The inverting ampliﬁer in the second stage
+ensures that the signal input to the Teensy is positive.
+401 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 401 04 October 2023 22:52:21
+to 1 bit of resolution, which is approximately 0 :8m V .T h er e l e -
+vant amplitudes in our case are of the largest tolerable noise sig-
+nal and the smallest signal of interest that can be faithfully
+measured.
+We used the adder circuit in Fig. 6to combine a 250 Hz sig-
+nal of interest from one channel of a Rigol DS 1022 AWG
+with a 4 kHz, 2 :5 V peak-to-peak signal, considered to be
+noise, from the other channel. We set our phase-sensitivedetector to use a 10 kHz sampling frequency and a two-stage,
+5 Hz lowpass ﬁlter. The frequency of the “noise” signal was
+chosen so that it would be nearly completely attenuated by thelowpass ﬁlter, while remaining below the Nyquist frequency.
+We found that a signal of interest with a peak-to-peak level as
+low as 15 mV could be measured with amplitude and phaseaccuracies of 2%. This ratio of noise and signal amplitudeswould correspond to a dynamic reserve of 44 dB.
+E. Inverse square law for a LED
+As a ﬁnal test, we successfully used our Teensy-based
+phase-sensitive detector to perform a simple, real-world lab-
+oratory measurement. Speciﬁcally, we measured the distancedependence of the intensity of the light from a red LED
+(Cree C503B-RAN-CZ0C0AA1, peak wavelength 624 nm).
+While it is certainly possible to make such a measurementwithout phase-sensitive detection given a sufﬁciently bright
+LED and low ambient light, our Teensy-based detector
+allowed us to perform the measurement with a dimly ﬂashingLED with the room lights on.
+To perform the measurement, we connected the LED in
+series with a 600 Xcurrent-limiting resistor and drove the
+LED with a 5 V peak-to-peak level, 250 Hz square wavefrom a Rigol DG1022 AWG. We used a silicon photodiode(Thorlabs SM05PD3A) operated in zero-bias mode as the
+detector. The LED and photodiode were both mounted on an
+optical rail to allow the distance between them to be varied,while maintaining their alignment. A transimpedance ampli-
+ﬁer based on a LF411 op-amp converted the photocurrent to
+a voltage (Fig. 7). The 680 k Xfeedback resistor was chosen
+to give a small, but measurable average signal ( /C25270 mV)
+with the room lights on. The 68 pF capacitor in parallel with
+the feedback resistor reduced the gain for high-frequencynoise. The output of the transimpedance ampliﬁer was con-
+nected to the Teensy differential pins, and we used the
+AWG’s sync output as the external reference signal.When the photodiode and the LED are more than /C2415 cm
+apart, the photodiode signal is dominated by the room lights.
+Figure 8(a)shows the raw digitized signal from the photodi-
+ode circuit at separation distance r¼42:5 cm. The most
+obvious feature of the signal is a 60 Hz component due to the
+ﬂickering overhead lights in the laboratory. Still, a 250 Hz
+Fourier component due to the blinking LED is present, whichwe can infer from the amplitude and phase measured by the
+lock-in detector. This component, whose effects are barely
+visible in the raw signal trace, is shown via the orange dottedline. Yet, even at these large separation distances, the LED
+intensity exhibits a 1 =r
+2dependence, as shown in Fig. 8(b).
+(When the LED and photodiode are too close together, theLED no longer acts like a point source and the distance
+dependence of the intensity deviates from 1 =r
+2.) Making this
+measurement with the ambient lights on would not be possi-ble without phase-sensitive detection.
+V. CONCLUSIONS
+We have successfully implemented phase-sensitive
+detection on a Teensy 3.5 microcontroller and developed an
+Fig. 7. Schematic diagram of the transimpedance ampliﬁer for converting
+the photodiode current to a voltage. The polarity of the photodiode was cho-
+sen to make the circuit output positive.Fig. 8. (Color online) (a) Raw digitized signal from the photodiode transi-mpedance ampliﬁer at separation distance r¼42.5 cm. The signal is domi-
+nated by a 60 Hz component from the room lights. The 250 Hz component,
+arising from the blinking LED, inferred from phase-sensitive detection is
+also shown (orange dotted line). (b) Output amplitude from the phase-
+sensitive detector, proportional to the LED intensity, as a function of 1 =r
+2.
+Linear ﬁt (solid line) conﬁrms expected inverse-square intensity depen-
+dence; the intercept is 2 :460:2 mV. The values of rshown here range from
+13.5 to 42 :5 cm.
+402 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 402 04 October 2023 22:52:21
+easy-to-use GUI for controlling it. We have shown that our
+phase-sensitive detector accurately recovers the amplitudeand phase of input signals despite the presence of addedwhite noise. Additionally, by measuring the distance depen-
+dence of the intensity of a ﬂashing LED, we have shown that
+the phase-sensitive detector enables the accurate recovery ofa weak periodic component that is at the same frequency as alocal oscillator, even when the raw signal is dominated byother frequency components.
+Our phase-sensitive detector has a number of advantages
+that make it attractive for use in an upper-division under-graduate laboratory. For those who simply want to performphase-sensitive detection, no complicated hardware con-
+struction is needed, and the GUI and Teensy sketch are
+ready-to-use and user-friendly. However, for others whowant to delve more carefully into how phase-sensitive detec-tion can be implemented or perhaps are interested in explor-ing how interrupts and registers can be managed on acontemporary microcontroller, the open-source nature of oursoftware and the Teensy libraries allows for rich educationalopportunities. Our implementation makes full use of thesuperior hardware performance of the Teensy 3.5 over devi-
+ces like the Arduino Uno, particularly in regard to storage,
+digital-to-analog conversion, and analog-to-digital conver-sion. The cost of a Teensy 3.5 is about two orders of magni-tude less than a dedicated commercial lock-in ampliﬁer. Inaddition, our software can be used on other microcontrollersin the Teensy family, including the Teensy 3.6.
+Of course, our phase-sensitive detector cannot compete
+with the performance of research-grade commercial instru-ments. In particular, there is no ampliﬁcation b u i l ti nt oo u r
+phase-sensitive detector, although a user could conceivably
+add an analog front-end to amplify and/or ﬁlter signals beforethey are digitized by the Teensy. Furthermore, unlike a com-mercial lock-in ampliﬁer, when our phase-sensitive detector isoperated in external reference mode, we do not synchronouslylock into the external reference signal and instead assume thatthe reference remains stable at the value we measure prior todigitizing the signal of interest. Because we do not synchro-
+nously track the reference signal and because the crystal oscil-
+lator on the Teensy, the basis of its frequency and timingfunctions, has no special calibration, we observe slow phasedrifts in long-duration measurements in external referencemode. From tests we have performed with signals from aRigol DG1022 AWG, the phase drifts we have observed cor-respond to an approximately 22 ppm difference between thereference frequency and the internal frequency used by theTeensy. There are certainly some opportunities for improving
+this work. For example, we could optimize the operating
+parameters of the Teensy analog-to-digital converters, giventhat there are tradeoffs between accuracy and response time,which in our case results in small phase errors. Nonetheless,as we have shown, for some applications our phase-sensitivedetector performs sufﬁciently well to be useful in practicalmeasurements as well as for teaching students about an impor-tant experimental technique.
+ACKNOWLEDGMENTS
+The authors thank Matthew C. Sullivan and Colleen
+Countryman for helpful discussions.AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+a)Electronic mail: jfung@ithaca.edu, ORCID: 0000-0002-8024-0957.
+b)ORCID: 0000-0003-3453-162X.
+1K. G. Libbrecht, E. D. Black, and C. M. Hirata, “A basic lock-in ampliﬁer
+experiment for the undergraduate laboratory,” Am. J. Phys. 71, 1208–1213
+(2003).
+2R. Wolfson, “The lock-in ampliﬁer: A student experiment,” Am. J. Phys.
+59, 569–572 (1991).
+3D. A. van Baak and G. Herold, “Response of a lock-in ampliﬁer to noise,”
+Am. J. Phys. 82, 785–797 (2014).
+4S. DeVore, A. Gauthier, J. Levy, and C. Singh, “Improving student under-
+standing of lock-in ampliﬁers,” Am. J. Phys. 84, 52–56 (2016).
+5X. Xu, Y. Suganuma, and A.-A. Dhirani, “Low-cost, high-performance
+lock-in ampliﬁer for pedagogical and practical applications,” J. Chem.
+Educ. 97, 1167–1171 (2020).
+6M. A. K. Nooruddin and S. Roy, “A simple digital phase-sensitive detector
+using AVR microcontroller,” Am. J. Phys. 88, 153–158 (2020).
+7G. A. Stimpson, M. S. Skilbeck, R. L. Patel, B. L. Green, and G. W.
+Morley, “An open-source high-frequency lock-in ampliﬁer,” Rev. Sci.
+Inst.90, 094701 (2019).
+8The Red Pitaya STEMLab 125-14 used by Stimpson et al. currently retails
+for $363.
+9K. D. Schultz, “Phase-sensitive detection in the undergraduate lab using alow-cost microcontroller,” Am. J. Phys. 84, 557–561 (2016).
+10C. Galeriu, C. Letson, and G. Esper, “An Arduino investigation of the RC
+circuit,” Phys. Teach. 53, 285–288 (2015).
+11F.€Onder, E. B. €Onder, and M. O /C21gur, “Determination of diode characteris-
+tics by using Arduino,” Phys. Teach. 57, 244–245 (2019).
+12J.-F. Hsu, S. Dhingra, and B. D’Urso, “Design and construction of a cost-
+efﬁcient Arduino-based mirror galvanometer system for scanning optical
+microscopy,” Am. J. Phys. 85, 68–75 (2017).
+13C. M. Lavelle, “Gamma ray spectroscopy with Arduino Uno,” Am. J.
+Phys. 86, 384–394 (2018).
+14F. Bouquet, J. Bobroff, M. Fuchs-Gallezot, and L. Maurines, “Project-
+based physics labs using low-cost open-source hardware,” Am. J. Phys.
+85, 216–222 (2017).
+15D. Doucette, B. D’Urso, and C. Singh, “Lessons from transforming
+second-year honors physics lab,” Am. J. Phys. 88, 838–844 (2020).
+16The Teensy 3.5 can be purchased from https://www.pjrc.com/teensy/ and
+retails for US$24.25. At the time of submission, it is out of stock due to
+semiconductor supply chain problems but is expected to be available again
+in 2023.
+17When the input signal is not purely sinusoidal, a phase-sensitive detector
+extracts the Fourier component of the input signal at the reference
+frequency.
+18J. Fung and C. L. Weil, <https://github.com/jeromefung/teensy_lockin >.
+19tkinter—Python interface to Tcl/Tk—Python 3.10.6 documentation,
+<https://docs.python.org/3/library/tkinter.html >.
+20C. Liechti, “pyserial: Python serial port extension,” <https://github.com/
+pyserial/pyserial >.
+21FreqCount Library, for Measuring Frequencies in the 1 kHz to 5 MHz
+Range, <https://www.pjrc.com/teensy/td_libs_FreqCount.html >.
+22P. Villanueva, “Teensy ADC library,” <https://github.com/pedvide/ADC >.
+23Teensy IntervalTimer Library, <https://www.pjrc.com/teensy/td_timing_
+IntervalTimer.html >.
+24S. W. Smith, The Scientist & Engineer’s Guide to Digital Signal
+Processing , 1st ed. (California Technical Pub, San Diego, CA, 1997).
+25Commercial lock-in ampliﬁers often refer to the ﬁlter time constant s
+instead of the corner frequency fc; for a one-stage ﬁlter, fc¼1=ð2psÞ.
+26Matplotlib — Visualization with Python, <https://matplotlib.org/ >.
+27Paul Horowitz and Winfred Hill, The Art of Electronics (Cambridge U. P.,
+Cambridge, 2015).
+28See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0126691 for further details about the hardware and recursive
+lowpass ﬁltering as well as additional test data.
+403 Am. J. Phys., Vol. 91, No. 5, May 2023 J. Fung and C. L. Weil 403 04 October 2023 22:52:21

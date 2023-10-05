@@ -1,0 +1,875 @@
+
+View
+Online
+Export
+CitationCrossMarkCOMPUTATIONAL PHYSICS| FEBRUARY 01 2022
+Exploring complex pattern formation with convolutional
+neural networks 
+Christian Scholz  
+ ; Sandy Scholz
+Am. J. Phys.  90, 141–151 (2022)
+https://doi.org/10.1 119/5.0065458
+Articles Y ou May Be Interested In
+Design, development and ef fectiveness of an intelligent tutoring system using neural network
+AIP Conference Proceedings  (May 2023)
+Intelligent data verification in energy management information systems
+AIP Conference Proceedings  (December 2022)
+Fruits variety identification using VGG-16 approach
+AIP Conference Proceedings  (July 2023) 04 October 2023 23:02:25
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+Exploring complex pattern formation with convolutional neural
+networks
+Christian Scholza)and Sandy Scholz
+Institut f €ur Theoretische Physik II: Weiche Materie, Heinrich-Heine-Universit €at D €usseldorf, 40225 D €usseldorf,
+Germany
+(Received 2 August 2021; accepted 13 October 2021)
+Many nonequilibrium systems, such as biochemical reactions and socioeconomic interactions, can
+be described by reaction–diffusion equations that demonstrate a wide variety of complexspatiotemporal patterns. The diversity of the morphology of these patterns makes it difﬁcult to
+classify them quantitatively, and they are often described visually. Hence, searching through a
+large parameter space for patterns is a tedious manual task. We discuss how convolutional neuralnetworks can be used to scan the parameter space, investigate existing patterns in more detail,
+and aid in ﬁnding new groups of patterns. As an example, we consider the Gray–Scott model
+for which training data are easy to obtain. Due to the popularity of machine learning in manyscientiﬁc ﬁelds, well maintained open source toolkits are available that make it easy to implement
+the methods that we discuss in advanced undergraduate and graduate computational physics
+projects.https://doi.org/10.1119/5.0065458
+I. INTRODUCTION
+Many systems in nature for which energy is constantly
+injected and then dissipated via internal degrees of freedom
+demonstrate complex patterns far from thermal equilibrium.
+1
+Nonlinear reaction–diffusion equations are a class of models
+that exhibit such complex behavior. An example is the
+Gray–Scott model,2which is represented by two coupled
+reaction–diffusion equations with cubic reaction terms thatarise from autocatalysis, that is, the reactants activate orinhibit each other’s creation.
+3Despite having only three
+parameters, the system can show many different stationary
+and spatiotemporal solutions, such as spiral waves, movingor self-replicating spots, and phase turbulence.
+4,5Due to the
+nonlinearity of the model, it is not easy to investigate the sys-
+tem analytically and, in many cases, solutions have to beobtained numerically.
+The solutions depend on the system parameters and on the
+initial conditions. No simple set of order parameters have
+been found that describe which type of pattern is observedfor a speciﬁc set of the parameters and initial conditions.
+Often a visual scan of the parameter space is necessary,
+which is especially difﬁcult in experimental realizations of
+chemical reaction–diffusion systems, for which a continuous
+inﬂux of chemicals has to be provided for hours or even days
+to scan through multiple parameters.
+6–8
+The problem is that there is no obvious way to classify
+and quantify the occurring patterns, except for cases that dis-play only a few types of clearly distinguishable patterns.9,10
+One way to treat this problem for which pattern classiﬁcationis based on human perception is to ﬁt a logistic regression
+model of the probability that a pattern belongs to a certainclass to the data. However, for two- and three-dimensionaldatasets, the number of input variables is too large. For such
+problems, convolutional neural networks (CNNs) are a par-
+ticularly useful model for classiﬁcation
+11,12and have become
+essential tools in a growing number of scientiﬁc ﬁelds.
+In the following, we demonstrate how CNNs can be used
+to explore the parameter space of the Gray–Scott model and
+classify patterns. Our use of CNNs is suitable as an intro-
+duction to machine learning in advanced undergraduate orgraduate computer physics courses and provides a new per-spective on pattern formation in reaction–diffusion systems.
+The required code is written in
+PYTHON and is available as the
+supplementary material.13,14
+II. THE GRAY–SCOTT MODEL
+The Gray–Scott model2,4is a system of two coupled
+reaction–diffusion equations with two scalar concentration
+ﬁelds uand v,
+du
+dt¼Dur2u/C0uv2þfð1/C0uÞ; (1)
+dv
+dt¼Dvr2vþuv2/C0ðfþkÞv; (2)
+where DuandDvare diffusion coefﬁcients and fandkare
+positive reaction rates. The ﬁelds uand vcan be interpreted
+as the concentrations of two reactants that diffuse and react
+141 Am. J. Phys. 90(2), February 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 141 04 October 2023 23:02:25
+such that they catalyze or inhibit each other’s creation.15To
+explore the system’s behavior, we need to take into accountthree independent parameters, the ratio of diffusion coefﬁ-cients (one coefﬁcient can be absorbed into the spatial deriv-ative and changes only the length scale of the pattern), andthe two reaction rates fandk.
+The roots of the reaction equations are the homogeneous
+steady solutions for which the time and spatial derivativesare zero. Because the reaction equations are third-order poly-nomials, there are up to three real homogeneous steadystates. It is straightforward to show that these correspond to
+ðu;vÞ¼ð1;0Þ
+6ﬃﬃﬃﬃ
+Cp
+þf
+2f;/C06ﬃﬃﬃﬃ
+Cp
+/C0f/C0/C1
+2kþ2f !
+;8
+>><
+>>:(3)
+where C¼/C04fk2/C08f2k/C04f3þf2.5The trivial solution
+ðu¼1;v¼0Þis independent of fand k. The other two
+solutions exist only ifﬃﬃﬃﬃ
+Cp
+is real-valued, which for f>0 and
+k>0 occurs for k/C20ﬃﬃﬃfp/C02f/C0/C1
+=2 and f/C201=4.
+For certain conditions, these homogeneous solutions are
+unstable against perturbations for some parts of parameterspace.3,15We can use linear stability analysis, for which the
+reaction term is linearized around the steady state, to deter-
+mine whether a perturbation with a certain wavelengthgrows or decays.15Due to the nonlinear r eaction kinetics,
+these instabilities do not always grow to inﬁnity and thesystem exhibits more complex behavior; for instance, avariety of stable spatiotemporal patterns occur for certainparts of the parameter space when changes are introducedin the initial conditions. This behavior was observednumerically by Pearson.
+4Twelve heterogenous steady andtime-dependent solution classes were identiﬁed initially
+and further investigations revealed more possible classes.16
+Figure 1(a) shows several typical examples of classes,
+with the system being perturbed by a small number of initial“excitations” [an example of the initial state is shown in Fig.1(b)]. The value of uis displayed in the patterns in Fig. 1(a).
+The initial conditions evolve into several different classes ofpatterns, including fast spatiotemporal dynamics with mov-ing fronts and self-replicating spots, stationary heteroge-neous patterns, and mixed patterns with stationary parts andlocalized regions of activity. These classes are labeled byGreek letters ato/C23, plus two stable homogeneous steady
+states from Eq. (3)with low (L) and high (H) concentrations.
+A complete overview of all classes is given in Sec. 1 ofRef. 17. Some classes produce visually similar snapshots but
+differ in their time-dependence as demonstrated in video 1 of
+Ref. 17. An online program for exploring the Gray–Scott
+model in real time is available in Ref. 18.
+We can solve Eqs. (1)and(2)numerically using the for-
+ward time centered space method.
+19,20The ﬁelds are discre-
+tized on a 128 /C2128 grid, such that x¼jD;y¼iD;t¼ndt
+and i;j;n2N. Differential operators are replaced by for-
+ward and central ﬁnite differences with spacing D¼1
+(length units) and time step dt¼0:25 (time units), as illus-
+trated in Fig. 1(c). The discrete form of Eq. (1)[there is an
+analogous equation for Eq. (2)]i s
+unþ1
+i;j¼un
+i;jþDudt
+D2ðun
+iþ1;jþun
+i/C01;jþun
+i;jþ1
+þun
+i;j/C01/C04un
+i;jÞþdtrðun
+i;j;un
+i;jÞ; (4)
+where r(u,v) denotes the reaction terms. Because each time
+step depends on the previous one, we can integrate the
+Fig. 1. (a) Typical classes of heterogeneous and spatiotemporal patterns exhibited by the Gray–Scott model. The patterns are obtained on a 128 /C2128 grid at
+t¼150 00 with Du¼0:2a n d Dv¼0:1. (b) Initial condition for the simulations. Local perturbations (a convex square and a concave C-shape) are randomly
+placed, then globally shifted and rotated (assuming periodic boundaries). (c) Illustration of the forward time centered space method. (d) Three con secutive patterns
+withDt¼30 are combined into a single three-channel RGB image. These images will appear gray for stationary patterns and colored for dynamic patterns.
+142 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 142 04 October 2023 23:02:25
+solutions via simple loops over all indices. We assume peri-
+odic boundary conditions so that indices are wrapped at the
+system edges. The performance and numerical accuracy aresufﬁcient for our purposes.19The code is available in Ref. 13
+(seeGray_Scott_2D.py andGenerate_Data.py ).
+These numerical solutions are the inputs for the convolu-
+tional neural network. To distinguish time-dependent solu-
+tions from stationary solutions, we store three consecutive
+snapshots (with a time-interval Dtof 30), as shown in Fig.
+1(d). For each realization of the simulation, we store an array
+of size 1282/C23, which can be displayed as a RGB color
+image. Stationary patterns will appear gray, while time-
+dependent patterns will show red- and blue-shifts, depending
+on the change in concentration, see Fig. 1(d). The classiﬁca-
+tion of such patterns is then equivalent to the classiﬁcation of
+the color images.
+III. CLASSIFICATION OF PATTERNS VIA NEURAL
+NETWORKS
+We initially classify patterns whose existence and lack of
+sensitivity to the initial conditions are well described in theliterature.4,5,16,21Additional pattern types have been identi-
+ﬁed in Ref. 16for slightly more complicated initial condi-
+tions. The known classes have been mostly identiﬁed
+visually, and their descriptions are often only semantic, mak-
+ing it difﬁcult to determine where certain types of patterns
+are found in the parameter space, because a large number of
+values of the parameters need to be investigated.
+We could attempt to deﬁne quantities that reduce the pat-
+terns and make it easier to identify distinct classes, but such
+deﬁnitions are not simple. Possibilities include Fourier trans-
+forms,8statistical methods,22and integral-geometric analy-
+sis.9,10,23,24The drawback of these methods is that they only
+work in special cases and cannot be generalized easily.
+An alternative way to classify images is to use a CNN to
+ﬁt the entire dataset to pre-labeled data.11Because we
+already have a classiﬁcation of patterns with corresponding
+parameters,4,16we can use this knowledge to train a neural
+network to classify patterns automatically. In this section, we
+will introduce the basic terminology. We illustrate how to
+construct and ﬁt a simple neural network model to data.
+Then, we explain how to design a complex neural network
+with convolutional layers that is suitable for classifying pat-
+terns in the Gray–Scott model.
+A. Linear regression
+We ﬁrst discuss a simple linear regression problem in phys-
+ics.25Consider a free fall experiment, where we drop an
+object and measure its positions p0;p1;p2;p3;… after times
+t0;t1;t2;t3;…. We know that the object is accelerated by
+gravity, so the expected relation between position and time is
+pi¼/C01=2gt2
+iþp0þ/C15i,w h e r e gis a ﬁt parameter that we
+want to determine ( gis our estimate of the gravitational accel-
+eration) via ﬁtting the model to the data. The position at t0
+¼0i sp0, and the measurement uncertainty is described by a
+normally distributed random variable /C15i, which is called the
+error or residue. The model is linear, because it is linear in the
+unknown parameter g. It can be shown that the most likely
+estimate for gcan be obtained by the method of least squares.
+Hence, we search for a value of gthat minimizes the sum of
+the squared deviationsP
+iðpi/C0ðp0/C01=2gt2
+iÞÞ2.26After
+determining gfrom the ﬁt, we can use the model to predict theposition at times that we did not explicitly measure. Here,
+time is a predictor variable and position is a response variable;
+the actual time values are the input; and the values of the posi-
+tion are the output of the model.25
+Neural networks are a related concept that can be applied
+to more general problems. For instance, for predicting pat-
+terns in the Gray–Scott model, linear regression is not feasi-
+ble for several reasons. First, there are too many predictor
+variables, in our case 1282/C23, which would require too
+many free parameters.27Second, we have a classiﬁcation
+problem, where the responses are classes and not numbers.Third, we do not know the relation between predictors and
+the responses because the relation is very complex.
+However, we can generate many realizations of patterns
+from known classes and use it to train (i.e., ﬁt) a model.
+B. Fully connected neural networks
+In the following, we discuss the basics of convolutional
+neural networks and how they can be applied to classify pat-terns in the Gray–Scott model. Neural networks are models
+of nested (linear, logistic, or nonlinear) regression equations
+that mimic networks of biological neurons.
+28Each neuron is
+a continuous real variable, and neurons are structured into
+several layers that are connected via a (nonlinear) transfor-
+mation. For classiﬁcation problems, the purpose of the layers
+is to gradually map a high-dimensional input (the many pre-
+dictor variables) to a low-dimensional output of one neuron
+per class, each of which returns the probability that the input
+belongs to that class. A set of predictor variables xð0Þ
+1…xð0Þ
+D
+forms the input layer of the neural network. In contrast to
+our linear regression example, the subscript index now refers
+to different neurons and not to individual measurements or
+samples. A layer of a neural network refers to all xðnÞ
+jvalues
+with equal n. All neurons, i.e., values of a deep layer ðnþ1Þ
+are calculated from the values of the previous layer ( n)b y
+the transformation:
+xðnþ1Þ
+j¼hXD
+i¼1wðnþ1Þ
+jixðnÞ
+iþwðnþ1Þ
+j0xðnÞ
+0 !
+; (5)
+where wðnþ1Þ
+ji are the free parameters of the model, known as
+weights. By convention, the superscript for weights starts at1, which, hence, connects the input layer to the ﬁrst layer.
+The quantity wðnþ1Þ
+j0xðnÞ
+0is a bias term required for nonzero
+intercepts, similar to the constant term required for a polyno-
+mial that does not intercept the origin. The sum in Eq. (5)is
+simply a linear combination of the input neurons, called the
+activation zðnÞ
+j. This quantity is the argument of the activation
+function h,11which generates the values of the neurons in
+layerðnþ1Þ.
+The choice of activation functions depends on the type of
+problem.29For deep layers, we use the rectiﬁed linear unit
+(ReLU) function hðzðnÞ
+jÞ¼maxð0;zðnÞ
+jÞ, which ensures that a
+neuron can be in an inactive (0) or active state ( >0). This
+quantity is difﬁcult to interpret. Simply put, each neuron in a
+layer can be activated by certain linear relations in the previ-
+ous layer, but in particular, for deep layers ðn/C211Þ, it is not
+known how to generally interpret these values. The outputs
+of these layers are typically not reported and, therefore, are
+called hidden.
+The last layer of the neural network returns the response.
+For classiﬁcation problems, the number of neurons in this
+143 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 143 04 October 2023 23:02:25
+layer must be equal to the number of classes and each neuron
+should return a probability that a pattern belongs to a certain
+class. To output these probabilities, we use the softmax acti-
+vation, which is the normalized exponential function
+hðzðnÞ
+jÞ¼expðzðnÞ
+jÞ=P
+jexpðzðnÞ
+jÞ. We interpret the output as
+probabilities because by deﬁnition, it is between zero and
+one and all values add up to one. Because every neuron is
+connected to every other neuron in the previous layer in sim-ple neural networks, they are called dense or fully connected
+layers. Equation (5)deﬁnes the model. The weights wðnþ1Þ
+ij
+are the ﬁt parameters and are determined by ﬁtting the model
+to the training data, which in our case are the individual pat-
+terns and their corresponding classes. Training a neural net-
+work means adjusting the weights by ﬁtting the model to thetraining data to optimize the prediction accuracy. The
+weights are set randomly at the start of the training and are
+then iteratively updated during optimization.
+The goal of the optimization is to minimize the loss func-
+tion, which quantiﬁes how close the predicted responses are
+to the correct class. For classiﬁcation problems, the
+responses are probabilities and the loss function is not the
+sum of square deviations, but the sparse categorical cross-
+entropy deﬁned as
+CE¼/C0X
+L
+l¼1XK
+k¼1slklogpkð/C22xlÞ ðÞ ; (6)
+where Lis the number of input samples /C22xlandKis the num-
+ber of classes. The ( L/C2K) sparse matrix slkcontains a single
+entry per row corresponding to the correct class of each sam-
+ple. The probabilities pkð/C22xlÞare the output of the last layer
+(after softmax activation) and depend on the weights. We
+call these the predictions that a sample /C22xlis of class k.B y
+deﬁnition,P
+kpkð/C22xlÞ¼1, so that the predictions can be
+identiﬁed as probabilities. A perfect prediction would mean
+pkð/C22xlÞ¼1i f k¼1 for the correct class, and therefore,
+CE¼0. Hence, if pkð/C22xlÞ<1, we have CE >0. A complete
+discussion of the optimization procedure is beyond the scope
+of this article. We will give an explanation of the method in
+Sec. III D 2 .
+Let us consider a ﬁctitious example. A group of mathematics
+and physics students take an examination with three problems
+P1, P2, and P3. Each problem is graded with up to ten points.
+Some outcomes of the examination are illustrated in Table I.
+We want to use a neural network to distinguish mathematics
+and physics students from their scores. (For simplicity, weassume that these groups are mutually exclusive.) We train aneural network with two hidden layers, each with three neu-
+rons, as shown in Fig. 2. There are three predictor variables and
+two classes, i.e., two output neurons for the response. The train-
+ing data consist of individual scores and the class of each stu-
+dent. The responses of our model will be probabilities that astudent is a mathematics or a physics student.
+We observed that for most students, the predicted proba-
+bilities are in accordance with the true class, that is, the prob-
+ability is largest for the true class. However, we also seeexceptions, indicating that the model was not able to fully ﬁt
+the training data. For instance, students three and four
+achieved similar scores but belong to different classes. Thiscould mean that we do not have enough data to reliably dis-
+tinguish such subtle differences or even that the predictor
+variables are not reliable to distinguish mathematics and
+physics students.
+C. Convolutional neural networks
+Although fully connected neural networks can in principle
+mimic any data operation, it is difﬁcult to train such a model
+to perform meaningful operations for datasets with large
+dimensions and complex correlations, such as images or
+audio signals. This problem is called the curse of dimension-ality.
+11Our patterns consist of many predictor variables,
+namely, all the input concentration values, here 1282/C23.
+However, we know that by deﬁnition in two-dimensionalpatterns at least, nearby values are correlated. However, theTable I. Fictitious example for a simple classiﬁcation problem. Given exam scores (three problems P1, P2, P3) of mathematics (M) and physics (P) stude nts,
+we assume a neural network model that predicts the type of student from the examination scores. The values are just illustrative and do not correspond t o a real
+world example. In a trained model, predictions should be as close as possible to the actual classes. Here, for student 4, the prediction does not ﬁt the t rue class,
+indicating a problem of the model or of the dataset.
+Training data
+StudentPredictor (scores) Response (classes) Model prediction after fit
+No. P1 P2 P3 M P M P
+1 9 8 10 1 0 0.8 0.2
+2 1 5 10 0 1 0.3 0.73 3 7 2 1 0 0.6 0.44 3 7 3 0 1 0.55 0.45
+........................
+Fig. 2. Illustration of a simple fully connected neural network with three
+input values, two hidden layers with three neurons per layer, and two output
+classes. Each layer contains a bias unit to allow for nonzero intercepts. Each
+arrow corresponds to a trainable weight. The hidden layers allow the net-
+work to be trained, but, because these layers typically do not represent a sim-
+ple relation, they are not reported as output. Note that every neuron is
+connected to every other neuron in the previous layer.
+144 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 144 04 October 2023 23:02:25
+correlations can be very complicated. One way to design a
+neural network that can learn such complicated correlations
+is to introduce convolutional layers. For these layers, the
+neurons are replaced by convolutions of the input data with
+convolution kernels. The values in the convolution kernel
+are the free parameters that are optimized in the training pro-
+cess, similar to the weights in the fully connected network.
+The number and size (width /C2height) of the convolution
+kernels are design parameters of the network. Each convolu-tion kernel is shifted by the stride sacross the input image,
+calculating the product of the convolution with sub-part of
+the image. The result is a feature map. In Fig. 3, we show an
+example with ﬁve convolution kernels, that is, ﬁve resulting
+feature maps. Although the size of the kernel is a design
+parameter, the depth of each kernel is always equal to the
+number of channels in the previous layer. For the input layer,
+these channels are often the RGB values of an image, but in
+our case, they are simply the three time steps. Such a layer iscalled a two-dimensional convolution layer. At the boundary
+of the system, we can either apply padding, for instance, ﬁll
+in zeros, to keep the output size the same as the input, or dis-
+card convolutions at the boundary, slightly reducing the out-
+put size depending on the kernel. If the size of the input
+patterns is large and the resolution is high enough, we can
+increase the stride sby which the convolution kernel is
+shifted across the system to reduce the computational cost.
+As for fully connected networks, an activation function is
+applied to the feature maps.
+By using the output of convolutional layers, we can reduce
+the dimensionality of the problem by extracting only relevant
+features from the images and then feeding them as inputs to
+deeper layers of the network. To do so, a coarse-graining
+operation called pooling is applied to the feature maps. In
+this operation, a pooling kernel is shifted across the map
+(with a stride equal to the dimensions of the kernel) and
+selects only the maximum inside its range in the case of max
+pooling. For instance, a pooling kernel of size 2 /C22 reduces
+the size of the map by a factor of four. A simple example of
+feature extraction via a convolution and max pooling opera-
+tion for the pattern from Fig. 1(d) is shown in Sec. 2 of Ref.
+17. To convert all feature maps into a single feature vector, a
+global max pooling is typically used, where from each fea-
+ture map only the maximum value is selected. These feature
+values must be separable into linearly independent compo-
+nents such that neurons in the last layer can separate all
+classes.To reduce the impact of overﬁtting, dropout layers can be
+used during training. These operations randomly set a certainfraction of weights to zero during the training, which pre-vents single neurons from having a large impact on the clas-siﬁcation result.
+Due to the popularity of neural networks, there are well-
+maintained implementations of neural networks available.These libraries make it easy to design a neural networkarchitecture without the need to implement the underlyinglow-level algorithms. We use
+PYTHON and the Keras library.30
+The corresponding PYTHON code for generating the input data
+as well as the training and veriﬁcation is available.13In Sec.
+III D , we describe the architecture of the corresponding neu-
+ral network independently of its implementation. All stepsare described at a high level, so that our example can beapplied to other neural network implementations, such asPytorch
+31and the Matlab deep learning toolbox.32
+D. Deep neural network architecture
+In Sec. III C, we described the fundamental layers required
+for a convolutional neural network. In practice, many of
+these operations have to be executed successively, which iswhy such networks are called deep convolutional neural net-works. The architecture of our neural network is listed inTable II.
+We use a series of two-dimensional convolutions and
+pooling operations, as described in Fig. 3. The number of
+parameters (weights) per convolution layer is given by[W/C2H of the convolution kernel] /C2[the number of convo-
+lution kernels] /C2[the depth of the previous layer] þ[the
+number of bias units (equal to the number of convolutionkernels)]. The input to the network is normalized per batchsuch that the prediction is independent of the scale of theinput. A batch here is a subset of the training data that is con-sisting of the input images and the according classes. Onebatch at a time is processed through the CNN during a singleoptimization step, until all batches are processed. The rea-sons for not using the full training set at once are memoryconstraints, i.e., not being able to load the whole dataset intomemory, and the increase in training speed as the weightsare updated after each batch. However, if the batch size istoo small, the batch might not be representative of the entiredataset. We use a batch size of 128 datasets in our code.
+To deﬁne this neural network in Keras, the following
+PYTHON code is used:
+Fig. 3. Illustration of a two-dimensional convolution and pooling operation with a three-channel input image. The convolution kernel size needs to b e deﬁned
+in the horizontal and vertical directions, but the depth always corresponds to the number of channels in the input. Here, we use ﬁve convolution kernel s of size
+2/C22ð/C23Þ, which results in ﬁve feature maps. To reduce the size, we apply maximum pooling with a 2 /C22 kernel. This kernel chooses only the maximum
+value in successive 2 /C22 patches, and therefore, reduces the total size of each map by 1/4. In a last step, we perform a global maximum pooling, which picks
+only the maximum value of each feature map, yielding a ﬁve-dimensional feature vector. Such a vector can then be used as input to a dense neural network f or
+classiﬁcation.
+145 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 145 04 October 2023 23:02:25
+model ¼tf.keras.Sequential()
+model.add(tf.keras.Input(shape
+¼shape_input))
+model.add(tf.keras.layers.Batch
+Normalization())
+model.add(tf.keras.layers.Conv2D
+(32, (3, 3), strides ¼2, activation
+¼”relu”))
+model.add(tf.keras.layers.Conv2D
+(64,(3,3),activation ¼”relu”))
+model.add(tf.keras.layers.Max
+Pooling2D(2,2))
+model.add(tf.keras.layers.
+Conv2D(128,(3,3),activation ¼”relu”))
+model.add(tf.keras.layers.Max
+Pooling2D(2,2))
+model.add(tf.keras.layers.Conv2D
+(128,(3,3),activation ¼”relu”))
+model.add(tf.keras.layers.Max
+Pooling2D(2,2))
+model.add(tf.keras.layers.GlobalMax
+Pooling2D())
+model.add(tf.keras.layers.Dense
+(256,activation ¼”relu”))
+model.add(tf.keras.layers.Dropout
+(0.15))
+model.add(tf.keras.layers.Dense
+(num_categories))A minimal example with the full code is discussed in Sec. 3
+of Ref. 17. First, a model of class sequential is created. Then,
+all necessary layers are added using the model.add function.
+Four layers act as pooling layers (MaxPooling2D) to gradu-ally reduce the dimension of the data after convolutions. Asillustrated in Fig. 3, the max-pooling layer keeps only the
+maximum within a pooling kernel, and a global max-pooling
+layer ﬁnally propagates only the maximum of each convolu-
+tion feature to the following dense layer. Each feature is thenrepresented by a single value, and the dense layer only needsto distinguish the output classes in terms of activations
+from the pooled ﬁnal convolutional feature layer. This
+layer has an output size of 128, compared to the 3 /C2128
+2
+input variables, which mitigates the curse of dimensional-
+ity and makes it easier to optimize the ﬁnal dense layers toproperly distinguish different classes. Note that for the last
+layer, we do not need to explicitly set the activation to
+softmax, because it will be applied during the optimizationstep automatically.
+In Fig. 4, we summarize the procedure of training and
+validating the neural network and show a ﬂow chart of the
+algorithm with references to the our code.
+13
+1. Generate training, validation, and test dataset
+It is convenient to split the available data into training,
+validation, and test data. The training dataset is used for theactual optimization. Predictions of the independent valida-tion dataset are used during the training to check whether theperformance generalizes beyond the training data. If the
+accuracy is high for the training data, but low for the valida-
+tion data, this is typically a sign of overﬁtting. Overﬁttingcan be prevented by manual optimization of the architectureof the neural network, for instance, by reducing the number
+of parameters that are trained in the neural network. To
+make sure that no overﬁtting occurs, another independenttest dataset is used to evaluate the accuracy of the networkafter the training.
+As we have described, we vary the initial conditions for
+each pattern and solve the Gray–Scott model numerically to
+obtain three snapshots of the system at t¼14 940, 14 970,
+and 15 000. These values were chosen because the systemTable II. Architecture of the two-dimensional convolutional network with layer type, size, and stride sof the convolution kernel, activation function, and the
+number of parameters (ﬁxed and trainable). The stride sis the amount of pixel shift of the convolution kernel. Conv2D refers to a two-dimensional convolu-
+tion, MaxPool is a maximum pooling operation, and GlobalMaxPool refers to the global maximum pooling. Dense layers are equivalent to a fully connecte d
+neural network. The dropout layer is active only during training and randomly sets 15% of the weights to zero in each iteration. For the last layer, a Sof tmax
+activation is applied to convert the output into probabilities.
+Layer Kernel size Output Activation Parameters
+Batch normalization /C1/C1/C1 128, 128, 3 /C1/C1/C1 12
+Conv2D 3, 3 (2 s) 63, 63, 32 ReLU 896Conv2D 3, 3 61, 61, 64 ReLU 184 96MaxPool 2,2 30, 30, 64 /C1/C1/C1 0
+Conv2D 3, 3 28, 28, 128 ReLU 738 56MaxPool 2, 2 14, 14, 128 /C1/C1/C1 0
+Conv2D 3, 3 12, 12, 128 ReLU 147 584MaxPool 2, 2 6, 6, 128 /C1/C1/C1 0
+GlobMaxPool /C1/C1/C1 128 /C1/C1/C1 0
+Dense /C1/C1/C1 256 ReLU 330 24
+Dropout /C1/C1/C1 256 (85%) /C1/C1/C1 0
+Dense /C1/C1/C1 15 Softmax 3855
+/C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1P¼277 723
+146 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 146 04 October 2023 23:02:25
+has converged to a steady state based on visual inspection,
+see also Ref. 17. We generate a total of 1500 samples, 100
+per class (each with a unique pair of the reaction rates fand
+k), split evenly between the training and validation datasets.
+For the test dataset, we generate another set of 750 patterns,
+but slightly vary fandkto test how well our predictions gen-
+eralize to other parts of the parameter space. Each dataset isstored in a four-dimensional array (see the data generationbox in Fig. 4). Because data generation can require a long
+time, we also provide a pre-generated set of data.
+14
+2. Training and optimization
+With the test and validation datasets, we iteratively opti-
+mize the neural network weights by minimizing the categori-cal cross-entropy in Eq. (6). One iteration over the entire
+training dataset is called an epoch. The training data contain750 patterns, but the model has many more free parameters
+(see Table II). To reduce the danger of overﬁtting, the train-
+ing data are parsed by a data augmentation function, which
+selects batches from the training data during each epoch and
+applies random rotations, translations, shearing and scaling tothe input to artiﬁcially augment the available training data.The categorical cross-entropy is minimized during this pro-
+cess using a stochastic gradient descent method. The gradient
+of the categorical cross-entry with respect to the weights canbe calculated efﬁciently using back-propagation,
+11which is
+implemented in Keras by the TensorFlow backend.33After
+each epoch, the performance of the neural network is com-pared to the validation dataset and recorded for later evalua-tion. For an example, see also Sec. 3 of Ref. 17.
+3. Evaluation of accuracy
+Training and validation accuracy is displayed during train-
+ing (training box in Fig. 4) and is monitored initially. If the
+performance is not adequate, meaning that it does not con-verge for both the training and validation set at high accu-racy, the architecture of the neural network can be adjusted
+and the accuracy of the new network is again tested using
+the training and validation datasets.
+34In Fig. 5(a) we show
+the training history of the optimization process. For the train-ing and validation dataset, we approached an accuracy of
+more than 99%.
+We can now check the predictive power of the network on
+the test dataset for a ﬁnal evaluation of the accuracy. A sim-ple script to determine predictions of the trained model isshown in the Appendix . We can evaluate the classiﬁcations
+of the test dataset in a confusion matrix, which plots the cor-
+rect classes vs the predicted classes by the model (see Fig.5(b)). The majority of the patterns are correctly classiﬁed
+with an accuracy of about 96%. There is some misclassiﬁca-
+tion for classes /C15asfand a. This mismatch is reasonable,
+because these classes share some similarities, and there couldbe a gradual transition from one class to the other. One mightsay that the neural network disagrees in some cases with the
+human curator of the dataset.
+It is not known how to obtain an intuitive understanding
+of how the neural network actually performs a task. For thisreason, neural networks are sometimes also referred to asblack box models. It can be useful to view the saliency
+maps,
+35,36which display areas of the input images that have
+Fig. 4. Illustration of the data generation, training, validation, and test proce-
+dure. This workﬂow is common for high level machine learning. The gener-
+ated datasets serve as input to the data augmentation function, validation,
+and test step. The CNN is deﬁned, and the weights of the network are itera-tively optimized in the training loop by minimizing the categorical cross-
+entropy. After the training is ﬁnished, the predictive capabilities of the CNN
+are evaluated with the test data. The code examples correspond to the sup-
+plementary material in Ref. 13and, if applicable, the most important Keras
+function in each box. For a more detailed description, see the Appendix .
+Fig. 5. (a) Training history and accuracy for the training and validation data. The accuracy usually approaches >99%, and we stop the training phase after 600
+epochs. (b) Confusion matrix for the training dataset; /C2596% of the patterns are correctly classiﬁed.
+147 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 147 04 October 2023 23:02:25
+a particularly strong inﬂuence on the gradient of the loss
+function. Examples and a demonstration are included in Sec.
+4 of Ref. 17and in Ref. 13.
+IV. RESULTS
+We now demonstrate the results of the neural network for
+predicting classes and describe how we can use the initial
+results to improve the training data for a second training
+iteration.
+A. Scan of the parameter space
+Our training data include only 15 unique pairs of fandk
+parameter values given for each class.4,16We now want to
+use our CNN to scan a much larger and denser parameter
+space of f2½0:02;0:08/C138andk2½0;0:12/C138. This part of the
+parameter space is selected based on the existence criterion
+for stable solutions in Eq. (3). Each pattern from this large
+parameter space represents a different pair ( f,k). A total of
+5481 patterns are created and stored in a four-dimensional
+array, where the ﬁrst dimension corresponds to different
+pairs of parameters, and the others are the three stacked solu-tions at three consecutive time steps. Obviously, here we do
+not know the labels a priori and none of the parameter val-
+ues were explicitly included in the training data. Instead, wewant to predict the classes by our CNN.
+The data are parsed by the CNN using the model.pre-
+dict() function, which returns the probabilities that a pat-
+tern belongs to a certain class. An example for predictionprobabilities for a single pattern is shown in the Appendix .
+We select the class with the highest probability for each
+pattern and plot the results in Fig. 6(a). For an example,
+seeParameter_Space_Dataset_Generate.py andParameter_Space_Dataset_Classify.py in Ref.
+13. We see distinct areas for each class, which are reasonable
+compared to the literature
+4(see also Sec. 5 of Ref. 17).
+However, how can we truly assess whether the classiﬁcations
+are correct and meaningful? This is the biggest weakness ofneural networks, because we have no intuitive understandingof how the neural network performs the classiﬁcation.
+In contrast to manually searching through the entire data-
+set, we can now pre-sort our patterns by the predicted class
+and perform a visual inspection of each class. Illustrativeexamples are shown in Fig. 6(b). Most of the patterns are
+correctly classiﬁed. However, in some cases, there are out-
+liers that do not match the prediction. It appears that there
+are mixtures of different classes for which the correct classi-ﬁcation is debatable, or even entirely new categories. For
+instance, as shown in Fig. 6(b), we see patterns in the /C23class
+with many more dots compared to the training data, but stilllarge homogeneous areas. Upon closer inspection we ﬁndthat these are very slowly converging kpatterns. In the i
+class, we observe some mixtures of dots and individual
+stripes, as shown in Fig. 6(c). These patterns are reminiscent
+of observations in Ref. 16, where this class was termed class
+p. This issue indicates that some weakness in the training
+data. Training data issues cannot be solved by optimizing the
+CNN. Instead, we need to improve the training data as dis-cussed in Sec. IV B .
+B. Refinement of training dataset and second pass
+Despite generating proper training, validation, and test
+data, the results of many neural network and similar machinelearning models can suffer from poor reproducibility when
+applied to data that was not previously considered in any of
+the datasets.
+37A major problem is spurious correlations in
+Fig. 6. (a) Parameter space scan and results of the CNN classiﬁcation: Connected regions of similar classiﬁed patterns are typically observed. Examp les for
+visual inspection of representative patterns from the classiﬁcation results for the a,c,g,/C23, and iclasses. Most patterns are correctly classiﬁed, but some clear
+outliers are observed. We use the information of these outliers as input to improve our training dataset for a second training pass. For instance, some sparse
+hole patterns are incorrectly labeled as /C23, although they behave more like very slowly evolving k. (b) A small region of the parameter phase forms a new class
+pthat was not taken into account in the ﬁrst pass of the training. Selecting patterns that ﬁt the deﬁnition best lets us create a more reﬁned training data set to
+retrain the CNN and perform a better classiﬁcation. (c) Parameter space scan after a second training pass.
+148 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 148 04 October 2023 23:02:25
+the training, validation, and test data. A well-known example
+is the presence of watermarks and source labels in imagedatabases, where it was found that machine learning models
+can accidentally detect such artifacts and use them for classi-
+ﬁcation instead of the actual objects.
+38It is, therefore, impor-
+tant to assess whether predictions made by neural networksare reasonable and robust. In the following, we demonstrate
+how our prior predictions can be used to reﬁne the training
+dataset and make the predictions more accurate.
+To improve the training data, we select additional patterns
+from our previous predictions if a pattern ﬁts the respectiveclass descriptions well and add the corresponding parametersf;kto the training dataset generation script. The script
+Predicted_Class_Montage.py in Ref. 13demon-
+strates how to interactively display patterns for each pre-dicted class. The corresponding f;kparameters are displayed
+by clicking on the patterns.
+We restart the training of our neural network from scratch.
+Additionally, we add a new class called pto the training data
+to take the misclassiﬁed ipatterns into account. We generate
+a total of 3200 patterns, 200 for each class, including newparameters in some cases, split evenly across the trainingand validation datasets. The training dataset now contains
+more pairs ( f,k) and more patterns per class. The training
+accuracy again approaches 99% [see Fig. 6(c)] but displays a
+better accuracy for the test data. We see faster convergenceand slightly fewer ﬂuctuations across the epochs, which con-
+ﬁrms the increase in quality of the training data. In Fig. 6(d),
+we show the results of the new classiﬁcation after the secondpass of the iterative training approach. Some quantitative dif-ferences are found for classes /C15,f, and k, which as we dis-
+cussed are difﬁcult to clearly distinguish. Domains of these
+classes appear more compact now. The new training data do
+not fundamentally impact the location of other classes inparameter space. The new class pis robustly detected at f
+/C250:068 and k/C250:060 625 in agreement with Ref. 16.A s
+expected, these patterns are found in a small region that is
+easy to miss without a dense parameter search. AlthoughCNNs cannot directly identify new classes, obvious misclas-siﬁcations were visible after the ﬁrst training iteration. Thesemisclassiﬁcations are no longer present after the second iter-
+ation. Some patterns, in particular, those classiﬁed as b
+remain difﬁcult to associate uniquely with classes in the cur-rent scheme. This difﬁculty cannot be mitigated by extend-ing the training data, and it might be necessary to add
+additional classes. Overall, we do not see qualitative changes
+in predictions after the second training, which is not a sur-prise, because the Gray–Scott model is already welldescribed in the literature. However, for new systems, werecommend being very critical of initial results.
+V. DISCUSSION
+We have demonstrated how a CNN can be implemented
+and used for exploring the patterns in the Gray–Scott model.CNNs circumvent the manual search for characteristic fea-
+tures needed for pattern classiﬁcation and aid in identifying
+the boundaries between classes in the parameter space and,thus, supplement analytical work on reaction–diffusionmodels. We expect a similar applicability to other reaction–
+diffusion systems. However, this approach comes at the cost
+of a lack of intuitive understanding of how patterns are clas-siﬁed by the neural network.A possible continuation of our approach is to test other
+types of initial conditions, for which even more classes of
+patterns can be found.
+16One way to achieve more robust
+classiﬁcations is to use pre-trained neural network architec-tures and adapt them to this use. Such networks are avail-
+able for pattern recognition trained on large datasets using
+high performance computing clusters. The feature extrac-tors of such networks can be transferred to new uses by
+retraining the weights of the last fully connected layer on a
+new dataset. We also could make more use of the time-dependence in the simulations. Here, we have only demon-
+strated two-dimensional convolutional layers. However, if
+we add more channels and, therefore, more information onthe time-dependence to the data, we can use three-
+dimensional convolutions or sequence classiﬁcation in the
+network architecture. An example is discussed in Sec. 6 ofRef. 17.
+Neural networks can also ﬁt continuous response varia-
+bles, not just discrete classes. For instance, CNNs can predict
+solutions to partial differential equations,
+39,40and even sim-
+ple reaction–diffusion equations.41Their versatility makes
+neural networks very attractive to use for complex data anal-
+ysis, and we expect many more applications in physics.
+ACKNOWLEDGMENTS
+The authors would like to acknowledge inspiring
+discussions on topological transitions in reaction–diffusion
+systems with Klaus Mecke and Gerd Schr €oder-Turk.
+APPENDIX: EXPLANATIONS OF EXAMPLE
+SCRIPTS
+To run a single simulation of the Gray–Scott model for a
+speciﬁc set of input parameters [seed] [ Du][f][k] execute:
+pythonGray_Scott_2D.py20.20.0090.045
+The ﬁrst two parameters are optional. Varying the seed will
+change the initial conditions randomly. See Sec. 1 of Ref. 17
+or the function get_dataset_parameter() in
+GStools.py from Ref. 13for example parameters.
+To generate training, validation, and test datasets for the
+2D convolution CNN, execute the following commands.Depending on the CPU, you can adapt the constant
+NTHREADS (default 8) to speed up parallel execution.
+pythonDataset_Generate.pytrain2D
+pythonDataset_Generate.pyval2DpythonDataset_Generate.pytest2D
+Each script requires about two hours on an Intel i7-9750H
+CPU (2.6 GHz). These scripts will create the data ﬁlesDataset_2D_train.p, Dataset_2D_val.p and Dataset_2D_
+test.p. All data ﬁles can be downloaded from an Open
+Science Framework (OSF) repository at Ref. 14.
+We can use the datasets generated by the previous scripts
+and then run the following script to train the model:
+pythonCNN_Train_2D.py
+The training runs for about 1.4 h. For demonstration purpose,
+the number of epochs can be reduced. The model will besaved in the subfolder model_CNN_2D. Pre-trained models
+are also stored in Ref. 13.
+A simple script to load the test data, the neural network
+model, and calculate predictions is the following:
+149 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 149 04 October 2023 23:02:25
+#Importdependencies
+importtensorﬂowastfimportnumpyasnpimportpickle
+#Loadmodelanddataset
+model ¼tf.keras.models.load_model
+(”model_CNN_2D”)
+dataset_test ¼np.array(pickle.load(open
+(”Dataset_2D_test.p”,”rb”)))
+# Calculate predictions of neural network
+fortrainingdataset
+labels_test_pred ¼model.predict
+(dataset_test)
+# Display predictions for pattern np. 26 in
+trainingdatasetasprobabilities
+layer ¼tf.keras.layers.Softmax()
+layer(labels_test_pred[25,:]).numpy()
+The output (within numerical accuracy) isarray([9.9911076e-01, 8.8874140e-04,
+4.8240952e-07, 5.9778327e-23, 3.2857954e-15,2.3312916e-13, 1.7406914e-15, 1.2611157e-24,3.6346924e-19, 1.1976714e-26, 2.0100268e-26,1.2437883e-15, 1.7560412e-26, 6.3181470e-28,2.0884368e-21],dtype ¼ﬂoat32).
+Each value of this array represents the probability that the
+pattern is from one of the 15 classes. In this case, the modelpredicts with a probability close to one that the ﬁrst pattern
+belongs to the ﬁrst class a, which is correct. When referring
+to the prediction of the model, we typically refer to the classwith the largest probability. To evaluate the training historyand prediction accuracy of all patterns by a confusion matrix,the following script can be used:
+pythonCNN_Evaluate.pymodel_CNN_2D
+The following script displays the saliency maps for selected
+patterns from the training dataset, using model_CNN_2D bydefault:
+pythonCNN_Saliency.py
+To generate patterns from a dense scan of the parameter
+space, we use
+pythonParameter_Space_Dataset_Generate.py
+This script takes about 24 h to run. The raw data are also
+available for download from an OSF repository at Ref. 14.
+To classify the results using the 2D convolutional CNN, runthe following command:
+python Parameter_Space_Dataset_Classify.py
+model_CNN_2D
+To plot all patterns that belong to the same predicted class, we use
+python Predicted_Class_Montage.py model_
+CNN_2D0
+To specify the displayed class, set the second input parame-
+ter to any number from 0 to 14. Here, 0 corresponds to classa. Clicking on a pattern will output parameters ( k,f) to the
+command prompt.
+To generate training and validation data for a second train-
+ing pass with additional parameters, runpythonDataset_Generate.pytrain22D
+pythonDataset_Generate.pyval22D
+Both scripts run for about 5 h. The raw data are also available
+for download from an OSF repository at Ref. 14. With the
+datasets from previous run, the second iteration of the train-
+ing runs
+pythonCNN_Train_2D_2nd.py
+The script runs for about 1.4 h. Pre-trained weights are also
+stored in Ref. 13. To display results of the new model type
+python Parameter_Space_Dataset_Classify.py
+model_CNN_2D_2nd
+a)Author to whom correspondence should be addressed: christian.
+scholz@hhu.de, ORCID: 0000-0001-6719-9454.
+1M. Cross and H. Greenside, Pattern Formation and Dynamics in
+Nonequilibrium Systems (Cambridge U. P., Cambridge, 2009).
+2P. Gray and S. K. Scott, “Autocatalytic reactions in the isothermal, contin-
+uous stirred tank reactor: isolas and other forms of multistability,” Chem.
+Eng. Sci. 38, 29–43 (1983).
+3J. D. Murray, Mathematical Biology II : Spatial Models and Biomedical
+Applications , 3rd ed. (Springer Science þBusiness Media, LCC, New
+York, 2003).
+4J. E. Pearson, “Complex patterns in a simple system,” Science 261,
+189–192 (1993).
+5W. Mazin et al. , “Pattern formation in the bistable Gray-Scott model,”
+Math. Comput. Simul. 40, 371–396 (1996).
+6V. Castets, E. Dulos, J. Boissonade, and P. De Kepper, “Experimental evi-
+dence of a sustained standing Turing-type nonequilibrium chemical
+pattern,” Phys. Rev. Lett. 64, 2953–2956 (1990).
+7K. J. Lee, W. D. McCormick, Q. Ouyang, and H. L. Swinney, “Pattern
+formation by interacting chemical fronts,” Science 261, 192–194
+(1993).
+8Q. Ouyang and H. L. Swinney, “Transition to chemical turbulence,”Chaos 1, 411–420 (1991).
+9K. R. Mecke, “Morphological characterization of patterns in reaction-
+diffusion systems,” Phys. Rev. E 53, 4794–4800 (1996).
+10J. Guiu-Souto, J. Carballido-Landeira, and A. P. Mu ~nuzuri,
+“Characterizing topological transitions in a Turing-pattern-forming
+reaction-diffusion system,” Phys. Rev. E 85, 056205 (2012).
+11C. M. Bishop, Pattern Recognition and Machine Learning (Springer, New
+York, 2006).
+12F. Monti et al. ,i n Proceedings of the IEEE Conference on Computer
+Vision and Pattern Recognition (IEEE, 2017), pp. 5115–5124.
+13C. Scholz and S. Scholz, see https://github.com/coscholz1984/GS_CNN
+for “CNNs for Gray-Scott Pattern Classiﬁcation- PYTHON Scripts and
+Pretrained Models, 2021.”
+14C. Scholz and S. Scholz, see https://osf.io/byrzm/ for “CNNs for Gray-
+Scott Pattern Classiﬁcation-Raw Datasets, 2021.”
+15J. D. Murray, Mathematical Biology I. An Introduction , 3rd ed. (Springer
+Science þBusiness Media, LCC, New York, 2002).
+16R. P. Munafo, “Stable localized moving patterns in the 2D Gray-Scott
+model,” arXiv:1501.01990 (2014).
+17See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0065458 for Extended explanation of Gray-Scott model and
+movie of dynamic patterns, detailed explanation of convolution features,
+minimal code examples, saliency maps, and 3D convolution ﬁlter example
+(2021).
+18R. Munafo, see http://www.mrob.com/pub/comp/xmorphia/ogl/index.html
+for “WebGL Gray-Scott Explorer, 2021.”
+19W. H. Press, S. A. Teukolsky, W. T. Vetterling, and B. P. Flannery,Numerical Recipes with Source Code CD-ROM 3rd Edition: The Art of
+Scientiﬁc Computing (Cambridge U. P., Cambridge, 2007).
+20Y. C. Ji and F. H. Fenton, “Numerical solutions of reaction-diffusion equa-
+tions: Application to neural and cardiac models,” Am. J. Phys. 84,
+626–638 (2016).
+21J. Wei and M. Winter, “Existence and stability of multiple-spot solutionsfor the Gray-Scott model in R2,” Physica D 176, 147–180 (2003).
+22S. Wolfram, “Universality and complexity in cellular automata,” Physica
+D10, 1–35 (1984).
+150 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 150 04 October 2023 23:02:25
+23G. E. Schr €oder-Turk et al. , “Tensorial Minkowski functionals and
+anisotropy measures for planar patterns,” J. Microsc. 238, 57–74
+(2010).
+24C. Scholz, G. E. Schr €oder-Turk, and K. Mecke, “Pattern-ﬂuid interpreta-
+tion of chemical turbulence,” Phys. Rev. E 91, 042907 (2015).
+25D. C. Montgomery, Design and Analysis of Experiments (John Wiley &
+Sons, New York, 2017).
+26For linear models this is done by computing the minimum norm solution to aset of linear equations. For nonlinear models we typically need to approximate
+the solution iteratively starting from an initial estimate of the parameters.
+27For 1282/C23¼491 52 predictor variables, even if we include only zeroth
+and ﬁrst order terms (1 þ49152) and two factor interactions (all possible
+products of two different predictor variables 0 :5/C2491 52 /C2491 51), we
+would need to ﬁt more than 1.2 billion parameters.
+28J. J. Hopﬁeld, “Neural networks and physical systems with emergent col-lective computational abilities,” Proc. Natl. Acad. Sci. U. S. A. 79,
+2554–2558 (1982).
+29P. Ramachandran, B. Zoph, and Q. V. Le, “Searching for activation
+functions,” arXiv:1710.05941 (2017).
+30F. Chollet et al. , see https://keras.io for “Keras,” 2015.
+31A. Paszke et al. ,i nAdvances in Neural Information Processing Systems
+32(Curran Associates, Inc., New York, 2019), pp. 8024–8035.
+32The MathWorks, MATLAB Deep Learning Toolbox (The MathWorks,
+Natick, 2020).
+33M. Abadi et al. , “TensorFlow: Large-scale machine learning on heteroge-
+neous systems,” arXiv:1603.04467 (2015).
+34There are also some constants that affect the optimization procedure.
+For instance the learning rate, i.e., the step size of the gradient descent.Such parameters are called hyperparameters. Often these hyperparameters
+are automatically determined or can be kept at default values, but some-
+times adjustments might be necessary. For instance, the network might not
+have enough feature maps, neurons and layers to ﬁt the data. A frequent
+problem is also low quality of training data due to human error, whichrequires manual revision. For example, patterns might have been misla-beled. Or the training data might include patterns that do not represent a
+class very well.
+35T. Kadir and M. Brady, “Saliency, scale and image description,” Int. J.
+Comput. Vision 45, 83–105 (2001).
+36K. Simonyan, A. Vedaldi, and A. Zisserman, “Deep inside convolutional
+networks: Visualising image classiﬁcation models and saliency maps,”
+arXiv:1312.6034 (2013).
+37B. Haibe-Kains et al. , “Transparency and reproducibility in artiﬁcial
+intelligence,” Nature 586, E14–E16 (2020).
+38S. Lapuschkin et al. , “Unmasking clever Hans predictors and assessing
+what machines really learn,” Nat. Commun. 10, 1096 (2019).
+39J. Han, A. Jentzen, and E. Weinan, “Solving high-dimensional partial dif-
+ferential equations using deep learning,” Proc. Natl. Acad. Sci. U. S. A.
+115, 8505–8510 (2018).
+40M. Raissi, P. Perdikaris, and G. E. Karniadakis, “Physics-informed neural
+networks: A deep learning framework for solving forward and inverse
+problems involving nonlinear partial differential equations,” J. Comput.
+Phys. 378, 686–707 (2019).
+41A. Li, R. Chen, A. B. Farimani, and Y. J. Zhang, “Reaction diffusion sys-
+tem prediction based on convolutional neural network,” Sci. Rep. 10, 1–9
+(2020).
+151 Am. J. Phys., Vol. 90, No. 2, February 2022 C. Scholz and S. Scholz 151 04 October 2023 23:02:25

@@ -1,0 +1,414 @@
+1992: The Emergency Power-Restoration Problem 163
+
+1992: The Emergency Power-
+
+Restoration Problem
+
+Power companies serving coastal regions must have emergency-response
+systems for power outages due to storms. Such systems require the input
+of data that allow the time and cost required for restoration to be estimated
+and the “value” of the outage judged by objective criteria. In the past, Hy-
+pothetical Electric Company (HECO) has been criticized in the media for its
+lack of a prioritization scheme.
+
+You are a consultant to HECO power company. HECO possesses a com-
+puterized database with real-time access to service calls that currently re-
+quire the information:
+
+• time of report,
+
+• type of requestor,
+
+• estimated number of people affected, and
+
+• location (x, y).
+
+Crew sites are located at coordinates (0, 0) and (40, 40), where x and y
+are in miles. The region serviced by HECO is within −65 < x < 65 and
+−50 < y < 50. The region is largely metropolitan with an excellent road
+network. Crews must return to their dispatch site only at the beginning and
+end of shift. Company policy requires that no work be initiated until the
+storm leaves the area, unless the facility is a commuter railroad or hospital,
+which may be processed immediately if crews are available.
+
+HECO has hired you to develop the objective criteria and schedule the
+work for the storm restoration requirements listed in Table 1 using the work
+force described in Table 2. Note that the ﬁrst call was received at 4:20 A.M.
+and that the storm left the area at 6:00 A.M. Also note that many outages
+were not reported until much later in the day.
+
+HECO has asked for a technical report for their purposes and an “exec-
+utive summary” in laymen’s terms that can be presented to the media. Fur-
+ther, they would like recommendations for the future. To determine your
+prioritized scheduling system, you will have to make additional assump-
+tions. Detail those assumptions. In the future, you may desire additional
+data. If so, detail the information desired.
+
+164
+
+Tools for Teaching 1994
+
+Table 1.
+
+Storm restoration requirements.
+
+Time
+
+(A.M.)
+
+4:20
+5:30
+
+5:35
+5:55
+
+Location
+(−10, 30)
+3)
+3,
+(
+5)
+( 20,
+(−10,
+5)
+
+Type
+
+# Affected
+
+Business (cable TV)
+
+Residential
+Business (hospital)
+
+Business (railroad sys.)
+
+?
+
+20
+240
+
+25 workers;
+75,000 commuters
+
+6:00 All-clear given; storm leaves area; crews can be dispatched
+
+6:05
+6:06
+
+6:08
+
+6:09
+6:15
+
+6:20
+6:20
+
+6:22
+
+6:25
+
+6:40
+6:55
+
+7:00
+
+7:00
+
+7:00
+
+7:00
+
+7:05
+
+7:10
+
+7:10
+
+7:10
+7:10
+
+7:20
+
+7:45
+
+7:50
+
+8:15
+
+8:20
+
+8:35
+
+8:50
+
+9:50
+
+10:30
+
+10:30
+
+10:35
+
+10:50
+11:30
+
+Residential
+∗
+
+7, 10) Area
+
+5, 20) Area
+
+Industry (newspaper co.)
+Industry (factory)
+
+Residential
+1, 10) Government (city hall)
+5, 20)
+Business (shopping mall)
+5, −25) Government (ﬁre dept.)
+Residential
+∗
+
+(13, 30)
+(
+( 60, 45)
+(
+(
+(
+( 12, 18)
+(
+( −1, 19)
+(−20, −19)
+∗
+( −1, 30) Area
+(−20, 30) Government (high school)
+( 40, 20) Government (elementary school)
+7, −20)
+(
+Business (restaurant)
+8, −23) Government (police station & jail)
+(
+( 25, 15) Government (elementary school)
+(−10, −10)
+( −1,
+8, −25)
+(
+( 18, 55)
+7, 35) Area
+(
+( 20,
+0)
+( −6, 30)
+(
+0, 40)
+( 15, −25) Government (trafﬁc lights)
+(−20, −35)
+( 47, 30)
+( 55, 50)
+(−18, −35)
+( −1, 50)
+( −7, −8)
+(
+(
+∗
+
+5, −25) Government (ﬁre dept.)
+∗
+8, 20) Area
+
+2) Government (college)
+
+Industry (computer manuf.)
+
+Business (several stores)
+
+Business (civic center)
+
+Residential
+∗
+
+Business (hospital)
+
+Business (airport)
+
+Business (bank)
+
+Residential
+
+Residential
+
+Residential
+
+Residential
+
+Residential
+
+45
+
+2000
+
+?
+?
+
+200 workers
+15 workers
+
+350
+
+400
+
+190
+395
+
+?
+
+1200 students
+
+1700
+
+25
+
+125
+
+1900
+
+?
+
+3000
+450 workers
+
+350
+
+400
+
+800
+
+300
+
+50
+
+?
+
+20
+
+40
+
+?
+
+10
+
+150
+
+350 workers
+15
+
+300
+
+Area signiﬁes a combination of two or more of the other classiﬁcation types.
+
+Estimated
+Repair Time
+
+(hrs for crew)
+
+6
+
+7
+8
+
+5
+
+2
+
+7
+
+9
+7
+
+5
+3
+
+6
+
+12
+
+10
+7
+
+6
+
+3
+
+?
+
+12
+
+7
+
+5
+
+9
+
+8
+5
+
+10
+
+9
+
+5
+
+5
+
+6
+
+3
+
+5
+
+?
+
+12
+
+10
+
+5
+
+4
+5
+
+12
+
+1992: The Emergency Power-Restoration Problem 165
+
+Table 2.
+
+Crew descriptions.
+
+• Dispatch locations at (0, 0) and (40, 40).
+
+• Crews consist of three trained workers.
+
+• Crews report to the dispatch location only at the beginning and end of their shifts.
+
+• One crew is scheduled for duty at all times on jobs assigned to each dispatch
+location. These crews would normally be performing routine assignments. Until
+the “storm leaves the area,” they can be dispatched for “emergencies” only.
+
+• Crews work 8-hr shifts.
+
+• There are six crew teams available at each location.
+
+• Crews can work only one overtime shift in a work day and receive time-and-a-half
+
+for overtime.
+
+Comments by the Contest Director
+
+The problem was contributed by Joseph Malkevitch (Dept. of Mathe-
+
+matics and Computer Science, York College (CUNY), Jamaica, NY).
+
+

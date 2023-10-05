@@ -1,0 +1,886 @@
+
+View
+Online
+Export
+CitationCrossMarkINSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS| JULY 01 2022
+Observing hyperfine interactions of NV− centers in diamond
+in an advanced quantum teaching lab 
+Yang Y ang; Hyma H. V allabhapurapu ; Vikas K. Sewani ; Maya Isarov ; Hannes R. Firgau ; Chris Adambukulam ;
+Brett C. Johnson ; Jarryd J. Pla ; Arne Laucht
+Am. J. Phys.  90, 550–560 (2022)
+https://doi.org/10.1 119/5.0075519
+Articles Y ou May Be Interested In
+Coherent control of NV− centers in diamond in a quantum teaching lab
+Am. J. Phys.  (December 2020)
+A home-made portable device based on Arduino Uno for pulsed magnetic resonance of NV centers in
+diamond
+AIP Advances  (June 2022)
+Variable bandwidth, high ef ficiency microwave resonator for control of spin-qubits in nitrogen-vacancy
+centers
+Rev. Sci. Instrum.  (February 2023) 04 October 2023 23:13:02
+INSTRUCTIONAL LABORATORIES AND DEMONSTRATIONS
+John Essick, Editor
+Department of Physics, Reed College, Portland, OR 97202
+Articles in this section deal with new ideas and techniques for instructional laboratory experiments, for
+demonstrations, and for equipment that can be used in either. Although these facets of instruction alsoappear in regular articles, this section is for papers that primarily focus on equipment, materials, and
+how they are used in instruction. Manuscripts should be submitted using the web-based system that can
+be accessed via the American Journal of Physics home page, ajp.aapt.org, and will be forwarded to theIL&D editor for consideration.
+Observing hyperfine interactions of NV2centers in diamond
+in an advanced quantum teaching lab
+Yang Y anga)
+School of Electrical Engineering and Telecommunications, The University of New South Wales, Sydney,
+New South Wales 2052, Australia and Quantum Photonics Laboratory and Centre for Quantum Computation
+and Communication Technology, School of Engineering, RMIT University, Melbourne, Victoria 3000,
+Australia
+Hyma H. Vallabhapurapu, Vikas K. Sewani, Maya Isarov,b)Hannes R. Firgau,c)
+and Chris Adambukulamd)
+School of Electrical Engineering and Telecommunications, The University of New South Wales, Sydney,
+New South Wales 2052, Australia
+Brett C. Johnson
+Quantum Photonics Laboratory and Centre for Quantum Computation and Communication Technology,
+School of Engineering, RMIT University, Melbourne, Victoria 3000, Australia
+Jarryd J. Plae)and Arne Lauchtf)
+School of Electrical Engineering and Telecommunications, The University of New South Wales, Sydney,
+New South Wales 2052, Australia
+(Received 16 October 2021; accepted 21 March 2022)
+The negatively charged nitrogen-vacancy (NV/C0) center in diamond is a model quantum system for
+university teaching labs due to its room-temperature compatibility and cost-effective operation. Based on
+the low-cost experimental setup that we have developed and described for the coherent control of the
+electronic spin [Sewani et al. , Am. J. Phys. 88, 1156–1169 (2020)], we introduce and explain here a
+number of more advanced experiments that probe the electron–nuclear interaction between the NV/C0
+electronic and the14Na n d13C nuclear spins. Optically detected magnetic resonance, Rabi oscillations,
+Ramsey fringe experiments, and Hahn echo sequences are implemented to demonstrate how the nuclearspins interact with the electron spins. Most experiments only require 15 min of measurement time and,
+therefore, can be completed within one teaching lab.
+#2022 All article content, except where otherwise noted, is
+licensed under a Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0075519
+I. INTRODUCTION
+The recent progress in the ﬁeld of quantum technolo-
+gies—quantum computing, quantum communications, and
+quantum sensors—has led to considerable commercial inter-
+est from entities like the semiconductor industry, softwarecompanies, and consulting ﬁrms. Quantum technologies arepredicted to constitute a /C24$10 billion market within the next
+decade,
+2and the high demand for quantum-specialists, as
+reﬂected by the high number of current job advertisements,3
+corroborates this prediction. Universities need to cater to thisneed and provide their graduates with a thorough under-standing of quantum mechanics and solid-state physics,including experimental experience in how to perform quan-tum measurements and interpret results. However, theseskills are difﬁcult to convey in a university teaching lab, due
+to the sensitivity of quantum systems to environmental dis-
+turbances and the high cost of specialized measurementequipment.
+As discussed amply in literature, the nitrogen vacancy
+(NV
+/C0) center in diamond possesses an electronic spin that
+can be initialized and read out optically. It displays micro-second coherence times at room temperature in ambient con-ditions.
+4This makes the NV/C0center a model system for
+high-school or university teaching labs to perform magne-
+tometry5–7and coherent spin control experiments.1,7–10
+Based on the same low-cost experimental setup that we have
+developed in Ref. 1, in combination with an off-the-shelf,
+commercially available, high-quality chemical vapor deposi-tion (CVD) diamond sample from Element Six, we expand
+550 Am. J. Phys. 90(7), July 2022 http://aapt.org/ajp VCAuthor(s) 2022.
+ 550 04 October 2023 23:13:02
+the portfolio of experiments to include the characterization
+of electron–nuclear spin coupling dynamics.
+This paper is organized as follows: In Sec. II, we will give
+an overview of the learning outcomes that can be conveyed
+with the experiments in this paper. Section IIIwill then intro-
+duce the NV/C0Hamiltonian with a focus on the terms
+describing the nuclear spin of the14N nucleus and its interac-
+tion with the electronic spin, and Sec. IVwill introduce the
+Rabi formula that describes the time evolution of a spin dur-
+ing spin resonance. In Sec. V, we will detail the changes
+made to the equipment with regard to Ref. 1, and in Sec. VI,
+we will present different experiments with a special empha-
+sis on how the coupling of the electron spin to the14N
+nucleus manifests in the optically detected magnetic reso-nance (ODMR) spectrum (Subsection VI B ), Rabi oscilla-
+tions (Subsection VI C ), and Ramsey fringes (Subsection
+VI D ). Finally, we show how the coupling to the bath of13C
+nuclei manifests in the Hahn echo decay (Subsection VI E).
+II. LEARNING OUTCOMES
+The experiments described below are a set of advanced
+experiments that build upon the basic ones described in
+Ref. 1. The basic experiments taught students fundamental
+concepts such as the NV/C0center structure, the spin initializa-
+tion and readout procedure, the features of the ODMR spec-
+trum, the development of pulse sequences, the rotating frame,
+magnetic resonance, two-axes control, the Bloch sphere, and
+dynamical decoupling. We will assume knowledge of theseconcepts for this manuscript and build upon them in order for
+students to
+•develop a detailed understanding of the system’s
+Hamiltonian and the ability to map the observed experi-
+mental features to its properties.
+•comprehend the effect of experimental non-idealities like
+power-broadening and spectral detuning.
+•observe the interaction between the NV/C0electronic spin and
+the14N nuclear spin, mediated by the hyperﬁne interaction.
+•experience how the electron–nuclear interaction manifests
+in both the frequency domain and the time domain, andhow those are linked by the Fourier transform.
+The concepts demonstrated with these experiments will
+provide students with an advanced understanding of quantumexperiments and a detailed knowledge of electron–nuclear
+spin interactions. They are applicable to the state-of-the-art
+research on NV
+/C0centers in diamond,11–13other types of
+color centers in diamond14,15and silicon carbide,16donor
+spins in silicon,17–19and even gate-deﬁned quantum dots.20
+III. THE NV2CENTER IN DIAMOND
+The NV/C0center in diamond consists of a substitutional nitro-
+gen atom adjacent to a vacant lattice site and exists along fourdifferent crystallographic orientations ( ½111/C138;[1
+11];[/C2211/C221], and
+[111]).1,4,5These four orientations are, in principle, equivalent
+but lead to different alignments of the NV/C0center axes with
+respect to an externally applied static or oscillating magnetic
+ﬁeld. The natural abundance of14N is 99.6%, and its nuclear
+spin number is I¼1, which means that the electron spin in
+almost all NV/C0centers is coupled to a nuclear spin. We, there-
+fore, need to extend the ground state Ham iltonian of the NV/C0
+center to account for the coupled14N nuclear spin. The static
+Hamiltonian H0contains three main terms:H0¼H SþH IþH SI; (1)
+where HSis the electron spin Hamiltonian, HIis the nuclear
+spin Hamiltonian, and HSIdescribes the interaction of the
+electron spin with the nuclear spin.
+The electron spin Hamiltonian
+HS¼DS2
+zþceB0/C1S (2)
+corresponds to the well-known Hamiltonian from Ref. 1,
+where D/C252:87 GHz is the zero-ﬁeld splitting of the ground
+state jgiandSis the vector of electron spin matrices
+½Sx;Sy;Sz/C138for an S¼1 system. The electron gyromagnetic
+ratio, which deﬁnes the magnitude of the Zeeman splitting,is given by c
+e¼28 GHz/T, and B0is the external magnetic
+ﬁeld vector. As in Ref. 1, we write the Hamiltonians in units
+of frequency, as this is more relevant to experiment.
+The nuclear spin Hamiltonian
+HI¼PI2
+z/C0cnB0/C1I (3)
+is the corresponding term for the14N nuclear spin.
+P/C25/C05:01 MHz is the nuclear quadrupole moment of14N,I
+is the vector of nuclear spin matrices ½Ix;Iy;Iz/C138forI¼1, and
+cn¼3:077 MHz/T is the nuclear gyromagnetic ratio of
+14N.21–23Since cnis roughly a factor 10 000 smaller than ce,
+the interaction between the nuclear spin and the external B0
+ﬁeld is not observed in our experiments as it would require a
+ﬁeld of several 100 mT to be resolved.
+The ﬁnal term in H0describes the interaction of the NV/C0
+electron spin with the14N nuclear spin:
+HSI¼AjjSzIzþA?ðSxIxþSyIyÞ; (4)
+where Ajj¼2:14 MHz and A?¼2:7 MHz are the parallel
+and perpendicular components of the hyperﬁne tensor withrespect to the NV/C0center axis, respectively.21
+In Fig. 1(a), we show a schematic of the energy levels of
+the system (not to scale) according to the Hamiltonian H0in
+Eq.(1). We start with the bare ground state energy level jgi
+of the NV/C0center on the left side. Turning on the zero-ﬁeld
+splitting Dthen lifts the degeneracy between the different
+S¼1 levels, by raising the ms¼61 levels by D¼2.87 GHz
+above the ms¼0 level. Next, we include the electron
+Zeeman interaction as given by ceB0/C1S. Assuming that B0
+is applied along the z-axis, the Zeeman interaction raises the
+ms¼þ1 level by 2 ceBzabove the ms¼/C01 level. Finally,
+we include the14N nuclear spin. The quadrupole component
+Plifts the degeneracy between the different I¼1 nuclear
+spin levels by raising the mI¼0 level by 5.01 MHz above
+themI¼61 levels [see Eq. (3)], and the hyperﬁne interac-
+tion between electron spin and nuclear spin further splits them
+I¼þ1 and mI¼/C01 levels by j2Ajjjfor the ms¼61e l e c -
+tron spin states [see Eq. (4)]. The nuclear spin Zeeman interac-
+t i o na sd e ﬁ n e db y cnB0/C1Iin Eq. (3)is not included in this
+schematic as it is too small to be observed in our experiments.
+IV. RABI FORMULA
+One of the learning outcomes is the understanding of
+experimental non-idealities. A very common non-ideality is adriving ﬁeld that is detuned in frequency from the spin reso-nance transition and that is strong in power. This will lead tonon-perfect rotations of the spin and the power-broadening of
+551 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 551 04 October 2023 23:13:02
+the ODMR resonance lines, which prevents the observation
+of ﬁne features of the spectrum at high driving powers. The
+effect of both can be easily understood via the Rabi formula,
+which describes the probability of ﬂipping a spin (or any two-
+level system) as a function of pulse time when a coherent
+driving pulse is applied,24
+PðtÞ¼X2
+R
+X2
+RþD2sin21
+2ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+X2
+RþD2q
+2pt/C18/C19
+; (5)
+where tis the length of the driving pulse, D¼/C23MW/C0/C23resis
+the frequency detuning between the frequency of the driving
+ﬁeld /C23MWand the resonance frequency of the spin transition
+/C23res, andXRis the rotation frequency of the spin while it
+is driven—the so-called Rabi frequency.25In general,
+XR¼1=ﬃﬃﬃ
+2p
+ceB1for a spin-1 system, where B1is the ampli-
+tude of the oscillating magnetic ﬁeld provided by an
+antenna.26Note that this expression is different from that of
+a spin-1/2 system for which XR¼1
+2ceB1.
+Equation (5)can be considered in two parts. The ﬁrst part is
+the envelope X2
+R=ðX2
+RþD2Þ, which describes the amplitude
+of the Rabi oscillations. If the amplitude is plotted as a func-
+tion of the frequency detuning D, the result is a Lorentzian
+lineshape that has a half-width at half-maximum (HWHM) of
+DHWHM ¼XR. This means that for a detuning of D¼XR, the
+spin can still be rotated with 50% amplitude, clearly showing
+how a high Rabi frequency caused by a large B1amplitude
+leads to a large linewidth in the ODMR spectrum.The second part of Eq. (5)is the time-dependent quantity
+sin21
+2ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+X2
+RþD2q
+2pt/C18/C19
+, which describes the actual time
+evolution of the spin during the Rabi oscillations. The fre-
+quency of the Rabi oscillations is given by Xeff
+R
+¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+X2
+RþD2q
+,27an expression that reduces to Xeff
+R¼XRfor
+the resonant case with D¼0. A profound consequence on
+Fig. 1. (a) Ground state energy levels based on the Hamiltonian in Eq. (1), showing the zero-ﬁeld splitting, Zeeman splitting, and14N nuclear hyperﬁne interac-
+tion. The differently colored arrows represent the allowed electron spin transitions for the different nuclear spin orientations mI¼/C01 (red), mI¼0 (orange),
+andmI¼þ1 (green). (b) Electronics setup and (c) optics setup, identical to Ref. 1except for the addition of electromagnetic coils and programmable power
+supply, used to create a well-deﬁned B0ﬁeld indicated by the blue ﬁeld lines. (d) ODMR spectra recorded for different magnetic ﬁelds generated by the elec-
+tromagnets, measured using the photodiode. Each column of the 2D map corresponds to a single ODMR scan for a certain magnetic ﬁeld strength. The electr on
+spin resonance transitions split with increased magnetic ﬁeld strength due to the Zeeman effect as described by Eq. (2). The eight different transitions arise
+from the four different orientations of the NV/C0center axis, of which two pairs have approximately the same angle with respect to the external magnetic ﬁeld
+B0[see also Fig. 3(c)]. The dashed lines are the calculated transition frequencies using Eq. (2).
+Fig. 2. (a) Nutation of a spin around the Bloch sphere in the rotating frame,
+initialized in the j0istate and for a resonant drive (i.e., D¼0). (b) Nutation
+of a spin around the Bloch sphere in the rotating frame, initialized in the j0i
+state and for a slightly detuned drive (i.e., D¼XR).
+552 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 552 04 October 2023 23:13:02
+experiments being performed at a frequency detuning D6¼0
+is that the Rabi oscillations are faster and have a smalleramplitude than in the resonant case. This can be visualized
+by imagining a state on the Bloch sphere that starts at the
+south pole and rotates about different axes (see Fig. 2). For a
+rotation axis along the equator of the Bloch sphere, the path
+that the state would describe on the Bloch sphere would take
+it all the way to the north pole (i.e., large amplitude), as seenin Fig. 2(a). However, when the rotation axis cants closer to
+one of the poles, the path that the state describes on the
+Bloch sphere would not take it very far away from the south
+pole (i.e., small amplitude), as seen in Fig. 2(b).
+V. EQUIPMENT
+The experimental setup used for the experiments in this
+manuscript is almost identical to the one introduced in detail
+in Sec. IV of Ref. 1. A few improvements have been intro-
+duced to enable the observation of nuclear interactions in theexperiments. First, while a photodiode is sufﬁcient to per-
+form the measurements presented here and was, in fact, used
+for acquiring the data presented in Fig. 1(d), the signal-to-
+noise ratio can be improved by using an avalanche photodi-ode (APD), e.g., Excelitas Technologies SPCM-AQRH. As
+with the photodiode, the APD can simply be connected
+to the lock-in ampliﬁer input (in voltage mode), where thelow-pass ﬁlter will average over the short voltage pulses.When these experiments were implemented in the teaching
+labs at UNSW Sydney, students performed all experiments
+using standard photodiodes.
+Second, as shown in Fig. 1(c), we have added a pair of
+homemade electromagnetic coils, powered by a DC labpower supply, to generate a well-deﬁned and homogeneous
+B
+0ﬁeld. Each coil is constructed from a reel and an
+L-shaped mount (see Fig. 8in the Appendix ). A hole at the
+center of the reel allows the addition of a core (in our case, asupermendur cylinder) to further increase the magnetic ﬁeld.
+The advantage over permanent magnets is that the magnetic
+ﬁeld strength can be easily tuned by adjusting the currentgoing through the coils, and the magnetic ﬁeld direction isknown as well. In the Appendix , we present more details on
+the design and geometry of the homemade electromagnets.
+A low-cost, commercial solution is the Adafruit Industries3875 electromagnet (see, e.g., Digi-Key 1528-2691-ND). An
+alternative way to measure a more homogeneous ensemble
+of NV
+/C0centers would be to interchange the multi-mode ﬁber
+for detection with a single-mode ﬁber to collect signal froma smaller sample volume.
+The sample used for the experiments presented here is a
+commercially available, off-the-shelf, h100i-oriented CVD
+diamond sample from Element Six28and is used without any
+processing. The dimensions of the sample are 2 :6/C22:6
+/C20:25 mm, and the nitrogen concentration is <1 ppm. In
+Appendix C of Ref. 1, there is a comparison between this
+sample and a high-pressure, high-temperature (HPHT) dia-mond sample that was used for the experiments in Ref. 1.
+The CVD sample has a /C241000 times lower PL signal, and
+while the spin signal decreases proportionally, we obtain
+high-quality data with only /C2410 times longer measurement
+times. In contrast, the CVD sample has a much longer coher-ence time than the HPHT sample, on the account of the
+lower N concentration, which allows the observation of
+effects originating from coupling to nuclear spins. Morerecently, we have also started using a commercially availablesample from Element Six with an NV center density of
+/C24300 ppb, optimized for quantum experiments.
+29The
+ODMR signal from this sample is over 50 /C2higher than the
+signal obtained from the CVD sample;28this larger density
+sample was used for the experiments in Fig. 4(a).
+VI. EXPERIMENTS
+All experiments described here are based on the electron
+spin resonance (ESR) technique, which allows us to coher-
+ently control the electron spin of the NV/C0center and per-
+form different types of measurements depending on theexact pulse sequence. More precisely, the type of ESR exper-
+iment that we perform here is termed ODMR, since the elec-
+tron spin state is read out (and initialized) via optical means,i.e., laser excitation and spin-dependent photon emission viaphotoluminescence (PL). The exact process was already
+described in Ref. 1and many other publications.
+4,5,7,8
+As introduced in Ref. 1and can be seen in Fig. 1(a), there
+are a number of different ESR transitions that can be drivenwith an oscillating or rotating magnetic ﬁeld B
+1. For
+B0¼0 T and neglecting the nuclear spin, all transitions are
+degenerate and centered around D¼2.87 GHz. When the
+magnetic ﬁeld is turned on, the Zeeman splitting [Eq. (2)]
+lifts this degeneracy and leads to different resonance fre-
+quencies for ms¼0$ms¼/C01 and ms¼0$ms¼þ1.
+When the interaction with the14N nuclear spin is included,
+there are six possible transitions—two each for mI¼/C01
+(red arrows), mI¼0 (orange arrows), and mI¼þ1 (green
+arrows). These transitions will keep the nuclear spin state
+unchanged but modify the electron spin state.
+Fig. 3. (a) Orientation of the NV crystallographic axes with respect to the
+sample facets and the external magnetic ﬁeld B0when the sample is
+mounted in the square orientation ( /H11623). (b) Same as (a) with the sample
+mounted in the diamond orientation ( /H17003). (c) ODMR spectrum at a low mag-
+netic ﬁeld of B0¼1:3 mT, showing 12 observable hyperﬁne peaks. Here,
+the peaks of the ½111/C138and½/C221/C2211/C138NV/C0orientations, and those of the ½1/C221/C221/C138
+and½/C2211/C221/C138NV/C0orientations overlap, respectively. The inset shows the sche-
+matic of the alignment of the crystallographic axes with respect to the
+applied B0and B1magnetic ﬁelds. The B0ﬁeld is oriented along the
+½0:67;0:74;0:02/C138direction. The red sphere indicates the N atom of the NV/C0
+center, while the black spheres indicate the four possible lattice sites for the
+vacancy. In this orientation, B0results in similar Zeeman splittings for the
+½111/C138and½/C221/C2211/C138, and the ½1/C221/C221/C138and½/C2211/C221/C138NV/C0orientations, respectively,
+while the orientation of B1results in similar Rabi frequencies XR.
+553 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 553 04 October 2023 23:13:02
+A. Magnetic field dependence
+We start by measuring the ODMR spectrum of the dia-
+mond sample as a function of magnetic ﬁeld B0. The CVD
+diamond chip has {100} faces, i.e., perpendicular to theh100idirections, and the four orientations of NV/C0centers
+are along the [111], [1 /C221/C221], [/C2211/C221], and [ /C221/C2211] directions (see
+Fig. 3). The B1ﬁeld created by the printed-circuit-board
+antenna is applied along the [001] direction, and therefore,
+perpendicular to the sample surface. The B0ﬁeld created by
+the coils of the electromagnet is applied parallel to the samplesurface. By rotating the CVD sample on the sample holder,different B
+0directions with respect to the crystallographic
+axes can be created. More speciﬁcally, when the sample ismounted in a square orientation [i.e., like /H11623, as shown in Fig.
+3(a)], the B
+0ﬁeld acts along the [100] direction. This results
+in all four NV/C0orientations experiencing the same effective
+angle between their NV/C0axes and B0and having the same
+two ODMR frequencies. However, when the sample ismounted in a diamond orientation [i.e., like /H17003,a ss h o w ni n
+Fig.3(b)], the B
+0ﬁeld acts along the [110] direction, resulting
+in the same effective angle for the [111] and [ /C221/C2211], and the
+[1/C221/C221] and [ /C2211/C221] orientations, respectively, and a total of four
+ODMR frequencies. In order to lift the degeneracy of all four
+NV/C0orientations and see eight different transitions appear,
+B0needs to be additionally rotated out of the sample plane.
+We mount our sample roughly in the diamond orientation
+(i.e., like /H17003), i.e., with B0directed along the [110] direction;
+however, we introduce a slight misalignment and let studentswork out the exact orientation of the magnetic ﬁeld. They canachieve this by recording B
+0-dependent ODMR spectra and
+mapping the observed splittings onto the calculated transition
+energies from Hamiltonian HS[Eq. (2)] using MATLAB.
+We plot such a magnetic ﬁeld map in Fig. 1(d). Here, the
+magnitude of B0can be increased without altering the mag-
+netic ﬁeld direction by increasing the current through theelectromagnet (see top x-axis) from 0 to 1.0 A in 21 steps.
+For each B
+0magnitude, ODMR spectra were recorded to
+build up the 2D ODMR map. Students then ﬁt the simple
+electron spin Hamiltonian HSto the data to work out the coil
+constant that describes the relationship between current andB
+0ﬁeld. The dashed lines in Fig. 1(d) show the best ﬁt for
+these data. The ﬁt indicates that B0is applied along the [0.56
+0.83 0.03] direction, and the coil constant is 11.9 mT/A.
+Note that the resistance of the electromagnetic coils is about
+15X, and that it increases when the coils heat up at larger
+driving currents. It is, therefore, important to use a current
+source to control the magnetic ﬁeld. Furthermore, the coils
+will also heat up the diamond sample and, therefore, the NV/C0
+center environment. At a high current, the ODMR spectrumwill shift according to the temperature dependency of thezero-ﬁeld-splitting dD=dT¼/C074:2 kHz/K.
+30For our experi-
+mental setup, a current of 1 A heats up the diamond sample by/C2440 K and shifts the zero-ﬁeld splitting by /C243M H z .
+In the teaching labs at UNSW Sydney, students recorded
+eleven ODMR spectra for electromagnet currents between 0
+and 0.5 A in 0.05 A steps. Each spectrum was measured from2.65 to 3.09 GHz in 221 steps with a wait time per point of600 ms using the photodiode. This resulted in a total mea-surement time of /C2425 min. While the measurements were
+running, the students were given a prepared MATLAB scriptto examine the relationship between the coil constant and the
+magnetic ﬁeld orientation. The students were then able to
+iteratively extract the relevant B
+0parameters by ﬁtting theirvalues to the measurement data, comfortably within the allo-
+cated time frame of the lab. This exercise addresses the ﬁrstlearning outcome in Sec. II.
+B. Spectral signature of hyperfine-coupled14N
+Having mapped out the Zeeman splitting of the S¼1
+NV/C0center electron spin in Fig. 1(d), we can now take a
+closer look at the ODMR spectrum to examine the spectralsignature of the hyperﬁne-coupled14N nuclear spins. Owing
+to the optical properties of the NV/C0center, the electron–
+nuclear spin interactions for the native14N nucleus can be
+seen directly in the ODMR spectrum. The14N hyperﬁne
+interaction tensor [see Eq. (4)] splits each electron energy
+level [see Fig. 1(a)], causing the electron spin transitions to
+become nuclear spin dependent, with a 2.16 MHz splitting inbetween the different I
+zprojections. The different colored
+arrows in Fig. 1(a) represent the allowed electron spin transi-
+tions for the different nuclear spin orientations mI¼/C01
+(red), mI¼0 (orange), and mI¼þ1 (green). These splittings
+can be resolved with a high-quality, low-concentration NV/C0
+center ensemble sample ( /C201 ppm31) with a high ODMR fre-
+quency resolution and a low microwave power.32
+In Fig. 3(c), we show the ODMR spectrum at a magnetic
+ﬁeld of B0¼1:3 mT along the [0.67, 0.74, and 0.02] direc-
+tion (as estimated from the spectrum). The ﬁeld is onlyslightly misaligned from the [110] crystallographic axis [seealso the inset in Fig. 3(c)], leading to similar Zeeman split-
+tings and overlapping transitions for the ½111/C138and½/C221/C2211/C138, and
+the½1/C221/C221/C138and½/C2211/C221/C138NV
+/C0orientations, respectively. All the
+coherent control measurement results in Secs. VI C ,D, and E
+(i.e., Figs. 4,6, and 7) are taken based on this ﬁeld strength
+and orientation. Each peak in Fig. 3(c) displays a triplet
+structure that corresponds to the three different nuclear spinorientations. In Secs. VI C ,D, and E, we will examine
+closely what effect the presence of the hyperﬁne lines has incoherent control experiments such as Rabi oscillations,Ramsey oscillations, and Hahn echoes.
+From the Rabi formula (see Sec. IV), we know that a lower
+microwave (MW) power results in a narrower HWHM ofthe peaks in the spectrum. We map out this dependency inFig.4(a), where we plot ﬁve ODMR spectra recorded for dif-
+ferent MW powers (open circles), together with a ﬁt to thesum of three Lorentzian peaks with equal width and area(solid lines). At the lowest MW power, the three hyperﬁnepeaks are clearly separated, while the power broadening at thehigher powers leads to an overlap of the individual peaks.
+We, therefore, need to work with low MW powers if we
+want to resolve the hyperﬁne splitting without power broad-ening. This requires a balance between resolution and signalstrength; we noticed that it is advantageous to work at lowmagnetic ﬁelds where the quenching of the photolumines-cence is insigniﬁcant, and the electron spin transitions fromtwo different NV
+/C0orientations with slightly different angles
+overlap. For all following experiments, however, we choosea MW power that leads to some overlap between peaks [sim-ilar to the þ3 dBm curve in Fig. 4(a)] in order to observe
+effects of simultaneously driving neighboring transitions.
+In principle, it is also possible to work with NV
+/C0centers
+of a single orientation. To achieve this, a slightly misalignedand higher magnetic ﬁeld is needed to split the electron spintransitions associated with the four different NV
+/C0orienta-
+tions.33Figure 4(d) shows an example spectrum of the elec-
+tron spin transitions between ms¼0 and ms¼þ1a t
+554 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 554 04 October 2023 23:13:02
+B0¼14:3 mT. The three different nuclear spin states can be
+clearly resolved and are labeled accordingly. We ﬁt the spec-
+trum with the sum of three Lorentzian peaks with equal
+amplitude and HWHM shown as black line, with the individ-ual Lorentzian peaks show as red lines.
+C. Rabi oscillations in the presence of
+14N
+Applying a microwave pulse in resonance with one of the
+three hyperﬁne lines (caused by the14N nuclear spin) induces
+coherent electron spin oscillations between the ms¼0a n d
+ms¼61 spin eigenstates, a phenomenon known as Rabi
+oscillations. However, it is important to realize that the micro-
+waves are simultaneously driving the detuned hyperﬁne tran-sitions, due to the ﬁnite linewidth of the individual lines as
+well as the power broadening as described by the Rabi for-
+mula [e.g., see overlap of peaks in Figs. 4(a),4(c),a n d 4(d)].
+Figure 4(b) shows a Rabi oscillation experiment, driven
+with the microwave frequency in resonance with the m
+I¼0
+transition [middle peak of the left triplet in Fig. 4(a)], and the
+data are ﬁtted to the sum of two exponentially decaying sinus-oids A
+asinð2pfaÞexpð/C0s=TaÞþAbsinð2pfbÞexpð/C0s=TbÞ
+(black line). The frequencies for the two sinusoids correspond
+to the on-resonance drive of the mI¼0 transition and the
+detuned drive of the mI¼61 transitions. The two oscillation
+frequencies become apparent when taking the fast Fourier
+transform (FFT) of the Rabi oscillation experiment data[see inset of Fig. 4(b)], showing peaks at Xres
+R/C250:7 MHz and
+Xdet
+R/C252:3M H z .
+According to the Rabi formula [Eq. (5)], the Rabi oscilla-
+tion frequency is given by
+Xeff
+R¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ðXres
+RÞ2þD2q
+; (6)
+where Xres
+Ris the on-resonance Rabi oscillation frequency
+andDis the detuning. Xres
+Ris given by
+Xres
+R¼1ﬃﬃﬃ
+2pceB1; (7)
+where B1is the oscillating magnetic ﬁeld component perpen-
+dicular to the NV/C0axis delivered by the antenna.34
+Therefore, the Rabi frequency of XR¼0:66760:005 MHz
+in Fig. 4(b) corresponds to a ﬁeld amplitude of B1¼0:034
+mT, and we keep it ﬁxed to this value for all coherent control
+experiments. The faster frequency of Xdet
+R¼2:3560:06 MHz
+in Fig. 4(b) corresponds to Rabi oscillations on the
+detuned hyperﬁne transitions and agrees well with the one cal-
+culated using Eq. (6), where DA¼2:16 MHz is the detuning
+between adjacent hyperﬁne peaks: Xdet
+R¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ðXres
+RÞ2þD2
+Aq
+¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ð0:667 MHz Þ2þð2:16 MHz Þ2q
+¼2:26 MHz. The Rabi
+coherence time extracted from the on-resonance component is
+Fig. 4. (a) ODMR spectra of the ms¼0$/C0 1 transition at a low magnetic ﬁeld of B0¼1:3 mT and for different MW powers. The circles are experimental
+data points, while the solid lines are ﬁts to three Lorentzian peaks with equal width and area. The curves are offset by multiples of 0.25 for better visi bility. At
+high powers, the power broadening prevents us from clearly resolving the three hyperﬁne lines. (b) Rabi oscillations of the ms¼0$/C0 1 transition for mI¼0
+atB0¼1:3 mT. The inset shows the corresponding frequency domain information. Highlighted are the resonant Rabi frequency Xres
+R¼0:66760:005 MHz
+for driving the mI¼0 hyperﬁne line and the detuned Rabi frequency Xdet
+R¼2:3560:06 MHz for driving the mI¼61 hyperﬁne lines. (c) Rabi chevron map
+of the ms¼0$/C0 1 transitions at B0¼1:3 mT, showing the PL signal as a function of MW frequency and MW pulse length. (d) Zoomed-in ODMR spectra
+of the ms¼0$þ 1 transitions of the ½111/C138NV/C0orientation at B0¼14:3 mT. The three different nuclear spin states can be clearly resolved.
+555 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 555 04 October 2023 23:13:02
+TR
+2¼3:96ls, which is most likely limited by the inhomoge-
+neity of the B1ﬁeld over the sample area.26
+The effect of power broadening and cross-talk between
+the different hyperﬁne lines can be well visualized in a so-
+called Rabi chevron experiment, where the MW frequency
+and the pulse length are both swept—or, in other words, aRabi oscillation measurement is performed for various MWfrequencies. Note that due the large number of data points, a
+Rabi chevron is usually outside of the scope of a teaching
+lab. Figure 4(c)shows such a measurement for the same trip-
+let of peaks as in Figs. 4(a)and4(b). Each of the three hyper-
+ﬁne lines shows its own chevron fringes, overlapping with
+the neighboring lines, and leading to the deviation from asingle, decaying sinusoid in Fig. 4(b).
+In principle, a simultaneous drive of all three hyperﬁne
+lines with similar strength can be achieved by applying a
+MW drive with stronger power to increase the Rabi oscilla-
+tion frequency beyond the hyperﬁne coupling (2.16 MHz).
+26
+However, in our experiments, the MW power was purpose-
+fully kept low, so that the effect of hyperﬁne transitions can
+be observed. This allows students to develop an intuitiveunderstanding of the consequences and origin of powerbroadening, fulﬁlling the second learning outcome in Sec. II.
+The Rabi experiment discussed in this section is the gate-
+way between performing spin resonance spectroscopy andapplying discrete gate operations in pulse sequences.Extracting the Rabi frequency X
+R¼0:667 MHz allows us to
+calibrate the lengths of our MW pulses to perform controlled
+rotations around the Bloch sphere. Here, a p-pulse corre-
+sponds to a MW pulse of correct length sp¼0:75lst o
+rotate the electron spin 180/C14around the Bloch sphere, e.g.,
+from ms¼0t o ms¼/C01. A p=2-pulse of length sp=2¼0:38
+ls rotates the electron spin by 90/C14, e.g., from the ms¼0 state
+to the jþyi¼1=ﬃﬃﬃ
+2p
+ðj0iþij/C01iÞsuperposition state at the
+equator of the Bloch sphere. Once the pulse lengths have
+been calibrated, experiments using pulse sequences, such asthe coherence times measurements in Secs. VI D andE, can
+be implemented. See also Ref. 1for a more detailed discus-
+sion and visualizations on spin rotations.D. Ramsey fringes in the presence of14N
+A Ramsey experiment measures the free-induction decay
+orT/C3
+2coherence time of a spin or a spin ensemble. The T/C3
+2
+time is affected not only by noise during the pulse sequence
+but also by detunings between the transition and the MW fre-
+quency. This is because the sequence does not contain any
+refocusing or echo pulses, in contrast to the Hahn echo and
+Carr–Purcell–Meiboom–Gill (CPMG) sequences discussed
+in Sec. VI E.
+Figure 5shows the pulse sequence that we use in our
+experiments and the outputs of the individual channels
+(CH0–CH3) of the Pulse Blaster. The spins are initialized into
+thej0istate by the ﬁrst laser pulse and read out by the second
+laser pulse (CH1). The MW pulse sequence (CH2 and CH3)
+is applied only during the ﬁrst half-cycle for the lock-in
+ampliﬁer (CH0), so that the lock-in detection scheme is sensi-
+tive to changes in the photoluminescence caused by the MW
+pulse sequence (see also Ref. 1). The ﬁrst microwave p=2-
+pulse, applied along the X-axis, rotates the NV/C0electron spins
+from j0ito the Y-axis of the Bloch sphere, corresponding
+to the jþyi¼1=ﬃﬃﬃ
+2p
+ðj0iþij/C01iÞsuperposition state in the
+rotating frame. We then let the spins dephase freely for a
+duration s, before applying a second microwave p=2-pulse
+along the X-axis to transfer the NV/C0spin polarization from
+jþyitoj/C01ifor readout. A free induction decay curve can
+be recorded by varying the free precession time s, and the
+resulting data show an exponential decay in j/C01ipopulation
+as a function of swith decay time T/C3
+2caused by decoherence
+and inhomogeneities.34For NV/C0, the main inhomogeneities
+come from the variations in local strain and electric ﬁelds as
+well as temporal and spatial ﬂuctuations of the surrounding
+13C nuclear spin bath.4In addition, a constant frequency
+detuning between the spins and the MW drive will lead to a
+sinusoidal modulation of the data. This is because the spins
+precess at the speed of the detuning in the reference frame
+of the MW source, causing them to rotate from jþyitoward
+jþxiorj/C0xiand onward, depending on the sign of the
+detuning. As the second p=2-pulse in the sequence maps
+jþyi!j/C0 1i;jþxi!jþ xi;j/C0yi!j 0i,a n d j/C0xi
+!j/C0 xi, the constant detuning manifests as a sinusoidal
+oscillation in the j/C01ipopulation at the end of the sequence.
+As a consequence, a Ramsey sequence is often used for the
+accurate estimation of shifts in the spin qubit resonance fre-
+quency, as is important in magnetometry experiments.35
+In Fig. 6(a), we show in blue the Ramsey data obtained
+for driving the NV/C0in resonance with the mI¼0 transition
+[same as the Rabi oscillations in Fig. 4(b)]. The data
+show the exponential decay superimposed with a sinusoidal
+modulation. We ﬁt the data to the function
+expð/C0s=T/C3
+2ÞPn
+i¼1½Aisinð2pfiÞ/C138, where ncorresponds to the
+number of expected transitions.36Looking at the correspond-
+ing FFT of the data in Fig. 6(c), we can clearly see two
+peaks. The peak at low frequencies indicates a slight detun-ing of our MW source to the m
+I¼0 transition frequency.
+The smaller peak at /C242 MHz corresponds to the signal from
+the detuned mI¼61 hyperﬁne lines, which are detuned
+from the mI¼0 transition by DA¼2:16 MHz.
+In Fig. 6(b), we show very similar data with the Ramsey
+experiment performed in resonance with the mI¼/C01 transi-
+tion. The data now show two discrete modulation frequen-
+cies: one for the mI¼0 electron spin subsystem that is
+detuned by DAand a second one for the mI¼þ1 subsystem
+that is detuned by 2 DA. The two frequency components canFig. 5. Ramsey pulse sequence used for the measurements in Fig. 6.
+Channel 0 (CH0) provides the reference for the lock-in ampliﬁer, channel 1
+(CH1) modulates the laser output for the optical initialization and readout
+pulses, channel 2 (CH2) modulates the “I” output, and channel 3 (CH3)
+modulates the “Q” output of the MW IQ modulator. The second p=2-pulse
+is either applied along the X-axis to implement the standard Ramsey
+sequence Xp=2/C0s/C0Xp=2or about the Y-axis to implement the modiﬁed
+Ramsey sequence Xp=2/C0s/C0Yp=2.
+556 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 556 04 October 2023 23:13:02
+be clearly seen as peaks in the Fourier-transform of the decay
+data in Fig. 6(d).
+For both Ramsey experiments in Figs. 6(a) and6(b),w e
+also show data that are obtained by applying the second
+microwave p=2-pulse along the Y-axis (purple data). This
+modiﬁes the mapping of the spin before readout to jyi!j yi;
+jxi!j 0i;j/C0yi!j/C0 yi, and j/C0xi!j/C0 1i. As the pro-
+jection pulse along the Y-axis (purple data) is shifted by p=2
+in phase with respect to the projection pulse along the X-axis
+(blue date), the sinusoidal modulations are also shifted in
+phase by p=2 as seen in Figs. 6(a) and6(b). The possibility
+to modify the projection axis by adjusting the phase of the
+MW source forms the basis for quantum state tomography37
+and allows the extension of the teaching labs to include fur-ther experiments.
+E. Hahn echo in the presence of
+13C
+The Hahn echo experiment is designed to cancel out con-
+stant detunings and frequency offsets by adding an extrap-pulse to the sequence. The p-pulse inverts the spins half-
+way through the precession and as such refocuses variations
+in their Larmor precession frequency.38We have already
+introduced this experiment in Ref. 1for the purpose of
+dynamical decoupling, where it helps to improve the trans-verse relaxation time of the relevant spins, allowing the
+coherence time to be extended beyond the free induction
+decay time.
+The MW pulse sequence we implement for the Hahn echo
+measurement is X
+p=2/C0s/C0Xp/C0s/C0Xp=2. In this sequence,Fig. 6. (a) Ramsey fringes measured on the ms¼0$/C0 1t r a n s i t i o nf o r mI¼0a tB0¼1:3 mT. The blue circles correspond to the standard Ramsey sequence
+Xp=2/C0s/C0Xp=2, while the purple circles correspond to the modiﬁed Ramsey sequence Xp=2/C0s/C0Yp=2. The solid lines are ﬁts to the data with T/C3
+2¼900630 ns
+andT/C3
+2¼1210660 ns for the two pulse sequences, respectively. (b) Same as (a) measured for mI¼/C01. The extracted coherence times are T/C3
+2¼620630 ns
+andT/C3
+2¼620630 ns for the two pulse sequences, respectively. (c) Fourier transform of the Ramsey fringes in (a) for mI¼0. Highlighted are the detuning from
+the resonant mI¼0 hyperﬁne line and the detuning DAfrom the mI¼61 hyperﬁne lines. (d) Fourier transform of the Ramsey fringes in (b) for mI¼/C01.
+Highlighted are the detuning DAfrom the mI¼0 hyperﬁne line and the detuning 2 DAfrom the mI¼þ1 hyperﬁne line.
+Fig. 7. (a) Hahn echo decay measured on the ms¼0$/C0 1 transition for
+mI¼0 at a low magnetic ﬁeld of B0¼1:3 mT. From a ﬁt to the decay, we
+extract THahn
+2¼11:760:2ls. (b) Hahn echo decay measured at a higher
+magnetic ﬁeld of B0¼5:84 mT. Coherence revival from the Larmor preces-
+sion of the13C nuclear spins can be seen at s¼30ls. From a ﬁt to the data
+(black line), we extract THahn
+2¼63610ls.
+557 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 557 04 October 2023 23:13:02
+the electron spins are initialized in the j0istate and rotated into
+the superposition state jyi¼1=ﬃﬃﬃ
+2p
+ðj0iþij/C01iÞusing a MW
+p=2-pulse. The spins are then left to freely precess for a length
+of time s, after which they are inverted on the Bloch sphere
+with a p-pulse. The spins are again left to precess for the same
+amount of time, causing them to refocus before being rotated
+back into the j0istate with another p=2-pulse for optical read-
+out. The spin signal is then measured as a function of the free
+precession time s,a n dt h e THahn
+2coherence time is given as the
+time constant of the exponential decay of the signal.
+The Hahn echo can also be used to reveal interactions
+between spins—in this case, the hyperﬁne coupling to the
+13C nuclei in proximity to the NV spins that have a natural
+abundance of 1.1%. The randomly distributed13C nuclei of
+the diamond lattice produce a local magnetic ﬁeld that is
+modulated by their Larmor precession frequencies, effec-
+tively resulting in an oscillating background magnetic ﬁeld.Since the Hahn echo sequence can only remove slowﬂuctuations in detuning, the Larmor precession of the nuclei
+will lead to gradual decoherence of the electron spin.
+However, if the refocusing pulse occurs after exactly one
+period of nuclear spin precession, the background ﬁeld mod-
+ulation in both free precession intervals is exactly the same
+and the coherence reappears.
+In Fig. 7(a), we present the Hahn echo signal measured at a
+magnetic ﬁeld of B
+0¼1:3 mT. From the exponential decay,
+we extract THahn
+2¼11:760:2ls. Upon further investigation,
+a measurement at a higher magnetic ﬁeld of B0¼5:84 mT
+reveals the presence of the above-mentioned coherence
+revival within the Hahn echo signal, as shown in Fig. 7(b).
+The decay and revival in Fig. 7(b) are attributed to the
+weak hyperﬁne coupling to the13C spins near the NV center
+lattice sites.39The signal revival at 2 s/C2430ls corresponds
+to a frequency of /C2466:7 kHz, which is consistent with the
+fC¼cCB0¼62:5 kHz Larmor precession frequency of the
+spin-1
+2nuclei with cC¼10:705 MHz/T and B0¼5:84 mT.39,40
+Fig. 8. Design details of the electromagnet. (a) Sketch of the reel. The M5 tapped hole is used to fasten the reel to the mount [see panel (b)] using a stain less
+steel screw. In addition, we have added 12 mm long supermendur cylinders with a 4 mm diameter into the holes to slightly increase the magnetic ﬁeld
+(optional). The 1 mm diameter hole (drilled at a 45/C14angle) allows the inner end of the copper wire to pass through. The copper wire we used is American Wire
+Gauge (AWG) No. 22 with a 0.644 mm diameter and 52.96 m Xresistance per meter. Several 1 mm thick and 5 mm spaced cooling fences allow for better heat
+dissipation. We chose brass as material due to its non-magnetic properties and ease of manufacturability. (b) Sketch of the L-shaped mount. The 5.3 mm diam-
+eter hole is used to mount the reel, while the 1 mm diameter trench allows the copper wire from the reel to pass through. The connected reel and mount are
+screwed onto the optical breadboard via two 6.4 mm diameter holes on the L-shaped mount. (c)–(e) Magnetic ﬁeld simulation results. The results were ob tained
+by calculating the magnetic ﬁeld produced by the wire loops using the Biot–Savart law in MATLAB. The simulation is done under the condition that the dis -
+tance between the two reels is 32 mm, and a 1 A current is passing through the coils. The supermendur cylinders were not included in the simulations. Two
+black areas in (c) and (d) indicate the physical locations of the coils. (c) A 2D map of the total magnetic ﬁeld along the radial and axial directions of th e coils,
+with (d) showing the axial magnetic ﬁeld component along the axial direction at r¼0 m and (e) along the radial direction at x¼0 m. The magnetic ﬁeld at the
+center is 14.5 mT [see also dip in (d) and peak in (e)], and the simulated power consumption is 10.6 W. The real power consumption is slightly higher due to
+the heat generated by the coils causing an increase in the copper wire resistance. The negative values in (e) indicate that the axial component of the ma gnetic
+ﬁeld is pointing along the negative x direction. The gradient of the magnetic ﬁeld is smallest at the center between the two reels, providing the most ho moge-
+neous magnetic ﬁeld in both strength and direction.
+558 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 558 04 October 2023 23:13:02
+The black line is a ﬁt of the spin signal to two inverted
+Gaussian peaks whose amplitude follows an exponential d ecay
+/exp½/C0ð2s=THahn
+2Þ/C138, which gives THahn
+2¼63610 ls.
+According to Ref. 40,t h e THahn
+2of an NV/C0ensemble can be as
+long as 600 ls at room temperature. However, the coherence
+time reduces when the magnetic ﬁeld is not parallel to the NV/C0
+axis, as is the case in our samples and experiments.
+As the coherence revival rate is linked to the Larmor pre-
+cession frequency of the13C nuclei, and therefore, propor-
+tional to the applied magnetic ﬁeld, this revival is not presentin Fig. 7(a) where the lower magnetic ﬁeld of B
+0¼1:3m T
+would have led to a revival at 2 s¼144ls, longer than the
+THahn
+2coherence time.
+VII. CONCLUSION
+Using the cost-effective, room-temperature teaching setup
+described in Ref. 1, along with some small improvements
+(electromagnet and lower NV/C0density diamond sample), we
+have presented here a set of more advanced experiments thataim to provide students with an in-depth understanding ofphysical concepts that are important for various quantumtechnologies. The experiments are designed to highlight theinteraction of the NV
+/C0centers with surrounding nuclear
+spins via the hyperﬁne interactions. The experiments allow
+the students to gain a better understanding of experimentalimperfections as well as experience the manifestation ofspin–spin interactions with the intrinsic
+14N nuclear spin and
+the bath of surrounding13C nuclear spins. These interactions
+become visible in the presented Rabi oscillation, free induc-tion decay, and Hahn echo experiments.
+Despite the weaker signal intensity of the lower-density
+NV/C0diamond sample used here, the experiments work
+robustly on a standard desk in room light and have partiallybeen implemented in a fourth-year undergraduate course atUNSW Sydney. Furthermore, the possibility for students todesign their own pulse sequences and collect measurementdata in real-time makes this setup also an interesting optionfor more complex experiments in an undergraduate thesis.
+ACKNOWLEDGMENTS
+The authors would like to thank Jean-Philippe Tetienne
+(RMIT), Marcus Doherty (ANU), and Damian Kwiatkowski(TU Delft) for useful discussions. The authors acknowledgesupport from the School of Electrical Engineering andTelecommunications at UNSW Sydney and the AustralianResearch Council (No. CE170100012). H.V. acknowledgessupport from the Sydney Quantum Academy. H.R.F.acknowledges support from an Australian GovernmentResearch Training Program Scholarship. J.J.P. is supportedby an Australian Research Council Discovery Early CareerResearch Award (No. DE190101397). A.L. and C.A.acknowledge support through the UNSW Scientia Program.
+APPENDIX: DESIGN OF THE ELECTROMAGNET
+a)ORCID: 0000-0002-3950-9942.
+b)ORCID: 0000-0003-4536-7773.
+c)ORCID: 0000-0002-9655-6227.
+d)ORCID: 0000-0003-0573-2705.
+e)ORCID: 0000-0002-7152-3453.
+f)ORCID: 0000-0001-7892-7963.1V. K. Sewani, H. H. Vallabhapurapu, Y. Yang, H. R. Firgau, C.
+Adambukulam, B. C. Johnson, J. J. Pla, and A. Laucht, “Coherent controlof NV
+/C0centers in diamond in a quantum teaching lab,” Am. J. Phys. 88,
+1156–1169 (2020).
+2“Quantum computing for enterprise markets,” <https://tractica.omdia.
+com/research/quantum-computing-for-enterprise-markets />, 2019.
+3“Quantum computing report—Jobs,” <https://quantumcomputingreport.
+com/jobs/ >, 2020.
+4M. W. Doherty, N. B. Manson, P. Delaney, F. Jelezko, J. Wrachtrup, and
+L. C. Hollenberg, “The nitrogen-vacancy colour centre in diamond,” Phys.
+Rep.528, 1–45 (2013).
+5H. Zhang, C. Belvin, W. Li, J. Wang, J. Wainwright, R. Berg, and J.
+Bridger, “Little bits of diamond: Optically detected magnetic resonance ofnitrogen-vacancy centers,” Am. J. Phys. 86, 225–236 (2018).
+6Qutools, “Quantum sensing by diamond magnetometer,” <https://
+www.qutools.com/qunv/ >, 2020.
+7D. Misonou, K. Sasaki, S. Ishizu, Y. Monnai, K. M. Itoh, and E. Abe,
+“Construction and operation of a tabletop system for nanoscale magnetom-etry with single nitrogen-vacancy centers in diamond,” AIP Adv. 10,
+025206 (2020).
+8D. B. Bucher, D. P. L. Aude Craik, M. P. Backlund, M. J. Turner, O. Ben
+Dor, D. R. Glenn, and R. L. Walsworth, “Quantum diamond spectrometerfor nanoscale NMR and ESR spectroscopy,” Nat. Protocols 14, 2707–2747
+(2019).
+9Ciqtek, “Diamond quantum computer for education,” <https://www.ciq-
+tek.com/en/product/13 >, last accessed August 29, 2021.
+10Spin-Flex, “spinEDU—Educational kit based on solid-state spin qubits in
+diamond for quantum technology,” <https://spin-ﬂex.com/spinedu />, last
+accessed August 29, 2021.
+11L. Childress and R. Hanson, “Diamond NV centers for quantum comput-ing and quantum networks,” MRS Bull. 38, 134–138 (2013).
+12M. H. Abobeih, J. Cramer, M. A. Bakker, N. Kalb, M. Markham, D. J.
+Twitchen, and T. H. Taminiau, “One-second coherence for a single elec-
+tron spin coupled to a multi-qubit nuclear-spin environment,” Nat.
+Commun. 9, 2552 (2018).
+13M. Abobeih, J. Randall, C. Bradley, H. Bartling, M. Bakker, M. Degen, M.
+Markham, D. Twitchen, and T. Taminiau, “Atomic-scale imaging of a 27-nuclear-spin cluster using a quantum sensor,” Nature 576, 411–415 (2019).
+14M. K. Bhaskar, R. Riedinger, B. Machielse, D. S. Levonian, C. T. Nguyen,
+E. N. Knall, H. Park, D. Englund, M. Lonc ˇar, D. D. Sukachev et al. ,
+“Experimental demonstration of memory-enhanced quantumcommunication,” Nature 580, 60–64 (2020).
+15N. H. Wan, T.-J. Lu, K. C. Chen, M. P. Walsh, M. E. Trusheim, L. De
+Santis, E. A. Bersin, I. B. Harris, S. L. Mouradian, I. R. Christen et al. ,
+“Large-scale integration of artiﬁcial atoms in hybrid photonic circuits,”Nature 583, 226–231 (2020).
+16A. Bourassa, C. P. Anderson, K. C. Miao, M. Onizhuk, H. Ma, A. L.
+Crook, H. Abe, J. Ul-Hassan, T. Ohshima, N. T. Son, G. Galli, and D.Awschalom, “Entanglement and control of single nuclear spins in isotopi-
+cally engineered silicon carbide,” Nat. Mater. 19, 1319–1325 (2020).
+17S. Freer, S. Simmons, A. Laucht, J. T. Muhonen, J. P. Dehollain, R. Kalra, F.
+A. Mohiyaddin, F. E. Hudson, K. M. Itoh, J. C. McCallum et al. ,“ As i n g l e -
+atom quantum memory in silicon,” Quantum Sci. Technol. 2, 015009 (2017).
+18S. Asaad, V. Mourik, B. Joecker, M. A. Johnson, A. D. Baczewski, H. R.
+Firgau, M. T. Ma ˛dzik, V. Schmitt, J. J. Pla, F. E. Hudson et al. , “Coherent
+electrical control of a single high-spin nucleus in silicon,” Nature 579,
+205–209 (2020).
+19M. T. Madzik, A. Laucht, F. E. Hudson, A. M. Jakob, B. C. Johnson, D. N.Jamieson, K. M. Itoh, A. S. Dzurak, and A. Morello, “Conditional quan-
+tum operation of two exchange-coupled single-donor spin qubits in a
+MOS-compatible silicon device,” Nat. Commun. 12, 181 (2021).
+20B. Hensen, W. W. Huang, C.-H. Yang, K. W. Chan, J. Yoneda, T. Tanttu,
+F. E. Hudson, A. Laucht, K. M. Itoh, T. D. Ladd et al. , “A silicon quan-
+tum-dot-coupled nuclear spin qubit,” Nat. Nanotechnol. 15, 13–17 (2020).
+21S. Felton, A. M. Edmonds, M. E. Newton, P. M. Martineau, D. Fisher, D.
+J. Twitchen, and J. M. Baker, “Hyperﬁne interaction in the ground state ofthe negatively charged nitrogen vacancy center in diamond,” Phys. Rev. B
+79, 075203 (2009).
+22Y. Rosenzweig, “The physics of nitrogen-vacancy color centers in dia-
+monds and their interaction with external ﬁelds,” M.Sc. thesis (Ben-
+Gurion University of the Negev, Beersheba, Israel, 2016).
+23C. E. Avalos, “Detection and polarization of nuclear and electron spinsusing nitrogen-vacancy centers,” Ph.D. thesis (University of California,Berkeley, 2014).
+559 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 559 04 October 2023 23:13:02
+24C. Cohen-Tannoudji, B. Diu, and F. Lalo €e,Quantum Mechanics, Volume
+1: Basic Concepts, Tools, and Applications (John Wiley & Sons,
+Hoboken, NJ, 2019).
+25DandXRare deﬁned in units of Hz.
+26H. H. Vallabhapurapu, J. P. Slack-Smith, V. K. Sewani, C. Adambukulam,
+A. Morello, J. J. Pla, and A. Laucht, “Fast coherent control of an NV-spin
+ensemble using a KTaO 3dielectric resonator at cryogenic temperatures,”
+e-print arXiv:2105.06781 (2021).
+27The cancellation of the1
+2-term derives from the sin2-term. This is because a
+sin2-function oscillates at twice the frequency as the corresponding sin-function.
+28Elementsix, “SC Plate CVD 2.6 /C22.6 mm, 0.25 mm thick, h100i, P2,”
+<https://e6cvd.com/us/application/general/sc-plate-cvd-2-6x2-6x0-25mm-
+100-p2.html >, last accessed April 12, 2019.
+29Elementsix, “DNV-B14 3.0x3.0 mm, 0.5 mm thick, h100i,”<https://e6cvd.
+com/uk/application/all/dnv-b14-\%203-0mmx3-0mm-0-5mm.html >, last
+accessed January 8, 2022.
+30V. M. Acosta, E. Bauch, M. P. Ledbetter, A. Waxman, L.-S. Bouchard,and D. Budker, “Temperature dependence of the nitrogen-vacancy mag-netic resonance in diamond,” Phys. Rev. Lett. 104, 070801 (2010).
+31J. Van Wyk, E. Reynhardt, G. High, and I. Kiﬂawi, “The dependences of
+ESR line widths and spin-spin relaxation times of single nitrogen defects
+on the concentration of nitrogen defects in diamond,” J. Phys. D: Appl.
+Phys. 30, 1790–1793 (1997).
+32B. Smeltzer, L. Childress, and A. Gali, “13C hyperﬁne interactions in the
+nitrogen-vacancy centre in diamond,” New J. Phys. 13, 025021 (2011).33As this results in a lower photoluminescence signal, we use continuous
+ODMR to compensate for the decrease of signal strength, where the laser
+is on throughout the whole lock-in cycle, while the MW is pulsed on only
+during the ﬁrst half.
+34L. M. Pham, “Magnetic ﬁeld sensing with nitrogen-vacancy color centers
+in diamond,” Ph.D. thesis (Harvard University, Cambridge, MA, 2013).
+35J. F. Barry, J. M. Schloss, E. Bauch, M. J. Turner, C. A. Hart, L. M. Pham,and R. L. Walsworth, “Sensitivity optimization for NV
+/C0diamond magne-
+tometry,” Rev. Mod. Phys. 92, 015004 (2020).
+36C. Gre `zes, “Experiment 1 (write): Coherent storage of qubit states into a spin
+ensemble,” in Towards a Spin-Ensemble Quantum Memory for
+Superconducting Qubits: Design and Implementation of the Write, Read and
+Reset Steps (Springer International Publishing, Cham, 2016), pp. 93–132.
+37M. A. Nielsen and I. Chuang, Quantum Computation and Quantum
+Information: 10th Anniversary Edition (Cambridge U. P., Cambridge,
+2010).
+38E. L. Hahn, “Spin echoes,” Phys. Rev. 80, 580–594 (1950).
+39L. Childress, M. V. Gurudev Dutt, J. M. Taylor, A. S. Zibrov, F. Jelezko,
+J. Wrachtrup, P. R. Hemmer, and M. D. Lukin, “Coherent dynamics of
+coupled electron and nuclear spin qubits in diamond,” Science 314,
+281–285 (2006).
+40P. L. Stanwix, L. M. Pham, J. R. Maze, DLe. Sage, T. K. Yeung, P.Cappellaro, P. R. Hemmer, A. Yacoby, M. D. Lukin, and R. L.
+Walsworth, “Coherence of nitrogen-vacancy electronic spin ensembles in
+diamond,” Phys. Rev. B 82, 201201 (2010).
+AJP Index to Advertisers
+AAPT Summer 2022 Meeting ......................... Cover 2
+AAPT Membership. ................................ Page 481
+AAPT ComPADRE ................................ Page 483
+APSIT . . ......................................... Page 484
+AAPT Career Center ...................................T O C
+560 Am. J. Phys., Vol. 90, No. 7, July 2022 Yang et al. 560 04 October 2023 23:13:02

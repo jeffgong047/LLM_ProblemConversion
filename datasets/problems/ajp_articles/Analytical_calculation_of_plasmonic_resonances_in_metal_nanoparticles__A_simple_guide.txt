@@ -1,0 +1,812 @@
+
+View
+Online
+Export
+CitationCrossMarkJULY 01 2023
+Analytical calculation of plasmonic resonances in metal
+nanoparticles: A simple guide 
+Marco Locarno  
+ ; Daan Brinks  
+Am. J. Phys.  91, 538 (2023)
+https://doi.org/10.1 119/5.0094967
+Articles Y ou May Be Interested In
+Dynamic modifications of polarizability for large metallic spheroidal nanoshells
+J. Chem. Phys.  (September 2009)
+Effects of extraneous surface charges on the enhanced Raman scattering from metallic nanoparticles
+J. Chem. Phys.  (June 2013)
+Discrete dipole approximation for calculating extinction and Raman intensities for small particles with
+arbitrary shapes
+J. Chem. Phys.  (July 1995) 04 October 2023 22:53:44
+Analytical calculation of plasmonic resonances in metal nanoparticles:
+A simple guide
+Marco Locarnoa)and Daan Brinksb)
+Department of Imaging Physics, Delft University of Technology, Lorentzweg 1, 2628 CJ Delft,
+The Netherlands
+(Received 7 April 2022; accepted 18 April 2023)
+Localized surface plasmons (LSPs) in metal particles are used in medical, chemical, physical, and
+biological sensing applications. In this paper, we revisit the classical description of LSPs. We use the
+Drude model and the Quasi-Static approximation to describe the plasmon resonances in terms ofthe material and the size of the particles embedded in a dielectric host. We then incorporate the
+Clausius–Mossotti relation to include shape effects in the classical description. Finally, we incorporate
+surface damping and retardation effects to arrive at a uniﬁed, classical description providing anintuitive and realistic model of plasmonic resonances in metal particles.
+#2023 Author(s). All article
+content, except where otherwise noted, is licensed under a Creative Commons Attribution (CC BY) license ( http://
+creativecommons.org/licenses/by/4.0/ ).https://doi.org/10.1119/5.0094967
+I. INTRODUCTION
+Advances in nanotechnology and photonics go hand in
+hand, from super-resolution microscopy helping us visualizelife at the nanoscale,1to extreme-UV lithography enabling
+the creation of nanoscale chips needed to analyze it.2At the
+intersection of photonics and nanotechnology lies the topic
+of plasmonics.3Plasmonics involves the creation, study, and
+manipulation of signals embedded in optical-frequencyoscillations of surface electrons along metal-dielectric inter-faces. Plasmonics conﬁnes optical-frequency signals tosubwavelength-size volumes, thereby providing the interfacebetween optical electromagnetic ﬁelds and nanoscopic devi-ces and circuitry.
+When an electromagnetic ﬁeld interacts with a metal
+nanoparticle, it will lead to charge oscillations in the metal.These collective oscillations, known as plasmons, are excitedwhen the frequency of the electromagnetic ﬁeld matches the
+resonant frequency of the metal nanoparticle. The electrons
+are free to move within the boundaries of the particle but areultimately conﬁned to its surface. For these reasons, theeffect is called a localized surface plasmon (LSP). Giventhat the oscillation is at the same frequency as the incomingﬁeld, the effect is interchangeably called plasmonicresonance.
+Designing metal nanoparticles to answer questions in
+nanophysics, nanochemistry, and nanobiology requiresunderstanding the plasmonic resonance. Due to quantummechanical effects, the properties of nanoscale objects often
+cannot be explained intuitively. Fortunately, the most promi-
+nent plasmonic effects can be explained within a classicalframework. We will begin with a historical perspective.Then, to model the plasmonic resonance in metal nanopar-ticles, we will need a framework to describe three distinctfeatures: the metallic characteristic, the size (the “nano”),and the shape of the particle. We will introduce the Drudemodel, a reasonable description of electrons in metals. Thequasi-static approximation will then let us take into account
+the nanoscale size of the particles. Additionally, the generali-
+zation of the Clausius–Mossotti relation will let us considera particle embedded in a dielectric medium and the effect ofits shape. By combining these aspects, we are able to build aclassical model for the plasmonic resonance in metal nano-particles. We will then deal with some of the limitations ofthe quasi-static approximation by introducing ﬁnal correc-
+tions to the model, to extend its validity as far as possible.As our assumptions are all based on classical electromagne-tism, the ﬁnal model will be classical too.
+II. BRIEF HISTORY OF PLASMONICS
+While nanotechnology emerged as a ﬁeld only a few deca-
+des ago, peculiar optical phenomena due to nanoparticleshave intrigued humankind since ancient times. Witnessingand harnessing such “technologies” far preceded any possi-ble scientiﬁc explanation: photonic crystals shape light, thuscreating spectacular iridescent colors in butterﬂies,
+4lead-
+based quantum dots have been involved in black hair dyesmanufactured by ancient Greeks and Romans,5and copper
+nanoparticles were employed in red opaque glass productionin Egypt and Mesopotamia.6
+One of the most impressive pieces of glasswork incorpo-
+rating metal nanoparticles is the Lycurgus cup (Figs. 1(a)
+and1(b)). Dated around the 4th century, this Roman cage
+cup is made up of dichroic glass, so that an observer sees itred if light passes through it, but green if light is reﬂected tothem. Recent analysis showed that the dichroism is due tothe presence of colloidal gold and silver nanoparticles dis-persed throughout the glass. The embedded particles havediameters around 70 nm, meaning that they are invisible tooptical microscopy and require transmission electron micros-copy (TEM) to be seen.
+7
+Michael Faraday is credited with performing the ﬁrst sci-
+entiﬁc experiments on the optical properties of nanoparticles,focusing on gold colloids in the 1850s. He was puzzled bythe ruby red color of the solutions he synthesized (Fig. 1(c)),
+far removed from the aureate color of bulk gold. A satisfyingclassical explanation of this phenomenon came only in 1904,when Maxwell Garnett combined the new Drude theory ofmetals with Lord Rayleigh’s description of electromagneticproperties of small spheres.
+8Shortly after, in 1912, Richard
+Gans successfully extended the description of optical phe-nomena to oblate and prolate spheroids.9However, these the-
+ories were all purely based on the optical properties of bulkmetals, and it was not until 1970 that they were modiﬁed byUwe Kreibig and Peter Zacharias to take their nanoscale sizeinto account.
+10For the ﬁrst time, they explained the elec-
+tronic and optical response of silver and gold nanoparticles
+538 Am. J. Phys. 91(7), July 2023 http://aapt.org/ajp VCAuthor(s) 2023.
+ 538 04 October 2023 22:53:44
+in terms of localized surface plasmon excitations. It became
+clear then that size, shape, arrangement, medium, and tem-perature all have a crucial role in controlling the intensityand frequency of plasmonic resonances.
+From the early 2000s on, the interest in plasmonics
+boomed, thanks to novel nanofabrication techniques, com-
+mercialization of simulation software and the plethora ofbiological and biomedical applications.
+11,12To summarize
+50 years of research and more than a century of theoretical
+modeling, we start by examining the object under study, themetal nanoparticle, and its deﬁning features.
+III. CLASSICAL DERIVATION OF PLASMONIC
+RESONANCE
+A. Drude model for metals
+The electric properties of materials are characterized by
+the dielectric constant /C15, which relates the electric displace-
+ment ~Dto the electric ﬁeld ~Ethrough the equation ~D¼/C15
+0~E
+þ~P¼/C150/C15~E. When the applied ﬁeld is sinusoidal, the dielec-
+tric constant is a complex number; the imaginary part repre-
+sents the out-of-phase response of the material. Within the
+Drude model, the complex dielectric function of a metal isgiven by
+/C15
+mðxÞ¼1/C0x2
+P
+x2þc2/C0ix2
+Pc
+x3þc2x: (1)
+Two derivations of this well-known formula can be found in
+the supplementary material.43Here, xP¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+Ne2=/C150mp
+is the
+plasma frequency and cis the damping frequency, both
+dependent on the metal considered. The plasma frequencydepends on the carrier density, N, the electron charge, e, and
+the effective mass of the electron, m. The damping frequencycis given by Matthiessen’s rule for different independent
+collision events, each possessing a time constant s
+j,
+c¼X
+j1=sj: (2)
+This equation provides the statistical rate at which the elec-
+tron motion in the bulk material is disrupted due to collisionsbetween electrons and nuclei, defects, impurities, or otherelectrons. Furthermore, an extension to the Drude model hasbeen formulated to account for the positive background ofions in the constant term /C15
+m;1, referred to as the core
+polarization3,13
+/C15mðxÞ¼/C15m;1/C0x2
+P
+x2þc2/C0ix2
+Pc
+x3þc2x: (3)
+In Table I, we report the Drude parameters for common
+plasmonic metals, ﬁtted from experimental data in Ref. 14.
+Note that the experimental and ﬁtted data do not matchcompletely, as the Drude model is an approximation of theactual complex dielectric function, which can include inter-band and intraband transitions. Throughout the paper, we
+will take gold as a typical metal for plasmonics.
+With these concepts in hand, we can provide a simple yet
+rigorous derivation of plasmonic resonance in metalnanoparticles.
+B. Quasi-static approximation
+If a nanoparticle is much smaller than the wavelength
+(Fig. 2), then all the electrons inside the nanoparticle feel the
+same electric ﬁeld and oscillate in phase. This approach is
+Fig. 1. (Color online) The Lycurgus cup changes color depending whether the light is (a) reﬂected or (b) transmitted (credits: copyright The Trustees of the
+British Museum). (c) Faraday’s colloidal gold in a glass ﬂask (credits: copyright Paul Wilkinson).
+Table I. Drude parameters for common (bulk) metals.
+/C15m;1 xP[rad/s] c[rad/s]
+Au 7.926 1.23 /C210163.8/C21013
+Ag 5.303 1.42 /C210161.0/C21014
+Cu 6.087 1.34 /C210161.5/C21014
+Al 1 1.93 /C210162.4/C21014
+Fig. 2. Dipolar (left) and multipolar (right) excitation of the free electrons in
+metal nanoparticles. The electron clouds are represented as light blue halos,
+while the metal cores as solid yellow.
+539 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 539 04 October 2023 22:53:44
+called the quasi-static approximation (QSA). Let dbe the
+size of the nanoparticle, kthe wavelength, ~kthe wave vector,
+xthe angular frequency of the incoming ﬁeld ~E0;~rthe rela-
+tive position of an arbitrary point with respect to the center
+of the nanoparticle, and tthe time. If d/C28k, then ~k/C1~r/C250
+and mathematically we obtain
+~E0ð~r;tÞ¼~E0eiðxt/C0~k/C1~rÞ/C25~E0eixt: (4)
+Because of this, the polarization is uniform, and the effect of
+the quasi-static approximation on the total dipole moment ofthe nanoparticle ~p
+npis very conveniently translated to
+~pnp¼V~P; (5)
+where Vis the volume of the nanoparticle and ~Pis the polari-
+zation density. The quasi-static approximation lets us dropthe dependence on the position ~r.
+The careful reader might point out that the wavelength
+inside the nanoparticle may not be the same as the one in thedielectric medium. The concept of wavelength itself mayeven be ill-deﬁned if the ﬁeld decays exponentially insidethe metal. A relevant comparison would then be between thesize of the nanoparticle and the skin depth dof the metal.
+For common metals like gold, silver, copper, and aluminum,the skin depth at optical frequencies is on the order of a few
+tens of nanometers. If d/H11351d, then the ﬁeld can penetrate the
+nanoparticle completely and the uniformity of the polariza-tion can still be assumed. Refer to the supplementary mate-rial
+43for more details regarding skin depth.
+It is important to note that particles larger than the wave-
+length may produce a plethora of effects that cannot beexplained as the simple radiation of a dipole, due to theoccurrence of multipolar effects. Eventually, extremely largeparticles will exhibit the optical properties of bulk metal.
+C. Generalization of the Clausius–Mossotti relation
+for ellipsoids
+Let us now consider an isolated ellipsoid having a com-
+plex dielectric function /C15
+mand semiaxes, respectively, ax,ay,
+andaz, immersed in a dielectric material (from this point on
+referred to as the “host”) having a real and positive dielectricconstant /C15
+h(Fig. 3(a)).
+The nanoparticle’s dipole moment ~pnpis a function of its
+polarizability tensor a$as well as of the local electric ﬁeld
+~Eloc. The latter is different from the applied ﬁeld ~E0because
+of the polarization of the host, but if the dielectric medium islinear, homogeneous and isotropic, then the local ﬁeld will
+be proportional to the applied ﬁeld ( ~Eloc¼/C15h~E0), and so
+~pnp¼/C150a$~Eloc¼/C150/C15ha$~E0: (6)
+To calculate the polarizability, we, therefore, need to ﬁnd the
+relation between the dipole moment and the electric ﬁeld.
+First, we notice that the local electric ﬁeld is the superpo-
+sition of the applied ﬁeld and the opposing ﬁeld produced bythe displacement of charges. Although it is a well-knownfact that, in the static limit, the electric ﬁeld in a conductor iszero, we have to consider that under the QSA the order of
+magnitude of the skin depth is comparable with the size of
+the nanoparticle. In this case, the local electric ﬁeld ~E
+loc,
+deﬁned at the boundary of the nanoparticle, creates a polari-zation in the metal ~P
+m; hence electric charges appear at its
+surface (Fig. 3(b)). As a consequence, the host dielectric also
+polarizes near the surface ( ~Ph). We can treat the boundary as
+an effective medium, encompassing both the charges in the
+metal and in the host. The effective polarization ~Pcan be
+deduced from the difference between the two opposingpolarizations. ~Pis in the opposite direction from that of the
+applied ﬁeld, thus generating a restoring force. The localelectric ﬁeld, for every j-th axis ( j¼x,y,z), is then
+15,16
+Eloc;j¼E0
+j/C0LjPj
+/C150/C15h; (7)
+where Ljis the depolarization factor which accounts for the
+shape of the particle itself
+Lj¼axayaz
+2ð1
+0dq
+ðqþa2
+jÞﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃQ
+g¼x;y;zðqþa2
+gÞq : (8)
+The depolarization factors arise from the solution of
+Laplace’s equation in ellipsoidal coordinates. A full deriva-tion can be found in Ref. 15.
+The effective polarization ~Pis the difference of the polar-
+izations of the metal ~P
+mand of the host ~Ph,16
+Pj¼Pm;j/C0Ph;j¼/C150/C15mEloc;j/C0/C150/C15hEloc;j
+¼/C150ð/C15m/C0/C15hÞEloc;j: (9)
+Combining Eqs. (7)and(9), we write
+Pj¼/C150ð/C15m/C0/C15hÞE0
+j/C0LjPj
+/C150/C15h/C18/C19
+: (10)
+Fig. 3. (a) Ellipsoidal particle immersed in a dielectric medium with the chosen reference system. (b) Snapshot of the incoming electric ﬁeld and the induced
+polarization contributions of the metal and the host. This depiction is realistic only in the optical regime and under the quasi-static approximatio n (QSA), for
+which the rearrangement of charge is collective and instantaneous.
+540 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 540 04 October 2023 22:53:44
+Solving for Pj,
+Pj¼/C150/C15hð/C15m/C0/C15hÞ
+/C15hþLjð/C15m/C0/C15hÞE0
+j: (11)
+Then introducing the quasi-static approximation in Eq. (5)
+we get
+pnp;j¼/C150/C15hV/C15m/C0/C15h
+/C15hþLjð/C15m/C0/C15hÞ|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+ajE0
+j: (12)
+Finally, making the volume of the ellipsoid explicit, we
+obtain the polarizability
+aj¼4paxayaz
+3/C15m/C0/C15h
+/C15hþLjð/C15m/C0/C15hÞ: (13)
+It is important to note that a$is a diagonal matrix. In other
+words, if the incoming ﬁeld is aligned with one of the axesof the ellipsoid, the polarization will be parallel to it. This
+considerably simpliﬁes the calculations.
+Normally, we would have to calculate the integral in Eq.
+(8), given an arbitrary set of semiaxes lengths. Such calcula-
+tion is not trivial. Fortunately, an important property of the
+depolarization factors can drastically simplify the results for
+simple geometries. The sum of the three depolarization fac-tors is
+X
+j¼x;y;zLj¼1: (14)
+A simple, novel proof of this property can be found in the
+supplementary material.43
+Thanks to this normalization property, some easy geome-
+tries (see Table II) can be treated without calculating the
+integrals explicitly. Anisotropy is then reﬂected by the
+matrix nature of a$, eventually leading ~pnpto not be parallel
+to~E0.
+The Clausius–Mossotti relation, used to describe the
+polarizability of spherical particles in a vacuum
+aj¼3v/C15m/C01
+/C15mþ2;j¼x;y;z; (15)
+in which vis the volume of the spherical particle, coincides
+with Eq. (13) forax¼ay¼az, and /C15h¼1. For this reason,
+Eq. (13) is the generalization of the Clausius–Mossotti
+relation.
+D. Plasmonic resonance
+We now have all the tools to calculate the plasmonic reso-
+nance. However, what does it mean for a nanoparticle tohave a plasmonic resonance? Why do we talk about a plas-
+monic peak? The simplest way to picture such an effect is bydirectly plugging the result of the Drude model (Eq. (3))i n
+the calculation of the polarizability (Eq. (13)). For a sphere
+with gold-like Drude parameters, put either in vacuum orwater, we get the typical wavelength dependence of thepolarizability shown in Fig. 4.
+The functional form for jajis a sharp peak. At the angular
+frequency where the polarizability is maximal, the electronsoscillate with a higher amplitude. Given such a sharp featurein the frequency, we refer to the peak position as the reso-nance frequency.
+To calculate the plasmonic resonance frequency, one can
+maximize jaj. From Eq. (13), it is easy to see that if the
+denominator approaches zero, the polarizability intensitydrastically increases, leading to a strong dipole moment at
+frequency x
+res. This resonance condition translates to the
+requirement that, in a given direction
+Re/C15mðxresÞ ½/C138 ¼ /C01/C0Lj
+Lj/C15h;Im/C15mðxresÞ ½/C138 /C25 0: (16)
+We see that the resonance frequency depends on the geomet-
+rical features of the nanoparticle and on the dielectricmedium in which it is immersed. The generalized formulafor the resonance frequency x
+resfor an arbitrary metal nano-
+particle can be obtained by combining Eq. (16) with the
+result of the Drude model (Eq. (3))
+xres¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+x2
+P
+/C15m;1þ1/C0Lj
+Lj/C15h/C0c2vuuut/C25xPﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+/C15m;1þ1/C0Lj
+Lj/C15hs ;
+(17)
+where the reasonable assumption of xP/C29chas been intro-
+duced (refer to Table Ifor the realistic orders of magnitude).
+The shift due to changes in /C15henables a multitude of sensing
+applications. In the host dielectric environment, variationsdue to chemical, physical or biological activity result in factin shifts in plasmonic peaks.
+17–19
+In the case of a sphere ( Lj¼1=3;8j), the above equations
+reduce to the Fr €ohlich condition
+Table II. Depolarization factors for some typical shapes.
+Particle shape Semiaxes Depolarization factors
+Sphere ax¼ay¼az Lx¼Ly¼Lz¼1=3
+Long cylinder ax/C29ay;az Lx¼0;Ly¼Lz¼1=2
+Large disk ax¼ay/C29az Lx¼Ly¼0;Lz¼1
+Fig. 4. The volume polarizability of a nanosphere with gold-like parameters,
+calculated from Eqs. (3)and(13), immersed either in vacuum ( /C15h¼1) or in
+water ( /C15h¼1:77), exhibits a peak in wavelengths. (Plot colors have been
+selected according to the color-vision deﬁciency friendly color cycle pro-
+posed by Okabe and Ito and made popular by Wong (Ref. 41).)
+541 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 541 04 October 2023 22:53:44
+Re/C15mðxresÞ ½/C138 ¼ /C0 2/C15h;Im/C15mðxresÞ ½/C138 /C25 0;
+xres/C25xPﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ/C15m;1þ2/C15hp : (18)
+As expected, Eq. (18) predicts the correct positions20for the
+resonance peak for a nanosphere with gold-like Drude parame-ters: when in vacuum x
+res/C253:9/C21015rad/s ( kres/C25480 nm),
+w h i l ew h e ni nw a t e r xres/C253:6/C21015rad/s ( kres/C25520 nm).
+This surprisingly simple result is already sufﬁcient to explain
+the color of Faraday’s colloidal gold (Fig. 1(c)). As the solution
+contains gold nanospheres, the resonance frequency xreswill
+be in the cyan-green part of the spectrum, so it appears ruby red
+when illuminated by white light.
+Unfortunately, only a few materials satisfy Eq. (18) in
+the optical range. For the resonance to exist, the imaginary
+part of the dielectric function must be sufﬁciently low. Forthis reason, the most signiﬁcant plasmonic materials are
+also the most conductive: silver, gold, copper, and alumi-
+num. Other less commonly used metals are palladium, plat-
+inum and nickel.21An invaluable contribution to the
+investigation of plasmonic candidates was given by Eadon
+and Creighton, in their review of the ultraviolet/visible
+spectrum of 52 different metal nanospheres, in vacuum andin water.22Nowadays, the search for novel plasmonic can-
+didates focuses on metallic alloys, (doped) semiconductors,
+and metamaterials.23
+Measurable effects due to the plasmonic resonance
+include absorption and scattering, which are quantiﬁable by
+their cross sections. In the dipolar regime ( d/C28k), the
+Rayleigh formula for cross sections can be applied15
+rabs¼/C0kIma½/C138;rsca¼k4
+6pjaj2; (19)
+where kis the wave number. It is important to note the cross
+sections’ dependence on aand, as a consequence, on the vol-
+ume: since the absorption cross section rabsscales linearly
+with Vwhile the scattering one rscascales quadratically with
+it, it is reasonable to assume that smaller particles mainlyabsorb light while larger particles mainly scatter it.
+However, the most prominent effect of plasmonic reso-
+nances is that of ﬁeld enhancement. Outside the particle, the
+total ﬁeld is a superposition of the incoming ﬁeld ~E0and of
+the dipolar ﬁeld generated by the particle itself. For a contin-
+uous wave, the local ﬁeld outside the nanoparticle takes the
+shape of a classical dipole ﬁeld24~Eð~rÞ¼~E0þ1
+4p/C150/C15h3ð~r/C1~pnpÞ~r/C0r2~pnp
+r5; (20)
+where ris the distance from the center of the particle. As
+can be intuited, resonances in awill reﬂect on ~pnpand subse-
+quently on ~Eð~rÞ. Field enhancement is typically quantiﬁed
+byjEj2=jE0j2(as in Fig. 5). This factor can make the local
+electric ﬁeld tens or hundreds of times higher than the
+incoming ﬁeld. The shape of the particle can be engineered
+to create radiation enhancements that are wavelength-, polar-ization-, and direction-dependent, just like in classical
+antennas.25,26
+One interesting effect can be noted in Fig. 5: along the
+direction orthogonal to the oscillation, the radiated ﬁeldcauses destructive interference with the incoming ﬁeld, lead-
+ing to areas where the ﬁeld is quenched ( jEj2=jE0j2<1)
+instead of enhanced. This is possible because, in Eq. (20),
+for some ~rand at a certain frequency, ~r/C1~pnp¼0 and
+j1/C0ða=4pr3Þj2<1.
+The ﬁnite-difference time-domain simulations in Fig. 5
+solve Maxwell’s equations in discretized space and time,
+characterizing each portion of space with the complexdielectric function /C15and complex magnetic permeability l.
+These simulations introduce minimal approximations and
+accurately compute the electric and magnetic ﬁelds, present-ing a case very close to reality. Using this simulation, the
+plasmonic resonance occurs at 540 nm, instead of 520 nm, as
+shown previously in Fig. 4. This shift is mainly explained as
+an effect of radiation damping,
+27which shows that the quasi-
+static approximation does not always provide accurate
+answers. This is why we need to look beyond it.
+IV. BEYOND THE QUASI-STATIC
+APPROXIMATION
+The quasi-static approximation describes nanoscale pro-
+cesses fairly well, such as the absorption of certain colors or
+the local ﬁeld enhancement in the proximity of metal nano-
+particles. However, it fails to predict other effects related toparticle size: in the quasi-static approximation, particle size
+is irrelevant, as long as it is smaller than the incoming wave-
+length. Can we extend this theory to include the particle’ssize and shape?
+The ﬁrst correction we will introduce takes into account
+the collisions of the electrons with the nanoparticle bound-
+aries, which have implicitly been neglected until now. Then,
+Fig. 5. Finite-difference time-domain (FDTD) simulation of the ﬁeld enhancement at k¼540 nm near a spherical gold nanoparticle of radius 25 nm in water.
+(a) Sketch of the simulated object, (b) ﬁeld enhancement in the XY plane ( z¼0), and (c) ﬁeld enhancement in the YZ plane ( Dx¼4 nm away from the surface
+of the nanoparticle). (The code for simulation in Lumerical’s FDTD solutions can be found in the supplementary material and on GitHub ( https://github.com/
+Brinkslab/LSP ). The results were plotted in Spyder, using the color-vision deﬁciency friendly and perceptually uniform color map “batlow” (Ref. 42.)
+542 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 542 04 October 2023 22:53:44
+the second correction will take us closer to the multipolar
+regime by involving retardation effects. Considering the
+classical nature of this extended model, it is impressive how
+well it ﬁts experiments for such nanoscopic objects, as wewill see.
+A. Surface damping
+Up to now, we have implicitly considered the damping
+frequency cto be dominated by the collisions of electrons
+with other electrons, lattice nuclei or phonons. At a verysmall scale, however, electrons will also impact the particleboundary. This is notably the case when the dimensions of
+the particle are smaller than the mean free path, that is, the
+average distance traveled by the electron between two con-secutive collisions. In other words, if the particle is smallenough, the electrons will impact the boundary much more
+often than they collide with other objects.
+15The empirical
+model developed hereafter aims at taking this effect intoaccount, and well matches experimental data. In the end, it is
+very similar to the exact one obtained via semiclassical
+calculations.28,29
+As the free electrons move at the Fermi velocity vF, the
+characteristic time between two consecutive collisions withthe boundary will be
+s
+boundary ¼kboundary
+vF; (21)
+where kboundary is the characteristic length of the process. By
+applying Matthiessen’s rule (Eq. (2)), the damping frequency
+will become
+c¼cbulkþ1
+sboundary¼vF
+kMFPþvF
+kboundary; (22)
+where cbulkis the bulk metal damping frequency and kMFPis
+the mean free path.
+For a sphere of radius r, Kreibig10used the linear relation
+kboundary ¼4
+3r, but coefﬁcients between 1 and 4 have been
+used by other authors.30–34A simple and intuitive motivation
+for a coefﬁcient of4
+3is provided hereafter, based solely on
+geometrical considerations.
+Consider a spherical nanoparticle of radius rinside which
+electrons can travel only in straight trajectories. LetOðx;y;zÞbe the initial point on the surface where an electron
+has just collided with the boundary, and let O
+0ðx0;y0;z0Þbe a
+generic ﬁnal point on the sphere surface where the electronwill impact after traveling a distance d½O;O
+0/C138. Then
+x2þy2þz2¼r2;x02þy02þz02¼r2: (23)
+Since the scattering is assumed to be isotropic inside the
+sphere, all the points O0belonging to the surface have the
+same probability of being hit.
+Without loss of generality, consider a reference system
+such that the initial point is O(0, 0, r),
+dO;O0½/C138 ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+x02þy02þðz0/C0rÞ2q
+¼ﬃﬃﬃ
+2p
+rﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1/C0z0
+rr
+:
+(24)
+The characteristic length of the process kboundary can be
+deﬁned as the average distance d½O;O0/C138,kboundary ¼ð2p
+0ðr
+/C0rdO;O0½/C138 dz0dh
+ð2p
+0ðr
+/C0rdz0dh¼ﬃﬃﬃ
+2pðr
+/C0rﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1/C0z0
+rr
+dz0
+2:
+(25)
+By changing the integration variable
+a¼1/C0z0
+r)dz0¼/C0rda; (26)
+the integral can be rewritten and solved as follows:
+kboundary ¼ﬃﬃﬃ
+2p
+r
+2ð2
+0ﬃﬃﬃapda¼4
+3r: (27)
+Now let us examine the consequences of surface damping.
+Around the plasma frequency, it is almost always true that
+x/C29c(refer to Table Ifor the realistic orders of magnitude),
+so in ﬁrst approximation, the Drude model in Eq. (3)
+becomes
+/C151/C25/C15m;1/C0x2
+P
+x2;/C15 2/C25x2Pc
+x3: (28)
+While the real part is almost unchanged when introducing
+the damping correction, near the resonance frequency (as
+deﬁned by the Fr €ohlich condition in Eq. (18)), the imaginary
+part can be rewritten as
+/C152/C25x2
+P
+x3
+rescbulkþ3vF
+4r/C18/C19
+¼/C152bulkþAvF
+r; (29)
+where we have employed the Kreibig relation for spherical
+nanoparticles, and A¼3=4ðx2
+p=x3
+resÞ. For very small par-
+ticles this implies that, at xres, the condition of small /C152is
+not true anymore, therefore drastically diminishing the reso-
+nance peak in a. A calculated example for a nanoparticle
+with gold-like parameters in water is provided in Fig. 6(a)
+for various particle sizes.
+B. Modified long-wavelength approximation
+The dipolar approximation is valid as long as the dimen-
+sions of the metal nanoparticle are such that d/C28k.
+Otherwise, variations in the incoming ﬁeld will not be negli-
+gible, and multipolar modes will eventually be excited.
+Between this dipolar treatment and the brute-force computa-
+tional solution of Maxwell’s equations lies the so-called
+modiﬁed long-wavelength approximation (MLWA), a cor-
+rection to the polarizability obtained in the quasi-static
+approximation (QSA) that includes retardation effects.17
+The MLWA treats each atom in the nanoparticle as a
+dipole emitter and takes into account that its electric ﬁeld
+propagates at the speed of light c(and not instantly), causing
+a retarded dipolar ﬁeld. While in the QSA we imposed
+~k/C1~r¼0 (Eq. (4)), in the following derivation of the MLWA
+equations, the dipole radiation is expanded in a Taylor series
+up to the third order ðkrÞ3. The inﬁnitesimal electric ﬁeld is
+integrated over the volume of the particle, and ﬁnally a cor-
+rected polarizability aMLWA is deﬁned.
+Using the complex notation, an oscillating dipole moment
+pcan be expressed as
+543 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 543 04 October 2023 22:53:44
+p¼p0eixte/C0ikr;_p¼ixp;€p¼/C0x2p: (30)
+For a point emitter, the radial and tangential ﬁelds in spheri-
+cal coordinates are35
+ER¼2 cos h
+4p/C150/C15hp
+r3þ_p
+cr2/C18/C19
+;
+Eh¼sinh
+4p/C150/C15hp
+r3þ_p
+cr2þ€p
+c2r0
+@1
+A
+: (31)
+Since the component of the electric ﬁeld orthogonal to the
+applied ﬁeld cancels out on integration over the nanosphere(as shown in the supplementary material43), we only need to
+quantify the parallel one. For a point emitter,
+E==¼ERcosh/C0Ehsinh
+¼p0eixte/C0ikr
+4p/C150/C15h"
+2 cos2h1
+r3þix
+cr2/C18/C19
+/C0sin2h1
+r3þix
+cr2/C0x2
+c2r/C18/C19 #
+: (32)
+Expanding e/C0ikrto the third order, rewriting sin2h¼1/C0cos2h
+and making x¼kcexplicit
+E==¼p0eixt
+4p/C150/C15hcos2h3
+r3þk2
+2r/C18/C19
+/C01
+r3/C0k2
+2rþi2k3
+3/C18/C19"#
+¼p0eixt
+4p/C150/C15h1
+r3ð3 cos2h/C01Þþk2
+2rðcos2hþ1Þ/C0i2k3
+3/C20/C21
+:
+(33)As an extension of the QSA, we can treat the nanoparticle as
+a single emitter with a radiated ﬁeld EMLWA being the super-
+position of all the dipole ﬁelds with respect to its center. A
+convenient reference system takes ~r!/C0~r(r!r;h!/C0 h;
+/!/), meaning that every vector starts from a point emit-
+ter in the sphere and points to its center. This coordinate
+change does not inﬂuence the signs in the equation because
+of the symmetry in h. Therefore, for every volume element
+dV¼r2sinhdrdhd/inside the sphere, we will have a radi-
+ated ﬁeld
+dEMLWA¼1
+4p/C150/C15h/C201
+r3ð3 cos2h/C01Þ
+þk2
+2rðcos2hþ1Þ/C0i2k3
+3/C21
+dp
+¼1
+4p/C150/C15h/C201
+r3ð3 cos2h/C01Þ
+þk2
+2rðcos2hþ1Þ/C0i2k3
+3/C21
+Pr2sinhdrdhd/:
+(34)
+We ﬁnally integrate dEMLWA over the volume of the sphere
+of radius Rand factor the volume out to obtain the total
+MLWA correction
+EMLWA¼1
+4p/C150/C15h4p
+3k2R2/C0i2
+3k3R3/C18/C19
+P
+¼1
+4p/C150/C15hk2
+R/C0i2
+3k3/C18/C19
+pnp: (35)
+This formula can be generalized for ellipsoidal nanoparticles
+of semiaxes aj;j¼x;y;z,17
+EMLWA ;j¼1
+4p/C150/C15hk2
+aj/C0i2
+3k3 !
+pnp;j: (36)
+At this point, we only need to rewrite ~pnp,
+~pnp¼/C150/C15ha$ð~E0þ~EMLWAÞ¼/C150/C15ha$
+MLWA~E0; (37)
+from which
+aMLWA ;j¼aj
+1/C0aj
+4pk2
+aj/C0i2
+3k3 ! : (38)
+For sufﬁciently small nanoparticles, we retrieve the QSA
+(aMLWA ;j/C25aj), as expected. For relatively small yet ﬁnite
+volumes, the imaginary term proportional to k3can be
+neglected ( aMLWA ;j/C254paj=4p/C0ajk2=aj). For larger vol-
+umes, the imaginary term dominates the denominator.
+The term ajðk2=ajÞin Eq. (38)is called dynamic depolariza-
+tion, because it is obtained in a dynamic calculation ( k>0), and
+its coefﬁcient is real, corresponding to a change in the effective
+particle depolarization factor. Let us recall that ajis proportional
+to particle volume ( aj/axayaz). Asðaxayaz=ajk2Þincreases, a
+more negative value of /C151is necessary to meet the resonance
+condition. At small but ﬁnite particle volumes, this effect enhan-
+ces the plasmonic resonance; at larger volumes, it is responsible
+for the shift of the resonance peak.
+Fig. 6. Corrections to the quasi-static approximation: (a) Surface damping
+effect calculated from Eq. (29) and (b) modiﬁed long-wavelength approxi-
+mation (MLWA) calculated from Eq. (38). The red arrows indicate the
+effects of either correction on peak positions and intensities, as a function of
+decreasing, respectively, increasing, particle radius. (Plot colors have been
+selected according to the color-vision deﬁciency friendly color cycle pro-
+posed by Okabe and Ito and made popular by Wong (Ref. 41).)
+544 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 544 04 October 2023 22:53:44
+The term /C0iaj2
+3k3in Eq. (38) is called radiative damping,
+because it arises from the spontaneous emission of radiationby the induced dipole. The term grows rapidly with particlevolume. Being imaginary, it contributes heavily to /C15
+2and,
+therefore, to the resonance damping. For relatively large par-ticle volumes, it accounts for the damping by radiative lossesand results in a broadening and a strong decrease in the plas-monic resonance (also counterbalancing the enhancementdue to dynamic depolarization just mentioned).
+According to this approximation, an increase in particle
+size ( a
+j) will result in a red-shifted, broadened and less
+intense plasmonic resonance. This is indeed what we noticein Fig. 6(b) in the calculated peaks for a nanoparticle with
+gold-like parameters immersed in water. The MLWA usuallyworks well for nanoparticles of dimensions up to /C25200
+nm,
+36above which multipolar resonances cannot be
+neglected, and computational methods are required.
+The complete analytical model combines the corrected
+Drude model, the generalized Clausius–Mossotti formula forpolarizability, the surface damping effect and the MLWA. In
+Fig. 7, an example for a gold elongated ellipsoid having
+a
+x=ay¼ax=az¼2 is presented against a gold sphere of
+r¼25 nm, of the same volume. The cross sections are calcu-
+lated in the dipolar limit using Eq. (19). Agreement between
+the ﬁnite-difference time-domain (FDTD) simulation and themodel is remarkable, both in the peak positions and the ratioof cross section components. Experimental evidence alsocorroborates this result.
+37
+V. FINAL REMARKS
+Starting from a general model for metals and from the
+polarization of a particle immersed in a dielectric host, we
+explored the effects of several features on the ﬁnal resonance
+peak induced by an external oscillating electric ﬁeld.
+The analytical approach took us far into the understanding
+of the plasmonic resonance. However, as already hinted atthe end of Sec. IV, the corrections to the quasi-static approxi-
+mation have their own limitations. In fact, neglecting keyfeatures in the shape of the particle like spikes, neat edges,ﬂat sides, or amorphous protrusions will result in incorrectpredictions. Yet where the analytical approach fails, numeri-cal simulations can be used. The most common numericaltechniques include generalized Mie theory, ﬁnite-differencetime-domain (FDTD), discrete dipole approximation (DDA),ﬁnite-element method (FEM), and boundary element method(BEM).
+38,39Each simulation technique has its own advan-
+tages and drawbacks.
+Should this material be used as didactic reference, the
+authors strongly suggest the incorporation of at least someexamples of applications from state-of-the-art research.These examples should be tailored depending on the interestof the course and can be directed towards optics, biophysics,or condensed matter physics. To learn more about light-matter interaction or expand knowledge about state-of-the-art plasmonics and emerging applications, the authorsrecommend Fox’s
+40and Maier’s3books, which provide
+valuable insight into the ﬁeld and are very accessible forlecturers and students alike.
+The properties of plasmonic resonances depend on mate-
+rial shape and intrinsic properties. The analytical approachsupplied here is limited to ellipsoidal geometries but alreadytakes into account virtually all relevant material properties(in a classical approximation). However, while only simula-tions will provide reliable descriptions of the plasmoniceffects in realistic nanoparticles, the outlined fundamentalapproach, no matter its ﬂaws, provides an understanding ofwhy and how plasmonic resonances emerge in nanoparticles,and thus gives an intuitive basis and plausibility check fornumerical design.
+ACKNOWLEDGMENTS
+D.B. acknowledges support by an ERC Starting Grant
+(No. 850818-MULTIVIsion), an NWO Start-up Grant (No.740.018.018), and an NWO XS (No. CENW.XS2.033). M.L.thanks professors Maurizio Canepa and Francesco Bisio forinspiration.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+a)Electronic mail: m.locarno@tudelft.nl. ORCID: 0000-0002-7624-4859.
+b)ORCID: 0000-0002-5550-5140.
+1Bo Huang, Mark Bates, and Xiaowei Zhuang, “Super-resolution ﬂuores-
+cence microscopy,” Annu. Rev. Biochem. 78, 993–1016 (2009).
+2Banqiu Wu and Ajay Kumar, “Extreme ultraviolet lithography: A review,”
+J. Vacuum Sci. Technol. B 25, 1743–1761 (2007).
+3Stefan A. Maier, Plasmonics: Fundamentals and Applications , 1st ed.
+(Springer, Berlin, 2007).
+Fig. 7. (a) Absorption, (b) scattering, and (c) extinction cross sections for a gold ellipsoid immersed in water, having an aspect ratio ax=ay¼ax=az¼2 and a
+volume v¼4
+3pð25 nm Þ3¼6:54/C1104nm3. Comparison between a FDTD simulation, the quasi-static approximation of a gold-like sphere of the same volume,
+and the full analytical model for an ellipsoid. To account for both the longitudinal and transverse modes, cross sections have been calculated separa tely and
+averaged. The cross sections are each normalized to their own maximum extinction cross section, respectively. (Plot colors have been selected accor ding to the
+color-vision deﬁciency friendly color cycle proposed by Okabe and Ito and made popular by Wong (Ref. 41).)
+545 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 545 04 October 2023 22:53:44
+4Robert W. Corkery and Eric C. Tyrode, “On the colour of wing scales in
+butterﬂies: Iridescence and preferred orientation of single gyroid photonic
+crystals,” Interface Focus 7, 28630678 (2017).
+5Philippe Walter, El /C19eonore Welcomme, Philippe Hall /C19egot, Nestor J.
+Zaluzec, Christopher Deeb, Jacques Castaing, Patrick Veyssie `re, Ren /C19e
+Br/C19eniaux, Jean Luc L /C19ev^eque, and Georges Tsoucaris, “Early use of PbS
+nanotechnology for an ancient hair dyeing formula,” Nano Lett. 6,
+2215–2219 (2006).
+6Robert H. Brill and Nicholas D. Cahill, “A red opaque glass from sardisand some thoughts on red opaque in general,” J. Glass Stud. 30, 16–27
+(1988), available at http://www.jstor.org/stable/24190804 .
+7David J. Barber and Ian C. Freestone, “An investigation of the origin of
+the colour of the Lycurgus cup by analytical transmission electron micro-
+scopy,” Archaeometry 32, 33–45 (1990).
+8Mark L. Brongersma, “Introductory lecture: Nanoplasmonics,” Faraday
+Discussions 178, 9–36 (2015).
+9Richard Gans, “ €Uber die form ultramikroskopischer goldteilchen,” Ann.
+Phys. 342, 881–900 (1912).
+10Uwe Kreibig, “Electronic properties of small silver particles: The optical
+constants and their temperature dependence,” J. Phys. F: Met. Phys. 4,
+999–1014 (1974).
+11Vincenzo Amendola, Roberto Pilot, Marco Frasconi, Onofrio M. Marag /C18o,
+and Maria Antonia Iat /C18ı, “Surface plasmon resonance in gold nanoparticles:
+A review,” J. Phys. Condens. Matter 29, 203002 (2017).
+12Andr /C19es Guerrero-Mart /C19ınez, Silvia Barbosa, Isabel Pastoriza-Santos, and
+Luis M. Liz-Marz /C19an, “Nanostars shine bright for you. Colloidal synthesis,
+properties and applications of branched metallic nanoparticles,” Curr.
+Opin. Colloid Interface Sci. 16, 118–127 (2011).
+13Suk Joo Youn, Tae Hwan Rho, Byung Il Min, and Kwang S. Kim,
+“Extended Drude model analysis of noble metals,” Phys. Status Solidi (B)
+Basic Res. 244, 1354–1362 (2007).
+14David R. Lide, “Optical properties of selected elements,” in CRC
+Handbook of Chemistry and Physics , 6th ed. (CRC Press (Internet ver-
+sion), Boca Raton, Florida, 2005).
+15Craig F. Bohren and Donald R. Huffman, Absorption and Scattering of
+Light by Small Particles (John Wiley & Sons, New York, 1998).
+16William L. Barnes, “Particle plasmons: Why shape matters,” Am. J. Phys.
+84, 593–601 (2016).
+17Lance K. Kelly, Eduardo Coronado, Lin Lin Zhao, and George C. Schatz,
+“The optical properties of metal nanoparticles: The inﬂuence of size, shape,
+and dielectric environment,” J. Phys. Chem. B 107, 668–677 (2003).
+18Ming Li, Scott K. Cushing, and Nianqiang Wu, “Plasmon-enhanced opti-
+cal sensors: A review,” Analyst 140, 386–406 (2015).
+19Marek Piliarik, Pavel Kvasnic ˇka, Nicolle Galler, Joachim R. Krenn, and
+Ji/C20r/C19ı Homola, “Local refractive index sensitivity of plasmonic nano-
+particles,” Opt. Express 19, 9213–9220 (2011).
+20Stephan Link and Mostafa A. El-Sayed, “Spectral properties and relaxa-
+tion dynamics of surface plasmon electronic oscillations in gold and silver
+nanodots and nanorods,” J. Phys. Chem. B 103, 8410–8426 (1999).
+21Paul R. West, Satoshi Ishii, Gururaj V. Naik, Naresh K. Emani, Vladimir
+M. Shalaev, and Alexandra Boltasseva, “Searching for better plasmonic
+materials,” Laser Photonics Rev. 4, 795–808 (2010).
+22J. Alan Creighton and Desmond G. Eadon, “Ultraviolet-visible absorption
+spectra of the colloidal metallic elements,” J. Chem. Soc., Faraday Trans.
+87, 3881–3891 (1991).
+23Alexandra Boltasseva and Harry A. Atwater, “Low-loss plasmonic meta-
+materials,” Science 331, 290–291 (2011).
+24David J. Grifﬁths, Introduction to Electrodynamics (Cambridge U. P.,
+Cambridge, 2017).25Alberto G. Curto, Giorgio Volpe, Tim H. Taminiau, Mark P. Kreuzer,
+Romain Quidant, and Niek F. van Hulst, “Unidirectional emission of a
+quantum dot coupled to a nanoantenna,” Science 329, 930–933 (2010).
+26Marta Castro-Lopez, Daan Brinks, and Niek F. van Hulst, “Non-reciprocal
+optical antennas,” preprint arXiv:1412.4797 (2014).
+27Benjamin M. Ross, Savas Tasoglu, and Luke P. Lee, “Plasmon resonance
+differences between the near- and far-ﬁeld and implications for molecular
+detection,” Proc. SPIE 7394 , 739422 (2009).
+28Niels Asger Mortensen, Søren Raza, Martijn Wubs, Thomas Søndergaard,
+and Sergey I. Bozhevolnyi, “A generalized non-local optical response the-
+ory for plasmonic nanostructures,” Nat. Commun. 5, 3809–3815 (2014).
+29Somayeh Karimi, Ahmad Moshaii, Sara Abbasian, and Maryam Nikkhah,
+“Surface plasmon resonance in small gold nanoparticles: Introducing a
+size-dependent plasma frequency for nanoparticles in quantum regime,”
+Plasmonics 14, 851–860 (2019).
+30Asef Kheirandish, Nasser Sepehri Javan, and Hosein Mohammadzadeh,
+“Modiﬁed Drude model for small gold nanoparticles surface plasmon reso-
+nance based on the role of classical conﬁnement,” Sci. Rep. 10, 6517
+(2020).
+31Cecilia Noguez, “Surface plasmons on metal nanoparticles: The inﬂuenceof shape and physical environment,” J. Phys. Chem. C 111, 3806–3819
+(2007).
+32Kin Hung Fung and Che Ting Chan, “A computational study of the opticalresponse of strongly coupled metal nanoparticle chains,” Opt. Commun.
+281, 855–864 (2008).
+33Eduardo A. Coronado and George C. Schatz, “Surface plasmon broaden-
+ing for arbitrary shape nanoparticles: A geometrical probability approach,”
+J. Chem. Phys. 119, 3926–3934 (2003).
+34St/C19ephane Berciaud, Laurent Cognet, Philippe Tamarat, and Brahim
+Lounis, “Observation of intrinsic size effects in the optical response of
+individual gold nanoparticles,” Nano Lett. 5, 515–518 (2005).
+35Max Born and Emil Wolf, Principles of Optics , 7th ed. (Cambridge U. P.,
+Cambridge, 2019).
+36Ellen J. Zeman and George C. Schatz, “An accurate electromagnetic the-ory study of surface enhancement factors for Ag, Au, Cu, Li, Na, Al, Ga,
+In, Zn, and Cd,” J. Phys. Chem. 91, 634–643 (1987).
+37Ming Zhang Wei, Tian Song Deng, Qi Zhang, Zhiqun Cheng, and Shiqi
+Li, “Seed-mediated synthesis of gold nanorods at low concentrations of
+CTAB,” ACS Omega 6, 9188–9195 (2021).
+38James Parsons, Christopher P. Burrows, John R. Sambles, and William L.
+Barnes, “A comparison of techniques used to simulate the scattering of
+electromagnetic radiation by metallic nanostructures,” J. Mod. Opt. 57,
+356–365 (2010).
+39Manuel R. Gonc ¸alves, “Plasmonic nanoparticles: Fabrication, simulation
+and experiments,” J. Phys. D: Appl. Phys. 47, 213001 (2014).
+40Mark Fox, Optical Properties of Solids , 2nd ed. (Oxford U. P., Oxford,
+2010).
+41Bang Wong, “Points of view: Color blindness,” Nat. Methods 8, 441
+(2011).
+42Fabio Crameri, Grace E. Shephard, and Philip J. Heron, “The misuse ofcolour in science communication,” Nat. Commun. 11, 5444 (2020).
+43See supplementary material at https://www.scitation.org/doi/suppl/
+10.1119/5.0094967 for additional information on light-matter interaction,
+the derivation of the Lorentz oscillator, the conversion of the Lorentz
+oscillator to the Drude model for metals, skin depth considerations, nor-malization of depolarization factors, the orthogonal component of the elec-
+tric ﬁeld in the MLWA, signs and conventions, and details about
+Lumerical’s FDTD Solutions and Python code to reproduce and plot the
+simulations.
+546 Am. J. Phys., Vol. 91, No. 7, July 2023 M. Locarno and D. Brinks 546 04 October 2023 22:53:44

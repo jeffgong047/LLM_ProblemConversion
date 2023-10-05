@@ -1,0 +1,676 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| AUGUST 01 2023
+Conditional probability as found in nature: Facilitated
+diffusion
+Ori Hachmo ; Ariel Amir
+Am. J. Phys.  91, 653–658 (2023)
+https://doi.org/10.1 119/5.0123866
+Articles Y ou May Be Interested In
+Auditory facilitation: Procedural or sensory ef fect?
+J Acoust Soc Am  (September 1994)
+Channel-facilitated membrane transport: A verage lifetimes in the channel
+J. Chem. Phys.  (July 2003)
+“Facilitating” Ef fect of the Prior Member of a Monaural Click Doublet
+J Acoust Soc Am  (July 2005) 04 October 2023 22:55:40
+Conditional probability as found in nature: Facilitated diffusion
+OriHachmoa)
+Department of Physics of Complex Systems, Weizmann Institute of Science, 234 Hertzl St., Rehovot 76100, Israel
+Ariel Amirb)
+John A. Paulson School of Engineering and Applied Sciences, Harvard University, 29 Oxford St.,
+Cambridge, Massachusetts 02138
+(Received 1 September 2022; accepted 2 June 2023)
+Search processes are ubiquitous in physical and biological phenomena, often involving the random
+motion of molecules. In particular, transcription factors (TFs) are proteins that regulate gene
+expression and need to ﬁnd their DNA targets quickly—which is difﬁcult to achieve with random
+motion alone. Nature came up with a remarkable solution known as facilitated diffusion,combining 1D diffusion along the DNA and “excursions” of diffusion in 3D that help the TF to
+quickly arrive at distant parts of the DNA. In this paper, we show that this process can be analyzed
+naturally using the concept of conditional probability, providing an alternative intuition to theeffectiveness of this mechanism.
+#2023 Author(s). All article content, except where otherwise noted, is licensed
+under a Creative Commons Attribution (CC BY) license ( http://creativecommons.org/licenses/by/4.0/ ).
+https://doi.org/10.1119/5.0123866
+I. MOTIVATION
+Elchanan Mossel’s Dice paradox1poses a simple probabil-
+ity question that gives rise to neat and non-intuitive results.The paradox is phrased as follows:2
+You roll a fair six-sided die until you get 6. What
+is the expected number of rolls, if we consider
+only those series of rolls in which each roll in theseries is an even number?
+It is a common mistake to think that the answer is 3 based
+on the following logic: if the possible outcomes are either 2,4 or 6 and we wish to get a 6 then the number of rolls followsa geometric distribution with a parameter of 1/3.
+Alas, this “solution” overlooks the conditioning present in
+the formulation of the paradox that should lead us to makeuse of a fundamental concept in probability theory, condi-
+tional probability. All rolls are still possible, but the condi-
+tioning on rolling only even numbers makes us eliminate a
+series from our statistics as soon as an odd number is rolled.
+The basic concept of conditional probability is summarizedby the following equation:
+PAjBðÞ ¼
+PA\BðÞ
+PBðÞ: (1)
+In Eq. (1),PðAjBÞmeans the probability that Aoccurs,
+given that Bhas occurred, and PðA\BÞis the probability
+that both AandBoccur. As mentioned, the answer of 3 is
+wrong due to improperly taking into account the condi-tioning. We can perform the correct calculation using Eq.(1).I n s t e a do f Awe’ll have X
+iwhich stands for the proba-
+bility of getting a 6 on the ith roll, so that PðXiÞ¼1=6.
+The event Bwill occur whenever a series has only even
+numbers (2s and 4s) before the ﬁrst 6. P(B) will allow us
+to calculate the fraction of series that qualify for consider-
+ation because they meet the condition. First, we’ll calcu-latePðX
+i\BÞ
+PX i\B ðÞ ¼1
+3/C18/C19i/C01
+/C11
+6¼1
+2/C11
+3/C18/C19i
+: (2)P(B), the fraction of all possible series that qualify for con-
+sideration, is simply the sum of PðXi\BÞover all possible
+values of i,
+PBðÞ¼X1
+i¼1PX i\B ðÞ ¼1
+2X1
+i¼11
+3/C18/C19i
+¼1
+4: (3)
+We can now use Eqs. (1)–(3) to calculate the expected num-
+ber of rolls
+EN½/C138¼X1
+i¼1iPX i\B ðÞ
+PBðÞ¼2X1
+i¼1i1
+3/C18/C19i
+¼3
+2; (4)
+which is quite different than what was naively expected. The
+origin for this difference is that once we properly take the
+conditioning into account we essentially eliminate all longsequences since they have vanishingly small probability for
+not including odd numbers. This difference could be empha-
+sized by, for example, a 1,000-sided die. For such a die, thenaive calculation will produce a result of E½N/C138¼500 while
+for the correct calculation E½N/C138¼1000 =501/C252. In
+Appendix C , we provide some code to help the reader build
+intuition for this result.
+Next, we will describe an important biological process
+known as “facilitated diffusion,” which, intriguingly, is
+related to the concept of conditioned probability. In fact, wewill see that this mechanism shares several key properties
+with the “paradox” discussed above.
+II. FACILITATED DIFFUSION
+Transcription factors (TFs) are proteins designated to regu-
+late gene expression in cells. In order for the regulation to be
+effective, the TF has to ﬁnd its target, a segment located some-where along the DNA that is extremely short compared with
+the entire length of the DNA, in tens of seconds or less. The
+root of this requirement is related to typical time scales of otherprocesses taking place within the cell—notably, the cell’s dou-
+bling time, which is often on the order of tens of minutes. The
+motion of TFs is via diffusion. An order-of-magnitude estimate
+653 Am. J. Phys. 91(8), August 2023 http://aapt.org/ajp VCAuthor(s) 2023.
+ 653 04 October 2023 22:55:40
+for the search time via either 1D or 3D diffusion is given, for
+example, in Ref. 3. The estimate for 1D diffusion is obtained
+using 1D diffusion constant and the total length of the DNA
+tsearch/C24L2
+D1D; (5)
+with Lbeing the DNA total length and D1Dthe 1D diffusion
+coefﬁcient. For typical values relevant for bacteria,L¼10
+6nm;D1D¼104–105nm2=s—taken from Refs. 3
+and4, this results in a search time of thousands of hours. The
+estimate for 3D diffusion is as follows:
+tsearch/C24V
+D3Dr; (6)
+with Vbeing the volume restricting the TF and its target, D3D
+the 3D diffusion coefﬁcient, and rthe typical spatial size of
+the target. It could be obtained by dimensional analysis
+assuming that the mean search time has to be inversely pro-portional to the concentration of searchers (forcing the meansearch time to be proportional to the search volume) or, morerigorously, by solving a ﬁrst-passage-time problem of a ran-
+dom walker hitting a target in a restricted volume, as found in
+Refs. 5and 6. For typical values relevant for bacteria,
+V¼10
+9nm3;D3D¼107nm2=s;r¼0:34 nm—taken from
+Refs. 3and4, this results in a search time of hundreds of sec-
+onds. This result is much better than the 1D case, but in reality
+it is likely that the protein would spend a ﬁnite length of time
+bound to a non-target site, which would further increase thevalue of t
+search, making this estimate optimistic.7
+In principle, the TF search could have been executed by
+ﬁrst attaching to the DNA at some point, followed by proces-
+sive motion until the target is found. For velocities large
+enough, this could have led to a superior search mechanism.However, such motion inevitably consumes energy (since itbreaks detailed balance). For this or other reasons, this solu-tion was not chosen by Nature. Note that other biological
+scenarios do involve the processive motion of proteins in
+1D, see, e.g., Ref. 8.
+Facilitated diffusion is a mechanism where the TF performs
+1D diffusion along the DNA and at any given moment canfall off and perform 3D diffusion until reattaching to the DNA(a 3D excursion) at some random point along it; this is a key
+assumption that allows signiﬁcant simpliﬁcations of the math-
+ematical description of the mechanism. The 1D diffusionalong the DNA and the 3D excursions alternate until the TFhits its target. This model is well studied, see Refs. 3,4,a n d 9for reviews, and empirical evidence supporting it was found
+in bacteria.
+10Figure 1shows a cartoon illustrating this mecha-
+nism. As we shall see, the dependence of the search time on
+the underlying microscopic parameters (diffusion constants
+and dimensions) is fundamentally different than the 1D and
+3D models discussed above. For a broad parameter regime, itcan lead to a signiﬁcant speed-up of the search time.
+We will now show a mathematical description of this
+model that allows signiﬁcant speed-up compared with the
+results of Eqs. (5)and(6). Namely, we’ll arrive at a search
+time that scales like Linstead of L2. The key principle for
+the success of this mechanism is analogous to what we
+described earlier discussing the dice “paradox”—the falling-
+off during a 1D search attempt and re-trying at a random
+point along the DNA resembles the “throwing away” of longdie rolling sequences. Namely, the probability to fall-off is
+analogous to the probability of getting an odd number. Note
+that in the dice problem once we get an odd number we“reset” the counter, while in the case of facilitated diffusion
+failed attempts do contribute to the total time. However, in
+both cases, the “resetting” allows us to avoid lengthy runs
+and, thus, shortens the mean ﬁrst passage time (MFPT).
+Furthermore, in both cases, we see the dramatic effects ofthea priori benign conditioning process: In the dice prob-
+lem, this leads to a MFPT always smaller than 2 (for any
+number of facets of the die). In the facilitated diffusion prob-lem, conditioning on a successful search leads to a MFPT
+linear in the distance from the target, rather than quadrati-
+cally as we might expect intuitively.
+III. MATHEMATICAL DESCRIPTION
+We now present the mathematical description of the facili-
+tated diffusion mechanism. We start from a microscopicpoint of view, then move on to a continuum description and
+by properly taking the conditional probability into account
+we arrive at a description of the full search process. Our
+results are closely related to the extensive analytical results
+obtained in Ref. 11, even though our derivation is more ele-
+mentary and focuses on different aspects of the mathematical
+description of the mechanism.
+We start by solving the one dimensional problem of a TF
+hitting the target while being bound to the DNA. Afterwards
+we’ll take the 3D excursions into account.
+A. The 1D problem
+As a “warm-up” we’ll start with a time-independent prob-
+lem of the probability of a TF hitting a target before fallingoff starting at distance xfrom the target, ~pðxÞ—hereinafter,
+we mark a quantity with a tilde when it describes a discrete
+function; we use the same notation for its continuous coun-
+terpart albeit with the tilde omitted. We can write the recur-
+sion relation for ~pðxÞas follows:
+~pxðÞ¼1/C0cðÞ
+~pxþdx ðÞ þ~px/C0dx ðÞ
+2; (7)
+where cis the probability to fall at any step and dxis the step
+size. This recursion relation holds since at each step the TF
+falls off with probability c, and otherwise has a probability
+of 1/2 of moving to either of the neighboring sites. In Eq.(7), we neglect the effect of having ﬁnite boundaries – given
+that the DNA is long compared with the size of the TF we
+Fig. 1. Cartoon illustrating the facilitated diffusion search mechanism. The
+TF (circle) performs 1 D diffusion along the DNA (solid line). It then falls
+off, performs 3D diffusion, and lands somewhere else along the DNA (3D
+diffusion excursion)—which could get it closer to its target (square) or fur-
+ther away from it. This process repeats itself until the TF ﬁnds the target.
+654 Am. J. Phys., Vol. 91, No. 8, August 2023 O. Hachmo and A. Amir 654 04 October 2023 22:55:40
+may, without signiﬁcantly affecting the results, solve the
+problem on an inﬁnite domain, x2ð /C0 1 ;1Þ, while assum-
+ing the target is at x¼0.
+Subtracting ~pðxÞfrom both sides of Eq. (7)and multiply-
+ing by 2 =ðdxÞ2, we arrive at the following:
+0¼~pxþdx ðÞ /C02~pxðÞþ~px/C0dx ðÞ
+dxðÞ2
+/C0c
+dt2dt
+dxðÞ2~pxþdx ðÞ þ~px/C0dx ðÞ
+2; (8)
+where we also multiplied the second term by 1 ¼2dt=2dt,dt
+being the time step, taking continuum limit: dx!0;dt!0
+andc!0, while deﬁning D/C17ðdxÞ2=2dtandC/C17c=dt. This
+brings us to the following ordinary differential equation:
+d2pxðÞ
+dx2¼C
+DpxðÞ; (9)
+whose solution is
+pxðÞ¼exp /C0ﬃﬃﬃﬃ
+C
+Dr
+jxj !
+: (10)
+Equation (9) has another solution, expﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+C=Dp
+jxj/C16/C17
+.
+However, this solution is unphysical since it predicts that theprobability for hitting the target prior to falling off is greater
+for more distant starting points.
+This result will be useful later on. For now, we wish to
+solve a time-dependent problem that will allow us to calcu-late the time “spent” on 1D search attempts—the ﬁrst pas-sage time (FPT) problem. Analogously to what we did for
+~pðxÞ, we can write a recursion relation for ~gðx;tÞ, which can
+stand for either one of the following two: the probability dis-
+tribution for a TF to be at xat time tor the probability that
+the TF would hit the target by time tgiven that it started at
+position x, see Ref. 12for additional explanation
+~gx;tðÞ¼1/C0cðÞ
+~gxþdx;t/C0dt ðÞ þ~gx/C0dx;t/C0dt ðÞ
+2:
+(11)
+Similar to what that was done in Eqs. (8)and(9), we can
+take the continuum limit and arrive at the following PDE:
+@gx;tðÞ
+@t¼D@2gx;tðÞ
+@x2/C0Cgx;tðÞ : (12)
+Depending on which of the two interpretations listed above
+is used, Eq. (12) is either a Fokker-Planck equation (also
+known as the Kolmogorov Forward equation) or theKolmogorov Backward equation; see Refs. 13–16 . This is a
+special case where both the forward problem and the back-
+ward problem are described by the same equation, which isnot generally the case.
+Equation (12) is analytically solvable. Even so, this solu-
+tion is of little signiﬁcance given that the search mechanismis not “measured” at the level of a single search attempt
+but—as we shall see later – on the level of numerous search
+attempts. In other words, what we will be interested in is theMFPT associated with Eq. (12) (not to be confused with
+the MFPT of the entire facilitated diffusion process—which wecalculate in Sec. III B). We present the calculation of the FPT
+distribution for the sake of completeness in Appendix A .
+The MFPT of Eq. (12), which we shall denote as TðxÞ, can
+be derived directly from Eq. (12) as shown in Appendix B .
+Here, we shall present a different derivation which is verysimilar to how Eqs. (9)and(12) were derived. We write the
+following recursion relation for TðxÞ:
+~TxðÞ¼dt~pxðÞþ1/C0cðÞ
+~Txþdx ðÞ þ~Tx/C0dx ðÞ
+2;(13)
+where the dt~pðxÞterm is a bit subtle: Since TðxÞincludes the
+average time of hitting the target over all the trajectories thateventually get there, when advancing a time step dt, the time con-
+tributed to TðxÞis the product of dtand the probability of actu-
+ally hitting the target. Taking the continuum limit of Eq. (13)in a
+s i m i l a rm a n n e rt ow h a tt h a tw a sd o n ei nE q s . (8)and(9)gives
+Dd2TxðÞ
+dx2/C0CTxðÞþpxðÞ¼0: (14)
+We arrived at a linear ordinary differential equation. The
+boundary conditions for Eq. (14)areTð0Þ¼Tðx!1 Þ¼ 0.
+The former is a direct result of the deﬁnition of TðxÞas a mean
+ﬁrst passage time problem. For the latter, we reiterate that thereis a non-zero possibility that the TF will fall off before reach-ing the target, as well as that TðxÞis only contributed by suc-
+cessful trajectories, which become exceedingly rare as x!1
+since, as shown in Eq. (10), the probability for having a suc-
+cessful trajectory initiated at xdecays exponentially with jxj.
+Solving Eq. (14)is possible using a well-known method called
+variation of parameters (or variation of constants) leading to
+TxðÞ¼
+jxj
+2ﬃﬃﬃﬃﬃﬃﬃ
+CDp exp /C0ﬃﬃﬃﬃ
+C
+Dr
+jxj !
+: (15)
+For further reading on the variation of parameters, we rec-
+ommend to advise Ref. 17. Finally, we introduce the condi-
+tioning whereby we disregard any runs which resulted in theTF falling off the DNA before it found the target. Referringto Eq. (1), we understand that in order to properly include
+the conditioning we should divide the result of Eq. (15) by
+the probability of success itself, pðxÞ. We arrive at
+^TxðÞ¼
+jxj
+2ﬃﬃﬃﬃﬃﬃﬃ
+CDp : (16)
+This result provides another example for the “power” of the
+conditioning; while time is usually related to distance
+squared in diffusion processes, we get a linear relation. Thisis a key property of this mechanism that ultimately allowsthe linear relation in the ﬁnal result.
+B. Taking 3D excursions into account
+Up to this point we’ve only considered a single 1D search
+attempt. Taking the 3D excursions into account, we are ableto model the whole process. We will do so by assuming aﬁnite DNA of length 2 Lwith the TF target at its center and
+that the reattachment point after a 3D excursion is distributeduniformly on the DNA. Moreover, we assume that the searchstarts with the TF bound to the DNA at some random pointalong it; relaxing the assumption is inconsequential.
+655 Am. J. Phys., Vol. 91, No. 8, August 2023 O. Hachmo and A. Amir 655 04 October 2023 22:55:40
+In order to write down the term for the overall search time,
+we use the following deﬁnitions (some were mentioned earlier):
+pðxiÞis the probability to hit the target in the ith 1D search
+attempt, t1DðxiÞis the time spent on the ith attempt assuming it
+was successful while tf
+1DðxiÞdenotes the time assuming that it
+wasn’t, all conditioned on starting from position xi,a n d ti
+3Dis
+the time spent on 3D diffusion assuming the ði/C01Þth1D search
+attempt has failed. The search time then follows:
+T¼px0ðÞt1Dx0ðÞþ1/C0px0ðÞ/C0/C1px1ðÞ
+/C2t1Dx1ðÞþtf
+1Dx0ðÞþt0
+3D/C16/C17
+þ1/C0px0ðÞ/C0/C11/C0px1ðÞ/C0/C1px2ðÞ
+/C2ðt1Dx2ðÞþtf
+1Dx0ðÞþtf
+1Dx1ðÞþt0
+3Dþt1
+3DÞþ/C1/C1/C1
+¼X1
+i¼0px iðÞ t1DxiðÞþXi/C01
+j¼0tf
+1DxjðÞþtj
+3D/C16/C170
+@1
+A
+/C2Yi/C01
+j¼01/C0px jðÞ/C0/C1: (17)
+Taking the mean of Eq. (17) over the binding position xi
+(assumed to be uniformly distributed) we arrive at the following:
+hTi¼X1
+i¼0ðhpxðÞt1DxðÞi1/C0hpxðÞi/C0/C1i
+þihpxðÞihtf
+1DxðÞ1/C0pxðÞ ðÞ i1/C0hpxðÞi/C0/C1i/C01
+þihpxðÞiht3Di1/C0hpxðÞi/C0/C1iÞ
+¼hpxðÞt1DxðÞi
+hpxðÞiþh1/C0pxðÞ ðÞ tf
+1DxðÞi
+hpxðÞi
+þht3Di1/C0hpxðÞi
+hpxðÞi; (18)
+and calculating all the means will bring us to
+hTi¼1þCht3Di
+1/C0e/C0ﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ðC=DÞp
+LLﬃﬃﬃﬃﬃﬃﬃ
+DCp /C01
+Cþht3Di/C18/C19
+/C25Lﬃﬃﬃﬃﬃﬃﬃ
+DCp þLﬃﬃﬃﬃ
+C
+Dr
+ht3Di: (19)
+We see that the search time now scales linearly with Linstead
+of quadratically! As we mentioned before, this is reminiscent of
+the dice “paradox”—we do not “keep” long and unsuccessful
+sequences. Moreover, if we optimize the search time withrespect to Cwe arrive at a neat conclusion that the optimal
+search time is obtainable by taking C¼1=ht
+3Dia n dt h e nt h e
+TF spends half of its time in 1D and half in 3D with the overallsearch time of Lﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+ht
+3Di=Dp
+. Using typical values for bacteria
+2L¼106nm;D¼104–105nm2=s, and ht3Di¼ 10/C04sa s
+could be found, for example, in Refs. 3and4, we indeed arrive
+at an overall search time of the order of tens of seconds.
+IV. DISCUSSION
+In this paper, we revisited a well-known and well-studied
+mechanism for how TFs search for their target genes. We
+showed how the mathematical description of the mechanism
+naturally utilizes the basic concept of conditional probability.The facilitated diffusion problem we discussed here is mathe-
+matically related to the class of problems of ﬁrst passage time
+under restart. For these problems, one is interested in the ﬁrst
+passage time of a random walker, with a rate to “reset” the parti-cle, typically to a particular site (in contrast to the random reset-ting encountered in the facilitated diffusion problem).
+Intriguingly, for these problems, there is an optimal restart rate
+that can speed up the search dramatically. Reference 18studies
+the statistical properties of a searcher absorption by a static targetunder constant rate resetting of the searcher position. A generic
+treatment of ﬁrst passage under resetting is given in Ref. 19,a n d
+a review thoroughly studying different cases and generalizationsof the resetting time is found in Ref. 20. Such processes are
+deeply related to the inspection paradox of probability theory,
+where a sampling bias may distort the statistics in counter-intuitive ways. For instance, in a famous example of this para-dox, the average waiting time for a bus a person measures when
+they arrive at the bus station at some random, uniformly distrib-
+uted, time is greater than the average time between consecutivebuses. In the case of heavy-tailed distributions, in fact, the formercan be inﬁnite even when the latter is ﬁnite! Resetting overcomes
+this sampling bias and in some cases may even shorten the wait-
+ing time compared with the distribution’s mean. A review study-ing the relations between stochastic processes under resetting
+and the inspection paradox is found in Ref. 21.T h i ss t u d ya l s o
+characterize the processes where resetting will enable a speed-upcompared with a simple mean of the distribution.
+While the facilitated diffusion mechanism is a powerful
+mechanism for shortening the search time, there are both
+extensions to this mechanism and other, completely different,
+mechanisms worth mentioning. Still within the framework offacilitated diffusion, one may take into account the dynamicsof the DNA molecule itself, as discussed in Ref. 22,o rt h e
+energy landscape the TF experiences while moving along the
+DNA, as discussed in the reviews.
+3,4,23Recently, Ref. 24
+related diffusion on such a disordered landscape to the phe-
+nomenon of Anderson localization and discussed its implica-
+tions for facilitated diffusion. Another intriguing workdirectly related to facilitated diffusion is given in Ref. 25
+where the authors use a facilitated diffusion-based model to
+study the architecture of bacteria genome.
+Although facilitated diffusion is ﬁt to describe the search
+mechanism of some TFs in bacteria, other types of TFs (andproteins in general) could have a signiﬁcantly different struc-ture leading to inherently different dynamics. Reference 26
+discusses a protein extended in one dimension in a manner
+that enables it to interact with many sequences along theDNA in parallel, which effectively reduces the dimensionality
+of the search (from three to two dimensions) causing a
+remarkable speed-up of the search process—distinct from themechanism we explored here. The concept of dimensionalityreduction in biological search processes dates to the seminal
+work of Delbr €uck and Adam in 1968, Ref. 27. This work was
+recently revisited and extended.
+28Another distinct example is
+given in Refs. 29–31 , which discuss the search mechanism
+TFs use in eukaryotic cells. In this case, the TFs often have a
+long polymeric tail called the Intrinsic Disordered Region that
+plays a major role in the search, though the theoretical frame-work for this scenario has yet to be developed.
+ACKNOWLEDGMENTS
+The authors thank Wencheng Ji, Naama Barkai, Yariv
+Kafri, Urlich Gerland, Shlomi Reuveni, Sarah Kostinski,
+656 Am. J. Phys., Vol. 91, No. 8, August 2023 O. Hachmo and A. Amir 656 04 October 2023 22:55:40
+and Raphael Voituriez for helpful discussions and
+comments.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The authors have no conﬂicts to disclose.
+APPENDIX A: CALCULATING THE FPT
+In the following, we calculate the FPT as opposed to the
+MFPT calculated in the main text.
+For convenience, we re-write Eq. (12) governing the
+dynamics of gðxÞ, the probability that the TF would hit the
+target by time tgiven that it started at position x,
+@gx;tðÞ
+@t¼D@2gx;tðÞ
+@x2/C0Cgx;tðÞ : (A1)
+This equation is supplemented by the initial condition
+gðx;0Þ¼0 and the boundary condition gð0;tÞ¼1. To pro-
+ceed, as in many FPT problems,6we will Laplace transform
+the equation. Denoting L½gðx;tÞ/C138 /C17 Gðx;sÞ, we obtain
+sG x ;sðÞ ¼D@2
+@x2Gx;sðÞ /C0CGx;sðÞ : (A2)
+Relying on the Laplace transform of the initial condition
+L½1/C138¼1=s, we ﬁnd that the solution of Eq. (A2) is
+Gx;sðÞ ¼1
+sexp /C0ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+sþC
+Dr
+jxj !
+: (A3)
+Performing the inverse Laplace transform produces the solu-
+tion for gðx;tÞ,
+gx;tðÞ¼L/C011
+sexp /C0ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+sþC
+Dr
+jxj !"#
+¼1
+2exp /C0ﬃﬃﬃﬃ
+C
+Dr
+jxj !
+/C2"
+1þerf2ﬃﬃﬃﬃﬃﬃﬃ
+CDp
+t/C0jxj
+2ﬃﬃﬃﬃﬃ
+Dtp !
+þexp 2ﬃﬃﬃﬃ
+C
+Dr
+jxj !
+/C2erfc2ﬃﬃﬃﬃﬃﬃﬃ
+CDp
+tþjxj
+2ﬃﬃﬃﬃﬃ
+Dtp ! #
+: (A4)
+Note that this is not technically a cumulative distribution
+function (CDF) since gðx;t!1 Þ¼ exp/C0ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+C=Dp
+jxj/C16/C17
+(consistent with the result of Eq. (10): There is a non-
+vanishing probability notto hit the target of course). If, on
+the other hand, we look at the probability to hit the target
+conditioned on hitting it, the corresponding CDF is
+^gx;tðÞ¼1
+2"
+1þerf2ﬃﬃﬃﬃﬃﬃﬃ
+CDp
+t/C0jxj
+2ﬃﬃﬃﬃﬃ
+Dtp !
+þexp 2ﬃﬃﬃﬃ
+C
+Dr
+jxj !
+/C2erfc2ﬃﬃﬃﬃﬃﬃﬃ
+CDp
+tþjxj
+2ﬃﬃﬃﬃﬃ
+Dtp ! #
+: (A5)From this result, we can obtain the MFPT
+TxðÞ¼ð1
+0t@
+@t^gx;tðÞ dt¼x
+2ﬃﬃﬃﬃﬃﬃﬃ
+CDp ; (A6)
+which reproduces the result of Eq. (16).
+APPENDIX B: DERIVING THE MFPT EQUATION
+DIRECTLY FROM THE EQUATION FOR THE FPT
+In the main text, we derived the equation for the MFPT
+using the appropriate recursion relation following fundamen-
+tal principles. In the following, we shall present an alterna-tive derivation starting from the equation for the FPT,namely, Eq. (12) (also presented in the previous appendix as
+Eq.(A1)).
+Since gðx;tÞcorresponds to the probability to hit the target
+until time tgiven that we start at x, the MFPT is obtainable
+from gðx;tÞas
+TxðÞ¼ð
+1
+0t@gx;tðÞ
+@tdt: (B1)
+Note that we expect this time to be ﬁnite even on an inﬁ-
+nite domain, since the ﬁnite fall-off rate would prevent themean time from diverging—in contrast, for example, to thediverging MFPT associated with normal random walks in1D (we have also shown this directly from the FPT distribu-tion in the previous appendix).
+If we act on Eq. (A1) withÐ
+1
+0ðt@=@tÞdt, we arrive at
+ð1
+0t@2gx;tðÞ
+@t2dt¼Dð1
+0t@
+@t@2gx;tðÞ
+@x2dt
+/C0Cð1
+0t@gx;tðÞ
+@tdt: (B2)
+The RHS is simply D@2TðxÞ=@x2/C0CTðxÞ, whereas, using
+integration by parts, the LHS reads as
+ð1
+0t@2gx;tðÞ
+@t2dt¼t@gx;tðÞ
+@t/C12/C12/C12/C121
+0/C0ð1
+0@gx;tðÞ
+@tdt
+¼/C0gx;tðÞj1
+0¼/C0exp /C0ﬃﬃﬃﬃ
+C
+Dr
+jxj !
+:
+(B3)
+Together, we obtain the following equation for the MFPT:
+D@2TxðÞ
+@x2/C0CTxðÞþexp /C0ﬃﬃﬃﬃ
+C
+Dr
+jxj !
+¼0; (B4)
+reproducing Eq. (14) obtained directly using the recursion
+relation.
+APPENDIX C: DICE PARADOX CODE
+The following Python script demonstrates the result of the
+dice paradox. It could be used to help the reader to develop
+intuition towards the paradox’s result. There are two input
+parameters: “sides” refers to the number of sides the die hasand “runs” refers to the number of runs included in the esti-mation of the expected value.
+657 Am. J. Phys., Vol. 91, No. 8, August 2023 O. Hachmo and A. Amir 657 04 October 2023 22:55:40
+import numpy as np
+np.random.seed(42)sides ¼1000
+runs ¼1000
+T_w_cond ¼0
+T_wo_cond ¼0
+for i in range(runs):
+hit_tgt ¼False
+t_w_cond ¼0
+t_wo_cond ¼0
+while not hit_tgt:
+t_w_cond ¼t_w_cond þ1
+t_wo_cond ¼t_wo_cond þ1
+roll ¼np.random.randint(1,sides þ1)
+if roll %2!¼0:
+t_w_cond ¼0
+if roll ¼= sides:
+hit_tgt ¼True
+T_w_cond ¼T_w_cond þ\
+t_w_cond/runs
+T_wo_cond ¼T_wo_cond þ\
+t_wo_cond/runs
+print(’Number of rolls w/o accounting for’
+þ’ conditioning:’, str(T_wo_cond))
+print(’Number of rolls when accounting for’
+þ’ conditioning:’, str(T_w_cond))
+For each run the script “rolls” the die until it lands on
+“sides” while keeping track of the number of rolls and thenumber of rolls without landing on an odd value, the latter isreset if an odd value is rolled. The script ends with printingthe number of rolls without taking the conditioning intoaccount (which we expect to be about the same as the inputof “sides”) and the number of rolls when taking the condi-tioning into account.
+a)ORCID: 0000-0003-3869-4629.
+b)ORCID: 0000-0003-2611-0139.
+1G. Kalai, “Elchanan Mossel’s amazing dice paradox,” Combinatorics and
+more - Gil Kalai’s blog (2017), <https://gilkalai.wordpress.com/2017/09/
+08/>.
+2J. Jin, “Elchanan Mossel’s dice problem,” (2018), <http://www.yichijin.-
+com/ﬁles/elchanan.pdf >.
+3M. Sheinman, O. B /C19enichou, Y. Kafri, and R. Voituriez, “Classes of fast
+and speciﬁc search mechanisms for proteins on DNA,” Rep. Prog. Phys.
+75, 026601 (2012).
+4L. Mirny, M. Slutsky, Z. Wunderlich, A. Tafvizi, J. Leith, and A. Kosmrlj,
+“How a protein searches for its site on DNA: The mechanism of facilitated
+diffusion,” J. Phys. A: Math. Theor. 42, 434013 (2009).
+5H. C. Berg, Random Walks in Biology (Princeton U. P., Princeton,
+1993).
+6S. Redner, A Guide to First-Passage Processes (Cambridge U. P.,
+Cambridge, 2001).
+7M. Sheinman and Y. Kafri, “The effects of intersegmental transfers on tar-get location by proteins,” Phys. Biol. 6, 016003 (2009).
+8S. M. Block, “Kinesin motor mechanics: Binding, stepping, tracking, gat-
+ing, and limping,” Biophysical J. 92, 2986–2995 (2007).
+9O. B /C19enichou, C. Loverdo, M. Moreau, and R. Voituriez, “Intermittent
+search strategies,” Rev. Mod. Phys. 83, 81–129 (2011).10P. Hammar, P. Leroy, A. Mahmutovic, E. G. Marklund, O. G. Berg, and J.
+Elf, “The lac repressor displays facilitated diffusion in living cells,”
+Science 336, 1595–1598 (2012).
+11M. Coppey, O. B /C19enichou, R. Voituriez, and M. Moreau, “Kinetics of target
+site localization of a protein on DNA: A stochastic approach,” Biophysical
+J.87, 1640–1649 (2004).
+12The interpretation as an equation for the probability distribution to be at x
+at time tis straightforward by looking at Eq. (11), the probability to be at xat
+time tis the probability that at t/C0dtwe were at either x/C0dxor at xþdx
+times 1 =2 and times the probability the TF did not fall off. The interpretations
+as an equation for the probability that the TF would either hit the target by
+time t orat time t given that it started at position xfollow the same reasoning:
+The probability that the TF started at xand took t=dtsteps to hit the target
+should be the same as starting at x6dxand arriving after ðt=dtÞ/C01s t e p s
+times the probability of taking one more step (and taking into account thechance of falling off).
+13S. Karlin and H. M. Taylor, A First Course in Stochastic Processes
+(Academic Press, Cambridge, 1975).
+14C. W. Gardiner, Handbook of Stochastic Methods for Physics, Chemistry
+and the Natural Sciences (Springer, Berlin, 2003).
+15V. G. V. Kampen, Stochastic Processes in Physics and Chemistry
+(Elsevier Science & Technology Books, Amsterdam, 2007).
+16A. Amir, Thinking Probabilistically: Stochastic Processes, Disordered
+Systems, and Their Applications (Cambridge U. P., Cambridge, 2021).
+17G. Teschl, Ordinary Differential Equations and Dynamical Systems
+(American Mathematical Society, Rhode Island, 2012).
+18M. R. Evans and S. N. Majumdar, “Diffusion with stochastic resetting,”
+Phys. Rev. Lett. 106, 160601 (2011).
+19A. Pal and S. Reuveni, “First passage under restart,” Phys. Rev. Lett. 118,
+030603 (2017).
+20M. R. Evans, S. N. Majumdar, and G. Schehr, “Stochastic resetting andapplications,” J. Phys. A: Math. Theor. 53, 193001 (2020).
+21A. Pal, S. Kostinski, and S. Reuveni, “The inspection paradox in stochastic
+resetting,” J. Phys. A: Math. Theor. 55, 021001 (2022).
+22T. Sch €otz, R. A. Neher, and U. Gerland, “Target search on a dynamic
+DNA molecule,” Phys. Rev. E 84, 051911 (2011).
+23O. B/C19enichou, Y. Kafri, M. Sheinman, and R. Voituriez, “Searching fast for
+a target on DNA without falling to traps,” Phys. Rev. Lett. 103, 138102
+(2009).
+24Q. Lu, D. Bhat, D. Stepanenko, and S. Pigolotti, “Search and localization
+dynamics of the CRISPR-Cas9 system,” Phys. Rev. Lett. 127, 208102
+(2021).
+25D. Ezer, N. R. Zabet, and B. Adryan, “Physical constraints determine the
+logic of bacterial promoter architectures,” Nucl. Acids Res. 42,
+4196–4207 (2014).
+26J. Wiktor, A. H. Gynna ˚, P. Leroy, J. Larsson, G. Coceano, I. Testa, and J.
+Elf, “RecA ﬁnds homologous DNA by reduced dimensionality search,”
+Nature 597, 426–429 (2021).
+27G. Adam and M. Delbr €uck, “Reduction of dimensionality in biological
+diffusion processes,” Structural Chem. Mol. Biol. 198, 198–215
+(1968).
+28D. S. Grebenkov, R. Metzler, and G. Oshanin, “Search efﬁciency in the
+Adam–Delbr €uck reduction-of-dimensionality scenario versus direct diffu-
+sive search,” New J. Phys. 24, 083035 (2022).
+29S. Brodsky, T. Jana, K. Mittelman, M. Chapal, D. K. Kumar, M. Carmi,
+and N. Barkai, “Intrinsically disordered regions direct transcription factor
+in vivo binding speciﬁcity,” Mol. Cell 79, 459–471 (2020).
+30T. Jana, S. Brodsky, and N. Barkai, “Speed-speciﬁcity trade-offs in the
+transcription factors search for their genomic binding sites,” Trends Genet.
+37, 421–432 (2021).
+31S. Brodsky, T. Jana, and N. Barkai, “Order through disorder: The role of
+intrinsically disordered regions in transcription factor binding speciﬁcity,”Curr. Opinion Structural Biol. 71, 110–115 (2021).
+658 Am. J. Phys., Vol. 91, No. 8, August 2023 O. Hachmo and A. Amir 658 04 October 2023 22:55:40

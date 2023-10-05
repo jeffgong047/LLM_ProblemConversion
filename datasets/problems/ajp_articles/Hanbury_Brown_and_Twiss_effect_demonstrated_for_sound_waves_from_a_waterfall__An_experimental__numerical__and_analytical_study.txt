@@ -1,0 +1,793 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| JANUARY 01 2022
+Hanbury Brown and T wiss effect demonstrated for sound
+waves from a waterfall: An experimental, numerical, and
+analytical study 
+Arnt Inge V istnes ; Joakim Bergli
+Am. J. Phys.  90, 20–30 (2022)
+https://doi.org/10.1 119/10.0006613
+Articles Y ou May Be Interested In
+A note on fluctuations of weak gravitational radiation and the classical Hanbury Brown–T wiss ef fect
+J. Math. Phys.  (February 1984)
+Hanbury Brown and T wiss Noise Correlations to Probe the Statistics of GHz Photons Emitted by Quantum
+Conductors
+AIP Conference Proceedings  (August 2005)
+Measuring mode indices of a partially coherent vortex beam with Hanbury Brown and T wiss type
+experiment
+Appl. Phys. Lett.  (February 2016) 04 October 2023 22:59:31
+Hanbury Brown and Twiss effect demonstrated for sound waves
+from a waterfall: An experimental, numerical, and analytical study
+Arnt Inge Vistnesa)and Joakim Berglib)
+Department of Physics, University of Oslo, Sem Sælands vei 24, Oslo 3, Norway
+(Received 2 November 2020; accepted 17 September 2021)
+Hanbury Brown and Twiss determined the angular size of a visible light source (the star Sirius)
+by studying how the cross-correlation in intensity ﬂuctuation recorded by two detectors changeswith the distance between the detectors. We ﬁnd that this principle works equally well for sound
+waves from a waterfall. This is remarkable, since sound is a completely different kind of wave
+from the HBT case. The frequency of the waves differs by a factor /C2410
+12and the wavelength as
+well as the angular extension of the source seen from the observer’s position differ by a factor
+/C24107. Our analysis is based on the general properties of broadband waves. We start with
+broadband waves at the amplitude level (not at intensity level) and demonstrate a HBT-likeeffect. We follow up with an explanation and demonstrations showing how the effect also
+manifests itself at the intensity level, providing a bridge to the original HBT work. We use the
+same reasoning in our numeric and analytical treatments, as well as in the experimental work,with identical results. The presentation is simple enough to be introduced even for second year
+bachelor students. Computer programs (in Matlab), including software for time-resolved
+frequency analysis, as well as original sound ﬁles are available from the authors.
+#2022 Published
+under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/10.0006613
+I. INTRODUCTION
+In the 1950s, Hanbury Brown and Twiss (HBT) developed
+a method where the angular extent of objects in the sky could
+be determined from time variation in intensity measurements
+at two nearby radio telescopes.1When the telescopes were
+close to each other, the signals detected by the two tele-
+scopes were highly correlated, but the correlation dropped
+considerably as the distance between the telescopes
+increased. The angular extent of the source could be calcu-
+lated from these data using a classical statistical wavedescription.
+Soon after, the method was also used at optical wave-
+lengths for the measurement of the angular diameter of the
+star Sirius.2,3The fact that the HBT effect also arises at opti-
+cal wavelengths, where the quantum nature of the electro-
+magnetic ﬁeld should be important, was initially resisted by
+physicists and astronomers.4However, after Glauber derived
+the quantum theory of optical coherence,5many physicists
+now consider the HBT effect to be a true quantum phenome-
+non arising from “photon bunching.” Since the quantum as
+well as the semi-classical explanations of the phenomenon
+(see, e.g., Ref. 6) are rather complex, both conceptually and
+mathematically, the effect is considered unsuitable for theundergraduate physics curriculum. While the HBT method is
+no longer widely used in its original context, it is commonly
+used in high energy physics,7providing motivation for intro-
+ducing it to students in courses treating wave phenomena.
+Numerical modeling has lately been introduced at the
+undergraduate level. It often makes complex physics topics
+easier to handle than theory alone, making such topics more
+relevant and interesting for students.8In this paper, we use
+numerical modeling to study the HBT effect. We believe
+that this leads to a better understanding, not only of the HBT
+effect, but of broadband waves in general. By “broadband
+waves” we mean waves that have a broad continuous fre-
+quency distribution, in contrast to simple harmonic waves.If undergraduate courses treat only the latter, students’
+appreciation of the richness of wave phenomena will be seri-ously limited.
+At the University of Oslo, numerical modeling of the HBT
+effect was used as a one week student project for secondyear undergraduates in an oscillations and waves coursetaught in spring 2014.
+9Numerical modeling of the HBT
+effect for light was also utilized as a part of a lab for under-
+graduates at Brigham Young University in 2015.10
+There are key differences between a harmonic wave and a
+broadband wave. A single source may generate broadband
+waves, but often, broadband waves are a sum of the radiation
+from many independent sources. The HBT effect appears insituations where many broadband waves add to each other at
+the position of the detectors. The summation of waves is
+slightly different at detector A’s position compared to detec-tor B’s position when the detectors are separated. One exam-
+ple is electromagnetic waves emitted by a star, as was
+studied in the original HBT experiment. To illustrate theeffect, we have performed experiments on sound waves from
+a waterfall as a more accessible acoustic analogue.
+Since broadband waves are central throughout this paper,
+we will ﬁrst take a closer look at their characteristicproperties.
+II. BROADBAND WAVES STUDIED BY
+TIME–FREQUENCY ANALYSIS (TFA)
+A broadband wave can be generated by a single source, or
+it may be the sum of radiation from many independent sour-ces, such as in a star. In this section, we ﬁrst imagine a single
+source broadband wave that is recorded by a detector at a
+sampling frequency well beyond twice the maximum fre-quency in the wave. Thus, the time-varying amplitude is
+recorded.
+This may seem to be a strange choice, since the HBT
+experiment on Sirius was performed at the intensity level,
+20 Am. J. Phys. 90(1), January 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 20 04 October 2023 22:59:31
+because the time resolution of the detectors and associated
+instrumentation was far too low compared to the frequencyof visible light. However, waves always add at the amplitude
+level, and we will show that the HBT effect is fundamentally
+an amplitude level effect. Since there is a close connectionbetween amplitudes and intensities, it will also be possible touse it at the intensity level, as was done historically. We will
+do both in this paper.
+We model a broadband wave numerically by generating a
+Fourier spectrum where each of the frequency componentshas a random amplitude (limited by a Gaussian shape) andrandom phase. The center frequency is f
+0, and the full width
+at 1/e of max is chosen to be f0. This relative width is similar
+to the frequency distribution for visible light from Sirius, aswell as the ﬁltered sound wave signals used in our experi-ments. The wave amplitude vs. time is obtained by an
+inverse Fourier transform, and the resulting wave can be
+described by
+WtðÞ¼X
+N
+j¼1ajeixjtþc:c:; (1)
+where xjis the angular frequency of the jth component, and
+the coefﬁcients ajare complex numbers with absolute values
+chosen randomly between zero and a maximum value given
+by a Gaussian frequency distribution
+aj¼p/C1e/C0ðxj/C0x0Þ2=2x2
+0;
+where pis a random complex number with an absolute value
+between 0 and 1.
+In the numerical description, time is also discretized, but
+we leave out this detail in our expressions to simplify the
+notation.
+A short piece of such a wave is shown in Fig. 1(a).I ti sa n
+irregular train of overlapping “wavelets” with a temporalduration and spectral width limited by the time-bandwidthproduct. The dominant frequency of each wavelet varies
+within the spectral width of the overall signal. It is difﬁcult
+to visualize the statistical characteristics of a broadbandwave by only displaying amplitude vs time. Instead, wefound it very useful to use a time–frequency analysis (TFA),
+as shown in Fig. 1(b). Time–frequency analysis is now avail-
+able in a Matlab toolbox and in Python libraries. We chosethe increasingly popular scalograms of the continuous wave-let transform (CWT) based on Morlet wavelets
+11and used
+the version of this analysis described by Vistnes.12
+The relative frequency resolution is constant for all fre-
+quencies in the CWT scalogram. This is a nice feature sinceit makes it easier to optimize the choice between resolutionin time vs. resolution in frequency. A parameter K measures
+the approximate number of oscillations in the wavelet, inde-
+pendent of the frequency. Low (high) K-values give high(low) time-resolution and low (high) relative frequency reso-lution. This detail is important since time and frequency are
+tightly connected by the time-bandwidth product ( DfDT
+/C211), where Dfis the spectral width (in frequency space)
+andDTis the temporal duration of each wavelet. This is the
+classical analogy to Heisenberg’s uncertainty principle.
+Within each yellow patch in the time–frequency diagram,
+it is possible to give an approximate time of appearance, fre-
+quency, amplitude, and phase of the wave. However, all ofthese parameters change from one yellow patch to another.It is therefore impossible to deﬁne a global phase or a global
+frequency or wavelength for broadband waves. The summa-tion of broadband waves leads to non-correlated results fromtime-slot to time-slot. Each independent broadband wave isunique.
+The pattern in the TFA-diagram works like a ﬁngerprint
+of a broadband wave. Every time we generate a new inde-pendent wave, the pattern differs from previous ones, even ifthe frequency distribution is identical.
+Two important tools can characterize broadband waves:
+the autocorrelation function of a single wave, and the cross
+correlation between different broadband waves. The autocor-relation function acis deﬁned by
+acðsÞ¼
+X
+tWðtÞ/C1WðtþsÞ
+X
+tWðtÞ/C1WðtÞ: (2)
+Figure 4(a)shows the autocorrelation function for our model
+waves. The pattern is similar to a “damped oscillation” witha characteristic frequency f
+0and a decay time of the order
+the width of the frequency distribution 1 =f0. The decay of
+the autocorrelation function tells us roughly how much timeit takes from when we have complete knowledge of thewavelet until this knowledge is lost (except for the overallstatistical description). The autocorrelation function isexactly the result we get from a Michelson interferometerexperiment for any source of light, since we also in that casecompare a wave with a delayed version of itself.
+Fig. 1. (a) Amplitude vs time for a 40 ms portion of a wave generated
+numerically, with center frequency and full bandwidth (down to 1/e)
+1000 Hz, and sampling frequency 44.1 kHz. (b) Time–frequency analysis
+(TFA diagram) for the same time interval for the frequency range
+500–2000 Hz (log10 approx. 2.7–3.3). Bright (yellow online) patches corre-
+spond to time/frequency slots where the wave has a high amplitude. Dark
+(blue online) areas indicate low amplitude where no particular frequency is
+dominant within the corresponding frequency band. The TFA diagram gives
+no information about the phases of the waves.
+21 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 21 04 October 2023 22:59:31
+The cross correlation between two independent broadband
+waves W1andW2is deﬁned as
+CC¼P
+tW1ðtÞ/C1W2ðtÞﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃP
+tW1ðtÞ/C1W1ðtÞp ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ P
+tW2ðtÞ/C1W2ðtÞp : (3)
+If we follow two waves for a very long time compared to
+the inverse bandwidth ( tmax/C0tmin/C292p=x0), the cross cor-
+relation tends to zero, even if the two waves have the samestatistical distributions. This result is independent of whetherW
+1ðtÞandW2ðtÞare calculated at the same time tor if one is
+time shifted relative to the other. For shorter times, the calcu-lated cross correlation is small and statistically distributedsymmetrically around zero for repeated calculations.
+III. SUMMATION OF BROADBAND WAVES
+In HBT experiments, many uncorrelated broadband waves
+add to each other at the positions of the detectors. Let usexplore by numerical modeling what happens when we addtwo broadband waves to each other. In Fig. 2, we show a
+tiny part of two uncorrelated waves generated with identicalmean amplitude, spectral width, and center frequency (upperrow). Note the differences in the ﬁngerprint patterns. Thelower row shows two different summations of the twowaves. The summation is interesting in several ways:
+•The mean amplitude of the sums is approximately a factorofﬃﬃﬃ
+2p
+greater (not shown) than the amplitude of either
+wave, as expected for broadband waves.
+•The TFA-diagram of the sum is qualitatively identical tothe one for each of the separate waves. The ﬁngerprintsare different, but it would be impossible from the sum-TFA-diagram alone to judge if the wave were generatedby a single source or by several sources.
+•More important for this discussion, the ﬁngerprint patternof a sum wave is not a simple sum of the TFA-diagramsof the two original signals. The reason is that the twowaves interfere constructively during some time segments,but destructively during others. The sum depends on thedetailed variation of frequency, amplitude, and phase dur-ing the span of the diagram.
+•The sum changes if the two waves are time-shifted relativeto each other. If the time shift is much less than half theperiod T
+mof the dominant frequency, the sum wave is not
+changed much. However, the changes get more and moredramatic as the time shift is increased to T
+m=2 and beyond.
+The effect is more complex than what we are used to for
+harmonic waves.
+IV. SUMMATION OF WAVES IN A TYPICAL HBT
+EXPERIMENT
+We will now apply our basic knowledge about the summa-
+tion of broadband waves to an HBT experiment. Typically,many independent but identical sources of broadband wavesare conﬁned to a limited area in space. For simplicity, let 2 n
+sources be positioned along a straight line of length L¼2L
+0
+(see Fig. 3). Two identical detectors, AandB, are placed a
+distance Dfrom the source line, in the symmetrical manner
+shown in the ﬁgure. The distance d¼2d0between the detec-
+tors can be varied. Waves from all 2 nsources will reach both
+detectors, and the resulting wave at either detector is the sumof all 2 nsource waves. Let W
+AðtÞandWBðtÞbe the wavesdetected by AandBat time t, and let WkðtÞbe the wave
+emitted from source kat time t. We assume that D/C29dand
+D/C29Land neglect the change of amplitude due to the varia-
+tion of the source-detector distance.
+In order to calculate WA(WB), we need to know the time
+of ﬂight for each component wave, which is proportional tothe path length from the source to detector. Let a
+kbe the
+path length from the source kto detector Afor the left half of
+L. For sources on the right half of L, we use the index k0and
+denote the path lengths ak0
+Fig. 2. (a) and (b) TFA diagrams for two broadband waves having identical
+frequency distributions. The time (x-axis, 0.3 s) and frequency span (y-axis)are the same in both diagrams. (c) and (d) Summations of these two waves.
+(c) No time shift between the two waves. (d) Wave 2 is shifted 0.5 ms (only
+0.17% of the time span shown) before the summation. The “ﬁngerprint” pat-
+tern is clearly different for all four diagrams.
+Fig. 3. The principal geometry for an HBT experiment: a source consisting
+of a large number of independent broadband wave sources (here aligned
+along a line) and two detectors. The cross correlation between the detected
+signals is determined as a function of the distance between the detectors.
+22 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 22 04 October 2023 22:59:31
+ak¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+D2þk
+nL0/C0d0/C18/C192s
+/C25Dþ1
+2Dk
+nL0/C0d0/C18/C192
+;
+ak0¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+D2þ/C18k0
+nL0þd0/C192s
+/C25Dþ1
+2Dk0
+nL0þd0/C18/C192
+;
+fork;k0¼1;2; ::::; n. This can be rewritten as
+ak/C25X/C0L0d0
+Dk
+n;
+ak0/C25XþL0d0
+Dk0
+n;
+where
+X¼Dþ1
+2DkL0
+n/C18/C192
+þd02"#
+:
+Note that Xis identical in the two expressions if k0¼k.
+The time of propagation from source element kto detector
+AistA;k¼ak=c, where cis the speed of the wave. Waves
+from the left part of the source are denoted by Wand from
+the right part W0, and we sum symmetrically, that is k¼k0,
+and get
+WAðtÞ¼X
+kWkðt/C0ak=cÞþW0
+kðt/C0ak0=cÞ/C2/C3
+or
+WAðtÞ¼X
+kWkðt0þkd=cÞþW0
+kðt0/C0kd=cÞ/C2/C3
+; (4)
+where k¼1;2; ::::; n;t0¼t/C0X=c, and d¼L0d0=Dn.
+Similarly,
+WBðtÞ¼X
+kWkðt0/C0kd=cÞ/C0W0
+kðt0þkd=cÞ/C2/C3
+: (5)
+In an HBT experiment, the cross-correlation between WA
+andWBis measured as a function of the distance between the
+detectors. From Eq. (3), the cross-correlation is
+CC¼X
+tWAðtÞ/C1WBðtÞ
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃX
+tWAðtÞ/C1WAðtÞr ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ X
+tWBðtÞ/C1WBðtÞr
+/C17X
+tWAðtÞ/C1WBðtÞ
+N0; (6)
+where the denominator is the product of the average ampli-
+tudes of the two waves and is a constant. From Eqs. (4)and
+(5), the cross correlation will consist of 4 n2terms, where
+4n2/C02nof them are cross-correlations of waves emitted by
+different sources. Since these component waves are indepen-dent, these terms will be zero. The 2 nsurviving terms in the
+numerator are
+X
+t0X
+kWkðt0/C0kd=cÞWkðt0þkd=cÞ
+þX
+t0X
+kW0
+kðt0þkd=cÞW0
+kðt0/C0kd=cÞ:Note that for WA, the wave from source karrives before
+the wave from source k0, while it is the other way around for
+WB. It follows that the TFA-diagrams for detectors AandB
+will not differ signiﬁcantly if nd=cis much less than half the
+period of the dominant wavelength, Tm=2.
+Interchanging the summations over time and wave source,
+we ﬁnd
+X
+kX
+t00Wkðt00ÞWkðt00þ2kd=cÞ
+þX
+kX
+t00W0
+kðt00ÞW0
+kðt00/C02kd=cÞ:
+According to Eq. (2), this is just proportional to the sum of
+autocorrelation values. Since the autocorrelation function issymmetric around zero, we simply get
+CC/X
+kacð2kd=cÞ; (7)
+which is equivalent to an integral of the autocorrelation func-
+tion over an interval from 0 to a maximum value 2 nd=c
+¼ðLd=2DÞ=ccorresponding to a maximum path difference
+D¼Ld
+2D: (8)
+Since the denominator in our cross-correlation calculation
+does not depend on k, we are free to choose a normalization
+constant so that CC¼1.0 when the detectors are very close
+to each other. The cross correlation will then simply be themean value of the autocorrelation function of the componentwaves over an interval from zero to D.
+Figure 4(a)shows the autocorrelation function for a single
+broadband wave while Fig. 4(b)shows the normalized cross
+correlation calculated as a function of the maximum timeshiftD=cdivided by the period T
+mof the dominant fre-
+quency, or
+D=c
+Tm¼D
+km¼L
+2Dd
+km¼d
+kmtanðh=2Þ; (9)
+where kmis the dominant wavelength and his the angle
+subtended by the source at the location of the detectors. Bymeasuring how the cross correlation changes with the dis-tance between the detectors, it is possible to calculate theratio L/D, or the angle hsubtended by the entire source of
+waves, assuming we know the dominant frequency of thebroadband waves emitted by the source. This is the essenceof the original HBT experiment, and we will return to it inSec.Xat the end of this paper.
+V. EXPERIMENTAL
+To experimentally test our model of the HBT effect, we
+used sound waves with a frequency spectrum far lower thanthe sampling frequency of inexpensive, readily availabledigitizers. This allows us to ﬁrst work with signal amplitudesand later add an analysis based on intensities.
+A waterfall at a dam in Akerselva river (Oslo, Norway)
+was used as a source of broadband waves. The waterfall hada relatively even ﬂow across all of its width (approximately17 m). Two microphones were mounted on camera tripods,and the distance between them was varied from 9 to 10 m,
+23 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 23 04 October 2023 22:59:31
+moving each microphone symmetrically around a stationary
+midpoint. We placed the front of the microphones along therail of a walking bridge that ran nearly parallel to the water-
+fall, at a distance of approximately 78 m from the waterfall.
+See Figs. 5and6. Note the similarity between Figs. 3and6.
+The sound level from the waterfall was approximately60 dB(A), which is approximately the sound level of conver-sation. Since we carried out the measurements very early inthe morning, before road trafﬁc began, there were no otheraudible sources of sound nearby. The landscape on bothsides of the waterfall had no obvious sound-reﬂectingobjects, so the recorded signals were mainly direct soundfrom the waterfall.
+We used Sennheiser MKH 8070 microphones, which had
+close to a perfectly uniform sensitivity throughout the angu-lar extension of the waterfall ( 62 dB over 13
+/C14). Two
+Focusrite Scarlett Solo second generation audio interfacespowered and ampliﬁed the microphone signals. A NationalInstruments USB 6211 (16 channel, 16 bit, maximum samplerate 250 kS/s) multifunction I/O unit digitized the resulting
+signals, and a Dell XPS laptop computer controlled the digi-tizer at a sampling rate of 44 150 S/s. The time differencebetween samples from the two microphones was so smallthat it did not inﬂuence our results at the frequencies used inthis work. The data sampling period was 5 s, and the mea-surements were repeated three times for each chosen micro-phone distance. The electronic measurement equipment waspowered by a Mascot inverter Type 2285 connected to a12 V battery. The inverter provided 230 V true sine wave tominimize the noise from this source. We found no trace of50 Hz harmonics in the recorded signal.
+We wrote the analysis software using Matlab. Essential
+functions used were sampling and storing to disk, fastFourier transform, frequency ﬁltering based on Fourier
+Fig. 5. Experimental setup with two microphones directed toward the center
+of the waterfall.
+Fig. 6. Geometrical relationship between the waterfall and the line of posi-
+tions for the microphones. A red (online) dot indicates the symmetry point
+for the microphones. The 5/C14offset was compensated for by a systematic and
+progressively larger time shift of signal Arelative to signal Bbefore the
+cross correlations were calculated.Fig. 4. (a) The autocorrelation function for a single broadband wave
+described in Secs. IIandIII. x-axis values are fractions of the period of the
+dominant frequency Tm. (b) The “mean value” of the autocorrelation func-
+tion over an interval from 0 to D=c. According to Eq. (7), this is also the
+cross-correlation of multiple source waves arriving at detectors AandB.x -
+axis values are fractions of Tm. (c) The same curve as (b), but with logarith-
+mic ( log10) axis. The mean autocorrelation value (the cross-correlation
+value) drops to 0.5 when D, the maximum difference in distances between a
+detector and the sources, is 0.30 times the dominating wavelength
+( log10ð0:30Þ¼/C0 0:52). Compare this ﬁgure with similar ﬁgures for the
+experimental and theoretical data later in this paper.
+24 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 24 04 October 2023 22:59:31
+transform, calculation of the autocorrelation and cross corre-
+lation functions, and the time-resolved frequency analysis(TFA) described in Sec. II.
+In Sec. IV, we assumed that the distance between the
+source and the detectors Dis very much larger than the width
+of the source L. In our experiment, this assumption is not
+strictly valid since Dis only /C254:5L, leaving us uncertain
+about whether our formalism would work well for our exper-
+imental work. Fortunately, it can be shown that the potentialproblem vanishes if the geometry is strictly symmetric.However, the midpoint between the microphones is offset by5
+/C14from the midpoint of the waterfall (see Fig. 6). We com-
+pensated for this slight asymmetry by a systematic and pro-gressively larger time shift of signal Arelative to signal Bas
+the microphone separation was increased, before the cross
+correlations were calculated. These details play only a minorrole.
+VI. RESULTS, ANALYSIS OF THE CORRELATIONS
+AT THE AMPLITUDE LEVEL
+The microphones record sound waves at the amp litude level
+(sound pressure vs time). The frequency spectrum of therecorded sound stretched from approximately 25 to 8000 Hz andshowed a broad peak in amplitude around 95 Hz. Figure 7(a)
+shows only a part of the frequency spectrum.
+The broad spectrum makes it impossible to identify a
+dominant frequency. We therefore passed the signal througha Gaussian ﬁlter, using a fast Fourier transform (FFT) andinverse FFT after the ﬁltering. This allowed us to select fourfrequency bands in our analysis, with center frequenciesf
+0¼100, 300, 600, and 1000 Hz. In each case, the full band-
+width (at 1/e of the maximum) is equal to f0. Figure 7(b)
+shows the spectrum of a ﬁltered signal.
+As discussed earlier, a time frequency analysis (TFA) can
+ease the understanding of the physics underlying the HBTeffect, and Fig. 8provides an example. These diagrams are sim-
+ilar to those obtained earlier by numerical modeling (Fig. 2).
+Figure 9(a) shows how the cross correlation between the
+two microphone signals changes with the distance betweenthe microphones, for the four frequency bands listed above.
+These data are qualitatively very similar to the results from
+our numerical modeling shown in Fig. 4(c). In Fig. 9(a),
+each curve starts close to 1.0 when the microphones are closeto each other, but after a characteristic plateau drops rathersharply to zero. The microphone distances that correspond to
+a cross correlation of 0.5 are approximately 8.1, 3.2, 1.7, and1.0 m for the ﬁlter frequencies 100, 300, 600, and 1000 Hz.Note that the shapes of the four curves are similar, and that
+as the ﬁlter frequency increases (wavelength decreases) there
+is a shift toward shorter microphone distances.
+In Fig. 9(b), we have “normalized” the distance between
+the microphones by multiplying the actual microphone dis-tance by 3, 6, and 10 for the frequency bands centered on300, 600, and 1000 Hz, respectively. Thus, the four curvesall correspond to an “effective” wavelength equal to thewavelength for 100 Hz ﬁltering.Fig. 7. (a) Part of the full frequency spectrum of the sound from the waterfall. (b) Frequency spectrum of the original signal ﬁltered with a Gaussian ﬁl ter with
+a center frequency of 600 Hz and a full width of 600 Hz. The asymmetry in the ﬁnal frequency spectrum is due to the peak between 100 and 200 Hz in the orig-
+inal signal.
+Fig. 8. Time–frequency analysis for 600 Hz ﬁltered microphone signals for
+three distances between the microphones. The patterns from left and rightmicrophones are (a) nearly identical when they are only 9 cm apart, (b)
+slightly different for 53 cm distance between the microphones, and (c) vastly
+different when the microphones are 300 cm apart. This correlates with the
+cross correlations calculated for each set of /C255 s recordings. In all six TFA-
+diagrams, the time interval shown is 40 ms, and the frequency range (loga-
+rithmic scale) is 350–950 Hz. The K-value (discussed in Sec. II) is 6 (high
+time resolution, moderate frequency resolution).
+25 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 25 04 October 2023 22:59:31
+The four curves overlap strongly, indicating that the HBT
+effect depends heavily on the dominant wavelength of the
+summed signal. A detailed explanation of the collapse of the
+scaled curves will be given in Sec. VIII.
+VII. THE CRUCIAL CONNECTION BETWEEN THE
+AMPLITUDE LEVEL AND INTENSITY LEVEL
+So far, our analysis has used signal amplitudes, whereas
+the original HBT analysis was based on intensities. Let us
+look into the connection between these two levels of detec-
+tion and analysis.
+The intensity of a wave is proportional to its amplitude
+squared. If we choose just two components in the summation
+of waves, with frequencies x1andx2, the signal intensity
+will have components at both the sum and difference fre-
+quencies. This is easily proved analytically. For a broadband
+signal, the difference frequencies can appear several decades
+lower in frequency than the original signal (all the way to
+0 Hz). In the original HBT experiment, the signal from each
+detector was sent to a bandpass ﬁlter before analysis. The
+passband was several orders of magnitude lower than the fre-
+quency of light, but still high enough to measure cross corre-
+lations within an acceptable recording time.
+In our experiments, we recorded very broadband signals
+and ﬁltered them to obtain a narrower frequency distribution.
+The relative intensities of these ﬁltered signals were calcu-lated by squaring the amplitude at every point in time. A
+Fourier analysis of a typical result is shown in Fig. 10. The
+original signal in this example was ﬁltered using the
+Gaussian ﬁlter centered at 600 Hz with full bandwidth
+600 Hz (see Fig. 7(b)), so the intensity frequency spectrum is
+very wide, and there is an overlap between the difference
+and sum frequencies. If the original ﬁlter had been narrower,
+the difference and sum frequency spectra would have been
+more distinct.
+Using our waterfall data, we ﬁrst calculated cross correla-
+tions for the complete intensity signal (e.g., such as that
+shown in Fig. 10), including both difference and sum fre-
+quencies. Then, we used a bandpass ﬁlter to select parts of
+the difference frequency signal to study how ﬁltering inﬂu-
+ences the result.
+We ﬁrst ﬁltered the microphone signal at the amplitude
+level, using the same Gaussian ﬁlters as described above.Squaring the amplitudes point for point along the complete
+recording gave us the intensity signals. Finally, we calcu-lated the cross correlation between the right and left micro-phone intensity signals for all 17 microphone distances asbefore. The results are displayed in Fig. 11(a) .
+Figure 11(a) looks very similar to the amplitude analysis
+result in Fig. 9(a), but the curves are slightly shifted toward
+smaller microphone distances. Moreover, the curves do notgo to zero for large microphone distances, but fall to a levelof approximately 0.33 (see Eq. (14)below for an explanation
+for this). Thus, instead of choosing the 0.5 cross correlationpoint to characterize the drop in correlation, as we did at theamplitude level, we chose the 0.67 cross correlation point asa characteristic parameter. The microphone distances thatcorrespond to this point are 5.8, 2.1, 1.2, and 0.6 m for thesignals with dominant frequency 100, 300, 600, and1000 Hz, respectively. When plotting the cross correlation vsthe normalized microphone separation (Fig. 11(b) ), the four
+curves overlap quite well, illustrating once again the wave-length dependence of the correlation.
+In the original HBT work, analyses were necessarily per-
+formed within a frequency band very much lower than thatof light itself (ﬁlter passband 5–45 MHz, while dominant fre-quency of visible light from Sirius is /C255:5/C210
+14Hz). InFig. 9. (a) Cross correlation between the two microphone signals as a function of distance between the microphones. The numbers in black are the four fr e-
+quency bands used in the analysis. Blue (online) plus signs ( þ) indicate the distances where data were taken. Each point on the graph is the mean value of three
+recordings. (b) The same data, but the x-axis is the “normalized distance” between the microphones.
+Fig. 10. Frequency spectrum of the square of the microphone signal after
+passing through a bandpass ﬁlter centered on 600 Hz (same signal as given
+in Fig. 7(b)). We removed the very high intensity point at zero frequency in
+this plot.
+26 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 26 04 October 2023 22:59:31
+our case, however, it was difﬁcult to obtain widely separated
+frequency bands for the original signal and the analyzed sig-nal, because the frequency of the sound from the waterfall
+was too low. Nevertheless, we performed several analyses
+where the full intensity signal was ﬁltered before calculatingthe cross correlation, to mimic the process used in the origi-
+nal HBT work. The characteristic cross correlation parameter
+for these ﬁltered intensity signals was equal to that of the fullintensity signal within uncertainty. This suggests that we
+would have obtained the same results, even if we had to rely
+only on intensity ﬂuctuations within a frequency band farlower than the wave frequency itself, as was the case in the
+original HBT work.
+VIII. THEORETICAL TREATMENT OF OUR
+SYSTEM
+In this section, we provide a theoretical analysis of the
+experiment, showing how one can explain the scaling of thecross correlation with the normalized detector separation
+illustrated in Figs. 9(b)and11(b) , as well as the fact that the
+intensity correlation in Fig. 11decays to a level different
+from zero. The model that we use is a direct generalizationof the large number of sources model presented in Fig. 3.
+The difference between the treatment here and that in
+Sec.IVis that we use a continuous line of sources instead of
+a discretized one. In this approach, it is easier to derive the
+scaling relation of the cross correlation, while the treatment
+in Sec. IVis more directly suitable for numerical implemen-
+tation. We believe that the ability to switch between repre-
+sentations is a useful skill for students and that repeating the
+same analysis in both forms is a useful exercise.
+Once again, we consider (see Fig. 12) a line of sources
+with length L. The detectors are separated by a distance d
+and the perpendicular distance from the source line to the
+midpoint between the detectors is D. Unlike the previous
+treatment, the midpoint of the line of sources is displaced a
+distance sfrom the center line between the detectors, thereby
+accounting for the actual asymmetry in our experiment.
+We assume that there are independent sources of broad-
+band waves at each position xwhere /C0L=2/C20x/C20L=2 and
+that these waves reach the detectors with equal amplitude
+but different time shifts. The quantity W
+kðtÞin Sec. IVmustnow be replaced by a continuous function W(x,t). The signal
+received at detector A is then
+WAðtÞ¼ðL=2
+/C0L=2dxWðx;t/C0rA=cÞ;
+where cis the speed of sound and rAðxÞis the distance from
+the source at xto detector A. A similar expression describes
+the signal WBðtÞreceived by detector B. We then have
+rA=BðxÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ ﬃ
+D2þxþs7d
+2/C18/C192s
+/C25Dþ1
+2Dxþs7d
+2/C18/C192
+; (10)
+when Dis large compared to x,s, and d. The cross correla-
+tion of the amplitudes in the two detectors is proportional to
+hWAWBi¼ð
+dx1dx2hWðx1;t/C0rAðx1Þ=cÞ
+/C2Wðx2;t/C0rBðx2Þ=cÞi;
+where h/C1 /C1 /C1i indicates time averaging. We assume that the
+sources at different xare uncorrelated and stationary so thatFig. 11. (a) Cross correlation between the complete intensity signals at the two microphones as a function of distance between the microphones. Numbe rs in
+black indicate the different frequency bands. Each data point is the mean value for three recordings. (b) The same data, but the x-axis is the normalize d distance
+between the microphones.
+Fig. 12. Geometry used in the analysis, including the shift sof the midpoint
+of the line of sources.
+27 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 27 04 October 2023 22:59:31
+hWðx1;t1ÞWðx2;t2Þi ¼ dðx1/C0x2Þacðt1/C0t2Þ;
+where ac(t) is the autocorrelation function for the signal
+from a single source. Using Eq. (10) we get the cross
+correlation
+CC/hWAWBi¼ðL=2
+/C0L=2dxacðr/C0ðxÞ=c/C0rþðxÞ=cÞ
+¼ðL=2
+/C0L=2dxacd
+DcðsþxÞ/C18/C19
+:
+This is the continuous analog to Eq. (7).
+Let us now assume that the sources are broadband with a
+large number of frequencies contributing. Then the source
+will produce a signal
+Wðx;tÞ¼ð
+dxAðxÞcosðxtþ/xÞ;
+where the phases /xare random numbers between 0 and 2 p
+and are independent for each x. The amplitudes AðxÞeither
+describe the actual spectral distribution of the source, or thecharacteristics of the ﬁlter used in the experiment. The latterchoice will be used below. Since we have assumed that all
+sources are statistically equivalent, the resulting autocorrela-
+tion function is independent of x. Using Eq. (2), we get
+acðsÞ¼
+1
+2Tð
+dxdx0AðxÞAðx0ÞðT
+/C0Tdtcosðxtþ/xÞ
+/C2cosðx0ðtþsÞþ/x0Þ:
+The average of the cosine product is zero unless x0¼x, and
+we get
+acðsÞ¼1
+2ð
+dxA2ðxÞcosxs:
+Using a Gaussian ﬁlter
+AðxÞ¼e/C0ðx/C0x0Þ2
+2r2;
+so
+acðsÞ¼1
+2ð
+dxe/C0ðx/C0x0Þ2
+r2cosxs¼ﬃﬃﬃppr
+2e/C0r2s2
+4cosx0s;
+where r¼x0=2ﬃﬃﬃ
+2p
+for the ﬁlters used in this experiment.
+We then get for the cross correlation
+CC¼Dc
+Ldx0ðu0þus
+/C0u0þusdue/C0au2cosu; (11)
+where we have normalized by requiring that CC¼1 when
+d¼0, and introduced the new variables
+u¼dx0
+DcxþsðÞ ;u0¼Ldx0
+2Dc;us¼sdx0
+Dc;
+and a¼r2
+4x2
+0: (12)
+From (11)and(12), we see that the cross correlation depends
+only on the product dx0as long as we keep the ratio r=x0ﬁxed, so that ais the same for all x0. This explains why the
+four curves shown in Fig. 9(b) overlap when plotted against
+the scaled axis dx0. Using Eq. (8), we see that CC depends
+on the ratio D=km, where kmis the dominant wavelength of
+the received signal. This implies that the cross correlationcan be used to ﬁnd the subtended angle of the source as inthe original HBT experiment.
+IX. ANALYSIS AT THE INTENSITY LEVEL
+The intensity is the square of the amplitude, I
+A=B¼W2
+A=B.
+The cross correlation of the intensities is
+hIAIBi¼ð
+dx1dx0
+1dx2dx02hWðx1;t/C0rþðx1Þ=cÞ
+/C2Wðx0
+1;t/C0rþðx0
+1Þ=cÞWðx2;t/C0r/C0ðx2Þ=cÞ
+/C2Wðx0
+2;t/C0r/C0ðx0
+2Þ=cÞi:
+Since the sources are independent at each position, the coor-
+dinates must be pairwise equal, so that either
+x1¼x0
+1
+x2¼x0
+2orx1¼x2
+x0
+1¼x0
+2orx1¼x0
+2
+x01¼x2:
+The last two combinations give equal contributions because
+of symmetry, and we get
+hIAIBi¼ð
+dxacð0Þ2þ2ð
+dx1dx2acd
+Dcðsþx1Þ/C18/C19
+/C2acd
+Dcðsþx2Þ/C18/C19
+¼hIAihIBiþ2CC2: (13)
+Thus, we see that there is a close connection between the
+amplitude and intensity correlations. (For a further discus-
+sion of this, see the review of Baym.7) Equation (13)
+explains why the intensity correlation approaches a non-zero value at large dand also explains the collapse of
+the experimental data at the intensity level, as seen inFig.11(b) .
+It is interesting to compare the measured cross correlations
+at the intensity and amplitude levels with the theoretical pre-dictions. Since we normalized the correlation functions to 1atd¼0, we rewrite the relation between cross correlations
+of the amplitude and intensity, Eq. (13), in terms of normal-
+ized correlations as
+hI
+AIBi¼1
+3þ2
+3CC2: (14)
+In Fig. 13we show the theoretical curves found by numer-
+ical integration of (11) and using (14). In the numerical cal-
+culations we used the measured width ( L¼17 m) and
+distance ( D¼78 m) of the waterfall, so the curves shown
+have no ﬁtting parameters. We see that the curves ﬁt wellwith the observed data, conﬁrming that the observed crosscorrelation is consistent with the known width of the water-fall. In a real HBT experiment, LandDare unknown, so the
+ratio must be inserted as an adjustable parameter to achievethe best ﬁt to the data.
+To connect with the discussion of Fig. 9, we can use the
+numerical integration of Eq. (11)to ﬁnd that CC ¼0.5 corre-
+sponds to D=k
+m¼0:30 when choosing s¼0. Using Eq. (14)
+28 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 28 04 October 2023 22:59:31
+we can also ﬁnd that selecting hIAIBi¼2=3 corresponds to
+CC¼1=ﬃﬃﬃ
+2p
+, which gives the value D=km¼0:22.
+X. SUMMARY
+We have in Secs. IV,VIII, and IXdetermined the
+expected normalized cross correlation (CC) in a HBT experi-
+ment for a given geometry and frequency distribution of thecontributing waves. The shapes of the CC curves are all sim-
+ilar and can be characterized by the D=k
+m-value where the
+CC curves drop to 0.50 or 0.67 for amplitude and intensitymeasurements, respectively. The shapes of the CC curves in
+our experiments are very similar to those obtained by numer-
+ical or analytical modeling. This allows us to use our model-ing to determine the angular extent of the source from
+experimental data, as was done in the original HBT work.
+Rearranging Eq. (9)gives us the connection between the
+geometry of the linear HBT setup and D=k
+m
+tanðh=2Þ¼D
+km/C1km
+d: (15)
+The ﬁrst term is determined from our modeling: D=km
+¼0:30 for amplitude measurements or 0.22 for intensity
+measurements. The second term comes from our experi-
+ments: dis the detector separation where the CC curves drop
+to 0.50 or 0.67 when the dominant wavelength is km. The
+results from our experimental amplitude data are shown in
+Table I.
+We hesitate to specify the accuracy of these numbers,
+since we were not able to get a perfect Gaussian frequency
+distribution in our experimental work. The 100 Hz result
+deviates from the other three. This is not surprising, since d
+is so large in this case that the asymmetry in ourexperimental setup plays a more signiﬁcant role than for the
+other cases.
+The results from our experimental intensity data are
+shown in Table II.
+If we exclude the 100 Hz results, the mean value of the
+desired angle is 11.6/C14based on the amplitude data and 13.1/C14
+based on the intensity data. Using direct measurements of D
+andL(see Fig. 6), we get: tan ðh=2Þ¼8:5=78 or h¼12:4/C14.
+That is, the angles determined experimentally from Eq. (15),
+using either amplitude or intensity data, are both close to the
+angle determined by direct geometrical measurements.The uncertainty is estimated to be between 5% and 10%.
+The consistency in our total work is very satisfying.
+It is interesting to compare our results with the original
+HBT work.2Let us assume that their estimate of the angular
+extent of Sirius, 0.0068 arc sec, is correct. They observed a
+drop in cross correlation in the intensity of the light, half-way from max to the limiting value (normalized CC ¼0.67
+in our language), when d¼8ma n da k
+m/C25500 nm. The
+calculated D=kmis then /C250:26. This is about 20% larger
+than our result. This difference can probably be ascribed to
+the difference in geometry of the source for their broadband
+waves (circular in the 1956 HBT study and linear in ourwork). In addition, the autocorrelation functions for their
+waves (blackbody radiation) and our Gaussian frequency
+distributed waves are not identical, even though we choseour total bandwidth to be similar to their experiment. Their
+autocorrelation function will in general deviate a bit from
+our modeling.
+The similarity between the original HBT work
+2and our
+results is remarkable since we are working with completely
+different kinds of waves: sound waves in air compared to
+electromagnetic waves in the visual range. The frequencies
+differ by a factor 1012, and the wavelengths and apparentFig. 13. The theoretical predictions (thick lines) together with the observed cross correlations. The left ﬁgure shows the cross correlation of the a mplitudes
+together with the prediction from Eq. (11), while the right ﬁgure shows the correlation of the intensities. The cross correlation of amplitudes becomes slightly
+negative before it goes to zero. This weak anti-correlation is easily seen in the theoretical curve, but is also observed experimentally (as well as in Fig.4). Note
+that there are no ﬁtting parameters; the theoretical curves are based on measured parameters.
+Table I. Angle of the source determined from measurements at the ampli-
+tude level.
+fm(Hz) 100 300 600 1000
+km(m) 3.37 1.12 0.56 0.34
+d(m) 8.1 3.2 1.7 1.0
+h(deg) 14.3 12.0 11.3 11.6Table II. Angle of the source determined from measurements at the intensity
+level.
+fm(Hz) 100 300 600 1000
+km(m) 3.37 1.12 0.56 0.34
+d(m) 5.8 2.1 1.2 0.6
+h(/C14) 14.6 13.3 11.8 14.2
+29 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 29 04 October 2023 22:59:31
+angular size of the object as judged from the observer differ
+by approximately a factor of 107.
+XI. OUR WORK IN A WIDER PERSPECTIVE
+The 1956 HBT paper led to heated discussions about the
+nature of light and interpretations of quantum mechanics.13
+One can only wonder how the discussions of that timewould have been if physicists knew that the HBT effectcould also be demonstrated for sound waves. Today, theparticle-like photon is the most common mental picture oflight, but our description in this paper is based purely onwaves, in compliance with Hanbury Brown’s view. Theimmediate mental pictures we get from concepts like“photon bunching” and “correlated photons” are incompati-ble with our description of broadband waves and the TFAdiagrams shown in Fig. 2.
+Even today, there are several different, conﬂicting views
+of the nature of light, and numerous physicists have pointedout this problem. In 2013, Schlosshauer et al.
+14wrote:
+“Quantum theory is based on a clear mathematical appa-ratus… Yet, nearly 90 years after the theory’s development,there is still no consensus in the scientiﬁc community regard-ing the interpretation of the theory’s foundational buildingblocks.” While these authors are referring to different inter-pretations of quantum mechanics, the lack of consensus theydescribe heavily inﬂuences the current array of opinionsregarding the nature of light as well.
+We believe that it is important to introduce this dilemma
+to physics students and have some experience doing this atboth the high school and university levels.
+15It is our hope
+that this paper will inspire constructive student discussionsabout the nature of light. Perhaps the new generation ofbright young physicists will be able to correct the currentsituation by ﬁnding a unifying description of light.a)Electronic mail: a.i.vistnes@fys.uio.no; Permanent address: Kurlandslia
+20, 1479 Kurland, Norway.
+b)Electronic mail: joakim.bergli@fys.uio.no
+1R. Hanbury Brown and R. Q. Twiss, “LXXIV. A new type of interferome-ter for use in radio astronomy,” London, Edinburgh, Dublin Philos. Mag.
+J. Sci. 45, 663–682 (1954).
+2R. Hanbury Brown and R. Q. Twiss, “A test of a new type of stellar inter-
+ferometer on Sirius,” Nature 178, 1046–1048 (1956).
+3R. Q. Twiss, A. G. Little, and R. Hanbury Brown, “Correlation between
+photons, in coherent beams of light, detected by a coincidence counting
+technique,” Nature 180, 324–326 (1957).
+4K. Hentschel, Photons. The History and Mental Models of Light Quanta
+(Springer, New York, 2018).
+5R. J. Glauber, Quantum Theory of Optical Coherence. Selected Papers
+and Lectures (Wiley-VCH Verlag, New York, 2007).
+6L. Mandel and E. Wolf, Optical Coherence and Quantum Optics (Cambridge
+U.P., Cambridge, 1995); See chapters 9.8–9.11 and references therein.
+7G. Baym, “The physics of Hanbury Brown–Twiss intensity interferome-try: From stars to nuclear collisions,” e-print arXiv:nucl-th/9804026v2
+(1998).
+8M. D. Caballero and M. Hjorth-Jensen, “Integrating a computational per-spective in physics courses,” e-print arXiv:1802.08871 (2018).
+9A. I. Vistnes, “FYS2130: Oscillations and waves, numerical project. Partly
+described in Vistnes, A. I. (2014),” Physics of Oscillations and Waves,
+with Use of Matlab and Python (Springer, New York, 2018), Chap. 15.
+10A. Kingsley and D. Durfee, Instructional Lab for Undergraduates
+Utilizing the Hanbury Brown and Twiss Effect , Bachelor Project Report
+(Brigham Young University, Provo, 2015).
+11W. C. Lang and K. Forinash, “Time-frequency analysis with the continu-ous wavelet transform,” Am. J. Phys. 66, 794–797 (1998).
+12A. I. Vistnes, Physics of Oscillations and Waves, with Use of Matlab and
+Python (Springer, New York, 2018), Chap. 14.
+13I. Silva and O. Freire, Jr., “The concept of the photon in question: The con-
+troversy surrounding the HBT effect circa 1956-1958,” Hist. Stud. Nat.
+Sci.43(4), 453–491 (2013).
+14M. Schlosshauer, J. Koﬂer, and A. Zeilinger, “A snapshot of foundational
+attitudes toward quantum mechanics,” e-print arXiv:1301.1069v1 (2013).
+15E. K. Henriksen, C. Angell, A. I. Vistnes, and B. Bungum, “What is light?
+Students’ reﬂections on the wave-particle duality of light and the nature of
+physics,” Sci. Educ. 27(3), 81–111 (2018).
+30 Am. J. Phys., Vol. 90, No. 1, January 2022 A. I. Vistnes and J. Bergli 30 04 October 2023 22:59:31

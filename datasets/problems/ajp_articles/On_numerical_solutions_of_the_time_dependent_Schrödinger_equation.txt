@@ -1,0 +1,1388 @@
+
+View
+Online
+Export
+CitationCrossMarkOCTOBER 01 2023
+On numerical solutions of the time-dependent Schrödinger
+equation 
+Wytse van Dijk  
+Am. J. Phys.  91, 826–839 (2023)
+https://doi.org/10.1 119/5.0159866
+Articles Y ou May Be Interested In
+Micromagnetic simulations of sweep-rate dependent coercivity in perpendicular recording media
+J. Appl. Phys.  (June 2012)
+Numerical anomalies in the Rayleigh–Ritz method for calculating the normal mode vibrations of arbitrarily
+shaped elastic solids
+J Acoust Soc Am  (May 1995)
+On the performance of four-component relativistic density functional theory: Spectroscopic constants and
+dipole moments of the diatomics HX and XY (X,Y=F , Cl, Br , and I)
+J. Chem. Phys.  (May 2003) 04 October 2023 22:58:16
+COMPUTATIONAL PHYSICS
+The Computational Physics Section publishes articles that help students and instructors learn about the com-
+putational tools used in contemporary research. Interested authors are encouraged to send a proposal to theeditors of the Section, Jan Tobochnik (jant@kzoo.edu) or Harvey Gould (hgould@clarku.edu). Summarize
+the physics and the algorithm you wish to discuss and how the material would be accessible to advanced
+undergraduates or beginning graduate students.
+On numerical solutions of the time-dependent Schr €odinger equation
+Wytse van Dijka)
+Department of Physics and Astronomy, McMaster University, Hamilton, Ontario, Canada L8S 4M1;
+and Redeemer University, Ancaster, Ontario, Canada L9K 1J4
+(Received 10 February 2023; accepted 29 May 2023)
+We review an explicit approach to obtaining numerical solutions of the Schr €odinger equation that
+is conceptionally straightforward and capable of signiﬁcant accuracy and efﬁciency. The method
+and its efﬁcacy are illustrated with several examples. Because of its explicit nature, the algorithm
+can be readily extended to systems with a higher number of spatial dimensions. We show that themethod also generalizes the staggered-time approach of Visscher and allows for the accurate
+calculation of the real and imaginary parts of the wave function separately.
+#2023 Published under an
+exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/5.0159866
+I. INTRODUCTION
+The time-dependent Schr €odinger equation can be written as
+i/C22h@
+@t/C0H/C18/C19
+wðr;tÞ¼0; (1)
+with
+wðr;t0Þ¼/ðrÞ: (2)
+HðrÞis the time-independent Hamiltonian operator,
+H¼/C0/C22h2
+2mr2þUðrÞ; (3)
+where /C22his the Planck constant, mis the mass of the particle,
+andUðrÞis the potential energy. The solution of Eq. (1)has
+the initial wave function at time t0as input. We can show
+that
+wðr;tþDtÞ¼e/C0iHDt=/C22hwðr;tÞ (4)
+satisﬁes Eq. (1)for any Dt. The solutions of Eq. (1)describe
+a large variety of nonrelativistic atomic and subatomic sys-
+tems. Usually, a limited number of closed-form solutions arediscussed, but these are few and often describe approxima-
+tions of physical systems. Although these solutions provide
+valuable insight, we need to solve the Schr €odinger equation
+numerically to determine accurate wave functions or to
+make predictions of experimentally accessible data.
+A variety of numerical methods for treating the time
+behavior are based on approximations of the time-evolutionoperator e
+/C0iHDt=/C22h. The simplest way to proceed is to consider
+the ﬁrst-order Taylor expansion of this operator, which leads
+to the forward Euler method,wðr;tþDtÞ¼ð 1/C0iHDt=/C22hÞwðr;tÞþOð DtÞ2hi
+: (5)
+A successful and accurate approximation is one by Tal-Ezer
+and Kosloff,1which expands the time-evolution operator in
+terms of Chebyshev polynomials.
+Another effective approach is the exponential split-
+operator approach (see, for example, Ref. 2) in which the
+kinetic and potential energy operators in the exponent areseparated. This separation becomes cumbersome for higherorders because the operators do not commute. TheCrank–Nicolson method
+3and its generalization4preserve
+normalization, but the method is implicit, which makes itcomputationally less efﬁcient. Although explicit methodsexpress the later-time wave function in terms of an operatoracting on the earlier time one(s), implicit methods requirelinear systems of equations involving the earlier and laterwave functions to be solved.
+The simple forward Euler method in Eq. (5)has stability
+issues. To overcome this problem, Askar and Cakmak
+5sug-
+gested calculating the wave function in terms of the wave
+functions at two earlier times by combining Eq. (4)with
+wðr;t/C0DtÞ¼eiHDt=/C22hwðr;tÞ; (6)
+to obtain
+wðr;tþDtÞ¼wðr;t/C0DtÞ/C0 eiHDt=/C22h/C0e/C0iHDt=/C22hðÞ wðr;tÞ
+(7a)
+¼wðr;t/C0DtÞ/C02iDtH
+/C22hwðr;tÞþOð DtÞ3hi
+:
+(7b)
+The possibility of stability is ensured,5,6and as an added
+beneﬁt, the order of the error has gone from O½ðDtÞ2/C138to
+O½ðDtÞ3/C138, as can be seen by expanding the exponentials in
+826 Am. J. Phys. 91(10), October 2023 http://aapt.org/ajp #2023 Published under an exclusive license by AAPT 826 04 October 2023 22:58:16
+Eq.(7a) in a Taylor series. An important, and potentially
+useful property of the solution is that the normalization andenergy integrals are also approximately conserved,
+ð
+w
+/C3ðr;tÞAwðr;tÞdV¼constant ; (8)
+whereA¼ IorH, and Iis the identity operator.
+The goal of this paper is to discuss an expansion of the
+time-evolution operator that leads to a simple explicitmethod with potentially signiﬁcant and systematic improve-ments. We introduce the expansion of the time-evolution
+operator in Sec. II, consider the spatial integration in Sec. III,
+discuss some properties of the algorithm in Sec. IV, and
+illustrate the approach by sample calculations in Sec. V.W e
+introduce some further implications of the approach in Sec.
+VIand provide a conclusion in Sec. VII. Several problems
+are posed in Sec. VIII.
+II. EXPANSION OF THE TIME-EVOLUTION
+OPERATOR
+Because the explicit method of Askar and Cakmak is efﬁ-
+cacious, we use it as a starting point to obtain a higher-order
+expansion in Dtfor the time-evolution operator as was done
+in Ref. 7. We will see that a modiﬁcation of Eq. (7a)gener-
+ates highly accurate solutions as functions of time. We
+assume in this section that we have a numerical method to beintroduced later to calculate Hwðr;tÞaccurately for a given r
+andt. We discretize time as t¼t
+nforn¼0;1;…;N, where
+tn¼nDt, and determine the wave functions wnðrÞ
+¼wðr;tnÞ. We write Eq. (7a)as
+wðr;tþDtÞ¼wðr;t/C0DtÞ/C02isinðHDtÞwðr;tÞ; (9)
+so that for t¼tn, we have
+wnþ1¼wn/C01/C02isinðHDt=/C22hÞwn: (10)
+A Taylor series expansion yields a polynomial approxima-
+tion of the sine function, which we write as
+sinðzÞ¼z1/C01
+3!z2þ1
+5!z4/C0/C1/C1/C1þð/C01ÞM
+ð2Mþ1Þ!z2M !
+þOð z2Mþ3Þ (11a)
+¼zY2M
+s¼11/C0z
+zð2MÞ
+s/C18/C19
+þOð z2Mþ3Þ; (11b)
+where zð2MÞ
+1;zð2MÞ
+2;…;zð2MÞ
+2M are the 2 Mzeros of the
+2Mth-order polynomial approximation of sin z=z. Symbolic
+mathematics software such as MAPLE calculates thenumerical values of the zeros to the desired precision.
+Several M-value zeros are shown in Table I.
+If we deﬁne
+Kð2MÞ
+s/C171/C0HDt=/C22h
+zð2MÞ
+s;s¼1;2;…;2M; (12)
+Eq.(10)becomes
+wnþ1¼wn/C01/C02iHDt=/C22hY2M
+s¼1Kð2MÞ
+swn: (13)
+It is convenient to employ a recursive procedure for
+s¼1;2;…;2M,
+wðn;sÞ¼Kð2MÞ
+swðn;s/C01Þwithwðn;0Þ¼wn; (14)
+so that
+wnþ1¼wn/C01/C0ð2iHDt=/C22hÞwðn;2MÞ: (15)
+Despite the recursion, the method remains explicit.
+To estimate the effect of larger values of Mon the preci-
+sion and the efﬁciency of the expansion, we plot in Fig. 1the
+arithmetic mean
+jzð2MÞ
+amj¼1
+2MX2M
+s¼1jzð2MÞ
+sj !
+; (16)
+the minimumjzminð2MÞjand the maximum jzmaxð2MÞjof the set
+fjzð2MÞ
+1j;jzð2MÞ
+2j;…;jzð2MÞ
+2Mjgas functions of M. Because Kð2MÞ
+s
+depends on Dt=zð2MÞ
+srather than Dt, we see from Fig. 1that
+Dt=zð2MÞ
+s decreases with M; thus, including more termsTable I. The zeros zð2MÞ
+s;s¼1;2;…;2Mof the polynomial approximation of sin z=zforM¼1, 2, and 3.
+Ms¼1 23456
+1/C02:449 49þi0:000 00 2 :449 49þi0:000 00 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+23 :236 85/C0i0:690 82/C03.236 85þi0.690 82 3 :236 85þi0:690 82/C03:236 85/C0i0:690 82 /C1/C1/C1 /C1/C1/C1
+33 :078 64þi0:000 00/C03:078 64þi0:000 00 4 :434 01/C0i1:843 75/C04:434 01þi1:843 75 4 :434 01þi1:843 75/C04:434 01/C0i1:843 75
+Fig. 1. Arithmetic mean, minimum, and maximum values of jzð2MÞ
+sjfor each
+2M.
+827 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 827 04 October 2023 22:58:16
+provides a more precise expansion, which allows for larger
+values of Dt.
+III. SPATIAL INTEGRATION
+To implement the time advance algorithm, Eq. (15),w e
+need to numerically evaluate Hw, where the operator H
+involves second-order spatial derivatives. A variety of meth-
+ods can be employed, including a fast Fourier spectralapproach,8high-order-compact differencing,9and differenc-
+ing on a nonuniform grid.10A simple and efﬁcient method is
+the central differencing approach, which is also useful forstudying the stability of the algorithm.
+For now we focus on one spatial dimension. We begin by
+discretizing the spatial and temporal variable of the wave
+function so that w
+n
+j¼wðxj;tnÞ, where xj¼x0þjDxfor
+j¼0;1;…;J. The wn
+jcan be considered as the components
+of a J-dimensional vector representing the discretized wn.
+Because the Hamiltonian involves the second-order spatialderivative, we approximate the second derivative to order2r/C01o fDxby a sum of terms from – rtor,
+@2wn
+j
+@x2¼1
+ðDxÞ2Xr
+‘¼/C0rcðrÞ
+‘wn
+jþ‘þOð DxÞ2rhi
+; (17)
+where the constants cðrÞ
+‘are rational numbers independent of
+Dx. For example, the familiar lowest order approximation
+(r¼1) is
+@2wn
+j
+@x2¼1
+ðDxÞ2ðwn
+jþ1þwn
+j/C01/C02wn
+jÞ; (18)
+corresponding to cð1Þ
+1¼cð1Þ
+/C01¼1 and cð1Þ
+0¼/C02. Because the
+second derivative depends on ðDxÞ2, we must have
+cðrÞ
+‘¼cðrÞ
+/C0‘. The cðrÞ
+‘are obtained by considering
+fð2ÞðxjÞ¼1
+ðDxÞ2Xr
+‘¼/C0rcðrÞ
+‘fðxjþ‘DxÞ (19a)
+¼1
+ðDxÞ2Xr
+‘¼/C0rcðrÞ
+‘X1
+i¼0‘iðDxÞi
+i!fðiÞðxjÞ (19b)
+¼1
+ðDxÞ2X1
+i¼0ðDxÞi
+i!fðiÞðxjÞXr
+‘¼/C0rcðrÞ
+‘‘i; (19c)
+where fðiÞðxÞis the ith derivative of f(x). Equation (19c) con-
+sists of a linearly independent combination of the functions
+fðiÞðxÞ;i¼0;1;…, so thatPr
+‘¼/C0rcðrÞ
+‘‘i¼0f o r i6¼2 and
+equals 2 for i¼2. Because cðrÞ
+/C0‘¼cðrÞ
+‘, we obtain
+/C0cðrÞ
+0
+2d0iþd2i¼Xr
+‘¼1‘icðrÞ
+‘forði¼0;1;…;rÞ:(20)
+By setting i¼0, we obtain
+cðrÞ
+0¼/C02Xr
+‘¼1cðrÞ
+‘: (21)
+We let r¼1 in Eqs. (20)and(21)and obtain the lowest order
+expansion in Eq. (18). It is simple to generate the coefﬁcientsusing a symbolic algebra package. The ﬁrst seven sets of
+coefﬁcients are given in Table II.
+We eventually need to evaluate Hwn, which can be written
+as
+Hwn
+j¼/C0/C22h2
+2m@2wn
+j
+@x2/C18/C19
+þVjwn
+j (22a)
+¼/C0/C22h2
+2mðDxÞ2Xr
+‘¼/C0rcðrÞ
+‘wn
+jþ‘þVjwn
+j: (22b)
+If we express Hwn¼AðrÞwn,AðrÞis a symmetric and banded
+matrix with rsuper- and rsub-diagonals,
+A¼d0 a1 a2/C1/C1/C1 ar 0
+a/C01d1 a1/C1/C1/C1ar/C01ar
+a/C02a/C01 d2/C1/C1/C1ar/C02ar/C01
+...............
+a/C0ra/C0rþ1a/C0rþ2/C1/C1/C1 dr a1
+0 a/C0ra/C0rþ1/C1/C1/C1 a/C01drþ1
+...
+dJ/C01a1
+a/C01dJ0
+BBBBBBBBBBBBBB@1
+CCCCCCCCCCCCCCA:
+(23)
+The superscript
+ðrÞofAand the a‘and the djhave been omit-
+ted. The matrix elements are deﬁned as
+aðrÞ
+‘¼/C0/C22h2
+2mðDxÞ2cðrÞ
+‘; (24a)
+dðrÞ
+j¼/C0/C22h2
+2mðDxÞ2cðrÞ
+0þVj; (24b)
+where Vj¼VðxjÞ. Thus, Kð2MÞ
+s¼1/C0DtH=/C22h=zð2MÞ
+s is a
+b a n d e dm a t r i xl i k e AðrÞ, but is not Hermitian because of the com-
+plex zð2MÞ
+s. Because of the properties of the product of commut-
+ing symmetric banded matrices (see Appendix B ), the matrix
+Bð2M;rÞ¼2iHDt=/C22hY2M
+s¼0Kð2MÞ
+s (25)
+is symmetrically banded with ½ð2Mþ1Þr/C138sub- and super-
+diagonals. For a particular choice of Mandr, we evaluate
+the matrix Bð2M;rÞand generate the discretized wave func-
+tions at time tn, using Eq. (13),
+wnþ1¼wn/C01/C0Bð2M;rÞwn; (26)
+with J-dimensional vectors w0andw1provided as input.
+An accurate single-step approach to obtaining w1from w0,
+which we use in the examples, is described in Appendix A .
+Note that the matrix Bð2M;rÞis independent of tnand is
+banded so that the number of computations to obtain wat
+each time step is proportional to ½ð2Mþ1Þð2rþ1ÞJ/C138.W e
+denote the method that uses the matrix Bð2M;rÞas method I.
+Alternatively, and preferably for applications, Eq. (13) is
+evaluated recursively using Eqs. (14)and(15). For computa-
+tional efﬁciency, it is advisable to exploit the fact that the
+828 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 828 04 October 2023 22:58:16
+matrices are banded. This approach is denoted as method II.
+The generalization to two- and three-dimensional systems is
+straightforward.7
+A. Implementation
+An example of implementing the recursive approach is
+shown in the following pseudocode. In the procedure w_sine_-
+step, we use complex arrays ðw0
+jÞandðw1
+jÞto represent the
+numerical wave functions at t¼nDtand t¼ðnþ1ÞDtto
+obtainðw2
+jÞ, the numerical wave function at t¼ðnþ2ÞDt.
+procedure w_sine_step( Dt;M;r;J;ðw0Þ;ðw1Þ;ðw2ÞÞ
+integer M;r;J;s;realDt
+complex array w0
+0:J;w1
+0:J;w2
+0:J;w0:J;hw0:J
+w w1
+fors¼1to2Mdo
+call procedure HwðJ;r;w;hwÞ
+w w/C0Dt=/C22h1=zð2MÞ
+shw
+end forcall procedure
+HwðJ;r;w;hwÞ
+w2 w0/C02iDt=/C22hhw
+end procedure w_sine_step
+The variables zð2MÞ
+s;cðrÞ
+‘;/C22h;m,a n d VðxjÞa r ea s s u m e dt ob e
+deﬁned and accessible in the procedures. The subprocedure Hwis
+procedure HwðJ;r;w;hwÞ
+integer J,r,k;complex array w0:J;hw0:J;/0:J
+/ 0
+forj¼0toJdo
+for‘¼/C0rtordo
+ifðjþ‘>¼0AND jþ‘¼<JÞthen
+/j /j/C0cðrÞ
+‘wjþ‘
+end if
+end for hwj /C0 /C22h2=2mðDxÞ2/jþVðxjÞwj
+end for
+end procedure Hw
+Consider the free traveling wave packet described in Ref. 11,
+wðx;sÞ¼ﬃﬃﬃﬃﬃﬃﬃaﬃﬃﬃppr1ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þ2ia2sp exp/C01
+2a2x2þikx/C0ik2s
+1þ2ia2s/C18/C19
+;
+(27)withs¼/C22ht=m. Analytical calculations show that
+hxi¼2ks;hx2i¼4k2s2þ1þ4a4s2
+2a2; (28)
+so that
+ðDxÞ2¼hx2i/C0h xi2¼1þ4a4s2
+2a2: (29)
+Because Dx¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þ4a4s2=2a2p
+;Dx!ﬃﬃﬃ
+2p
+asass!1 .
+The smaller the value of a, the smaller the spread as s
+increases. Reference 12provides a careful discussion of the
+appropriate choice of parameters given the ﬁnite computa-tional space.
+A sample computation with /C22h¼m¼1,a¼1, and k¼2
+using x2½/C0200;400/C138and t2½0;20/C138determines the loga-
+rithm of the error as functions of Mandrdeﬁned by
+ðe
+2Þ2¼ðxJ
+x0dxjwðx;tfÞ/C0wexactðx;tfÞj2; (30)
+where tfis the ﬁnal time. These error functions are displayed
+attf¼20 for Dt¼0:01 in Fig. 2.Table II. The coefﬁcients cðrÞ
+‘up to r¼7.
+r ‘¼01 23 4 5 6 7
+1– 21 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+2 /C05
+243/C01
+12/C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+3/C049
+1832/C03
+201
+90/C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+4/C0205
+7285/C01
+58
+315/C01
+560/C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+5/C05269
+180053/C05
+215
+126/C05
+10081
+3150/C1/C1/C1 /C1/C1/C1
+6/C05369
+180012
+7/C015
+5610
+189/C01
+1122
+1925/C01
+16 632/C1/C1/C1
+7/C0266 681
+88 20074/C07
+247
+108/C07
+5287
+3300/C07
+30 8881
+84 084
+Fig. 2. Error log10ðe2Þas functions of randMfor the free wave packet. The
+parameters are given in the text, and e2is deﬁned in Eq. (30).
+829 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 829 04 October 2023 22:58:16
+IV. PROPERTIES OF THE ALGORITHM
+A. Stability
+The stability of the algorithm is a measure of the growth of
+errors in the numerical solution. To investigate this aspect, weemploy von Neumann’s stability analysis. At the nth time itera-
+tion, the local Fourier mode of the solution can be written as
+w
+n
+j¼nnðk;Dt;DxÞeikxj: (31)
+Note that the superscript on the growth factor nindicates a
+raising to the nth power. Ifjnj/C201, the solution does not
+grow, and the algorithm is stable. To apply the Fourier mode
+to Eq. (26), we need
+HDt
+/C22hnneikjDx: (32)
+We apply Eq. (22)to obtain
+HDt
+/C22hnneikjDx¼Dt
+/C22h/C0/C22h2
+2mðDxÞ2Xr
+‘¼/C0rcðrÞ
+‘eik‘DxþVj"#
+nneikjDx
+(33a)
+¼Dt
+/C22h/C20
+/C0/C22h2
+2mðDxÞ2Xr
+‘¼1cðrÞ
+‘
+/C2ðeik‘Dxþe/C0ik‘Dx/C02ÞþVj/C21
+nneikjDx
+(33b)
+¼Dt
+/C22h/C20
+/C0/C22h2
+2mðDxÞ2Xr
+‘¼1cðrÞ
+‘
+/C2ð2 cosðk‘DxÞ/C02ÞþVj/C21
+nneikjDx
+(33c)
+¼Dt
+/C22h/C20/C22h2
+2mðDxÞ2Xr
+‘¼1cðrÞ
+‘
+/C2sin2k‘Dx
+2/C18/C19
+þVj/C21
+nneikjDx(33d)
+/C17bnneikjDx; (33e)
+w h e r ew ea s s u m et h a t Vjis small compared to the kinetic energy
+term, or is constant, so that bdoes not depend on j. Thus,
+b/C25/C22hDt
+2mðDxÞ2Xr
+‘¼1cðrÞ
+‘sin2k‘Dx
+2/C18/C19
+: (34)
+Furthermore,
+Bð2M;rÞwn
+j¼2iHDt
+/C22hY2M
+s¼11/C0HDt=/C22h
+zð2MÞ
+s !
+nneikjDx(35a)
+¼2ibY2M
+s¼11/C0b
+zð2MÞ
+s !
+nneikjDx(35b)
+¼2ianneikjDx; (35c)where
+a¼bY2M
+s¼11/C0b
+zð2MÞ
+s !
+: (36)
+The quantity ainvolves the products of complex conjugates
+and, therefore, is real.
+By substituting Eqs. (31)and(36)into Eq. (26), we obtain
+an equation for n,
+n2þ2ian/C01¼0; (37)
+with solutions n¼/C0ia6ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1/C0a2p
+. For a2<1;jnj2¼1, but
+fora2>1, there is at least one solution for which jnj2>1.6
+In actual calculations, we choose parameters such as Dxand
+Dt, but also randM, so that a2<1 for stability.
+We use Eq. (34) (with /C22h¼m¼1) and evaluate ain Eq.
+(36) for a range of kDx2ð0;2pÞand determine the maxi-
+mum of the ratio Dt=ðDxÞ2for which a<1 for all k. The
+results to two decimals are given in Table III.
+Table IIIgives an approximate guide to choosing the step
+size. For example, if Dxis given, we can estimate an appro-
+priate Dt. We expect that smaller values than those listed for
+particular randMwill lead to stable solutions. The ratio usu-
+ally behaves monotonically, but not linearly, with increasing
+Mandr. The values in Table IIIare a rough guide because
+the effect of the potential is not included.
+B. Unitarity
+As with many explicit methods, normalization is not rigor-
+ously preserved.5,13,14In this section, we explore the devia-
+tion from the exact norm. In fact, we may consider more
+generally the error of the moments or expectation values ofthe Hamiltonian raised to some power, i.e., H
+s;s¼0;
+1;…;Mfor some value of M. Consider
+sinHDt=/C22hðÞ¼S2MHDt=/C22hðÞþO HDt=/C22hðÞ2Mþ3hi
+;(38)
+where
+S2MðzÞ/C17z1/C01
+3!z2þ1
+5!z4/C0/C1/C1/C1þð/C01ÞM
+ð2Mþ1Þ!z2M"#
+(39a)
+¼zY2M
+s¼11/C0z
+zð2MÞ
+s/C18/C19
+: (39b)
+Table III. Largest value of the ratio Dt=ðDxÞ2for which a2<1 for any value
+ofk.
+rnM 0 1 5 10 15
+1 0.50 1.42 2.21 3.85 5.46
+2 0.37 1.06 1.66 2.89 5.043 0.33 0.93 1.46 2.55 4.444 0.30 0.87 1.36 2.37 4.075 0.29 0.83 1.29 2.26 3.2010 0.26 0.74 1.15 2.01 3.0220 0.24 0.68 1.06 1.85 3.0530 0.23 0.65 1.03 1.79 3.13
+830 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 830 04 October 2023 22:58:16
+We express our algorithm as
+wnþ1¼wn/C01/C02iS2MHDt=/C22hðÞ wn: (40)
+Because wn/C01¼eiHDt=/C22hwnexactly,
+wnþ1¼eiHDt=/C22h/C02iS2MðHDt=/C22hÞhi
+wn: (41)
+Hence,
+hwnþ1jHsjwnþ1i¼h wnj½e/C0iHDt=/C22hþ2iS2M/C138Hs
+/C2eiHDt=/C22h/C02iS2M/C2/C3
+jwni; (42)
+and it follows that
+hwnþ1jHsjwnþ1i¼h wnjHsjwniþOð DtÞ2Mþ4hi
+; (43)
+where we have used the expression for S2Mfrom Eq. (38).
+Thus, the normalization and energy (and higher moments)are constant to order ðDtÞ2Mþ4, a result that is consistent with
+Ref.5forM¼0.
+C. Error and computation time
+The efﬁcacy of the algorithm can be expressed in terms of
+the computation time required to obtain a solution with thespeciﬁed maximum error. The numerical solutions are
+obtained by truncating the Taylor series in xandt. By assum-
+ing that the series in one variable has a much smaller errorthan the other variable, we consider the respective truncation
+errors separately. When necessary, we can interpolate to sit-
+uations where both types of errors contribute similaramounts.
+At a given time t, the truncation error of the spatial inte-
+gration with the rth-order expansion is
+e
+ðrÞ/C25CðrÞðDxÞ2r; (44)
+where we assume CðrÞvaries slowly with r. The spatial step
+size can be adjusted to obtain an acceptable error by makingan appropriate choice of J, because
+Dx¼xJ/C0x0
+J/C25eðrÞ
+CðrÞ/C18/C191=2r
+so that eðrÞ/C25const
+J2r: (45)
+The CPU time is proportional to the number of basic com-
+puter operations. The largest number of operations are due tothe iterated time advances. The matrix B
+ð2M;rÞis calculated at
+the beginning once and for all, and is a symmetric banded
+J/C2Jmatrix withð4Mþ3Þrbandwidth. For a particular
+time step Dtand value of M,
+CPU time/Jr/r
+ðeðrÞÞ1=2r: (46)
+By minimizing Eq. (46)with respect to r, the minimum CPU
+time occurs when
+r/C25/C0lneðrÞ
+2: (47)
+Similarly, for a ﬁxed randDx, the truncation error due to a
+nonzero value of Dtiseð2MÞ/C25Cð2MÞðDtÞ2Mþ3; (48)
+where again Cð2MÞis assumed to be slowly varying with M.
+Because the expansion of sin ðHDt=/C22hÞhas factors involving
+Dt=zð2MÞ
+srather than Dt, we replace DtbyDt=zð2MÞ
+avg/C25Dt=M.
+If we take the ﬁnal time to be ﬁxed at NDt, then
+CPU time/1
+Með2MÞðÞ/C01=ð2Mþ3Þ: (49)
+The CPU time is a monotonically decreasing function of
+increasing M.
+The error when an exact solution is available is expressed
+as a Euclidean norm using Eq. (30). For the case when no
+exact solutions are available, a possible deﬁnition is
+gð2M;rÞ
+2/C16/C172
+¼ðxJ
+x0dxjwð2Mþ2;rþ1Þðx;tfÞ/C0wð2M;rÞðx;tfÞj2
+(50)
+as an estimate of the error.
+V. NUMERICAL EXAMPLES
+A. Oscillating and pulsating harmonic oscillator wave
+functions
+Consider the potential function for the one-dimensional
+harmonic oscillator,
+VðxÞ¼1
+2mx2x2: (51)
+A wave function that satisﬁes the Schr €odinger equation is11
+wnða;b;x;tÞ¼a2bﬃﬃﬃpp2nn! !1=2
+e/C0iðnþ1=2Þh
+f1=4
+/C2HnðnÞe/C0n2=2þiT; (52)
+where
+a¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+mx=/C22hp
+;f¼a4cos2xtþb4sin2xt (53a)
+n¼ba2ðx/C0AcosxtÞ/C0ksinxt/C2/C3
+=f1=2(53b)
+T¼1
+2fa2ðb4/C0a4Þx2/C0k2þb4A2/C2/C3
+sinxtcosxt/C8
+þ2a4kxcosxtþb4Aðksinxt/C0a2xÞsinxt/C2/C3
+g
+(53c)
+h¼arctanb2sinxt
+a2cosxt/C18/C19
+þ2p/C23; /C23¼xtþp
+2p/C0/C15jk
+(53d)
+andHnðnÞis the nth order Hermite polynomial.15This wave
+function gives rise to oscillating and pulsating wave packets
+that oscillate with frequency /C22ha2=ð2pmÞand pulsate with fre-
+quency /C22hb2=ð2pmÞ. Because the nth order Hermite polyno-
+mial has nzeros, the wave function and the corresponding
+packet also have nzeros. The width of the wave function
+compresses and expands with the pulsating frequency. The
+initial ( t¼0) wave function is the nth-energy eigenstate of
+831 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 831 04 October 2023 22:58:16
+the particle subject to an oscillator characterized by b, rather
+than a, displaced from the origin by amount Aand with
+momentum /C22hk.
+To obtain an overview of the scope of the method, we plot
+the errors of the numerical solutions as functions of randM
+in Fig. 3with n¼4,a¼ﬃﬃﬃﬃﬃﬃﬃ
+0:2p
+;b¼2a,k¼1,A¼10,
+J¼1600, and t2½0;110p/C138andx2½/C080;80/C138, respectively.
+In this example, we set /C22h¼m¼1.
+The calculations are done with methods I and II and give
+identical results. For M¼2, the results are not shown for
+r>16 because the algorithm is unstable, which illustrates
+the restrictions on the stability criteria when rincreases as
+shown in Table III.
+For this example, the error compared to the exact solution
+can be calculated. To test the reliability of gð2M;rÞas an esti-
+mate of the error, we compared e2andgð2M;rÞand observed
+that the two quantities are nearly equal, the latter yielding abetter than order-of-magnitude estimate. The instability ofthe algorithm is indicated by the deviation of the normaliza-tion from unity.
+To investigate the efﬁcacy of the method, we determine
+the CPU time to compute the wave function with a modesterror e
+2/H1135110/C03for different values of randJwhen M¼10
+andDt¼p=120. The results are given in Table IV, which
+shows that the most efﬁcient calculation occurs at r/C257.We repeat this process varying MandDt(orN) and list
+the results in Table V. The behavior of the CPU time as func-
+tions of randMis displayed in Fig. 4. As expected (see Sec.
+IV C), the CPU time vs rhas a minimum at r/C257. We expect
+the CPU time to be a decreasing function of M, but from
+Table V, we see that for M/C213, the error is constant. It
+seems that the temporal error decreases until it matches thespatial error which then becomes dominant and unchanging
+for larger M. The linear increase in the CPU time vs Mfor
+M>3 is due to having a constant error and additional com-
+putations as Mis made larger.
+The behavior of the CPU time as a function of Mis illus-
+trated more incisively by examining the behavior for a small
+error, e.g., e
+2/C2510/C010(see Table VI). There is a signiﬁcant
+increase in efﬁciency for small values of M, but for larger M,
+the efﬁciency is approximately constant.
+The error estimate gð2M;rÞ
+2 is found to be a good approxi-
+mation of e2; in most cases, the difference is less than 10%.
+An important and helpful feature for determining the stabil-
+ity is the behavior of the normalization. Whenever it is close
+to the original value, the procedure is stable, although that
+does not guarantee a small error.
+B. Decay through a barrier
+The decay of a particle through a strong barrier can be
+simulated using the potential functionFig. 3. Error deﬁned in Eq. (30) as a function of rfor various values of M.
+Time ranges from 0 to 110 pand the number of time steps Nis indicated for
+each value of M.Dx¼0:1 in all cases.
+Table IV. The CPU time as a function of randJgiving an error e2/H1135110/C03.
+The CPU time depends on the computer used and is given for comparative
+purposes only.
+Mr J Dt e2 CPU(s)
+10 3 750 p=120 1 :79/C210/C0313.08
+/C1/C1/C1 4 506 /C1/C1/C1 1:00/C210/C0310.35
+/C1/C1/C1 5 381 /C1/C1/C1 1:00/C210/C039.02
+/C1/C1/C1 6 318 /C1/C1/C1 9:71/C210/C048.56
+/C1/C1/C1 7 280 /C1/C1/C1 9:64/C210/C048.46
+/C1/C1/C1 8 255 /C1/C1/C1 9:58/C210/C048.50
+/C1/C1/C1 9 237 /C1/C1/C1 9:76/C210/C048.68
+/C1/C1/C1 10 224 /C1/C1/C1 9:71/C210/C048.92
+/C1/C1/C1 15 190 /C1/C1/C1 9:30/C210/C0410.574
+/C1/C1/C1 20 175 /C1/C1/C1 9:36/C210/C0412.60Table V. The CPU time as a function of MandDt(orN), yielding an error
+e2/H1135110/C03. The values of randJare the ones giving the smallest CPU time
+in Table IV.
+Mr J Dte 2 CPU(s)
+0 7 280 p=7280 9.97/C210/C0421.69
+1/C1/C1/C1 /C1/C1/C1 p=280 9.86/C210/C042.73
+2/C1/C1/C1 /C1/C1/C1 p=160 8.56/C210/C042.64
+3/C1/C1/C1 /C1/C1/C1 p=120 9.64/C210/C042.79
+4/C1/C1/C1 /C1/C1/C1 p=120 9.64/C210/C043.60
+5/C1/C1/C1 /C1/C1/C1 p=120 9.64/C210/C044.41
+7/C1/C1/C1 /C1/C1/C1 p=120 9.64/C210/C046.03
+10/C1/C1/C1 /C1/C1/C1 p=120 9.64/C210/C048.46
+Fig. 4. CPU time as a function of either Morrwith the other variable held
+constant for the error e2¼10/C03. Note the minimum CPU time as a function
+rthat is expected. The minimum CPU time as a function Mis due to the fact
+that for M>3, the error is due to spatial integration, and larger Mmerely
+results in a larger number of basic operations.
+832 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 832 04 October 2023 22:58:16
+VðxÞ¼1ð x<0Þ
+k
+wﬃﬃﬃppe/C0ðx/C0aÞ2=w2ðx/C210Þ;8
+<
+:(54)
+with aandw>0. As the parameter wis shrunk to zero, the
+potential reduces to the d-function potential
+VðxÞ¼kdðx/C0aÞ. This limiting case has been used to obtain
+exact wave functions for nuclear decay problems.16We
+choose the initial state to be the nth normalized eigenstate of
+the inﬁnite square well of width a, i.e.,
+wnðxÞ¼ﬃﬃﬃ
+2
+ar
+sinnpx
+a/C18/C19
+ð0/C20x/C20aÞ
+0 otherwise :8
+><
+>:(55)
+Imagine a particle bound in the inﬁnite square well up to
+time t¼0, after which the inﬁnite potential step at x¼ais
+replaced by Eq. (54) and the particle is allowed to escape.
+The initial state approximates a resonant state of the system.
+To study a speciﬁc case, we adopt /C22h¼2m¼1 and the
+parameters, k¼3,w¼0.1,a¼1, and n¼1, and compute the
+wave function at times t¼0, 10, and 15. The numerical cal-
+culations are done over the computational space x2½0;800/C138
+with J¼6000 so that Dx¼2=15 and Dt¼1=70. The choice
+of 2M¼28;r¼29 leads to stable and efﬁcient solutions.
+The magnitude of the wave function is displayed in Fig. 5.
+The estimated error at t¼15 is gð28;29Þ
+2¼0:0054.When the initial state is characterized by n¼2, the main
+peak of the wave packet travels faster as is shown in Fig. 6;
+note the larger range of xvalues.
+As the n¼2 state decays, it produces a wave function out-
+side the barrier, which travels with a higher speed commen-
+surate with the energy of the resonant state, but also makes a
+transition to the n¼1 ground state, which then decays.
+Hence, we see smaller peaks at distances similar to the posi-
+tion of the peaks in Fig. 5. We explore this behavior further
+by considering the escape probability P(t) and the survival
+probability SnðtÞof the nth initial state, which are deﬁned,
+respectively, as
+PðtÞ¼ða
+0dxjwðx;tÞj2(56a)
+SnðtÞ¼2
+a/C12/C12/C12/C12ð
+a
+0dxsinnpx
+a/C18/C19
+wðx;tÞ/C12/C12/C12/C122
+: (56b)
+The nonescape probability is the probability that the decay-
+ing particle is in the region 0 <x/C20aat time t, and the sur-
+vival probability SnðtÞis the overlap of the nth original
+square-well state component with the wave function at time
+t. We plot these probabilities for n¼2 in Fig. 7and make the
+following observations:
+(1) There are two exponential decay regions: one for very
+short times when the n¼2 state decays and another
+when the n¼1 state decays at a slower rate.
+(2) As the n¼2 state decays, its survival probability decreases,
+increasing the probability of ﬁnding the particle outside the
+potential region and initially increasing S1ðtÞ.
+(3) The n¼1 state decays slower than the n¼2 state, so that
+after the n¼2 is depleted, the n¼1 continues to decay
+at the reduced rate.
+(4) The survival probabilities are smaller than the nonescape
+probabilities because there are (higher-energy) compo-
+nents that could be part of the initial wave function. The
+nonescape and survival probabilities track each other.
+(5) The long time behavior of all three probabilities in Fig. 7
+goes as t/C03.
+(6) There is a hint in the plot that the very short-time behav-
+ior of the probabilities is proportional to t2.Table VI. The CPU time as a function of Mfore2/C2510/C010. There is a signif-
+icant gain in efﬁciency (reduction of CPU time) as Mvaries from 0 to 3, but
+there is no signiﬁcant additional gain for larger M.
+Mr J Dte 2 CPU(s)
+0 20 1600 p=2 000 000 1.21 /C210/C0102547
+1/C1/C1/C1 /C1/C1/C1 p=3;800 9.89/C210/C0115.54
+2/C1/C1/C1 /C1/C1/C1 p=880 4.80/C210/C0111.57
+3/C1/C1/C1 /C1/C1/C1 p=364 1.93/C210/C0100.88
+5/C1/C1/C1 /C1/C1/C1 p=298 7.33/C210/C0101.07
+10/C1/C1/C1 /C1/C1/C1 p=120 1.27/C210/C0110.94
+Fig. 5. Magnitude-squared of the wave function at times t¼5, 10, and 15
+fork¼3,w¼1/10, a¼1, and n¼1 with Dx¼2=15;Dt¼1=70, and
+2M¼28;r¼29. For t¼15, the exact wave function when w!0 is also
+shown.Fig. 6. Magnitude-squared of the wave function at times t¼5, 10, and 15
+with the parameters, except for n¼2, the same as in Fig. 5. The estimated
+error is gð28;29Þ
+2¼0:0285.
+833 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 833 04 October 2023 22:58:16
+(7) During the transitional time periods when the probability
+proﬁles change from quadratic to the ﬁrst exponential,and then to the second exponential, and to the t
+/C03decay,
+interference effects cause ﬂuctuations of the probabilitiesin time.17During these ﬂuctuations, there are times that
+the probability of the decaying particle being inside thebarrier actually increases. This counterintuitive phenom-enon is referred to as quantum backﬂow and was studiedrecently.
+18See also Refs. 19and20.
+The accuracy of the calculations of this section is limited
+because of the constraint of the wave wð0;tÞ¼0. Such
+boundary conditions can be included using the summation-by-parts-simultaneous approximation term technique.21,22
+However, there is no general formulation, which applies for
+an arbitrary value of r, and considering particular cases is
+beyond the scope of this paper.
+C. Hermite–Gaussian packets
+1. Free packets in one dimension
+Free pulsating packets are described in Refs. 11and23
+and references therein. In one dimension, the wave functionis
+w
+nða;x;tÞ¼NnðaÞeinh
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þ2ia2sp HnðnÞexpð/C0n2=2Þ
+/C2exp i2a4sðx/C0AÞ2þ2k0ðx/C0AÞ/C02k2
+0s
+2ð1þ4a4s2Þ"#()
+;
+(57)
+where
+s¼/C22hðt/C0t0Þ=ð2mÞ;h¼/C0arctanð2a2sÞ (58a)
+n¼aðx/C0AÞ/C02k0s½/C138ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þ4a4s2p ;NnðaÞ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃaﬃﬃﬃpp2nn!r
+: (58b)
+The integer n¼0;1;… labels a wave function that, at s¼0
+ort¼t0, is the nth energy state of the harmonic oscillator
+centered at x¼Awith oscillator constant /C22h2a4=m.
+As an overview of the efﬁcacy determined by the expan-
+sion of the time-evolution operator, we survey the accuracyof the numerical calculations over a range of values of M
+holding Dx,J,t0, and the maximum time constant for a set of
+parameters of the free wave packet. The parameters are
+/C22h¼2m¼1;a¼0:4,A¼0,k0¼2;t0¼20;Dx¼0:15,
+J¼4000, r¼10, and tfinal¼50; the computational space is
+deﬁned by x2½/C0300;300/C138. We tabulate the largest Dt
+(smallest (1 =Dt) that yields a stable algorithm and the corre-
+sponding CPU time and error in Table VII.
+2. Scattering from a P €oschl–Teller barrier
+We consider the example discussed in Ref. 23of the
+Hermite–Gaussian wave function scattering from theP€oschl–Teller barrier,24,25
+VðxÞ¼V0
+cosh2ðlxÞ: (59)
+The transmission and reﬂections coefﬁcients calculated from
+the time-independent Schr €odinger equation are
+TðPTÞðkÞ¼q2
+1þq2;RðPTÞðkÞ¼1
+1þq2; (60)
+where
+q¼sinhðpk=lÞ
+coshp
+2ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+4V0=l2/C01p/C18/C19 : (61)
+The transmission coefﬁcient is the long-time probability of
+the transmitted wave packet
+T¼lim
+t!1ð1
+0dxjwðx;tÞj2: (62)
+The P €oschl–Teller transmission coefﬁcient TðPTÞðkÞdepends
+on a single value of k, whereas Tin Eq. (62) depends on a
+(narrow) band of kvalues around a central value.
+We consider an example with /C22h¼2m¼1;V0¼10 and
+l¼2 for n¼2,a¼0:4,k¼3, A¼0, and t0¼10 for the
+incident wave function; and x2½/C0300;300/C138;Dx¼0:075;
+Dt¼0:0025 ;tmax¼30,r¼10, and M¼14.
+Figure 8displays the magnitude of the wave function as a
+function of xandtas the wave travels to the scattering region
+and away from it at a later time. The magnitude of the wave
+function at three different times is plotted in Fig. 9.Fig. 7. Escape and survival probabilities as function of time for the parame-
+ters of Fig. 5except for n¼2.
+Table VII. Errors of the free Hermite–Gaussian packet propagation. The
+parameters are given in the text. Except for the ﬁrst three lines, 1 =Dtis the
+smallest integer that yields a stable algorithm.
+M 1=Dt gð2M;10Þ
+2 e2 CPU(s)
+0 5000 1 :57/C210/C021:57/C210/C02654
+1 500 3 :10/C210/C073:10/C210/C07127
+2 250 2 :08/C210/C0104:29/C210/C01094
+38 9 4 :17/C210/C0123:76/C210/C01145
+47 8 3 :83/C210/C0105:37/C210/C01049
+57 7 3 :02/C210/C0123:75/C210/C01057
+10 45 3 :51/C210/C0123:75/C210/C01061
+14 32 3 :11/C210/C0123:75/C210/C01059
+834 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 834 04 October 2023 22:58:16
+We calculate the transmission coefﬁcient obtained analyti-
+cally by the time independent method, i.e., Eq. (60), and by
+using the time-dependent wave functions at a large time, i.e.,Eq.(62). The results are plotted in Fig. 10.
+Because the uncertainty of the momentum of the free
+Hermite–Gaussian wave function is ðDpÞ
+n¼/C22haﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+nþ1
+2q
+and
+is constant, we expect greater deviation from the time-
+independent transmission coefﬁcients as nandatake on
+larger values.
+We enumerate a number of observations, which are as
+follows:
+(1) The width of the free (unscattered) Hermite–Gaussian
+wave packet is a minimum when t¼t0; when t/C0t0
+becomes more negative or more positive, the packet
+spreads. Thus, as tincreases when t/C0t0<0, the packet
+becomes narrower, and when t/C0t0>0, it spreads as
+shown in Fig. 8.
+(2) The free Hermite–Gaussian wave function has nodes at the
+zeros of the Hermite polynomials, which occur closer to (far-ther from) each other as jt/C0t
+0jbecomes smaller (larger).This behavior can be seen in Fig. 8in the lighter bands
+embedded in the darker ones.
+(3) It has been suggested that wave packets that are transmit-
+ted through a barrier approximately retain the shape of
+the incident packet.26This behavior seems a good
+approximation for square barriers, but features such asextrema are preserved as well in the transmission
+through a smoothly varying potential such as
+P€oschl–Teller. See Fig. 9where the transmitted packet
+has the same number of minima and maxima as the inci-
+dent packet although their amplitudes are different.
+(4) By examining the amplitudes of the transmitted and
+reﬂected wave packets, we note that the transmitted packet
+is weighted toward the faster components of the packet,whereas the reﬂected packet is weighted toward the slower
+components. This ﬁltering effect of the higher momentum
+components was discussed in Refs. 27and28.
+VI. COROLLARY IMPLICATIONS
+A. Hermitian operator
+We now consider variants of the proposed algorithm that
+allow us to generalize integration methods that have been
+found practical. We have noted that the operators deﬁned in
+Eq.(12)are not all Hermitian because the zeros of S
+2Mmay
+be complex, but the product operatorQ2M
+s¼1Kð2MÞ
+s is
+Hermitian. We will see that a Hermitian version of the multi-
+pliers permits further simpliﬁcations.
+We note that S2Mhas zeros, which are either real or com-
+plex. Furthermore, if zsis a zero so are z/C3
+sand/C0zs. We write
+zs¼XþiY, with XandYreal and consider the cases of zs
+real and zscomplex separately. If zsis real, the set of zeros
+contains zsand/C0zs, and we combine the two factors involv-
+ing these zeros (with HDt=/C22h¼H),
+1/C0H
+zs/C18/C19
+1þH
+zs/C18/C19
+¼1/C0H2
+jzsj2: (63)
+Ifzshas a nonzero imaginary part, there are four zeros with
+the same value of jzsjbecause z/C3
+sand/C0zsare also zeros.
+Fig. 8. Color-coded magnitude of the time-dependent Hermite–Gaussian
+wave function of particle scattering from the P €oschl–Teller potential. The
+parameters are given in the text. The center of the potential is indicated by
+the green vertical line.
+Fig. 9. Magnitude of the wave function as a function of position with theparameters of Fig. 8.Fig. 10. Transmission coefﬁcient as a function of the wave number kfor the
+P€oschl–Teller potential calculated using (a) the time-independent method
+Eq.(60) (solid line) and (b) the asymptotic time-dependent wave functions
+Eq.(62) (points). In all cases V0¼10 and l¼2, and nandaof the time-
+dependent initial wave function are indicated.
+835 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 835 04 October 2023 22:58:16
+These can be used to write the product of the corresponding
+four binomials as a product of two trinomials,
+1/C0H
+zs/C18/C19
+1/C0H
+z/C3
+s/C18/C19
+1þH
+zs/C18/C19
+1þH
+z/C3
+s/C18/C19
+¼1þH2
+jzsj2/C02XH
+jzsj2 !
+1þH2
+jzsj2þ2XH
+jzsj2 !
+:
+(64)
+When the operator H2is involved,Hacts on the wave func-
+tion successively. For example, when 2 M¼6, there are six
+zeros, two real ones and four complex ones, leading to Eq.
+(63)being applied once and Eq. (64)once. For convenience,
+we write the product operator as
+Bð2M;rÞ¼2iHYrmax
+r¼0Lð2MÞ
+r; (65)
+where each Lð2MÞ
+ris a Hermitian operator of the form of Eqs.
+(63)or(64)andLð2MÞ
+0¼1. We have recalculated the results
+of the example in Sec. VBand obtained the same results
+with similar CPU times.
+B. Real and imaginary parts of the wave function at
+staggered times
+An approach that is efﬁcient and accurate involves an
+explicit staggered-time algorithm.29This second-order accu-
+rate-in-time method entails deﬁning the real and imaginary
+parts of the wave function at alternate times. Given that the
+operators LðMÞ
+rare real (Hermitian), the method can be gener-
+alized to yield solutions of higher-order accuracy in time andspace. Given the basic equation
+w
+nþ1¼wn/C01/C02iHYrmax
+r¼0Lð2MÞ
+rwn; (66)
+we write
+wn¼RnþiIn; (67)
+where bothRnandInare real, and substitute for wnin Eq.
+(66)to obtain
+R2n¼R2n/C02þ2HY
+rLð2MÞ
+rI2n/C01(68a)
+I2nþ1¼I2n/C01/C02HY
+rLð2MÞ
+rR2n(68b)
+forn¼1;2;…;N.I fR0
+j¼Rð xj;0ÞandI1
+j¼Ið xj;DtÞfor
+alljare given as initial conditions, one generates Rðxj;2nDtÞ
+andIðxj;ð2nþ1ÞDtÞalternately. Thus, the real part of the
+wave function is calculated at even time intervals, and the
+imaginary part at odd time intervals.
+Following Visscher,29we deﬁne the probability density as
+q2n
+j¼R2n
+j/C16/C172
+þI2nþ1
+jI2n/C01
+j (69a)
+q2nþ1
+j¼R2nþ2
+jR2n
+jþI2nþ1
+j/C16/C172
+: (69b)It is not difﬁcult to show that the normalization using even
+numbers of time intervals is equal to that using odd numbersof time intervals. An obvious computational advantage isthat we deal with real numbers only. The computed wavefunctions are accurate to order ðDtÞ
+2Mþ1in time andðDxÞ2r/C01
+in space. Our formalism reduces to Visscher’s algorithm29
+when M¼0 and r¼1. Higher values of Mandrsigniﬁcantly
+increase the precision and the efﬁciency of the computations.
+This formulation is a signiﬁcant extension of the Yee
+ﬁnite-difference time-domain approach, which was proposedfor solving Maxwell’s equations.30More recently, it was
+applied to solving the time-dependent Schr €odinger equa-
+tion,31–33but tends to be used with the forward Euler method
+Eq.(5)rather than the three-time-point formula of Askar and
+Carmak in Eq. (7). Typically, the method is employed with
+M¼0 and r¼1.31Some spatial high-order methods, i.e.,
+with r>1, have been studied,32,33but they still employ a
+time-step-advance corresponding to M¼0.
+C. Determination of the real and imaginary parts
+of the wave function independently
+Gray and Balint-Kurti34describe an approach by which
+the real part of the wave function is calculated without calcu-lating the imaginary part. This approach is useful to generatetheS-matrix elements used in scattering theory, which are
+fully determined from the real part of the wave function.
+By adding Eqs. (4)and(6), we obtain
+wðr;tþDtÞ¼/C0 wðr;t/C0DtÞþ2 cosðHÞwðr;tÞ;(70)
+which is valid for the real and the imaginary parts of the
+wave function independently because cos ðHÞis a real opera-
+tor. The operator cos ðHÞcan be expanded in a similar man-
+ner as sinðHÞ. We write
+cosðzÞ¼C
+2‘ðzÞþOð z2‘þ2Þ; (71)
+where the polynomial approximation of cos zis
+C2LðzÞ¼1/C01
+2!z2þ1
+4!z4/C0/C1/C1/C1þð/C01ÞL
+ð2LÞ!z2L(72a)
+¼Y2L
+s¼11/C0z
+zð2LÞ
+s/C18/C19
+: (72b)
+The ﬁrst few zeros of the polynomial approximation C2Lare
+given in Table VIII.
+We deﬁne the operator binomials
+Pð2LÞ
+s/C171/C0H
+zð2LÞ
+s;s¼1;2;…;2L (73)
+and obtain the time-advance expressions
+wnþ1¼/C0wn/C01þ2Y2L
+s¼1Pð2LÞ
+swn: (74)
+Because the operator cos His real, we start with the real
+parts of w0and w1and generate the real part of wn.
+Similarly, we could begin with the imaginary parts and gen-erate the imaginary part of the wave function at later times.If only the real part is needed, this method is efﬁcient.
+836 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 836 04 October 2023 22:58:16
+We also note that Eqs. (63)and(64)should be used to avoid
+complex wave functions at intermediate stages. Because thismethod involves real functions only at all stages, it simpliﬁesthe coding of the algorithm. We have replicated the resultsof Sec. VBusing this method.
+VII. DISCUSSION
+We have reviewed an algorithmic approach of numerically
+solving the time-dependent Schr €odinger equation on a spatial
+and temporal grid. The main and novel focus is the expan-sion of the time-evolution as a function of the time incre-ment. This expansion is straightforward to implement to anyorder of the time increment and shows signiﬁcant improve-ment of the accuracy even at high order. Among the variousoptions of spatial integration, we choose the general centraldifferencing approach, which yields wave functions accurateto a variety of orders of the spatial increment. Thus, a sys-tematic expansion of the wave function of arbitrary order ofaccuracy in spatial and temporal increments is achieved.
+The method is an extension of the method of Askar and
+Cakmak
+5used to obtain solutions to arbitrary order of Dtand
+Dx. Their method is the M¼0 and r¼1 case of the method
+we have discussed. Higher values of Mandryield solutions
+with signiﬁcantly improved accuracy and efﬁciency. Even atlarger values of M, e.g., M>5, the error can be reduced by
+orders of magnitude by increasing M. Because of its explicit
+nature, the method is more efﬁcient than the implicit meth-ods, especially for higher spatial dimensions. Although nor-malization is not strictly conserved, the degree ofnormalization can be used as an indicator of the stability ofthe method.
+An advantage of this approach to the time-dependence is
+that once the algorithm is established, it can be applied toany order. For instance, it does not suffer from the complica-tion of expansions of the exponential split-order methods,which are no longer practical for OðDt
+2MÞwith M>3.35
+Furthermore, the method is easily generalized to the
+staggered-time method of Visscher29or the real part of the
+wave function calculation.34
+VIII. SUGGESTED PROBLEMS
+(1) Suppose that there is no closed form expression for the
+wave function. Write a pseudocode to determine thewave function wðx;DtÞ, where the input is wðx;0Þusing
+the method outlined in Appendix A for an arbitrary rand
+M.
+(2) Consider the tunneling ionization of an atoms in an elec-
+tric ﬁeld. One-dimensional versions of this problem havebeen studied recently to elucidate the features of the pro-cess.
+36–38A model with e¼/C22h¼m¼1, and the
+Coulomb gauge, employs a soft-core Coulomb potentialto bind an electron,V
+cðxÞ¼/C01ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1þx2p ; (75)
+and a square-pulse laser ﬁeld interaction,
+EðtÞ¼E0hðT/C0tÞ; (76)
+so that the effective interaction is given by the potential
+VðxÞ¼VcðxÞ/C0EðtÞx: (77)
+(a) Verify that
+wgrðxÞ¼N1þﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+x2þ2p/C16/C17
+e/C0ﬃﬃﬃﬃﬃﬃﬃﬃ
+x2þ2p
+; (78)
+is the ground state wave function of the soft
+Coulomb potential with energy /C01
+2.
+(b) Plot V(x) for E0¼0:05 and determine the classical
+turning points at the Coulomb ground-state energy.
+(c) Write a program to solve the time-dependent
+Schr €odinger equation with V(x) given by Eq. (77)
+with E0¼0:1 and the initial wave function
+wðx;0Þ¼wgrðxÞ. Use the method of Problem 1 to
+determine wðx;DtÞand then the iterative method
+involving the expansion of sin DtH=/C22hðÞ to obtain
+the wave functions on a time grid. To start set
+xmin¼/C0200;xmax¼1000 with J¼15 000,
+tmax¼100, N¼10 000, T¼tmax;Dt¼0:01,r¼1,
+andM¼5.
+(d) Experiment with smaller E0, e.g., E0¼0:05, when
+the initial energy is below the barrier height. One
+would expect a smaller ionization rate; identify
+tunneling and atomic excitations followed byescape.
+(e) (More advanced.) The analysis of tunneling ionization
+often involves quantum tunneling followed by the
+classical motion of the ejected electron. To obtain a
+classical trajectory of the ejected electron, we need
+the position at which the electron is ejected and an ini-tial velocity. One might consider the classical turning
+point as such a point at which the velocity is zero.
+However, there is uncertainty as to whether experi-
+mental data ﬁt such a prescription.
+36,37Discuss in
+terms of the results of calculations.
+AUTHOR DECLARATIONS
+Conflict of Interest
+The author has no conﬂicts to disclose.
+APPENDIX A: CALCULATING w1FROM w0
+We require wðx;0Þandwðx;DtÞas inputs to the main algo-
+rithm of this paper. Unless an exact solution is available, weTable VIII. The zeros zð2LÞ
+sof the polynomial approximation of cos ðzÞforL¼ 1;2;3.
+L s¼1 23456
+1/C01.414 21þi0.000 00 1.414 21 þi0.000 00 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+2 1.592 45þi0.000 00/C01.592 45þi0.000 00 3.076 38 þi0.000 00/C03.076 38þi0.000 00 /C1/C1/C1 /C1/C1/C1
+3 1.569 91þi0.000 00/C01.569 91þi0.000 00 3.928 08 /C0i1.289 24/C03.928 08þi1.289 24 3.928 08 þi1.289 24/C03.92808/C0i1.289 24
+837 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 837 04 October 2023 22:58:16
+need a method of determining wðx;DtÞfrom wðx;0Þaccu-
+rately. We formulate the initial value problem using Eq. (4),
+wnþ1¼e/C0iHDt=/C22hwnfor a given w0: (A1)
+To determine w1accurately from w0, we approximate the
+exponential function as
+ez¼YM
+s¼11/C0z
+zðMÞ
+s/C18/C19
+þOð zMþ1Þ; (A2)
+where the zðMÞ
+1;zðMÞ
+2;…;zðMÞ
+Mare theMzeros of theMth
+order polynomial approximation of the exponential function.These can be calculated to the precision needed, a sample of
+which forM¼ 1 to 5 is given in Table IXto ﬁve decimal
+places.
+The exponential function expansion can be employed to
+express the time-evolution operator as a product of binomial
+factors. Deﬁne the operator
+G
+ðMÞ
+s/C171þiHDt=/C22h
+zðMÞ
+s; (A3)
+so that
+e/C0iHDt=/C22h¼YM
+s¼1GðMÞ
+sþOð DtÞMþ1hi
+: (A4)
+We use the exponential expansion in Eq. (A1) to write
+wnþ1¼YM
+s¼1GðMÞ
+swn: (A5)
+Because the expression involves the product of Moperators,
+we deﬁne intermediate functions wðnþs=MÞ
+¼GðMÞ
+swðnþðs/C01Þ=MÞ, so that we solve for wnþ1recursively,
+starting with
+wðnþ1=MÞ¼GðMÞ
+1wðnÞ: (A6)
+Once wðnþ1=MÞis determined, the process is repeated,
+to obtain in succession wðnþ2=MÞ;wðnþ3=MÞ;…;
+wðnþðM/C0 1Þ=MÞ;wnþ1. At each step, an equation like Eq. (5)is
+solved, the only difference is that effectively the real Dtis
+replaced by a complex one. Because the operators GðMÞ
+s
+commute, they may be applied in any order. To make the
+accuracy compatible with that of the expansion of the sineoperator, we setM¼ 2M.
+Although the magnitude of the growth factor for M¼ 0;
+r¼1 is greater than one,39it can be less than one for largervalues ofM, and stable algorithms are possible. For a single
+time step, stability is not an issue, and, in any case, we can
+check the precision by examining the normalization of w1.
+APPENDIX B: PRODUCT OF BANDED MATRICES
+Suppose that Ais a banded matrix with lower bandwidth p
+and upper bandwidth q(total bandwidth pþqþ1) and Bis
+a banded matrix with lower bandwidth rand upper band-
+width s. Then, the product matrix C¼ABis a banded matrix
+with lower bandwidth pþrand upper bandwidth qþs.40
+ConsiderQ2M
+s¼0Kð2MÞ
+swith Kð2MÞ
+0¼I, and Kð2MÞ
+sfors/C211
+having lower and upper bandwidths of r(total bandwidth
+2rþ1). We denote the lower and upper bandwidths as lb
+andub, respectively, and thus Kð2MÞ
+2Kð2MÞ
+1haslb¼ub¼2r,
+Kð2MÞ
+3Kð2MÞ
+2Kð2MÞ
+1 has lb¼ub¼3r, and Kð2MÞ
+2MKð2MÞ
+2M/C01/C1/C1/C1
+Kð2MÞ
+1Kð2MÞ
+0haslb¼ub¼2Mr. We deﬁne
+A¼2iHDt=/C22hY2M
+s¼0Kð2MÞ
+s (B1)
+and note that Ahas is a banded matrix with lower and
+upper bandwidths of ð2Mþ1Þror total bandwidth of
+ð4Mþ2Þrþ1.
+Note the multiplication of banded matrix with lower and
+upper bandwidth rwith a banded matrix with lower and
+upper bandwidth sryields a banded matrix with lower
+and upper bandwidth ðsþ1Þr. In other words, Cð½sþ1/C138rÞ
+¼AðrÞBðsrÞ,o r
+cðsþ1½/C138 rÞ
+ij¼Xiþr
+k0¼i/C0raðrÞ
+ik0bðsrÞ
+k0j¼Xr
+k¼/C0raðrÞ
+i;iþkbðsrÞ
+iþk;j; (B2)
+where the superscript is the lower and upper bandwidth.
+Outside the banded diagonals, the matrix elements are all zero.
+a)Electronic mail: vandijk@physics.mcmaster.ca, ORCID: 0000-0002-
+9222-2895.
+1H. Tal-Ezer and R. Kosloff, J. Chem. Phys. 81, 3967 (1984).
+2C. Neuhauser and M. Thalhammer, BIT Numer. Math. 49, 199 (2009).
+3J. Crank and P. Nicolson, Proc. Cambridge Philos. Soc. 43, 50 (1947);
+Reprinted in Advances in Computational Mathematics (Springer, 1996),
+Vol. 6, pp. 207–226.
+4W. van Dijk and F. M. Toyama, Phys. Rev. E 75, 036707 (2007).
+5A. Askar and A. S. Cakmak, J. Chem. Phys. 68, 2794 (1978).
+6R. J. Rubin, J. Chem. Phys. 70, 4811 (1979).
+7W. van Dijk, Phys. Rev. E 105, 025303 (2022).
+8W. van Dijk, J. Brown, and K. Spyksma, Phys. Rev. E 84, 056703 (2011).
+9Z. F. Tian and P. X. Yu, Comput. Phys. Commun. 181, 861 (2010).
+10D. R. Lynch, Numerical Partial Differential Equations for Environmental
+Scientists and Engineers: A First Practical Course I (Springer
+ScienceþBusiness Media, Inc., New York, 2005).Table IX. The zeros zðMÞ
+sof the polynomial approximation of ezforMfrom 1 to 5.
+M s¼1 2345
+1/C01.000 00þi0.000 00 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+2/C01.000 00þi1.000 00/C01.000 00/C0i1.00000 /C1/C1/C1 /C1/C1/C1 /C1/C1/C1
+3/C01.596 07þi0.000 00/C00.70196/C0i1.80734/C00.701 96þi1.807 34 /C1/C1/C1 /C1/C1/C1
+4/C00.270 56þi2.504 78/C01.729 44þi0.888 97/C01.729 44/C0i0.888 97/C00.270 56þi2.504 78 /C1/C1/C1
+5þ0.239 81þi3.128 34/C01.64950þi1.693 93/C02.180 61þi0.000 00/C01.649 50/C0i1.693 93þ0.239 81/C0i3.128 34
+838 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 838 04 October 2023 22:58:16
+11W. van Dijk, F. M. Toyama, S. J. Prins, and K. Spyksma, Am. J. Phys. 82,
+955 (2014).
+12A. Goldberg, H. M. Schey, and J. L. Swartz, Am. J. Phys. 35, 177 (1967).
+13C. Leforestier, R. H. Bisseling, C. Cerjan, M. D. Feit, R. Friesner, A.
+Guldberg, A. Hammerich, G. Jolicard, W. Karrlein, H.-D. Meyer, N.
+Lipkin, O. Roncero, and R. Kosloff, J. Comput. Phys. 94, 59 (1991).
+14D. Kosloff and R. Kosloff, J. Comput. Phys. 52, 35 (1983).
+15In the deﬁnition of h, the arctanðY=XÞfunction gives the polar angle coordi-
+nate between/C0pandpof the Cartesian point ( X,Y). In computer languages,
+this function is often denoted as atan2(X,Y) . The inﬁnitesimal positive /C15
+in the deﬁnition of /C23ensures that the phase his a continuous function of t.
+16W. van Dijk and Y. Nogami, Phys. Rev. C 65, 024608 (2002); Errata:
+Phys. Rev. C 70, 039901(E) (2004).
+17R. G. Winter, Phys. Rev. 123, 1503 (1961).
+18A. J. Bracken and G. F. Melloy, J. Phys. A 27, 2197 (1994).
+19Y. Nogami, F. M. Toyama, and W. van Dijk, Phys. Lett. A 270, 279
+(2000).
+20W. van Dijk and F. M. Toyama, Phys. Rev. A 100, 052101 (2019).
+21K. Mattsson and J. Nordstr €om,J. Comput. Phys. 199, 503 (2004).
+22A. Nissen, G. Kreiss, and M. Gerritsen, J. Sci. Comput. 55, 173 (2013).
+23W. van Dijk, D. W. L. Sprung, and Y. Castonguay-Page, Phys. Scr. 95,
+065223 (2020).24S. Fl €ugge, Practical Quantum Mechanics (Springer-Verlag, Berlin, 1974).
+25L. D. Landau and E. M. Lifshitz, Quantum Mechanics: Nonrelativistic
+Theory (Pergamon Press, London, 1958).
+26F. E. Low, Ann. Phys. 7, 660 (1998).
+27R. S. Dumont and T. L. Marchioro II, Phys. Rev. A 47, 85 (1993).
+28R. S. Dumont, T. Rivlin, and E. Pollak, New J. Phys. 22, 093060 (2020).
+29P. B. Visscher, Comput. Phys. 5(6), 596 (1991).
+30K. S. Yee, IEEE Trans. Antennas Propag. 14, 302 (1966).
+31J. R. Nagel, ACES J. 24, 1 (2009).
+32M. Zhu, F. F. Huo, and B. Niu, ACES J. 36, 964 (2021).
+33J. M. N /C19apoles-Duarte and M. A. Chavez-Rojo, arXiv:1709.09800 (2018).
+34S. K. Gray and G. G. Balint-Kurti, J. Chem. Phys. 108, 950 (1998).
+35A. D. Bandrauk and H. Shen, Can. J. Chem. 70, 555 (1992).
+36R. Xu, T. Li, and X. Wang, Phys. Rev. A 98, 053435 (2018).
+37S. Yusofsani and M. Kolesik, Phys. Rev. A 101, 052121 (2020).
+38H. Gharibnejad, B. Schneider, M. Leadingham, and H. J. Schmale,
+Comput. Phys. Commun. 252, 106808 (2020).
+39W. H. Press, S. A. Teukolsky, W. T. Vetterling, and B. P. Flannery,
+Numerical Recipes in Fortran 77: The Art of Scientiﬁc Computing , 2nd ed.
+(Cambridge U. P., Cambridge, 1992).
+40Seehttps://math.stackexchange.com/questions/1922862/product-of-banded-
+matrices for proof of this statement.
+839 Am. J. Phys., Vol. 91, No. 10, October 2023 Wytse van Dijk 839 04 October 2023 22:58:16

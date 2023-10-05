@@ -1,0 +1,356 @@
+
+View
+Online
+Export
+CitationCrossMarkPAPERS| FEBRUARY 01 2022
+Making digital aquatint with the Ising model 
+Yannick Meurice
+Am. J. Phys.  90, 87–92 (2022)
+https://doi.org/10.1 119/10.0006525
+Articles Y ou May Be Interested In
+The ef fectiveness of aviation vocational engineering education internship-taking National Formosa
+University Aeronautical Engineering as an example
+AIP Conference Proceedings  (May 2023)
+Graphic arts in Ho Chi Minh City since the period 1986 to present
+AIP Conference Proceedings  (September 2021) 04 October 2023 23:01:17
+Making digital aquatint with the Ising model
+Y annick Meuricea)
+Department of Physics and Astronomy, The University of Iowa, Iowa City, Iowa 52242
+(Received 31 January 2021; accepted 13 September 2021)
+Aquatint is a printmaking technique that gives visual texture to prints. This patterning is shown to
+be similar to patterns that emerge from the Ising model of magnetism. We provide a concretePython-based example that generates semi-realistic textures and can be used to manipulate existing
+images. Our experience in classrooms of ﬁrst year seminar undergraduate students shows that this
+activity helps artistically inclined students to develop an interest in physics and computer science.
+It may also be suitable for a joint art and science project for high-school seniors.
+#2022 Published
+under an exclusive license by American Association of Physics Teachers.
+https://doi.org/10.1119/10.0006525
+I. INTRODUCTION
+The statistical features of images or image sets are very
+interesting. High resolution black and white digital pictures
+of prints can capture many aspects of the original image and
+encode the information into a collection of pixels havinggray values between 0 and 255. Conversely, visual aspects ofstatistical data can play an important role in identifying keyfeatures in samples. Can we use concepts and models of sta-
+tistical mechanics to reproduce artistic features of images
+and attempt to quantify variations observed in these images?For instance, in visual arts like printmaking, the concept oftexture plays a crucial role in the creative process and in the
+description of existing prints. It is not easy to deﬁne texturein a scientiﬁc manner, but in casual conversations, print-
+makers sometimes talk about the texture as the way the
+printed surface would feel to the touch and they use quali-ﬁers such as rough, grainy, or smooth. Is it possible to inventstatistical mechanics models that approximately reproducesuch features? In order to simplify the discussion, we will
+assume that in the ﬁrst approximation, the pixels are either
+black or white and carry only one bit of information. Thissimpliﬁed approach suggests that the Ising model
+1could be
+used to reproduce textures achieved in printmaking ormanipulate features of existing images.
+The Ising model is a highly simpliﬁed model of ferromag-
+netism. It consists of “spin variables” r
+xthat only take the
+values61 and are located on the sites xof a lattice. The
+physical meaning of the spin variables is discussed in moredetail below. In the following, we only consider lattices thatcan be built by assembling elementary squares of identicalsize in rectangular arrays because of their clear connection to
+pixelated pictures. Similar constructions are possible for tri-
+angular, hexagonal or higher-dimensional lattices. We canvisualize a particular choice of spin values as a collection ofblack or white pixels assembled in a two-dimensional rectan-gular array. We call this collection a conﬁguration. In this
+representation, the sites of the lattice are the coordinates of
+the center of the pixels. An example using a 50 /C250 lattice
+is displayed in Fig. 1(a). The black pixels represent r¼þ1
+(spin up) and the white pixels r¼/C01 (spin down).
+In modeling physical systems, the spin variables represent
+magnetic dipole moments or the intrinsic spins of electrons
+and are often depicted as arrows pointing up or down. The
+Ising model is a statistical model where the spin conﬁgura-tions have a classical Boltzmann probability distribution,which depends on the temperature and an external magneticﬁeld and involves nearest neighbor interactions that correlate
+spins in the distribution. The temperature controls theamount of disorder appearing in the system while the mag-netic ﬁeld is used to introduce order. At low temperature,domains, which can be visualized as “islands” of spins hav-
+ing the same sign, are more likely to appear. As we increase
+the temperature, these domains tend to break into smallerones. At high temperature, neighboring spins become uncor-related, as in Fig. 1(a). This intuitive description of the effect
+of the temperature will be made more quantitative later.
+In Fig. 1(a), the individual pixels (spins) are still quite
+visible. However, if we increase the number of pixels while
+keeping the size of the image constant, and introduce a mag-netic ﬁeld and a temperature, textures that artists may considerinteresting can be generated. An example is shown inFig.1(b). In this example, a uniform positive magnetic ﬁeld
+has been applied. This favors black pixels (spin up) over white
+pixels (spin down). This procedure can be reﬁned by adding aspatially modulated magnetic ﬁeld to generate a recognizableimage. This will help us to address the question of the textureof pixelated images in the framework of the Ising model.
+In the following, we show that it is possible to tune the
+adjustable parameters (temperature and magnetic ﬁeld) of
+the Ising model, and use a statistical method called impor-tance sampling, to generate conﬁgurations with texturesapproximating those obtained with a printmaking techniquecalled aquatint, which was developed by artists including
+Francisco Goya, Pablo Picasso, and Mauricio Lasansky. A
+speciﬁc print of Goya is discussed in Sec. II.
+The basic aspects of the Ising model are reviewed in Sec.
+III. There is a critical temperature below which the system
+Fig. 1. (a) Example of a random Ising conﬁguration on a 50 /C250 square lat-
+tice. The orientations of the spins are uncorrelated as in a high-temperature
+situation with no magnetic ﬁeld applied. (b) Conﬁguration on a 1000 /C21000
+square lattice. Ten iterations of the code described in the text were used with
+a dimensionless temperature T¼0.5 and a uniform magnetic ﬁeld h¼0:1.
+87 Am. J. Phys. 90(2), February 2022 http://aapt.org/ajp #2022 Published under an exclusive license by AAPT 87 04 October 2023 23:01:17
+magnetizes in the presence of an arbitrarily small magnetic
+ﬁeld. This is an example of a second-order phase transition
+which is of great interest in the context of statistical mechan-
+ics. While a detailed understanding of second-order phasetransitions is not essential for understanding the rest of this
+article, scientiﬁcally inclined students may be interested in
+interpreting images from this perspective.
+In the absence of an external ﬁeld breaking the symmetry
+between up and down, conﬁgurations tend to be without rec-
+ognizable shape or features. However, it is possible to use a
+pixelated picture to deﬁne a magnetic ﬁeld h
+xfor each pixel,
+and then use hxalong with an assigned temperature Tto add
+texture to the original picture with a procedure called impor-
+tance sampling. This procedure is described in Sec. IVand
+by using it, the pixels of a conﬁguration are more likely to be
+as in the original picture but with ﬂuctuations that provide an
+additional texture. In other words, the procedure that wedescribe randomizes the original picture by introducing ther-
+mal ﬂuctuations. As an example, a modiﬁed picture of
+Albert Einstein, with black and white pixels, is shown inFig.2. The details of the method used to generate Fig. 2are
+discussed in Sec. V. In the following, we will consider a spa-
+tially uniform temperature. Introducing local variations ofthe temperature would be an interesting extension of the pro-
+cess described here.
+The code generating Fig. 2is relatively simple. Some of
+its lines can be manipulated by students having no program-ming experience. Students are able to get interesting results
+by simply changing the temperature or the strength of the
+magnetic ﬁeld, as summarized in practical terms in Sec. VI.
+This has been a successful experience for students of several
+ﬁrst-year seminars. Some artistically inclined students, who
+thought that they had no interest in computing, discoveredthe pleasure of “looking under the hood” to adapt the exist-
+ing code to achieve their personal artistic goals.
+II. AQUATINT
+Aquatint is a printmaking technique, where particles of
+rosin or a material with similar semi-porous properties are
+melted on the printing plate in order to protect the coveredparts from the corrosive etching agent. This leaves small
+uncovered patches forming intricate microscopic patterns,
+which will be partially removed during the etching process.After etching, the resist is removed and ink is applied. The
+ink collects in the patches removed from the metal, while the
+covered parts stay smooth and free of ink after the plate iscarefully wiped. This produces a very rich texture that can
+be seen in most of the background of plate 59 of Goya’s
+“The Disasters of War” describing the desperation of survi-
+vors of the French–Spanish war around 1812. The full printin true color is shown in Fig. 3. The actual size of the central
+plate is about 13 /C218 cm
+2.
+A higher resolution grayscale image of the upper-left cor-
+ner of the plate was kindly provided by the University of
+Iowa Museum using their own copy of plate 59.5The texture
+can be seen better on a magniﬁcation of the upper left cornerof the print shown in Fig. 4. The size of this upper left corner
+is approximately 8 /C212 cm2and contains 2677 /C24017
+pixels. The size of a pixel on the picture with the originalscale is approximately 0.03 mm.
+We extracted a 1000 /C21000 pixel subset corresponding to
+pixels 500–1500 in both directions, starting with the upper
+left corner as (0,0). We then converted the eight bit grayscale
+(0–255) to units going from 0 to 1 and applied a gray cut of0.4 to convert the grayscale picture into a spin conﬁguration:The pixels below 0.4 become white and the rest of the pixels
+are black. This is shown in Fig. 5(a). The aquatint process
+relies on the fact that rosin arranges itself in interesting ran-dom patterns. This is a complicated physical process thatcan, in principle, be modeled using statistical mechanics,
+ﬂuid dynamics, chemistry, etc. However, it is possible to cre-
+ate macroscopically similar effects simply by using the Isingmodel. An example of a conﬁguration obtained after 20 iter-ations of the procedure described in Sec. VforT¼0.1 and a
+constant magnetic ﬁeld h
+x¼h¼0:1 is shown in Fig. 5(b).I t
+appears to have a texture resembling the texture of the partof the print shown in Fig. 5(a).
+III. THE ISING MODEL
+The Ising model1has many appealing features from a the-
+oretical physics point of view. One of them is the predictionof a second-order phase transition between an ordered anddisordered phase at a critical temperature T
+c. At high temper-
+ature ( T>Tc), the spins tend to be independently random
+and in the absence of an applied magnetic ﬁeld no macro-scopic magnetization is present. At low temperature(T<T
+c), the spins tend to align with a very weak magnetic
+ﬁeld. This is often called “spontaneous magnetization.” At
+Fig. 2. Example of Ising conﬁguration obtained with a temperature 1.9 and a
+magnetic ﬁeld provided by a public domain picture of Albert Einstein used
+according to Eq. (3)with h¼1.0.
+Fig. 3. F. Goya, The Disasters of War, Plate 59. The jpeg ﬁle is public domain:
+https://images.metmuseum.org/CRDImages/dp/original/DP817452.jpg .
+88 Am. J. Phys., Vol. 90, No. 2, February 2022 Yannick Meurice 88 04 October 2023 23:01:17
+the critical temperature Tc, a second-order phase transition
+takes place and the magnetic susceptibility diverges. In thissection, we provide more details about this feature; however,a detailed understanding of second-order phase transitions isnot necessary to follow the practical steps discussed in thecoming sections.
+Our starting point to discuss the phase diagram of the
+model is the Boltzmann probability distribution. The proba-bility for a given spin conﬁguration frg(the symbol fg
+means the collection of all the spins) will be written as
+ProbðfrgÞ ¼ exp bX
+hx;yirxryþX
+xhxrx/C18/C19 .
+Z; (1)
+where b¼1=Tis the inverse temperature, hxis a local mag-
+netic ﬁeld, both in appropriate units discussed below, andhx;yimeans pairs of nearest neighbors spins (adjacent pix-
+els) on the lattice. We deﬁne the partition function Zto be
+the sum of this exponential over all the conﬁgurations
+Z¼X
+frgexp bX
+hx;yirxryþX
+xhxrx/C18/C19
+: (2)
+A few words regarding signs and units: The energy is
+lower when neighboring spins are aligned with each other orwhen a spin is aligned with its local magnetic ﬁeld.Consequently, both energy terms have a minus sign whichcancels the minus sign in the exponent of the Boltzmann dis-
+tribution. The spin-spin interaction provides an energy scalethat we have set to one and bis the inverse temperature in
+these units. In addition, the magnetic ﬁeld should be under-stood to be in units of the temperature (so bdoes not factor-
+ize in the exponent). With these conventions, all thequantities are dimensionless and the two couplings can bemanipulated independently. Notice that bis the same for
+every pair of nearest neighbors. Relaxing this constraintcould lead to interesting variations.
+The magnetization is deﬁned as the spatial average of the
+spin, itself averaged with the probability given in Eq. (1).I t
+can be obtained by taking the ﬁrstderivative of the logarithm
+of the partition function with respect to a constant magnetic
+ﬁeld. For this reason, a discontinuity in the magnetization is
+called a ﬁrst-order phase transition.
+Conﬁgurations where many neighboring spins have the
+same orientation have lower energies and are more probablethan conﬁgurations where many neighboring spins haveopposite orientations. The typical size of the domains with agiven spin depends on the temperature. As we mentionedabove, the model has two phases. At high temperature, thespins are essentially uncorrelated (disordered phase) and atlow temperature they tend to form clusters of þor/C0spins
+(ordered phase). For a temperature below T
+c, the magnetiza-
+tion changes sign abruptly when we change the sign of auniform magnetic ﬁeld at ﬁxed temperature. As explainedabove, this is called a ﬁrst-order phase transition. A second-order phase transition appears at the end of a line ofﬁrst-order transitions. This is illustrated in Fig. 6. The dis-
+continuity of the magnetization is obtained in the inﬁnitevolume limit. At ﬁnite volume, the magnetization actuallychanges rapidly but continuously. Figure 6was made with a
+64/C264 lattice.
+At a second-order phase transition, the distance at which
+ﬂuctuations of the magnetization are correlated becomes inﬁ-nite.
+2This is a situation of great theoretical interest because
+universal behavior, independent of microscopic details, isobserved. Mathematically, the model at zero magnetic ﬁeldhas an exact solution in one and two dimensions for arbitrarysize.
+3Figure 6has been obtained with the code used in the
+rest of this article to generate typical conﬁgurations. Themethod is discussed in Sec. IV. It is a good exercise to try to
+Fig. 4. Upper left corner of plate 59 shown in Fig. 3. Photo provided by
+University of Iowa Stanley Museum of Art (Refs. 5and6).
+Fig. 5. (a) The 1000 /C21000 pixel detail of Fig. 4described in the text with a
+gray cut of 0.4. The squares have approximately the same size as on the
+actual print (3 /C23c m2). (b) The 1000 /C21000 pixel conﬁguration obtained
+from the Ising model after 20 iterations of the procedure described in the
+text for T¼0.1 and a constant magnetic ﬁeld h¼0.1.
+Fig. 6. Magnetization as a function of b¼1=Tand a uniform magnetic ﬁeld
+h. The star denotes the critical temperature and the dots the line of ﬁrst-order
+transitions where the magnetization changes abruptly. The graph was made
+with a 64 /C264 lattice.
+89 Am. J. Phys., Vol. 90, No. 2, February 2022 Yannick Meurice 89 04 October 2023 23:01:17
+reproduce the phase diagram. Another interesting exercise is
+to prepare a conﬁguration with a positive magnetic ﬁeld andthen switch to a negative magnetic ﬁeld and follow the for-mation of droplets of the opposite magnetization for succes-sive conﬁgurations.
+In the following, we use rectangular lattices tiled with
+squares (pixels). Nearest neighbor spins correspond to pixelssharing an edge. We will use magnetic ﬁelds of the form
+h
+x¼hrImage
+x; (3)
+where the conﬁguration rImage
+x corresponds to an image with
+black and white pixels translated in spin values with thesame convention that we used to visualize conﬁgurations(spin-up ¼black pixel). The adjustable parameter hallows
+us to tune the strength of the magnetic ﬁeld with respect tothe interaction between spins. One can further visualize themagnetic ﬁeld as produced by a layer of frozen spins r
+Image
+x
+located “on top” of the ﬂuctuating spins and coupled to them
+by a “vertical inverse temperature” h.
+IV. IMPORTANCE SAMPLING
+This section describes a statistical procedure to calculate
+efﬁciently average quantities with a reasonable accuracy andhas been used to generate Fig. 6. This section is intended for
+readers and students who would like a more detailed accountof statistical mechanical simulation, but it can be skippedwithout loss of continuity.
+The calculation of the partition function Zinvolves a sum
+over all the possible conﬁgurations. In Fig. 1(a), we showed
+one out of the 2
+2500/C2441 0752possible conﬁgurations.
+Performing this sum in a human timescale is clearly farbeyond the reach of any existing computer. However, it ispossible to pick a small number of “typical” conﬁgurationssuch that the thermodynamic behavior of the model, forinstance, the average energy or magnetization, can beobtained with reasonable accuracy by just averaging the val-ues of the thermodynamical quantities over a small sampleof “important” conﬁgurations.
+A method for generating such typical conﬁgurations is to
+start with a completely random conﬁguration, where eachspin is chosen at random without taking into account theother spins (a “hot” conﬁguration) or alternatively where allthe spins are the same (a “cold” conﬁguration). We then pro-ceed to ﬂip the spin at a site chosen at random. If the changeincreases the probability calculated with Eq. (1), the change
+is always accepted; otherwise the change is accepted with aprobability equal to the new probability divided by the oldprobability. By repeating this process enough times, we endup producing conﬁgurations that are important if we wish tocalculate, for instance, the average energy or magnetization.As the change in an individual spin has a negligible effect onaverages, we usually “sweep” the entire lattice following theprocedure described above at each site. We can go throughall the sites following a deterministic path. We can also pickthe sites at random. With this choice, some sites may be vis-ited more than once and others skipped if we randomly pickL
+2sites for a square lattice of linear size L.
+After a complete sweep of the lattice, the new spin conﬁg-
+uration can be substantially different from the previous oneand is kept in memory. The lattice sweep can be repeated N
+times. We denote the spin conﬁgurations frggenerated after
+each sweep C
+iwith i¼1;…;N. The average of a functionof the spins AðfrgÞdeﬁned by inserting Ain the partition
+function Zand dividing by Z
+hAi¼X
+frgAðfrgÞexp 
+bX
+hx;yirxryþX
+xhxrx!/C30
+Z(4)
+can be approximated by
+Fig. 7. Original picture with a gray scale between 0 and 1 (a), and the mag-
+netic ﬁeld obtained with a gray cut at 0.76 (b) and 0.83 (c).
+90 Am. J. Phys., Vol. 90, No. 2, February 2022 Yannick Meurice 90 04 October 2023 23:01:17
+hAi’1
+NXN
+i¼1AðCiÞ: (5)
+This is called importance sampling. The convergence of this
+procedure when Nincreases has non-trivial aspects. More
+explanations and references can be found in Ref. 4. The efﬁ-
+ciency of this type of method is often a source of amazementfor physicists, chemists, and mathematicians. Note also that
+except for making Fig. 6, averages are not used here and we
+will now focus on the graphical features of individualconﬁgurations.
+A remark about randomness. A common procedure for
+accepting or rejecting changes with a probability pis to gen-
+erate numbers that are approximately independent and uni-formly distributed between 0 and 1. If the number is less thanp, the change is accepted, otherwise, it is rejected. Often the
+computer algorithm generating these numbers is deterministicand the sequence can be reproduced for checking purposes.Typically, they have long cycles and weak correlationsamong successive sequences of the same length. We call thenumbers generated this way, “pseudorandom numbers.”
+V. MODIFYING PICTURES WITH THE ISING
+MODEL
+In this section, we use the Ising model with a magnetic
+ﬁeld h
+xborrowed from a jpeg picture to produce spin conﬁg-
+urations sharing features with the original picture. Forspeedy computation, it is useful to select a picture with fewerthan 300 pixels in each direction. An example is given inFig.7(a), where the actual size is 183 /C2275 pixels. For pic-
+tures of this size, the sample code provided produces picturesin just a few seconds on most laptops. This allows multiplequick trial-and-error experiments. First, we convert the gray-scale picture into a black and white picture, which can beinterpreted as an Ising conﬁguration. In Fig. 7(b), we con-
+verted the pixels of the original image by assigning thosewith a grayscale less than 0.76 to white, giving them a valueh
+x¼/C0 h, while the other pixels were converted to black and
+given a value hx¼þ h. This procedure was repeated with a
+gray cut of 0.83, producing the image shown in Fig. 7(c).
+We then used the importance sampling procedure from the
+Python code provided in the supplementary material.7The
+adjustable parameters are T(temperature ), the number
+of sweeps ( totalsweeps ), and the strength of the mag-
+netic ﬁeld ( sth). The choice sth¼1 corresponds to h¼1
+in the previous paragraph. (An example with temper-ature¼1.9,totalsweeps ¼3, and sth¼1 was shown in
+Fig. 2.) The ﬁrst two iterations are shown in Fig. 8, wherethe initial conﬁguration was totally white. An alternative is
+to use a random choice for each pixel.
+VI. PRACTICAL ASPECTS
+Students can use the
+PYTHON code provided in the supplemen-
+tary material, for instance, by copying and pasting the cells in a
+Jupyter notebook. The jpeg image (here publiceinstein.jpg)
+should be put in the same directory as the PYTHON code. The
+cells should be activated (usually with shift-return) in the order
+they are provided. The basic choices of parameters are
+•graycut: black and white separation with a value
+between 0 and 1.
+•temperature: a low value favors clumping; a large
+value favors small scale ﬂuctuations. Note that the second-
+order phase transition appears3atT¼Tc¼2=ln 1þﬃﬃﬃ
+2p/C0/C1
+’2:2692 with h¼0.
+•totalsweeps: number of conﬁgurations generated.
+•sth: overall strength of the magnetic ﬁeld associated
+with the original image.
+Variations can obtained by uncommenting some lines:
+•use of the original gray magnetic ﬁeld,
+•start white or random, and
+•save the picture with a different dpi value.Questions of artistic appropriation and the boundary of
+fair use of copyrighted material are complicated
+8and clearly
+beyond the scope of this article, so it is recommended to use
+images that are public or owned by students.
+VII. CONCLUSIONS
+We have shown how to create textures resembling those
+obtained with aquatint, by using the Ising model with a mag-
+netic ﬁeld borrowed from an existing jpeg picture, and then
+applying importance sampling updates. Students of various
+backgrounds can make numerical experiments with interest-
+ing visual appeal that illustrate phase transitions while devel-
+oping a taste for numerical simulations.
+Many variations can be added to this activity, such as local
+variations of the temperature or introduction of more possi-
+bilities at each site, as in clock models,9which could be
+translated into choices of color. The self-similar aspects of
+the conﬁgurations near the critical temperature2could be
+explored and compared with features obtained with other
+methods used to alter boundaries in images such as dithering
+or Laplacian sharpening. Finally, the activity can lead tointeresting discussions on the role of randomness in art and
+the creative processes.
+Fig. 8. First two iterations described in the text.
+91 Am. J. Phys., Vol. 90, No. 2, February 2022 Yannick Meurice 91 04 October 2023 23:01:17
+ACKNOWLEDGMENTS
+We thank K. Datchuk, Z. Hang, K. Heitritter, A. Jung, A.
+Lamb, Nova Meurice, M. H. Reno, M. Roberts, D.Wortman, and the students of ﬁrst year seminars from 2016to 2019 for help with various aspects of the project. Wethank the Vice President of Research ofﬁce at the Universityof Iowa for a Creative Matches grant awarded to A. Jung andthe author.
+a)Electronic mail: yannick-meurice@uiowa.edu
+1S. Brush, “History of the Lenz-Ising model,” Rev. Mod. Phys. 39, 883–893
+(1967).
+2K. G. Wilson, “The renormalization group and critical phenomena,” Rev.
+Mod. Phys. 55, 583–600 (1983).
+3B. Kaufman, “Crystal statistics. II. Partition function evaluated by spinor
+analysis,” Phys. Rev. 76, 1232–1243 (1949).4K. Binder and D. W. Heermann, Monte Carlo Simulation in Statistical
+Physics: An Introduction , 5th ed., Graduate Texts in Physics (Springer,
+Berlin/Heidelberg, 2010).
+5Francisco de Goya y Lucientes, “Plate 59. >eq u/C19e sirve una taza? (What
+good is a single cup?) from Los Desastres de la Guerra (The Disasters of
+War) (detail), 1863 Etching and aquatint,” 9 1/2 /C213 1/8 in.2.(24.13
+/C233.34 cm2). Gift of Owen and Leone Elliott, 1976.42BG, University of
+Iowa Stanley Museum of Art. The photograph was taken by Steve
+Erickson.
+6Note that the picture in the public version of the article is a compressedjpeg ﬁle with 1654 /C21102 pixels. The original tif ﬁle requires more than
+30 MBs.
+7See supplementary material at https://www.scitation.org/doi/suppl/10.1119/
+10.0006525 for the code used to produce the pictures of Einstein.
+8D. Brancaccio, R. Conlon, and D. Shin, “What does Warhol ‘fair use’ rul-
+ing mean for artists and copyrights?” Market Place, Morning Report, NPR,
+2021.
+9G. Sun, T. Vekua, E. Cobanera, and G. Ortiz, “Phase transitions in the Zp
+and U(1) clock models,” Phys. Rev. B 100, 094428 (2019).
+92 Am. J. Phys., Vol. 90, No. 2, February 2022 Yannick Meurice 92 04 October 2023 23:01:17
