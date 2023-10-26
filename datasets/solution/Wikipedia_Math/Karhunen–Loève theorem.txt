@@ -1,0 +1,585 @@
+Theory of stochastic processes
+In the theory of stochastic processes, the Karhunen–Loève theorem  (named after Kari Karhunen and Michel Loève), also known as the Kosambi–Karhunen–Loève theorem[1][2] states that a stochastic process can be represented as an infinite linear combination of orthogonal functions, analogous to a Fourier series representation of a function on a bounded interval. The transformation is also known as Hotelling transform and eigenvector transform, and is closely related to principal component analysis (PCA) technique widely used in image processing and in data analysis in many fields.[3]
+Stochastic processes given by infinite series of this form were first considered by Damodar Dharmananda Kosambi.[4][5]  There exist many such expansions of a stochastic process: if the process is indexed over [a, b], any orthonormal basis of L2([a, b]) yields an expansion thereof in that form. The importance of the Karhunen–Loève theorem is that it yields the best such basis in the sense that it minimizes the total mean squared error.
+In contrast to a Fourier series where the coefficients are fixed numbers and the expansion basis consists of sinusoidal functions (that is, sine and cosine functions), the coefficients in the Karhunen–Loève theorem are random variables and the expansion basis depends on the process. In fact, the orthogonal basis functions used in this representation are determined by the covariance function of the process. One can think that the Karhunen–Loève transform adapts to the process in order to produce the best possible basis for its expansion.
+In the case of a centered stochastic process {Xt}t ∈ [a, b] (centered means E[Xt] = 0 for all t ∈ [a, b]) satisfying a technical continuity condition, X admits a decomposition
+
+Xt=∑k=1∞Zkek(t)_t=∑_k=1^∞Z_ke_k(t)
+where Zk are pairwise uncorrelated random variables and the functions ek are continuous real-valued functions on [a, b] that are pairwise orthogonal in L2([a, b]). It is therefore sometimes said that the expansion is bi-orthogonal since the random coefficients Zk are orthogonal in the probability space while the deterministic functions ek are orthogonal in the time domain. The general case of a process Xt that is not centered can be brought back to the case of a centered process by considering Xt − E[Xt] which is a centered process.
+Moreover, if the process is Gaussian, then the random variables Zk are Gaussian and stochastically independent. This result generalizes the Karhunen–Loève transform. An important example of a centered real stochastic process on [0, 1] is the Wiener process; the Karhunen–Loève theorem can be used to provide a canonical orthogonal representation for it. In this case the expansion consists of sinusoidal functions.
+The above expansion into uncorrelated random variables is also known as the Karhunen–Loève expansion or Karhunen–Loève decomposition. The empirical version (i.e., with the coefficients computed from a sample) is known as the Karhunen–Loève transform (KLT), principal component analysis, proper orthogonal decomposition (POD), empirical orthogonal functions (a term used in meteorology and geophysics), or the Hotelling transform.
+
+
+Formulation[edit]
+Throughout this article, we will consider a random process Xt defined over a probability space (Ω, F, P) and indexed over a closed interval [a, b], which is square-integrable, is zero-mean, and with covariance function KX(s, t). In other words, we have:
+∀t∈[a,b]Xt∈L2(Ω,F,P),i.e.E[Xt2]<∞,∈[a,b]_t^2(Ω,F,𝐏),  i.e.𝐄[X_t^2]<∞,
+∀t∈[a,b]E[Xt]=0,∈[a,b]    𝐄[X_t]=0,
+∀t,s∈[a,b]KX(s,t)=E[XsXt].,s∈[a,b]_X(s,t)=𝐄[X_sX_t].
+The square-integrable condition E[Xt2]<∞𝐄[X_t^2]<∞ is logically equivalent to KX(s,t)_X(s,t) being finite for all s,t∈[a,b],t∈[a,b].[6]
+
+We associate to KX a linear operator (more specifically a Hilbert–Schmidt integral operator) TKX defined in the following way:
+TKX:L2([a,b])→L2([a,b]):f↦TKXf=∫abKX(s,⋅)f(s)ds   T_K_X   :L^2([a,b])   ^2([a,b])
+      :f_K_Xf   =∫_a^bK_X(s,·)f(s) ds
+Since TKX is a linear operator, it makes sense to talk about its eigenvalues λk and eigenfunctions ek, which are found solving the homogeneous Fredholm integral equation of the second kind
+∫abKX(s,t)ek(s)ds=λkek(t)∫_a^bK_X(s,t)e_k(s) ds=λ_ke_k(t)
+Statement of the theorem[edit]
+Theorem. Let Xt be a zero-mean square-integrable stochastic process defined over a probability space (Ω, F, P) and indexed over a closed and bounded interval [a, b], with continuous covariance function KX(s, t).
+Then KX(s,t) is a Mercer kernel and letting ek be an orthonormal basis on L2([a, b]) formed by the eigenfunctions of TKX with respective eigenvalues λk, Xt admits the following representation
+
+Xt=∑k=1∞Zkek(t)_t=∑_k=1^∞Z_ke_k(t)
+where the convergence is in L2, uniform in t and
+
+Zk=∫abXtek(t)dt_k=∫_a^bX_te_k(t) dt
+Furthermore, the random variables Zk have zero-mean, are uncorrelated and have variance λk
+
+E[Zk]=0,∀k∈NandE[ZiZj]=δijλj,∀i,j∈N𝐄[Z_k]=0, ∈ℕ        𝐄[Z_iZ_j]=δ_ijλ_j, ,j∈ℕ
+Note that by generalizations of Mercer's theorem we can replace the interval [a, b] with other compact spaces C and the Lebesgue measure on [a, b] with a Borel measure whose support is C.
+
+Proof[edit]
+The covariance function KX satisfies the definition of a Mercer kernel. By Mercer's theorem, there consequently exists a set λk, ek(t) of eigenvalues and eigenfunctions of TKX forming an orthonormal basis of L2([a,b]), and KX can be expressed as
+KX(s,t)=∑k=1∞λkek(s)ek(t)_X(s,t)=∑_k=1^∞λ_ke_k(s)e_k(t)
+The process Xt can be expanded in terms of the eigenfunctions ek as:
+Xt=∑k=1∞Zkek(t)_t=∑_k=1^∞Z_ke_k(t)
+where the coefficients (random variables) Zk are given by the projection of Xt on the respective eigenfunctions
+Zk=∫abXtek(t)dt_k=∫_a^bX_te_k(t) dt
+We may then derive
+E[Zk]=E[∫abXtek(t)dt]=∫abE[Xt]ek(t)dt=0E[ZiZj]=E[∫ab∫abXtXsej(t)ei(s)dtds]=∫ab∫abE[XtXs]ej(t)ei(s)dtds=∫ab∫abKX(s,t)ej(t)ei(s)dtds=∫abei(s)(∫abKX(s,t)ej(t)dt)ds=λj∫abei(s)ej(s)ds=δijλj𝐄[Z_k]   =𝐄[∫_a^bX_te_k(t) dt]=∫_a^b𝐄[X_t]e_k(t)dt=0
+𝐄[Z_iZ_j]   =𝐄[∫_a^b∫_a^bX_tX_se_j(t)e_i(s) dt ds]
+   =∫_a^b∫_a^b𝐄[X_tX_s]e_j(t)e_i(s) dt ds
+   =∫_a^b∫_a^bK_X(s,t)e_j(t)e_i(s) dt ds
+   =∫_a^be_i(s)(∫_a^bK_X(s,t)e_j(t) dt) ds
+   =λ_j∫_a^be_i(s)e_j(s) ds
+   =δ_ijλ_j
+where we have used the fact that the ek are eigenfunctions of TKX and are orthonormal.
+Let us now show that the convergence is in L2. Let
+SN=∑k=1NZkek(t)._N=∑_k=1^NZ_ke_k(t).
+Then:
+E[|Xt−SN|2]=E[Xt2]+E[SN2]−2E[XtSN]=KX(t,t)+E[∑k=1N∑l=1NZkZℓek(t)eℓ(t)]−2E[Xt∑k=1NZkek(t)]=KX(t,t)+∑k=1Nλkek(t)2−2E[∑k=1N∫abXtXsek(s)ek(t)ds]=KX(t,t)−∑k=1Nλkek(t)2𝐄[|X_t-S_N|^2]   =𝐄[X_t^2]+𝐄[S_N^2]-2𝐄[X_tS_N]
+   =K_X(t,t)+𝐄[∑_k=1^N∑_l=1^NZ_kZ_ℓe_k(t)e_ℓ(t)]-2𝐄[X_t∑_k=1^NZ_ke_k(t)]
+   =K_X(t,t)+∑_k=1^Nλ_ke_k(t)^2-2𝐄[∑_k=1^N∫_a^bX_tX_se_k(s)e_k(t) ds]
+   =K_X(t,t)-∑_k=1^Nλ_ke_k(t)^2
+which goes to 0 by Mercer's theorem.
+Properties of the Karhunen–Loève transform[edit]
+Special case: Gaussian distribution[edit]
+Since the limit in the mean of jointly Gaussian random variables is jointly Gaussian, and jointly Gaussian random (centered) variables are independent if and only if they are orthogonal, we can also conclude:
+Theorem.  The variables Zi have a joint Gaussian distribution and are stochastically independent if the original process {Xt}t is Gaussian.
+In the Gaussian case, since the variables Zi are independent, we can say more:
+
+limN→∞∑i=1Nei(t)Zi(ω)=Xt(ω)lim_N→∞∑_i=1^Ne_i(t)Z_i(ω)=X_t(ω)
+almost surely.
+
+The Karhunen–Loève transform decorrelates the process[edit]
+This is a consequence of the independence of the Zk.
+
+The Karhunen–Loève expansion minimizes the total mean square error[edit]
+In the introduction, we mentioned that the truncated Karhunen–Loeve expansion was the best approximation of the original process in the sense that it reduces the total mean-square error resulting of its truncation. Because of this property, it is often said that the KL transform optimally compacts the energy.
+More specifically, given any orthonormal basis {fk} of L2([a, b]), we may decompose the process Xt as:
+
+Xt(ω)=∑k=1∞Ak(ω)fk(t)_t(ω)=∑_k=1^∞A_k(ω)f_k(t)
+where
+
+Ak(ω)=∫abXt(ω)fk(t)dt_k(ω)=∫_a^bX_t(ω)f_k(t) dt
+and we may approximate Xt by the finite sum
+
+X^t(ω)=∑k=1NAk(ω)fk(t)X̂_t(ω)=∑_k=1^NA_k(ω)f_k(t)
+for some integer N.
+Claim. Of all such approximations, the KL approximation is the one that minimizes the total mean square error (provided we have arranged the eigenvalues in decreasing order).
+
+Proof
+Consider the error resulting from the truncation at the N-th term in the following orthonormal expansion:
+
+εN(t)=∑k=N+1∞Ak(ω)fk(t)ε_N(t)=∑_k=N+1^∞A_k(ω)f_k(t)
+The mean-square error εN2(t) can be written as:
+
+εN2(t)=E[∑i=N+1∞∑j=N+1∞Ai(ω)Aj(ω)fi(t)fj(t)]=∑i=N+1∞∑j=N+1∞E[∫ab∫abXtXsfi(t)fj(s)dsdt]fi(t)fj(t)=∑i=N+1∞∑j=N+1∞fi(t)fj(t)∫ab∫abKX(s,t)fi(t)fj(s)dsdtε_N^2(t)   =𝐄[∑_i=N+1^∞∑_j=N+1^∞A_i(ω)A_j(ω)f_i(t)f_j(t)]
+   =∑_i=N+1^∞∑_j=N+1^∞𝐄[∫_a^b∫_a^bX_tX_sf_i(t)f_j(s) ds dt]f_i(t)f_j(t)
+   =∑_i=N+1^∞∑_j=N+1^∞f_i(t)f_j(t)∫_a^b∫_a^bK_X(s,t)f_i(t)f_j(s) ds dt
+We then integrate this last equality over [a, b]. The orthonormality of the fk yields:
+
+∫abεN2(t)dt=∑k=N+1∞∫ab∫abKX(s,t)fk(t)fk(s)dsdt∫_a^bε_N^2(t) dt=∑_k=N+1^∞∫_a^b∫_a^bK_X(s,t)f_k(t)f_k(s) ds dt
+The problem of minimizing the total mean-square error thus comes down to minimizing the right hand side of this equality subject to the constraint that the fk be normalized. We hence introduce βk, the Lagrangian multipliers associated with these constraints, and aim at minimizing the following function:
+
+Er[fk(t),k∈N+1,…]=∑k=N+1∞∫ab∫abKX(s,t)fk(t)fk(s)dsdt−βk(∫abfk(t)fk(t)dt−1)[f_k(t),k∈{N+1,…}]=∑_k=N+1^∞∫_a^b∫_a^bK_X(s,t)f_k(t)f_k(s) ds dt-β_k(∫_a^bf_k(t)f_k(t) dt-1)
+Differentiating with respect to fi(t) (this is a functional derivative) and setting the derivative to 0 yields:
+
+∂Er∂fi(t)=∫ab(∫abKX(s,t)fi(s)ds−βifi(t))dt=0/_i(t)=∫_a^b(∫_a^bK_X(s,t)f_i(s) ds-β_if_i(t)) dt=0
+which is satisfied in particular when
+
+∫abKX(s,t)fi(s)ds=βifi(t).∫_a^bK_X(s,t)f_i(s) ds=β_if_i(t).
+In other words, when the fk are chosen to be the eigenfunctions of TKX, hence resulting in the KL expansion.
+
+
+Explained variance[edit]
+An important observation is that since the random coefficients Zk of the KL expansion are uncorrelated, the Bienaymé formula asserts that the variance of Xt is simply the sum of the variances of the individual components of the sum:
+
+var⁡[Xt]=∑k=0∞ek(t)2var⁡[Zk]=∑k=1∞λkek(t)2var[X_t]=∑_k=0^∞e_k(t)^2var[Z_k]=∑_k=1^∞λ_ke_k(t)^2
+Integrating over [a, b] and using the orthonormality of the ek, we obtain that the total variance of the process is:
+
+∫abvar⁡[Xt]dt=∑k=1∞λk∫_a^bvar[X_t] dt=∑_k=1^∞λ_k
+In particular, the total variance of the N-truncated approximation is
+
+∑k=1Nλk.∑_k=1^Nλ_k.
+As a result, the N-truncated expansion explains
+
+∑k=1Nλk∑k=1∞λk∑_k=1^Nλ_k/∑_k=1^∞λ_k
+of the variance; and if we are content with an approximation that explains, say, 95% of the variance, then we just have to determine an N∈N∈ℕ such that
+
+∑k=1Nλk∑k=1∞λk≥0.95.∑_k=1^Nλ_k/∑_k=1^∞λ_k≥0.95.
+The Karhunen–Loève expansion has the minimum representation entropy property[edit]
+Given a representation of Xt=∑k=1∞Wkφk(t)_t=∑_k=1^∞W_kφ_k(t), for some orthonormal basis φk(t)φ_k(t) and random Wk_k, we let pk=E[|Wk|2]/E[|Xt|L22]_k=𝔼[|W_k|^2]/𝔼[|X_t|_L^2^2], so that ∑k=1∞pk=1∑_k=1^∞p_k=1. We may then define the representation entropy to be H(φk)=−∑ipklog⁡(pk)({φ_k})=-∑_ip_klog(p_k). Then we have H(φk)≥H(ek)({φ_k})({e_k}), for all choices of φkφ_k. That is, the KL-expansion has minimal representation entropy.
+Proof:
+Denote the coefficients obtained for the basis ek(t)_k(t) as pk_k, and for φk(t)φ_k(t) as qk_k.
+Choose N≥1≥1. Note that since ek_k minimizes the mean squared error, we have that
+
+E|∑k=1NZkek(t)−Xt|L22≤E|∑k=1NWkφk(t)−Xt|L22𝔼|∑_k=1^NZ_ke_k(t)-X_t|_L^2^2≤𝔼|∑_k=1^NW_kφ_k(t)-X_t|_L^2^2
+Expanding the right hand size, we get:
+
+E|∑k=1NWkφk(t)−Xt|L22=E|Xt2|L2+∑k=1N∑ℓ=1NE[Wℓφℓ(t)Wk∗φk∗(t)]L2−∑k=1NE[WkφkXt∗]L2−∑k=1NE[XtWk∗φk∗(t)]L2𝔼|∑_k=1^NW_kφ_k(t)-X_t|_L^2^2=𝔼|X_t^2|_L^2+∑_k=1^N∑_ℓ=1^N𝔼[W_ℓφ_ℓ(t)W_k^*φ_k^*(t)]_L^2-∑_k=1^N𝔼[W_kφ_kX_t^*]_L^2-∑_k=1^N𝔼[X_tW_k^*φ_k^*(t)]_L^2
+Using the orthonormality of φk(t)φ_k(t), and expanding Xt_t in the φk(t)φ_k(t) basis, we get that the right hand size is equal to:
+
+E[Xt]L22−∑k=1NE[|Wk|2]𝔼[X_t]_L^2^2-∑_k=1^N𝔼[|W_k|^2]
+We may perform identical analysis for the ek(t)_k(t), and so rewrite the above inequality as:
+
+E[Xt]L22−∑k=1NE[|Zk|2]≤E[Xt]L22−∑k=1NE[|Wk|2]𝔼[X_t]_L^2^2-∑_k=1^N𝔼[|Z_k|^2]≤𝔼[X_t]_L^2^2-∑_k=1^N𝔼[|W_k|^2]
+Subtracting the common first term, and dividing by E[|Xt|L22]𝔼[|X_t|_L^2^2], we obtain that:
+
+∑k=1Npk≥∑k=1Nqk∑_k=1^Np_k≥∑_k=1^Nq_k
+This implies that:
+
+−∑k=1∞pklog⁡(pk)≤−∑k=1∞qklog⁡(qk)-∑_k=1^∞p_klog(p_k)≤-∑_k=1^∞q_klog(q_k)
+Linear Karhunen–Loève approximations[edit]
+Consider a whole class of signals we want to approximate over the first M vectors of a basis. These signals are modeled as realizations of a random vector Y[n] of size N. To optimize the approximation we design a basis that minimizes the average approximation error. This section proves that optimal bases are Karhunen–Loeve bases that diagonalize the covariance matrix of Y. The random vector Y can be decomposed in an orthogonal basis
+
+gm0≤m≤N{g_m}_0
+as follows:
+
+Y=∑m=0N−1⟨Y,gm⟩gm,=∑_m=0^N-1,g_m_m,
+where each
+
+⟨Y,gm⟩=∑n=0N−1Y[n]gm∗[n],g_m⟩=∑_n=0^N-1Y[n]g_m^*[n]
+is a random variable. The approximation from the first M ≤ N vectors of the basis is
+
+YM=∑m=0M−1⟨Y,gm⟩gm_M=∑_m=0^M-1,g_m_m
+The energy conservation in an orthogonal basis implies
+
+ε[M]=E‖Y−YM‖2=∑m=MN−1E|⟨Y,gm⟩|2ε[M]=𝐄{Y-Y_M^2}=∑_m=M^N-1𝐄{|,g_m⟩|^2}
+This error is related to the covariance of Y defined by
+
+R[n,m]=EY[n]Y∗[m][n,m]=𝐄{Y[n]Y^*[m]}
+For any vector x[n] we denote by K the covariance operator represented by this matrix,
+
+E|⟨Y,x⟩|2=⟨Kx,x⟩=∑n=0N−1∑m=0N−1R[n,m]x[n]x∗[m]𝐄{|,x⟩|^2}=,x⟩=∑_n=0^N-1∑_m=0^N-1R[n,m]x[n]x^*[m]
+The error ε[M] is therefore a sum of the last N − M coefficients of the covariance operator
+
+ε[M]=∑m=MN−1⟨Kgm,gm⟩ε[M]=∑_m=M^N-1_m,g_m⟩
+The covariance operator K is Hermitian and Positive and is thus diagonalized in an orthogonal basis called a Karhunen–Loève basis. The following theorem states that a Karhunen–Loève basis is optimal for linear approximations.
+Theorem (Optimality of Karhunen–Loève basis). Let K be a covariance operator. For all M ≥ 1, the approximation error
+
+ε[M]=∑m=MN−1⟨Kgm,gm⟩ε[M]=∑_m=M^N-1_m,g_m⟩
+is minimum if and only if
+
+gm0≤m<N{g_m}_0<N
+is a Karhunen–Loeve basis ordered by decreasing eigenvalues.
+
+⟨Kgm,gm⟩≥⟨Kgm+1,gm+1⟩,0≤m<N−1._m,g_m⟩≥_m+1,g_m+1⟩,    0<N-1.
+Non-Linear approximation in bases[edit]
+Linear approximations project the signal on M vectors a priori. The approximation can be made more precise by choosing the M orthogonal vectors depending on the signal properties. This section analyzes the general performance of these non-linear approximations. A signal f∈H∈H is approximated with M vectors selected adaptively in an orthonormal basis for HH[definition needed]
+
+B=gmm∈NB={g_m}_m∈ℕ
+Let fM_M be the projection of f over M vectors whose indices are in IM:
+
+fM=∑m∈IM⟨f,gm⟩gm_M=∑_m_M,g_m_m
+The approximation error is the sum of the remaining coefficients
+
+ε[M]=‖f−fM‖2=∑m∉IMN−1|⟨f,gm⟩|2ε[M]={f-f_M^2}=∑_m_M^N-1{|,g_m⟩|^2}
+To minimize this error, the indices in IM must correspond to the M vectors having the largest inner product amplitude
+
+|⟨f,gm⟩|.|,g_m⟩|.
+These are the vectors that best correlate f. They can thus be interpreted as the main features of f. The resulting error is necessarily smaller than the error of a linear approximation which selects the M approximation vectors independently of f. Let us sort
+
+|⟨f,gm⟩|m∈N{|,g_m⟩|}_m∈ℕ
+in decreasing order
+
+|⟨f,gmk⟩|≥|⟨f,gmk+1⟩|.|,g_m_k⟩|≥|,g_m_k+1⟩|.
+The best non-linear approximation is
+
+fM=∑k=1M⟨f,gmk⟩gmk_M=∑_k=1^M,g_m_k_m_k
+It can also be written as inner product thresholding:
+
+fM=∑m=0∞θT(⟨f,gm⟩)gm_M=∑_m=0^∞θ_T(,g_m⟩)g_m
+with
+
+T=|⟨f,gmM⟩|,θT(x)=x|x|≥T0|x|<T=|,g_m_M⟩|,    θ_T(x)=x   |x|
+0   |x|<T
+The non-linear error is
+
+ε[M]=‖f−fM‖2=∑k=M+1∞|⟨f,gmk⟩|2ε[M]={f-f_M^2}=∑_k=M+1^∞{|,g_m_k⟩|^2}
+this error goes quickly to zero as M increases, if the sorted values of |⟨f,gmk⟩||,g_m_k⟩| have a fast decay as k increases. This decay is quantified by computing the IPI^P norm of the signal inner products in B:
+
+‖f‖B,p=(∑m=0∞|⟨f,gm⟩|p)1pf_B,p=(∑_m=0^∞|,g_m⟩|^p)^1/p
+The following theorem relates the decay of ε[M] to ‖f‖B,pf_B,p
+Theorem (decay of error).  If ‖f‖B,p<∞f_B,p<∞ with p < 2 then
+
+ε[M]≤‖f‖B,p22p−1M1−2pε[M]≤f_B,p^2/2/p-1M^1-2/p
+and
+
+ε[M]=o(M1−2p).ε[M]=o(M^1-2/p).
+Conversely, if ε[M]=o(M1−2p)ε[M]=o(M^1-2/p) then
+‖f‖B,q<∞f_B,q<∞ for any q > p.
+
+Non-optimality of Karhunen–Loève bases[edit]
+To further illustrate the differences between linear and non-linear approximations, we study the decomposition of a simple non-Gaussian random vector in a Karhunen–Loève basis. Processes whose realizations have a random translation are stationary. The Karhunen–Loève basis is then a Fourier basis and we study its performance. To simplify the analysis, consider a random vector Y[n] of size N that is random shift modulo N of a deterministic signal f[n] of zero mean
+
+∑n=0N−1f[n]=0∑_n=0^N-1f[n]=0
+Y[n]=f[(n−p)modN][n]=f[(n-p)N]
+The random shift P is uniformly distributed on [0, N − 1]:
+
+Pr(P=p)=1N,0≤p<N(P=p)=1/N,    0<N
+Clearly
+
+EY[n]=1N∑p=0N−1f[(n−p)modN]=0𝐄{Y[n]}=1/N∑_p=0^N-1f[(n-p)N]=0
+and
+
+R[n,k]=EY[n]Y[k]=1N∑p=0N−1f[(n−p)modN]f[(k−p)modN]=1NfΘf¯[n−k],f¯[n]=f[−n][n,k]=𝐄{Y[n]Y[k]}=1/N∑_p=0^N-1f[(n-p)N]f[(k-p)N]=1/NfΘf̅[n-k],  f̅[n]=f[-n]
+Hence
+
+R[n,k]=RY[n−k],RY[k]=1NfΘf¯[k][n,k]=R_Y[n-k],_Y[k]=1/NfΘf̅[k]
+Since RY is N periodic, Y is a circular stationary random vector. The covariance operator is a circular convolution with RY and is therefore diagonalized in the discrete Fourier Karhunen–Loève basis
+
+1Nei2πmn/N0≤m<N.{1/√(N)e^i2/N}_0<N.
+The power spectrum is Fourier transform of RY:
+
+PY[m]=R^Y[m]=1N|f^[m]|2_Y[m]=R̂_Y[m]=1/N|f̂[m]|^2
+Example:  Consider an extreme case where f[n]=δ[n]−δ[n−1][n]=δ[n]-δ[n-1]. A theorem stated above guarantees that the Fourier Karhunen–Loève basis produces a smaller expected approximation error than a canonical basis of Diracs gm[n]=δ[n−m]0≤m<N{g_m[n]=δ[n-m]}_0<N. Indeed, we do not know a priori the abscissa of the non-zero coefficients of Y, so there is no particular Dirac that is better adapted to perform the approximation. But the Fourier vectors cover the whole support of Y and thus absorb a part of the signal energy.
+
+E|⟨Y[n],1Nei2πmn/N⟩|2=PY[m]=4Nsin2⁡(πkN)𝐄{|[n],1/√(N)e^i2/N⟩|^2}=P_Y[m]=4/Nsin^2(/N)
+Selecting higher frequency Fourier coefficients yields a better mean-square approximation than choosing a priori a few Dirac vectors to perform the approximation. The situation is totally different for non-linear approximations. If f[n]=δ[n]−δ[n−1][n]=δ[n]-δ[n-1] then the discrete Fourier basis is extremely inefficient because f and hence Y have an energy that is almost uniformly spread among all Fourier vectors. In contrast, since f has only two non-zero coefficients in the Dirac basis, a non-linear approximation of Y with M ≥ 2 gives zero error.[7]
+
+Principal component analysis[edit]
+Main article: Principal component analysis
+We have established the Karhunen–Loève theorem and derived a few properties thereof. We also noted that one hurdle in its application was the numerical cost of determining the eigenvalues and eigenfunctions of its covariance operator through the Fredholm integral equation of the second kind
+
+∫abKX(s,t)ek(s)ds=λkek(t).∫_a^bK_X(s,t)e_k(s) ds=λ_ke_k(t).
+However, when applied to a discrete and finite process (Xn)n∈1,…,N(X_n)_n∈{1,…,N}, the problem takes a much simpler form and standard algebra can be used to carry out the calculations.
+Note that a continuous process can also be sampled at N points in time in order to reduce the problem to a finite version.
+We henceforth consider a random N-dimensional vector X=(X1X2…XN)T=(X_1 X_2 … X_N)^T. As mentioned above, X could contain N samples of a signal but it can hold many more representations depending on the field of application. For instance it could be the answers to a survey or economic data in an econometrics analysis.
+As in the continuous version, we assume that X is centered, otherwise we can let X:=X−μX:=X-μ_X (where μXμ_X is the mean vector of X) which is centered.
+Let us adapt the procedure to the discrete case.
+
+Covariance matrix[edit]
+Recall that the main implication and difficulty of the KL transformation is computing the eigenvectors of the linear operator associated to the covariance function, which are given by the solutions to the integral equation written above.
+Define Σ, the covariance matrix of X, as an N × N matrix whose elements are given by:
+
+Σij=E[XiXj],∀i,j∈1,…,NΣ_ij=𝐄[X_iX_j],    ,j∈{1,…,N}
+Rewriting the above integral equation to suit the discrete case, we observe that it turns into:
+
+∑j=1NΣijej=λei⇔Σe=λe∑_j=1^NΣ_ije_j=_i  ⇔  =
+where e=(e1e2…eN)T=(e_1 e_2 … e_N)^T is an N-dimensional vector.
+The integral equation thus reduces to a simple matrix eigenvalue problem, which explains why the PCA has such a broad domain of applications.
+Since Σ is a positive definite symmetric matrix, it possesses a set of orthonormal eigenvectors forming a basis of RNℝ^N, and we write λi,φii∈1,…,N{λ_i,φ_i}_i∈{1,…,N} this set of eigenvalues and corresponding eigenvectors, listed in decreasing values of λi. Let also Φ be the orthonormal matrix consisting of these eigenvectors:
+
+Φ:=(φ1φ2…φN)TΦTΦ=IΦ   :=(φ_1 φ_2 … φ_N)^T
+Φ^TΦ   =I
+Principal component transform[edit]
+It remains to perform the actual KL transformation, called the principal component transform in this case. Recall that the transform was found by expanding the process with respect to  the basis spanned by the eigenvectors of the covariance function. In this case, we hence have:
+
+X=∑i=1N⟨φi,X⟩φi=∑i=1NφiTXφi=∑_i=1^N⟨φ_i,X⟩φ_i=∑_i=1^Nφ_i^TXφ_i
+In a more compact form, the principal component transform of X is defined by:
+
+Y=ΦTXX=ΦYY=Φ^TX
+X=
+The i-th component of Y is Yi=φiTX_i=φ_i^TX, the projection of X on φiφ_i and the inverse transform X = ΦY yields the expansion of X on the space spanned by the φiφ_i:
+
+X=∑i=1NYiφi=∑i=1N⟨φi,X⟩φi=∑_i=1^NY_iφ_i=∑_i=1^N⟨φ_i,X⟩φ_i
+As in the continuous case, we may reduce the dimensionality of the problem by truncating the sum at some K∈1,…,N∈{1,…,N} such that
+
+∑i=1Kλi∑i=1Nλi≥α∑_i=1^Kλ_i/∑_i=1^Nλ_i≥α
+where α is the explained variance threshold we wish to set.
+We can also reduce the dimensionality through the use of multilevel dominant eigenvector estimation (MDEE).[8]
+
+Examples[edit]
+The Wiener process[edit]
+There are numerous equivalent characterizations of the Wiener process which is a mathematical formalization of Brownian motion.  Here we regard it as the centered standard Gaussian process Wt with covariance function
+
+KW(t,s)=cov⁡(Wt,Ws)=min(s,t)._W(t,s)=cov(W_t,W_s)=min(s,t).
+We restrict the time domain to [a, b]=[0,1] without loss of generality.
+The eigenvectors of the covariance kernel are easily determined.  These are
+
+ek(t)=2sin⁡((k−12)πt)_k(t)=√(2)sin((k-12))
+and the corresponding eigenvalues are
+
+λk=1(k−12)2π2.λ_k=1/(k-1/2)^2π^2.
+Proof
+In order to find the eigenvalues and eigenvectors, we need to solve the integral equation:
+
+∫abKW(s,t)e(s)ds=λe(t)∀t,0≤t≤1∫01min(s,t)e(s)ds=λe(t)∀t,0≤t≤1∫0tse(s)ds+t∫t1e(s)ds=λe(t)∀t,0≤t≤1∫_a^bK_W(s,t)e(s) ds   =(t)    ,0≤1
+∫_0^1min(s,t)e(s) ds   =(t)    ,0≤1
+∫_0^tse(s) ds+t∫_t^1e(s) ds   =(t)    ,0≤1
+differentiating once with respect to t yields:
+
+∫t1e(s)ds=λe′(t)∫_t^1e(s) ds='(t)
+a second differentiation produces the following differential equation:
+
+−e(t)=λe″(t)-e(t)=”(t)
+The general solution of which has the form:
+
+e(t)=Asin⁡(tλ)+Bcos⁡(tλ)(t)=Asin(t/√(λ))+Bcos(t/√(λ))
+where A and B are two constants to be determined with the boundary conditions. Setting t = 0 in the initial integral equation gives e(0) = 0 which implies that B = 0 and similarly, setting t = 1 in the first differentiation yields e' (1) = 0, whence:
+
+cos⁡(1λ)=0cos(1/√(λ))=0
+which in turn implies that eigenvalues of TKX are:
+
+λk=(1(k−12)π)2,k≥1λ_k=(1/(k-1/2)π)^2,≥1
+The corresponding eigenfunctions are thus of the form:
+
+ek(t)=Asin⁡((k−12)πt),k≥1_k(t)=Asin((k-1/2)),≥1
+A is then chosen so as to normalize ek:
+
+∫01ek2(t)dt=1⟹A=2∫_0^1e_k^2(t) dt=1  =√(2)
+
+This gives the following representation of the Wiener process:
+Theorem.  There is a sequence {Zi}i of independent Gaussian random variables with mean zero and variance 1 such that
+
+Wt=2∑k=1∞Zksin⁡((k−12)πt)(k−12)π._t=√(2)∑_k=1^∞Z_ksin((k-1/2))/(k-1/2)π.
+Note that this representation is only valid for t∈[0,1].∈[0,1].  On larger intervals, the increments are not independent.  As stated in the theorem, convergence is in the L2 norm and uniform in t.
+
+The Brownian bridge[edit]
+Similarly the Brownian bridge Bt=Wt−tW1_t=W_t-tW_1 which is a stochastic process with covariance function
+
+KB(t,s)=min(t,s)−ts_B(t,s)=min(t,s)-ts
+can be represented as the series
+
+Bt=∑k=1∞Zk2sin⁡(kπt)kπ_t=∑_k=1^∞Z_k√(2)sin(k)/kπ
+Applications[edit]
+This section needs expansion. You can help by adding to it.  (July 2010)
+Adaptive optics systems sometimes use K–L functions to reconstruct wave-front phase information (Dai 1996, JOSA A).
+Karhunen–Loève expansion is closely related to the Singular Value Decomposition. The latter has myriad applications in image processing, radar, seismology, and the like. If one has independent vector observations from a vector valued stochastic process then the left singular vectors are maximum likelihood estimates of the ensemble KL expansion.
+
+Applications in signal estimation and detection[edit]
+Detection of a known continuous signal S(t)[edit]
+In communication, we usually have to decide whether a signal from a noisy channel contains valuable information. The following hypothesis testing is used for detecting continuous signal s(t) from channel output X(t), N(t) is the channel noise, which is usually assumed zero mean Gaussian process with correlation function RN(t,s)=E[N(t)N(s)]_N(t,s)=E[N(t)N(s)]
+
+H:X(t)=N(t),:X(t)=N(t),
+K:X(t)=N(t)+s(t),t∈(0,T):X(t)=N(t)+s(t),∈(0,T)
+Signal detection  in white noise[edit]
+When the channel noise is white, its correlation function is
+
+RN(t)=12N0δ(t),_N(t)=12N_0δ(t),
+and it has constant power spectrum density. In physically practical channel, the noise power is finite, so:
+
+SN(f)=N02|f|<w0|f|>w_N(f)=N_0/2   |f|<w
+0   |f|>w
+Then the noise correlation function is sinc function with zeros at n2ω,n∈Z.n/2ω,n∈𝐙. Since are uncorrelated and gaussian, they are independent. Thus we can take samples from X(t) with time spacing
+
+Δt=n2ωwithin(0,″T″).=n/2ωwithin(0,”T”).
+Let Xi=X(iΔt)_i=X(i ). We have a total of n=TΔt=T(2ω)=2ωT=T/=T(2ω)=2 i.i.d observations X1,X2,…,Xn{X_1,X_2,…,X_n} to develop the likelihood-ratio test.  Define signal Si=S(iΔt)_i=S(i ), the problem becomes,
+
+H:Xi=Ni,:X_i=N_i,
+K:Xi=Ni+Si,i=1,2,…,n.:X_i=N_i+S_i,i=1,2,…,n.
+The log-likelihood ratio
+
+L(x_)=log⁡∑i=1n(2Sixi−Si2)2σ2⇔Δt∑i=1nSixi=∑i=1nS(iΔt)x(iΔt)Δt≷λ⋅2ℒ(x)=log∑_i=1^n(2S_ix_i-S_i^2)/2σ^2⇔∑_i=1^nS_ix_i=∑_i=1^nS(i )x(i ) ≷λ_·2
+As t → 0, let:
+
+G=∫0TS(t)x(t)dt.=∫_0^TS(t)x(t) dt.
+Then G is the test statistics and the Neyman–Pearson optimum detector is
+
+G(x_)>G0⇒K<G0⇒H.(x)>G_0<G_0.
+As G is Gaussian, we can characterize it by finding its mean and variances. Then we get
+
+H:G∼N(0,12N0E):G(0,12N_0E)
+K:G∼N(E,12N0E):G(E,12N_0E)
+where
+
+E=∫0TS2(t)dt𝐄=∫_0^TS^2(t) dt
+is the signal energy.
+The false alarm error
+
+α=∫G0∞N(0,12N0E)dG⇒G0=12N0EΦ−1(1−α)α=∫_G_0^∞N(0,12N_0E) dG_0=√(12N_0E)Φ^-1(1-α)
+And the probability of detection:
+
+β=∫G0∞N(E,12N0E)dG=1−Φ(G0−E12N0E)=Φ(2EN0−Φ−1(1−α)),β=∫_G_0^∞N(E,12N_0E) dG=1-Φ(G_0-E/√(12N_0E))=Φ(√(2E/N_0)-Φ^-1(1-α)),
+where Φ is the cdf of standard normal, or Gaussian, variable.
+
+Signal detection in colored noise[edit]
+When N(t) is colored (correlated in time) Gaussian noise  with zero mean and covariance function RN(t,s)=E[N(t)N(s)],_N(t,s)=E[N(t)N(s)],  we cannot sample independent discrete observations by evenly spacing the time. Instead, we can use K–L expansion to decorrelate the noise process and get independent Gaussian observation 'samples'.  The K–L expansion of N(t):
+
+N(t)=∑i=1∞NiΦi(t),0<t<T,(t)=∑_i=1^∞N_iΦ_i(t),  0<t<T,
+where Ni=∫N(t)Φi(t)dt_i=(t)Φ_i(t) dt and the orthonormal bases Φit{Φ_it} are generated by kernel RN(t,s)_N(t,s), i.e., solution to
+
+∫0TRN(t,s)Φi(s)ds=λiΦi(t),var⁡[Ni]=λi.∫_0^TR_N(t,s)Φ_i(s) ds=λ_iΦ_i(t),  var[N_i]=λ_i.
+Do the expansion:
+
+S(t)=∑i=1∞SiΦi(t),(t)=∑_i=1^∞S_iΦ_i(t),
+where Si=∫0TS(t)Φi(t)dt_i=∫_0^TS(t)Φ_i(t) dt, then
+
+Xi=∫0TX(t)Φi(t)dt=Ni_i=∫_0^TX(t)Φ_i(t) dt=N_i
+under H and Ni+Si_i+S_i under K. Let X¯=X1,X2,…X={X_1,X_2,…}, we have
+
+Ni_i are independent Gaussian r.v's with variance λiλ_i
+under H: Xi{X_i} are independent Gaussian r.v's.
+fH[x(t)|0<t<T]=fH(x_)=∏i=1∞12πλiexp⁡(−xi22λi)_H[x(t)|0<t<T]=f_H(x)=∏_i=1^∞1/√(2πλ_i)exp(-x_i^2/2λ_i)
+under K: Xi−Si{X_i-S_i} are independent Gaussian r.v's.
+fK[x(t)∣0<t<T]=fK(x_)=∏i=1∞12πλiexp⁡(−(xi−Si)22λi)_K[x(t)|0<t<T]=f_K(x)=∏_i=1^∞1/√(2πλ_i)exp(-(x_i-S_i)^2/2λ_i)
+Hence, the log-LR is given by
+
+L(x_)=∑i=1∞2Sixi−Si22λiℒ(x)=∑_i=1^∞2S_ix_i-S_i^2/2λ_i
+and the optimum detector is
+
+G=∑i=1∞Sixiλi>G0⇒K,<G0⇒H.=∑_i=1^∞S_ix_iλ_i>G_0,<G_0.
+Define
+
+k(t)=∑i=1∞λiSiΦi(t),0<t<T,(t)=∑_i=1^∞λ_iS_iΦ_i(t),0<t<T,
+then G=∫0Tk(t)x(t)dt.=∫_0^Tk(t)x(t) dt.
+
+How to find k(t)[edit]
+Since
+
+∫0TRN(t,s)k(s)ds=∑i=1∞λiSi∫0TRN(t,s)Φi(s)ds=∑i=1∞SiΦi(t)=S(t),∫_0^TR_N(t,s)k(s) ds=∑_i=1^∞λ_iS_i∫_0^TR_N(t,s)Φ_i(s) ds=∑_i=1^∞S_iΦ_i(t)=S(t),
+k(t) is the solution to
+
+∫0TRN(t,s)k(s)ds=S(t).∫_0^TR_N(t,s)k(s) ds=S(t).
+If N(t)is wide-sense stationary,
+
+∫0TRN(t−s)k(s)ds=S(t),∫_0^TR_N(t-s)k(s) ds=S(t),
+which is known as the Wiener–Hopf equation. The equation can be solved by taking fourier transform, but not practically realizable since infinite spectrum needs spatial factorization. A special case which is easy to calculate k(t) is white Gaussian noise.
+
+∫0TN02δ(t−s)k(s)ds=S(t)⇒k(t)=CS(t),0<t<T.∫_0^TN_0/2δ(t-s)k(s) ds=S(t)(t)=CS(t),  0<t<T.
+The corresponding impulse response is h(t) = k(T − t) = CS(T − t). Let C = 1, this is just the result we arrived at in previous section for detecting of signal in white noise.
+
+Test threshold for Neyman–Pearson detector[edit]
+Since X(t) is a Gaussian process,
+
+G=∫0Tk(t)x(t)dt,=∫_0^Tk(t)x(t) dt,
+is a Gaussian random variable that can be characterized by its mean and variance.
+
+E[G∣H]=∫0Tk(t)E[x(t)∣H]dt=0E[G∣K]=∫0Tk(t)E[x(t)∣K]dt=∫0Tk(t)S(t)dt≡ρE[G2∣H]=∫0T∫0Tk(t)k(s)RN(t,s)dtds=∫0Tk(t)(∫0Tk(s)RN(t,s)ds)=∫0Tk(t)S(t)dt=ρvar⁡[G∣H]=E[G2∣H]−(E[G∣H])2=ρE[G2∣K]=∫0T∫0Tk(t)k(s)E[x(t)x(s)]dtds=∫0T∫0Tk(t)k(s)(RN(t,s)+S(t)S(s))dtds=ρ+ρ2var⁡[G∣K]=E[G2|K]−(E[G|K])2=ρ+ρ2−ρ2=ρ𝐄[G]   =∫_0^Tk(t)𝐄[x(t)] dt=0
+𝐄[G]   =∫_0^Tk(t)𝐄[x(t)] dt=∫_0^Tk(t)S(t) dt≡ρ
+𝐄[G^2]   =∫_0^T∫_0^Tk(t)k(s)R_N(t,s) dt ds=∫_0^Tk(t)(∫_0^Tk(s)R_N(t,s) ds)=∫_0^Tk(t)S(t) dt=ρ
+var[G]   =𝐄[G^2]-(𝐄[G])^2=ρ
+𝐄[G^2]   =∫_0^T∫_0^Tk(t)k(s)𝐄[x(t)x(s)] dt ds=∫_0^T∫_0^Tk(t)k(s)(R_N(t,s)+S(t)S(s)) dt ds=ρ+ρ^2
+var[G]   =𝐄[G^2|K]-(𝐄[G|K])^2=ρ+ρ^2-ρ^2=ρ
+Hence, we obtain the distributions of H and K:
+
+H:G∼N(0,ρ):G(0,ρ)
+K:G∼N(ρ,ρ):G(ρ,ρ)
+The false alarm error is
+
+α=∫G0∞N(0,ρ)dG=1−Φ(G0ρ).α=∫_G_0^∞N(0,ρ) dG=1-Φ(G_0/√(ρ)).
+So the test threshold for the Neyman–Pearson optimum detector is
+
+G0=ρΦ−1(1−α)._0=√(ρ)Φ^-1(1-α).
+Its power of detection is
+
+β=∫G0∞N(ρ,ρ)dG=Φ(ρ−Φ−1(1−α))β=∫_G_0^∞N(ρ,ρ) dG=Φ(√(ρ)-Φ^-1(1-α))
+When the noise is white Gaussian process, the signal power is
+
+ρ=∫0Tk(t)S(t)dt=∫0TS(t)2dt=E.ρ=∫_0^Tk(t)S(t) dt=∫_0^TS(t)^2 dt=E.
+Prewhitening[edit]
+For some type of colored noise, a typical practise is to add a prewhitening filter before the matched filter to transform the colored noise into white noise. For example, N(t) is a wide-sense stationary colored noise with correlation function
+
+RN(τ)=BN04e−B|τ|_N(τ)=BN_0/4e^-B|τ|
+SN(f)=N02(1+(wB)2)_N(f)=N_0/2(1+(w/B)^2)
+The transfer function of prewhitening filter is
+
+H(f)=1+jwB.(f)=1+jw/B.
+Detection of a Gaussian random signal in Additive white Gaussian noise (AWGN)[edit]
+When the signal we want to detect from the noisy channel is also random, for example, a white Gaussian process X(t), we can still implement K–L expansion to get independent sequence of observation. In this case, the detection problem is described as follows:
+
+H0:Y(t)=N(t)_0:Y(t)=N(t)
+H1:Y(t)=N(t)+X(t),0<t<T._1:Y(t)=N(t)+X(t),  0<t<T.
+X(t) is a random process with correlation function RX(t,s)=EX(t)X(s)_X(t,s)=E{X(t)X(s)}
+The K–L expansion of X(t) is
+
+X(t)=∑i=1∞XiΦi(t),(t)=∑_i=1^∞X_iΦ_i(t),
+where
+
+Xi=∫0TX(t)Φi(t)dt_i=∫_0^TX(t)Φ_i(t) dt
+and Φi(t)Φ_i(t) are solutions to
+
+∫0TRX(t,s)Φi(s)ds=λiΦi(t).∫_0^TR_X(t,s)Φ_i(s)ds=λ_iΦ_i(t).
+So Xi_i's are independent sequence of r.v's with zero mean and variance λiλ_i. Expanding Y(t) and N(t) by Φi(t)Φ_i(t), we get
+
+Yi=∫0TY(t)Φi(t)dt=∫0T[N(t)+X(t)]Φi(t)=Ni+Xi,_i=∫_0^TY(t)Φ_i(t) dt=∫_0^T[N(t)+X(t)]Φ_i(t)=N_i+X_i,
+where
+
+Ni=∫0TN(t)Φi(t)dt._i=∫_0^TN(t)Φ_i(t) dt.
+As N(t) is Gaussian white noise, Ni_i's are i.i.d sequence of r.v with zero mean and variance 12N012N_0, then the problem is simplified as follows,
+
+H0:Yi=Ni_0:Y_i=N_i
+H1:Yi=Ni+Xi_1:Y_i=N_i+X_i
+The Neyman–Pearson optimal test:
+
+Λ=fY∣H1fY∣H0=Ce−∑i=1∞yi22λi12N0(12N0+λi),Λ=f_Y_1/f_Y_0=Ce^-∑_i=1^∞y_i^2/2λ_i/12N_0(12N_0+λ_i),
+so the log-likelihood ratio is
+
+L=ln⁡(Λ)=K−∑i=1∞12yi2λiN02(N02+λi).ℒ=ln(Λ)=K-∑_i=1^∞12y_i^2λ_i/N_0/2(N_0/2+λ_i).
+Since
+
+X^i=λiN02(N02+λi)X_i=λ_i/N_0/2(N_0/2+λ_i)
+is just the minimum-mean-square estimate of Xi_i given Yi_i's,
+
+L=K+1N0∑i=1∞YiX^i.ℒ=K+1/N_0∑_i=1^∞Y_iX_i.
+K–L expansion has the following property:  If
+
+f(t)=∑fiΦi(t),g(t)=∑giΦi(t),(t)=_iΦ_i(t),g(t)=_iΦ_i(t),
+where
+
+fi=∫0Tf(t)Φi(t)dt,gi=∫0Tg(t)Φi(t)dt._i=∫_0^Tf(t)Φ_i(t) dt,_i=∫_0^Tg(t)Φ_i(t) dt.
+then
+
+∑i=1∞figi=∫0Tg(t)f(t)dt.∑_i=1^∞f_ig_i=∫_0^Tg(t)f(t) dt.
+So let
+
+X^(t∣T)=∑i=1∞X^iΦi(t),L=K+1N0∫0TY(t)X^(t∣T)dt.X(t)=∑_i=1^∞X_iΦ_i(t),  ℒ=K+1/N_0∫_0^TY(t)X(t) dt.
+Noncausal filter Q(t,s) can be used to get the estimate through
+
+X^(t∣T)=∫0TQ(t,s)Y(s)ds.X(t)=∫_0^TQ(t,s)Y(s) ds.
+By orthogonality principle, Q(t,s) satisfies
+
+∫0TQ(t,s)RX(s,t)ds+N02Q(t,λ)=RX(t,λ),0<λ<T,0<t<T.∫_0^TQ(t,s)R_X(s,t) ds+N_02Q(t,λ)=R_X(t,λ),0<λ<T,0<t<T.
+However, for practical reasons, it's necessary to further derive the causal filter h(t,s), where h(t,s) = 0 for s > t, to get estimate X^(t∣t)X(t). Specifically,
+
+Q(t,s)=h(t,s)+h(s,t)−∫0Th(λ,t)h(s,λ)dλ(t,s)=h(t,s)+h(s,t)-∫_0^Th(λ,t)h(s,λ) dλ
+See also[edit]
+Principal component analysis
+Polynomial chaos
+Reproducing kernel Hilbert space
+Mercer's theorem
+Notes[edit]
+
+
+^ Sapatnekar, Sachin (2011), "Overcoming variations in nanometer-scale technologies", IEEE Journal on Emerging and Selected Topics in Circuits and Systems, 1 (1): 5–18, Bibcode:2011IJEST...1....5S, CiteSeerX 10.1.1.300.5659, doi:10.1109/jetcas.2011.2138250, S2CID 15566585
+
+^ Ghoman, Satyajit; Wang, Zhicun; Chen, PC; Kapania, Rakesh (2012). "A POD-based Reduced Order Design Scheme for Shape Optimization of Air Vehicles". Proc of 53rd AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics, and Materials Conference, AIAA-2012-1808, Honolulu, Hawaii.
+
+^ Karhunen–Loeve transform (KLT) Archived 2016-11-28 at the Wayback Machine, Computer Image Processing and Analysis (E161) lectures, Harvey Mudd College
+
+^ Raju, C.K. (2009), "Kosambi the Mathematician", Economic and Political Weekly, 44 (20): 33–45
+
+^ Kosambi, D. D. (1943), "Statistics in Function Space", Journal of the Indian Mathematical Society, 7: 76–88, MR 0009816.
+
+^ Giambartolomei, Giordano (2016). "4 The Karhunen-Loève Theorem". The Karhunen-Loève theorem (Bachelors). University of Bologna.
+
+^ A wavelet tour of signal processing-Stéphane Mallat
+
+^ X. Tang, “Texture information in run-length matrices,” IEEE Transactions on Image Processing, vol. 7, No. 11, pp. 1602–1609, Nov. 1998
+
+
+References[edit]
+Stark, Henry; Woods, John W. (1986). Probability, Random Processes, and Estimation Theory for Engineers. Prentice-Hall, Inc. ISBN 978-0-13-711706-2. OL 21138080M.
+Ghanem, Roger; Spanos, Pol (1991). Stochastic finite elements: a spectral approach. Springer-Verlag. ISBN 978-0-387-97456-9. OL 1865197M.
+Guikhman, I.; Skorokhod, A. (1977). Introduction a la Théorie des Processus Aléatoires. Éditions MIR.
+Simon, B. (1979). Functional Integration and Quantum Physics. Academic Press.
+Karhunen, Kari (1947). "Über lineare Methoden in der Wahrscheinlichkeitsrechnung". Ann. Acad. Sci. Fennicae. Ser. A I. Math.-Phys. 37: 1–79.
+Loève, M. (1978). Probability theory. Vol. II, 4th ed. Graduate Texts in Mathematics. Vol. 46. Springer-Verlag. ISBN 978-0-387-90262-3.
+Dai, G. (1996). "Modal wave-front reconstruction with Zernike polynomials and Karhunen–Loeve functions". JOSA A. 13 (6): 1218. Bibcode:1996JOSAA..13.1218D. doi:10.1364/JOSAA.13.001218.
+Wu B., Zhu J., Najm F.(2005) "A Non-parametric Approach for Dynamic Range Estimation of Nonlinear Systems". In Proceedings of Design Automation Conference(841-844) 2005
+Wu B., Zhu J., Najm F.(2006) "Dynamic Range Estimation". IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, Vol. 25 Issue:9 (1618–1636) 2006
+Jorgensen, Palle E. T.; Song, Myung-Sin (2007). "Entropy Encoding, Hilbert Space and Karhunen–Loeve Transforms". Journal of Mathematical Physics. 48 (10): 103503. arXiv:math-ph/0701056. Bibcode:2007JMP....48j3503J. doi:10.1063/1.2793569. S2CID 17039075.
+External links[edit]
+Mathematica KarhunenLoeveDecomposition function.
+E161: Computer Image Processing and Analysis notes by Pr. Ruye Wang at Harvey Mudd College [1]
+
+
+

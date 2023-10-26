@@ -1,0 +1,378 @@
+Condition for a linear operator to be open
+In functional analysis, the open mapping theorem, also known as the Banach–Schauder theorem or the Banach theorem[1] (named after Stefan Banach and Juliusz Schauder), is a fundamental result which states that if a bounded or continuous linear operator between Banach spaces is surjective then it is an open map.
+
+
+Classical (Banach space) form[edit]
+
+Open mapping theorem for Banach spaces (Rudin 1973, Theorem 2.11) — If X and Y are Banach spaces and A:X→Y:X is a surjective continuous linear operator, then A is an open map (that is, if U is an open set in X,, then A(U)(U) is open in Y).
+
+
+This proof uses the Baire category theorem, and completeness of both X and Y is essential to the theorem.  The statement of the theorem is no longer true if either space is just assumed to be a normed space, but is true if X and Y are taken to be Fréchet spaces.
+
+
+
+
+Proof
+
+
+
+Suppose A:X→Y:X is a surjective continuous linear operator. In order to prove that A is an open map, it is sufficient to show that A maps the open unit ball in X to a neighborhood of the origin of Y..
+Let U=B1X(0),V=B1Y(0).=B_1^X(0),V=B_1^Y(0).
+Then
+X=⋃k∈NkU.=⋃_k∈ℕkU.
+Since A is surjective:
+Y=A(X)=A(⋃k∈NkU)=⋃k∈NA(kU).=A(X)=A(⋃_k∈ℕkU)=⋃_k∈ℕA(kU).
+But Y is Banach so by Baire's category theorem
+∃k∈N:(A(kU)¯)∘≠∅.∈ℕ:    (A(kU))^∘≠∅.
+That is, we have c∈Y and r>0>0 such that
+Br(c)⊆(A(kU)¯)∘⊆A(kU)¯._r(c)⊆(A(kU))^∘⊆A(kU).
+Let v∈V,, then
+c,c+rv∈Br(c)⊆A(kU)¯.,c+rv_r(c)⊆A(kU).
+By continuity of addition and linearity, the difference rv satisfies
+rv∈A(kU)¯+A(kU)¯⊆A(kU)+A(kU)¯⊆A(2kU)¯,∈A(kU)+A(kU)⊆A(kU)+A(kU)⊆A(2kU),
+and by linearity again,
+V⊆A(LU)¯⊆A(LU)
+where we have set L=2k/r.=2k/r.
+It follows that for all y∈Y and all ϵ>0,ϵ>0, there exists some x∈X such that
+‖x‖X≤L‖y‖Yand‖y−Ax‖Y<ϵ.(1)    x_Xy_Y  and  y-Ax_Y<ϵ.    (1)
+Our next goal is to show that V⊆A(2LU).(2LU).
+Let y∈V..
+By (1), there is some x1_1 with ‖x1‖<Lx_1<L and ‖y−Ax1‖<1/2.y-Ax_1<1/2.
+Define a sequence (xn)(x_n) inductively as follows.
+Assume:
+‖xn‖<L2n−1and‖y−A(x1+x2+⋯+xn)‖<12n.(2)x_n<L/2^n-1  and  y-A(x_1+x_2+⋯+x_n)<1/2^n.    (2)
+Then by (1) we can pick xn+1_n+1 so that:
+‖xn+1‖<L2nand‖y−A(x1+x2+⋯+xn)−A(xn+1)‖<12n+1,x_n+1<L/2^n  and  y-A(x_1+x_2+⋯+x_n)-A(x_n+1)<1/2^n+1,
+so (2) is satisfied for xn+1._n+1. Let
+sn=x1+x2+⋯+xn._n=x_1+x_2+⋯+x_n.
+From the first inequality in (2), (sn)(s_n)is a Cauchy sequence, and since X is complete, sn_n converges to some x∈X..
+By (2), the sequence Asn_n tends to y and so Ax=y=y by continuity of A..
+Also,
+‖x‖=limn→∞‖sn‖≤∑n=1∞‖xn‖<2L.x=lim_n→∞s_n≤∑_n=1^∞x_n<2L.
+This shows that y belongs to A(2LU),(2LU), so V⊆A(2LU)(2LU) as claimed.
+Thus the image A(U)(U) of the unit ball in X contains the open ball V/2L/2L of Y..
+Hence, A(U)(U) is a neighborhood of the origin in Y,, and this concludes the proof.
+
+
+Related results[edit]
+
+Theorem[2] — Let X and Y be Banach spaces, let BX_X and BY_Y denote their open unit balls, and let T:X→Y:X be a bounded linear operator.
+If δ>0δ>0 then among the following four statements we have (1)⟹(2)⟹(3)⟹(4)(1)(2)(3)(4) (with the same δδ)
+
+‖T∗y∗‖≥δ‖y∗‖T^*y^*≥δy^* for all y∗∈Y∗^*^*;
+T(BX)¯⊇δBYT(B_X)⊇_Y;
+T(BX)⊇δBYT(B_X)⊇_Y;
+Im⁡T=YImT=Y (that is, T is surjective).
+Furthermore, if  T is surjective then (1) holds for some δ>0δ>0
+
+
+Consequences[edit]
+The open mapping theorem has several important consequences:
+
+If A:X→Y:X is a bijective continuous linear operator between the Banach spaces X and Y,, then the inverse operator A−1:Y→X^-1:Y is continuous as well (this is called the bounded inverse theorem).[3]
+If A:X→Y:X is a linear operator between the Banach spaces X and Y,, and if for every sequence (xn)(x_n) in X with xn→0_n→0 and Axn→y_n it follows that y=0,=0, then A is continuous (the closed graph theorem).[4]
+Generalizations[edit]
+Local convexity of X or Y  is not essential to the proof, but completeness is: the theorem remains true in the case when X and Y are F-spaces.  Furthermore, the theorem can be combined with the Baire category theorem in the following manner:
+
+
+Open mapping theorem for continuous maps[5][6] — Let A:X→Y:X be a continuous linear operator from a complete pseudometrizable TVS X onto a Hausdorff TVS Y..
+If Im⁡AImA is nonmeager in Y then A:X→Y:X is a (surjective) open map and Y is a complete pseudometrizable TVS.
+Moreover, if X is assumed to be hausdorff (i.e. a F-space), then Y is also an F-space.
+
+
+Furthermore, in this latter case if N is the kernel of A,, then there is a canonical factorization of A in the form
+X→X/N→αY/Nα→Y
+where X/N/N is the quotient space (also an F-space) of X by the closed subspace N..
+The quotient mapping X→X/N/N is open, and the mapping αα is an isomorphism of topological vector spaces.[7]
+An important special case of this theorem can also be stated as
+
+
+Theorem[8] — Let X and Y be two F-spaces. Then every continuous linear map of X onto Y is a TVS homomorphism,
+where a linear map u:X→Y:X is a topological vector space (TVS) homomorphism if the induced map u^:X/ker⁡(u)→Yû:X/(u) is a TVS-isomorphism onto its image.
+
+
+On the other hand, a more general formulation which implies the first can be given:
+
+
+Open mapping theorem[6] — Let A:X→Y:X be a surjective linear map from a complete pseudometrizable TVS X onto a TVS Y and suppose that at least one of the following two conditions is satisfied:
+
+Y is a Baire space, or
+X is locally convex and Y is a barrelled space,
+If A is a closed linear operator then A is an open mapping.
+If A is a continuous linear operator and Y is Hausdorff then A is (a closed linear operator and thus also) an open mapping.
+
+
+Nearly/Almost open linear maps
+A linear map A:X→Y:X between two topological vector spaces (TVSs) is called a nearly open map (or sometimes, an almost open map) if for every neighborhood U of the origin in the domain, the closure of its image cl⁡A(U)clA(U) is a neighborhood of the origin in Y..[9]  Many authors use a different definition of "nearly/almost open map" that requires that the closure of A(U)(U) be a neighborhood of the origin in A(X)(X) rather than in Y,,[9] but for surjective maps these definitions are equivalent.
+A bijective linear map is nearly open if and only if its inverse is continuous.[9]
+Every surjective linear map from locally convex TVS onto a barrelled TVS is nearly open.[10] The same is true of every surjective linear map from a TVS onto a Baire TVS.[10]
+
+
+Open mapping theorem[11] — If a closed surjective linear map from a complete pseudometrizable TVS onto a Hausdorff TVS is nearly open then it is open.
+
+
+Consequences[edit]
+
+Theorem[12] — If A:X→Y:X is a continuous linear bijection from a complete Pseudometrizable topological vector space (TVS) onto a Hausdorff TVS that is a Baire space, then A:X→Y:X is a homeomorphism (and thus an isomorphism of TVSs).
+
+
+Webbed spaces[edit]
+Main article: Webbed space
+Webbed spaces are a class of topological vector spaces for which the open mapping theorem and the closed graph theorem hold.
+
+See also[edit]
+Almost open linear map – Map that satisfies a condition similar to that of being an open map.Pages displaying short descriptions of redirect targets
+Bounded inverse theorem
+Closed graph – Graph of a map closed in the product spacePages displaying short descriptions of redirect targets
+Closed graph theorem – Theorem relating continuity to graphs
+Closed graph theorem (functional analysis) – Theorems connecting continuity to closure of graphs
+Open mapping theorem (complex analysis) – Theorem that holomorphic functions on complex domains are open mapsPages displaying wikidata descriptions as a fallback
+Surjection of Fréchet spaces – Characterization of surjectivity
+Ursescu theorem – Generalization of closed graph, open mapping, and uniform boundedness theorem
+Webbed space – Space where open mapping and closed graph theorems hold
+References[edit]
+
+
+^ Trèves 2006, p. 166.
+
+^ Rudin 1991, p. 100.
+
+^ Rudin 1973, Corollary 2.12.
+
+^ Rudin 1973, Theorem 2.15.
+
+^ Rudin 1991, Theorem 2.11.
+
+^ a b Narici & Beckenstein 2011, p. 468.
+
+^ Dieudonné 1970, 12.16.8.
+
+^ Trèves 2006, p. 170
+
+^ a b c Narici & Beckenstein 2011, pp. 466.
+
+^ a b Narici & Beckenstein 2011, pp. 467.
+
+^ Narici & Beckenstein 2011, pp. 466−468.
+
+^ Narici & Beckenstein 2011, p. 469.
+
+
+
+
+Bibliography[edit]
+Adasch, Norbert; Ernst, Bruno; Keim, Dieter (1978). Topological Vector Spaces: The Theory Without Convexity Conditions. Lecture Notes in Mathematics. Vol. 639. Berlin New York: Springer-Verlag. ISBN 978-3-540-08662-8. OCLC 297140003.
+Banach, Stefan (1932). Théorie des Opérations Linéaires [Theory of Linear Operations] (PDF). Monografie Matematyczne (in French). Vol. 1. Warszawa: Subwencji Funduszu Kultury Narodowej. Zbl 0005.20901. Archived from the original (PDF) on 2014-01-11. Retrieved 2020-07-11.
+Berberian, Sterling K. (1974). Lectures in Functional Analysis and Operator Theory. Graduate Texts in Mathematics. Vol. 15. New York: Springer. ISBN 978-0-387-90081-0. OCLC 878109401.
+Bourbaki, Nicolas (1987) [1981]. Topological Vector Spaces: Chapters 1–5. Éléments de mathématique. Translated by Eggleston, H.G.; Madan, S. Berlin New York: Springer-Verlag. ISBN 3-540-13627-4. OCLC 17499190.
+Conway, John (1990). A course in functional analysis. Graduate Texts in Mathematics. Vol. 96 (2nd ed.). New York: Springer-Verlag. ISBN 978-0-387-97245-9. OCLC 21195908.
+Dieudonné, Jean (1970), Treatise on Analysis, Volume II, Academic Press
+Edwards, Robert E. (1995). Functional Analysis: Theory and Applications. New York: Dover Publications. ISBN 978-0-486-68143-6. OCLC 30593138.
+Grothendieck, Alexander (1973). Topological Vector Spaces. Translated by Chaljub, Orlando. New York: Gordon and Breach Science Publishers. ISBN 978-0-677-30020-7. OCLC 886098.
+Jarchow, Hans (1981). Locally convex spaces. Stuttgart: B.G. Teubner. ISBN 978-3-519-02224-4. OCLC 8210342.
+Köthe, Gottfried (1983) [1969]. Topological Vector Spaces I. Grundlehren der mathematischen Wissenschaften. Vol. 159. Translated by Garling, D.J.H. New York: Springer Science & Business Media. ISBN 978-3-642-64988-2. MR 0248498. OCLC 840293704.
+Narici, Lawrence; Beckenstein, Edward (2011). Topological Vector Spaces. Pure and applied mathematics (Second ed.). Boca Raton, FL: CRC Press. ISBN 978-1584888666. OCLC 144216834.
+Robertson, Alex P.; Robertson, Wendy J. (1980). Topological Vector Spaces. Cambridge Tracts in Mathematics. Vol. 53. Cambridge England: Cambridge University Press. ISBN 978-0-521-29882-7. OCLC 589250.
+Rudin, Walter (1973). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 25 (First ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 9780070542259.
+Rudin, Walter (1991). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 8 (Second ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 978-0-07-054236-5. OCLC 21163277.
+Schaefer, Helmut H.; Wolff, Manfred P. (1999). Topological Vector Spaces. GTM. Vol. 8 (Second ed.). New York, NY: Springer New York Imprint Springer. ISBN 978-1-4612-7155-0. OCLC 840278135.
+Swartz, Charles (1992). An introduction to Functional Analysis. New York: M. Dekker. ISBN 978-0-8247-8643-4. OCLC 24909067.
+Trèves, François (2006) [1967]. Topological Vector Spaces, Distributions and Kernels. Mineola, N.Y.: Dover Publications. ISBN 978-0-486-45352-1. OCLC 853623322.
+Wilansky, Albert (2013). Modern Methods in Topological Vector Spaces. Mineola, New York: Dover Publications, Inc. ISBN 978-0-486-49353-4. OCLC 849801114.
+This article incorporates material from Proof of open mapping theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteTopological vector spaces (TVSs)Basic concepts
+Banach space
+Completeness
+Continuous linear operator
+Linear functional
+Fréchet space
+Linear map
+Locally convex space
+Metrizability
+Operator topologies
+Topological vector space
+Vector space
+Main results
+Anderson–Kadec
+Banach–Alaoglu
+Closed graph theorem
+F. Riesz's
+Hahn–Banach (hyperplane separation
+Vector-valued Hahn–Banach)
+Open mapping (Banach–Schauder)
+Bounded inverse
+Uniform boundedness (Banach–Steinhaus)
+Maps
+Bilinear operator
+form
+Linear map
+Almost open
+Bounded
+Continuous
+Closed
+Compact
+Densely defined
+Discontinuous
+Topological homomorphism
+Functional
+Linear
+Bilinear
+Sesquilinear
+Norm
+Seminorm
+Sublinear function
+Transpose
+Types of sets
+Absolutely convex/disk
+Absorbing/Radial
+Affine
+Balanced/Circled
+Banach disks
+Bounding points
+Bounded
+Complemented subspace
+Convex
+Convex cone (subset)
+Linear cone (subset)
+Extreme point
+Pre-compact/Totally bounded
+Prevalent/Shy
+Radial
+Radially convex/Star-shaped
+Symmetric
+Set operations
+Affine hull
+(Relative) Algebraic interior (core)
+Convex hull
+Linear span
+Minkowski addition
+Polar
+(Quasi) Relative interior
+Types of TVSs
+Asplund
+B-complete/Ptak
+Banach
+(Countably) Barrelled
+BK-space
+(Ultra-) Bornological
+Brauner
+Complete
+Convenient
+(DF)-space
+Distinguished
+F-space
+FK-AK space
+FK-space
+Fréchet
+tame Fréchet
+Grothendieck
+Hilbert
+Infrabarreled
+Interpolation space
+K-space
+LB-space
+LF-space
+Locally convex space
+Mackey
+(Pseudo)Metrizable
+Montel
+Quasibarrelled
+Quasi-complete
+Quasinormed
+(Polynomially
+Semi-) Reflexive
+Riesz
+Schwartz
+Semi-complete
+Smith
+Stereotype
+(B
+Strictly
+Uniformly) convex
+(Quasi-) Ultrabarrelled
+Uniformly smooth
+Webbed
+With the approximation property
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

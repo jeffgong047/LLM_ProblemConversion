@@ -1,0 +1,387 @@
+Approximation for factorials
+Comparison of Stirling's approximation with the factorial
+In mathematics, Stirling's approximation (or Stirling's formula) is an approximation for factorials. It is a good approximation, leading to accurate results even for small values of n. It is named after James Stirling, though a related but less precise result was first stated by Abraham de Moivre.[1][2][3]
+One way of stating the approximation involves the logarithm of the factorial:
+ln⁡(n!)=nln⁡n−n+O(ln⁡n),ln(n!)=n-n+O(),
+where the big O notation means that, for all sufficiently large values of n, the difference between ln⁡(n!)ln(n!) and nln⁡n−n-n will be at most proportional to the logarithm. In computer science applications such as the worst-case lower bound for comparison sorting, it is convenient to use instead the binary logarithm, giving the equivalent form
+log2⁡(n!)=nlog2⁡n−nlog2⁡e+O(log2⁡n).log_2(n!)=nlog_2n-nlog_2e+O(log_2n). The error term in either base can be expressed more precisely as 12log⁡(2πn)+O(1n)12log(2)+O(1n), corresponding to an approximate formula for the factorial itself,
+n!∼2πn(ne)n.!∼√(2)(n/e)^n.
+Here the sign ∼∼ means that the two quantities are asymptotic, that is, that their ratio tends to 1 as n tends to infinity. The following version of the bound holds for all n≥1≥1, rather than only asymptotically:
+2πn(ne)ne112n+1<n!<2πn(ne)ne112n.√(2)
+left(n/e)^ne^1/12n+1<n!<√(2)
+left(n/e)^ne^1/12n.
+
+
+Derivation[edit]
+Roughly speaking, the simplest version of Stirling's formula can be quickly obtained by approximating the sum
+ln⁡(n!)=∑j=1nln⁡jln(n!)=∑_j=1^n
+with an integral:
+∑j=1nln⁡j≈∫1nln⁡xdx=nln⁡n−n+1.∑_j=1^n≈∫_1^n dx=n-n+1.
+The full formula, together with precise estimates of its error, can be derived as follows. Instead of approximating n!!, one considers its natural logarithm, as this is a slowly varying function:
+ln⁡(n!)=ln⁡1+ln⁡2+⋯+ln⁡n.ln(n!)=ln1+ln2+⋯+.
+The right-hand side of this equation minus
+12(ln⁡1+ln⁡n)=12ln⁡n12(ln1+)=12
+is the approximation by the trapezoid rule of the integral
+ln⁡(n!)−12ln⁡n≈∫1nln⁡xdx=nln⁡n−n+1,ln(n!)-12≈∫_1^n dx=n-n+1,
+and the error in this approximation is given by the Euler–Maclaurin formula:
+ln⁡(n!)−12ln⁡n=12ln⁡1+ln⁡2+ln⁡3+⋯+ln⁡(n−1)+12ln⁡n=nln⁡n−n+1+∑k=2m(−1)kBkk(k−1)(1nk−1−1)+Rm,n,ln(n!)-12   =12ln1+ln2+ln3+⋯+ln(n-1)+12
+   =n-n+1+∑_k=2^m(-1)^kB_k/k(k-1)(1/n^k-1-1)+R_m,n,
+where Bk_k is a Bernoulli number, and Rm,n is the remainder term in the Euler–Maclaurin formula. Take limits to find that
+limn→∞(ln⁡(n!)−nln⁡n+n−12ln⁡n)=1−∑k=2m(−1)kBkk(k−1)+limn→∞Rm,n.lim_n→∞(ln(n!)-n+n-12)=1-∑_k=2^m(-1)^kB_k/k(k-1)+lim_n→∞R_m,n.
+Denote this limit as y.  Because the remainder Rm,n in the Euler–Maclaurin formula satisfies
+Rm,n=limn→∞Rm,n+O(1nm),_m,n=lim_n→∞R_m,n+O(1/n^m),
+where big-O notation is used, combining the equations above yields the approximation formula in its logarithmic form:
+ln⁡(n!)=nln⁡(ne)+12ln⁡n+y+∑k=2m(−1)kBkk(k−1)nk−1+O(1nm).ln(n!)=nln(n/e)+12+y+∑_k=2^m(-1)^kB_k/k(k-1)n^k-1+O(1/n^m).
+Taking the exponential of both sides and choosing any positive integer m, one obtains a formula involving an unknown quantity ey^y. For m = 1, the formula is
+n!=eyn(ne)n(1+O(1n)).!=e^y√(n)(n/e)^n(1+O(1/n)).
+The quantity ey^y can be found by taking the limit on both sides as n tends to infinity and using Wallis' product, which shows that ey=2π^y=√(2π). Therefore, one obtains Stirling's formula:
+n!=2πn(ne)n(1+O(1n)).!=√(2)(n/e)^n(1+O(1/n)).
+
+Alternative derivations[edit]
+An alternative formula for n!! using the gamma function is
+n!=∫0∞xne−xdx.!=∫_0^∞x^ne^-x dx.
+(as can be seen by repeated integration by parts). Rewriting and changing variables x = ny, one obtains
+n!=∫0∞enln⁡x−xdx=enln⁡nn∫0∞en(ln⁡y−y)dy.!=∫_0^∞e^n-x dx=e^nn∫_0^∞e^n(-y) dy.
+Applying Laplace's method one has
+∫0∞en(ln⁡y−y)dy∼2πne−n,∫_0^∞e^n(-y) dy∼√(2π/n)e^-n,
+which recovers Stirling's formula:
+n!∼enln⁡nn2πne−n=2πn(ne)n.!^nn√(2π/n)e^-n=√(2)(n/e)^n.
+
+Higher orders[edit]
+In fact, further corrections can also be obtained using Laplace's method. From previous result, we know that Γ(x)∼xxe−xΓ(x)^xe^-x, so we "peel off" this dominant term, then perform a change of variables, to obtain:x−xexΓ(x)=∫Rex(1+t−et)dt^-xe^xΓ(x)=∫_ℝe^x(1+t-e^t)dtNow the function t↦1+t−et↦1+t-e^t is unimodal, with maximum value zero. Locally around zero, it looks like −t2/2-t^2/2, which is why we are able to perform Laplace's method. In order to extend Laplace's method to higher orders, we perform another change of variables by 1+t−et=−τ2/21+t-e^t=-τ^2/2. This equation cannot be solved in closed form, but it can be solved by serial expansion, which gives us t=τ−τ2/6+τ3/36+a4τ4+O(τ5)=τ-τ^2/6+τ^3/36+a_4τ^4+O(τ^5). Now plug back to the equation to obtainx−xexΓ(x)=∫Re−xτ2/2(1−τ/3+τ2/12+4a4τ3+O(τ4))dτ=2π(x−1/2+x−3/2/12)+O(x−5/2)^-xe^xΓ(x)=∫_ℝe^-xτ^2/2(1-τ/3+τ^2/12+4a_4τ^3+O(τ^4))dτ=√(2π)(x^-1/2+x^-3/2/12)+O(x^-5/2)notice how we don't need to actually find a4_4, since it is cancelled out by the integral. Higher orders can be achieved by computing more terms in t=τ+⋯=τ+⋯.
+Thus we get Stirling's formula to two orders:
+n!=2πn(ne)n(1+112n+O(1n2)).!=√(2)(n/e)^n(1+1/12n+O(1/n^2)).
+
+Complex-analytic version[edit]
+A complex-analysis version of this method[4] is to consider 1n!1/n! as a Taylor coefficient of the exponential function ez=∑n=0∞znn!^z=∑_n=0^∞z^n/n!, computed by Cauchy's integral formula as
+1n!=12πi∮|z|=rezzn+1dz.1/n!=1/2∮_|z|=re^z/z^n+1 dz.
+This line integral can then be approximated using the saddle-point method with an appropriate choice of contour radius r=rn=r_n. The dominant portion of the integral near the saddle point is then approximated by a real integral and Laplace's method, while the remaining portion of the integral can be bounded above to give an error term.
+
+Speed of convergence and error estimates[edit]
+The relative error in a truncated Stirling series vs. n, for 0 to 5 terms. The kinks in the curves represent points where the truncated series coincides with Γ(n + 1).
+Stirling's formula is in fact the first approximation to the following series (now called the Stirling series):[5]
+n!∼2πn(ne)n(1+112n+1288n2−13951840n3−5712488320n4+⋯).!∼√(2)(n/e)^n(1+1/12n+1/288n^2-139/51840n^3-571/2488320n^4+⋯).
+An explicit formula for the coefficients in this series was given by G. Nemes.[6] Further terms are listed in the On-Line Encyclopedia of Integer Sequences as A001163 and A001164. The first graph in this section shows the relative error vs. n, for 1 through all 5 terms listed above. (Bender and Orszag[7] p. 218) gives the asymptotic formula for the coefficients:A2j+1∼(−1)j2(2j)!/(2π)2(j+1)_2j+1∼(-1)^j2(2j)!/(2π)^2(j+1)which shows that it grows superexponentially, and that by ratio test the radius of convergence is zero.
+
+The relative error in a truncated Stirling series vs. the number of terms used
+As n → ∞, the error in the truncated series is asymptotically equal to the first omitted term. This is an example of an asymptotic expansion. It is not a convergent series; for any particular value of n there are only so many terms of the series that improve accuracy, after which accuracy worsens.  This is shown in the next graph, which shows the relative error versus the number of terms in the series, for larger numbers of terms. More precisely, let S(n, t) be the Stirling series to t terms evaluated at n.  The graphs show 
+|ln⁡(S(n,t)n!)|,|ln(S(n,t)/n!)|,
+which, when small, is essentially the relative error.
+Writing Stirling's series in the form
+ln⁡(n!)∼nln⁡n−n+12ln⁡(2πn)+112n−1360n3+11260n5−11680n7+⋯,ln(n!)-n+12ln(2)+1/12n-1/360n^3+1/1260n^5-1/1680n^7+⋯,
+it is known that the error in truncating the series is always of the opposite sign and at most the same magnitude as the first omitted term.
+More precise bounds, due to Robbins,[8] valid for all positive integers n are
+2πn(ne)ne112n+1<n!<2πn(ne)ne112n.√(2)(n/e)^ne^1/12n+1<n!<√(2)(n/e)^ne^1/12n.
+A looser version of this bound is that n!ennn+12∈(2π,e]n!e^n/n^n+1/2∈(√(2π),e] for all n≥1≥1.
+
+Stirling's formula for the gamma function[edit]
+For all positive integers,
+n!=Γ(n+1),!=Γ(n+1),
+where Γ denotes the gamma function.
+However, the gamma function, unlike the factorial, is more broadly defined for all complex numbers other than non-positive integers; nevertheless, Stirling's formula may still be applied. If Re(z) > 0, then
+ln⁡Γ(z)=zln⁡z−z+12ln⁡2πz+∫0∞2arctan⁡(tz)e2πt−1dt.lnΓ(z)=z-z+12ln2π/z+∫_0^∞2arctan(t/z)/e^2-1 dt.
+Repeated integration by parts gives
+ln⁡Γ(z)∼zln⁡z−z+12ln⁡2πz+∑n=1N−1B2n2n(2n−1)z2n−1,lnΓ(z)-z+12ln2π/z+∑_n=1^N-1B_2n/2n(2n-1)z^2n-1,
+where Bn_n is the nth Bernoulli number (note that the limit of the sum as N→∞→∞ is not convergent, so this formula is just an asymptotic expansion). The formula is valid for z large enough in absolute value, when |arg(z)| < π − ε, where ε is positive, with an error term of O(z−2N+ 1). The corresponding approximation may now be written:
+Γ(z)=2πz(ze)z(1+O(1z)).Γ(z)=√(2π/z) (z/e)^z(1+O(1/z)).
+where the expansion is identical to that of Stirling's series above for n!!, except that n is replaced with z − 1.[9]
+A further application of this asymptotic expansion is for complex argument z with constant Re(z). See for example the Stirling formula applied in Im(z) = t of the Riemann–Siegel theta function on the straight line 1/4 + it.
+
+Error bounds[edit]
+For any positive integer N, the following notation is introduced:
+ln⁡Γ(z)=zln⁡z−z+12ln⁡2πz+∑n=1N−1B2n2n(2n−1)z2n−1+RN(z)lnΓ(z)=z-z+12ln2π/z+∑_n=1^N-1B_2n/2n(2n-1)z^2n-1+R_N(z)
+and
+Γ(z)=2πz(ze)z(∑n=0N−1anzn+R N(z)).Γ(z)=√(2π/z)(z/e)^z(∑_n=0^N-1a_n/z^n+R_N(z)).
+Then[10][11]
+|RN(z)|≤|B2N|2N(2N−1)|z|2N−1×1if|arg⁡z|≤π4,|csc⁡(arg⁡z)|ifπ4<|arg⁡z|<π2,sec2N⁡(arg⁡z2)if|arg⁡z|<π,|R N(z)|≤(|aN||z|N+|aN+1||z|N+1)×1if|arg⁡z|≤π4,|csc⁡(2arg⁡z)|ifπ4<|arg⁡z|<π2.|R_N(z)|   ≤|B_2N|/2N(2N-1)|z|^2N-1×1   if||≤π/4,
+|()|   ifπ/4<||<π/2,
+^2N(2)   if||<π,
+|R_N(z)|   ≤(|a_N|/|z|^N+|a_N+1|/|z|^N+1)×1   if||≤π/4,
+|(2)|   ifπ/4<||<π/2.
+For further information and other error bounds, see the cited papers.
+
+A convergent version of Stirling's formula[edit]
+Thomas Bayes showed, in a letter to John Canton published by the Royal Society in 1763, that Stirling's formula did not give a convergent series.[12]  Obtaining a convergent version of Stirling's formula entails evaluating Binet's formula:
+∫0∞2arctan⁡(tx)e2πt−1dt=ln⁡Γ(x)−xln⁡x+x−12ln⁡2πx.∫_0^∞2arctan(t/x)/e^2-1 dt=lnΓ(x)-x+x-12ln2π/x.
+One way to do this is by means of a convergent series of inverted rising factorials. If
+zn¯=z(z+1)⋯(z+n−1),^n̅=z(z+1)⋯(z+n-1),
+then
+∫0∞2arctan⁡(tx)e2πt−1dt=∑n=1∞cn(x+1)n¯,∫_0^∞2arctan(t/x)/e^2-1 dt=∑_n=1^∞c_n/(x+1)^n̅,
+where
+cn=1n∫01xn¯(x−12)dx=12n∑k=1nk|s(n,k)|(k+1)(k+2),_n=1/n∫_0^1x^n̅(x-12) dx=1/2n∑_k=1^nk|s(n,k)|/(k+1)(k+2),
+where s(n, k) denotes the Stirling numbers of the first kind. From this one obtains a version of Stirling's series
+ln⁡Γ(x)=xln⁡x−x+12ln⁡2πx+112(x+1)+112(x+1)(x+2)++59360(x+1)(x+2)(x+3)+2960(x+1)(x+2)(x+3)(x+4)+⋯,lnΓ(x)   =x-x+12ln2π/x+1/12(x+1)+1/12(x+1)(x+2)+
+     +59/360(x+1)(x+2)(x+3)+29/60(x+1)(x+2)(x+3)(x+4)+⋯,
+which converges when Re(x) > 0. 
+Stirling's formula may also be given in convergent form as[13]
+Γ(x)=2πxx−12e−x+μ(x)Γ(x)=√(2π)x^x-1/2e^-x+μ(x)
+where 
+μ(x)=∑n=0∞((x+n+12)ln⁡(1+1x+n)−1).μ(x)=∑_n=0^∞((x+n+1/2)ln(1+1/x+n)-1).
+
+Versions suitable for calculators[edit]
+The approximation
+Γ(z)≈2πz(zezsinh⁡1z+1810z6)zΓ(z)≈√(2π/z)(z/e√(zsinh1/z+1/810z^6))^z
+and its equivalent form
+2ln⁡Γ(z)≈ln⁡(2π)−ln⁡z+z(2ln⁡z+ln⁡(zsinh⁡1z+1810z6)−2)2lnΓ(z)≈ln(2π)-+z(2+ln(zsinh1/z+1/810z^6)-2)
+can be obtained by rearranging Stirling's extended formula and observing a coincidence between the resultant power series and the Taylor series expansion of the hyperbolic sine function. This approximation is good to more than 8 decimal digits for z with a real part greater than 8. Robert H. Windschitl suggested it in 2002 for computing the gamma function with fair accuracy on calculators with limited program or register memory.[14]
+Gergő Nemes proposed in 2007 an approximation which gives the same number of exact digits as the Windschitl approximation but is much simpler:[15]
+Γ(z)≈2πz(1e(z+112z−110z))z,Γ(z)≈√(2π/z)(1/e(z+1/12z-1/10z))^z,
+or equivalently,
+ln⁡Γ(z)≈12(ln⁡(2π)−ln⁡z)+z(ln⁡(z+112z−110z)−1).lnΓ(z)≈12(ln(2π)-)+z(ln(z+1/12z-1/10z)-1).
+An alternative approximation for the gamma function stated by Srinivasa Ramanujan (Ramanujan 1988[clarification needed]) is
+Γ(1+x)≈π(xe)x(8x3+4x2+x+130)16Γ(1+x)≈√(π)(x/e)^x(8x^3+4x^2+x+1/30)^1/6
+for x ≥ 0. The equivalent approximation for ln n! has an asymptotic error of 1/1400n3 and is given by
+ln⁡n!≈nln⁡n−n+16ln⁡(8n3+4n2+n+130)+12ln⁡π.!-n+16ln(8n^3+4n^2+n+130)+12lnπ.
+The approximation may be made precise by giving paired upper and lower bounds; one such inequality is[16][17][18][19]
+π(xe)x(8x3+4x2+x+1100)1/6<Γ(1+x)<π(xe)x(8x3+4x2+x+130)1/6.√(π)(x/e)^x(8x^3+4x^2+x+1/100)^1/6<Γ(1+x)<√(π)(x/e)^x(8x^3+4x^2+x+1/30)^1/6.
+
+History[edit]
+The formula was first discovered by Abraham de Moivre[2] in the form
+n!∼[constant]⋅nn+12e−n.!∼[constant]^n+1/2e^-n.
+De Moivre gave an approximate rational-number expression for the natural logarithm of the constant. Stirling's contribution consisted of showing that the constant is precisely 2π√(2π).[3]
+
+See also[edit]
+Lanczos approximation
+Spouge's approximation
+References[edit]
+
+
+^ Dutka, Jacques (1991), "The early history of the factorial function", Archive for History of Exact Sciences, 43 (3): 225–249, doi:10.1007/BF00389433, S2CID 122237769
+
+^ a b Le Cam, L. (1986), "The central limit theorem around 1935", Statistical Science, 1 (1): 78–96, doi:10.1214/ss/1177013818, JSTOR 2245503, MR 0833276; see p. 81, "The result, obtained using a formula originally proved by de Moivre but now called Stirling's formula, occurs in his 'Doctrine of Chances' of 1733."
+
+^ a b Pearson, Karl (1924), "Historical note on the origin of the normal curve of errors", Biometrika, 16 (3/4): 402–404 [p. 403], doi:10.2307/2331714, JSTOR 2331714, I consider that the fact that Stirling showed that De Moivre's arithmetical constant was 2π√(2π) does not entitle him to claim the theorem, [...]
+
+^ Flajolet, Philippe; Sedgewick, Robert (2009), Analytic Combinatorics, Cambridge, UK: Cambridge University Press, p. 555, doi:10.1017/CBO9780511801655, ISBN 978-0-521-89806-5, MR 2483235, S2CID 27509971
+
+^ Olver, F. W. J.; Olde Daalhuis, A. B.; Lozier, D. W.; Schneider, B. I.; Boisvert, R. F.; Clark, C. W.; Miller, B. R. & Saunders, B. V., "5.11 Gamma function properties: Asymptotic Expansions", NIST Digital Library of Mathematical Functions, Release 1.0.13 of 2016-09-16
+
+^ Nemes, Gergő (2010), "On the coefficients of the asymptotic expansion of n!!", Journal of Integer Sequences, 13 (6): 5
+
+^ Bender, Carl M.; Orszag, Steven A. (2009). Advanced mathematical methods for scientists and engineers. 1: Asymptotic methods and perturbation theory (Nachdr. ed.). New York, NY: Springer. ISBN 978-0-387-98931-0.
+
+^ Robbins, Herbert (1955), "A Remark on Stirling's Formula", The American Mathematical Monthly, 62 (1): 26–29, doi:10.2307/2308012, JSTOR 2308012
+
+^ Spiegel, M. R. (1999), Mathematical handbook of formulas and tables, McGraw-Hill, p. 148
+
+^ Schäfke, F. W.; Sattler, A. (1990), "Restgliedabschätzungen für die Stirlingsche Reihe", Note di Matematica, 10 (suppl. 2): 453–470, MR 1221957
+
+^ G. Nemes, Error bounds and exponential improvements for the asymptotic expansions of the gamma function and its reciprocal, Proc. Roy. Soc. Edinburgh Sect. A 145 (2015), 571–596.
+
+^ Bayes, Thomas (24 November 1763), "A letter from the late Reverend Mr. Thomas Bayes, F. R. S. to John Canton, M. A. and F. R. S." (PDF), Philosophical Transactions of the Royal Society of London Series I, 53: 269, Bibcode:1763RSPT...53..269B, archived (PDF) from the original on 2012-01-28, retrieved 2012-03-01
+
+^ Artin, Emil (2015). The Gamma Function. Dover. p. 24.
+
+^ Toth, V. T. Programmable Calculators: Calculators and the Gamma Function (2006) Archived 2005-12-31 at the Wayback Machine.
+
+^ Nemes, Gergő (2010), "New asymptotic expansion for the Gamma function", Archiv der Mathematik, 95 (2): 161–169, doi:10.1007/s00013-010-0146-9, S2CID 121820640
+
+^ Karatsuba, Ekatherina A. (2001), "On the asymptotic representation of the Euler gamma function by Ramanujan", Journal of Computational and Applied Mathematics, 135 (2): 225–240, Bibcode:2001JCoAM.135..225K, doi:10.1016/S0377-0427(00)00586-0, MR 1850542
+
+^ Mortici, Cristinel (2011), "Ramanujan's estimate for the gamma function via monotonicity arguments", Ramanujan J., 25 (2): 149–154, doi:10.1007/s11139-010-9265-y, S2CID 119530041
+
+^ Mortici, Cristinel (2011), "Improved asymptotic formulas for the gamma function", Comput. Math. Appl., 61 (11): 3364–3369, doi:10.1016/j.camwa.2011.04.036.
+
+^ Mortici, Cristinel (2011), "On Ramanujan's large argument formula for the gamma function", Ramanujan J., 26 (2): 185–192, doi:10.1007/s11139-010-9281-y, S2CID 120371952.
+
+
+Further reading[edit]
+Abramowitz, M. & Stegun, I. (2002), Handbook of Mathematical Functions
+Paris, R. B. & Kaminski, D. (2001), Asymptotics and Mellin–Barnes Integrals, New York: Cambridge University Press, ISBN 978-0-521-79001-7
+Whittaker, E. T. & Watson, G. N. (1996), A Course in Modern Analysis (4th ed.), New York: Cambridge University Press, ISBN 978-0-521-58807-2
+Romik, Dan (2000), "Stirling's approximation for n!!: the ultimate short proof?", The American Mathematical Monthly, 107 (6): 556–557, doi:10.2307/2589351, JSTOR 2589351, MR 1767064
+Li, Yuan-Chuan (July 2006), "A note on an identity of the gamma function and Stirling's formula", Real Analysis Exchange, 32 (1): 267–271, MR 2329236
+External links[edit]
+
+
+
+Wikimedia Commons has media related to Stirling's approximation.
+
+"Stirling_formula", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Peter Luschny, Approximation formulas for the factorial function n!
+Weisstein, Eric W., "Stirling's Approximation", MathWorld
+Stirling's approximation at PlanetMath.
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+
+
+

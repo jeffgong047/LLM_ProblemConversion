@@ -1,0 +1,254 @@
+Relate the direct image and the pull-back of sheaves
+In mathematics, the base change theorems relate the direct image and the inverse image of sheaves. More precisely, they are about the base change map, given by the following natural transformation of sheaves:
+
+g∗(Rrf∗F)→Rrf∗′(g′∗F)^*(R^rf_*ℱ)^rf'_*(g'^*ℱ)
+where
+
+X′→g′Xf′↓↓fS′→gS[  X' g'→   X; f'↓    ;  S'  g→   S ]
+is a Cartesian square of topological spaces and Fℱ is a sheaf on X.
+Such theorems exist in different branches of geometry: for (essentially arbitrary) topological spaces and proper maps f, in algebraic geometry for (quasi-)coherent sheaves and f proper or g flat, similarly in analytic geometry, but also for étale sheaves for f proper or g smooth.
+
+
+Introduction[edit]
+A simple base change phenomenon arises in commutative algebra when A is a commutative ring and B and A' are two A-algebras. Let B′=B⊗AA′'=B⊗_AA'. In this situation, given a B-module M, there is an isomorphism (of A' -modules):
+
+(M⊗BB′)A′≅(MA)⊗AA′.(M⊗_BB')_A'≅(M_A)⊗_AA'.
+Here the subscript indicates the forgetful functor, i.e., MA_A is M, but regarded as an A-module.
+Indeed, such an isomorphism is obtained by observing
+
+M⊗BB′=M⊗BB⊗AA′≅M⊗AA′.⊗_BB'=M⊗_BB⊗_AA'⊗_AA'.
+Thus, the two operations, namely forgetful functors and tensor products commute in the sense of the above isomorphism.
+The base change theorems discussed below are statements of a similar kind.
+
+Definition of the base change map[edit]
+Image functors for sheaves
+direct image f∗
+
+inverse image f∗
+
+direct image with compact support f!
+
+exceptional inverse image Rf!
+
+f∗⇆f∗^*_*
+
+(R)f!⇆(R)f!(R)f_!⇆(R)f^!
+
+Base change theorems
+vte
+The base change theorems presented below all assert that (for different types of sheaves, and under various assumptions on the maps involved), that the following base change map
+
+g∗(Rrf∗F)→Rrf∗′(g′∗F)^*(R^rf_*ℱ)^rf'_*(g'^*ℱ)
+is an isomorphism, where
+
+X′→g′Xf′↓↓fS′→gS[  X' g'→   X; f'↓    ;  S'  g→   S;  ]
+are continuous maps between topological spaces that form a Cartesian square and Fℱ is a sheaf on X.[1] Here Rif∗F^if_*ℱ denotes the higher direct image of Fℱ under f, i.e., the derived functor of the direct image (also known as pushforward) functor f∗_*.
+This map exists without any assumptions on the maps f and g. It is constructed as follows: since g′∗'^* is left adjoint to g∗′'_*, there is a natural map (called unit map)
+
+id→g∗′∘g′∗id'_*'^*
+and so
+
+Rrf∗→Rrf∗∘g∗′∘g′∗.^rf_*^rf_*'_*'^*.
+The Grothendieck spectral sequence then gives the first map and the last map (they are edge maps) in:
+
+Rrf∗∘g∗′∘g′∗→Rr(f∘g′)∗∘g′∗=Rr(g∘f′)∗∘g′∗→g∗∘Rrf∗′∘g′∗.^rf_*'_*'^*^r(f')_*'^*=R^r(g')_*'^*_*^rf'_*'^*.
+Combining this with the above yields
+
+Rrf∗→g∗∘Rrf∗′∘g′∗.^rf_*_*^rf'_*'^*.
+Using the adjointness of g∗^* and g∗_* finally yields the desired map.
+The above-mentioned introductory example is a special case of this, namely for the affine schemes X=Spec⁡(B),S=Spec⁡(A),S′=Spec⁡(A′)=Spec(B),S=Spec(A),S'=Spec(A') and, consequently, X′=Spec⁡(B′)'=Spec(B'), and the quasi-coherent sheaf F:=M ℱ:=M̃ associated to the B-module M.
+It is conceptually convenient to organize the above base change maps, which only involve only a single higher direct image functor, into one which encodes all Rrf∗^rf_* at a time. In fact, similar arguments as above yield a map in the derived category of sheaves on S':
+
+g∗Rf∗(F)→Rf∗′(g′∗F)^*Rf_*(ℱ)'_*(g'^*ℱ)
+where Rf∗_* denotes the (total) derived functor of f∗_*.
+
+General topology[edit]
+Proper base change[edit]
+If X is a Hausdorff topological space, S is a locally compact Hausdorff space and f is universally closed (i.e., X×ST→T×_ST is a closed map for any continuous map T→S), then
+the base change map
+
+g∗Rrf∗F→Rrf∗′g′∗F^*R^rf_*ℱ^rf'_*g'^*ℱ
+is an isomorphism.[2] Indeed, we have: for s∈S,
+
+(Rrf∗F)s=lim→⁡Hr(U,F)=Hr(Xs,F),Xs=f−1(s)(R^rf_*ℱ)_s=^r(U,ℱ)=H^r(X_s,ℱ),_s=f^-1(s)
+and so for s=g(t)=g(t)
+
+g∗(Rrf∗F)t=Hr(Xs,F)=Hr(Xt′,g′∗F)=Rrf∗′(g′∗F)t.^*(R^rf_*ℱ)_t=H^r(X_s,ℱ)=H^r(X'_t,g'^*ℱ)=R^rf'_*(g'^*ℱ)_t.
+To encode all individual higher derived functors of f∗_* into one entity, the above statement may equivalently be rephrased by saying that the base change map
+
+g∗Rf∗F→Rf∗′g′∗F^*Rf_*ℱ'_*g'^*ℱ
+is a quasi-isomorphism.
+The assumptions that the involved spaces be Hausdorff have been weakened by Schnürer & Soergel (2016).
+Lurie (2009) has extended the above theorem to non-abelian sheaf cohomology, i.e., sheaves taking values in simplicial sets (as opposed to abelian groups).[3]
+
+Direct image with compact support[edit]
+If the map f is not closed, the base change map need not be an isomorphism, as the following example shows (the maps are the standard inclusions) :
+
+∅→g′C∖0f′↓↓f0→gC[     ∅   g'→ ℂ∖{0};   f'↓      ;   {0}    g→     ℂ ]
+One the one hand f∗′g′∗F'_*g'^*ℱ is always zero, but if Fℱ is a local system on C∖0ℂ∖{0} corresponding to a representation of the fundamental group π1(X)π_1(X) (which is isomorphic to Z), then g∗f∗F^*f_*ℱ can be computed as the invariants of the monodromy action of π1(X,x)π_1(X,x) on the stalk Fxℱ_x (for any x≠0≠0), which need not vanish.
+To obtain a base-change result, the functor f∗_* (or its derived functor) has to be replaced by the direct image with compact support Rf!_!. For example, if f:X→S:X is the inclusion of an open subset, such as in the above example, Rf!F_!ℱ is the extension by zero, i.e., its stalks are given by
+
+(Rf!F)s=Fss∈X,0s∉X.(Rf_!ℱ)_s=ℱ_s   s,
+0   s.
+In general, there is a map Rf!F→Rf∗F_!ℱ_*ℱ, which is a quasi-isomorphism if f is proper, but not in general. The proper base change theorem mentioned above has the following generalization: there is a quasi-isomorphism[4]
+
+g∗Rf!F→Rf!′g′∗F.^*Rf_!ℱ'_!g'^*ℱ.
+Base change for quasi-coherent sheaves[edit]
+Proper base change[edit]
+Proper base change theorems for quasi-coherent sheaves apply in the following situation: f:X→S:X is a proper morphism between noetherian schemes, and Fℱ is a coherent sheaf which is flat over S (i.e., Fxℱ_x is flat over OS,f(x)𝒪_S,f(x)). In this situation, the following statements hold:[5]
+
+"Semicontinuity theorem":
+For each p≥0≥0, the function s↦dimk(s)⁡Hp(Xs,Fs):S→Z↦_k(s)H^p(X_s,ℱ_s):S→ℤ is upper semicontinuous.
+The function s↦χ(Fs)↦χ(ℱ_s) is locally constant, where χ(F)χ(ℱ) denotes the Euler characteristic.
+"Grauert's theorem": if S is reduced and connected, then for each p≥0≥0 the following are equivalent
+s↦dimk(s)⁡Hp(Xs,Fs)↦_k(s)H^p(X_s,ℱ_s) is constant.
+Rpf∗F^pf_*ℱ is locally free and the natural map
+Rpf∗F⊗OSk(s)→Hp(Xs,Fs)^pf_*ℱ⊗_𝒪_Sk(s)^p(X_s,ℱ_s)
+is an isomorphism for all s∈S.
+Furthermore, if these conditions hold, then the natural map
+Rp−1f∗F⊗OSk(s)→Hp−1(Xs,Fs)^p-1f_*ℱ⊗_𝒪_Sk(s)^p-1(X_s,ℱ_s)
+is an isomorphism for all s∈S.
+If, for some p, Hp(Xs,Fs)=0^p(X_s,ℱ_s)=0 for all s∈S, then the natural map
+Rp−1f∗F⊗OSk(s)→Hp−1(Xs,Fs)^p-1f_*ℱ⊗_𝒪_Sk(s)^p-1(X_s,ℱ_s)
+is an isomorphism for all s∈S.
+As the stalk of the sheaf Rpf∗F^pf_*ℱ is closely related to the cohomology of the fiber of the point under f, this statement is paraphrased by saying that "cohomology commutes with base extension".[6]
+These statements are proved using the following fact, where in addition to the above assumptions S=Spec⁡A=SpecA: there is a finite complex 0→K0→K1→⋯→Kn→00^0^1→⋯^n→0 of finitely generated projective A-modules and a natural isomorphism of functors
+
+Hp(X×SSpec−,F⊗A−)→Hp(K∙⊗A−),p≥0^p(X×_SSpec-,ℱ⊗_A-)^p(K^∙⊗_A-),p≥0
+on the category of A-algebras.
+
+Flat base change[edit]
+The base change map
+
+g∗(Rrf∗F)→Rrf∗′(g′∗F)^*(R^rf_*ℱ)^rf'_*(g'^*ℱ)
+is an isomorphism for a quasi-coherent sheaf Fℱ (on X), provided that the map g:S′→S:S' is flat (together with a number of technical conditions: f needs to be a separated morphism of finite type, the schemes involved need to be Noetherian).[7]
+
+Flat base change in the derived category[edit]
+A far reaching extension of flat base change is possible when considering the base change map
+
+Lg∗Rf∗(F)→Rf∗′(Lg′∗F)^*Rf_*(ℱ)'_*(Lg'^*ℱ)
+in the derived category of sheaves on S', similarly as mentioned above. Here Lg∗^* is the (total) derived functor of the pullback of O𝒪-modules (because g∗G=OX⊗g−1OSg−1G^*𝒢=𝒪_X⊗_g^-1𝒪_Sg^-1𝒢 involves a tensor product, g∗^* is not exact when g is not flat and therefore is not equal to its derived functor Lg∗^*).
+This map is a quasi-isomorphism provided that the following conditions are satisfied:[8]
+
+S is quasi-compact and f is quasi-compact and quasi-separated,
+Fℱ is an object in Db(OX-mod)^b(𝒪_X-mod), the bounded derived category of OX𝒪_X-modules, and its cohomology sheaves are quasi-coherent (for example, Fℱ could be a bounded complex of quasi-coherent sheaves)
+X and S′' are Tor-independent over S, meaning that if x∈X and s′∈S′'' satisfy f(x)=s=g(s′)(x)=s=g(s'), then for all integers p≥1≥1,
+TorpOS,s⁡(OX,x,OS′,s′)=0Tor_p^𝒪_S,s(𝒪_X,x,𝒪_S',s')=0.
+One of the following conditions is satisfied:
+Fℱ has finite flat amplitude relative to f, meaning that it is quasi-isomorphic in D−(f−1OS-mod)^-(f^-1𝒪_S-mod) to a complex F′ℱ' such that (F′)i(ℱ')^i is f−1OS^-1𝒪_S-flat for all i outside some bounded interval [m,n][m,n]; equivalently, there exists an interval [m,n][m,n] such that for any complex G𝒢 in D−(f−1OS-mod)^-(f^-1𝒪_S-mod), one has Tori⁡(F,G)=0Tor_i(ℱ,𝒢)=0 for all i outside [m,n][m,n]; or
+g has finite Tor-dimension, meaning that OS′𝒪_S' has finite flat amplitude relative to g.
+One advantage of this formulation is that the flatness hypothesis has been weakened.  However, making concrete computations of the cohomology of the left- and right-hand sides now requires the Grothendieck spectral sequence.
+
+Base change in derived algebraic geometry[edit]
+Derived algebraic geometry provides a means to drop the flatness assumption, provided that the pullback X′' is replaced by the homotopy pullback. In the easiest case when X, S, and S′' are affine (with the notation as above), the homotopy pullback is given by the derived tensor product
+
+X′=Spec⁡(B′⊗BLA)'=Spec(B'⊗_B^LA)
+Then, assuming that the schemes (or, more generally, derived schemes) involved are quasi-compact and quasi-separated, the natural transformation
+
+Lg∗Rf∗F→Rf∗′Lg′∗F^*Rf_*ℱ'_*Lg'^*ℱ
+is a quasi-isomorphism for any quasi-coherent sheaf, or more generally a complex of quasi-coherent sheaves.[9]
+The afore-mentioned flat base change result is in fact a special case since for g flat the homotopy pullback (which is locally given by a derived tensor product) agrees with the ordinary pullback (locally given by the underived tensor product), and since the pullback along the flat maps g and g' are automatically derived (i.e., Lg∗=g∗^*=g^*). The auxiliary assumptions related to the Tor-independence or Tor-amplitude in the preceding base change theorem also become unnecessary.
+In the above form, base change has been extended by Ben-Zvi, Francis & Nadler (2010) to the situation where X, S, and S' are (possibly derived) stacks, provided that the map f is a perfect map (which includes the case that f is a quasi-compact, quasi-separated map of schemes, but also includes more general stacks, such as the classifying stack BG of an algebraic group in characteristic zero).
+
+Variants and applications[edit]
+Proper base change also holds in the context of complex manifolds and complex analytic spaces.[10]
+The theorem on formal functions is a variant of the proper base change, where the pullback is replaced by a completion operation.
+The see-saw principle and the theorem of the cube, which are foundational facts in the theory of abelian varieties, are a consequence of proper base change.[11]
+A base-change also holds for D-modules: if X, S, X', and S' are smooth varieties (but f and g need not be flat or proper etc.), there is a quasi-isomorphism
+
+g†∫fF→∫f′g′†F,^†∫_fℱ→∫_f'g'^†ℱ,
+where −†-^† and ∫∫ denote the inverse and direct image functors for D-modules.[12]
+
+Base change for étale sheaves[edit]
+For étale torsion sheaves Fℱ, there are two base change results referred to as proper and smooth base change, respectively: base change holds if f:X→S:X is proper.[13] It also holds if g is smooth, provided that f is quasi-compact and provided that the torsion of Fℱ is prime to the characteristic of the residue fields of X.[14]
+Closely related to proper base change is the following fact (the two theorems are usually proved simultaneously): let X be a variety over a separably closed field and Fℱ a constructible sheaf on Xet_et. Then Hr(X,F)^r(X,ℱ) are finite in each of the following cases:
+
+X is complete, or
+Fℱ has no p-torsion, where p is the characteristic of k.
+Under additional assumptions, Deninger (1988) extended the proper base change theorem to non-torsion étale sheaves.
+
+Applications[edit]
+In close analogy to the topological situation mentioned above, the base change map for an open immersion f, 
+
+g∗f∗F→f∗′g′∗F^*f_*ℱ'_*g'^*ℱ
+is not usually an isomorphism.[15] Instead the extension by zero functor f!_! satisfies an isomorphism
+
+g∗f!F→f!′g∗F.^*f_!ℱ'_!g^*ℱ.
+This fact and the proper base change suggest to define the direct image functor with compact support for a map f by
+
+Rf!:=Rp∗j!_!:=Rp_*j_!
+where f=p∘j=p is a compactification of f, i.e., a factorization into an open immersion followed by a proper map.
+The proper base change theorem is needed to show that this is well-defined, i.e., independent (up to isomorphism) of the choice of the compactification.
+Moreover, again in analogy to the case of sheaves on a topological space, a base change formula for g∗_* vs. Rf!_! does hold for non-proper maps f.
+For the structural map f:X→S=Spec⁡k:X=Speck of a scheme over a field k, the individual cohomologies of Rf!(F)_!(ℱ), denoted by Hc∗(X,F)_c^*(X,ℱ) referred to as cohomology with compact support. It is an important variant of usual étale cohomology.
+Similar ideas are also used to construct an analogue of the functor Rf!_! in A1-homotopy theory.[16][17]
+
+See also[edit]
+Grothendieck's relative point of view in algebraic geometry
+Change of base (disambiguation)
+Base change lifting of automorphic forms
+Further reading[edit]
+Esnault, H.; Kerz, M.; Wittenberg, O. (2016), "A restriction isomorphism for cycles of relative dimension zero", Cambridge Journal of Mathematics, 4 (2): 163–196, arXiv:1503.08187v2, doi:10.4310/CJM.2016.v4.n2.a1, S2CID 54896268
+Notes[edit]
+
+
+^ 
+The roles of X and S′' are symmetric, and in some contexts (especially smooth base change) the more familiar formulation is the other one (dealing instead with the map f∗Rig∗G→Rig∗′f′∗G^*R^ig_*𝒢^ig'_*f'^*𝒢 for G𝒢 a sheaf on S′'). For consistency, the results in this article below are all stated for the same situation, namely the map g∗Rif∗F→Rif∗′g′∗F^*R^if_*ℱ^if'_*g'^*ℱ; but readers should be sure to check this against their expectations.
+
+^ Milne (2012, Theorem 17.3)
+
+^ Lurie (2009, Theorem 7.3.1.16)
+
+^ Iversen (1986), the four spaces are assumed to be locally compact and of finite dimension.
+
+^ Grothendieck (1963, Section 7.7), Hartshorne (1977, Theorem III.12.11), Vakil (2015, Chapter 28 Cohomology and base change theorems)
+
+^ Hartshorne (1977, p. 255)
+
+^ Hartshorne (1977, Proposition III.9.3)
+
+^ Berthelot, Grothendieck & Illusie (1971, SGA 6 IV, Proposition 3.1.0)
+
+^ Toën (2012, Proposition 1.4)
+
+^ Grauert (1960)
+
+^ Mumford (2008)
+
+^ Hotta, Takeuchi & Tanisaki (2008, Theorem 1.7.3)
+
+^ Artin, Grothendieck & Verdier (1972, Exposé XII), Milne (1980, section VI.2)
+
+^ Artin, Grothendieck & Verdier (1972, Exposé XVI)
+
+^ Milne (2012, Example 8.5)
+
+^ Ayoub, Joseph (2007), Les six opérations de Grothendieck et le formalisme des cycles évanescents dans le monde motivique. I., Société Mathématique de France, ISBN 978-2-85629-244-0, Zbl 1146.14001
+
+^ Cisinski, Denis-Charles; Déglise, Frédéric (2019), Triangulated Categories of Mixed Motives, Springer Monographs in Mathematics, arXiv:0912.2110, Bibcode:2009arXiv0912.2110C, doi:10.1007/978-3-030-33242-6, ISBN 978-3-030-33241-9, S2CID 115163824
+
+
+References[edit]
+Artin, Michael; Grothendieck, Alexandre; Verdier, Jean-Louis (1972), Séminaire de Géométrie Algébrique du Bois Marie - 1963-64 - Théorie des topos et cohomologie étale des schémas - (SGA 4) - vol. 3 (PDF), Lecture Notes in Mathematics (in French), vol. 305, Berlin; New York: Springer-Verlag, pp. vi+640, doi:10.1007/BFb0070714, ISBN 978-3-540-06118-2
+Ben-Zvi, David; Francis, John; Nadler, David (2010), "Integral transforms and Drinfeld centers in derived algebraic geometry", J. Amer. Math. Soc., 23 (4): 909–966, arXiv:0805.0157, doi:10.1090/S0894-0347-10-00669-7, MR 2669705, S2CID 2202294
+Berthelot, Pierre; Grothendieck, Alexandre; Illusie, Luc (1971), Séminaire de Géométrie Algébrique du Bois Marie - 1966-67 - Théorie des intersections et théorème de Riemann-Roch - (SGA 6) (Lecture notes in mathematics 225) (in French), Berlin; New York: Springer-Verlag, xii+700, doi:10.1007/BFb0066283, ISBN 978-3-540-05647-8
+Deninger, Christopher (1988), "A proper base change theorem for non-torsion sheaves in étale cohomology", Journal of Pure and Applied Algebra, 50 (3): 231–235, doi:10.1016/0022-4049(88)90102-8
+Gabber, "Finiteness theorems for étale cohomology of excellent schemes"
+Grauert, Hans (1960), "Ein Theorem der analytischen Garbentheorie und die Modulräume komplexer Strukturen" (PDF), Publications Mathématiques de l'IHÉS, 5: 5–64, doi:10.1007/BF02684746, S2CID 122593346, Zbl 0100.08001
+Grothendieck, A. (1963), "Éléments de géométrie algébrique. III. Etude cohomologique des faisceaux cohérents. II", Publ. Math. IHÉS, archived from the original on 2017-01-05, retrieved 2017-01-04
+Hartshorne, Robin (1977), Algebraic Geometry, Berlin, New York: Springer-Verlag, ISBN 978-0-387-90244-9, MR 0463157, OCLC 13348052
+Hotta, Ryoshi; Takeuchi, Kiyoshi; Tanisaki, Toshiyuki (2008), D-Modules, Perverse Sheaves, and Representation Theory, Birkhäuser
+Iversen, Birger (1986), Cohomology of sheaves, Universitext, Berlin, New York: Springer-Verlag, doi:10.1007/978-3-642-82783-9, ISBN 978-3-540-16389-3, MR 0842190
+Lurie, Jacob (2009), Higher Topos Theory, Annals of Mathematics Studies, vol. 170, Princeton University Press, arXiv:math.CT/0608040, doi:10.1515/9781400830558, ISBN 978-0-691-14049-0, MR 2522659
+Milne, James S. (1980), Étale cohomology, Princeton University Press, ISBN 978-0-691-08238-7
+Milne, James S. (2012), Lectures on Étale Cohomology (PDF)
+Mumford, David (2008) [1970], Abelian varieties, Tata Institute of Fundamental Research Studies in Mathematics, vol. 5, Providence, R.I.: American Mathematical Society, ISBN 978-81-85931-86-9, MR 0282985, OCLC 138290
+Toën, Bertrand (2012), Proper local complete intersection morphisms preserve perfect complexes, arXiv:1210.2827, Bibcode:2012arXiv1210.2827T
+Schnürer, O. M.; Soergel, W. (2016), "Proper base change for separated locally proper maps", Rend. Semin. Mat. Univ. Padova, 135: 223–250, arXiv:1404.7630v2, doi:10.4171/RSMUP/135-13, S2CID 118024164
+Vakil, Ravi (2015), Foundations of Algebraic Geometry (PDF)
+External links[edit]
+Brian Conrad's handout
+Trouble with semicontinuity
+
+
+

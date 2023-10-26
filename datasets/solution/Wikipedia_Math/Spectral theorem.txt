@@ -1,0 +1,329 @@
+Result about when a matrix can be diagonalized
+In mathematics, particularly linear algebra and functional analysis, a spectral theorem is a result about when a linear operator or matrix can be diagonalized (that is, represented as a diagonal matrix in some basis). This is extremely useful because computations involving a diagonalizable matrix can often be reduced to much simpler computations involving the corresponding diagonal matrix. The concept of diagonalization is relatively straightforward for operators on finite-dimensional vector spaces but requires some modification for operators on infinite-dimensional spaces. In general, the spectral theorem identifies a class of linear operators that can be modeled by multiplication operators, which are as simple as one can hope to find. In more abstract language, the spectral theorem is a statement about commutative C*-algebras. See also spectral theory for a historical perspective.
+Examples of operators to which the spectral theorem applies are self-adjoint operators or more generally normal operators on Hilbert spaces.
+The spectral theorem also provides a canonical decomposition, called the spectral decomposition, of the underlying vector space on which the operator acts.
+Augustin-Louis Cauchy proved the spectral theorem for symmetric matrices, i.e., that every real, symmetric matrix is diagonalizable. In addition, Cauchy was the first to be systematic about determinants.[1][2] The spectral theorem as generalized by John von Neumann is today perhaps the most important result of operator theory.
+This article mainly focuses on the simplest kind of spectral theorem, that for a self-adjoint operator on a Hilbert space. However, as noted above, the spectral theorem also holds for normal operators on a Hilbert space.
+
+
+Finite-dimensional case[edit]
+Hermitian maps and Hermitian matrices[edit]
+We begin by considering a Hermitian matrix on Cnℂ^n (but the following discussion will be adaptable to the more restrictive case of symmetric matrices on Rnℝ^n). We consider a Hermitian map A on a finite-dimensional complex inner product space V endowed with a positive definite sesquilinear inner product ⟨⋅,⋅⟩⟨·,·⟩. The Hermitian condition on A means that for all x, y ∈ V,
+⟨Ax,y⟩=⟨x,Ay⟩.,y⟩=,Ay⟩.
+An equivalent condition is that A* = A, where A* is the Hermitian conjugate of A. In the case that A is identified with a Hermitian matrix, the matrix of A* is equal to its conjugate transpose. (If A is a real matrix, then this is equivalent to AT = A, that is, A is a symmetric matrix.)
+This condition implies that all eigenvalues of a Hermitian map are real: To see this, it is enough to apply it to the case when x = y is an eigenvector. (Recall that an eigenvector of a linear map A is a non-zero vector x such that Ax = λx for some scalar λ. The value λ is the corresponding eigenvalue. Moreover, the eigenvalues are roots of the characteristic polynomial.)
+
+
+Theorem — If A is Hermitian on V, then there exists an orthonormal basis of V consisting of eigenvectors of A. Each eigenvalue of A is real.
+
+
+We provide a sketch of a proof for the case where the underlying field of scalars is the complex numbers.
+By the fundamental theorem of algebra, applied to the characteristic polynomial of A, there is at least one eigenvalue λ1 and eigenvector e1, which must by definition be non-zero. Then since 
+λ1⟨e1,e1⟩=⟨A(e1),e1⟩=⟨e1,A(e1)⟩=λ¯1⟨e1,e1⟩,λ_1_1,e_1⟩=(e_1),e_1⟩=_1,A(e_1)⟩=λ̅_1_1,e_1⟩, 
+we find that λ1 is real. Now consider the space K = span{e1}⊥, the orthogonal complement of e1. By Hermiticity, K is an invariant subspace of A. Applying the same argument to K shows that A has an eigenvector e2 ∈ K. Finite induction then finishes the proof.
+The spectral theorem holds also for symmetric maps on finite-dimensional real inner product spaces, but the existence of an eigenvector does not follow immediately from the  fundamental theorem of algebra. To prove this, consider A as a Hermitian matrix and use the fact that all eigenvalues of a Hermitian matrix are real.
+The matrix representation of A in a basis of eigenvectors is diagonal, and by the construction the proof gives a basis of mutually orthogonal eigenvectors; by choosing them to be unit vectors one obtains  an orthonormal basis of eigenvectors. A can be written as a linear combination of pairwise orthogonal projections, called its spectral decomposition. Let
+Vλ=v∈V:Av=λv_λ={v:Av=}
+be the eigenspace corresponding to an eigenvalue λ. Note that the definition does not depend on any choice of specific eigenvectors. V is the orthogonal direct sum of the spaces Vλ where the index ranges over eigenvalues. 
+In other words, if Pλ denotes the orthogonal projection onto Vλ, and λ1, ..., λm are the eigenvalues of A, then the spectral decomposition may be written as
+A=λ1Pλ1+⋯+λmPλm.=λ_1P_λ_1+⋯+λ_mP_λ_m.
+If the spectral decomposition of A is A=λ1P1+⋯+λmPm=λ_1P_1+⋯+λ_mP_m, then A2=(λ1)2P1+⋯+(λm)2Pm^2=(λ_1)^2P_1+⋯+(λ_m)^2P_m and μA=μλ1P1+⋯+μλmPm=μλ_1P_1+⋯+μλ_mP_m for any scalar μ.μ. It follows that for any polynomial f one has
+f(A)=f(λ1)P1+⋯+f(λm)Pm.(A)=f(λ_1)P_1+⋯+f(λ_m)P_m.
+The spectral decomposition is a special case of both the Schur decomposition and the singular value decomposition.
+
+Normal matrices[edit]
+Main article: Normal matrix
+The spectral theorem extends to a more general class of matrices. Let A be an operator on a finite-dimensional inner product space. A is said to be normal  if A*A = AA*. One can show that A is normal if and only if it is unitarily diagonalizable. Proof: By the Schur decomposition, we can write any matrix as A = UTU*, where U is unitary and T is upper-triangular.
+If A is normal, then one sees that TT* = T*T. Therefore, T must be diagonal since a normal upper triangular matrix is diagonal (see normal matrix). The converse is obvious.
+In other words, A is normal if and only if there exists a unitary matrix U such that
+A=UDU∗,=UDU^*,
+where D is a diagonal matrix. Then, the entries of the diagonal of D are the eigenvalues of A. The column vectors of U are the eigenvectors of A and they are orthonormal. Unlike the Hermitian case, the entries of D need not be real.
+
+Compact self-adjoint operators[edit]
+Main article: Compact operator on Hilbert space
+In the more general setting of Hilbert spaces, which may have an infinite dimension, the statement of the spectral theorem for compact self-adjoint operators is virtually the same as in the finite-dimensional case.
+Theorem. Suppose A is a compact self-adjoint operator on a (real or complex) Hilbert space V. Then there is an orthonormal basis of V consisting of eigenvectors of A. Each eigenvalue is real.
+As for Hermitian matrices, the key point is to prove the existence of at least one nonzero eigenvector. One cannot rely on determinants to show existence of eigenvalues, but one can use a maximization argument analogous to the variational characterization of eigenvalues. 
+If the compactness assumption is removed, then it is not true that every self-adjoint operator has eigenvectors.
+
+Bounded self-adjoint operators[edit]
+See also: Eigenfunction and Self-adjoint operator § Spectral theorem
+Possible absence of eigenvectors[edit]
+The next generalization we consider is that of bounded self-adjoint operators on a Hilbert space. Such operators may have no eigenvalues: for instance let A be the operator of multiplication by t on L2([0,1])^2([0,1]), that is,[3]
+[Aφ](t)=tφ(t).[Aφ](t)=tφ(t).
+This operator does not have any eigenvectors in L2([0,1])^2([0,1]), though it does have eigenvectors in a larger space. Namely the distribution φ(t)=δ(t−t0)φ(t)=δ(t-t_0), where δδ is the Dirac delta function, is an eigenvector when construed in an appropriate sense. The Dirac delta function is however not a function in the classical sense and does not lie in the Hilbert space L2[0, 1] or any other Banach space. Thus, the delta-functions are "generalized eigenvectors" of A but not eigenvectors in the usual sense.
+
+Spectral subspaces and projection-valued measures[edit]
+In the absence of (true) eigenvectors, one can look for subspaces consisting of almost eigenvectors. In the above example, for example, where [Aφ](t)=tφ(t),[Aφ](t)=tφ(t),  we might consider the subspace of functions supported on a small interval [a,a+ε][a,a+ε] inside [0,1][0,1]. This space is invariant under A and for any φφ in this subspace, Aφφ is very close to aφφ. In this approach to the spectral theorem, if A is a bounded self-adjoint operator, then one looks for large families of such "spectral subspaces".[4] Each subspace, in turn, is encoded by the associated projection operator, and the collection of all the subspaces is then represented by a projection-valued measure. 
+One formulation of the spectral theorem expresses the operator A as an integral of the coordinate function over the operator's spectrum σ(A)σ(A) with respect to a projection-valued measure.[5]
+A=∫σ(A)λdEλ.=∫_σ(A)λ dE_λ.
+When the self-adjoint operator in question is compact, this version of the spectral theorem reduces to something similar to the finite-dimensional spectral theorem above, except that the operator is expressed as a finite or countably infinite linear combination of projections, that is, the measure consists only of atoms.
+
+Multiplication operator version[edit]
+An alternative formulation of the spectral theorem says that every bounded self-adjoint operator is unitarily equivalent to a multiplication operator. The significance of this result is that multiplication operators are in many ways easy to understand.
+
+
+Theorem.[6] — Let A  be a bounded self-adjoint operator on a Hilbert space H.  Then there is a measure space (X, Σ, μ) and a real-valued essentially bounded measurable function f on X and a unitary operator U:H → L2(X, μ) such that
+U∗TU=A,^*TU=A,
+where T is the multiplication operator:
+[Tφ](x)=f(x)φ(x),[Tφ](x)=f(x)φ(x),
+and ‖T‖=‖f‖∞T=f_∞.
+
+
+The spectral theorem is the beginning of the vast research area of functional analysis called operator theory; see also the spectral measure.
+There is also an analogous spectral theorem for bounded normal operators on Hilbert spaces.  The only difference in the conclusion is that now f may be complex-valued.
+
+Direct integrals[edit]
+There is also a formulation of the spectral theorem in terms of direct integrals. It is similar to the multiplication-operator formulation, but more canonical.
+Let A be a bounded self-adjoint operator and let σ(A)σ(A) be the spectrum of A. The direct-integral formulation of the spectral theorem associates two quantities to A. First, a measure μμ on σ(A)σ(A), and second, a family of Hilbert spaces Hλ,λ∈σ(A).{H_λ},  λ∈σ(A). We then form the direct integral Hilbert space
+∫R⊕Hλdμ(λ).∫_𝐑^⊕H_λ dμ(λ).
+The elements of this space are functions (or "sections") s(λ),λ∈σ(A),(λ),  λ∈σ(A), such that s(λ)∈Hλ(λ)_λ for all λλ. 
+The direct-integral version of the spectral theorem may be expressed as follows:[7]
+
+
+Theorem — If A is a bounded self-adjoint operator, then A is unitarily equivalent to the "multiplication by λλ" operator on ∫R⊕Hλdμ(λ)∫_𝐑^⊕H_λ dμ(λ)
+for some measure μμ and some family Hλ{H_λ} of Hilbert spaces. The measure μμ is uniquely determined by A up to measure-theoretic equivalence; that is, any two measure associated to the same A have the same sets of measure zero. The dimensions of the Hilbert spaces Hλ_λ are uniquely determined by A up to a set of μμ-measure zero.
+
+
+The spaces Hλ_λ can be thought of as something like "eigenspaces" for A. Note, however, that unless the one-element set λλ has positive measure, the space Hλ_λ is not actually a subspace of the direct integral. Thus, the Hλ_λ's should be thought of as "generalized eigenspace"—that is, the elements of Hλ_λ are "eigenvectors" that do not actually belong to the Hilbert space.
+Although both the multiplication-operator and direct integral formulations of the spectral theorem express a self-adjoint operator as unitarily equivalent to a multiplication operator, the direct integral approach is more canonical. First, the set over which the direct integral takes place (the spectrum of the operator) is canonical. Second, the function we are multiplying by is canonical in the direct-integral approach: Simply the function λ↦λλ↦λ.
+
+Cyclic vectors and simple spectrum[edit]
+A vector φφ is called a cyclic vector for A if the vectors φ,Aφ,A2φ,…φ,Aφ,A^2φ,… span a dense subspace of the Hilbert space. Suppose A is a bounded self-adjoint operator for which a cyclic vector exists. In that case, there is no distinction between the direct-integral and multiplication-operator formulations of the spectral theorem. Indeed, in that case, there is a measure μμ on the spectrum σ(A)σ(A) of A such that A is unitarily equivalent to the "multiplication by λλ" operator on L2(σ(A),μ)^2(σ(A),μ).[8] This result represents A simultaneously as a multiplication operator and as a direct integral, since L2(σ(A),μ)^2(σ(A),μ) is just a direct integral in which each Hilbert space Hλ_λ is just Cℂ.
+Not every bounded self-adjoint operator admits a cyclic vector; indeed, by the uniqueness in the direct integral decomposition, this can occur only when all the Hλ_λ's have dimension one. When this happens, we say that A has "simple spectrum" in the sense of spectral multiplicity theory. That is, a bounded self-adjoint operator that admits a cyclic vector should be thought of as the infinite-dimensional generalization of a self-adjoint matrix with distinct eigenvalues (i.e., each eigenvalue has multiplicity one).
+Although not every A admits a cyclic vector, it is easy to see that we can decompose the Hilbert space as a direct sum of invariant subspaces on which A has a cyclic vector. This observation is the key to the proofs of the multiplication-operator and direct-integral forms of the spectral theorem.
+
+Functional calculus[edit]
+One important application of the spectral theorem (in whatever form) is the idea of defining a functional calculus. That is, given a function f defined on the spectrum of A, we wish to define an operator f(A)(A). If f is simply a positive power, f(x)=xn(x)=x^n, then f(A)(A) is just the n-th power of A, An^n. The interesting cases are where f is a nonpolynomial function such as a square root or an exponential. Either of the versions of the spectral theorem provides such a functional calculus.[9] In the direct-integral version, for example, f(A)(A) acts as the "multiplication by f" operator in the direct integral:
+[f(A)s](λ)=f(λ)s(λ).[f(A)s](λ)=f(λ)s(λ).
+That is to say, each space Hλ_λ in the direct integral is a (generalized) eigenspace for f(A)(A) with eigenvalue f(λ)(λ).
+
+General self-adjoint operators[edit]
+Many important linear operators which occur in analysis, such as differential operators, are unbounded. There is also a spectral theorem for self-adjoint operators that applies in these cases.  To give an example, every constant-coefficient differential operator is unitarily equivalent to a multiplication operator. Indeed, the unitary operator that implements this equivalence is the Fourier transform; the multiplication operator is a type of Fourier multiplier.
+In general, spectral theorem for self-adjoint operators may take several equivalent forms.[10] Notably, all of the formulations given in the previous section for bounded self-adjoint operators—the projection-valued measure version, the multiplication-operator version, and the direct-integral version—continue to hold for unbounded self-adjoint operators, with small technical modifications to deal with domain issues.
+
+See also[edit]
+Hahn-Hellinger theorem – Linear operator equal to its own adjointPages displaying short descriptions of redirect targets
+Spectral theory of compact operators
+Spectral theory of normal C*-algebras
+Borel functional calculus
+Spectral theory
+Matrix decomposition
+Canonical form
+Jordan decomposition, of which the spectral decomposition is a special case.
+Singular value decomposition, a generalisation of spectral theorem to arbitrary matrices.
+Eigendecomposition of a matrix
+Wiener–Khinchin theorem
+Notes[edit]
+
+
+^ Hawkins, Thomas (1975). "Cauchy and the spectral theory of matrices". Historia Mathematica. 2: 1–29. doi:10.1016/0315-0860(75)90032-4.
+
+^ A Short History of Operator Theory by Evans M. Harrell II
+
+^ Hall 2013 Section 6.1
+
+^ Hall 2013 Theorem 7.2.1
+
+^ Hall 2013 Theorem 7.12
+
+^ Hall 2013 Theorem 7.20
+
+^ Hall 2013 Theorem 7.19
+
+^ Hall 2013 Lemma 8.11
+
+^ E.g., Hall 2013 Definition 7.13
+
+^ See Section 10.1 of Hall 2013
+
+
+References[edit]
+
+
+Sheldon Axler, Linear Algebra Done Right, Springer Verlag, 1997
+Hall, B.C. (2013), Quantum Theory for Mathematicians, Graduate Texts in Mathematics, vol. 267, Springer, ISBN 978-1461471158
+Paul Halmos, "What Does the Spectral Theorem Say?", American Mathematical Monthly, volume 70, number 3 (1963), pages 241–247 Other link
+M. Reed and B. Simon, Methods of Mathematical Physics, vols I–IV, Academic Press 1972.
+G. Teschl, Mathematical Methods in Quantum Mechanics with Applications to Schrödinger Operators, https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/, American Mathematical Society, 2009.
+Valter Moretti (2017). Spectral Theory and Quantum Mechanics; Mathematical Foundations of Quantum Theories, Symmetries and Introduction to the Algebraic Formulation 2nd Edition. Springer. ISBN 978-3-319-70705-1.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteSpectral theory and *-algebrasBasic concepts
+Involution/*-algebra
+Banach algebra
+B*-algebra
+C*-algebra
+Noncommutative topology
+Projection-valued measure
+Spectrum
+Spectrum of a C*-algebra
+Spectral radius
+Operator space
+Main results
+Gelfand–Mazur theorem
+Gelfand–Naimark theorem
+Gelfand representation
+Polar decomposition
+Singular value decomposition
+Spectral theorem
+Spectral theory of normal C*-algebras
+Special Elements/Operators
+Isospectral
+Normal operator
+Hermitian/Self-adjoint operator
+Unitary operator
+Unit
+Spectrum
+Krein–Rutman theorem
+Normal eigenvalue
+Spectrum of a C*-algebra
+Spectral radius
+Spectral asymmetry
+Spectral gap
+Decomposition
+Decomposition of a spectrum
+Continuous
+Point
+Residual
+Approximate point
+Compression
+Direct integral
+Discrete
+Spectral abscissa
+Spectral Theorem
+Borel functional calculus
+Min-max theorem
+Positive operator-valued measure
+Projection-valued measure
+Riesz projector
+Rigged Hilbert space
+Spectral theorem
+Spectral theory of compact operators
+Spectral theory of normal C*-algebras
+Special algebras
+Amenable Banach algebra
+With an Approximate identity
+Banach function algebra
+Disk algebra
+Nuclear C*-algebra
+Uniform algebra
+Von Neumann algebra
+Tomita–Takesaki theory
+Finite-Dimensional
+Alon–Boppana bound
+Bauer–Fike theorem
+Numerical range
+Schur–Horn theorem
+Generalizations
+Dirac spectrum
+Essential spectrum
+Pseudospectrum
+Structure space (Shilov boundary)
+Miscellaneous
+Abstract index group
+Banach algebra cohomology
+Cohen–Hewitt factorization theorem
+Extensions of symmetric operators
+Fredholm theory
+Limiting absorption principle
+Schröder–Bernstein theorems for operator algebras
+Sherman–Takeda theorem
+Unbounded operator
+Examples
+Wiener algebra
+Applications
+Almost Mathieu operator
+Corona theorem
+Hearing the shape of a drum (Dirichlet eigenvalue)
+Heat kernel
+Kuznetsov trace formula
+Lax pair
+Proto-value function
+Ramanujan graph
+Rayleigh–Faber–Krahn inequality
+Spectral geometry
+Spectral method
+Spectral theory of ordinary differential equations
+Sturm–Liouville theory
+Superstrong approximation
+Transfer operator
+Transform theory
+Weyl law
+Wiener–Khinchin theorem
+
+
+
+

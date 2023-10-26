@@ -1,0 +1,359 @@
+Existence and uniqueness of solutions to initial value problems
+Differential equations
+Scope
+Fields
+Natural sciencesEngineering
+Astronomy
+Physics
+Chemistry
+Biology
+Geology
+
+Applied mathematics
+Continuum mechanics
+Chaos theory
+Dynamical systems
+
+Social sciences
+Economics
+Population dynamics
+
+
+List of named differential equations
+
+Classification
+Types
+
+Ordinary
+Partial
+Differential-algebraic
+Integro-differential
+Fractional
+Linear
+Non-linear
+
+
+By variable type
+Dependent and independent variables
+
+Autonomous
+Coupled / Decoupled
+Exact
+Homogeneous / Nonhomogeneous
+
+
+Features
+
+Order
+Operator
+
+Notation
+
+
+Relation to processes
+Difference (discrete analogue)
+
+Stochastic
+Stochastic partial
+Delay
+
+
+Solution
+Existence and uniqueness
+Picard–Lindelöf theorem 
+Peano existence theorem
+Carathéodory's existence theorem
+Cauchy–Kowalevski theorem
+
+General topics
+Initial conditions
+Boundary values
+Dirichlet
+Neumann
+Robin
+Cauchy problem
+Wronskian
+Phase portrait
+Lyapunov / Asymptotic / Exponential stability
+Rate of convergence
+Series / Integral solutions
+Numerical integration
+Dirac delta function
+
+
+Solution methods
+Inspection
+Method of characteristics
+Euler
+Exponential response formula
+Finite difference (Crank–Nicolson)
+Finite element
+Infinite element
+Finite volume
+Galerkin
+Petrov–Galerkin
+Green's function
+Integrating factor
+Integral transforms
+Perturbation theory
+Runge–Kutta
+
+Separation of variables
+Undetermined coefficients
+Variation of parameters
+
+People
+List
+Isaac Newton
+Gottfried Leibniz
+Jacob Bernoulli
+Leonhard Euler
+Józef Maria Hoene-Wroński
+Joseph Fourier
+Augustin-Louis Cauchy
+George Green
+Carl David Tolmé Runge
+Martin Kutta
+Rudolf Lipschitz
+Ernst Lindelöf
+Émile Picard
+Phyllis Nicolson
+John Crank
+
+vte
+In mathematics, specifically the study of differential equations, the Picard–Lindelöf theorem gives a set of conditions under which an initial value problem has a unique solution. It is also known as Picard's existence theorem, the Cauchy–Lipschitz theorem, or the existence and uniqueness theorem.
+The theorem is named after Émile Picard, Ernst Lindelöf, Rudolf Lipschitz and Augustin-Louis Cauchy.
+
+
+Theorem[edit]
+Let  D⊆R×Rn⊆ℝ×ℝ^n be a closed rectangle with (t0,y0)∈int⁡D(t_0,y_0)∈intD, the interior of D. Let f:D→Rn:D→ℝ^n be a function that is continuous in t and Lipschitz continuous in y. Then, there exists some  ε > 0 such that the initial value problem
+y′(t)=f(t,y(t)),y(t0)=y0.'(t)=f(t,y(t)),(t_0)=y_0.
+has a unique solution y(t)(t) on the interval [t0−ε,t0+ε][t_0-ε,t_0+ε].[1][2]
+
+Proof sketch[edit]
+The proof relies on transforming the differential equation, and applying the Banach fixed-point theorem. By integrating both sides, any function satisfying the differential equation must also satisfy the integral equation
+
+y(t)−y(t0)=∫t0tf(s,y(s))ds.(t)-y(t_0)=∫_t_0^tf(s,y(s)) ds.
+A simple proof of existence of the solution is obtained by successive approximations. In this context, the method is known as Picard iteration.
+Set
+
+φ0(t)=y0φ_0(t)=y_0
+and
+
+φk+1(t)=y0+∫t0tf(s,φk(s))ds.φ_k+1(t)=y_0+∫_t_0^tf(s,φ_k(s)) ds.
+It can then be shown, by using the Banach fixed-point theorem, that the sequence of "Picard iterates" φk is convergent and that the limit is a solution to the problem. An application of Grönwall's lemma to |φ(t) − ψ(t)|, where φ and ψ are two solutions, shows that φ(t) = ψ(t), thus proving the global uniqueness (the local uniqueness is a consequence of the uniqueness of the Banach fixed point).
+See Newton's method of successive approximation for instruction.
+
+Example of Picard iteration[edit]
+Four Picard iteration steps and their limit
+Let y(t)=tan⁡(t),(t)=tan(t), the solution to the equation y′(t)=1+y(t)2'(t)=1+y(t)^2 with initial condition y(t0)=y0=0,t0=0.(t_0)=y_0=0,t_0=0. Starting with φ0(t)=0,φ_0(t)=0, we iterate 
+
+φk+1(t)=∫0t(1+(φk(s))2)dsφ_k+1(t)=∫_0^t(1+(φ_k(s))^2) ds
+so that φn(t)→y(t)φ_n(t)(t):
+
+φ1(t)=∫0t(1+02)ds=tφ_1(t)=∫_0^t(1+0^2) ds=t
+φ2(t)=∫0t(1+s2)ds=t+t33φ_2(t)=∫_0^t(1+s^2) ds=t+t^3/3
+φ3(t)=∫0t(1+(s+s33)2)ds=t+t33+2t515+t763φ_3(t)=∫_0^t(1+(s+s^3/3)^2) ds=t+t^3/3+2t^5/15+t^7/63
+and so on. Evidently, the functions are computing the Taylor series expansion of our known solution y=tan⁡(t).=tan(t). Since tantan has poles at ±π2,±π2, this converges toward a local solution only for |t|<π2,|t|<π2, not on all of Rℝ.
+
+Example of non-uniqueness[edit]
+To understand uniqueness of solutions, consider the following examples.[3] A differential equation can possess a stationary point. For example, for the equation dy/dt = ay (a<0<0), the stationary solution is y(t) = 0, which is obtained for the initial condition y(0) = 0. Beginning with another initial condition y(0) = y0 ≠ 0, the solution y(t) tends toward the stationary point, but reaches it only at the limit of infinite time, so the uniqueness of solutions (over all finite times) is guaranteed. 
+However, for an equation in which the stationary solution is reached after a finite time, the uniqueness fails. This happens for example for the equation dy/dt = ay 2/3, which has at least two solutions corresponding to the initial condition y(0) = 0 such as: y(t) = 0 or 
+
+y(t)=(at3)3t<00t≥0,(t)=(at3)^3   t<0
+
+
+0   t≥0,
+so the previous state of the system is not uniquely determined by its state after t = 0. The uniqueness theorem does not apply because the function  f (y) = y 2/3 has an infinite slope at y = 0 and therefore is not Lipschitz continuous, violating the hypothesis of the theorem.
+
+Detailed proof[edit]
+Let
+
+Ca,b=Ia(t0)¯×Bb(y0)¯_a,b=I_a(t_0)×B_b(y_0)
+where:
+
+Ia(t0)¯=[t0−a,t0+a]Bb(y0)¯=[y0−b,y0+b].I_a(t_0)   =[t_0-a,t_0+a]
+B_b(y_0)   =[y_0-b,y_0+b].
+This is the compact cylinder where  f  is defined. Let
+
+M=supCa,b‖f‖,=sup_C_a,bf,
+this is, the supremum of (the absolute values of) the slopes of the function. Finally, let L be the Lipschitz constant of  f  with respect to the second variable.
+We will proceed to apply the Banach fixed-point theorem using the metric on C(Ia(t0),Bb(y0))𝒞(I_a(t_0),B_b(y_0)) induced by the uniform norm
+
+‖φ‖∞=supt∈Ia|φ(t)|.φ_∞=sup_t_a|φ(t)|.
+We define an operator between two function spaces of continuous functions, Picard's operator, as follows:
+
+Γ:C(Ia(t0),Bb(y0))⟶C(Ia(t0),Bb(y0))Γ:𝒞(I_a(t_0),B_b(y_0))⟶𝒞(I_a(t_0),B_b(y_0))
+defined by:
+
+Γφ(t)=y0+∫t0tf(s,φ(s))ds.Γφ(t)=y_0+∫_t_0^tf(s,φ(s)) ds.
+We must show that this operator maps a complete non-empty metric space X into itself and also is a contraction mapping.
+We first show that, given certain restrictions on a, ΓΓ takes Bb(y0)¯B_b(y_0) into itself in the space of continuous functions with the uniform norm. Here, Bb(y0)¯B_b(y_0) is a closed ball in the space of continuous (and bounded) functions "centered" at the constant function y0_0. Hence we need to show that 
+
+‖φ−y0‖∞≤bφ-y_0_∞
+implies
+
+‖Γφ(t)−y0‖=‖∫t0tf(s,φ(s))ds‖≤∫t0t′‖f(s,φ(s))‖ds≤∫t0t′Mds=M|t′−t0|≤Ma≤bΓφ(t)-y_0=∫_t_0^tf(s,φ(s)) ds≤∫_t_0^t'f(s,φ(s))ds≤∫_t_0^t'M ds=M|t'-t_0|
+where t′' is some number in [t0−a,t0+a][t_0-a,t_0+a] where the maximum is achieved. The last inequality in the chain is true if we impose the requirement a<bM<b/M.
+Now let's prove that this operator is a contraction mapping.
+Given two functions φ1,φ2∈C(Ia(t0),Bb(y0))φ_1,φ_2∈𝒞(I_a(t_0),B_b(y_0)), in order to apply the Banach fixed-point theorem we require
+
+‖Γφ1−Γφ2‖∞≤q‖φ1−φ2‖∞,Γφ_1-Γφ_2_∞≦φ_1-φ_2_∞,
+for some 0≤q<10≦<1. So let t be such that
+
+‖Γφ1−Γφ2‖∞=‖(Γφ1−Γφ2)(t)‖.Γφ_1-Γφ_2_∞=(Γφ_1-Γφ_2)(t).
+Then using the definition of ΓΓ,
+
+‖(Γφ1−Γφ2)(t)‖=‖∫t0t(f(s,φ1(s))−f(s,φ2(s)))ds‖≤∫t0t‖f(s,φ1(s))−f(s,φ2(s))‖ds≤L∫t0t‖φ1(s)−φ2(s)‖dssincefisLipschitz-continuous≤L∫t0t‖φ1−φ2‖∞ds≤La‖φ1−φ2‖∞(Γφ_1-Γφ_2)(t)   =∫_t_0^t(f(s,φ_1(s))-f(s,φ_2(s)))ds
+   ≤∫_t_0^tf(s,φ_1(s))-f(s,φ_2(s))ds
+   ∫_t_0^tφ_1(s)-φ_2(s)ds      sincefisLipschitz-continuous
+   ∫_t_0^tφ_1-φ_2_∞ ds
+   φ_1-φ_2_∞
+This is a contraction if a<1L.<1L.
+We have established that the Picard's operator is a contraction on the Banach spaces with the metric induced by the uniform norm. This allows us to apply  the Banach fixed-point theorem to conclude that the operator has a unique fixed point. In particular, there is a unique function
+
+φ∈C(Ia(t0),Bb(y0))φ∈𝒞(I_a(t_0),B_b(y_0))
+such that Γφ = φ. This function is the unique solution of the initial value problem, valid on the interval Ia where a satisfies the condition 
+
+a<minbM,1L.<min{bM,1L}.
+Optimization of the solution's interval[edit]
+We wish to remove the dependence of the interval Ia on L. To this end, there is a corollary of the Banach fixed-point theorem: if an operator Tn is a contraction for some n in N, then T has a unique fixed point. Before applying this theorem to the Picard operator, recall the following:
+
+
+Lemma — ‖Γmφ1(t)−Γmφ2(t)‖≤Lm|t−t0|mm!‖φ1−φ2‖Γ^mφ_1(t)-Γ^mφ_2(t)≤L^m|t-t_0|^m/m!φ_1-φ_2 for all t∈[t0−α,t0+α]∈[t_0-α,t_0+α]
+
+
+Proof. Induction on m. For the base of the induction (m = 1) we have already seen this, so suppose the inequality holds for m − 1, then we have: 
+‖Γmφ1(t)−Γmφ2(t)‖=‖ΓΓm−1φ1(t)−ΓΓm−1φ2(t)‖≤|∫t0t‖f(s,Γm−1φ1(s))−f(s,Γm−1φ2(s))‖ds|≤L|∫t0t‖Γm−1φ1(s)−Γm−1φ2(s)‖ds|≤L|∫t0tLm−1|s−t0|m−1(m−1)!‖φ1−φ2‖ds|≤Lm|t−t0|mm!‖φ1−φ2‖.Γ^mφ_1(t)-Γ^mφ_2(t)   =ΓΓ^m-1φ_1(t)-ΓΓ^m-1φ_2(t)
+   ≤|∫_t_0^tf(s,Γ^m-1φ_1(s))-f(s,Γ^m-1φ_2(s))ds|
+   |∫_t_0^tΓ^m-1φ_1(s)-Γ^m-1φ_2(s)ds|
+   |∫_t_0^tL^m-1|s-t_0|^m-1/(m-1)!φ_1-φ_2ds|
+   ≤L^m|t-t_0|^m/m!φ_1-φ_2.
+By taking a supremum over t∈[t0−α,t0+α]∈[t_0-α,t_0+α] we see that ‖Γmφ1−Γmφ2‖≤Lmαmm!‖φ1−φ2‖Γ^mφ_1-Γ^mφ_2≤L^mα^m/m!φ_1-φ_2.
+This inequality assures that for some large m, 
+Lmαmm!<1,L^mα^m/m!<1,
+and hence Γm will be a contraction. So by the previous corollary Γ will have a unique fixed point. Finally, we have been able to optimize the interval of the solution by taking α = min{a, b/M}.
+In the end, this result shows the interval of definition of the solution does not depend on the Lipschitz constant of the field, but only on the interval of definition of the field and its maximum absolute value.
+
+Other existence theorems[edit]
+The Picard–Lindelöf theorem shows that the solution exists and that it is unique. The Peano existence theorem shows only existence, not uniqueness, but it assumes only that  f  is continuous in y, instead of Lipschitz continuous. For example, the right-hand side of the equation dy/dt = y 1/3 with initial condition y(0) = 0 is continuous but not Lipschitz continuous. Indeed, rather than being unique, this equation has three solutions:[4]
+
+y(t)=0,y(t)=±(23t)32(t)=0,(t)=±(23t)^3/2.
+Even more general is Carathéodory's existence theorem, which proves existence (in a more general sense) under weaker conditions on  f . Although these conditions are only sufficient, there also exist necessary and sufficient conditions for the solution of an initial value problem to be unique, such as Okamura's theorem.[5]
+
+See also[edit]
+
+Mathematics portal
+Frobenius theorem (differential topology)
+Integrability conditions for differential systems
+Newton's method
+Euler method
+Trapezoidal rule
+Notes[edit]
+
+
+^ Coddington & Levinson (1955), Theorem I.3.1
+
+^ Murray, Francis; Miller, Kenneth. Existence Theorems for Ordinary Differential Equations. p. 50.
+
+^ Arnold, V. I. (1978). Ordinary Differential Equations. The MIT Press. ISBN 0-262-51018-9.
+
+^ Coddington & Levinson (1955), p. 7
+
+^ Agarwal, Ravi P.; Lakshmikantham, V. (1993). Uniqueness and Nonuniqueness Criteria for Ordinary Differential Equations. World Scientific. p. 159. ISBN 981-02-1357-3.
+
+
+References[edit]
+
+Coddington, Earl A.; Levinson, Norman (1955). Theory of Ordinary Differential Equations. McGraw-Hill. ISBN 9780070992566.
+Lindelöf, E. (1894). "Sur l'application de la méthode des approximations successives aux équations différentielles ordinaires du premier ordre". Comptes rendus hebdomadaires des séances de l'Académie des sciences. 118: 454–7. (In that article Lindelöf discusses a generalization of an earlier approach by Picard.)
+Teschl, Gerald (2012). "2.2. The basic existence and uniqueness result" (PDF). Ordinary Differential Equations and Dynamical Systems. Graduate Studies in Mathematics. Providence, Rhode Island: American Mathematical Society. p. 38. eISSN 2376-9203. ISBN 978-0-8218-8328-0. ISSN 1065-7339. Zbl 1263.34002.
+
+External links[edit]
+
+"Cauchy-Lipschitz theorem". Encyclopedia of Mathematics.
+Fixed Points and the Picard Algorithm, recovered from http://www.krellinst.org/UCES/archive/classes/CNA/dir2.6/uces2.6.html.
+Grant, Christopher (1999). "Lecture 4: Picard-Lindelöf Theorem" (PDF). Math 634: Theory of Ordinary Differential Equations. Department of Mathematics, Brigham Young University.
+
+vteDifferential equationsClassificationOperations
+Differential operator
+Notation for differentiation
+Ordinary
+Partial
+Differential-algebraic
+Integro-differential
+Fractional
+Linear
+Non-linear
+Holonomic
+Attributes of variables
+Dependent and independent variables
+Homogeneous
+Nonhomogeneous
+Coupled
+Decoupled
+Order
+Degree
+Autonomous
+Exact differential equation
+On jet bundles
+Relation to processes
+Difference (discrete analogue)
+Stochastic
+Stochastic partial
+Delay
+SolutionsExistence/uniqueness
+Picard–Lindelöf theorem
+Peano existence theorem
+Carathéodory's existence theorem
+Cauchy–Kowalevski theorem
+Solution topics
+Wronskian
+Phase portrait
+Phase space
+Lyapunov stability
+Asymptotic stability
+Exponential stability
+Rate of convergence
+Series solutions
+Integral solutions
+Numerical integration
+Dirac delta function
+Solution methods
+Inspection
+Substitution
+Separation of variables
+Method of undetermined coefficients
+Variation of parameters
+Integrating factor
+Integral transforms
+Euler method
+Finite difference method
+Crank–Nicolson method
+Runge–Kutta methods
+Finite element method
+Finite volume method
+Galerkin method
+Perturbation theory
+Applications
+List of named differential equations
+Mathematicians
+Isaac Newton
+Gottfried Wilhelm Leibniz
+Leonhard Euler
+Jacob Bernoulli
+Émile Picard
+Józef Maria Hoene-Wroński
+Ernst Lindelöf
+Rudolf Lipschitz
+Joseph-Louis Lagrange
+Augustin-Louis Cauchy
+John Crank
+Phyllis Nicolson
+Carl David Tolmé Runge
+Martin Kutta
+Sofya Kovalevskaya
+
+
+
+

@@ -1,0 +1,62 @@
+An undirected graph is perfect if and only if its complement graph is also perfect
+Two complementary perfect graphs
+In graph theory, the perfect graph theorem of László Lovász (1972a, 1972b) states that an undirected graph is perfect if and only if its complement graph is also perfect. This result had been conjectured by Berge (1961, 1963), and it is sometimes called the weak perfect graph theorem to distinguish it from the strong perfect graph theorem[1] characterizing perfect graphs by their forbidden induced subgraphs.
+
+
+Statement[edit]
+A perfect graph is an undirected graph with the property that, in every one of its induced subgraphs, the size of the largest clique equals the minimum number of colors in a coloring of the subgraph. Perfect graphs include many important graphs classes including bipartite graphs, chordal graphs, and comparability graphs.
+The complement of a graph has an edge between two vertices if and only if the original graph does not have an edge between the same two vertices. Thus, a clique in the original graph becomes an independent set in the complement and a coloring of the original graph becomes a clique cover of the complement.
+The perfect graph theorem states:
+
+The complement of a perfect graph is perfect.
+Equivalently, in a perfect graph, the size of the maximum independent set equals the minimum number of cliques in a clique cover.
+
+Example[edit]
+A seven-vertex cycle and its complement, the seven-vertex antihole, showing in each case an optimal coloring and a maximum clique (shown with heavy edges). Since neither graph uses a number of colors equal to its clique size, neither is perfect.
+Let G be a cycle graph of odd length greater than three (a so-called "odd hole"). Then G requires at least three colors in any coloring, but has no triangle, so it is not perfect. By the perfect graph theorem, the complement of G (an "odd antihole") must therefore also not be perfect. If G is a cycle of five vertices, it is isomorphic to its complement, but this property is not true for longer odd cycles, and it is not as trivial to compute the clique number and chromatic number in an odd antihole as it is in an odd hole. As the strong perfect graph theorem states, the odd holes and odd antiholes turn out to be the minimal forbidden induced subgraphs for the perfect graphs.
+
+Applications[edit]
+In a nontrivial bipartite graph, the optimal number of colors is (by definition) two, and (since bipartite graphs are triangle-free) the maximum clique size is also two. Also, any induced subgraph of a bipartite graph remains bipartite. Therefore, bipartite graphs are perfect. In n-vertex bipartite graphs, a minimum clique cover takes the form of a maximum matching together with an additional clique for every unmatched vertex, with size n − M, where M is the cardinality of the matching. Thus, in this case, the perfect graph theorem implies Kőnig's theorem that the size of a maximum independent set in a bipartite graph is also n − M,[2] a result that was a major inspiration for Berge's formulation of the theory of perfect graphs.
+Mirsky's theorem characterizing the height of a partially ordered set in terms of partitions into antichains can be formulated as the perfection of the comparability graph of the partially ordered set, and Dilworth's theorem characterizing the width of a partially ordered set in terms of partitions into chains can be formulated as the perfection of the complements of these graphs. Thus, the perfect graph theorem can be used to prove Dilworth's theorem from the (much easier) proof of Mirsky's theorem, or vice versa.[3]
+
+Lovász's proof[edit]
+To prove the perfect graph theorem, Lovász used an operation of replacing vertices in a graph by cliques; it was already known to Berge that, if a graph is perfect, the graph formed by this replacement process is also perfect.[4] Any such replacement process may be broken down into repeated steps of doubling a vertex. If the doubled vertex belongs to a maximum clique of the graph, it increases both the clique number and the chromatic number by one. If, on the other hand, the doubled vertex does not belong to a maximum clique, form a graph H by removing the vertices with the same color as the doubled vertex (but not the doubled vertex itself) from an optimal coloring of the given graph. The removed vertices meet every maximum clique, so H has clique number and chromatic number one less than that of the given graph. The removed vertices and the new copy of the doubled vertex can then be added back as a single color class, showing that in this case the doubling step leaves the chromatic number unchanged. The same argument shows that doubling preserves the equality of the clique number and the chromatic number in every induced subgraph of the given graph, so each doubling step preserves the perfection of the graph.[5]
+Given a perfect graph G, Lovász forms a graph G* by replacing each vertex v by a clique of tv vertices, where tv is the number of distinct maximum independent sets in G that contain v. It is possible to correspond each of the distinct maximum independent sets in G with one of the maximum independent sets in G*, in such a way that the chosen maximum independent sets in G* are all disjoint and each vertex of G* appears in a single chosen set; that is, G* has a coloring in which each color class is a maximum independent set. Necessarily, this coloring is an optimal coloring of G*. Because G is perfect, so is G*, and therefore it has a maximum clique K* whose size equals the number of colors in this coloring, which is the number of distinct maximum independent sets in G; necessarily, K* contains a distinct representative for each of these maximum independent sets. The corresponding set K of vertices in G (the vertices whose expanded cliques in G* intersect K*) is a clique in G with the property that it intersects every maximum independent set in G. Therefore, the graph formed from G by removing K has clique cover number at most one less than the clique number of G, and independence number at least one less than the independence number of G, and the result follows by induction on this number.[6]
+
+Relation to the strong perfect graph theorem[edit]
+The strong perfect graph theorem of Chudnovsky et al. (2006) states that a graph is perfect if and only if none of its induced subgraphs are cycles of odd length greater than or equal to five, or their complements. Because this characterization is unaffected by graph complementation, it immediately implies the weak perfect graph theorem.
+
+Generalizations[edit]
+Cameron, Edmonds & Lovász (1986) proved that, if the edges of a complete graph are partitioned into three subgraphs in such a way that every three vertices induce a connected graph in one of the three subgraphs, and if two of the subgraphs are perfect, then the third subgraph is also perfect. The perfect graph theorem is the special case of this result when one of the three subgraphs is the empty graph.
+
+Notes[edit]
+
+
+^ This was also conjectured by Berge but only proven much later by Chudnovsky et al. (2006).
+
+^ Kőnig (1931), later rediscovered by Gallai (1958).
+
+^ Golumbic (1980), Section 5.7, "Coloring and other problems on comparability graphs", pp. 132–135.
+
+^ See Golumbic (1980), Lemma 3.1(i), and Reed (2001), Corollary 2.21.
+
+^ Reed (2001), Lemma 2.20.
+
+^ We follow here the exposition of the proof by Reed (2001). Golumbic (1980) notes that much of this line of reasoning was quickly reconstructed by D. R. Fulkerson after hearing of Lovász's result but not seeing his proof.
+
+
+References[edit]
+Berge, Claude (1961), "Färbung von Graphen, deren sämtliche beziehungsweise deren ungerade Kreise starr sind", Wissenschaftliche Zeitschrift der Martin-Luther-Universität Halle-Wittenberg, Mathematisch-naturwissenschaftliche Reihe (in German), 10: 114.
+Berge, Claude (1963), "Perfect graphs", Six Papers on Graph Theory, Calcutta: Indian Statistical Institute, pp. 1–21.
+Cameron, K.; Edmonds, J.; Lovász, L. (1986), "A note on perfect graphs", Periodica Mathematica Hungarica, 17 (3): 173–175, doi:10.1007/BF01848646, MR 0859346, S2CID 121018903.
+Chudnovsky, Maria; Robertson, Neil; Seymour, Paul; Thomas, Robin (2006), "The strong perfect graph theorem", Annals of Mathematics, 164 (1): 51–229, arXiv:math/0212070, doi:10.4007/annals.2006.164.51, MR 2233847, S2CID 119151552.
+Chudnovsky, Maria; Robertson, Neil; Seymour, Paul; Thomas, Robin (2003), "Progress on perfect graphs" (PDF), Mathematical Programming, Series B., 97 (1–2): 405–422, doi:10.1007/s10107-003-0449-8, MR 2004404.
+Gallai, Tibor (1958), "Maximum-minimum Sätze über Graphen", Acta Mathematica Academiae Scientiarum Hungaricae (in German), 9 (3–4): 395–434, doi:10.1007/BF02020271, MR 0124238
+Golumbic, Martin Charles (1980), "3.2. The perfect graph theorem", Algorithmic Graph Theory and Perfect Graphs, New York: Academic Press, pp. 53–58, ISBN 0-12-289260-7, MR 0562306.
+Kőnig, Dénes (1931), "Gráfok és mátrixok", Matematikai és Fizikai Lapok (in Hungarian), 38: 116–119
+Lovász, László (1972a), "Normal hypergraphs and the perfect graph conjecture", Discrete Mathematics, 2 (3): 253–267, doi:10.1016/0012-365X(72)90006-4.
+Lovász, László (1972b), "A characterization of perfect graphs", Journal of Combinatorial Theory, Series B, 13 (2): 95–98, doi:10.1016/0095-8956(72)90045-7.
+Reed, Bruce A. (2001), "From conjecture to theorem", in Ramírez Alfonsín, Jorge L.; Reed, Bruce A. (eds.), Perfect Graphs, Wiley-Interscience Series on Discrete Mathematics and Optimization, Chichester: Wiley, pp. 13–24, MR 1861356.
+
+
+

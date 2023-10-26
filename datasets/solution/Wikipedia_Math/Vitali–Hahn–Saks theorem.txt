@@ -1,0 +1,195 @@
+In mathematics, the Vitali–Hahn–Saks theorem, introduced by  Vitali (1907), Hahn (1922), and Saks (1933), proves that under some conditions a sequence of measures converging point-wise does so uniformly and the limit is also a measure.
+
+
+Statement of the theorem[edit]
+If (S,B,m)(S,ℬ,m) is a measure space with m(S)<∞,(S)<∞, and a sequence λnλ_n of complex measures. Assuming that each λnλ_n is absolutely continuous with respect to m,, and that a for all B∈B∈ℬ the finite limits exist limn→∞λn(B)=λ(B).lim_n→∞λ_n(B)=λ(B). Then the absolute continuity of the λnλ_n with respect to m is uniform in n,, that is, limBm(B)=0lim_Bm(B)=0 implies that limBλn(B)=0lim_Bλ_n(B)=0 uniformly in n.. Also λλ is countably additive on B.ℬ.
+
+Preliminaries[edit]
+Given a measure space (S,B,m),(S,ℬ,m), a distance can be constructed on B0,ℬ_0, the set of measurable sets B∈B∈ℬ with m(B)<∞.(B)<∞. This is done by defining 
+
+d(B1,B2)=m(B1ΔB2),(B_1,B_2)=m(B_1_2), where B1ΔB2=(B1∖B2)∪(B2∖B1)_1_2=(B_1_2)∪(B_2_1) is the symmetric difference of the sets B1,B2∈B0._1,B_2∈ℬ_0.
+This gives rise to a metric space B0 ℬ̃_̃0̃ by identifying two sets B1,B2∈B0_1,B_2∈ℬ_0 when m(B1ΔB2)=0.(B_1_2)=0. Thus a point B¯∈B0 B∈ℬ̃_̃0̃ with representative B∈B0∈ℬ_0 is the set of all B1∈B0_1∈ℬ_0 such that m(BΔB1)=0.(B_1)=0.
+Proposition: B0 ℬ̃_̃0̃ with the metric defined above is a complete metric space.
+Proof: Let 
+χB(x)=1,x∈B0,x∉Bχ_B(x)=1,   x
+0,   x
+Then
+d(B1,B2)=∫S|χB1(s)−χB2(x)|dm(B_1,B_2)=∫_S|χ_B_1(s)-χ_B_2(x)|dm
+This means that the metric space B0 ℬ̃_̃0̃ can be identified with a subset of the Banach space L1(S,B,m)^1(S,ℬ,m).
+Let Bn∈B0_n∈ℬ_0, with
+limn,k→∞d(Bn,Bk)=limn,k→∞∫S|χBn(x)−χBk(x)|dm=0lim_n,k→∞d(B_n,B_k)=lim_n,k→∞∫_S|χ_B_n(x)-χ_B_k(x)|dm=0
+Then we can choose a sub-sequence χBn′χ_B_n' such that limn′→∞χBn′(x)=χ(x)lim_n'→∞χ_B_n'(x)=χ(x) exists almost everywhere and limn′→∞∫S|χ(x)−χBn′(x)|dm=0lim_n'→∞∫_S|χ(x)-χ_B_n'(x)|dm=0. It follows that χ=χB∞χ=χ_B_∞ for some B∞∈B0_∞∈ℬ_0 (furthermore χ(x)=1χ(x)=1 if and only if χBn′(x)=1χ_B_n'(x)=1 for n′' large enough, then we have that B∞=liminfn′→∞Bn′=⋃n′=1∞(⋂m=n′∞Bm)_∞=lim inf_n'→∞B_n'=⋃_n'=1^∞(⋂_m=n'^∞B_m) the limit inferior of the sequence) and hence limn→∞d(B∞,Bn)=0.lim_n→∞d(B_∞,B_n)=0. Therefore, B0 ℬ̃_̃0̃ is complete.
+
+Proof of Vitali-Hahn-Saks theorem[edit]
+Each λnλ_n defines a function λ¯n(B¯)λ_n(B) on B ℬ̃ by taking λ¯n(B¯)=λn(B)λ_n(B)=λ_n(B). This function is well defined, this is it is independent on the representative B of the class B¯B due to the absolute continuity of λnλ_n with respect to m. Moreover λ¯nλ_n is continuous. 
+For every ϵ>0ϵ>0 the set
+Fk,ϵ=B¯∈B :supn≥1|λ¯k(B¯)−λ¯k+n(B¯)|≤ϵ_k,ϵ={B∈ℬ̃:
+sup_n≥1|λ_k(B)-λ_k+n(B)|≤ϵ}
+is closed in B ℬ̃, and by the hypothesis limn→∞λn(B)=λ(B)lim_n→∞λ_n(B)=λ(B) we have that 
+B =⋃k=1∞Fk,ϵℬ̃=⋃_k=1^∞F_k,ϵ
+By Baire category theorem at least one Fk0,ϵ_k_0,ϵ must contain a non-empty open set of B ℬ̃. This means that there is B0¯∈B B_0∈ℬ̃ and a δ>0δ>0 such that 
+d(B,B0)<δ(B,B_0)<δ implies supn≥1|λ¯k0(B¯)−λ¯k0+n(B¯)|≤ϵsup_n≥1|λ_k_0(B)-λ_k_0+n(B)|≤ϵ
+On the other hand, any B∈B∈ℬ with m(B)≤δ(B)≤δ can be represented as B=B1∖B2=B_1_2 with d(B1,B0)≤δ(B_1,B_0)≤δ and d(B2,B0)≤δ(B_2,B_0)≤δ. This can be done, for example by taking B1=B∪B0_1=B_0 and B2=B0∖(B∩B0)_2=B_0∖(B_0). Thus, if m(B)≤δ(B)≤δ and k≥k0_0 then
+|λk(B)|≤|λk0(B)|+|λk0(B)−λk(B)|≤|λk0(B)|+|λk0(B1)−λk(B1)|+|λk0(B2)−λk(B2)|≤|λk0(B)|+2ϵ|λ_k(B)|   ≤|λ_k_0(B)|+|λ_k_0(B)-λ_k(B)|
+   ≤|λ_k_0(B)|+|λ_k_0(B_1)-λ_k(B_1)|+|λ_k_0(B_2)-λ_k(B_2)|
+   ≤|λ_k_0(B)|+2ϵ
+Therefore, by the absolute continuity of λk0λ_k_0 with respect to m, and since ϵϵ is arbitrary, we get that m(B)→0(B)→0 implies λn(B)→0λ_n(B)→0 uniformly in n.. In particular, m(B)→0(B)→0 implies λ(B)→0.λ(B)→0.
+By the additivity of the limit it follows that λλ is finitely-additive. Then, since limm(B)→0λ(B)=0lim_m(B)→0λ(B)=0 it follows that λλ is actually countably additive.
+
+References[edit]
+
+
+Hahn, H. (1922), "Über Folgen linearer Operationen", Monatsh. Math. (in German), 32: 3–88, doi:10.1007/bf01696876
+Saks, Stanislaw (1933), "Addition to the Note on Some Functionals", Transactions of the American Mathematical Society, 35 (4): 965–970, doi:10.2307/1989603, JSTOR 1989603
+Vitali, G. (1907), "Sull' integrazione per serie", Rendiconti del Circolo Matematico di Palermo (in Italian), 23: 137–155, doi:10.1007/BF03013514
+Yosida, K. (1971), Functional Analysis, Springer, pp. 70–71, ISBN 0-387-05506-1
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

@@ -1,0 +1,365 @@
+This article is about the mathematical concept. For the sociology term, see group action (sociology).
+Transformations induced by a mathematical group
+Algebraic structure → Group theoryGroup theory
+Basic notions
+Subgroup
+Normal subgroup
+Quotient group
+(Semi-)direct product
+
+Group homomorphisms
+kernel
+image
+direct sum
+wreath product
+simple
+finite
+infinite
+continuous
+multiplicative
+additive
+cyclic
+abelian
+dihedral
+nilpotent
+solvable
+action
+
+Glossary of group theory
+List of group theory topics
+
+
+Finite groups
+Cyclic group Zn
+Symmetric group Sn
+Alternating group An
+Dihedral group Dn
+Quaternion group Q
+
+Cauchy's theorem
+Lagrange's theorem
+Sylow theorems
+Hall's theorem
+p-group
+Elementary abelian group
+Frobenius group
+Schur multiplier
+
+Classification of finite simple groups
+cyclic
+alternating
+Lie type
+sporadic
+
+
+Discrete groupsLattices
+Integers (Zℤ)
+Free group
+Modular groups PSL(2, Zℤ)SL(2, Zℤ)
+Arithmetic group
+Lattice
+Hyperbolic group
+
+Topological and Lie groups
+Solenoid
+Circle
+General linear GL(n)
+Special linear SL(n)
+Orthogonal O(n)
+Euclidean E(n)
+Special orthogonal SO(n)
+Unitary U(n)
+Special unitary SU(n)
+Symplectic Sp(n)
+G2
+F4
+E6
+E7
+E8
+Lorentz
+Poincaré
+Conformal
+Diffeomorphism
+Loop
+Infinite dimensional Lie group O(∞)SU(∞)Sp(∞)
+
+Algebraic groups
+Linear algebraic group
+Reductive group
+Abelian variety
+Elliptic curve
+vte
+The cyclic group C3 consisting of the  rotations by 0°, 120° and 240° acts on the set of the three vertices.
+In mathematics, a group action on a space is a group homomorphism of a given group into the group of transformations of the space. Similarly, a group action on a mathematical structure is a group homomorphism of a group into the automorphism group of the structure. It is said that the group acts on the space or structure. If a group acts on a structure, it will usually also act on objects built from that structure. For example, the group of Euclidean isometries acts on Euclidean space and also on the figures drawn in it. For example, it acts on the set of all triangles. Similarly, the group of symmetries of a polyhedron acts on the vertices, the edges, and the faces of the polyhedron.
+A group action on a vector space is called a representation of the group. In the case of a finite-dimensional vector space, it allows one to identify many groups with subgroups of GL(n, K), the group of the invertible matrices of dimension n over a field K.
+The symmetric group Sn acts on any set with n elements by permuting the elements of the set. Although the group of all permutations of a set depends formally on the set, the concept of group action allows one to consider a single group for studying the permutations of all sets with the same cardinality.
+
+
+Definition[edit]
+Left group action[edit]
+If G is a group with identity element e, and X is a set, then a (left) group action α of G on X is a function
+
+α:G×X→X,α,
+that satisfies the following two axioms:[1]
+
+
+
+Identity:
+
+α(e,x)=xα(e,x)=x
+
+
+Compatibility:
+
+α(g,α(h,x))=α(gh,x)α(g,α(h,x))=α(gh,x)
+
+(with α(g, x) often shortened to gx or g ⋅ x when the action being considered is clear from context):
+
+
+
+Identity:
+
+e⋅x=x=x
+
+
+Compatibility:
+
+g⋅(h⋅x)=(gh)⋅x·(h)=(gh)
+
+for all g and h in G and all x in X.
+The group G is said to act on X (from the left). A set X together with an action of G is called a (left) G-set.
+From these two axioms, it follows that for any fixed g in G, the function from X to itself which maps x to g ⋅ x is a bijection, with inverse bijection the corresponding map for g−1. Therefore, one may equivalently define a group action of G on X as a group homomorphism from G into the symmetric group Sym(X) of all bijections from X to itself.[2]
+
+Right group action[edit]
+Likewise, a right group action of G on X is a function
+
+α:X×G→X,α,
+that satisfies the analogous axioms:[3]
+
+
+
+Identity:
+
+α(x,e)=xα(x,e)=x
+
+
+Compatibility:
+
+α(α(x,g),h)=α(x,gh)α(α(x,g),h)=α(x,gh)
+
+(with α(x, g) often shortened to xg or x ⋅ g when the action being considered is clear from context)
+
+
+
+Identity:
+
+x⋅e=x=x
+
+
+Compatibility:
+
+(x⋅g)⋅h=x⋅(gh)(x)=x·(gh)
+
+for all g and h in G and all x in X.
+The difference between left and right actions is in the order in which a product gh acts on x. For a left action, h acts first, followed by g second.  For a right action, g acts first, followed by h second. Because of the formula (gh)−1 = h−1g−1, a left action can be constructed from a right action by composing with the inverse operation of the group. Also, a right action of a group G on X can be considered as a left action of its opposite group Gop on X.
+Thus, for establishing general properties of group actions, it suffices to consider only left actions. However, there are cases where this is not possible. For example, the multiplication of a group  induces both a left action and a right action on the group itself—multiplication on the left and on the right, respectively.
+
+Notable properties of actions[edit]
+Let G be a group acting on a set X. The action is called faithful or effective if g⋅x=x=x for all x∈X implies that g=eG=e_G. Equivalently, the morphism from G to the group of bijections of X corresponding to the action is injective.
+The action is called free (or semiregular or fixed-point free) if the statement that g⋅x=x=x for some x∈X already implies that g=eG=e_G. In other words, no non-trivial element of G fixes a point of X. This is a much stronger property than faithfulness.
+For example, the action of any group on itself by left multiplication is free. This observation implies Cayley's theorem that any group can be embedded in a symmetric group (which is infinite when the group is). A finite group may act faithfully on a set of size much smaller than its cardinality (however such an action cannot be free). For instance the abelian 2-group (Z/2Z)n(ℤ/2ℤ)^n (of cardinality 2n2^n) acts faithfully on a set of size 2n2n. This is not always the case, for example the cyclic group Z/2nZℤ/2^nℤ cannot act faithfully on a set of size less than 2n2^n.
+In general the smallest set on which a faithful action can be defined can vary greatly for groups of the same size. For example, three groups of size 120 are the symmetric group S5_5, the icosahedral group A5×Z/2Z_5×ℤ/2ℤ and the cyclic group Z/120Zℤ/120ℤ. The smallest sets on which faithful actions can be defined for these groups are of size 5, 7, and 16 respectively.
+
+Transitivity properties[edit]
+The action of G on X is called transitive if for any two points x,y∈X,y there exists a g∈G so that g⋅x=y=y. 
+The action is simply transitive (or sharply transitive, or regular) if it is both transitive and free. This means that  given x,y∈X,y the element g in the definition of transitivity is unique. If X is acted upon simply transitively by a group G then it is called a principal homogeneous space for G or a G-torsor. 
+For an integer n≥1≥1, the action is n-transitive if X has at least n elements, and for any pair of n-tuples (x1,…,xn),(y1,…,yn)∈Xn(x_1,…,x_n),(y_1,…,y_n)^n with pairwise distinct entries (that is xi≠xj_i≠x_j, yi≠yj_i≠y_j when i≠j≠j) there exists a g∈G such that g⋅xi=yi_i=y_i for i=1,…,n=1,…,n. In other words the action on the subset of Xn^n of tuples without repeated entries is transitive. For n=2,3=2,3 this is often called double, respectively triple, transitivity. The class of 2-transitive groups (that is, subgroups of a finite symmetric group whose action is 2-transitive) and more generally multiply transitive groups is well-studied in finite group theory.
+An action is sharply n-transitive when the action on tuples without repeated entries in Xn^n is sharply transitive. 
+
+Examples[edit]
+The action of the symmetric group of X is transitive, in fact n-transitive for any n up to the cardinality of X. If X has cardinality n,, the action of the alternating group is (n−2)(n-2)-transitive but not (n−1)(n-1)-transitive. 
+The action of the general linear group of a vector space V on the set V∖0∖{0} of non-zero vectors is transitive, but not 2-transitive (similarly for the action of the special linear group if the dimension of v is at least 2). The action of the orthogonal group of a Euclidean space is not transitive on nonzero vectors but it is on the unit sphere.
+
+Primitive actions[edit]
+Main article: primitive permutation group
+The action of G on X is called primitive if there is no partition of X preserved by all elements of G apart from the trivial partitions (the partition in a single piece and its dual, the partition into  singletons). 
+
+Topological properties[edit]
+Assume that X is a topological space and the action of G is by homeomorphisms. 
+The action is wandering if every x∈X has a  neighbourhood U such that there are only finitely many g∈G with g⋅U∩U≠∅≠∅.[4]
+More generally, a point x∈X is called a point of discontinuity for the action of G if there is an open subset U∋x such that there are only finitely many g∈G with g⋅U∩U≠∅≠∅. The domain of discontinuity of the action is the set of all points of discontinuity. Equivalently it is the largest G-stable open subset Ω⊂XΩ such that the action of G on ΩΩ is wandering.[5] In a dynamical context this is also called wandering set. 
+The action is properly discontinuous if for every compact subset K⊂X there are finitely many g∈G such that g⋅K∩K≠∅≠∅. This is strictly stronger than wandering; for instance the action of Zℤ on R2∖(0,0)ℝ^2∖{(0,0)} given by n⋅(x,y)=(2nx,2−ny)·(x,y)=(2^nx,2^-ny) is wandering and free but not properly discontinuous.[6]
+The action by deck transformations of the fundamental group of a locally simply connected space on an covering space is wandering and free. Such actions can be characterized by the following property: every x∈X has a neighbourhood U such that g⋅U∩U=∅=∅ for every g∈G∖eG∖{e_G}.[7] Actions with this property are sometimes called freely discontinuous, and the largest subset on which the action is freely discontinuous is then called the free regular set.[8]
+An action of a group G on a locally compact space X is called cocompact if there exists a compact subset A⊂X such that X=G⋅A=G. For a properly discontinuous action, cocompactness is equivalent to compactness of the quotient space G∖X.
+
+Actions of topological groups[edit]
+Main article: Continuous group action
+Now assume G is a topological group and X a topological space on which it acts by homeomorphisms. The action is said to be continuous if the map G×X→X is continuous for the product topology.
+The action is said to be proper if the map G×X→X×X defined by (g,x)↦(x,g⋅x)(g,x)↦(x,g) is proper.[9] This means that given compact sets K,K′,K' the set of g∈G such that g⋅K∩K′≠∅'≠∅ is compact. In particular, this is equivalent to proper discontinuity when G is a discrete group. 
+It is said to be locally free if there exists a neighbourhood U of eG_G such that g⋅x≠x≠x for all x∈X and g∈U∖eG∖{e_G}. 
+The action is said to be strongly continuous if the orbital map g↦g⋅x is continuous for every x∈X. Contrary to what the name suggests, this is a weaker property than continuity of the action.[citation needed]
+If G is a Lie group and X a differentiable manifold, then the subspace of smooth points for the action is the set of points x∈X such that the map g↦g⋅x is smooth. There is a well-developed theory of Lie group actions, i.e. action which are smooth on the whole space.
+
+Linear actions[edit]
+Main article: Group representation
+If g acts by linear transformations on a module over a commutative ring, the action is said to be  irreducible if there are no proper nonzero g-invariant submodules. It is said to be  semisimple if it decomposes as a direct sum of irreducible actions.
+
+ Orbits and stabilizers[edit]
+In the compound of five tetrahedra, the symmetry group is the (rotational) icosahedral group I of order 60, while the stabilizer of a single chosen tetrahedron is the (rotational) tetrahedral group T of order 12, and the orbit space I/T (of order 60/12 = 5) is naturally identified with the 5 tetrahedra – the coset gT corresponds to the tetrahedron to which g sends the chosen tetrahedron.
+Consider a group G acting on a set X. The orbit of an element x in X is the set of elements in X to which x can be moved by the elements of G. The orbit of x is denoted by G⋅x:
+G⋅x=g⋅x:g∈G.={g:g}.
+The defining properties of a group guarantee that the set of orbits of (points x in) X under the action of G form a partition of X. The associated equivalence relation is defined by saying x∼y if and only if there exists a g in G with g⋅x=y.=y. The orbits are then the equivalence classes under this relation; two elements x and y are equivalent if and only if their orbits are the same, that is, G⋅x=G⋅y.=G.
+The group action is transitive if and only if it has exactly one orbit, that is, if there exists x in X with G⋅x=X.=X. This is the case if and only if G⋅x=X=X for all x in X (given that X is non-empty).
+The set of all orbits of X under the action of G is written as X/G/G (or, less frequently, as G∖X), and is called the quotient of the action. In geometric situations it may be called the orbit space, while in algebraic situations it may be called the space of coinvariants, and written XG,_G, by contrast with the invariants (fixed points), denoted XG^G: the coinvariants are a quotient while the invariants are a subset. The coinvariant terminology and notation are used particularly in group cohomology and group homology, which use the same superscript/subscript convention.
+
+Invariant subsets[edit]
+If Y is a subset of X, then G⋅Y denotes the set g⋅y:g∈Gandy∈Y.{g:gandy}. The subset Y is said to be invariant under G if G⋅Y=Y=Y (which is equivalent to G⋅Y⊆Y). In that case, G also operates on Y by  restricting the action to Y. The subset Y is called fixed under G if g⋅y=y=y for all g in G and all y in Y. Every subset that is fixed under G is also invariant under G, but not conversely.
+Every orbit is an invariant subset of X on which G acts transitively. Conversely, any invariant subset of X is a union of orbits. The action of G on X is transitive if and only if all elements are equivalent, meaning that there is only one orbit.
+A G-invariant element of X is x∈X such that g⋅x=x=x for all g∈G.. The set of all such x is denoted XG^G and called the G-invariants of X. When X is a G-module, XG is the zeroth cohomology group of G with coefficients in X, and the higher cohomology groups are the derived functors of the functor of G-invariants.
+
+Fixed points and stabilizer subgroups[edit]
+Given g in G and x in X with g⋅x=x,=x, it is said that "x is a fixed point of g" or that "g fixes x". For every x in X, the stabilizer subgroup of G with respect to x (also called the isotropy group or little group[10]) is the set of all elements in G that fix x:
+Gx=g∈G:g⋅x=x._x={g:g=x}.
+This is a subgroup of G, though typically not a normal one. The action of G on X is free if and only if all stabilizers are trivial. The kernel N of the homomorphism with the symmetric group, G→Sym⁡(X),→Sym(X), is given by the intersection of the stabilizers Gx for all x in X. If N is trivial, the action is said to be faithful (or effective).
+Let x and y be two elements in X, and let g be a group element such that y=g⋅x.=g. Then the two stabilizer groups Gx_x and Gy_y are related by Gy=gGxg−1._y=gG_xg^-1. Proof: by definition, h∈Gy_y if and only if h⋅(g⋅x)=g⋅x.·(g)=g. Applying g−1^-1 to both sides of this equality yields (g−1hg)⋅x=x;(g^-1hg)=x; that is, g−1hg∈Gx.^-1hg_x. An opposite inclusion follows similarly by taking h∈Gx_x and supposing x=g−1⋅y.=g^-1.
+The above says that the stabilizers of elements in the same orbit are conjugate to each other. Thus, to each orbit, we can associate a conjugacy class of a subgroup of G (that is, the set of all conjugates of the subgroup). Let (H)(H) denote the conjugacy class of H. Then the orbit O has type (H)(H) if the stabilizer Gx_x of some/any x in O belongs to (H)(H). A maximal orbit type is often called a principal orbit type.
+
+Orbit-stabilizer theorem and Burnside's lemma[edit]
+Orbits and stabilizers are closely related. For a fixed x in X, consider the map f:G→X:G given by g↦g⋅x.. By definition the image f(G)(G) of this map is the orbit G⋅x.. The condition for two elements to have the same image is
+f(g)=f(h)⟺g⋅x=h⋅x⟺g−1h⋅x=x⟺g−1h∈Gx⟺h∈gGx.(g)=f(h)=h^-1h=x^-1h_x_x.
+In other words, f(g)=f(h)(g)=f(h) if and only if g and h lie in the same coset for the stabilizer subgroup Gx._x. Thus, the fiber f−1(y)^-1({y}) of f over any y in G·x is contained in such a coset, and every such coset also occurs as a fiber. Therefore f induces a bijection between the set G/Gx/G_x of cosets for the stabilizer subgroup and the orbit G⋅x,, which sends gGx↦g⋅x_x.[11] This result is known as the orbit-stabilizer theorem.
+If G is finite then the orbit-stabilizer theorem, together with Lagrange's theorem, gives
+|G⋅x|=[G:Gx]=|G|/|Gx|,|G|=[G : G_x]=|G|/|G_x|,
+in other words the length of the orbit of x times the order of its stabilizer is the  order of the group. In particular that implies that the orbit length is a divisor of the group order.
+
+Example: Let G be a group of prime order p acting on a set X with k elements. Since each orbit has either 1 or p elements, there are at least kmodpp orbits of length 1 which are G-invariant elements.
+This result is especially useful since it can be employed for counting arguments (typically in situations where X is finite as well).
+
+Cubical graph with vertices labeled
+Example:  We can use the orbit-stabilizer theorem to count the automorphisms of a graph. Consider the cubical graph as pictured, and let G denote its automorphism group. Then G acts on the set of vertices {1, 2, ..., 8}, and this action is transitive as can be seen by composing rotations about the center of the cube. Thus, by the orbit-stabilizer theorem, |G|=|G⋅1||G1|=8|G1|.|G|=|G·1||G_1|=8|G_1|. Applying the theorem now to the stabilizer G1,_1, we can obtain |G1|=|(G1)⋅2||(G1)2|.|G_1|=|(G_1)·2||(G_1)_2|. Any element of G that fixes 1 must send 2 to either 2, 4, or 5. As an example of such automorphisms consider the rotation around the diagonal axis through 1 and 7 by 2π/32π/3 which permutes 2,4,5 and 3,6,8, and fixes 1 and 7. Thus, |(G1)⋅2|=3.|(G_1)·2|=3. Applying the theorem a third time gives |(G1)2|=|((G1)2)⋅3||((G1)2)3|.|(G_1)_2|=|((G_1)_2)·3||((G_1)_2)_3|. Any element of G that fixes 1 and 2 must send 3 to either 3 or 6. Reflecting the cube at the plane through 1,2,7 and 8 is such an automorphism sending 3 to 6, thus |((G1)2)⋅3|=2|((G_1)_2)·3|=2. One also sees that ((G1)2)3((G_1)_2)_3 consists only of the identity automorphism, as any element of G fixing 1, 2 and 3 must also fix all other vertices, since they are determined by their adjacency to 1, 2 and 3. Combining the preceding calculations, we can now obtain |G|=8⋅3⋅2⋅1=48.|G|=8·3·2·1=48.
+A result closely related to the orbit-stabilizer theorem is Burnside's lemma:
+|X/G|=1|G|∑g∈G|Xg|,|X/G|=1/|G|∑_g|X^g|,
+where Xg is the set of points fixed by g. This result is mainly of use when G and X are finite, when it can be interpreted as follows: the number of orbits is equal to the average number of points fixed per group element.
+Fixing a group G, the set of formal differences of finite G-sets forms a ring called the Burnside ring of G, where addition corresponds to disjoint union, and multiplication to Cartesian product.
+
+Examples[edit]
+The trivial action of any group G on any set X is defined by g⋅x = x for all g in G and all x in X; that is, every group element induces the identity permutation on X.[12]
+In every group G, left multiplication is an action of G on G: g⋅x = gx for all g, x in G. This action is free and transitive (regular), and forms the basis of a rapid proof of Cayley's theorem - that every group is isomorphic to a subgroup of the symmetric group of permutations of the set G.
+In every group G with subgroup H, left multiplication is an action of G on the set of cosets G/H: g⋅aH = gaH for all g,a in G. In particular if H contains no nontrivial normal subgroups of G this induces an isomorphism from G to a subgroup of the permutation group of degree [G : H].
+In every group G, conjugation is an action of G on G: g⋅x = gxg−1. An exponential notation is commonly used for the right-action variant: xg = g−1xg; it satisfies (xg)h = xgh.
+In every group G with subgroup H, conjugation is an action of G on conjugates of H: g⋅K = gKg−1 for all g in G and K conjugates of H.
+An action of Zℤ on a set X uniquely determines and is determined by an automorphism of X, given by the action of 1. Similarly, an action of Z/2Zℤ/2ℤ on X is equivalent to the data of an involution of X.
+The symmetric group Sn and its subgroups act on the set { 1, …, n } by permuting its elements
+The symmetry group of a polyhedron acts on the set of vertices of that polyhedron. It also acts on the set of faces or the set of edges of the polyhedron.
+The symmetry group of any geometrical object acts on the set of points of that object.
+The automorphism group of a vector space (or graph, or group, or ring . . .) acts on the vector space (or set of vertices of the graph, or group, or ring . . .).
+The general linear group GL(n, K) and its subgroups, particularly its Lie subgroups (including the special linear group SL(n, K), orthogonal group O(n, K), special orthogonal group SO(n, K), and symplectic group Sp(n, K)) are Lie groups that act on the vector space Kn. The group operations are given by multiplying the matrices from the groups with the vectors from Kn.
+The general linear group GL(n, Z) acts on Zn by natural matrix action. The orbits of its action are classified by the greatest common divisor of coordinates of the vector in Zn.
+The affine group acts transitively on the points of an affine space, and the subgroup V of the affine group (that is, a vector space) has transitive and free (that is, regular) action on these points;[13] indeed this can be used to give a definition of an affine space.
+The projective linear group PGL(n + 1, K) and its subgroups, particularly its Lie subgroups, which are Lie groups that act on the projective space Pn(K). This is a quotient of the action of the general linear group on projective space. Particularly notable is PGL(2, K), the symmetries of the projective line, which is sharply 3-transitive, preserving the cross ratio; the Möbius group PGL(2, C) is of particular interest.
+The isometries of the plane act on the set of 2D images and patterns, such as wallpaper patterns. The definition can be made more precise by specifying what is meant by image or pattern, for example, a function of position with values in a set of colors. Isometries are in fact one example of affine group (action).[dubious  – discuss]
+The sets acted on by a group G comprise the category of G-sets in which the objects are G-sets and the morphisms are G-set homomorphisms: functions f : X → Y such that g⋅(f(x)) = f(g⋅x) for every g in G.
+The Galois group of a field extension L/K acts on the field L but has only a trivial action on elements of the subfield K. Subgroups of Gal(L/K) correspond to subfields of L that contain K, that is, intermediate field extensions between L and K.
+The additive group of the real numbers (R, +) acts on the phase space of "well-behaved" systems in classical mechanics (and in more general dynamical systems) by time translation: if t is in R and x is in the phase space, then x describes a state of the system, and t + x is defined to be the state of the system t seconds later if t is positive or −t seconds ago if t is negative.
+The additive group of the real numbers (R, +) acts on the set of real functions of a real variable in various ways, with (t⋅f)(x) equal to, for example, f(x + t), f(x) + t, f(xet), f(x)et, f(x + t)et, or f(xet) + t, but not f(xet + t).
+Given a group action of G on X, we can define an induced action of G on the power set of X, by setting g⋅U = {g⋅u : u ∈ U} for every subset U of X and every g in G. This is useful, for instance, in studying the action of the large Mathieu group on a 24-set and in studying symmetry in certain models of finite geometries.
+The quaternions with norm 1 (the versors), as a multiplicative group, act on R3: for any such quaternion z = cos α/2 + v sin α/2, the mapping f(x) = zxz∗ is a counterclockwise rotation through an angle α about an axis given by a unit vector v; z is the same rotation; see quaternions and spatial rotation. Note that this is not a faithful action because the quaternion −1 leaves all points where they were, as does the quaternion 1.
+Given left G-sets X,Y,Y, there is a left G-set YX^X whose elements are G-equivariant maps α:X×G→Yα:X, and with left G-action given by g⋅α=α∘(idX×−g)·α=α∘(id_X×-g) (where "−g-g" indicates right multiplication by g). This G-set has the property that its fixed points correspond to equivariant maps X→Y; more generally, it is an exponential object in the category of G-sets.
+Group actions and groupoids[edit]
+Main article: Groupoid § Group action
+The notion of group action can be encoded by the action groupoid G′=G⋉X'=G associated to the group action. The stabilizers of the action are the vertex groups of the groupoid and the orbits of the action are its components.
+
+Morphisms and isomorphisms between G-sets[edit]
+If X and Y are two G-sets, a morphism from X to Y is a function f : X → Y such that f(g⋅x) = g⋅f(x) for all g in G and all x in X. Morphisms of G-sets are also called equivariant maps or G-maps.
+The composition of two morphisms is again a morphism. If a morphism f is bijective, then its inverse is also a morphism. In this case f is called an isomorphism, and the two G-sets X and Y are called isomorphic; for all practical purposes, isomorphic G-sets are indistinguishable.
+Some example isomorphisms:
+
+Every regular G action is isomorphic to the action of G on G given by left multiplication.
+Every free G action is isomorphic to G × S, where S is some set and G acts on G × S by left multiplication on the first coordinate. (S can be taken to be the set of orbits X/G.)
+Every transitive G action is isomorphic to left multiplication by G on the set of left cosets of some subgroup H of G. (H can be taken to be the stabilizer group of any element of the original G-set.)
+With this notion of morphism, the collection of all G-sets forms a category; this category is a Grothendieck topos (in fact, assuming a classical metalogic, this topos will even be Boolean).
+
+Variants and generalizations[edit]
+We can also consider actions of monoids on sets, by using the same two axioms as above. This does not define bijective maps and equivalence relations however. See semigroup action.
+Instead of actions on sets, we can define actions of groups and monoids on objects of an arbitrary category: start with an object X of some category, and then define an action on X as a monoid homomorphism into the monoid of endomorphisms of X. If X has an underlying set, then all definitions and facts stated above can be carried over. For example, if we take the category of vector spaces, we obtain group representations in this fashion.
+We can view a group G as a category with a single object in which every morphism is  invertible. A (left) group action is then nothing but a (covariant) functor from G to the category of sets, and a group representation is a functor from G to the category of vector spaces. A morphism between G-sets is then a natural transformation between the group action functors.  In analogy, an action of a groupoid is a functor from the groupoid to the category of sets or to some other category.
+In addition to continuous actions of topological groups on topological spaces, one also often considers smooth actions of Lie groups on smooth manifolds, regular actions of algebraic groups on algebraic varieties, and actions of group schemes on schemes. All of these are examples of group objects acting on objects of their respective category.
+
+Gallery[edit]
+
+
+
+
+Orbit of a fundamental spherical triangle (marked in red) under action of the full octahedral group.
+
+
+
+
+
+
+Orbit of a fundamental spherical triangle (marked in red) under action of the full icosahedral group.
+
+
+
+
+See also[edit]
+Gain graph
+Group with operators
+Measurable group action
+Monoid action
+Young–Deruyts development
+Notes[edit]
+
+
+Citations[edit]
+
+
+^ Eie & Chang (2010). A Course on Abstract Algebra. p. 144.
+
+^ This is done, for example, by Smith (2008). Introduction to abstract algebra. p. 253.
+
+^ "Definition:Right Group Action Axioms". Proof Wiki. Retrieved 19 December 2021.
+
+^ Thurston 1997, Definition 3.5.1(iv).
+
+^ Kapovich 2009, p. 73.
+
+^ Thurston 1980, p. 176.
+
+^ Hatcher 2002, P. 72.
+
+^ Maskit 1988, II.A.1, II.A.2.
+
+^ tom Dieck 1987.
+
+^ Procesi, Claudio (2007). Lie Groups: An Approach through Invariants and Representations. Springer Science & Business Media. p. 5. ISBN 9780387289298. Retrieved 23 February 2017.
+
+^ M. Artin, Algebra, Proposition 6.4 on p. 179
+
+^ Eie & Chang (2010). A Course on Abstract Algebra. p. 145.
+
+^ Reid, Miles (2005). Geometry and topology. Cambridge, UK New York: Cambridge University Press. p. 170. ISBN 9780521613255.
+
+
+References[edit]
+Aschbacher, Michael (2000). Finite Group Theory. Cambridge University Press. ISBN 978-0-521-78675-1. MR 1777008.
+Dummit, David; Richard Foote (2004). Abstract Algebra (3rd ed.). Wiley. ISBN 0-471-43334-9.
+Eie, Minking; Chang, Shou-Te (2010). A Course on Abstract Algebra. World Scientific. ISBN 978-981-4271-88-2.
+Hatcher, Allen (2002), Algebraic Topology, Cambridge University Press, ISBN 978-0-521-79540-1, MR 1867354.
+Rotman, Joseph (1995). An Introduction to the Theory of Groups. Graduate Texts in Mathematics 148 (4th ed.). Springer-Verlag. ISBN 0-387-94285-8.
+Smith, Jonathan D.H. (2008). Introduction to abstract algebra. Textbooks in mathematics. CRC Press. ISBN 978-1-4200-6371-4.
+Kapovich, Michael (2009), Hyperbolic manifolds and discrete groups, Modern Birkhäuser Classics, Birkhäuser, pp. xxvii+467, ISBN 978-0-8176-4912-8, Zbl 1180.57001
+Maskit, Bernard (1988), Kleinian groups, Grundlehren der Mathematischen Wissenschaften, vol. 287, Springer-Verlag, pp. XIII+326, Zbl 0627.30039
+Thurston, William (1980), The geometry and topology of three-manifolds, Princeton lecture notes, p. 175
+Thurston, William P. (1997), Three-dimensional geometry and topology. Vol. 1., Princeton Mathematical Series, vol. 35, Princeton University Press, pp. x+311, Zbl 0873.57001
+tom Dieck, Tammo (1987), Transformation groups, de Gruyter Studies in Mathematics, vol. 8, Berlin: Walter de Gruyter & Co., p. 29, doi:10.1515/9783110858372.312, ISBN 978-3-11-009745-0, MR 0889050
+External links[edit]
+"Action of a group on a manifold", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Weisstein, Eric W. "Group Action". MathWorld.
+Authority control databases: National 
+Israel
+United States
+
+
+
+

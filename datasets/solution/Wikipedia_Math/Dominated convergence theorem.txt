@@ -1,0 +1,252 @@
+Theorem in measure theory
+In measure theory, Lebesgue's dominated convergence theorem provides sufficient conditions under which almost everywhere convergence of a sequence of functions implies convergence in the L1 norm. Its power and utility are two of the primary theoretical advantages of Lebesgue integration over Riemann integration.
+In addition to its frequent appearance in mathematical analysis and partial differential equations, it is widely used in probability theory, since it gives a sufficient condition for the convergence of expected values of random variables.
+
+
+Statement[edit]
+Lebesgue's dominated convergence theorem.[1] Let (fn)(f_n) be a sequence of complex-valued measurable functions on a measure space (S,Σ,μ)(S,Σ,μ). Suppose that the sequence converges pointwise to a function f and is dominated by some integrable function g in the sense that
+
+|fn(x)|≤g(x)|f_n(x)|(x)
+for all numbers n in the index set of the sequence and all points x∈S.
+Then f is integrable (in the Lebesgue sense) and
+
+limn→∞∫S|fn−f|dμ=0lim_n→∞∫_S|f_n-f| dμ=0
+which also implies
+
+limn→∞∫Sfndμ=∫Sfdμlim_n→∞∫_Sf_n dμ=∫_Sf dμ
+Remark 1. The statement "g is integrable" means that measurable function g is Lebesgue integrable; i.e.
+
+∫S|g|dμ<∞.∫_S|g| dμ<∞.
+Remark 2. The convergence of the sequence and domination by g can be relaxed to hold only μ-almost everywhere provided the measure space (S, Σ, μ) is complete or f is chosen as a measurable function which agrees μ-almost everywhere with the μ-almost everywhere existing pointwise limit. (These precautions are necessary, because otherwise there might exist a non-measurable subset of a μ-null set N ∈ Σ, hence f might not be measurable.)
+Remark 3. If μ(S)<∞μ(S)<∞, the condition that there is a dominating integrable function g can be relaxed to uniform integrability of the sequence (fn), see Vitali convergence theorem.
+Remark 4. While f is Lebesgue integrable, it is not in general Riemann integrable. For example, take fn to be defined in [0,1][0,1] so that it is 1/n at rational numbers and zero everywhere else (on the irrationals). The series (fn) converges pointwise to 0, so f is identically zero, but |fn−f|=fn|f_n-f|=f_n is not Riemann integrable, since its image in every finite interval is 0,1/n{0,1/n} and thus the upper and lower Darboux integrals are 1/n and 0, respectively.
+
+Proof[edit]
+Without loss of generality, one can assume that f is real, because one can split f into its real and imaginary parts (remember that a sequence of complex numbers converges if and only if both its real and imaginary counterparts converge) and apply the triangle inequality at the end.
+Lebesgue's dominated convergence theorem is a special case of the Fatou–Lebesgue theorem. Below, however, is a direct proof that uses Fatou’s lemma as the essential tool.
+Since f is the pointwise limit of the sequence (fn) of measurable functions that are dominated by g, it is also measurable and dominated by g, hence it is integrable. Furthermore, (these will be needed later),
+
+|f−fn|≤|f|+|fn|≤2g|f-f_n|≤|f|+|f_n|≤2g
+for all n and
+
+limsupn→∞|f−fn|=0.lim sup_n→∞|f-f_n|=0.
+The second of these is trivially true (by the very definition of f). Using linearity and monotonicity of the Lebesgue integral,
+
+|∫Sfdμ−∫Sfndμ|=|∫S(f−fn)dμ|≤∫S|f−fn|dμ.|∫_Sf dμ-∫_Sf_n dμ|=|∫_S(f-f_n) dμ|≤∫_S|f-f_n| dμ.
+By the reverse Fatou lemma (it is here that we use the fact that |f−fn| is bounded above by an integrable function)
+
+limsupn→∞∫S|f−fn|dμ≤∫Slimsupn→∞|f−fn|dμ=0,lim sup_n→∞∫_S|f-f_n| dμ≤∫_Slim sup_n→∞|f-f_n| dμ=0,
+which implies that the limit exists and vanishes i.e.
+
+limn→∞∫S|f−fn|dμ=0.lim_n→∞∫_S|f-f_n| dμ=0.
+Finally, since
+
+limn→∞|∫Sfdμ−∫Sfndμ|≤limn→∞∫S|f−fn|dμ=0.lim_n→∞|∫_Sfdμ-∫_Sf_ndμ|≤lim_n→∞∫_S|f-f_n| dμ=0.
+we have that
+
+limn→∞∫Sfndμ=∫Sfdμ.lim_n→∞∫_Sf_n dμ=∫_Sf dμ.
+The theorem now follows.
+If the assumptions hold only μ-almost everywhere, then there exists a μ-null set N ∈ Σ such that the functions fn 1S \ N satisfy the assumptions everywhere on S. Then the function f(x) defined as the pointwise limit of fn(x) for x ∈ S \ N and by f(x) = 0 for x ∈ N, is measurable and is the pointwise limit of this modified function sequence. The values of these integrals are not influenced by these changes to the integrands on this μ-null set N, so the theorem continues to hold.
+DCT holds even if fn converges to f in measure (finite measure) and the dominating function is non-negative almost everywhere.
+
+Discussion of the assumptions[edit]
+The assumption that the sequence is dominated by some integrable g cannot be dispensed with. This may be seen as follows: define fn(x) = n for x in the interval (0, 1/n] and fn(x) = 0 otherwise. Any g which dominates the sequence must also dominate the pointwise supremum h = supn fn. Observe that
+
+∫01h(x)dx≥∫1m1h(x)dx=∑n=1m−1∫(1n+1,1n]h(x)dx≥∑n=1m−1∫(1n+1,1n]ndx=∑n=1m−11n+1→∞asm→∞∫_0^1h(x) dx≥∫_1/m^1h(x) dx=∑_n=1^m-1∫_(1/n+1,1/n]h(x) dx≥∑_n=1^m-1∫_(1/n+1,1/n]n dx=∑_n=1^m-11/n+1→∞    asm→∞
+by the divergence of the harmonic series. Hence, the monotonicity of the Lebesgue integral tells us that there exists no integrable function which dominates the sequence on [0,1]. A direct calculation shows that integration and pointwise limit do not commute for this sequence:
+
+∫01limn→∞fn(x)dx=0≠1=limn→∞∫01fn(x)dx,∫_0^1lim_n→∞f_n(x) dx=0≠1=lim_n→∞∫_0^1f_n(x) dx,
+because the pointwise limit of the sequence is the zero function. Note that the sequence (fn) is not even uniformly integrable, hence also the Vitali convergence theorem is not applicable.
+
+Bounded convergence theorem[edit]
+One corollary to the dominated convergence theorem is the bounded convergence theorem, which states that if (fn) is a sequence of uniformly bounded complex-valued measurable functions which converges pointwise on a bounded measure space (S, Σ, μ) (i.e. one in which μ(S) is finite) to a function f, then the limit f is an integrable function and
+
+limn→∞∫Sfndμ=∫Sfdμ.lim_n→∞∫_Sf_n dμ=∫_Sf dμ.
+Remark: The pointwise convergence and uniform boundedness of the sequence can be relaxed to hold only μ-almost everywhere, provided the measure space (S, Σ, μ) is complete or f is chosen as a measurable function which agrees μ-almost everywhere with the μ-almost everywhere existing pointwise limit.
+
+Proof[edit]
+Since the sequence is uniformly bounded, there is a real number M such that |fn(x)| ≤ M for all x ∈ S and for all n. Define g(x) = M for all x ∈ S. Then the sequence is dominated by g. Furthermore, g is integrable since it is a constant function on a set of finite measure. Therefore, the result follows from the dominated convergence theorem.
+If the assumptions hold only μ-almost everywhere, then there exists a μ-null set N ∈ Σ such that the functions fn1S\N satisfy the assumptions everywhere on S.
+
+Dominated convergence in Lp-spaces (corollary)[edit]
+Let (Ω,A,μ)(Ω,𝒜,μ) be a measure space, 1≤p<∞1<∞ a real number and (fn)(f_n) a sequence of A𝒜-measurable functions fn:Ω→C∪∞_n:Ω→ℂ∪{∞}.
+Assume the sequence (fn)(f_n) converges μμ-almost everywhere to an A𝒜-measurable function f, and is dominated by a g∈Lp^p (cf. Lp space), i.e., for every natural number n we have: |fn|≤g|f_n|, μ-almost everywhere.
+Then all fn_n as well as f are in Lp^p and the sequence (fn)(f_n) converges to f in the sense of Lp^p, i.e.:
+
+limn→∞‖fn−f‖p=limn→∞(∫Ω|fn−f|pdμ)1p=0.lim_n→∞f_n-f_p=lim_n→∞(∫_Ω|f_n-f|^p dμ)^1/p=0.
+Idea of the proof: Apply the original theorem to the function sequence hn=|fn−f|p_n=|f_n-f|^p with the dominating function (2g)p(2g)^p.
+
+Extensions[edit]
+The dominated convergence theorem applies also to measurable functions with values in a Banach space, with the dominating function still being non-negative and integrable as above. The assumption of convergence almost everywhere can be weakened to require only convergence in measure.
+The dominated convergence theorem applies also to conditional expectations. [2]
+
+See also[edit]
+Convergence of random variables, Convergence in mean
+Monotone convergence theorem (does not require domination by an integrable function but assumes monotonicity of the sequence instead)
+Scheffé's lemma
+Uniform integrability
+Vitali convergence theorem (a generalization of Lebesgue's dominated convergence theorem)
+Notes[edit]
+
+
+^ For the real case, see Evans, Lawrence C; Gariepy, Ronald F (2015). Measure Theory and Fine Properties of Functions. CRC Press. pp. Theorem 1.19.
+
+^ Zitkovic 2013, Proposition 10.5.
+
+
+References[edit]
+Bartle, R.G. (1995). The Elements of Integration and Lebesgue Measure. Wiley Interscience. ISBN 9780471042228.
+Royden, H.L. (1988). Real Analysis. Prentice Hall. ISBN 9780024041517.
+Weir, Alan J. (1973). "The Convergence Theorems". Lebesgue Integration and Measure. Cambridge: Cambridge University Press. pp. 93–118. ISBN 0-521-08728-7.
+Williams, D. (1991). Probability with martingales. Cambridge University Press. ISBN 0-521-40605-6.
+Zitkovic, Gordan (Fall 2013). "Lecture10: Conditional Expectation" (PDF). Retrieved December 25, 2020.
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

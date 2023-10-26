@@ -1,0 +1,86 @@
+Says d+2 points in d dimensions can be partitioned into two subsets whose convex hulls intersect
+In geometry, Radon's theorem on convex sets, published by Johann Radon in 1921, states that:Any set of d + 2 points in Rd can be partitioned into two sets whose convex hulls intersect. A point in the intersection of these convex hulls is called a Radon point of the set.Two sets of four points in the plane (the vertices of a square and an equilateral triangle with its centroid), the multipliers solving the system of three linear equations for these points, and the Radon partitions formed by separating the points with positive multipliers from the points with negative multipliers.For example, in the case d = 2, any set of four points in the Euclidean plane can be partitioned in one of two ways. It may form a triple and a singleton, where the convex hull of the triple (a triangle) contains the singleton; alternatively, it may form two pairs of points that form the endpoints of two intersecting line segments.
+
+Proof and construction[edit]
+Consider any set X=x1,x2,…,xd+2⊂Rd={x_1,x_2,…,x_d+2}⊂𝐑^d of d + 2 points in d-dimensional space. Then there exists a set of multipliers a1, ..., ad + 2, not all of which are zero, solving the system of linear equations
+
+∑i=1d+2aixi=0,∑i=1d+2ai=0,∑_i=1^d+2a_ix_i=0,  ∑_i=1^d+2a_i=0,
+because there are d + 2 unknowns (the multipliers) but only d + 1 equations that they must satisfy (one for each coordinate of the points, together with a final equation requiring the sum of the multipliers to be zero). Fix some particular nonzero solution a1, ..., ad + 2. Let I⊆X be the set of points with positive multipliers, and let J=X∖I=X be the set of points with multipliers that are negative or zero. Then I and J form the required partition of the points into two subsets with intersecting convex hulls.
+The convex hulls of I and J must intersect, because they both contain the point
+
+p=∑xi∈IaiAxi=∑xj∈J−ajAxj,=∑_x_ia_i/Ax_i=∑_x_j-a_j/Ax_j,
+where
+
+A=∑xi∈Iai=−∑xj∈Jaj.=∑_x_ia_i=-∑_x_ja_j.
+The left hand side of the formula for p expresses this point as a convex combination of the points in I, and the right hand side expresses it as a convex combination of the points in J. Therefore, p belongs to both convex hulls, completing the proof.
+This proof method allows for the efficient construction of a Radon point, in an amount of time that is polynomial in the dimension, by using Gaussian elimination or other efficient algorithms to solve the system of equations for the multipliers.[1]
+
+Topological Radon theorem[edit]
+An equivalent formulation of Radon's theorem is:If ƒ is any affine function from a (d + 1)-dimensional simplex Δd+1 to Rd, then there are two disjoint faces of Δd+1 whose images under ƒ intersect.They are equivalent because any affine function on a simplex is uniquely determined by the images of its vertices. Formally, let ƒ be an affine function from Δd+1 to Rd. Let v1,v2,…,vd+2_1,v_2,…,v_d+2 be the vertices of Δd+1, and let x1,x2,…,xd+2_1,x_2,…,x_d+2 be their images under ƒ. By the original formulation, the x1,x2,…,xd+2_1,x_2,…,x_d+2 can be partitioned into two disjoint subsets, e.g. (xi)i in I and (xj)j in J, with overlapping convex hull. Because f is affine, the convex hull of (xi)i in I is the image of the face spanned by the vertices (vi)i in I, and similarly the convex hull of (xj)j in J is the image of the face spanned by the vertices (vj)j in j. These two faces are disjoint, and their images under f intersect - as claimed by the new formulation. 
+The topological Radon theorem generalizes this formluation. It allows f to be any continuous function - not necessarily affine:[2]If ƒ is any continuous function from a (d + 1)-dimensional simplex Δd+1 to Rd, then there are two disjoint faces of Δd+1 whose images under ƒ intersect.More generally, if K is any (d + 1)-dimensional compact convex set, and ƒ is any continuous function from K to d-dimensional space, then there exists a linear function g such that some point where g achieves its maximum value and some other point where g achieves its minimum value are mapped by ƒ to the same point. In the case where K is a simplex, the two simplex faces formed by the maximum and minimum points of g must then be two disjoint faces whose images have a nonempty intersection. This same general statement, when applied to a hypersphere instead of a simplex, gives the Borsuk–Ulam theorem, that ƒ must map two opposite points of the sphere to the same point.[2]
+Proofs[edit]
+The topological Radon theorem was originally proved by Bajmoczy and Barany[2] in the following way:
+
+Construct a continuous map g from Sd (the d-dimensional sphere) to Δd+1, such that for every point x on the sphere, g(x) and g(-x)  are on two disjoint faces of Δd+1.
+Apply the Borsuk–Ulam theorem to the function f∘g, which is a continuous function from Sd  to Rd. The theorem says that, for any such function, there exists some point y on Sd, such that f(g(y)) = f(g(-y)).
+The points g(y) and g(-y) are on two disjoint faces of Δd+1, and they are mapped by f to the same point of Rd. This implies that the images of these two disjoint faces intersect.
+Another proof was given by Lovasz and Schrijver.[3] A third proof is given by Matousek:[4]: 115 
+
+Let K be the simplex Δd+1, and let KΔ∗2_Δ^*2 be the deleted join of K with itself.
+The geometric realization of KΔ∗2_Δ^*2  is homeomorphic to the sphere Sd+1.
+Therefore, the Z2-index of KΔ∗2_Δ^*2 equals d+1.
+The topological Radon theorem follows from the following more general theorem.  For any simplicial complex K, if the Z2-index of KΔ∗2_Δ^*2 is larger than d, then for every continuous mapping from ||K|| to Rd, the images of two disjoint faces of K intersect.
+Applications[edit]
+The Radon point of any four points in the plane is their geometric median, the point that minimizes the sum of distances to the other points.[5][6]
+Radon's theorem forms a key step of a standard proof of Helly's theorem on intersections of convex sets;[7] this proof was the motivation for Radon's original discovery of Radon's theorem.
+Radon's theorem can also be used to calculate the VC dimension of d-dimensional points with respect to linear separations. There exist sets of d + 1 points (for instance, the points of a regular simplex) such that every two nonempty subsets can be separated from each other by a hyperplane. However, no matter which set of d + 2 points is given, the two subsets of a Radon partition cannot be linearly separated. Therefore, the VC dimension of this system is exactly d + 1.[8]
+A randomized algorithm that repeatedly replaces sets of d + 2 points by their Radon point can be used to compute an approximation to a centerpoint of any point set, in an amount of time that is polynomial in both the number of points and the dimension.[1]
+
+Related concepts[edit]
+Geometric median. The Radon point of three points in a one-dimensional space is just their median. The geometric median of a set of points is the point minimizing the sum of distances to the points in the set; it generalizes the one-dimensional median and has been studied both from the point of view of facility location and robust statistics. For sets of four points in the plane, the geometric median coincides with the Radon point.
+Tverberg's theorem. A generalization for partition into r sets was given by Helge Tverberg (1966) and is now known as Tverberg's theorem. It states that for any set of (d+1)(r−1)+1(d+1)(r-1)+1}points in Euclidean d-space, there is a partition into r subsets whose convex hulls intersect in at least one common point.
+Carathéodory's theorem states that any point in the convex hull of some set of points is also within the convex hull of a subset of at most d + 1 of the points; that is, that the given point is part of a Radon partition in which it is a singleton. One proof of Carathéodory's theorem uses a technique of examining solutions to systems of linear equations, similar to the proof of Radon's theorem, to eliminate one point at a time until at most d + 1 remain.
+Convex geometries. Concepts related to Radon's theorem have also been considered for convex geometries, families of finite sets with the properties that the intersection of any two sets in the family remains in the family, and that the empty set and the union of all the sets belongs to the family. In this more general context, the convex hull of a set S is the intersection of the family members that contain S, and the Radon number of a space is the smallest r such that any r points have two subsets whose convex hulls intersect. Similarly, one can define the Helly number h and the Carathéodory number c by analogy to their definitions for convex sets in Euclidean spaces, and it can be shown that these numbers satisfy the inequalities h < r ≤ ch + 1.[9]
+Radon theorem for graphs. In an arbitrary undirected graph, one may define a convex set to be a set of vertices that includes every induced path connecting a pair of vertices in the set. With this definition, every set of ω + 1 vertices in the graph can be partitioned into two subsets whose convex hulls intersect, and ω + 1 is the minimum number for which this is possible, where ω is the clique number of the given graph.[10] For related results involving shortest paths instead of induced paths see Chepoi (1986) and Bandelt & Pesch (1989).
+
+Notes[edit]
+
+
+^ a b Clarkson et al. (1996).
+
+^ a b c Bajmóczy, E. G.; Bárány, I. (1979-09-01). "On a common generalization of Borsuk's and Radon's theorem". Acta Mathematica Academiae Scientiarum Hungaricae. 34 (3): 347–350. doi:10.1007/BF01896131. ISSN 1588-2632. S2CID 12971298.
+
+^ Lovász, László; Schrijver, Alexander (1998). "A Borsuk theorem for antipodal links and a spectral characterization of linklessly embeddable graphs". Proceedings of the American Mathematical Society. 126 (5): 1275–1285. doi:10.1090/S0002-9939-98-04244-0. ISSN 0002-9939. S2CID 7790459.
+
+^ Matoušek, Jiří (2007). Using the Borsuk-Ulam Theorem: Lectures on Topological Methods in Combinatorics and Geometry (2nd ed.). Berlin-Heidelberg: Springer-Verlag. ISBN 978-3-540-00362-5. Written in cooperation with Anders Björner and Günter M. Ziegler
+, Section 4.3
+
+^ Cieslik, Dietmar (2006), Shortest Connectivity: An Introduction with Applications in Phylogeny, Combinatorial Optimization, vol. 17, Springer, p. 6, ISBN 9780387235394.
+
+^ Plastria, Frank (2006), "Four-point Fermat location problems revisited. New proofs and extensions of old results" (PDF), IMA Journal of Management Mathematics, 17 (4): 387–396, doi:10.1093/imaman/dpl007, Zbl 1126.90046.
+
+^ Matoušek (2002), p. 11.
+
+^ Epsilon-nets and VC-dimension, Lecture Notes by Marco Pellegrini, 2004.
+
+^ Kay & Womble (1971).
+
+^ Duchet (1987).
+
+
+References[edit]
+Bajmóczy, E. G.; Bárány, I. (1979), "A common generalization of Borsuk's and Radon's theorem", Acta Mathematica Hungarica, 34 (3–4): 347–350, doi:10.1007/BF01896131.
+Bandelt, H.-J.; Pesch, E. (1989), "A Radon theorem for Helly graphs", Archiv der Mathematik, 52 (1): 95–98, doi:10.1007/BF01197978.
+Chepoi, V. D. (1986), "Some properties of the d-convexity in triangulated graphs", Mat. Issled. (in Russian), 87: 164–177. As cited by Bandelt & Pesch (1989).
+Clarkson, Kenneth L.; Eppstein, David; Miller, Gary L.; Sturtivant, Carl; Teng, Shang-Hua (1996), "Approximating center points with iterated Radon points", International Journal of Computational Geometry & Applications, 6 (3): 357–377, doi:10.1142/s021819599600023x, MR 1409651.
+Danzer, L.; Grünbaum, B.; Klee, V. (1963), "Helly's theorem and its relatives", Convexity, Proc. Symp. Pure Math., vol. 7, American Mathematical Society, pp. 101–179.
+Duchet, Pierre (1987), "Convex sets in graphs. II. Minimal path convexity", Journal of Combinatorial Theory, Series A, 44 (3): 307–316, doi:10.1016/0095-8956(88)90039-1. As cited by Bandelt & Pesch (1989).
+Eckhoff, J. (1993), "Helly, Radon, and Carathéodory type theorems", Handbook of Convex Geometry, vol. A, B, Amsterdam: North-Holland, pp. 389–448.
+Kay, David C.; Womble, Eugene W. (1971), "Axiomatic convexity theory and relationships between the Carathéodory, Helly, and Radon numbers", Pacific Journal of Mathematics, 38 (2): 471–485, doi:10.2140/pjm.1971.38.471, MR 0310766.
+Matoušek, J. (2002), "1.3 Radon's Lemma and Helly's Theorem", Lectures on Discrete Geometry, Graduate Texts in Mathematics, vol. 212, Springer-Verlag, pp. 9–12, ISBN 978-0-387-95373-1.
+Matoušek, J. (2003), "5.1 Nonembeddability Theorems: An Introduction", Using the Borsuk–Ulam Theorem: Lectures on Topological Methods in Combinatorics and Geometry, Springer-Verlag, pp. 88–92.
+Radon, J. (1921), "Mengen konvexer Körper, die einen gemeinsamen Punkt enthalten", Mathematische Annalen, 83 (1–2): 113–115, doi:10.1007/BF01464231.
+Tverberg, H. (1966), "A generalization of Radon's theorem" (PDF), Journal of the London Mathematical Society, 41: 123–128, doi:10.1112/jlms/s1-41.1.123[dead link].
+
+
+

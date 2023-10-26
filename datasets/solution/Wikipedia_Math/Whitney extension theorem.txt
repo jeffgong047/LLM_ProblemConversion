@@ -1,0 +1,129 @@
+
+
+Partial converse of Taylor's theorem
+In mathematics, in particular in mathematical analysis, the Whitney extension theorem is a partial converse to Taylor's theorem.  Roughly speaking, the theorem asserts that if A is a closed subset of a Euclidean space, then it is possible to extend a given function of A in such a way as to have prescribed derivatives at the points of A. It is a result of Hassler Whitney.
+
+
+Statement[edit]
+A precise statement of the theorem requires careful consideration of what it means to prescribe the derivative of a function on a closed set.  One difficulty, for instance, is that closed subsets of Euclidean space in general lack a differentiable structure.  The starting point, then, is an examination of the statement of Taylor's theorem.
+Given a real-valued Cm function f(x) on Rn, Taylor's theorem asserts that for each a, x, y ∈ Rn, there is a function Rα(x,y) approaching 0 uniformly as x,y → a such that
+
+
+
+
+f(x)=∑|α|≤mDαf(y)α!⋅(x−y)α+∑|α|=mRα(x,y)(x−y)αα!(𝐱)=∑_|α|D^αf(𝐲)/α!·(𝐱-𝐲)^α+∑_|α|=mR_α(𝐱,𝐲)(𝐱-𝐲)^α/α!
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+where the sum is over multi-indices α.
+Let fα = Dαf for each multi-index α.  Differentiating (1) with respect to x, and possibly replacing R as needed, yields
+
+
+
+
+fα(x)=∑|β|≤m−|α|fα+β(y)β!(x−y)β+Rα(x,y)_α(𝐱)=∑_|β|-|α|f_α+β(𝐲)/β!(𝐱-𝐲)^β+R_α(𝐱,𝐲)
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+where Rα is o(|x − y|m−|α|) uniformly as x,y → a.
+Note that (2) may be regarded as purely a compatibility condition between the functions fα which must be satisfied in order for these functions to be the coefficients of the Taylor series of the function f.  It is this insight which facilitates the following statement:
+Theorem.  Suppose that fα are a collection of functions on a closed subset A of Rn for all multi-indices α with |α|≤m|α| satisfying the compatibility condition (2) at all points x, y, and a of A.  Then there exists a function F(x) of class Cm such that:
+
+F = f0 on A.
+DαF = fα on A.
+F is real-analytic at every point of Rn − A.
+Proofs are given in the original paper of Whitney (1934), and in Malgrange (1967), Bierstone (1980) and Hörmander (1990).
+
+Extension in a half space[edit]
+Seeley (1964) proved a sharpening of the Whitney extension theorem in the special case of a half space. A smooth function on a half space Rn,+ of points where xn ≥ 0 is a smooth function f on the interior xn for which the derivatives ∂α f extend to continuous functions on the half space. On the boundary xn = 0, f restricts to smooth function. By Borel's lemma, f can be extended to a  
+smooth function on the whole of Rn. Since Borel's lemma is local in nature, the same argument shows that if ΩΩ is a (bounded or unbounded) domain in Rn with smooth boundary, then any smooth function on the closure of ΩΩ can be extended to a smooth function on Rn.
+Seeley's result for a half line gives a uniform extension map
+
+E:C∞(R+)→C∞(R),E:C^∞(𝐑^+)^∞(𝐑),
+which is linear, continuous (for the topology of uniform convergence of functions and their derivatives on compacta) and takes functions supported in [0,R] into functions supported in [−R,R]
+To define E,, set[1]
+
+E(f)(x)=∑m=1∞amf(−bmx)φ(−bmx)(x<0),E(f)(x)=∑_m=1^∞a_mf(-b_mx)φ(-b_mx)   (x<0),
+where φ is a smooth function of compact support on R equal to 1 near 0 and the sequences (am), (bm) satisfy:
+
+bm>0_m>0 tends to ∞∞;
+∑ambmj=(−1)j_mb_m^j=(-1)^j for j≥0≥0 with the sum absolutely convergent.
+A solution to this system of equations can be obtained by taking bn=2n_n=2^n and seeking an entire function
+
+g(z)=∑m=1∞amzm(z)=∑_m=1^∞a_mz^m
+such that g(2j)=(−1)j.(2^j)=(-1)^j. That such a function can be constructed follows from the Weierstrass theorem and Mittag-Leffler theorem.[2]
+It can be seen directly by setting[3]
+
+W(z)=∏j≥1(1−z/2j),(z)=∏_j≥1(1-z/2^j),
+an entire function with simple zeros at 2j.2^j. The derivatives W '(2j) are bounded above and below. Similarly the function
+
+M(z)=∑j≥1(−1)jW′(2j)(z−2j)(z)=∑_j≥1(-1)^j^'(2^j)(z-2^j)
+meromorphic with simple poles and prescribed residues at 2j.2^j.
+By construction
+
+g(z)=W(z)M(z)g(z)=W(z)M(z)
+is an entire function with the required properties.
+The definition for a half space in Rn by applying the operator R to the last variable xn. Similarly, using a smooth partition of unity and a local change of variables, the result for a half space implies the existence of an analogous extending map
+
+C∞(Ω¯)→C∞(Rn)C^∞(Ω)^∞(𝐑^n)
+for any domain ΩΩ in Rn with smooth boundary.
+
+See also[edit]
+The Kirszbraun theorem gives extensions of Lipschitz functions.
+Tietze extension theorem – Continuous maps on a closed subset of a normal space can be extended
+Hahn–Banach theorem – Theorem on extension of bounded linear functionals
+Notes[edit]
+
+
+^ Bierstone 1980, p. 143
+
+^ Ponnusamy & Silverman 2006, pp. 442–443
+
+^ Chazarain & Piriou 1982
+
+
+References[edit]
+McShane, Edward James (1934), "Extension of range of functions", Bull. Amer. Math. Soc., 40 (12): 837–842, doi:10.1090/s0002-9904-1934-05978-0, MR 1562984, Zbl 0010.34606
+Whitney, Hassler (1934), "Analytic extensions of differentiable functions defined in closed sets", Transactions of the American Mathematical Society, American Mathematical Society, 36 (1): 63–89, doi:10.2307/1989708, JSTOR 1989708
+Bierstone, Edward (1980), "Differentiable functions", Bulletin of the Brazilian Mathematical Society, 11 (2): 139–189, doi:10.1007/bf02584636
+Malgrange, Bernard (1967), Ideals of differentiable functions, Tata Institute of Fundamental Research Studies in Mathematics, vol. 3, Oxford University Press
+Seeley, R. T. (1964), "Extension of C∞ functions defined in a half space", Proc. Amer. Math. Soc., 15: 625–626, doi:10.1090/s0002-9939-1964-0165392-8
+Hörmander, Lars (1990), The analysis of linear partial differential operators. I. Distribution theory and Fourier analysis, Springer-Verlag, ISBN 3-540-00662-1
+Chazarain, Jacques; Piriou, Alain (1982), Introduction to the Theory of Linear Partial Differential Equations, Studies in Mathematics and Its Applications, vol. 14, Elsevier, ISBN 0444864520
+Ponnusamy, S.; Silverman, Herb (2006), Complex variables with applications, Birkhäuser, ISBN 0-8176-4457-1
+Fefferman, Charles (2005), "A sharp form of Whitney's extension theorem", Annals of Mathematics, 161 (1): 509–577, doi:10.4007/annals.2005.161.509, MR 2150391
+
+
+

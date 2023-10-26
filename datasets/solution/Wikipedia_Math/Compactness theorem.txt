@@ -1,0 +1,361 @@
+Theorem
+In mathematical logic, the compactness theorem states that a set of first-order sentences has a model if and only if every finite subset of it has a model. This theorem is an important tool in model theory, as it provides a useful (but generally not effective) method for constructing models of any set of sentences that is finitely consistent.
+The compactness theorem for the propositional calculus is a consequence of Tychonoff's theorem (which says that the product of compact spaces is compact) applied to compact Stone spaces,[1] hence the theorem's name. Likewise, it is analogous to the finite intersection property characterization of compactness in topological spaces: a collection of closed sets in a compact space has a non-empty intersection if every finite subcollection has a non-empty intersection.
+The compactness theorem is one of the two key properties, along with the downward Löwenheim–Skolem theorem, that is used in Lindström's theorem to characterize first-order logic. Although there are some generalizations of the compactness theorem to non-first-order logics, the compactness theorem itself does not hold in them, except for a very limited number of examples.[2]
+
+
+History[edit]
+Kurt Gödel proved the countable compactness theorem in 1930.  Anatoly Maltsev proved the uncountable case in 1936.[3][4]
+
+Applications[edit]
+The compactness theorem has many applications in model theory; a few typical results are sketched here.
+
+Robinson's principle[edit]
+The compactness theorem implies the following result, stated by Abraham Robinson in his 1949 dissertation. 
+Robinson's principle:[5][6] If a first-order sentence holds in every field of characteristic zero, then there exists a constant p such that the sentence holds for every field of characteristic larger than p.. This can be seen as follows: suppose φφ is a sentence that holds in every field of characteristic zero. Then its negation ¬φ,¬φ, together with the field axioms and the infinite sequence of sentences 
+1+1≠0,1+1+1≠0,…1+1≠0,  1+1+1≠0, …
+is not satisfiable (because there is no field of characteristic 0 in which ¬φ¬φ holds, and the infinite sequence of sentences ensures any model would be a field of characteristic 0). Therefore, there is a finite subset A of these sentences that is not satisfiable. A must contain ¬φ¬φ because otherwise it would be satisfiable. Because adding more sentences to A does not change unsatisfiability, we can assume that A contains the field axioms and, for some k,, the first k sentences of the form 1+1+⋯+1≠0.1+1+⋯+1≠0. Let B contain all the sentences of A except ¬φ.¬φ. Then any field with a characteristic greater than k is a model of B,, and ¬φ¬φ together with B is not satisfiable. This means that φφ must hold in every model of B,, which means precisely that φφ holds in every field of characteristic greater than k.. This completes the proof. 
+The Lefschetz principle, one of the first examples of a transfer principle, extends this result. A first-order sentence φφ in the language of rings is true in some (or equivalently, in every) algebraically closed field of characteristic 0 (such as the complex numbers for instance) if and only if there exist infinitely many primes p for which φφ is true in some algebraically closed field of characteristic p,, in which case φφ is true in all algebraically closed fields of sufficiently large non-0 characteristic p..[5] 
+One consequence is the following special case of the Ax–Grothendieck theorem: all injective complex polynomials Cn→Cnℂ^n→ℂ^n are surjective[5] (indeed, it can even be shown that its inverse will also be a polynomial).[7] In fact, the surjectivity conclusion remains true for any injective polynomial Fn→Fn^n^n where F is a finite field or the algebraic closure of such a field.[7]
+
+Upward Löwenheim–Skolem theorem[edit]
+A second application of the compactness theorem shows that any theory that has arbitrarily large finite models, or a single infinite model, has models of arbitrary large cardinality (this is the Upward Löwenheim–Skolem theorem). So for instance, there are nonstandard models of Peano arithmetic with uncountably many 'natural numbers'.  To achieve this, let T be the initial theory and let κκ be any cardinal number. Add to the language of T one constant symbol for every element of κ.κ. Then add to T a collection of sentences that say that the objects denoted by any two distinct constant symbols from the new collection are distinct (this is a collection of κ2κ^2 sentences). Since every finite subset of this new theory is satisfiable by a sufficiently large finite model of T,, or by any infinite model, the entire extended theory is satisfiable. But any model of the extended theory has cardinality at least κκ.
+
+Non-standard analysis[edit]
+A third application of the compactness theorem is the construction of nonstandard models of the real numbers, that is, consistent extensions of the theory of the real numbers that contain "infinitesimal" numbers.  To see this, let ΣΣ be a first-order axiomatization of the theory of the real numbers.  Consider the theory obtained by adding a new constant symbol εε to the language and adjoining to ΣΣ the axiom ε>0ε>0 and the axioms ε<1nε<1n for all positive integers n..  Clearly, the standard real numbers Rℝ are a model for every finite subset of these axioms, because the real numbers satisfy everything in ΣΣ and, by suitable choice of ε,ε, can be made to satisfy any finite subset of the axioms about ε.ε.  By the compactness theorem, there is a model ∗R^*ℝ that satisfies ΣΣ and also contains an infinitesimal element ε.ε.
+A similar argument, this time adjoining the axioms ω>0,ω>1,…,ω>0, ω>1,…, etc., shows that the existence of numbers with infinitely large magnitudes cannot be ruled out by any axiomatization ΣΣ of the reals.[8]
+It can be shown that the hyperreal numbers ∗R^*ℝ satisfy the transfer principle:[9] a first-order sentence is true of Rℝ if and only if it is true of ∗R.^*ℝ.
+
+Proofs[edit]
+One can prove the compactness theorem using Gödel's completeness theorem, which establishes that a set of sentences is satisfiable if and only if no contradiction can be proven from it.  Since proofs are always finite and therefore involve only finitely many of the given sentences, the compactness theorem follows.  In fact, the compactness theorem is equivalent to Gödel's completeness theorem, and both are equivalent to the Boolean prime ideal theorem, a weak form of the axiom of choice.[10]
+Gödel originally proved the compactness theorem in just this way, but later some "purely semantic" proofs of the compactness theorem were found; that is, proofs that refer to truth but not to provability.  One of those proofs relies on ultraproducts hinging on the axiom of choice as follows:
+Proof: 
+Fix a first-order language L,, and let ΣΣ  be a collection of L-sentences such that every finite subcollection of L-sentences, i⊆Σ⊆Σ of it has a model Mi.ℳ_i.  Also let ∏i⊆ΣMi∏_i⊆Σℳ_i be the direct product of the structures and I be the collection of finite subsets of Σ.Σ. For each i∈I,, let Ai=j∈I:j⊇i._i={j:j}. 
+The family of all of these sets Ai_i generates a proper filter, so there is an ultrafilter U containing all sets of the form Ai._i.
+Now for any formula φφ in Σ:Σ:
+
+the set Aφ_{φ} is in U
+whenever j∈Aφ,_{φ}, then φ∈j,φ, hence φφ holds in Mjℳ_j
+the set of all j with the property that φφ holds in  Mjℳ_j is a superset of Aφ,_{φ}, hence also in U
+Łoś's theorem now implies that φφ holds in the ultraproduct ∏i⊆ΣMi/U.∏_i⊆Σℳ_i/U.  So this ultraproduct satisfies all formulas in Σ.Σ.
+
+See also[edit]
+Barwise compactness theorem
+Herbrand's theorem – reduction of first-order mathematical logic to propositional logicPages displaying wikidata descriptions as a fallback
+List of Boolean algebra topics
+Löwenheim–Skolem theorem – Existence and cardinality of models of logical theories
+Notes[edit]
+
+
+^ See Truss (1997).
+
+^ J. Barwise, S. Feferman, eds., Model-Theoretic Logics (New York: Springer-Verlag, 1985) [1], in particular, Makowsky, J. A. Chapter XVIII: Compactness, Embeddings and Definability. 645--716, see Theorems 4.5.9, 4.6.12 and Proposition 4.6.9. For compact logics for an extended notion of model see Ziegler, M. Chapter XV: Topological Model Theory. 557--577. For logics without the relativization property it is possible to have simultaneously compactness and interpolation, while the problem is still open for logics with relativization. See Xavier Caicedo, A Simple Solution to Friedman's Fourth Problem, J. Symbolic Logic, Volume 51, Issue 3 (1986), 778-784.doi:10.2307/2274031 JSTOR 2274031
+
+^ Vaught, Robert L.: "Alfred Tarski's work in model theory". Journal of Symbolic Logic 51 (1986), no. 4, 869–882
+
+^ Robinson, A.: Non-standard analysis. North-Holland Publishing Co., Amsterdam 1966. page 48.
+
+^ a b c Marker 2002, pp. 40–43.
+
+^ Gowers, Barrow-Green & Leader 2008, pp. 639–643.
+
+^ a b Terence, Tao (7 March 2009). "Infinite fields, finite fields, and the Ax-Grothendieck theorem".
+
+^ Goldblatt 1998, pp. 10–11.
+
+^ Goldblatt 1998, p. 11.
+
+^ See Hodges (1993).
+
+
+References[edit]
+Boolos, George; Jeffrey, Richard; Burgess, John (2004). Computability and Logic (fourth ed.). Cambridge University Press.
+Chang, C.C.; Keisler, H. Jerome (1989). Model Theory (third ed.). Elsevier. ISBN 0-7204-0692-7.
+Dawson, John W. junior (1993). "The compactness of first-order logic: From Gödel to Lindström". History and Philosophy of Logic. 14: 15–37. doi:10.1080/01445349308837208.
+Hodges, Wilfrid (1993). Model theory. Cambridge University Press. ISBN 0-521-30442-3.
+Goldblatt, Robert (1998). Lectures on the Hyperreals. New York: Springer Verlag. ISBN 0-387-98464-X.
+Gowers, Timothy; Barrow-Green, June; Leader, Imre (2008). The Princeton Companion to Mathematics. Princeton: Princeton University Press. pp. 635–646. ISBN 978-1-4008-3039-8. OCLC 659590835.
+Marker, David (2002). Model Theory: An Introduction. Graduate Texts in Mathematics. Vol. 217. Springer. ISBN 978-0-387-98760-6. OCLC 49326991.
+Robinson, J. A. (1965). "A Machine-Oriented Logic Based on the Resolution Principle". Journal of the ACM. Association for Computing Machinery (ACM). 12 (1): 23–41. doi:10.1145/321250.321253. ISSN 0004-5411. S2CID 14389185.
+Truss, John K. (1997). Foundations of Mathematical Analysis. Oxford University Press. ISBN 0-19-853375-6.
+External links[edit]
+Compactness Theorem, Internet Encyclopedia of Philosophy.
+vteMathematical logicGeneral
+Axiom
+list
+Cardinality
+First-order logic
+Formal proof
+Formal semantics
+Foundations of mathematics
+Information theory
+Lemma
+Logical consequence
+Model
+Theorem
+Theory
+Type theory
+Theorems (list) & Paradoxes
+Gödel's completeness and incompleteness theorems
+Tarski's undefinability
+Banach–Tarski paradox
+Cantor's theorem, paradox and diagonal argument
+Compactness
+Halting problem
+Lindström's
+Löwenheim–Skolem
+Russell's paradox
+LogicsTraditional
+Classical logic
+Logical truth
+Tautology
+Proposition
+Inference
+Logical equivalence
+Consistency
+Equiconsistency
+Argument
+Soundness
+Validity
+Syllogism
+Square of opposition
+Venn diagram
+Propositional
+Boolean algebra
+Boolean functions
+Logical connectives
+Propositional calculus
+Propositional formula
+Truth tables
+Many-valued logic
+3
+Finite
+∞
+Predicate
+First-order
+list
+Second-order
+Monadic
+Higher-order
+Free
+Quantifiers
+Predicate
+Monadic predicate calculus
+Set theory
+Set
+Hereditary
+Class
+(Ur-)Element
+Ordinal number
+Extensionality
+Forcing
+Relation
+Equivalence
+Partition
+Set operations:
+Intersection
+Union
+Complement
+Cartesian product
+Power set
+Identities
+Types of Sets
+Countable
+Uncountable
+Empty
+Inhabited
+Singleton
+Finite
+Infinite
+Transitive
+Ultrafilter
+Recursive
+Fuzzy
+Universal
+Universe
+Constructible
+Grothendieck
+Von Neumann
+Maps & Cardinality
+Function/Map
+Domain
+Codomain
+Image
+In/Sur/Bi-jection
+Schröder–Bernstein theorem
+Isomorphism
+Gödel numbering
+Enumeration
+Large cardinal
+Inaccessible
+Aleph number
+Operation
+Binary
+Set theories
+Zermelo–Fraenkel
+Axiom of choice
+Continuum hypothesis
+General
+Kripke–Platek
+Morse–Kelley
+Naive
+New Foundations
+Tarski–Grothendieck
+Von Neumann–Bernays–Gödel
+Ackermann
+Constructive
+Formal systems (list),Language & Syntax
+Alphabet
+Arity
+Automata
+Axiom schema
+Expression
+Ground
+Extension
+by definition
+Conservative
+Relation
+Formation rule
+Grammar
+Formula
+Atomic
+Closed
+Ground
+Open
+Free/bound variable
+Language
+Metalanguage
+Logical connective
+¬
+∨
+∧
+→
+↔
+=
+Predicate
+Functional
+Variable
+Propositional variable
+Proof
+Quantifier
+∃
+!
+∀
+rank
+Sentence
+Atomic
+Spectrum
+Signature
+String
+Substitution
+Symbol
+Function
+Logical/Constant
+Non-logical
+Variable
+Term
+Theory
+list
+Example axiomaticsystems (list)
+of arithmetic:
+Peano
+second-order
+elementary function
+primitive recursive
+Robinson
+Skolem
+of the real numbers
+Tarski's axiomatization
+of Boolean algebras
+canonical
+minimal axioms
+of geometry:
+Euclidean:
+Elements
+Hilbert's
+Tarski's
+non-Euclidean
+Principia Mathematica
+Proof theory
+Formal proof
+Natural deduction
+Logical consequence
+Rule of inference
+Sequent calculus
+Theorem
+Systems
+Axiomatic
+Deductive
+Hilbert
+list
+Complete theory
+Independence (from ZFC)
+Proof of impossibility
+Ordinal analysis
+Reverse mathematics
+Self-verifying theories
+Model theory
+Interpretation
+Function
+of models
+Model
+Equivalence
+Finite
+Saturated
+Spectrum
+Submodel
+Non-standard model
+of arithmetic
+Diagram
+Elementary
+Categorical theory
+Model complete theory
+Satisfiability
+Semantics of logic
+Strength
+Theories of truth
+Semantic
+Tarski's
+Kripke's
+T-schema
+Transfer principle
+Truth predicate
+Truth value
+Type
+Ultraproduct
+Validity
+Computability theory
+Church encoding
+Church–Turing thesis
+Computably enumerable
+Computable function
+Computable set
+Decision problem
+Decidable
+Undecidable
+P
+NP
+P versus NP problem
+Kolmogorov complexity
+Lambda calculus
+Primitive recursive function
+Recursion
+Recursive set
+Turing machine
+Type theory
+Related
+Abstract logic
+Category theory
+Concrete/Abstract Category
+Category of sets
+History of logic
+History of mathematical logic
+timeline
+Logicism
+Mathematical object
+Philosophy of mathematics
+Supertask
+ Mathematics portal
+
+
+

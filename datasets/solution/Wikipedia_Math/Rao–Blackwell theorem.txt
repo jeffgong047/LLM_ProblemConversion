@@ -1,0 +1,424 @@
+Statistical theorem
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Rao–Blackwell theorem" – news · newspapers · books · scholar · JSTOR (May 2014) (Learn how and when to remove this template message)
+In statistics, the Rao–Blackwell theorem, sometimes referred to as the Rao–Blackwell–Kolmogorov theorem, is a result which characterizes the transformation of an arbitrarily crude estimator into an estimator that is optimal by the mean-squared-error criterion or any of a variety of similar criteria.
+The Rao–Blackwell theorem states that if g(X) is any kind of estimator of a parameter θ, then the conditional expectation of g(X) given T(X), where T is a sufficient statistic, is typically a better estimator of θ, and is never worse. Sometimes one can very easily construct a very crude estimator g(X), and then evaluate that conditional expected value to get an estimator that is in various senses optimal.
+The theorem is named after C.R. Rao and David Blackwell.  The process of transforming an estimator using the Rao–Blackwell theorem can be referred to as Rao–Blackwellization. The transformed estimator is called the Rao–Blackwell estimator.[1][2][3]
+
+
+Definitions[edit]
+An estimator δ(X) is an observable random variable (i.e. a statistic) used for estimating some unobservable quantity. For example, one may be unable to observe the average height of all male students at the University of X, but one may observe the heights of a random sample of 40 of them.  The average height of those 40—the "sample average"—may be used as an estimator of the unobservable "population average".
+A sufficient statistic T(X) is a statistic calculated from data X to estimate some parameter θ for which no other statistic which can be calculated from data X provides any additional information about θ. It is defined as an observable random variable such that the conditional probability distribution of all observable data X given T(X) does not depend on the unobservable parameter θ, such as the mean or standard deviation of the whole population from which the data X was taken. In the most frequently cited examples, the "unobservable" quantities are parameters that parametrize a known family of probability distributions according to which the data are distributed.
+In other words, a sufficient statistic T(X) for a parameter θ is a statistic such that the conditional probability of the data X, given T(X), does not depend on the parameter θ.
+A Rao–Blackwell estimator δ1(X) of an unobservable quantity θ is the conditional expected value E(δ(X) | T(X)) of some estimator δ(X) given a sufficient statistic T(X).  Call δ(X) the "original estimator" and δ1(X) the "improved estimator".  It is important that the improved estimator be observable, i.e. that it does not depend on θ.  Generally, the conditional expected value of one function of these data given another function of these data does depend on θ, but the very definition of sufficiency given above entails that this one does not.
+The mean squared error of an estimator is the expected value of the square of its deviation from the unobservable quantity being estimated of θ.
+The theorem[edit]
+Mean-squared-error version[edit]
+One case of Rao–Blackwell theorem states:
+
+The mean squared error of the Rao–Blackwell estimator does not exceed that of the original estimator.
+In other words,
+
+E⁡((δ1(X)−θ)2)≤E⁡((δ(X)−θ)2).E((δ_1(X)-θ)^2)≤E((δ(X)-θ)^2).
+The essential tools of the proof besides the definition above are the law of total expectation and the fact that for any random variable Y, E(Y2) cannot be less than [E(Y)]2.  That inequality is a case of Jensen's inequality, although it may also be shown to follow instantly from the frequently mentioned fact that
+
+0≤Var⁡(Y)=E⁡((Y−E⁡(Y))2)=E⁡(Y2)−(E⁡(Y))2.0≤Var(Y)=E((Y-E(Y))^2)=E(Y^2)-(E(Y))^2.
+More precisely, the mean square error of the Rao-Blackwell estimator has the following decomposition[4]
+
+E⁡[(δ1(X)−θ)2]=E⁡[(δ(X)−θ)2]−E⁡[Var⁡(δ(X)∣T(X))]E[(δ_1(X)-θ)^2]=E[(δ(X)-θ)^2]-E[Var(δ(X)(X))]
+Since E⁡[Var⁡(δ(X)∣T(X))]≥0E[Var(δ(X)(X))]≥0, the Rao-Blackwell theorem immediately follows.
+
+Convex loss generalization[edit]
+The more general version of the Rao–Blackwell theorem speaks of the "expected loss" or risk function:
+
+E⁡(L(δ1(X)))≤E⁡(L(δ(X)))E(L(δ_1(X)))≤E(L(δ(X)))
+where the "loss function" L may be any convex function.  If the loss function is twice-differentiable, as in the case for mean-squared-error, then we have the sharper inequality[4]
+
+E⁡(L(δ(X)))−E⁡(L(δ1(X)))≥12ET⁡[infxL″(x)Var⁡(δ(X)∣T)].E(L(δ(X)))-E(L(δ_1(X)))≥1/2E_T[inf_xL”(x)Var(δ(X))].
+Properties[edit]
+The improved estimator is unbiased if and only if the original estimator is unbiased, as may be seen at once by using the law of total expectation.  The theorem holds regardless of whether biased or unbiased estimators are used.
+The theorem seems very weak: it says only that the Rao–Blackwell estimator is no worse than the original estimator.  In practice, however, the improvement is often enormous.[5]
+
+Example[edit]
+Phone calls arrive at a switchboard according to a Poisson process at an average rate of λ per minute.  This rate is not observable, but the numbers X1, ..., Xn of phone calls that arrived during n successive one-minute periods are observed.  It is desired to estimate the probability e−λ that the next one-minute period passes with no phone calls.
+An extremely crude estimator of the desired probability is
+
+δ0=1ifX1=0,0otherwise,δ_0={1   if_1=0,
+0   otherwise,.
+i.e., it estimates this probability to be 1 if no phone calls arrived in the first minute and zero otherwise.  Despite the apparent limitations of this estimator, the result given by its Rao–Blackwellization is a very good estimator.
+The sum
+
+Sn=∑i=1nXi=X1+⋯+Xn_n=∑_i=1^nX_i=X_1+⋯+X_n
+can be readily shown to be a sufficient statistic for λ, i.e., the conditional distribution of the data X1, ..., Xn, depends on λ only through this sum.  Therefore, we find the Rao–Blackwell estimator
+
+δ1=E⁡(δ0∣Sn=sn).δ_1=E(δ_0_n=s_n).
+After doing some algebra we have
+
+δ1=E⁡(1X1=0|∑i=1nXi=sn)=P(X1=0|∑i=1nXi=sn)=P(X1=0,∑i=2nXi=sn)×P(∑i=1nXi=sn)−1=e−λ((n−1)λ)sne−(n−1)λsn!×((nλ)sne−nλsn!)−1=((n−1)λ)sne−nλsn!×sn!(nλ)sne−nλ=(1−1n)snδ_1   =E(1_{X_1=0}|∑_i=1^nX_i=s_n)
+   =P(X_1=0|∑_i=1^nX_i=s_n)
+   =P(X_1=0,∑_i=2^nX_i=s_n)(∑_i=1^nX_i=s_n)^-1
+   =e^-λ((n-1)λ)^s_ne^-(n-1)λ/s_n!×((nλ)^s_ne^-nλ/s_n!)^-1
+   =((n-1)λ)^s_ne^-nλ/s_n!×s_n!/(nλ)^s_ne^-nλ
+   =(1-1/n)^s_n
+Since the average number of calls arriving during the first n minutes is nλ, one might not be surprised if this estimator has a fairly high probability (if n is big) of being close to
+
+(1−1n)nλ≈e−λ.(1-1)^nλ^-λ.
+So δ1 is clearly a very much improved estimator of that last quantity.  In fact, since Sn is complete and δ0 is unbiased, δ1 is the unique minimum variance unbiased estimator by the Lehmann–Scheffé theorem.
+
+Idempotence[edit]
+Rao–Blackwellization is an idempotent operation.  Using it to improve the already improved estimator does not obtain a further improvement, but merely returns as its output the same improved estimator.
+
+Completeness and Lehmann–Scheffé minimum variance[edit]
+If the conditioning statistic is both complete and sufficient, and the starting estimator is unbiased, then the Rao–Blackwell estimator is the unique "best unbiased estimator": see Lehmann–Scheffé theorem.
+An example of an improvable Rao–Blackwell improvement, when using a minimal sufficient statistic that is not complete, was provided by Galili and Meilijson in 2016.[6] Let X1,…,Xn_1,…,X_n be a random sample from a scale-uniform distribution X∼U((1−k)θ,(1+k)θ),((1-k)θ,(1+k)θ), with unknown mean E[X]=θ[X]=θ and known design parameter k∈(0,1)∈(0,1). In the search for "best" possible unbiased estimators for θ,θ, it is natural to consider X1_1 as an initial (crude) unbiased estimator for θθ and then try to improve it. Since X1_1 is not a function of T=(X(1),X(n))=(X_(1),X_(n)), the minimal sufficient statistic for θθ (where X(1)=min(Xi)_(1)=min(X_i) and X(n)=max(Xi)_(n)=max(X_i)), it may be improved using the Rao–Blackwell theorem as follows:
+
+θ^RB=Eθ[X1|X(1),X(n)]=X(1)+X(n)2.θ̂_RB=E_θ[X_1|X_(1),X_(n)]=X_(1)+X_(n)/2.
+However, the following unbiased estimator can be shown to have lower variance:
+
+θ^LV=12(k2n−1n+1+1)[(1−k)X(1)+(1+k)X(n)].θ̂_LV=1/2(k^2n-1/n+1+1)[(1-k)X_(1)+(1+k)X_(n)].
+And in fact, it could be even further improved when using the following estimator:
+
+θ^BAYES=n+1n[1−(X(1)1−k)(X(n)1+k)−1[(X(1)1−k)(X(n)1+k)]n+1−1]X(n)1+kθ̂_BAYES=n+1/n[1-(X_(1)/1-k)/(X_(n)/1+k)-1/[(X_(1)/1-k)/(X_(n)/1+k)]^n+1-1]X_(n)/1+k
+The model is a scale model. Optimal equivariant estimators can then be derived for loss functions that are invariant.[7]
+
+See also[edit]
+Basu's theorem — Another result on complete sufficient and ancillary statistics
+References[edit]
+
+
+^ Blackwell, D. (1947). "Conditional expectation and unbiased sequential estimation". Annals of Mathematical Statistics. 18 (1): 105–110. doi:10.1214/aoms/1177730497. MR 0019903. Zbl 0033.07603.
+
+^ Kolmogorov, A. N. (1950). "Unbiased estimates". Izvestiya Akad. Nauk SSSR. Ser. Mat. 14: 303–326. MR 0036479.
+
+^ Rao, C. Radhakrishna (1945). "Information and accuracy attainable in the estimation of statistical parameters". Bulletin of the Calcutta Mathematical Society. 37 (3): 81–91.
+
+^ a b J. G. Liao; A. Berg (22 June 2018). "Sharpening Jensen's Inequality". The American Statistician. 73 (3): 278–281. arXiv:1707.08644. doi:10.1080/00031305.2017.1419145. S2CID 88515366.
+
+^ Carpenter, Bob (January 20, 2020). "Rao-Blackwellization and discrete parameters in Stan". Statistical Modeling, Causal Inference, and Social Science. Retrieved September 13, 2021. The Rao-Blackwell theorem states that the marginalization approach has variance less than or equal to the direct approach. In practice, this difference can be enormous.
+
+^ Tal Galili; Isaac Meilijson (31 Mar 2016). "An Example of an Improvable Rao–Blackwell Improvement, Inefficient Maximum Likelihood Estimator, and Unbiased Generalized Bayes Estimator". The American Statistician. 70 (1): 108–113. doi:10.1080/00031305.2015.1100683. PMC 4960505. PMID 27499547.
+
+^ Taraldsen, Gunnar (2020). "Micha Mandel (2020), "The Scaled Uniform Model Revisited," The American Statistician, 74:1, 98–100: Comment". The American Statistician. 74 (3): 315. doi:10.1080/00031305.2020.1769727. ISSN 0003-1305. S2CID 219493070.
+
+
+External links[edit]
+Nikulin, M.S. (2001) [1994], "Rao–Blackwell–Kolmogorov theorem", Encyclopedia of Mathematics, EMS Press
+vteStatistics
+Outline
+Index
+Descriptive statisticsContinuous dataCenter
+Mean
+Arithmetic
+Arithmetic-Geometric
+Cubic
+Generalized/power
+Geometric
+Harmonic
+Heronian
+Heinz
+Lehmer
+Median
+Mode
+Dispersion
+Average absolute deviation
+Coefficient of variation
+Interquartile range
+Percentile
+Range
+Standard deviation
+Variance
+Shape
+Central limit theorem
+Moments
+Kurtosis
+L-moments
+Skewness
+Count data
+Index of dispersion
+Summary tables
+Contingency table
+Frequency distribution
+Grouped data
+Dependence
+Partial correlation
+Pearson product-moment correlation
+Rank correlation
+Kendall's τ
+Spearman's ρ
+Scatter plot
+Graphics
+Bar chart
+Biplot
+Box plot
+Control chart
+Correlogram
+Fan chart
+Forest plot
+Histogram
+Pie chart
+Q–Q plot
+Radar chart
+Run chart
+Scatter plot
+Stem-and-leaf display
+Violin plot
+Data collectionStudy design
+Effect size
+Missing data
+Optimal design
+Population
+Replication
+Sample size determination
+Statistic
+Statistical power
+Survey methodology
+Sampling
+Cluster
+Stratified
+Opinion poll
+Questionnaire
+Standard error
+Controlled experiments
+Blocking
+Factorial experiment
+Interaction
+Random assignment
+Randomized controlled trial
+Randomized experiment
+Scientific control
+Adaptive designs
+Adaptive clinical trial
+Stochastic approximation
+Up-and-down designs
+Observational studies
+Cohort study
+Cross-sectional study
+Natural experiment
+Quasi-experiment
+Statistical inferenceStatistical theory
+Population
+Statistic
+Probability distribution
+Sampling distribution
+Order statistic
+Empirical distribution
+Density estimation
+Statistical model
+Model specification
+Lp space
+Parameter
+location
+scale
+shape
+Parametric family
+Likelihood (monotone)
+Location–scale family
+Exponential family
+Completeness
+Sufficiency
+Statistical functional
+Bootstrap
+U
+V
+Optimal decision
+loss function
+Efficiency
+Statistical distance
+divergence
+Asymptotics
+Robustness
+Frequentist inferencePoint estimation
+Estimating equations
+Maximum likelihood
+Method of moments
+M-estimator
+Minimum distance
+Unbiased estimators
+Mean-unbiased minimum-variance
+Rao–Blackwellization
+Lehmann–Scheffé theorem
+Median unbiased
+Plug-in
+Interval estimation
+Confidence interval
+Pivot
+Likelihood interval
+Prediction interval
+Tolerance interval
+Resampling
+Bootstrap
+Jackknife
+Testing hypotheses
+1- & 2-tails
+Power
+Uniformly most powerful test
+Permutation test
+Randomization test
+Multiple comparisons
+Parametric tests
+Likelihood-ratio
+Score/Lagrange multiplier
+Wald
+Specific tests
+Z-test (normal)
+Student's t-test
+F-test
+Goodness of fit
+Chi-squared
+G-test
+Kolmogorov–Smirnov
+Anderson–Darling
+Lilliefors
+Jarque–Bera
+Normality (Shapiro–Wilk)
+Likelihood-ratio test
+Model selection
+Cross validation
+AIC
+BIC
+Rank statistics
+Sign
+Sample median
+Signed rank (Wilcoxon)
+Hodges–Lehmann estimator
+Rank sum (Mann–Whitney)
+Nonparametric anova
+1-way (Kruskal–Wallis)
+2-way (Friedman)
+Ordered alternative (Jonckheere–Terpstra)
+Van der Waerden test
+Bayesian inference
+Bayesian probability
+prior
+posterior
+Credible interval
+Bayes factor
+Bayesian estimator
+Maximum posterior estimator
+CorrelationRegression analysisCorrelation
+Pearson product-moment
+Partial correlation
+Confounding variable
+Coefficient of determination
+Regression analysis
+Errors and residuals
+Regression validation
+Mixed effects models
+Simultaneous equations models
+Multivariate adaptive regression splines (MARS)
+Linear regression
+Simple linear regression
+Ordinary least squares
+General linear model
+Bayesian regression
+Non-standard predictors
+Nonlinear regression
+Nonparametric
+Semiparametric
+Isotonic
+Robust
+Heteroscedasticity
+Homoscedasticity
+Generalized linear model
+Exponential families
+Logistic (Bernoulli) / Binomial / Poisson regressions
+Partition of variance
+Analysis of variance (ANOVA, anova)
+Analysis of covariance
+Multivariate ANOVA
+Degrees of freedom
+Categorical / Multivariate / Time-series / Survival analysisCategorical
+Cohen's kappa
+Contingency table
+Graphical model
+Log-linear model
+McNemar's test
+Cochran–Mantel–Haenszel statistics
+Multivariate
+Regression
+Manova
+Principal components
+Canonical correlation
+Discriminant analysis
+Cluster analysis
+Classification
+Structural equation model
+Factor analysis
+Multivariate distributions
+Elliptical distributions
+Normal
+Time-seriesGeneral
+Decomposition
+Trend
+Stationarity
+Seasonal adjustment
+Exponential smoothing
+Cointegration
+Structural break
+Granger causality
+Specific tests
+Dickey–Fuller
+Johansen
+Q-statistic (Ljung–Box)
+Durbin–Watson
+Breusch–Godfrey
+Time domain
+Autocorrelation (ACF)
+partial (PACF)
+Cross-correlation (XCF)
+ARMA model
+ARIMA model (Box–Jenkins)
+Autoregressive conditional heteroskedasticity (ARCH)
+Vector autoregression (VAR)
+Frequency domain
+Spectral density estimation
+Fourier analysis
+Least-squares spectral analysis
+Wavelet
+Whittle likelihood
+SurvivalSurvival function
+Kaplan–Meier estimator (product limit)
+Proportional hazards models
+Accelerated failure time (AFT) model
+First hitting time
+Hazard function
+Nelson–Aalen estimator
+Test
+Log-rank test
+ApplicationsBiostatistics
+Bioinformatics
+Clinical trials / studies
+Epidemiology
+Medical statistics
+Engineering statistics
+Chemometrics
+Methods engineering
+Probabilistic design
+Process / quality control
+Reliability
+System identification
+Social statistics
+Actuarial science
+Census
+Crime statistics
+Demography
+Econometrics
+Jurimetrics
+National accounts
+Official statistics
+Population statistics
+Psychometrics
+Spatial statistics
+Cartography
+Environmental statistics
+Geographic information system
+Geostatistics
+Kriging
+
+Category
+ Mathematics portal
+Commons
+ WikiProject
+
+
+
+

@@ -1,0 +1,362 @@
+Theorems on the convergence of bounded monotonic sequences
+In the mathematical field of real analysis, the monotone convergence theorem is any of a number of related theorems proving the convergence of monotonic sequences (sequences that are non-decreasing or non-increasing) that are also bounded. Informally, the theorems state that if a sequence is increasing and bounded above by a supremum, then the sequence will converge to the supremum; in the same way, if a sequence is decreasing and is bounded below by an infimum, it will converge to the infimum.
+
+
+Convergence of a monotone sequence of real numbers[edit]
+Lemma 1[edit]
+If a sequence of real numbers is increasing and bounded above, then its supremum is the limit.
+
+Proof[edit]
+Let (an)n∈N(a_n)_n∈ℕ be such a sequence, and let an{a_n} be the set of terms of (an)n∈N(a_n)_n∈ℕ. By assumption, an{a_n} is non-empty and bounded above. By the least-upper-bound property of real numbers, c=supnan=sup_n{a_n} exists and is finite. Now, for every ε>0ε>0, there exists N such that aN>c−ε_N>c-ε, since otherwise c−ε-ε is an upper bound of an{a_n}, which contradicts the definition of c. Then since (an)n∈N(a_n)_n∈ℕ is increasing, and c is its upper bound, for every n>N>N, we have |c−an|≤|c−aN|<ε|c-a_n|≤|c-a_N|<ε. Hence, by definition, the limit of (an)n∈N(a_n)_n∈ℕ is supnan.sup_n{a_n}.
+
+Lemma 2[edit]
+If a sequence of real numbers is decreasing and bounded below, then its infimum is the limit.
+
+Proof[edit]
+The proof is similar to the proof for the case when the sequence is increasing and bounded above.
+
+Theorem[edit]
+If (an)n∈N(a_n)_n∈ℕ is a monotone sequence of real numbers (i.e., if an ≤ an+1 for every n ≥ 1 or an ≥ an+1 for every n ≥ 1), then this sequence has a finite limit if and only if the sequence is bounded.[1]
+
+Proof[edit]
+"If"-direction: The proof follows directly from the lemmas.
+"Only If"-direction: By (ε, δ)-definition of limit, every sequence (an)n∈N(a_n)_n∈ℕ with a finite limit L is necessarily bounded.
+Convergence of a monotone series[edit]
+Theorem[edit]
+If for all natural numbers j and k, aj,k is a non-negative real number and aj,k ≤ aj+1,k, then[2]: 168 
+
+limj→∞∑kaj,k=∑klimj→∞aj,k.lim_j→∞∑_ka_j,k=∑_klim_j→∞a_j,k.
+The theorem states that if you have an infinite matrix of non-negative real numbers such that
+
+the columns are weakly increasing and bounded, and
+for each row, the series whose terms are given by this row has a convergent sum,
+then the limit of the sums of the rows is equal to the sum of the series whose term k is given by the limit of column k (which is also its supremum). The series has a convergent sum if and only if the (weakly increasing) sequence of row sums is bounded and therefore convergent.
+As an example, consider the infinite series of rows
+
+(1+1n)n=∑k=0n(nk)1nk=∑k=0n1k!×nn×n−1n×⋯×n−k+1n,(1+1/n)^n=∑_k=0^nnk1/n^k=∑_k=0^n1/k!×n/n×n-1/n×⋯×n-k+1/n,
+where n approaches infinity (the limit of this series is e). Here the matrix entry in row n and column k is
+
+(nk)1nk=1k!×nn×n−1n×⋯×n−k+1n;nk1/n^k=1/k!×n/n×n-1/n×⋯×n-k+1/n;
+the columns (fixed k) are indeed weakly increasing with n and bounded (by 1/k!), while the rows only have finitely many nonzero terms, so condition 2 is satisfied; the theorem now says that you can compute the limit of the row sums (1+1/n)n(1+1/n)^n by taking the sum of the column limits, namely 1k!1/k!.
+
+Beppo Levi's lemma[edit]
+The following result is due to Beppo Levi, who proved a slight generalization in 1906 of an earlier result by Henri Lebesgue.[3] In what follows, BR≥0ℬ_ℝ_≥0 denotes the σσ-algebra of Borel sets on [0,+∞][0,+∞].  By definition, BR≥0ℬ_ℝ_≥0 contains the set +∞{+∞} and all Borel subsets of R≥0.ℝ_≥0.
+
+Theorem[edit]
+Let (Ω,Σ,μ)(Ω,Σ,μ) be a measure space, and X∈Σ∈Σ. Consider a pointwise non-decreasing sequence fkk=1∞{f_k}_k=1^∞ of (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable non-negative functions fk:X→[0,+∞]_k:X→[0,+∞], i.e., for every k≥1k≥1 and every x∈Xx,
+
+0≤fk(x)≤fk+1(x)≤∞.0_k(x)_k+1(x)≤∞.
+Set the pointwise limit of the sequence fn{f_n} to be f. That is, for every  x∈X,
+
+f(x):=limk→∞fk(x).(x):=lim_k→∞f_k(x).
+Then f is (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable and
+
+limk→∞∫Xfkdμ=∫Xfdμ.lim_k→∞∫_Xf_k dμ=∫_Xf dμ.
+Remark 1. The integrals may be finite or infinite.
+Remark 2. The theorem remains true if its assumptions hold μμ-almost everywhere. In other words, it is enough that there is a null set N such that the sequence fn(x){f_n(x)} non-decreases for every x∈X∖N.x. To see why this is true, we start with an observation that allowing the sequence fn{f_n} to pointwise non-decrease almost everywhere causes its pointwise limit f to be undefined on some null set N. On that null set, f may then be defined arbitrarily, e.g. as zero, or in any other way that preserves measurability. To see why this will not affect the outcome of the theorem, note that since μ(N)=0,μ(N)=0, we have, for every k,,
+
+∫Xfkdμ=∫X∖Nfkdμ∫_Xf_k dμ=∫_Xf_k dμ and ∫Xfdμ=∫X∖Nfdμ,∫_Xf dμ=∫_Xf dμ,
+provided that f is (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable.[4]: section 21.38  (These equalities follow directly from the definition of Lebesgue integral for a non-negative function).
+Remark 3. Under assumptions of the theorem,
+
+f(x)=liminfkfk(x)=limsupkfk(x)=supkfk(x)(x)=lim inf_kf_k(x)=lim sup_kf_k(x)=sup_kf_k(x)liminfk∫Xfkdμ=limsupk∫Xfkdμ=limk∫Xfkdμ=supk∫Xfkdμlim inf_k∫_Xf_k dμ=lim sup_k∫_Xf_k dμ=lim_k∫_Xf_k dμ=sup_k∫_Xf_k dμ
+(Note that the second chain of equalities follows from Remark 5).
+Remark 4. The proof below does not use any properties of Lebesgue integral except those established here. The theorem, thus, can be used to prove other basic properties, such as linearity, pertaining to Lebesgue integration.
+Remark 5 (monotonicity of Lebesgue integral). In the proof below, we apply the monotonic property of Lebesgue integral to non-negative functions only. Specifically (see Remark 4), let the functions f,g:X→[0,+∞],g:X→[0,+∞] be (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable.
+
+If f≤g everywhere on X,, then
+∫Xfdμ≤∫Xgdμ.∫_Xf dμ≤∫_Xg dμ.
+If X1,X2∈Σ_1,X_2∈Σ and X1⊆X2,_1_2, then
+∫X1fdμ≤∫X2fdμ.∫_X_1f dμ≤∫_X_2f dμ.
+Proof. Denote SF⁡(h)SF(h) the set of simple (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable functions s:X→[0,∞):X→[0,∞) such that
+0≤s≤h0 everywhere on X..
+1. Since f≤g,, we have
+
+SF⁡(f)⊆SF⁡(g).SF(f)⊆SF(g).
+By definition of Lebesgue integral and the properties of supremum,
+
+∫Xfdμ=sups∈SF(f)∫Xsdμ≤sups∈SF(g)∫Xsdμ=∫Xgdμ.∫_Xf dμ=sup_s∈SF(f)∫_Xs dμ≤sup_s∈SF(g)∫_Xs dμ=∫_Xg dμ.
+2. Let 1X11_X_1 be the indicator function of the set X1._1. It can be deduced from the definition of Lebesgue integral that
+
+∫X2f⋅1X1dμ=∫X1fdμ∫_X_2f·1_X_1 dμ=∫_X_1f dμ
+if we notice that, for every s∈SF(f⋅1X1),∈SF(f·1_X_1), s=0=0 outside of X1._1. Combined with the previous property, the inequality f⋅1X1≤f·1_X_1 implies
+
+∫X1fdμ=∫X2f⋅1X1dμ≤∫X2fdμ.∫_X_1f dμ=∫_X_2f·1_X_1 dμ≤∫_X_2f dμ.
+Proof[edit]
+This proof does not rely on Fatou's lemma; however, we do explain how that lemma might be used. Those not interested in this independency of the proof may skip the intermediate results below.
+
+Intermediate results[edit]
+Lebesgue integral as measure[edit]
+Lemma 1. Let (Ω,Σ,μ)(Ω,Σ,μ) be a measurable space. Consider a simple (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable non-negative function s:Ω→R≥0:Ω→ℝ_≥0. For a subset S⊆Ω⊆Ω, define
+
+ν(S)=∫Ssdμ.ν(S)=∫_Ss dμ.
+Then νν is a measure on ΩΩ.
+
+Proof[edit]
+Monotonicity follows from Remark 5. Here, we will only prove countable additivity, leaving the rest up to the reader. Let S=⋃i=1∞Si=⋃_i=1^∞S_i, where all the sets Si_i are pairwise disjoint. Due to simplicity,
+
+s=∑i=1nci⋅1Ai,=∑_i=1^nc_i·1_A_i,
+for some finite non-negative constants ci∈R≥0_i∈ℝ_≥0 and pairwise disjoint sets Ai∈Σ_i∈Σ such that ⋃i=1nAi=Ω⋃_i=1^nA_i=Ω. By definition of Lebesgue integral,
+
+ν(S)=∑i=1nci⋅μ(S∩Ai)=∑i=1nci⋅μ((⋃j=1∞Sj)∩Ai)=∑i=1nci⋅μ(⋃j=1∞(Sj∩Ai))ν(S)   =∑_i=1^nc_i·μ(S_i)
+   =∑_i=1^nc_i·μ((⋃_j=1^∞S_j)_i)
+   =∑_i=1^nc_i·μ(⋃_j=1^∞(S_j_i))
+Since all the sets Sj∩Ai_j_i are pairwise disjoint, the countable additivity of μμ
+gives us
+
+∑i=1nci⋅μ(⋃j=1∞(Sj∩Ai))=∑i=1nci⋅∑j=1∞μ(Sj∩Ai).∑_i=1^nc_i·μ(⋃_j=1^∞(S_j_i))=∑_i=1^nc_i·∑_j=1^∞μ(S_j_i).
+Since all the summands are non-negative, the sum of the series, whether this sum is finite or infinite, cannot change if summation order does. For that reason,
+
+∑i=1nci⋅∑j=1∞μ(Sj∩Ai)=∑j=1∞∑i=1nci⋅μ(Sj∩Ai)=∑j=1∞∫Sjsdμ=∑j=1∞ν(Sj),∑_i=1^nc_i·∑_j=1^∞μ(S_j_i)   =∑_j=1^∞∑_i=1^nc_i·μ(S_j_i)
+   =∑_j=1^∞∫_S_js dμ
+   =∑_j=1^∞ν(S_j),
+as required.
+
+"Continuity from below"[edit]
+The following property is a direct consequence of the definition of measure.
+Lemma 2. Let μμ be a measure, and S=⋃i=1∞Si=⋃_i=1^∞S_i, where
+
+S1⊆⋯⊆Si⊆Si+1⊆⋯⊆S_1⊆⋯_i_i+1⊆⋯
+is a non-decreasing chain with all its sets μμ-measurable. Then
+
+μ(S)=limiμ(Si).μ(S)=lim_iμ(S_i).
+Proof of theorem[edit]
+Step 1. We begin by showing that f is (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)–measurable.[4]: section 21.3 
+Note. If we were using Fatou's lemma, the measurability would follow easily from Remark 3(a).
+To do this without using Fatou's lemma, it is sufficient to show that the inverse image of an interval [0,t][0,t] under f is an element of the sigma-algebra ΣΣ on X, because (closed) intervals generate the Borel sigma algebra on the reals. Since [0,t][0,t] is a closed interval, and, for every k, 0≤fk(x)≤f(x)0_k(x)(x),
+
+0≤f(x)≤t⇔[∀k0≤fk(x)≤t].0(x)  ⇔  [  0_k(x)].
+Thus,
+
+x∈X∣0≤f(x)≤t=⋂kx∈X∣0≤fk(x)≤t.{x|0(x)}=⋂_k{x|0_k(x)}.
+Being the inverse image of a Borel set under a (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable function fk_k, each set in the countable intersection is an element of ΣΣ. Since σσ-algebras are, by definition, closed under countable intersections, this shows that f is (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable, and the integral ∫Xfdμ∫_Xf dμ is well defined (and possibly infinite).
+Step 2. We will first show that ∫Xfdμ≥limk∫Xfkdμ.∫_Xf dμ≥lim_k∫_Xf_k dμ.
+The definition of f and monotonicity of fk{f_k} imply that f(x)≥fk(x)(x)_k(x), for every k and every x∈X. By monotonicity (or, more precisely, its narrower version established in Remark 5; see also Remark 4) of Lebesgue integral,
+
+∫Xfdμ≥∫Xfkdμ,∫_Xf dμ≥∫_Xf_k dμ,
+and
+
+∫Xfdμ≥limk∫Xfkdμ.∫_Xf dμ≥lim_k∫_Xf_k dμ.
+Note that the limit on the right exists (finite or infinite) because, due to monotonicity (see Remark 5 and Remark 4), the sequence is non-decreasing.
+End of Step 2.
+We now prove the reverse inequality. We seek to show that
+
+∫Xfdμ≤limk∫Xfkdμ∫_Xf dμ≤lim_k∫_Xf_k dμ.
+Proof using Fatou's lemma. Per Remark 3, the inequality we want to prove is equivalent to
+
+∫Xliminfkfk(x)dμ≤liminfk∫Xfkdμ.∫_Xlim inf_kf_k(x) dμ≤lim inf_k∫_Xf_k dμ.
+But the latter follows immediately from Fatou's lemma, and the proof is complete.
+Independent proof. To prove the inequality without using Fatou's lemma, we need some extra machinery. Denote SF⁡(f)SF(f) the set of simple (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable functions s:X→[0,∞):X→[0,∞) such that
+0≤s≤f0 on X.
+Step 3. Given a simple function s∈SF⁡(f)∈SF(f) and a real number t∈(0,1)∈(0,1), define
+
+Bks,t=x∈X∣t⋅s(x)≤fk(x)⊆X._k^s,t={x⋯(x)_k(x)}.
+Then Bks,t∈Σ_k^s,t∈Σ, Bks,t⊆Bk+1s,t_k^s,t_k+1^s,t, and X=⋃kBks,t=⋃_kB_k^s,t.
+Step 3a. To prove the first claim, let s=∑i=1mci⋅1Ai=∑_i=1^mc_i·1_A_i, for some finite collection of pairwise disjoint measurable sets Ai∈Σ_i∈Σ such that X=∪i=1mAi=∪_i=1^mA_i, some (finite) non-negative constants ci∈R≥0_i∈ℝ_≥0, and 1Ai1_A_i denoting the indicator function of the set Ai_i.
+For every x∈Ai,_i, t⋅s(x)≤fk(x)⋯(x)_k(x) holds if and only if fk(x)∈[t⋅ci,+∞]._k(x)∈[t_i,+∞]. Given that the sets Ai_i are pairwise disjoint,
+
+Bks,t=⋃i=1m(fk−1([t⋅ci,+∞])∩Ai)._k^s,t=⋃_i=1^m(f_k^-1([t_i,+∞])_i).
+Since the pre-image fk−1([t⋅ci,+∞])_k^-1([t_i,+∞]) of the Borel set
+[t⋅ci,+∞][t_i,+∞] under the measurable function fk_k is measurable, and σσ-algebras, by definition, are closed under finite intersection and unions, the first claim follows.
+Step 3b. To prove the second claim, note that, for each k and every x∈X, fk(x)≤fk+1(x)._k(x)_k+1(x).
+Step 3c. To prove the third claim, we show that X⊆⋃kBks,t⊆⋃_kB_k^s,t.
+Indeed, if, to the contrary, X⊈⋃kBks,t⊈⋃_kB_k^s,t, then an element
+
+x0∈X∖⋃kBks,t=⋂k(X∖Bks,t)_0∖⋃_kB_k^s,t=⋂_k(X_k^s,t)
+exists such that fk(x0)<t⋅s(x0)_k(x_0)<t⋯(x_0), for every k. Taking the limit as k→∞→∞, we get
+
+f(x0)≤t⋅s(x0)<s(x0).(x_0)⋯(x_0)<s(x_0).
+But by initial assumption, s≤f. This is a contradiction.
+Step 4. For every simple (Σ,BR≥0)(Σ,ℬ_ℝ_≥0)-measurable non-negative function s2_2,
+
+limn∫Bns,ts2dμ=∫Xs2dμ.lim_n∫_B_n^s,ts_2 dμ=∫_Xs_2 dμ.
+To prove this, define ν(S)=∫Ss2dμν(S)=∫_Ss_2 dμ. By Lemma 1, ν(S)ν(S) is a measure on ΩΩ. By "continuity from below" (Lemma 2),
+
+limn∫Bns,ts2dμ=limnν(Bns,t)=ν(X)=∫Xs2dμ,lim_n∫_B_n^s,ts_2 dμ=lim_nν(B_n^s,t)=ν(X)=∫_Xs_2 dμ,
+as required.
+Step 5. We now prove that, for every s∈SF⁡(f)∈SF(f),
+
+∫Xsdμ≤limk∫Xfkdμ.∫_Xs dμ≤lim_k∫_Xf_k dμ.
+Indeed, using the definition of Bks,t_k^s,t, the non-negativity of fk_k, and the monotonicity of Lebesgue integral (see Remark 5 and Remark 4), we have
+
+∫Bks,tt⋅sdμ≤∫Bks,tfkdμ≤∫Xfkdμ,∫_B_k^s,tt⋯ dμ≤∫_B_k^s,tf_k dμ≤∫_Xf_k dμ,
+for every k≥1≥1. In accordance with Step 4, as k→∞→∞, the inequality becomes
+
+t∫Xsdμ≤limk∫Xfkdμ.∫_Xs dμ≤lim_k∫_Xf_k dμ.
+Taking the limit as t↑1↑1 yields
+
+∫Xsdμ≤limk∫Xfkdμ,∫_Xs dμ≤lim_k∫_Xf_k dμ,
+as required.
+Step 6. We are now able to prove the reverse inequality, i.e.
+
+∫Xfdμ≤limk∫Xfkdμ.∫_Xf dμ≤lim_k∫_Xf_k dμ.
+Indeed, by non-negativity, f+=f_+=f and f−=0._-=0. For the calculation below, the non-negativity of f is essential. Applying the definition of Lebesgue integral and the inequality established in Step 5, we have
+
+∫Xfdμ=sups∈SF⁡(f)∫Xsdμ≤limk∫Xfkdμ.∫_Xf dμ=sup_s∈SF(f)∫_Xs dμ≤lim_k∫_Xf_k dμ.
+The proof is complete.
+
+See also[edit]
+Infinite series
+Dominated convergence theorem
+Notes[edit]
+
+
+^ A generalisation of this theorem was given by Bibby, John (1974). "Axiomatisations of the average and a further generalisation of monotonic sequences". Glasgow Mathematical Journal. 15 (1): 63–65. doi:10.1017/S0017089500002135.
+
+^ See for instance Yeh, J. (2006). Real Analysis: Theory of Measure and Integration. Hackensack, NJ: World Scientific. ISBN 981-256-653-8.
+
+^ Schappacher, Norbert; Schoof, René (1996), "Beppo Levi and the arithmetic of elliptic curves" (PDF), The Mathematical Intelligencer, 18 (1): 60, doi:10.1007/bf03024818, MR 1381581, S2CID 125072148, Zbl 0849.01036
+
+^ a b See for instance Schechter, Erik (1997). Handbook of Analysis and Its Foundations. San Diego: Academic Press. ISBN 0-12-622760-8.
+
+
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

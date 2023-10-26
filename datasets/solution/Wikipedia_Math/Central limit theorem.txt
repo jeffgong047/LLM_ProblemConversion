@@ -1,0 +1,757 @@
+Fundamental theorem in probability theory and statistics
+
+In probability theory, the central limit theorem (CLT) establishes that, in many situations, for independent and identically distributed random variables, the sampling distribution of the standardized sample mean tends towards the standard normal distribution even if the original variables themselves are not normally distributed.
+The theorem is a key concept in probability theory because it implies that probabilistic and statistical methods that work for normal distributions can be applicable to many problems involving other types of distributions.
+This theorem has seen many changes during the formal development of probability theory. Previous versions of the theorem date back to 1811, but in its modern general form, this fundamental result in probability theory was precisely stated as late as 1920,[1] thereby serving as a bridge between classical and modern probability theory.
+An elementary form of the theorem states the following. Let X1,X2,…,Xn_1,X_2,…,X_n denote a random sample of n independent observations from a population with overall expected value (average) μμ and finite variance σ2σ^2, and let X¯nX̅_ndenote the sample mean of that sample (which is itself a random variable). Then the limit as n→∞→∞ of the distribution of X¯n−μσX¯n,X̅_n-μ/σ_X̅_n, where σX¯n=σn,σ_X̅_n=σ/√(n), is the standard normal distribution.[2]
+In other words, suppose that a large sample of observations is obtained, each observation being randomly produced in a way that does not depend on the values of the other observations, and that the average (arithmetic mean) of the observed values is computed. If this procedure is performed many times, resulting in a collection of observed averages, the central limit theorem says that if the sample size was large enough, the probability distribution of these averages will closely approximate a normal distribution.
+The central limit theorem has several variants. In its common form, the random variables must be independent and identically distributed (i.i.d.). This requirement can be weakened; convergence of the mean to the normal distribution also occurs for non-identical distributions or for non-independent observations if they comply with certain conditions.
+The earliest version of this theorem, that the normal distribution may be used as an approximation to the binomial distribution, is the de Moivre–Laplace theorem.
+
+
+Independent sequences[edit]
+Whatever the form of the population distribution, the sampling distribution tends to a Gaussian, and its dispersion is given by the central limit theorem.[3]
+Classical CLT[edit]
+Let X1,…,Xn{X_1,…,X_n} be a sequence of i.i.d. random variables having a distribution with expected value given by μμ and finite variance given by σ2.σ^2. Suppose we are interested in the sample average
+X¯n≡X1+⋯+Xnn.X̅_n≡X_1+⋯+X_n/n.
+By the law of large numbers, the sample average converges almost surely (and therefore also converges in probability) to the expected value μμ as n→∞.→∞.
+The classical central limit theorem describes the size and the distributional form of the stochastic fluctuations around the deterministic number μμ during this convergence. More precisely, it states that as n gets larger, the distribution of the difference between the sample average X¯nX̅_n and its limit μ,μ, when multiplied by the factor n√(n) (that is, n(X¯n−μ)√(n)(X̅_n-μ)) approximates the normal distribution with mean 00 and variance σ2.σ^2. For large enough n,, the distribution of X¯nX̅_n gets arbitrarily close to the normal distribution with mean μμ and variance σ2/n.σ^2/n.
+The usefulness of the theorem is that the distribution of n(X¯n−μ)√(n)(X̅_n-μ) approaches normality regardless of the shape of the distribution of the individual Xi._i. Formally, the theorem can be stated as follows:
+
+
+Lindeberg–Lévy CLT — Suppose X1,…,Xn{X_1,…,X_n} is a sequence of i.i.d. random variables with E⁡[Xi]=μE[X_i]=μ and Var⁡[Xi]=σ2<∞.Var[X_i]=σ^2<∞. Then, as n approaches infinity, the random variables n(X¯n−μ)√(n)(X̅_n-μ) converge in distribution to a normal N(0,σ2)𝒩(0,σ^2):[4]
+n(X¯n−μ)→dN(0,σ2).√(n)(X̅_n-μ)
+xrightarrowd{𝒩(0,σ^2).
+
+
+In the case σ>0,σ>0, convergence in distribution means that the cumulative distribution functions of n(X¯n−μ)√(n)(X̅_n-μ) converge pointwise to the cdf of the N(0,σ2)𝒩(0,σ^2) distribution: for every real number z,,
+limn→∞P[n(X¯n−μ)≤z]=limn→∞P[n(X¯n−μ)σ≤zσ]=Φ(zσ),lim_n→∞ℙ[√(n)(X̅_n-μ)]=lim_n→∞ℙ[√(n)(X̅_n-μ)/σ≤z/σ]=Φ(z/σ),
+where Φ(z)Φ(z) is the standard normal cdf evaluated at z.. The convergence is uniform in z in the sense that
+limn→∞supz∈R|P[n(X¯n−μ)≤z]−Φ(zσ)|=0,lim_n→∞ sup_z∈ℝ |ℙ[√(n)(X̅_n-μ)]-Φ(z/σ)|=0 ,
+where supsup denotes the least upper bound (or supremum) of the set.[5]
+
+Lyapunov CLT[edit]
+The theorem is named after Russian mathematician Aleksandr Lyapunov. In this variant of the central limit theorem the random variables Xi_i have to be independent, but not necessarily identically distributed. The theorem also requires that random variables |Xi||X_i| have moments of some order (2+δ)(2+δ), and that the rate of growth of these moments is limited by the Lyapunov condition given below.
+
+
+Lyapunov CLT[6] — Suppose X1,…,Xn,…{X_1,…,X_n,…} is a sequence of independent random variables, each with finite expected value μiμ_i and variance σi2σ_i^2. Define
+sn2=∑i=1nσi2._n^2=∑_i=1^nσ_i^2.
+If for some δ>0δ>0, Lyapunov’s condition
+limn→∞1sn2+δ∑i=1nE⁡[|Xi−μi|2+δ]=0lim_n→∞ 1/s_n^2+δ ∑_i=1^nE[|X_i-μ_i|^2+δ]=0
+is satisfied, then a sum of Xi−μisnX_i-μ_i/s_n converges in distribution to a standard normal random variable, as n goes to infinity:
+1sn∑i=1n(Xi−μi)→dN(0,1).1/s_n ∑_i=1^n(X_i-μ_i)
+xrightarrowd{𝒩(0,1).
+
+
+In practice it is usually easiest to check Lyapunov's condition for δ=1δ=1.
+If a sequence of random variables satisfies Lyapunov's condition, then it also satisfies Lindeberg's condition. The converse implication, however, does not hold.
+
+Lindeberg CLT[edit]
+Main article: Lindeberg's condition
+In the same setting and with the same notation as above, the Lyapunov condition can be replaced with the following weaker one (from Lindeberg in 1920).
+Suppose that for every ε>0ε>0
+limn→∞1sn2∑i=1nE⁡[(Xi−μi)2⋅1Xi:|Xi−μi|>εsn]=0lim_n→∞1/s_n^2∑_i=1^nE[(X_i-μ_i)^2·1_{X_i:|X_i-μ_i|>_n}]=0
+where 1…1_{…} is the indicator function. Then the distribution of the standardized sums
+1sn∑i=1n(Xi−μi)1/s_n∑_i=1^n(X_i-μ_i)
+converges towards the standard normal distribution N(0,1)𝒩(0,1).
+
+Multidimensional CLT[edit]
+Proofs that use characteristic functions can be extended to cases where each individual Xi𝐗_i is a random vector in Rkℝ^k, with mean vector μ=E⁡[Xi]μ=E[𝐗_i] and covariance matrix ΣΣ (among the components of the vector), and these random vectors are independent and identically distributed. Summation of these vectors is being done component-wise. The multidimensional central limit theorem states that when scaled, sums converge to a multivariate normal distribution.[7]
+Let
+Xi=[Xi(1)⋮Xi(k)]𝐗_i=[ X_i(1);      ⋮; X_i(k) ]
+be the k-vector. The bold in Xi𝐗_i means that it is a random vector, not a random (univariate) variable. Then the sum of the random vectors will be
+[X1(1)⋮X1(k)]+[X2(1)⋮X2(k)]+⋯+[Xn(1)⋮Xn(k)]=[∑i=1n[Xi(1)]⋮∑i=1n[Xi(k)]]=∑i=1nXi[ X_1(1);      ⋮; X_1(k) ]+[ X_2(1);      ⋮; X_2(k) ]+⋯+[ X_n(1);      ⋮; X_n(k) ]=[ ∑_i=1^n[X_i(1)];               ⋮; ∑_i=1^n[X_i(k)] ]=∑_i=1^n𝐗_i
+and the average is
+1n∑i=1nXi=1n[∑i=1nXi(1)⋮∑i=1nXi(k)]=[X¯i(1)⋮X¯i(k)]=X¯n1/n∑_i=1^n𝐗_i=1/n[ ∑_i=1^nX_i(1);             ⋮; ∑_i=1^nX_i(k) ]=[ X̅_i(1);       ⋮; X̅_i(k) ]=𝐗̅_𝐧
+and therefore
+1n∑i=1n[Xi−E⁡(Xi)]=1n∑i=1n(Xi−μ)=n(X¯n−μ).1/√(n)∑_i=1^n[𝐗_i-E(𝐗_i)]=1/√(n)∑_i=1^n(𝐗_i-μ)=√(n)(𝐗_n-μ) .
+The multivariate central limit theorem states that
+n(X¯n−μ)→DNk(0,Σ)√(n)(𝐗_n-μ) {𝒩_k(0,Σ)
+where the covariance matrix ΣΣ is equal to
+Σ=[Var⁡(X1(1))Cov⁡(X1(1),X1(2))Cov⁡(X1(1),X1(3))⋯Cov⁡(X1(1),X1(k))Cov⁡(X1(2),X1(1))Var⁡(X1(2))Cov⁡(X1(2),X1(3))⋯Cov⁡(X1(2),X1(k))Cov⁡(X1(3),X1(1))Cov⁡(X1(3),X1(2))Var⁡(X1(3))⋯Cov⁡(X1(3),X1(k))⋮⋮⋮⋱⋮Cov⁡(X1(k),X1(1))Cov⁡(X1(k),X1(2))Cov⁡(X1(k),X1(3))⋯Var⁡(X1(k))].Σ=[        Var(X_1(1)) Cov(X_1(1),X_1(2)) Cov(X_1(1),X_1(3))                  ⋯ Cov(X_1(1),X_1(k)); Cov(X_1(2),X_1(1))        Var(X_1(2)) Cov(X_1(2),X_1(3))                  ⋯ Cov(X_1(2),X_1(k)); Cov(X_1(3),X_1(1)) Cov(X_1(3),X_1(2))        Var(X_1(3))                  ⋯ Cov(X_1(3),X_1(k));                  ⋮                  ⋮                  ⋮                  ⋱                  ⋮; Cov(X_1(k),X_1(1)) Cov(X_1(k),X_1(2)) Cov(X_1(k),X_1(3))                  ⋯        Var(X_1(k));  ] .
+The rate of convergence is given by the following Berry–Esseen type result:
+
+
+Theorem[8] — Let X1,…,Xn,…_1,…,X_n,… be independent Rdℝ^d-valued random vectors, each having mean zero. Write S=∑i=1nXi=∑_i=1^nX_i and assume Σ=Cov⁡[S]Σ=Cov[S] is invertible. Let Z∼N(0,Σ)∼𝒩(0,Σ) be a d-dimensional Gaussian with the same mean and same covariance matrix as S. Then for all convex sets U⊆Rd⊆ℝ^d,
+|P[S∈U]−P[Z∈U]|≤Cd1/4γ,|ℙ[S]-ℙ[Z]| d^1/4γ ,
+where C is a universal constant, γ=∑i=1nE⁡[‖Σ−1/2Xi‖23]γ=∑_i=1^nE[Σ^-1/2X_i_2^3], and ‖⋅‖2·_2 denotes the Euclidean norm on Rdℝ^d.
+
+
+It is unknown whether the factor d1/4^1/4 is necessary.[9]
+
+The Generalized Central Limit Theorem[edit]
+The Generalized Central Limit Theorem (GCLT) was an effort of multiple mathematicians (Berstein, Lindeberg, Lévy, Feller, Kolmogorov, and others) over the period from 1920 to 1937.[10] The first published complete proof of the GCLT was in 1937 by Paul Lévy in French.[11] An English language version of the complete proof of the GCLT is available in the translation of Gnedenko and Kolmogorov's 1954 book.[12]
+The statement of the GCLT is as follows:[13]
+
+A non-degenerate random variable Z is α-stable for some 0 < α ≤ 2 if and only if there is an independent, identically distributed sequence of random variables X1, X2, X3, ... and constants an > 0, bn ∈ ℝ with
+an (X1 + ... + Xn) - bn → Z.
+Here → means the sequence of random variable sums converges in distribution; i.e., the corresponding distributions satisfy Fn(y) → F(y) at all continuity points of F.
+In other words, if sums of independent, identically distributed random variables converge in distribution to some Z, then Z must be a stable distribution.
+
+Dependent processes[edit]
+CLT under weak dependence[edit]
+A useful generalization of a sequence of independent, identically distributed random variables is a mixing random process in discrete time; "mixing" means, roughly, that random variables temporally far apart from one another are nearly independent. Several kinds of mixing are used in ergodic theory and probability theory. See especially strong mixing (also called α-mixing) defined by α(n)→0α(n)→0 where α(n)α(n) is so-called strong mixing coefficient.
+A simplified formulation of the central limit theorem under strong mixing is:[14]
+
+
+Theorem — Suppose that X1,…,Xn,…{X_1,…,X_n,…} is stationary and αα-mixing with αn=O(n−5)α_n=O(n^-5) and that E⁡[Xn]=0E[X_n]=0 and E⁡[Xn12]<∞E[X_n^12]<∞. Denote Sn=X1+⋯+Xn_n=X_1+⋯+X_n, then the limit
+σ2=limn→∞E⁡(Sn2)nσ^2=lim_n→∞E(S_n^2)/n
+exists, and if σ≠0σ≠0 then SnσnS_n/σ√(n) converges in distribution to N(0,1)𝒩(0,1).
+
+
+In fact,
+σ2=E⁡(X12)+2∑k=1∞E⁡(X1X1+k),σ^2=E(X_1^2)+2∑_k=1^∞E(X_1X_1+k),
+where the series converges absolutely.
+The assumption σ≠0σ≠0 cannot be omitted, since the asymptotic normality fails for Xn=Yn−Yn−1_n=Y_n-Y_n-1 where Yn_n are another stationary sequence.
+There is a stronger version of the theorem:[15] the assumption E⁡[Xn12]<∞E[X_n^12]<∞ is replaced with E⁡[|Xn|2+δ]<∞E[|X_n|^2+δ]<∞, and the assumption αn=O(n−5)α_n=O(n^-5) is replaced with
+∑nαnδ2(2+δ)<∞.∑_nα_n^δ/2(2+δ)<∞.
+Existence of such δ>0δ>0 ensures the conclusion. For encyclopedic treatment of limit theorems under mixing conditions see (Bradley 2007).
+
+Martingale difference CLT[edit]
+Main article: Martingale central limit theorem
+
+Theorem — Let a martingale Mn_n satisfy
+
+1n∑k=1nE⁡[(Mk−Mk−1)2∣M1,…,Mk−1]→11/n∑_k=1^nE[(M_k-M_k-1)^2_1,…,M_k-1]→1  in probability as n → ∞,
+for every ε > 0, 1n∑k=1nE⁡[(Mk−Mk−1)21[|Mk−Mk−1|>εn]]→01/n∑_k=1^nE[(M_k-M_k-1)^21[|M_k-M_k-1|>ε√(n)]]→0  as n → ∞,
+then MnnM_n/√(n) converges in distribution to N(0,1)𝒩(0,1) as n→∞→∞.[16][17]
+
+
+Remarks[edit]
+Proof of classical CLT[edit]
+The central limit theorem has a proof using characteristic functions.[18] It is similar to the proof of the (weak) law of large numbers.
+Assume X1,…,Xn,…{X_1,…,X_n,…} are independent and identically distributed random variables, each with mean μμ and finite variance σ2σ^2. The sum X1+⋯+Xn_1+⋯+X_n has mean nμμ and variance nσ2σ^2. Consider the random variable
+Zn=X1+⋯+Xn−nμnσ2=∑i=1nXi−μnσ2=∑i=1n1nYi,_n=X_1+⋯+X_n-nμ/√(nσ^2)=∑_i=1^nX_i-μ/√(nσ^2)=∑_i=1^n1/√(n)Y_i,
+where in the last step we defined the new random variables Yi=Xi−μσ_i=X_i-μ/σ, each with zero mean and unit variance (var⁡(Y)=1var(Y)=1). The characteristic function of Zn_n is given by
+φZn(t)=φ∑i=1n1nYi(t)=φY1(tn)φY2(tn)⋯φYn(tn)=[φY1(tn)]n,φ_Z_n(t)=φ_∑_i=1^n1/√(n)Y_i(t)varphi_Y_1(t/√(n))φ_Y_2(t/√(n))⋯φ_Y_n(t/√(n))left[φ_Y_1(t/√(n))]^n,
+where in the last step we used the fact that all of the Yi_i are identically distributed. The characteristic function of Y1_1 is, by Taylor's theorem,
+φY1(tn)=1−t22n+o(t2n),(tn)→0φ_Y_1(t/√(n))=1-t^2/2n+o(t^2/n),  (t/√(n))→0
+where o(t2/n)(t^2/n) is "little o notation" for some function of t that goes to zero more rapidly than t2/n^2/n. By the limit of the exponential function (ex=limn→∞(1+xn)n^x=lim_n→∞(1+x/n)^n), the characteristic function of Zn_n equals
+φZn(t)=(1−t22n+o(t2n))n→e−12t2,n→∞.φ_Z_n(t)=(1-t^2/2n+o(t^2/n))^n^-1/2t^2,→∞.
+All of the higher order terms vanish in the limit n→∞→∞. The right hand side equals the characteristic function of a standard normal distribution N(0,1)𝒩(0,1), which implies through Lévy's continuity theorem that the distribution of Zn_n will approach N(0,1)𝒩(0,1) as n→∞→∞. Therefore, the sample average
+X¯n=X1+⋯+XnnX̅_n=X_1+⋯+X_n/n
+is such that 
+nσ(X¯n−μ)=Zn√(n)/σ(X̅_n-μ)=Z_n
+converges to the normal distribution N(0,1)𝒩(0,1), from which the central limit theorem follows.
+
+Convergence to the limit[edit]
+The central limit theorem gives only an asymptotic distribution. As an approximation for a finite number of observations, it provides a reasonable approximation only when close to the peak of the normal distribution; it requires a very large number of observations to stretch into the tails.[citation needed]
+The convergence in the central limit theorem is uniform because the limiting cumulative distribution function is continuous. If the third central moment E⁡[(X1−μ)3]E[(X_1-μ)^3] exists and is finite, then the speed of convergence is at least on the order of 1/n1/√(n) (see Berry–Esseen theorem). Stein's method[19] can be used not only to prove the central limit theorem, but also to provide bounds on the rates of convergence for selected metrics.[20]
+The convergence to the normal distribution is monotonic, in the sense that the entropy of Zn_n increases monotonically to that of the normal distribution.[21]
+The central limit theorem applies in particular to sums of independent and identically distributed discrete random variables.  A sum of discrete random variables is still a discrete random variable, so that we are confronted with a sequence of discrete random variables whose cumulative probability distribution function converges towards a cumulative probability distribution function corresponding to a continuous variable (namely that of the normal distribution).  This means that if we build a histogram of the realizations of the sum of n independent identical discrete variables, the piecewise-linear curve that joins the centers of the upper faces of the rectangles forming the histogram converges toward a Gaussian curve as n approaches infinity; this relation is known as de Moivre–Laplace theorem. The binomial distribution article details such an application of the central limit theorem in the simple case of a discrete variable taking only two possible values.
+
+Common misconceptions[edit]
+Studies have shown that the central limit theorem is subject to several common but serious misconceptions, some of which appear in widely-used textbooks.[22][23][24] These include the beliefs that:
+
+The theorem applies to random sampling of any variable, rather than to the mean values (or sums) of iid random variables extracted from a population by repeated sampling. That is, the theorem assumes the random sampling produces a sampling distribution formed from different values of means (or sums) of such random variables.
+The theorem ensures that random sampling leads to the emergence of a normal distribution for sufficiently large samples of any random variable, regardless of the population distribution. In reality, such sampling asymptotically reproduces the properties of the population, an intuitive result underpinned by the Glivenko-Cantelli theorem.
+That the theorem leads to a good approximation of a normal distribution for sample sizes greater than around 30, allowing reliable inferences regardless of the nature of the population. In reality, this empirical rule of thumb has no valid justification, and can lead to seriously flawed inferences.
+Relation to the law of large numbers[edit]
+The law of large numbers as well as the central limit theorem are partial solutions to a general problem: "What is the limiting behavior of Sn as n approaches infinity?" In mathematical analysis, asymptotic series are one of the most popular tools employed to approach such questions.
+Suppose we have an asymptotic expansion of f(n)(n):
+f(n)=a1φ1(n)+a2φ2(n)+O(φ3(n))(n→∞).(n)=a_1φ_1(n)+a_2φ_2(n)+O(φ_3(n))    (n→∞).
+Dividing both parts by φ1(n) and taking the limit will produce a1, the coefficient of the highest-order term in the expansion, which represents the rate at which f(n) changes in its leading term.
+limn→∞f(n)φ1(n)=a1.lim_n→∞f(n)/φ_1(n)=a_1.
+Informally, one can say: "f(n) grows approximately as a1φ1(n)". Taking the difference between f(n) and its approximation and then dividing by the next term in the expansion, we arrive at a more refined statement about f(n):
+limn→∞f(n)−a1φ1(n)φ2(n)=a2.lim_n→∞f(n)-a_1φ_1(n)/φ_2(n)=a_2.
+Here one can say that the difference between the function and its approximation grows approximately as a2φ2(n).  The idea is that dividing the function by appropriate normalizing functions, and looking at the limiting behavior of the result, can tell us much about the limiting behavior of the original function itself.
+Informally, something along these lines happens when the sum, Sn, of independent identically distributed random variables, X1, ..., Xn, is studied in classical probability theory.[citation needed]  If each Xi has finite mean μ, then by the law of large numbers, Sn/n → μ.[25]  If in addition each Xi has finite variance σ2, then by the central limit theorem,
+Sn−nμn→ξ,S_n-nμ/√(n)→ξ,
+where ξ is distributed as N(0,σ2).  This provides values of the first two constants in the informal expansion
+Sn≈μn+ξn._n≈+ξ√(n).
+In the case where the Xi do not have finite mean or variance, convergence of the shifted and rescaled sum can also occur with different centering and scaling factors:
+Sn−anbn→Ξ,S_n-a_n/b_n→Ξ,
+or informally
+Sn≈an+Ξbn._n_n+_n.
+Distributions Ξ which can arise in this way are called stable.[26]  Clearly, the normal distribution is stable, but there are also other stable distributions, such as the Cauchy distribution, for which the mean or variance are not defined.  The scaling factor bn may be proportional to nc, for any c ≥ 1/2; it may also be multiplied by a slowly varying function of n.[27][28]
+The law of the iterated logarithm specifies what is happening "in between" the law of large numbers and the central limit theorem. Specifically it says that the normalizing function √n log log n, intermediate in size between n of the law of large numbers and √n of the central limit theorem, provides a non-trivial limiting behavior.
+
+Alternative statements of the theorem[edit]
+Density functions[edit]
+The density of the sum of two or more independent variables is the convolution of their densities (if these densities exist).  Thus the central limit theorem can be interpreted as a statement about the properties of density functions under convolution: the convolution of a number of density functions tends to the normal density as the number of density functions increases without bound. These theorems require stronger hypotheses than the forms of the central limit theorem given above. Theorems of this type are often called local limit theorems. See Petrov[29] for a particular local limit theorem for sums of independent and identically distributed random variables.
+
+Characteristic functions[edit]
+Since the characteristic function of a convolution is the product of the characteristic functions of the densities involved, the central limit theorem has yet another restatement: the product of the characteristic functions of a number of density functions becomes close to the characteristic function of the normal density as the number of density functions increases without bound, under the conditions stated above. Specifically, an appropriate scaling factor needs to be applied to the argument of the characteristic function.
+An equivalent statement can be made about Fourier transforms, since the characteristic function is essentially a Fourier transform.
+
+Calculating the variance[edit]
+Let Sn be the sum of n random variables. Many central limit theorems provide conditions such that Sn/√Var(Sn) converges in distribution to N(0,1) (the normal distribution with mean 0, variance 1) as n → ∞. In some cases, it is possible to find a constant σ2 and function f(n) such that Sn/(σ√n⋅f(n)) converges in distribution to N(0,1) as n→ ∞.
+
+
+Lemma[30] — Suppose X1,X2,…_1,X_2,… is a sequence of real-valued and strictly stationary random variables with E⁡(Xi)=0E(X_i)=0 for all i, g:[0,1]→R:[0,1]→ℝ, and Sn=∑i=1ng(in)Xi_n=∑_i=1^ng(in)X_i. Construct
+σ2=E⁡(X12)+2∑i=1∞E⁡(X1X1+i)σ^2=E(X_1^2)+2∑_i=1^∞E(X_1X_1+i)
+
+If ∑i=1∞E⁡(X1X1+i)∑_i=1^∞E(X_1X_1+i) is absolutely convergent, |∫01g(x)g′(x)dx|<∞|∫_0^1g(x)g'(x) dx|<∞, and 0<∫01(g(x))2dx<∞0<∫_0^1(g(x))^2dx<∞ then Var(Sn)/(nγn)→σ2Var(S_n)/(nγ_n)→σ^2 as n→∞→∞ where γn=1n∑i=1n(g(in))2γ_n=1/n∑_i=1^n(g(in))^2.
+If in addition σ>0σ>0 and Sn/Var(Sn)_n/√(Var(S_n)) converges in distribution to N(0,1)𝒩(0,1) as n→∞→∞ then Sn/(σnγn)_n/(σ√(nγ_n)) also converges in distribution to N(0,1)𝒩(0,1) as n→∞→∞.
+
+Extensions[edit]
+Products of positive random variables[edit]
+The logarithm of a product is simply the sum of the logarithms of the factors.  Therefore, when the logarithm of a product of random variables that take only positive values approaches a normal distribution, the product itself approaches a log-normal distribution.  Many physical quantities (especially mass or length, which are a matter of scale and cannot be negative) are the products of different random factors, so they follow a log-normal distribution.  This multiplicative version of the central limit theorem is sometimes called Gibrat's law.
+Whereas the central limit theorem for sums of random variables requires the condition of finite variance, the corresponding theorem for products requires the corresponding condition that the density function be square-integrable.[31]
+
+Beyond the classical framework[edit]
+Asymptotic normality, that is, convergence to the normal distribution after appropriate shift and rescaling, is a phenomenon much more general than the classical framework treated above, namely, sums of independent random variables (or vectors). New frameworks are revealed from time to time; no single unifying framework is available for now.
+
+Convex body[edit]
+
+Theorem — There exists a sequence εn ↓ 0 for which the following holds. Let n ≥ 1, and let random variables X1, ..., Xn have a log-concave joint density f such that f(x1, ..., xn) = f(|x1|, ..., |xn|) for all x1, ..., xn,  and E(X2k) = 1 for all k = 1, ..., n. Then the distribution of
+X1+⋯+XnnX_1+⋯+X_n/√(n)
+is εn-close to N(0,1)𝒩(0,1) in the total variation distance.[32]
+
+
+These two εn-close distributions have densities (in fact, log-concave densities), thus, the total variance distance between them is the integral of the absolute value of the difference between the densities. Convergence in total variation is stronger than weak convergence.
+An important example of a log-concave density is a function constant inside a given convex body and vanishing outside; it corresponds to the uniform distribution on the convex body, which explains the term "central limit theorem for convex bodies".
+Another example: f(x1, ..., xn) = const · exp(−(|x1|α + ⋯ + |xn|α)β) where α > 1 and αβ > 1. If β = 1 then f(x1, ..., xn) factorizes into const · exp (−|x1|α) … exp(−|xn|α),  which means X1, ..., Xn are independent. In general, however, they are dependent.
+The condition f(x1, ..., xn) = f(|x1|, ..., |xn|) ensures that X1, ..., Xn are of zero mean and uncorrelated;[citation needed] still, they need not be independent, nor even pairwise independent.[citation needed] By the way, pairwise independence cannot replace independence in the classical central limit theorem.[33]
+Here is a Berry–Esseen type result.
+
+
+Theorem — Let X1, ..., Xn satisfy the assumptions of the previous theorem, then [34]
+|P(a≤X1+⋯+Xnn≤b)−12π∫abe−12t2dt|≤Cn|ℙ(a≤X_1+⋯+X_n/√(n))-1/√(2π)∫_a^be^-1/2t^2 dt|≤C/n
+for all a < b; here C is a universal (absolute) constant. Moreover, for every c1, ..., cn ∈ R such that c21 + ⋯ + c2n = 1,
+|P(a≤c1X1+⋯+cnXn≤b)−12π∫abe−12t2dt|≤C(c14+⋯+cn4).|ℙ(a_1X_1+⋯+c_nX_n)-1/√(2π)∫_a^be^-1/2t^2 dt|(c_1^4+…+c_n^4).
+
+
+The distribution of X1 + ⋯ + Xn/√n need not be approximately normal (in fact, it can be uniform).[35] However, the distribution of c1X1 + ⋯ + cnXn is close to N(0,1)𝒩(0,1) (in the total variation distance) for most vectors (c1, ..., cn) according to the uniform distribution on the sphere c21 + ⋯ + c2n = 1.
+
+Lacunary trigonometric series[edit]
+
+Theorem (Salem–Zygmund) — Let U be a random variable distributed uniformly on (0,2π), and Xk = rk cos(nkU + ak), where
+
+nk satisfy the lacunarity condition: there exists q > 1 such that nk + 1 ≥ qnk for all k,
+rk are such that r12+r22+⋯=∞andrk2r12+⋯+rk2→0,_1^2+r_2^2+⋯=∞  and  r_k^2/r_1^2+⋯+r_k^2→0,
+0 ≤ ak < 2π.
+Then[36][37]
+X1+⋯+Xkr12+⋯+rk2X_1+⋯+X_k/√(r_1^2+⋯+r_k^2)
+converges in distribution to N(0,12)𝒩(0,1/2).
+
+
+Gaussian polytopes[edit]
+
+Theorem — Let A1, ..., An be independent random points on the plane R2 each having the two-dimensional standard normal distribution. Let Kn be the convex hull of these points, and Xn the area of Kn Then[38]
+Xn−E⁡(Xn)Var⁡(Xn)X_n-E(X_n)/√(Var(X_n))
+converges in distribution to N(0,1)𝒩(0,1) as n tends to infinity.
+
+
+The same also holds in all dimensions greater than 2.
+The polytope Kn is called a Gaussian random polytope.
+A similar result holds for the number of vertices (of the Gaussian polytope), the number of edges, and in fact, faces of all dimensions.[39]
+
+Linear functions of orthogonal matrices[edit]
+A linear function of a matrix M is a linear combination of its elements (with given coefficients), M ↦ tr(AM) where A is the matrix of the coefficients; see Trace (linear algebra)#Inner product.
+A random orthogonal matrix is said to be distributed uniformly, if its distribution is the normalized Haar measure on the orthogonal group O(n,R); see Rotation matrix#Uniform random rotation matrices.
+
+
+Theorem — Let M be a random orthogonal n × n matrix distributed uniformly, and A a fixed n × n matrix such that tr(AA*) = n, and let X = tr(AM). Then[40] the distribution of X is close to N(0,1)𝒩(0,1) in the total variation metric up to[clarification needed] 2√3/n − 1.
+
+
+Subsequences[edit]
+
+Theorem — Let random variables X1, X2, ... ∈ L2(Ω) be such that Xn → 0 weakly in L2(Ω) and Xn → 1 weakly in L1(Ω). Then there exist integers n1 < n2 < ⋯ such that
+Xn1+⋯+XnkkX_n_1+⋯+X_n_k/√(k)
+converges in distribution to N(0,1)𝒩(0,1) as k tends to infinity.[41]
+
+
+Random walk on a crystal lattice[edit]
+The central limit theorem may be established for the simple random walk on a crystal lattice (an infinite-fold abelian covering graph over a finite graph), and is used for design of crystal structures.[42][43]
+
+Applications and examples[edit]
+A simple example of the central limit theorem is rolling many identical, unbiased dice. The distribution of the sum (or average) of the rolled numbers will be well approximated by a normal distribution. Since real-world quantities are often the balanced sum of many unobserved random events, the central limit theorem also provides a partial explanation for the prevalence of the normal probability distribution. It also justifies the approximation of large-sample statistics to the normal distribution in controlled experiments.
+
+Comparison of probability density functions p(k) for the sum of n fair 6-sided dice to show their convergence to a normal distribution with increasing n, in accordance to the central limit theorem. In the bottom-right graph, smoothed profiles of the previous graphs are rescaled, superimposed and compared with a normal distribution (black curve).This figure demonstrates the central limit theorem. The sample means are generated using a random number generator, which draws numbers between 0 and 100 from a uniform probability distribution. It illustrates that increasing sample sizes result in the 500 measured sample means being more closely distributed about the population mean (50 in this case). It also compares the observed distributions with the distributions that would be expected for a normalized Gaussian distribution, and shows the chi-squared values that quantify the goodness of the fit (the fit is good if the reduced chi-squared value is less than or approximately equal to one). The input into the normalized Gaussian function is the mean of sample means (~50) and the mean sample standard deviation divided by the square root of the sample size (~28.87/√n), which is called the standard deviation of the mean (since it refers to the spread of sample means).
+Another simulation using the binomial distribution. Random 0s and 1s were generated, and then their means calculated for sample sizes ranging from 1 to 512. Note that as the sample size increases the tails become thinner and the distribution becomes more concentrated around the mean.
+Regression[edit]
+Regression analysis and in particular ordinary least squares specifies that a dependent variable depends according to some function upon one or more independent variables, with an additive error term. Various types of statistical inference on the regression assume that the error term is normally distributed. This assumption can be justified by assuming that the error term is actually the sum of many independent error terms; even if the individual error terms are not normally distributed, by the central limit theorem their sum can be well approximated by a normal distribution.
+
+Other illustrations[edit]
+Main article: Illustration of the central limit theorem
+Given its importance to statistics, a number of papers and computer packages are available that demonstrate the convergence involved in the central limit theorem.[44]
+
+History[edit]
+Dutch mathematician Henk Tijms writes:[45]
+
+The central limit theorem has an interesting history. The first version of this theorem was postulated by the French-born mathematician Abraham de Moivre who, in a remarkable article published in 1733, used the normal distribution to approximate the distribution of the number of heads resulting from many tosses of a fair coin. This finding was far ahead of its time, and was nearly forgotten until the famous French mathematician Pierre-Simon Laplace rescued it from obscurity in his monumental work Théorie analytique des probabilités, which was published in 1812.  Laplace expanded De Moivre's finding by approximating the binomial distribution with the normal distribution. But as with De Moivre, Laplace's finding received little attention in his own time. It was not until the nineteenth century was at an end that the importance of the central limit theorem was discerned, when, in 1901, Russian mathematician Aleksandr Lyapunov defined it in general terms and proved precisely how it worked mathematically. Nowadays, the central limit theorem is considered to be the unofficial sovereign of probability theory.
+Sir Francis Galton described the Central Limit Theorem in this way:[46]
+
+I know of scarcely anything so apt to impress the imagination as the wonderful form of cosmic order expressed by the "Law of Frequency of Error". The law would have been personified by the Greeks and deified, if they had known of it. It reigns with serenity and in complete self-effacement, amidst the wildest confusion. The huger the mob, and the greater the apparent anarchy, the more perfect is its sway. It is the supreme law of Unreason. Whenever a large sample of chaotic elements are taken in hand and marshalled in the order of their magnitude, an unsuspected and most beautiful form of regularity proves to have been latent all along.
+The actual term "central limit theorem" (in German: "zentraler Grenzwertsatz") was first used by George Pólya in 1920 in the title of a paper.[47][48] Pólya referred to the theorem as "central" due to its importance in probability theory. According to Le Cam, the French school of probability interprets the word central in the sense that "it describes the behaviour of the centre of the distribution as opposed to its tails".[48] The abstract of the paper On the central limit theorem of calculus of probability and the problem of moments by Pólya[47] in 1920 translates as follows.
+
+The occurrence of the Gaussian probability density 1 = e−x2 in repeated experiments, in errors of measurements, which result in the combination of very many and very small elementary errors, in diffusion processes etc., can be explained, as is well-known, by the very same limit theorem, which plays a central role in the calculus of probability. The actual discoverer of this limit theorem is to be named Laplace; it is likely that its rigorous proof was first given by Tschebyscheff and its sharpest formulation can be found, as far as I am aware of, in an article by Liapounoff. ...
+A thorough account of the theorem's history, detailing Laplace's foundational work, as well as Cauchy's, Bessel's and Poisson's contributions, is provided by Hald.[49] Two historical accounts, one covering the development from Laplace to Cauchy, the second the contributions by von Mises, Pólya, Lindeberg, Lévy, and Cramér during the 1920s, are given by Hans Fischer.[50] Le Cam describes a period  around 1935.[48] Bernstein[51] presents a historical discussion focusing on the work of Pafnuty Chebyshev and his students Andrey Markov and Aleksandr Lyapunov that led to the first proofs of the CLT in a general setting.
+A curious footnote to the history of the Central Limit Theorem is that a proof of a result similar to the 1922 Lindeberg CLT was the subject of Alan Turing's 1934 Fellowship Dissertation for King's College at the University of Cambridge.  Only after submitting the work did Turing learn it had already been proved. Consequently, Turing's dissertation was not published.[52]
+
+See also[edit]
+Asymptotic equipartition property
+Asymptotic distribution
+Bates distribution
+Benford's law – Result of extension of CLT to product of random variables.
+Berry–Esseen theorem
+Central limit theorem for directional statistics – Central limit theorem applied to the case of directional statistics
+Delta method – to compute the limit distribution of a function of a random variable.
+Erdős–Kac theorem – connects the number of prime factors of an integer with the normal probability distribution
+Fisher–Tippett–Gnedenko theorem – limit theorem for extremum values (such as max{Xn})
+Irwin–Hall distribution
+Markov chain central limit theorem
+Normal distribution
+Tweedie convergence theorem – A theorem that can be considered to bridge between the central limit theorem and the Poisson convergence theorem[53]
+Notes[edit]
+
+
+^ Fischer (2011), p. [page needed].
+
+^ Montgomery, Douglas C.; Runger, George C. (2014). Applied Statistics and Probability for Engineers (6th ed.). Wiley. p. 241. ISBN 9781118539712.
+
+^ Rouaud, Mathieu (2013). Probability, Statistics and Estimation (PDF). p. 10. Archived (PDF) from the original on 2022-10-09.
+
+^ Billingsley (1995), p. 357.
+
+^ Bauer (2001), p. 199, Theorem 30.13.
+
+^ Billingsley (1995), p. 362.
+
+^ van der Vaart, A.W. (1998). Asymptotic statistics. New York, NY: Cambridge University Press. ISBN 978-0-521-49603-2. LCCN 98015176.
+
+^ O’Donnell, Ryan (2014). "Theorem 5.38". Archived from the original on 2019-04-08. Retrieved 2017-10-18.
+
+^ Bentkus, V. (2005). "A Lyapunov-type bound in Rdℝ^d". Theory Probab. Appl. 49 (2): 311–323. doi:10.1137/S0040585X97981123.
+
+^ Le Cam, L. (February 1986). "The Central Limit Theorem around 1935". Statistical Science. 1 (1): 78–91. JSTOR 2245503.
+
+^ Lévy, Paul (1937). Theorie de l'addition des variables aleatoires [Combination theory of unpredictable variables]. Paris: Gauthier-Villars.
+
+^ Gnedenko, Boris Vladimirovich; Kologorov, Andreĭ Nikolaevich; Doob, Joseph L.; Hsu, Pao-Lu (1968). Limit distributions for sums of independent random variables. Reading, MA: Addison-wesley.
+
+^ Nolan, John P. (2020). Univariate stable distributions, Models for Heavy Tailed Data. Springer Series in Operations Research and Financial Engineering. Switzerland: Springer. doi:10.1007/978-3-030-52915-4. ISBN 978-3-030-52914-7.
+
+^ Billingsley (1995), Theorem 27.4.
+
+^ Durrett (2004), Sect. 7.7(c), Theorem 7.8.
+
+^ Durrett (2004), Sect. 7.7, Theorem 7.4.
+
+^ Billingsley (1995), Theorem 35.12.
+
+^ Lemons, Don (2003). An Introduction to Stochastic Processes in Physics. doi:10.56021/9780801868665. ISBN 9780801876387. Retrieved 2016-08-11. {{cite book}}: |website= ignored (help)
+
+^ Stein, C. (1972). "A bound for the error in the normal approximation to the distribution of a sum of dependent random variables". Proceedings of the Sixth Berkeley Symposium on Mathematical Statistics and Probability. 6 (2): 583–602. MR 0402873. Zbl 0278.60026.
+
+^ Chen, L. H. Y.; Goldstein, L.; Shao, Q. M. (2011). Normal approximation by Stein's method. Springer. ISBN 978-3-642-15006-7.
+
+^ Artstein, S.; Ball, K.; Barthe, F.; Naor, A. (2004). "Solution of Shannon's Problem on the Monotonicity of Entropy". Journal of the American Mathematical Society. 17 (4): 975–982. doi:10.1090/S0894-0347-04-00459-X.
+
+^ Brewer, J.K. (1985). "Behavioral statistics textbooks: Source of myths and misconceptions?". Journal of Educational Statistics. 10 (3): 252–268.
+
+^ Yu, C.; Behrens, J.; Spencer, A. Identification of Misconception in the Central Limit Theorem and Related Concepts, American Educational Research Association lecture 19 April 1995
+
+^ Sotos, A.E.C.; Vanhoof, S.; Van den Noortgate, W.; Onghena, P. (2007). "Students' misconceptions of statistical inference: A review of the empirical evidence from research on statistics education". Educational Research Review. 2 (2): 98–113.
+
+^ Rosenthal, Jeffrey Seth (2000). A First Look at Rigorous Probability Theory. World Scientific. Theorem 5.3.4, p. 47. ISBN 981-02-4322-7.
+
+^ Johnson, Oliver Thomas (2004). Information Theory and the Central Limit Theorem. Imperial College Press. p. 88. ISBN 1-86094-473-6.
+
+^ Uchaikin, Vladimir V.; Zolotarev, V.M. (1999). Chance and Stability: Stable distributions and their applications. VSP. pp. 61–62. ISBN 90-6764-301-7.
+
+^ Borodin, A. N.; Ibragimov, I. A.; Sudakov, V. N. (1995). Limit Theorems for Functionals of Random Walks. AMS Bookstore. Theorem 1.1, p. 8. ISBN 0-8218-0438-3.
+
+^ Petrov, V. V. (1976). Sums of Independent Random Variables. New York-Heidelberg: Springer-Verlag. ch. 7. ISBN 9783642658099.
+
+^ Hew, Patrick Chisan (2017). "Asymptotic distribution of rewards accumulated by alternating renewal processes". Statistics and Probability Letters. 129: 355–359. doi:10.1016/j.spl.2017.06.027.
+
+^ Rempala, G.; Wesolowski, J. (2002). "Asymptotics of products of sums and U-statistics" (PDF). Electronic Communications in Probability. 7: 47–54. doi:10.1214/ecp.v7-1046.
+
+^ Klartag (2007), Theorem 1.2.
+
+^ Durrett (2004), Section 2.4, Example 4.5.
+
+^ Klartag (2008), Theorem 1.
+
+^ Klartag (2007), Theorem 1.1.
+
+^ Zygmund, Antoni (2003) [1959]. Trigonometric Series. Cambridge University Press. vol. II, sect. XVI.5, Theorem 5-5. ISBN 0-521-89053-5.
+
+^ Gaposhkin (1966), Theorem 2.1.13.
+
+^ Bárány & Vu (2007), Theorem 1.1.
+
+^ Bárány & Vu (2007), Theorem 1.2.
+
+^ Meckes, Elizabeth (2008). "Linear functions on the classical matrix groups". Transactions of the American Mathematical Society. 360 (10): 5355–5366. arXiv:math/0509441. doi:10.1090/S0002-9947-08-04444-9. S2CID 11981408.
+
+^ Gaposhkin (1966), Sect. 1.5.
+
+^ Kotani, M.; Sunada, Toshikazu (2003). Spectral geometry of crystal lattices. Vol. 338. Contemporary Math. pp. 271–305. ISBN 978-0-8218-4269-0.
+
+^ Sunada, Toshikazu (2012). Topological Crystallography – With a View Towards Discrete Geometric Analysis. Surveys and Tutorials in the Applied Mathematical Sciences. Vol. 6. Springer. ISBN 978-4-431-54177-6.
+
+^ Marasinghe, M.; Meeker, W.; Cook, D.; Shin, T. S. (August 1994). Using graphics and simulation to teach statistical concepts. Annual meeting of the American Statistician Association, Toronto, Canada.
+
+^ Henk, Tijms (2004). Understanding Probability: Chance Rules in Everyday Life. Cambridge: Cambridge University Press. p. 169. ISBN 0-521-54036-4.
+
+^ Galton, F. (1889). Natural Inheritance. p. 66.
+
+^ a b Pólya, George (1920). "Über den zentralen Grenzwertsatz der Wahrscheinlichkeitsrechnung und das Momentenproblem" [On the central limit theorem of probability calculation and the problem of moments]. Mathematische Zeitschrift (in German). 8 (3–4): 171–181. doi:10.1007/BF01206525. S2CID 123063388.
+
+^ a b c Le Cam, Lucien (1986). "The central limit theorem around 1935". Statistical Science. 1 (1): 78–91. doi:10.1214/ss/1177013818.
+
+^ Hald, Andreas (22 April 1998). A History of Mathematical Statistics from 1750 to 1930 (PDF). chapter 17. ISBN 978-0471179122. Archived (PDF) from the original on 2022-10-09. {{cite book}}: |website= ignored (help)
+
+^ Fischer (2011), Chapter 2; Chapter 5.2.
+
+^ Bernstein, S. N. (1945). "On the work of P. L. Chebyshev in Probability Theory". In Bernstein., S. N. (ed.). Nauchnoe Nasledie P. L. Chebysheva. Vypusk Pervyi: Matematika [The Scientific Legacy of P. L. Chebyshev. Part I: Mathematics] (in Russian). Moscow & Leningrad: Academiya Nauk SSSR. p. 174.
+
+^ Zabell, S. L. (1995). "Alan Turing and the Central Limit Theorem". American Mathematical Monthly. 102 (6): 483–494. doi:10.1080/00029890.1995.12004608.
+
+^ Jørgensen, Bent (1997). The Theory of Dispersion Models. Chapman & Hall. ISBN 978-0412997112.
+
+
+References[edit]
+Bárány, Imre; Vu, Van (2007). "Central limit theorems for Gaussian polytopes". Annals of Probability. Institute of Mathematical Statistics. 35 (4): 1593–1621. arXiv:math/0610192. doi:10.1214/009117906000000791. S2CID 9128253.
+Bauer, Heinz (2001). Measure and Integration Theory. Berlin: de Gruyter. ISBN 3110167190.
+Billingsley, Patrick (1995). Probability and Measure (3rd ed.). John Wiley & Sons. ISBN 0-471-00710-2.
+Bradley, Richard (2005). "Basic Properties of Strong Mixing Conditions. A Survey and Some Open Questions". Probability Surveys. 2: 107–144. arXiv:math/0511078. Bibcode:2005math.....11078B. doi:10.1214/154957805100000104. S2CID 8395267.
+Bradley, Richard (2007). Introduction to Strong Mixing Conditions (1st ed.). Heber City, UT: Kendrick Press. ISBN 978-0-9740427-9-4.
+Dinov, Ivo; Christou, Nicolas; Sanchez, Juana (2008). "Central Limit Theorem: New SOCR Applet and Demonstration Activity". Journal of Statistics Education. ASA. 16 (2): 1–15. doi:10.1080/10691898.2008.11889560. PMC 3152447. PMID 21833159.
+Durrett, Richard (2004). Probability: theory and examples (3rd ed.). Cambridge University Press. ISBN 0521765390.
+Fischer, Hans (2011). A History of the Central Limit Theorem: From Classical to Modern Probability Theory (PDF). Sources and Studies in the History of Mathematics and Physical Sciences. New York: Springer. doi:10.1007/978-0-387-87857-7. ISBN 978-0-387-87856-0. MR 2743162. Zbl 1226.60004. Archived (PDF) from the original on 2017-10-31.
+Gaposhkin, V. F. (1966). "Lacunary series and independent functions". Russian Mathematical Surveys. 21 (6): 1–82. Bibcode:1966RuMaS..21....1G. doi:10.1070/RM1966v021n06ABEH001196. S2CID 250833638..
+Klartag, Bo'az (2007). "A central limit theorem for convex sets". Inventiones Mathematicae. 168 (1): 91–131. arXiv:math/0605014. Bibcode:2007InMat.168...91K. doi:10.1007/s00222-006-0028-8. S2CID 119169773.
+Klartag, Bo'az (2008). "A Berry–Esseen type inequality for convex bodies with an unconditional basis". Probability Theory and Related Fields. 145 (1–2): 1–33. arXiv:0705.0832. doi:10.1007/s00440-008-0158-6. S2CID 10163322.
+External links[edit]
+
+
+
+Wikimedia Commons has media related to Central limit theorem.
+
+Central Limit Theorem at Khan Academy
+"Central limit theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Weisstein, Eric W. "Central Limit Theorem". MathWorld.
+A music video demonstrating the central limit theorem with a Galton board by Carl McTague
+vteStatistics
+Outline
+Index
+Descriptive statisticsContinuous dataCenter
+Mean
+Arithmetic
+Arithmetic-Geometric
+Cubic
+Generalized/power
+Geometric
+Harmonic
+Heronian
+Heinz
+Lehmer
+Median
+Mode
+Dispersion
+Average absolute deviation
+Coefficient of variation
+Interquartile range
+Percentile
+Range
+Standard deviation
+Variance
+Shape
+Central limit theorem
+Moments
+Kurtosis
+L-moments
+Skewness
+Count data
+Index of dispersion
+Summary tables
+Contingency table
+Frequency distribution
+Grouped data
+Dependence
+Partial correlation
+Pearson product-moment correlation
+Rank correlation
+Kendall's τ
+Spearman's ρ
+Scatter plot
+Graphics
+Bar chart
+Biplot
+Box plot
+Control chart
+Correlogram
+Fan chart
+Forest plot
+Histogram
+Pie chart
+Q–Q plot
+Radar chart
+Run chart
+Scatter plot
+Stem-and-leaf display
+Violin plot
+Data collectionStudy design
+Effect size
+Missing data
+Optimal design
+Population
+Replication
+Sample size determination
+Statistic
+Statistical power
+Survey methodology
+Sampling
+Cluster
+Stratified
+Opinion poll
+Questionnaire
+Standard error
+Controlled experiments
+Blocking
+Factorial experiment
+Interaction
+Random assignment
+Randomized controlled trial
+Randomized experiment
+Scientific control
+Adaptive designs
+Adaptive clinical trial
+Stochastic approximation
+Up-and-down designs
+Observational studies
+Cohort study
+Cross-sectional study
+Natural experiment
+Quasi-experiment
+Statistical inferenceStatistical theory
+Population
+Statistic
+Probability distribution
+Sampling distribution
+Order statistic
+Empirical distribution
+Density estimation
+Statistical model
+Model specification
+Lp space
+Parameter
+location
+scale
+shape
+Parametric family
+Likelihood (monotone)
+Location–scale family
+Exponential family
+Completeness
+Sufficiency
+Statistical functional
+Bootstrap
+U
+V
+Optimal decision
+loss function
+Efficiency
+Statistical distance
+divergence
+Asymptotics
+Robustness
+Frequentist inferencePoint estimation
+Estimating equations
+Maximum likelihood
+Method of moments
+M-estimator
+Minimum distance
+Unbiased estimators
+Mean-unbiased minimum-variance
+Rao–Blackwellization
+Lehmann–Scheffé theorem
+Median unbiased
+Plug-in
+Interval estimation
+Confidence interval
+Pivot
+Likelihood interval
+Prediction interval
+Tolerance interval
+Resampling
+Bootstrap
+Jackknife
+Testing hypotheses
+1- & 2-tails
+Power
+Uniformly most powerful test
+Permutation test
+Randomization test
+Multiple comparisons
+Parametric tests
+Likelihood-ratio
+Score/Lagrange multiplier
+Wald
+Specific tests
+Z-test (normal)
+Student's t-test
+F-test
+Goodness of fit
+Chi-squared
+G-test
+Kolmogorov–Smirnov
+Anderson–Darling
+Lilliefors
+Jarque–Bera
+Normality (Shapiro–Wilk)
+Likelihood-ratio test
+Model selection
+Cross validation
+AIC
+BIC
+Rank statistics
+Sign
+Sample median
+Signed rank (Wilcoxon)
+Hodges–Lehmann estimator
+Rank sum (Mann–Whitney)
+Nonparametric anova
+1-way (Kruskal–Wallis)
+2-way (Friedman)
+Ordered alternative (Jonckheere–Terpstra)
+Van der Waerden test
+Bayesian inference
+Bayesian probability
+prior
+posterior
+Credible interval
+Bayes factor
+Bayesian estimator
+Maximum posterior estimator
+CorrelationRegression analysisCorrelation
+Pearson product-moment
+Partial correlation
+Confounding variable
+Coefficient of determination
+Regression analysis
+Errors and residuals
+Regression validation
+Mixed effects models
+Simultaneous equations models
+Multivariate adaptive regression splines (MARS)
+Linear regression
+Simple linear regression
+Ordinary least squares
+General linear model
+Bayesian regression
+Non-standard predictors
+Nonlinear regression
+Nonparametric
+Semiparametric
+Isotonic
+Robust
+Heteroscedasticity
+Homoscedasticity
+Generalized linear model
+Exponential families
+Logistic (Bernoulli) / Binomial / Poisson regressions
+Partition of variance
+Analysis of variance (ANOVA, anova)
+Analysis of covariance
+Multivariate ANOVA
+Degrees of freedom
+Categorical / Multivariate / Time-series / Survival analysisCategorical
+Cohen's kappa
+Contingency table
+Graphical model
+Log-linear model
+McNemar's test
+Cochran–Mantel–Haenszel statistics
+Multivariate
+Regression
+Manova
+Principal components
+Canonical correlation
+Discriminant analysis
+Cluster analysis
+Classification
+Structural equation model
+Factor analysis
+Multivariate distributions
+Elliptical distributions
+Normal
+Time-seriesGeneral
+Decomposition
+Trend
+Stationarity
+Seasonal adjustment
+Exponential smoothing
+Cointegration
+Structural break
+Granger causality
+Specific tests
+Dickey–Fuller
+Johansen
+Q-statistic (Ljung–Box)
+Durbin–Watson
+Breusch–Godfrey
+Time domain
+Autocorrelation (ACF)
+partial (PACF)
+Cross-correlation (XCF)
+ARMA model
+ARIMA model (Box–Jenkins)
+Autoregressive conditional heteroskedasticity (ARCH)
+Vector autoregression (VAR)
+Frequency domain
+Spectral density estimation
+Fourier analysis
+Least-squares spectral analysis
+Wavelet
+Whittle likelihood
+SurvivalSurvival function
+Kaplan–Meier estimator (product limit)
+Proportional hazards models
+Accelerated failure time (AFT) model
+First hitting time
+Hazard function
+Nelson–Aalen estimator
+Test
+Log-rank test
+ApplicationsBiostatistics
+Bioinformatics
+Clinical trials / studies
+Epidemiology
+Medical statistics
+Engineering statistics
+Chemometrics
+Methods engineering
+Probabilistic design
+Process / quality control
+Reliability
+System identification
+Social statistics
+Actuarial science
+Census
+Crime statistics
+Demography
+Econometrics
+Jurimetrics
+National accounts
+Official statistics
+Population statistics
+Psychometrics
+Spatial statistics
+Cartography
+Environmental statistics
+Geographic information system
+Geostatistics
+Kriging
+
+Category
+ Mathematics portal
+Commons
+ WikiProject
+
+Authority control databases International
+FAST
+National
+France
+BnF data
+Germany
+Israel
+United States
+
+
+
+

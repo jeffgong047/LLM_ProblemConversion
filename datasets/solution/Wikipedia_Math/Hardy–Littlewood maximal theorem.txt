@@ -1,0 +1,101 @@
+In mathematics, the Hardy–Littlewood maximal operator M is a significant non-linear operator used in real analysis and harmonic analysis. 
+
+
+Definition[edit]
+The operator takes a locally integrable function f : Rd → C and returns another function Mf. 
+For any point x ∈ Rd, the function Mf returns the maximum of a set of reals, namely the set of average values of f for all the balls B(x, r) of any radius r at x. Formally,
+
+Mf(x)=supr>01|B(x,r)|∫B(x,r)|f(y)|dy(x)=sup_r>01/|B(x,r)|∫_B(x,r)|f(y)| dy
+where |E| denotes the d-dimensional Lebesgue measure of a subset E ⊂ Rd.
+The averages are jointly continuous in x and r, therefore the maximal function Mf, being the supremum over r > 0, is measurable. It is not obvious that Mf is finite almost everywhere. This is a corollary of the Hardy–Littlewood maximal inequality.
+
+Hardy–Littlewood maximal inequality[edit]
+This theorem of G. H. Hardy and J. E. Littlewood states that M is bounded as a sublinear operator from Lp(Rd) to itself for p > 1. That is, if f ∈ Lp(Rd) then the maximal function Mf is weak L1-bounded and Mf ∈ Lp(Rd). Before stating the theorem more precisely, for simplicity, let {f > t} denote the set {x | f(x) > t}. Now we have:
+
+Theorem (Weak Type Estimate). For d ≥ 1, there is a constant Cd > 0 such that for all λ > 0 and f ∈ L1(Rd), we have:
+|Mf>λ|<Cdλ‖f‖L1(Rd).|{Mf>λ}|<C_d/λ‖_L^1(𝐑^d).
+
+With the Hardy–Littlewood maximal inequality in hand, the following strong-type estimate is an immediate consequence of the Marcinkiewicz interpolation theorem:
+
+Theorem (Strong Type Estimate). For d ≥ 1, 1 < p ≤ ∞, and f ∈ Lp(Rd),
+there is a constant Cp,d > 0 such that
+
+‖Mf‖Lp(Rd)≤Cp,d‖f‖Lp(Rd).‖_L^p(𝐑^d)_p,d‖_L^p(𝐑^d).
+
+In the strong type estimate the best bounds for Cp,d are unknown.[1] However subsequently Elias M. Stein used the Calderón-Zygmund method of rotations to prove the following:
+
+Theorem (Dimension Independence). For 1 < p ≤ ∞ one can pick Cp,d = Cp independent of d.[1][2]
+Proof[edit]
+While there are several proofs of this theorem, a common one is given below: For p = ∞, the inequality is trivial (since the average of a function is no larger than its essential supremum). For 1 < p < ∞, first we shall use the following version of the Vitali covering lemma to prove the weak-type estimate. (See the article for the proof of the lemma.)
+
+Lemma. Let X be a separable metric space and Fℱ a family of open balls with bounded diameter. Then Fℱ has a countable subfamily F′ℱ' consisting of disjoint balls such that
+⋃B∈FB⊂⋃B∈F′5B⋃_B∈ℱB⊂⋃_B∈ℱ'5B
+where 5B is B with 5 times radius.
+If Mf(x) > t, then, by definition, we can find a ball Bx centered at x such that
+
+∫Bx|f|dy>t|Bx|.∫_B_x|f|dy>t|B_x|.
+By the lemma, we can find, among such balls, a sequence of disjoint balls Bj such that the union of 5Bj covers {Mf > t}.
+It follows:
+
+|Mf>t|≤5d∑j|Bj|≤5dt∫|f|dy.|{Mf>t}|≤5^d∑_j|B_j|≤5^d∫|f|dy.
+This completes the proof of the weak-type estimate. We next deduce from this the Lp bounds. Define b by b(x) = f(x) if |f(x)| > t/2 and 0 otherwise. By the weak-type estimate applied to b, we have:
+
+|Mf>t|≤2Ct∫|f|>t2|f|dx,|{Mf>t}|≤2C∫_|f|>t/2|f|dx,
+with C = 5d. Then
+
+‖Mf‖pp=∫∫0Mf(x)ptp−1dtdx=p∫0∞tp−1|Mf>t|dtMf_p^p=∫∫_0^Mf(x)pt^p-1dtdx=p∫_0^∞t^p-1|{Mf>t}|dt
+By the estimate above we have:
+
+‖Mf‖pp≤p∫0∞tp−1(2Ct∫|f|>t2|f|dx)dt=2Cp∫0∞∫|f|>t2tp−2|f|dxdt=Cp‖f‖ppMf_p^p∫_0^∞t^p-1(2C∫_|f|>t/2|f|dx)dt=2Cp∫_0^∞∫_|f|>t/2t^p-2|f|dxdt=C_pf_p^p
+where the constant Cp depends only on p and d. This completes the proof of the theorem.
+Note that the constant C=5d=5^d in the proof can be improved to 3d3^d by using the inner regularity of the Lebesgue measure, and the finite version of the Vitali covering lemma. See the Discussion section below for more about optimizing the constant.
+
+Applications[edit]
+Some applications of the Hardy–Littlewood Maximal Inequality include proving the following results:
+
+Lebesgue differentiation theorem
+Rademacher differentiation theorem
+Fatou's theorem on nontangential convergence.
+Fractional integration theorem
+Here we use a standard trick involving the maximal function to give a quick proof of Lebesgue differentiation theorem. (But remember that in the proof of the maximal theorem, we used the Vitali covering lemma.) Let f ∈ L1(Rn) and
+
+Ωf(x)=limsupr→0fr(x)−liminfr→0fr(x)(x)=lim sup_r→0f_r(x)-lim inf_r→0f_r(x)
+where
+
+fr(x)=1|B(x,r)|∫B(x,r)f(y)dy._r(x)=1/|B(x,r)|∫_B(x,r)f(y)dy.
+We write f = h + g where h is continuous and has compact support and g ∈ L1(Rn) with norm that can be made arbitrary small. Then
+
+Ωf≤Ωg+Ωh=Ωg≤+=
+by continuity. Now, Ωg ≤ 2Mg and so, by the theorem, we have:
+
+|Ωg>ε|≤2Mε‖g‖1|{>ε}|≤2 M/εg_1
+Now, we can let ‖g‖1→0g_1→0 and conclude Ωf = 0 almost everywhere; that is, limr→0fr(x)lim_r→0f_r(x) exists for almost all x. It remains to show the limit actually equals f(x). But this is easy: it is known that ‖fr−f‖1→0f_r-f_1→0 (approximation of the identity) and thus there is a subsequence frk→f_r_k almost everywhere. By the uniqueness of limit, fr → f almost everywhere then.
+
+Discussion[edit]
+It is still unknown what the smallest constants Cp,d and Cd are in the above inequalities. However, a result of Elias Stein about spherical maximal functions can be used to show that, for 1 < p < ∞, we can remove the dependence of Cp,d on the dimension, that is, Cp,d = Cp for some constant Cp > 0 only depending on p.  It is unknown whether there is a weak bound that is independent of dimension.
+There are several common variants of the Hardy-Littlewood maximal operator which replace the averages over centered balls with averages over different families of sets. For instance, one can define the uncentered HL maximal operator (using the notation of Stein-Shakarchi)
+
+f∗(x)=supx∈Bx1|Bx|∫Bx|f(y)|dy^*(x)=sup_x_x1/|B_x|∫_B_x|f(y)|dy
+where the balls Bx are required to merely contain x, rather than be centered at x. There is also the dyadic HL maximal operator
+
+MΔf(x)=supx∈Qx1|Qx|∫Qx|f(y)|dy_Δf(x)=sup_x_x1/|Q_x|∫_Q_x|f(y)|dy
+where Qx ranges over all dyadic cubes containing the point x. Both of these operators satisfy the HL maximal inequality.
+
+See also[edit]
+Rising sun lemma
+References[edit]
+
+^ a b Tao, Terence. "Stein's spherical maximal theorem". What's New. Retrieved 22 May 2011.
+
+^ Stein, E. M. (1982). "The development of square functions in the work of A. Zygmund". Bulletin of the American Mathematical Society. New Series. 7 (2): 359–376. doi:10.1090/s0273-0979-1982-15040-6.
+
+
+John B. Garnett, Bounded Analytic Functions. Springer-Verlag, 2006
+Antonios D. Melas, The best constant for the centered Hardy–Littlewood maximal inequality, Annals of Mathematics, 157 (2003), 647–688
+Rami Shakarchi & Elias M. Stein, Princeton Lectures in Analysis III: Real Analysis. Princeton University Press, 2005
+Elias M. Stein, Maximal functions: spherical means, Proc. Natl. Acad. Sci. U.S.A. 73 (1976), 2174–2175
+Elias M. Stein, Singular Integrals and Differentiability Properties of Functions. Princeton University Press, 1971
+Gerald Teschl, Topics in Real and Functional Analysis (lecture notes)
+
+
+

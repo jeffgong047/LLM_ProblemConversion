@@ -1,0 +1,113 @@
+On integer partitions from monotonic functions
+The Lambek–Moser theorem is a mathematical description of partitions of the natural numbers into two complementary sets. For instance, it applies to the partition of numbers into even and odd, or into prime and non-prime (one and the composite numbers). There are two parts to the Lambek–Moser theorem. One part states that any two non-decreasing integer functions that are inverse, in a certain sense, can be used to split the natural numbers into two complementary subsets, and the other part states that every complementary partition can be constructed in this way.  When a formula is known for the nth natural number in a set, the Lambek–Moser theorem can be used to obtain a formula for the nth number not in the set.
+The Lambek–Moser theorem belongs to combinatorial number theory. It is named for Joachim Lambek and Leo Moser, who published it in 1954,[1] and should be distinguished from an unrelated theorem of Lambek and Moser, later strengthened by Wild, on the number of primitive Pythagorean triples.[2] It extends Rayleigh's theorem, which describes complementary pairs of Beatty sequences, the sequences of rounded multiples of irrational numbers.
+
+
+From functions to partitions[edit]
+The four functions f, f∗^*, F, and F∗^*, for the two Beatty sequences 1, 3, 4, 6, ... and 2, 5, 7, 10, ... . These sequences round down the integer multiples of φφ and φ+1φ+1, where φφ is the golden ratio.
+Let f be any function from positive integers to non-negative integers that is both non-decreasing (each value in the sequence f(1),f(2),f(3),…(1),f(2),f(3),… is at least as large as any earlier value) and unbounded (it eventually increases past any fixed value).
+The sequence of its values may skip some numbers, so it might not have an inverse function with the same properties. Instead, define a non-decreasing and unbounded integer function f∗^* that is as close as possible to the inverse in the sense that, for all positive integers n,
+f(f∗(n))<n≤f(f∗(n)+1).(f^*(n))<n(f^*(n)+1).
+Equivalently, f∗(n)^*(n) may be defined as the number of values x for which f(x)<n(x)<n.
+It follows from either of these definitions that f∗∗=f^*^*=f.[3] If the two functions f and f∗^* are plotted as histograms, they form mirror images of each other across the diagonal line x=y=y.[4]
+From these two functions f and f∗^*, define two more functions F and F∗^*, from positive integers to positive integers, by
+F(n)=f(n)+nF∗(n)=f∗(n)+nF(n)   =f(n)+n
+F^*(n)   =f^*(n)+n
+
+Then the first part of the Lambek–Moser theorem states that each positive integer occurs exactly once among the values of either F or F∗^*.
+That is, the values obtained from F and the values obtained from F∗^* form two complementary sets of positive integers. More strongly, each of these two functions maps its argument n to the nth member of its set in the partition.[3]
+As an example of the construction of a partition from a function, let f(n)=n2(n)=n^2, the function that squares its argument. Then its inverse is the square root function, whose closest integer approximation (in the sense used for the Lambek–Moser theorem) is f∗(n)=⌊n−1⌋^*(n)=⌊√(n-1)⌋.
+These two functions give F(n)=n2+n(n)=n^2+n and F∗(n)=⌊n−1⌋+n.^*(n)=⌊√(n-1)⌋+n.
+For n=1,2,3,…=1,2,3,… the values of F are the pronic numbers
+
+2, 6, 12, 20, 30, 42, 56, 72, 90, 110, ...
+while the values of F∗^* are
+
+1, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, ....
+These two sequences are complementary: each positive integer belongs to exactly one of them.[4] The Lambek–Moser theorem states that this phenomenon is not specific to the pronic numbers, but rather it arises for any choice of f with the appropriate properties.[3]
+
+From partitions to functions[edit]
+The two functions f (rightward blue arrows) and f∗^* (leftward red arrows) arising from the partition of positive integers into primes (2, 3, 5, 7, ...) and non-primes (1, 4, 6, 8, ...). Visualization based on a method of Angel.[5]
+The second part of the Lambek–Moser theorem states that this construction of partitions from inverse functions is universal, in the sense that it can explain any partition of the positive integers into two infinite parts. If S=s1,s2,…=s_1,s_2,… and S∗=s1∗,s2∗,…^*=s_1^*,s_2^*,… are any two complementary increasing sequences of integers, one may construct a pair of functions f and f∗^* from which this partition may be derived using the Lambek–Moser theorem. To do so, define f(n)=sn−n(n)=s_n-n and f∗(n)=sn∗−n^*(n)=s_n^*-n.[3]
+One of the simplest examples to which this could be applied is the partition of positive integers into even and odd numbers. The functions F(n)(n) and F∗(n)^*(n) should give the nth even or odd number, respectively, so F(n)=2n(n)=2n  and F∗(n)=2n−1^*(n)=2n-1. From these are derived the two functions f(n)=F(n)−n=n(n)=F(n)-n=n and f∗(n)=F∗(n)−n=n−1^*(n)=F^*(n)-n=n-1. They form an inverse pair, and the partition generated via the Lambek–Moser theorem from this pair is just the partition of the positive integers into even and odd numbers. Another integer partition, into evil numbers and odious numbers (by the parity of the binary representation) uses almost the same functions, adjusted by the values of the Thue–Morse sequence.[6]
+
+Limit formula[edit]
+In the same work in which they proved the Lambek–Moser theorem, Lambek and Moser provided a method of going directly from F, the function giving the nth member of a set of positive integers, to F∗^*, the function giving the nth non-member, without going through f and f∗^*. Let F#(n)^#(n) denote the number of values of x for which F(x)≤n(x); this is an approximation to the inverse function of F, but (because it uses ≤≤ in place of <<) offset by one from the type of inverse used to define f∗^* from f. Then, for any n, F∗(n)^*(n) is the limit of the sequence
+n,n+F#(n),n+F#(n+F#(n)),…,,n+F^#(n),n+F^#(n+F^#(n)),…,
+meaning that this sequence eventually becomes constant and the value it takes when it does is F∗(n)^*(n).[7]
+Lambek and Moser used the prime numbers as an example, following earlier work by Viggo Brun and D. H. Lehmer.[8] If π(n)π(n) is the prime-counting function (the number of primes less than or equal to n), then the nth non-prime (1 or a composite number) is given by the limit of the sequence[7]
+n,n+π(n),n+π(n+π(n)),…,n+π(n),n+π(n+π(n)),…
+For some other sequences of integers, the corresponding limit converges in a fixed number of steps, and a direct formula for the complementary sequence is possible. In particular, the nth positive integer that is not a kth power can be obtained from the limiting formula as[9]
+n+⌊n+⌊nk⌋k⌋.+⌊√(n+⌊√(n)⌋)⌋.
+
+History and proofs[edit]
+The theorem was discovered by Leo Moser and Joachim Lambek, who published it in 1954. Moser and Lambek cite the previous work of Samuel Beatty on Beatty sequences as their inspiration, and also cite the work of Viggo Brun and D. H. Lehmer from the early 1930s on methods related to their limiting formula for F∗^*.[1] Edsger W. Dijkstra has provided a visual proof of the result,[10] and later another proof based on algorithmic reasoning.[11] Yuval Ginosar has provided an intuitive proof based on an analogy of two athletes running in opposite directions around a circular racetrack.[12]
+
+Related results[edit]
+For non-negative integers[edit]
+A variation of the theorem applies to partitions of the non-negative integers, rather than to partitions of the positive integers. For this variation, every partition corresponds to a Galois connection of the ordered non-negative integers to themselves. This is a pair of non-decreasing functions
+(f,f∗)(f,f^*) with the property that, for all x and y, f(x)≤y(x) if and only if x≤f(y)(y). The corresponding functions F and F∗^* are defined slightly less symmetrically by F(n)=f(n)+n(n)=f(n)+n and F∗(n)=f∗(n)+n+1^*(n)=f^*(n)+n+1. For functions defined in this way, the values of F and F∗^* (for non-negative arguments, rather than positive arguments) form a partition of the non-negative integers, and every partition can be constructed in this way.[13]
+
+Rayleigh's theorem[edit]
+Main article: Beatty sequence
+Rayleigh's theorem states that for two positive irrational numbers r and s, both greater than one, with 1r+1s=11r+1s=1,
+the two sequences ⌊i⋅r⌋⌋ and ⌊i⋅s⌋⋯⌋ for i=1,2,3,…=1,2,3,…, obtained by rounding down to an integer the multiples of r and s, are complementary. It can be seen as an instance of the Lambek–Moser theorem with f(n)=⌊rn⌋−n(n)=⌋-n and f∗(n)=⌊sn⌋−n^∗(n)=⌋-n. The condition that r and s be greater than one implies that these two functions are non-decreasing; the derived functions are F(n)=⌊rn⌋(n)=⌋ and F∗(n)=⌊sn⌋.^*(n)=⌋. The sequences of values of F and F∗^* forming the derived partition are known as Beatty sequences, after Samuel Beatty's 1926 rediscovery of Rayleigh's theorem.[14]
+
+See also[edit]
+Hofstadter Figure-Figure sequences, another pair of complementary sequences to which the Lambek–Moser theorem can be applied
+Notes[edit]
+
+
+^ a b Lambek & Moser 1954.
+
+^ Wild 1955.
+
+^ a b c d Lambek & Moser 1954; Honsberger 1970, pp. 95–96; Fraenkel 1977.
+
+^ a b Garry 1997.
+
+^ Angel 1964.
+
+^ Allouche & Dekking 2019.
+
+^ a b Lambek & Moser 1954; Roberts 1992.
+
+^ Brun 1931; Lehmer 1932.
+
+^ Honsberger 1970, pp. 97–100; Dos Reis & Silberger 1990; Roberts 1992.
+
+^ Dijkstra 1980.
+
+^ Dijkstra 1982.
+
+^ Ginosar 2014.
+
+^ Lambek 1994.
+
+^ Rayleigh 1894; Beatty 1926; Honsberger 1970, pp. 93–95; Chamberland 2017.
+
+
+References[edit]
+
+Allouche, Jean-Paul; Dekking, F. Michel (2019), "Generalized Beatty sequences and complementary triples", Moscow Journal of Combinatorics and Number Theory, 8 (4): 325–341, arXiv:1809.03424, doi:10.2140/moscow.2019.8.325, MR 4026541, S2CID 119176190
+Angel, Myer (1964), "Partitions of the natural numbers", Canadian Mathematical Bulletin, 7 (2): 219–236, doi:10.4153/CMB-1964-020-1, MR 0161826, S2CID 123729929
+Beatty, Samuel (1926), "Problem 3173", The American Mathematical Monthly, 33 (3): 159, doi:10.2307/2300153, JSTOR 2300153; Solutions by Beatty, A. Ostrowski, J. Hyslop, and A. C. Aitken, vol. 34 (1927), pp. 159–160, JSTOR 2298716
+Brun, Viggo (1931), "Rechenregel zur Bildung der n-ten Primzahl" [Calculating rules to build the nth prime], Norsk Matematisk Tidsskrift (in Norwegian), 13: 73–79, Zbl 0003.14902, as cited by Lambek & Moser 1954
+Chamberland, Marc (2017), "Beatty sequences", Single Digits: In Praise of Small Numbers, Princeton University Press, pp. 32–33, ISBN 978-0-691-17569-0
+Dijkstra, Edsger W. (1980), On a theorem by Lambek and Moser (PDF), Report EWD753, University of Texas
+Dijkstra, Edsger W. (1982), "Lambek and Moser revisited", in Broy, Manfred; Schmidt, Gunther (eds.), Theoretical Foundations of Programming Methodology: Lecture Notes of an International Summer School, directed by F. L. Bauer, E. W. Dijkstra and C. A. R. Hoare, NATO Advanced Study Institutes Series, Series C – Mathematical and Physical Sciences, vol. 91, D. Reidel Publishing Co., pp. 19–23, doi:10.1007/978-94-009-7893-5_2, Zbl 0533.40001
+Dos Reis, A. J.; Silberger, D. M. (1990), "Generating nonpowers by formula", Mathematics Magazine, 63 (1): 53–55, doi:10.1080/0025570X.1990.11977485, JSTOR 2691513, MR 1042938
+Fraenkel, Aviezri S. (1977), "Complementary systems of integers", The American Mathematical Monthly, 84 (2): 114–115, doi:10.2307/2319931, JSTOR 2319931, MR 0429815
+Garry, Y. K. K. (1997), "Inverse sequences and complementary sequences" (PDF), Mathematical Excalibur, 3 (4): 2
+Ginosar, Yuval (2014), "On the Lambek–Moser theorem", Integers, 14: A09:1–A09:4, arXiv:1207.5633
+Honsberger, Ross (1970), "Essay 12: Complementary sequences", Ingenuity in Mathematics, New Mathematical Library, vol. 23, New York: Random House, Inc., pp. 93–110, ISBN 0-394-70923-3, MR 3155264
+Lambek, Joachim (1994), "Some Galois connections in elementary number theory", Journal of Number Theory, 47 (3): 371–377, doi:10.1006/jnth.1994.1043, MR 1278405
+Lambek, Joachim; Moser, Leo (August–September 1954), "Inverse and complementary sequences of natural numbers", The American Mathematical Monthly, 61 (7): 454–458, doi:10.1080/00029890.1954.11988496, JSTOR 2308078
+Lehmer, D. H. (1932), "An inversive algorithm", Bulletin of the American Mathematical Society, 38 (10): 693–694, doi:10.1090/S0002-9904-1932-05496-9, MR 1562488
+John William Strutt, Baron Rayleigh (1894), The Theory of Sound, vol. 1 (2nd ed.), Macmillan, p. 123
+Roberts, Joe (1992), Lure of the Integers, MAA Spectrum, Washington, DC: Mathematical Association of America, p. 11, doi:10.2307/40148160, ISBN 0-88385-502-X, JSTOR 40148160, MR 1189138
+Wild, Roy E. (1955), "On the number of primitive Pythagorean triangles with area less than n", Pacific Journal of Mathematics, 5: 85–91, doi:10.2140/pjm.1955.5.85, MR 0067912
+
+
+
+

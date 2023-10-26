@@ -1,0 +1,47 @@
+In mathematics, the Babuška–Lax–Milgram theorem is a generalization of the famous Lax–Milgram theorem, which gives conditions under which a bilinear form can be "inverted" to show the existence and uniqueness of a weak solution to a given boundary value problem.  The result is named after the mathematicians Ivo Babuška, Peter Lax and Arthur Milgram.
+
+
+Background[edit]
+In the modern, functional-analytic approach to the study of partial differential equations, one does not attempt to solve a given partial differential equation directly, but by using the structure of the vector space of possible solutions, e.g. a Sobolev space W k,p.  Abstractly, consider two real normed spaces U and V with their continuous dual spaces U∗ and V∗ respectively.  In many applications, U is the space of possible solutions; given some partial differential operator Λ : U → V∗ and a specified element f ∈ V∗, the objective is to find a u ∈ U such that
+
+Λu=f.=f.
+However, in the weak formulation, this equation is only required to hold when "tested" against all other possible elements of V.  This "testing" is accomplished by means of a bilinear function B : U × V → R which encodes the differential operator Λ; a weak solution to the problem is to find a u ∈ U such that
+
+B(u,v)=⟨f,v⟩forallv∈V.(u,v)=,v⟩v.
+The achievement of Lax and Milgram in their 1954 result was to specify sufficient conditions for this weak formulation to have a unique solution that depends continuously upon the specified datum f ∈ V∗: it suffices that U = V is a Hilbert space, that B is continuous, and that B is strongly coercive, i.e.
+
+|B(u,u)|≥c‖u‖2|B(u,u)|u^2
+for some constant c > 0 and all u ∈ U.
+For example, in the solution of the Poisson equation on a bounded, open domain Ω ⊂ Rn,
+
+−Δu(x)=f(x),x∈Ω;u(x)=0,x∈∂Ω;-(x)=f(x),   x∈Ω;
+u(x)=0,   x∈∂Ω;
+the space U could be taken to be the Sobolev space H01(Ω) with dual H−1(Ω); the former is a subspace of the Lp space V = L2(Ω); the bilinear form B associated to −Δ is the L2(Ω) inner product of the derivatives:
+
+B(u,v)=∫Ω∇u(x)⋅∇v(x)dx.(u,v)=∫_Ω(x)·(x) dx.
+Hence, the weak formulation of the Poisson equation, given f ∈ L2(Ω), is to find uf such that
+
+∫Ω∇uf(x)⋅∇v(x)dx=∫Ωf(x)v(x)dxforallv∈H01(Ω).∫_Ω_f(x)·(x) dx=∫_Ωf(x)v(x) dxv_0^1(Ω).
+Statement of the theorem[edit]
+In 1971, Babuška provided the following generalization of Lax and Milgram's earlier result, which begins by dispensing with the requirement that U and V be the same space.  Let U and V be two real Hilbert spaces and let B : U × V → R be a continuous bilinear functional.  Suppose also that B is weakly coercive: for some constant c > 0 and all u ∈ U,
+
+sup‖v‖=1|B(u,v)|≥c‖u‖sup_v=1|B(u,v)|u
+and, for all 0 ≠ v ∈ V, 
+
+sup‖u‖=1|B(u,v)|>0sup_u=1|B(u,v)|>0
+Then, for all f ∈ V∗, there exists a unique solution u = uf ∈ U to the weak problem
+
+B(uf,v)=⟨f,v⟩forallv∈V.(u_f,v)=,v⟩v.
+Moreover, the solution depends continuously on the given data:
+
+‖uf‖≤1c‖f‖.u_f≤1/cf.
+See also[edit]
+Lions–Lax–Milgram theorem
+References[edit]
+Babuška, Ivo (1970–1971). "Error-bounds for finite element method". Numerische Mathematik. 16 (4): 322–333. doi:10.1007/BF02165003. hdl:10338.dmlcz/103498. ISSN 0029-599X. MR 0288971. S2CID 122191183. Zbl 0214.42001.
+Lax, Peter D.; Milgram, Arthur N. (1954), "Parabolic equations", Contributions to the theory of partial differential equations, Annals of Mathematics Studies, vol. 33, Princeton, N. J.: Princeton University Press, pp. 167–190, MR 0067317, Zbl 0058.08703 – via De Gruyter
+External links[edit]
+Roşca, Ioan (2001) [1994], "Babuška–Lax–Milgram theorem", Encyclopedia of Mathematics, EMS Press
+
+
+

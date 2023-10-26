@@ -1,0 +1,50 @@
+Theorem in extremal graph theory
+In extremal graph theory, the Erdős–Stone theorem is an asymptotic result generalising Turán's theorem to bound the number of edges in an H-free graph for a non-complete graph H. It is named after Paul Erdős and Arthur Stone, who proved it in 1946,[1]   and it has been described as the “fundamental theorem of extremal graph theory”.[2]
+
+
+Statement for Turán graphs[edit]
+The extremal number ex(n; H) is defined to be the maximum number of edges in a graph with n vertices not containing a subgraph isomorphic to H; see the Forbidden subgraph problem for more examples of problems involving the extremal number. Turán's theorem says that ex(n; Kr) = tr − 1(n), the number of edges of the Turán graph T(n, r − 1), and that the Turán graph is the unique such extremal graph.  The Erdős–Stone theorem extends this result to H = Kr(t), the complete r-partite graph with t vertices in each class, which is the graph obtained by taking Kr and replacing each vertex with t independent vertices:
+
+ex(n;Kr(t))=(r−2r−1+o(1))(n2).(n;K_r(t))=(r-2/r-1+o(1))n2.
+Statement for arbitrary non-bipartite graphs[edit]
+If H is an arbitrary graph whose chromatic number is r > 2, then H is contained in Kr(t) whenever t is at least as large as the largest color class in an r-coloring of H, but it is not contained in the Turán graph T(n,r − 1), as this graph and therefore each of its subgraphs can be colored with r − 1 colors.
+It follows that the extremal number for H is at least as large as the number of edges in T(n,r − 1), and at most equal to the extremal function for Kr(t); that is,
+
+ex(n;H)=(r−2r−1+o(1))(n2).(n;H)=(r-2/r-1+o(1))n2.
+For bipartite graphs H, however, the theorem does not give a tight bound on the extremal function. It is known that, when H is bipartite, ex(n; H) = o(n2), and for general bipartite graphs little more is known. See Zarankiewicz problem for more on the extremal functions of bipartite graphs.
+
+Turán density[edit]
+Another way of describing the Erdős–Stone theorem is using the Turán density of a graph H, which is defined by π(H)=limn→∞ex(n;H)(n2)π(H)=lim_n→∞ex(n;H)/n2. This determines the extremal number ex(n;H)ex(n;H) up to an additive o(n2)(n^2) error term. It can also be thought of as follows: given a sequence of graphs G1,G2,…_1,G_2,…, each not containing H, such that the number of vertices goes to infinity, the Turán density is the maximum possible limit of their edge densities. The Erdős–Stone theorem determines the Turán density for all graphs, showing that any graph H with chromatic number r>2>2 has a Turán density of π(H)=r−2r−1.π(H)=r-2/r-1.
+Proof[edit]
+One proof of the Erdős–Stone theorem uses an extension of the Kővári–Sós–Turán theorem to hypergraphs, as well as the supersaturation theorem, by creating a corresponding hypergraph for every graph that is Kr(t)_r(t)-free and showing that the hypergraph has some bounded number of edges. The Kővári–Sós–Turán says, among other things, that the extremal number of K2(t)_2(t), the complete bipartite graph with t vertices in each part, is at most ex(K2(t);n)≤Cn2−1/tex(K_2(t);n)^2-1/t for a constant C. This can be extended to hypergraphs: defining Ks,…,s(r)_s,…,s^(r) to be the r-partite r-graph with s vertices in each part, then ex(Ks,…,s(r),n)≤Cnr−s1−rex(K_s,…,s^(r),n)^r-s^1-r for some constant C.[citation needed]
+Now, for a given graph H=Kr(t)=K_r(t) with r>1,s≥1>1,s≥1, and some graph G with n vertices that does not contain a subgraph isomorphic to H, we define the r-graph F with the same vertices as G and a hyperedge between vertices in F if they form a clique in G. Note that if F contains a copy of Ks,…,s(r)_s,…,s^(r), then the original graph G contains a copy of H, as every pair of vertices in distinct parts must have an edge. Thus, F contains no copies of Ks,…,s(r)_s,…,s^(r), and so it has o(nr)(n^r) hyperedges, indicating that there are o(nr)(n^r) copies of Kr_r in G. By supersaturation, this means that the edge density of G is within o(1)(1) of the Turán density of Kr_r, which is r−2r−1r-2/r-1 by Turán's theorem; thus, the edge density is bounded above by r−2r−1+o(1)r-2/r-1+o(1).
+On the other hand, we can achieve this bound by taking the Turán graph T(n,r−1)(n,r-1), which contains no copies of Kr(t)_r(t) but has (r−2r−1−o(1))(n2)(r-2/r-1-o(1))n2 edges, showing that this value is the maximum and concluding the proof.
+
+Quantitative results[edit]
+Several versions of the theorem have been proved that more precisely characterise the relation of n, r, t and the o(1) term.  Define the notation[3] sr,ε(n) (for 0 < ε < 1/(2(r − 1))) to be the greatest t such that every graph of order n and size
+
+(r−22(r−1)+ε)n2(r-2/2(r-1)+ε)n^2
+contains a Kr(t).
+Erdős and Stone proved that
+
+sr,ε(n)≥(log⁡⋯log⏟r−1n)1/2_r,ε(n)≥(log⋯log_r-1 n)^1/2
+for n sufficiently large.  The correct order of sr,ε(n) in terms of n was found by Bollobás and Erdős:[4] for any given r and ε there are constants c1(r, ε) and c2(r, ε) such that c1(r, ε) log n < sr,ε(n) < c2(r, ε) log n.  Chvátal and Szemerédi[5] then determined the nature of the dependence on r and ε, up to a constant:
+
+1500log⁡(1/ε)log⁡n<sr,ε(n)<5log⁡(1/ε)log⁡n1/500log(1/ε)<s_r,ε(n)<5/log(1/ε) for sufficiently large n.
+Notes[edit]
+
+
+^ Erdős, P.; Stone, A. H. (1946). "On the structure of linear graphs". Bulletin of the American Mathematical Society. 52 (12): 1087–1091. doi:10.1090/S0002-9904-1946-08715-7.
+
+^ Bollobás, Béla (1998). Modern Graph Theory. New York: Springer-Verlag. pp. 120. ISBN 0-387-98491-7.
+
+^ Bollobás, Béla (1995). "Extremal graph theory". In R. L. Graham; M. Grötschel; L. Lovász (eds.). Handbook of combinatorics. Elsevier. p. 1244. ISBN 0-444-88002-X.
+
+^ Bollobás, B.; Erdős, P. (1973). "On the structure of edge graphs". Bulletin of the London Mathematical Society. 5 (3): 317–321. doi:10.1112/blms/5.3.317.
+
+^ Chvátal, V.; Szemerédi, E. (1981). "On the Erdős-Stone theorem". Journal of the London Mathematical Society. 23 (2): 207–214. doi:10.1112/jlms/s2-23.2.207.
+
+
+
+
+

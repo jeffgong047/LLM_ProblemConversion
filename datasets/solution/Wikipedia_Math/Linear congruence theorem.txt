@@ -1,0 +1,456 @@
+Theorem for solving simultaneous congruences
+Sunzi's original formulation: x ≡ 2 (mod 3) ≡ 3 (mod 5) ≡ 2 (mod 7) with the solution x = 23 + 105k, with k an integer
+In mathematics, the Chinese remainder theorem states that if one knows the remainders of the Euclidean division of an integer n by several integers, then one can determine uniquely the remainder of the division of n by the product of these integers, under the condition that the divisors are pairwise coprime (no two divisors share a common factor other than 1).
+For example, if we know that the remainder of n divided by 3 is 2, the remainder of n divided by 5 is 3, and the remainder of n divided by 7 is 2, then without knowing the value of n, we can determine that the remainder of n divided by 105 (the product of 3, 5, and 7) is 23. Importantly, this tells us that if n is a natural number less than 105, then 23 is the only possible value of n.
+The earliest known statement of the theorem is by the Chinese mathematician Sunzi in the Sunzi Suanjing in the 3rd century CE.
+The Chinese remainder theorem is widely used for computing with large integers, as it allows replacing a computation for which one knows a bound on the size of the result by several similar computations on small integers.
+The Chinese remainder theorem (expressed in terms of congruences) is true over every principal ideal domain. It has been generalized to any ring, with a formulation involving two-sided ideals.
+
+
+History[edit]
+The earliest known statement of the theorem, as a problem with specific numbers, appears in the 3rd-century book Sunzi Suanjing by the Chinese mathematician Sunzi:[1]
+
+There are certain things whose number is unknown. If we count them by threes, we have two left over; by fives, we have three left over; and by sevens, two are left over. How many things are there?[2]
+Sunzi's work contains neither a proof nor a full algorithm.[3] What amounts to an algorithm for solving this problem was described by Aryabhata (6th century).[4] Special cases of the Chinese remainder theorem were also known to Brahmagupta (7th century), and appear in Fibonacci's Liber Abaci (1202).[5] The result was later generalized with a complete solution called Da-yan-shu (大衍術) in Qin Jiushao's 1247 Mathematical Treatise in Nine Sections [6] which was translated into English in early 19th century by British missionary Alexander Wylie.[7]
+
+The Chinese remainder theorem appears in Gauss's 1801 book Disquisitiones Arithmeticae.[8]
+The notion of congruences was first introduced and used by Carl Friedrich Gauss in his Disquisitiones Arithmeticae of 1801.[9] Gauss illustrates the Chinese remainder theorem on a problem involving calendars, namely, "to find the years that have a certain period number with respect to the solar and lunar cycle and the Roman indiction."[10] Gauss introduces a procedure for solving the problem that had already been used by Leonhard Euler but was in fact an ancient method that had appeared several times.[11]
+
+Statement[edit]
+Let n1, ..., nk be integers greater than 1, which are often called moduli or divisors. Let us denote by N the product of the ni.
+The Chinese remainder theorem asserts that if the ni are pairwise coprime, and if a1, ..., ak are integers such that 0 ≤ ai < ni for every i, then there is one and only one integer x, such that 0 ≤ x < N and the remainder of the Euclidean division of x by ni is ai for every i.
+This may be restated as follows in terms of congruences:
+If the ni_i are pairwise coprime, and if a1, ..., ak are any integers, then the system
+
+x≡a1(modn1)⋮x≡ak(modnk),x   _1n_1
+      ⋮
+x   _kn_k,
+has a solution, and any two solutions, say x1 and x2, are congruent modulo N, that is, x1 ≡ x2 (mod N ).[12]
+In abstract algebra, the theorem is often restated as: if the ni are pairwise coprime, the map
+
+xmodN↦(xmodn1,…,xmodnk)N ↦ (xn_1, …, xn_k)
+defines a ring isomorphism[13]
+
+Z/NZ≅Z/n1Z×⋯×Z/nkZℤ/Nℤ≅ℤ/n_1ℤ×⋯×ℤ/n_kℤ
+between the ring of integers modulo N and the direct product of the rings of integers modulo the ni. This means that for doing a sequence of arithmetic operations in Z/NZ,ℤ/Nℤ, one may do the same computation independently in each Z/niZℤ/n_iℤ and then get the result by applying the isomorphism (from the right to the left). This may be much faster than the direct computation if N and the number of operations are large. This is widely used, under the name multi-modular computation, for linear algebra over the integers or the rational numbers.
+The theorem can also be restated in the language of combinatorics as the fact that the infinite arithmetic progressions of integers form a Helly family.[14]
+
+Proof[edit]
+The existence and the uniqueness of the solution may be proven independently. However, the first proof of existence, given below, uses this uniqueness.
+
+Uniqueness[edit]
+Suppose that x and y are both solutions to all the congruences. As x and y give the same remainder, when divided by ni, their difference x − y is a multiple of each ni. As the ni are pairwise coprime, their product N also divides x − y, and thus x and y are congruent modulo N. If x and y  are supposed to be non-negative and less than N (as in the first statement of the theorem), then their difference may be a multiple of N only if x = y.
+
+Existence (first proof)[edit]
+The map
+
+xmodN↦(xmodn1,…,xmodnk)N↦(xn_1,…,xn_k)
+maps congruence classes modulo N to sequences of congruence classes modulo ni. The proof of uniqueness shows that this map is injective. As the domain and the codomain of this map have the same number of elements, the map is also surjective, which proves the existence of the solution.
+This proof is very simple but does not provide any direct way for computing a solution. Moreover, it cannot be generalized to other situations where the following proof can.
+
+Existence (constructive proof)[edit]
+Existence may be established by an explicit construction of x.[15] This construction may be split into two steps, first solving the problem in the case of two moduli, and then extending this solution to the general case by induction on the number of moduli.
+
+Case of two moduli[edit]
+We want to solve the system:
+
+x≡a1(modn1)x≡a2(modn2),x   _1n_1
+x   _2n_2,
+where n1_1 and n2_2 are coprime.
+Bézout's identity asserts the existence of two integers m1_1 and m2_2 such that 
+
+m1n1+m2n2=1._1n_1+m_2n_2=1.
+The integers m1_1 and m2_2 may be computed by the extended Euclidean algorithm.
+A solution is given by
+
+x=a1m2n2+a2m1n1.=a_1m_2n_2+a_2m_1n_1.
+Indeed, 
+
+x=a1m2n2+a2m1n1=a1(1−m1n1)+a2m1n1=a1+(a2−a1)m1n1,x   =a_1m_2n_2+a_2m_1n_1
+   =a_1(1-m_1n_1)+a_2m_1n_1
+   =a_1+(a_2-a_1)m_1n_1,
+implying that x≡a1(modn1)._1n_1. The second congruence is proved similarly, by exchanging the subscripts 1 and 2.
+
+General case[edit]
+Consider a sequence of congruence equations:
+
+x≡a1(modn1)⋮x≡ak(modnk),x   _1n_1
+   ⋮
+x   _kn_k,
+where the ni_i are pairwise coprime. The two first equations have a solution a1,2_1,2 provided by the method of the previous section. The set of the solutions of these two first equations is the set of all solutions of the equation
+
+x≡a1,2(modn1n2)._1,2n_1n_2.
+As the other ni_i are coprime with n1n2,_1n_2, this reduces solving the initial problem of k equations to a similar problem with k−1-1 equations. Iterating the process, one gets eventually the solutions of the initial problem.
+
+Existence (direct construction)[edit]
+For constructing a solution, it is not necessary to make an induction on the number of moduli. However, such a direct construction involves more computation with large numbers, which makes it less efficient and less used. Nevertheless, Lagrange interpolation is a special case of this construction, applied to polynomials instead of integers.
+Let Ni=N/ni_i=N/n_i be the product of all moduli but one. As the ni_i are pairwise coprime, Ni_i and ni_i are coprime. Thus Bézout's identity applies, and there exist integers Mi_i and mi_i such that
+
+MiNi+mini=1._iN_i+m_in_i=1.
+A solution of the system of congruences is
+
+x=∑i=1kaiMiNi.=∑_i=1^ka_iM_iN_i.
+In fact, as Nj_j is a multiple of ni_i for i≠j,,
+we have
+
+x≡aiMiNi≡ai(1−mini)≡ai(modni),_iM_iN_i_i(1-m_in_i)_in_i,
+for every i..
+
+Computation[edit]
+Consider a system of congruences:
+
+x≡a1(modn1)⋮x≡ak(modnk),x   _1n_1
+   ⋮
+x   _kn_k,
+
+where the ni_i are pairwise coprime, and let N=n1n2⋯nk.=n_1n_2_k. In this section several methods are described for computing the unique solution for x, such that 0≤x<N,0<N, and these methods are applied on the example
+
+x≡0(mod3)x≡3(mod4)x≡4(mod5).x   ≡03
+x   ≡34
+x   ≡45.
+Several methods of computation are presented. The two first ones are useful for small examples, but become very inefficient when the product n1⋯nk_1_k is large. The third one uses the existence proof given in § Existence (constructive proof). It is the most convenient when the product n1⋯nk_1_k is large, or for computer computation.
+
+Systematic search[edit]
+It is easy to check whether a value of x is a solution: it suffices to compute the remainder of the Euclidean division of x by each ni. Thus, to find the solution, it suffices to check successively the integers from 0 to N until finding the solution.
+Although very simple, this method is very inefficient. For the simple example considered here, 40 integers (including 0) have to be checked for finding the solution, which is 39. This is an exponential time algorithm, as the size of the input is, up to a constant factor, the number of digits of N, and the average number of operations is of the order of N.
+Therefore, this method is rarely used, neither for hand-written computation nor on computers.
+
+Search by sieving[edit]
+The smallest two solutions, 23 and 128, of the original formulation of the Chinese remainder theorem problem found using a sieve
+The search of the solution may be made dramatically faster by sieving. For this method, we suppose, without loss of generality, that 0≤ai<ni0_i<n_i (if it were not the case, it would suffice to replace each ai_i by the remainder of its division by ni_i). This implies that the solution belongs to the arithmetic progression
+
+a1,a1+n1,a1+2n1,…_1,a_1+n_1,a_1+2n_1,…
+By testing the values of these numbers modulo n2,_2, one eventually finds a solution x2_2 of the two first congruences. Then the solution belongs to the arithmetic progression 
+
+x2,x2+n1n2,x2+2n1n2,…_2,x_2+n_1n_2,x_2+2n_1n_2,…
+Testing the values of these numbers modulo n3,_3, and continuing until every modulus has been tested eventually yields the solution.
+This method is faster if the moduli have been ordered by decreasing value, that is if n1>n2>⋯>nk._1>n_2>⋯>n_k. For the example, this gives the following computation. We consider first the numbers that are congruent to 4 modulo 5 (the largest modulus), which are 4, 9 = 4 + 5, 14 = 9 + 5, ... For each of them, compute the remainder by 4 (the second largest modulus) until getting a number congruent to 3 modulo 4. Then one can proceed  by adding 20 = 5 × 4 at each step, and computing only the remainders by 3. This gives
+
+4 mod 4 → 0. Continue
+4 + 5 = 9 mod 4 →1.  Continue
+9 + 5 = 14 mod 4 → 2. Continue
+14 + 5 = 19 mod 4 → 3. OK, continue by considering remainders modulo 3 and adding 5 × 4 = 20 each time
+19 mod 3 → 1. Continue
+19 + 20 = 39 mod 3 → 0. OK, this is the result.
+This method works well for hand-written computation with a product of moduli that is not too big. However, it is much slower than other methods, for very large products of moduli. Although dramatically faster than the systematic search, this method also has an exponential time complexity and is therefore not used on computers.
+
+Using the existence construction[edit]
+The constructive existence proof shows that, in the case of two moduli, the solution may be obtained by the computation of the Bézout coefficients of the moduli, followed by a few multiplications, additions and reductions modulo n1n2_1n_2 (for getting a result in the interval (0,n1n2−1)(0,n_1n_2-1)). As the Bézout's coefficients may be computed with the extended Euclidean algorithm, the whole computation, at most, has a quadratic time complexity of O((s1+s2)2),((s_1+s_2)^2), where si_i denotes the number of digits of ni._i.
+For more than two moduli, the method for two moduli allows the replacement of any two congruences by a single congruence modulo the product of the moduli. Iterating this process provides eventually the solution with a complexity, which is quadratic in the number of digits of the product of all moduli. This quadratic time complexity does not depend on the order in which the moduli are regrouped. One may regroup the two first moduli, then regroup the resulting modulus with the next one, and so on. This strategy is the easiest to implement, but it also requires more computation involving large numbers.
+Another strategy consists in partitioning the moduli in pairs whose product have comparable sizes (as much as possible), applying, in parallel, the method of two moduli to each pair, and iterating with a number of moduli approximatively divided by two. This method allows an easy parallelization of the algorithm. Also, if fast algorithms (that is, algorithms working in quasilinear time) are used for the basic operations, this method provides an algorithm for the whole computation that works in quasilinear time.
+On the current example (which has only three moduli), both strategies are identical and work as follows.
+Bézout's identity for 3 and 4 is
+
+1×4+(−1)×3=1.1×4+(-1)×3=1.
+Putting this in the formula given for proving the existence gives 
+
+0×1×4+3×(−1)×3=−90×1×4+3×(-1)×3=-9
+for a solution of the two first congruences, the other solutions being obtained by adding to −9 any multiple of 3 × 4 = 12. One may continue with any of these solutions, but the solution 3 = −9 +12 is smaller (in absolute value) and thus leads probably to an easier computation
+Bézout identity for 5 and 3 × 4 = 12 is
+
+5×5+(−2)×12=1.5×5+(-2)×12=1.
+Applying the same formula again, we get a solution of the problem:
+
+5×5×3+12×(−2)×4=−21.5×5×3+12×(-2)×4=-21.
+The other solutions are obtained by adding any multiple of 3 × 4 × 5 = 60, and the smallest positive solution is −21 + 60 = 39.
+
+As a linear Diophantine system[edit]
+The system of congruences solved by the Chinese remainder theorem may be rewritten as a system of linear Diophantine equations:
+
+x=a1+x1n1⋮x=ak+xknk,x   =a_1+x_1n_1
+   ⋮
+x   =a_k+x_kn_k,
+where the unknown integers are x and the xi._i. Therefore, every general method for solving such systems may be used for finding the solution of Chinese remainder theorem, such as the reduction of the matrix of the system to Smith normal form or Hermite normal form. However, as usual when using a general algorithm for a more specific problem, this approach is less efficient than the method of the preceding section, based on a direct use of Bézout's identity.
+
+Over principal ideal domains[edit]
+In § Statement, the Chinese remainder theorem has been stated in three different ways: in terms of remainders, of congruences, and of a ring isomorphism. The statement in terms of remainders does not apply, in general, to principal ideal domains, as remainders are not defined in such rings. However, the two other versions make sense over a principal ideal domain R: it suffices to replace "integer" by "element of the domain" and Zℤ by  R. These two versions of the theorem are true in this context, because the proofs (except for the first existence proof), are based on Euclid's lemma and Bézout's identity, which are true over every principal domain.
+However, in general, the theorem is only an existence theorem and does not provide any way for computing the solution, unless one has an algorithm for computing the coefficients of Bézout's identity.
+
+Over univariate polynomial rings and Euclidean domains[edit]
+The statement in terms of remainders given in § Theorem statement cannot be generalized to any principal ideal domain, but its generalization to Euclidean domains is straightforward. The univariate polynomials over a field is the typical example of a Euclidean domain which is not the integers. Therefore, we state the theorem for the case of the ring R=K[X]=K[X] for a field K.. For getting the theorem for a general Euclidean domain, it suffices to replace the degree by the Euclidean function of the Euclidean domain.
+The Chinese remainder theorem for polynomials is thus: Let Pi(X)_i(X) (the moduli) be, for i=1,…,k=1,…,k, pairwise coprime polynomials in R=K[X]=K[X]. Let di=deg⁡Pi_i=_i be the degree of Pi(X)_i(X), and D be the sum of the di._i.
+If Ai(X),…,Ak(X)_i(X),…,A_k(X) are polynomials such that Ai(X)=0_i(X)=0 or deg⁡Ai<di_i<d_i for every i, then, there is one and only one polynomial P(X)(X), such that deg⁡P<D<D and the remainder of the Euclidean division of P(X)(X) by Pi(X)_i(X) is Ai(X)_i(X) for every i.
+The construction of the solution may be done as in § Existence (constructive proof) or § Existence (direct proof). However, the latter construction may be simplified by using, as follows, partial fraction decomposition instead of the extended Euclidean algorithm.
+Thus, we want to find a polynomial P(X)(X), which satisfies the congruences
+
+P(X)≡Ai(X)(modPi(X)),(X)_i(X)P_i(X),
+for i=1,…,k.=1,…,k.
+Consider the polynomials
+
+Q(X)=∏i=1kPi(X)Qi(X)=Q(X)Pi(X).Q(X)   =∏_i=1^kP_i(X)
+Q_i(X)   =Q(X)/P_i(X).
+The partial fraction decomposition of 1/Q(X)1/Q(X) gives k polynomials Si(X)_i(X) with degrees deg⁡Si(X)<di,_i(X)<d_i, such that
+
+1Q(X)=∑i=1kSi(X)Pi(X),1/Q(X)=∑_i=1^kS_i(X)/P_i(X),
+and thus
+
+1=∑i=1kSi(X)Qi(X).1=∑_i=1^kS_i(X)Q_i(X).
+Then a solution of the simultaneous congruence system is given by the polynomial
+
+∑i=1kAi(X)Si(X)Qi(X).∑_i=1^kA_i(X)S_i(X)Q_i(X).
+In fact, we have
+
+∑i=1kAi(X)Si(X)Qi(X)=Ai(X)+∑j=1k(Aj(X)−Ai(X))Sj(X)Qj(X)≡Ai(X)(modPi(X)),∑_i=1^kA_i(X)S_i(X)Q_i(X)=A_i(X)+∑_j=1^k(A_j(X)-A_i(X))S_j(X)Q_j(X)_i(X)P_i(X),
+for 1≤i≤k.1.
+This solution may have a degree larger than D=∑i=1kdi.=∑_i=1^kd_i. The unique solution of degree less than D may be deduced by considering the remainder Bi(X)_i(X) of the Euclidean division of Ai(X)Si(X)_i(X)S_i(X) by Pi(X)._i(X). This solution is 
+
+P(X)=∑i=1kBi(X)Qi(X).(X)=∑_i=1^kB_i(X)Q_i(X).
+Lagrange interpolation[edit]
+A special case of Chinese remainder theorem for polynomials is Lagrange interpolation. For this, consider k monic polynomials of degree one:
+
+Pi(X)=X−xi._i(X)=X-x_i.
+They are pairwise coprime if the xi_i are all different. The remainder of the division by Pi(X)_i(X) of a polynomial P(X)(X) is P(xi)(x_i), by the polynomial remainder theorem.
+Now, let A1,…,Ak_1,…,A_k be constants (polynomials of degree 0) in K.. Both Lagrange interpolation and Chinese remainder theorem assert the existence of a unique polynomial P(X),(X), of degree less than k such that
+
+P(xi)=Ai,(x_i)=A_i,
+for every i..
+Lagrange interpolation formula is exactly the result, in this case, of the above construction of the solution. More precisely, let
+
+Q(X)=∏i=1k(X−xi)Qi(X)=Q(X)X−xi.Q(X)   =∏_i=1^k(X-x_i)
+Q_i(X)   =Q(X)/X-x_i.
+The partial fraction decomposition of 1Q(X)1/Q(X) is
+
+1Q(X)=∑i=1k1Qi(xi)(X−xi).1/Q(X)=∑_i=1^k1/Q_i(x_i)(X-x_i).
+In fact, reducing the right-hand side to a common denominator one gets
+
+∑i=1k1Qi(xi)(X−xi)=1Q(X)∑i=1kQi(X)Qi(xi),∑_i=1^k1/Q_i(x_i)(X-x_i)=1/Q(X)∑_i=1^kQ_i(X)/Q_i(x_i),
+and the numerator is equal to one, as being a polynomial of degree less than k,, which takes the value one for k different values of X..
+Using the above general formula, we get the Lagrange interpolation formula:
+
+P(X)=∑i=1kAiQi(X)Qi(xi).(X)=∑_i=1^kA_iQ_i(X)/Q_i(x_i).
+Hermite interpolation[edit]
+Hermite interpolation is an application of the Chinese remainder theorem for univariate polynomials, which may involve moduli of arbitrary degrees (Lagrange interpolation involves only moduli of degree one).
+The problem consists of finding a polynomial of the least possible degree, such that the polynomial and its first derivatives take given values at some fixed points.
+More precisely, let x1,…,xk_1,…,x_k be k elements of the ground field K,, and, for i=1,…,k,=1,…,k, let ai,0,ai,1,…,ai,ri−1_i,0,a_i,1,…,a_i,r_i-1 be the values of the first ri_i derivatives of the sought polynomial at xi_i (including the 0th derivative, which is the value of the polynomial itself). The problem is to find a polynomial P(X)(X) such that its j th derivative takes the value ai,j_i,j at xi,_i, for i=1,…,k=1,…,k and j=0,…,rj.=0,…,r_j.
+Consider the polynomial
+
+Pi(X)=∑j=0ri−1ai,jj!(X−xi)j._i(X)=∑_j=0^r_i-1a_i,j/j!(X-x_i)^j.
+This is the Taylor polynomial of order ri−1_i-1 at xi_i, of the unknown polynomial P(X).(X). Therefore, we must have
+
+P(X)≡Pi(X)(mod(X−xi)ri).(X)_i(X)(X-x_i)^r_i.
+Conversely, any polynomial P(X)(X) that satisfies these k congruences, in particular verifies, for any i=1,…,k=1,…,k
+
+P(X)=Pi(X)+o(X−xi)ri−1(X)=P_i(X)+o(X-x_i)^r_i-1
+therefore Pi(X)_i(X) is its Taylor polynomial of order ri−1_i-1 at xi_i, that is, P(X)(X) solves the initial Hermite interpolation problem.
+The Chinese remainder theorem asserts that there exists exactly one polynomial of degree less than the sum of the ri,_i, which satisfies these k congruences.
+There are several ways for computing the solution P(X).(X). One may use the method described at the beginning of § Over univariate polynomial rings and Euclidean domains. One may also use the constructions given in § Existence (constructive proof) or § Existence (direct proof).
+
+Generalization to non-coprime moduli[edit]
+The Chinese remainder theorem can be generalized to non-coprime moduli. Let m,n,a,b,n,a,b be any integers, let g=gcd(m,n)=(m,n); M=lcm⁡(m,n)=lcm(m,n), and consider the system of congruences:
+
+x≡a(modm)x≡b(modn),x   m
+x   n,
+If a≡b(modg)g, then this system has a unique solution modulo M=mn/g=mn/g. Otherwise, it has no solutions.
+If one uses Bézout's identity to write g=um+vn=um+vn, then the solution is given by
+
+x=avn+bumg.=avn+bum/g.
+This defines an integer, as g divides both m and n. Otherwise, the proof is very similar to that for coprime moduli.[16]
+
+Generalization to arbitrary rings[edit]
+The Chinese remainder theorem can be generalized to any ring, by using coprime ideals (also called comaximal ideals). Two ideals I and J are coprime if there are elements i∈I and j∈J such that i+j=1.+j=1. This relation plays the role of Bézout's identity in the proofs related to this generalization, which otherwise are very similar. The generalization may be stated as follows.[17][18]
+Let I1, ..., Ik be two-sided ideals of a ring R and let I be their intersection. If the ideals are pairwise coprime, we have the isomorphism: 
+
+R/I→(R/I1)×⋯×(R/Ik)xmodI↦(xmodI1,…,xmodIk),R/I   →(R/I_1)×⋯×(R/I_k)
+xI   ↦(xI_1, …, xI_k),
+between the quotient ring R/I/I and the direct product of the R/Ii,/I_i,
+where "xmodII" denotes the image of the element x in the quotient ring defined by the ideal I..
+Moreover, if R is commutative, then the ideal intersection of pairwise coprime ideals is equal to their product; that is
+
+I=I1∩I2∩⋯∩Ik=I1I2⋯Ik,=I_1_2∩⋯_k=I_1I_2_k,
+if Ii and Ij are coprime for all i ≠ j.
+
+Interpretation in terms of idempotents[edit]
+Let I1,I2,…,Ik_1,I_2,…,I_k be pairwise coprime two-sided ideals with ⋂i=1kIi=0,⋂_i=1^kI_i=0, and 
+
+φ:R→(R/I1)×⋯×(R/Ik)φ:R→(R/I_1)×⋯×(R/I_k)
+be the isomorphism defined above. Let fi=(0,…,1,…,0)_i=(0,…,1,…,0) be the element of (R/I1)×⋯×(R/Ik)(R/I_1)×⋯×(R/I_k) whose components are all 0 except the i th which is 1, and ei=φ−1(fi)._i=φ^-1(f_i).
+The ei_i are central idempotents that are pairwise orthogonal; this means, in particular, that ei2=ei_i^2=e_i and eiej=ejei=0_ie_j=e_je_i=0 for every i and j. Moreover, one has e1+⋯+en=1,_1+⋯+e_n=1, and Ii=R(1−ei)._i=R(1-e_i).
+In summary, this generalized Chinese remainder theorem is the equivalence between giving pairwise coprime two-sided ideals with a zero intersection, and giving central and pairwise orthogonal idempotents that sum to 1.[19]
+
+Applications[edit]
+Sequence numbering[edit]
+The Chinese remainder theorem has been used to construct a Gödel numbering for sequences, which is involved in the proof of Gödel's incompleteness theorems.
+
+Fast Fourier transform[edit]
+The prime-factor FFT algorithm (also called Good-Thomas algorithm) uses the Chinese remainder theorem for reducing the computation of a fast Fourier transform of size n1n2_1n_2 to the computation of two fast Fourier transforms of smaller sizes n1_1 and n2_2 (providing that n1_1 and n2_2 are coprime).
+
+Encryption[edit]
+Most implementations of RSA use the Chinese remainder theorem during signing of HTTPS certificates and during decryption.
+The Chinese remainder theorem can also be used in secret sharing, which consists of distributing a set of shares among a group of people who, all together (but no one alone), can recover a certain secret from the given set of shares. Each of the shares is represented in a congruence, and the solution of the system of congruences using the Chinese remainder theorem is the secret to be recovered. Secret sharing using the Chinese remainder theorem uses, along with the Chinese remainder theorem, special sequences of integers that guarantee the impossibility of recovering the secret from a set of shares with less than a certain cardinality.
+
+Range ambiguity resolution[edit]
+Main article: Range ambiguity resolution
+The range ambiguity resolution techniques used with medium pulse repetition frequency radar can be seen as a special case of the Chinese remainder theorem.
+
+Decomposition of surjections of finite abelian groups[edit]
+Given a surjection Z/n→Z/mℤ/n→ℤ/m of finite abelian groups, we can use the Chinese remainder theorem to give a complete description of any such map. First of all, the theorem gives isomorphisms
+
+Z/n≅Z/pn1a1×⋯×Z/pniaiZ/m≅Z/pm1b1×⋯×Z/pmjbjℤ/n   ≅ℤ/p_n_1^a_1×⋯×ℤ/p_n_i^a_i
+ℤ/m   ≅ℤ/p_m_1^b_1×⋯×ℤ/p_m_j^b_j
+where pm1,…,pmj⊆pn1,…,pni{p_m_1,…,p_m_j}⊆{p_n_1,…,p_n_i}. In addition, for any induced map
+
+Z/pnkak→Z/pmlblℤ/p_n_k^a_k→ℤ/p_m_l^b_l
+from the original surjection, we have ak≥bl_k_l and pnk=pml,_n_k=p_m_l, since for a pair of primes p,q,q, the only non-zero surjections
+
+Z/pa→Z/qbℤ/p^a→ℤ/q^b
+can be defined if p=q=q and a≥b.
+These observations are pivotal for constructing the ring of profinite integers, which is given as an inverse limit of all such maps.
+
+Dedekind's theorem[edit]
+Dedekind's theorem on the linear independence of characters. Let M be a monoid and k an integral domain, viewed as a monoid by considering the multiplication on k. Then any finite family ( fi )i∈I of distinct monoid homomorphisms  fi : M → k is linearly independent. In other words, every family (αi)i∈I of elements αi ∈ k satisfying 
+
+∑i∈Iαifi=0∑_iα_if_i=0
+must be equal to the family (0)i∈I.
+Proof. First assume that k is a field, otherwise, replace the integral domain k by its quotient field, and nothing will change. We can linearly extend the monoid homomorphisms  fi : M → k to k-algebra homomorphisms Fi : k[M] → k, where k[M] is the monoid ring of M over k. Then, by linearity, the condition
+
+∑i∈Iαifi=0,∑_iα_if_i=0,
+yields
+
+∑i∈IαiFi=0.∑_iα_iF_i=0.
+Next, for i, j ∈ I; i ≠ j the two k-linear maps Fi : k[M] → k and Fj : k[M] → k are not proportional to each other. Otherwise  fi  and  fj  would also be proportional, and thus equal since as monoid homomorphisms they satisfy:  fi (1) = 1 =  fj (1), which contradicts the assumption that they are distinct.
+Therefore, the kernels Ker Fi and Ker Fj are distinct. Since k[M]/Ker Fi ≅ Fi (k[M]) = k is a field, Ker Fi is a maximal ideal of k[M] for every i in I. Because they are distinct and maximal the ideals Ker Fi and Ker Fj are coprime whenever i ≠ j. The Chinese Remainder Theorem (for general rings) yields an isomorphism:
+
+ϕ:k[M]/K→∏i∈Ik[M]/KerFiϕ(x+K)=(x+KerFi)i∈Iϕ:k[M]/K   →∏_ik[M]/KerF_i
+ϕ(x+K)   =(x+KerF_i)_i
+where
+
+K=∏i∈IKerFi=⋂i∈IKerFi.=∏_iKerF_i=⋂_iKerF_i.
+Consequently, the map
+
+Φ:k[M]→∏i∈Ik[M]/KerFiΦ(x)=(x+KerFi)i∈IΦ:k[M]   →∏_ik[M]/KerF_i
+Φ(x)   =(x+KerF_i)_i
+is surjective. Under the isomorphisms k[M]/Ker Fi → Fi (k[M]) = k, the map Φ corresponds to:
+
+ψ:k[M]→∏i∈Ikψ(x)=[Fi(x)]i∈Iψ:k[M]   →∏_ik
+ψ(x)   =[F_i(x)]_i
+Now,
+
+∑i∈IαiFi=0∑_iα_iF_i=0
+yields
+
+∑i∈Iαiui=0∑_iα_iu_i=0
+for every vector (ui)i∈I in the image of the map ψ. Since ψ is surjective, this means that
+
+∑i∈Iαiui=0∑_iα_iu_i=0
+for every vector
+
+(ui)i∈I∈∏i∈Ik.(u_i)_i∈∏_ik.
+Consequently, (αi)i∈I = (0)i∈I. QED.
+
+See also[edit]
+Covering system
+Hasse principle
+Residue number system
+Notes[edit]
+
+
+^ Katz 1998, p. 197
+
+^ Dence & Dence 1999, p. 156
+
+^ Dauben 2007, p. 302
+
+^ Kak 1986
+
+^ Pisano 2002, pp. 402–403
+
+^ Dauben 2007, p. 310
+
+^ Libbrecht 1973
+
+^ Gauss 1986, Art. 32–36
+
+^ Ireland & Rosen 1990, p. 36
+
+^ Ore 1988, p. 247
+
+^ Ore 1988, p. 245
+
+^ Ireland & Rosen 1990, p. 34
+
+^ Ireland & Rosen 1990, p. 35
+
+^ Duchet 1995
+
+^ Rosen 1993, p. 136
+
+^ Ore 1952.
+
+^ Ireland & Rosen 1990, p. 181
+
+^ Sengupta 2012, p. 313
+
+^ Bourbaki, N. 1989, p. 110
+
+
+References[edit]
+Dauben, Joseph W. (2007), "Chapter 3: Chinese Mathematics", in Katz, Victor J. (ed.), The Mathematics of Egypt, Mesopotamia, China, India and Islam : A Sourcebook, Princeton University Press, pp. 187–384, ISBN 978-0-691-11485-9
+Dence, Joseph B.; Dence, Thomas P. (1999), Elements of the Theory of Numbers, Academic Press, ISBN 9780122091308
+Duchet, Pierre (1995), "Hypergraphs", in Graham, R. L.; Grötschel, M.; Lovász, L. (eds.), Handbook of combinatorics, Vol. 1, 2, Amsterdam: Elsevier, pp. 381–432, MR 1373663. See in particular Section 2.5, "Helly Property", pp. 393–394.
+Gauss, Carl Friedrich (1986), Disquisitiones Arithemeticae, translated by Clarke, Arthur A. (Second, corrected ed.), New York: Springer, ISBN 978-0-387-96254-2
+Ireland, Kenneth; Rosen, Michael (1990), A Classical Introduction to Modern Number Theory (2nd ed.), Springer-Verlag, ISBN 0-387-97329-X
+Kak, Subhash (1986), "Computational aspects of the Aryabhata algorithm" (PDF), Indian Journal of History of Science, 21 (1): 62–71
+Katz, Victor J. (1998), A History of Mathematics / An Introduction (2nd ed.), Addison Wesley Longman, ISBN 978-0-321-01618-8
+Libbrecht, Ulrich (1973), Chinese Mathematics in the Thirteenth Century: the "Shu-shu Chiu-chang" of Ch'in Chiu-shao, Dover Publications Inc, ISBN 978-0-486-44619-6
+Ore, Øystein (1952), "The general Chinese remainder theorem", The American Mathematical Monthly, 59: 365–370, doi:10.2307/2306804, MR 0048481
+Ore, Oystein (1988) [1948], Number Theory and Its History, Dover, ISBN 978-0-486-65620-5
+Pisano, Leonardo (2002), Fibonacci's Liber Abaci, translated by Sigler, Laurence E., Springer-Verlag, pp. 402–403, ISBN 0-387-95419-8
+Rosen, Kenneth H. (1993), Elementary Number Theory and its Applications (3rd ed.), Addison-Wesley, ISBN 978-0201-57889-8
+Sengupta, Ambar N. (2012), Representing Finite Groups, A Semimsimple Introduction, Springer, ISBN 978-1-4614-1232-8
+Bourbaki, N. (1989), Algebra I, Springer, ISBN 3-540-64243-9
+Further reading[edit]
+Cormen, Thomas H.; Leiserson, Charles E.; Rivest, Ronald L.; Stein, Clifford (2001), Introduction to Algorithms (Second ed.), MIT Press and McGraw-Hill, ISBN 0-262-03293-7. See Section 31.5: The Chinese remainder theorem, pp. 873–876.
+Ding, Cunsheng; Pei, Dingyi; Salomaa, Arto (1996), Chinese Remainder Theorem: Applications in Computing, Coding, Cryptography, World Scientific Publishing, pp. 1–213, ISBN 981-02-2827-9
+Hungerford, Thomas W. (1974), Algebra, Graduate Texts in Mathematics, Vol. 73, Springer-Verlag, pp. 131–132, ISBN 978-1-4612-6101-8
+Knuth, Donald (1997), The Art of Computer Programming, vol. 2: Seminumerical Algorithms (Third ed.), Addison-Wesley, ISBN 0-201-89684-2. See Section 4.3.2 (pp. 286–291), exercise 4.6.2–3 (page 456).
+External links[edit]
+"Chinese remainder theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Weisstein, Eric W., "Chinese Remainder Theorem", MathWorld
+Chinese Remainder Theorem at PlanetMath.
+Full text of the Sun-tzu Suan-ching (Chinese) –  Chinese Text Project
+vteNumber theoryFields
+Algebraic number theory (class field theory, non-abelian class field theory, Iwasawa theory, Iwasawa–Tate theory, Kummer theory)
+Analytic number theory (analytic theory of L-functions, probabilistic number theory, sieve theory)
+Geometric number theory
+Computational number theory
+Transcendental number theory
+Diophantine geometry (Arakelov theory, Hodge–Arakelov theory)
+Arithmetic combinatorics (additive number theory)
+Arithmetic geometry (anabelian geometry, P-adic Hodge theory)
+Arithmetic topology
+Arithmetic dynamics
+Key concepts
+Numbers
+Natural numbers
+Prime numbers
+Rational numbers
+Irrational numbers
+Algebraic numbers
+Transcendental numbers
+P-adic numbers (P-adic analysis)
+Arithmetic
+Modular arithmetic
+Chinese remainder theorem
+Arithmetic functions
+Advanced concepts
+Quadratic forms
+Modular forms
+L-functions
+Diophantine equations
+Diophantine approximation
+Continued fractions
+
+ Category
+ List of topics
+ List of recreational topics
+ Wikibook
+ Wikiversity
+
+Authority control databases: National 
+Germany
+Israel
+United States
+
+
+
+

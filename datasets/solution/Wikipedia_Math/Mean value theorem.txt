@@ -1,0 +1,574 @@
+On the existence of a tangent to an arc parallel to the line through its endpoints
+For the theorem in harmonic function theory, see Harmonic function § The mean value property.
+For any function that is continuous on [a,b][a,b] and differentiable on (a,b)(a,b) there exists some c in the interval (a,b)(a,b) such that the secant joining the endpoints of the interval [a,b][a,b] is parallel to the tangent at c.
+In mathematics, the mean value theorem (or Lagrange theorem) states, roughly, that for a given planar arc between two endpoints, there is at least one point at which the tangent to the arc is parallel to the secant through its endpoints. It is one of the most important results in real analysis. This theorem is used to prove statements about a function on an interval starting from local hypotheses about derivatives at points of the interval.
+More precisely, the theorem states that if f is a continuous function on the closed interval [a,b][a,b] and differentiable on the open interval (a,b)(a,b), then there exists a point c in (a,b)(a,b) such that the tangent at c is parallel to the secant line through the endpoints (a,f(a))(a,f(a)) and (b,f(b))(b,f(b)), that is,
+
+f′(c)=f(b)−f(a)b−a.'(c)=f(b)-f(a)/b-a.
+
+History[edit]
+A special case of this theorem for inverse interpolation of the sine was first described by Parameshvara (1380–1460), from the Kerala School of Astronomy and Mathematics in India, in his commentaries on Govindasvāmi and Bhāskara II.[1] A restricted form of the theorem was proved by Michel Rolle in 1691; the result was what is now known as Rolle's theorem, and was proved only for polynomials, without the techniques of calculus. The mean value theorem in its modern form was stated and proved by Augustin Louis Cauchy in 1823.[2] Many variations of this theorem have been proved since then.[3][4]
+
+Formal statement[edit]
+The function f attains the slope of the secant between a and b as the derivative at the point ξ∈(a,b)ξ∈(a,b).
+It is also possible that there are multiple tangents parallel to the secant.
+Let f:[a,b]→R:[a,b]→ℝ be a continuous function on the closed interval [a,b][a,b], and differentiable on the open interval (a,b)(a,b), where a<b<b. Then there exists some c in (a,b)(a,b) such that
+
+f′(c)=f(b)−f(a)b−a.'(c)=f(b)-f(a)/b-a.
+The mean value theorem is a generalization of Rolle's theorem, which assumes f(a)=f(b)(a)=f(b), so that the right-hand side above is zero.
+The mean value theorem is still valid in a slightly more general setting. One only needs to assume that f:[a,b]→R:[a,b]→ℝ is continuous on [a,b][a,b], and that for every x in (a,b)(a,b) the limit
+
+limh→0f(x+h)−f(x)hlim_h→0f(x+h)-f(x)/h
+exists as a finite number or equals ∞∞ or −∞-∞. If finite, that limit equals f′(x)'(x). An example where this version of the theorem applies is given by the real-valued cube root function mapping x↦x1/3^1/3, whose derivative tends to infinity at the origin.
+The theorem, as stated, is false if a differentiable function is complex-valued instead of real-valued. For example, define f(x)=exi(x)=e^xi for all real x. Then
+
+f(2π)−f(0)=0=0(2π−0)(2π)-f(0)=0=0(2π-0)
+while f′(x)≠0'(x)≠0 for any real x.
+These formal statements are also known as Lagrange's Mean Value Theorem.[5]
+
+Proof[edit]
+The expression f(b)−f(a)b−af(b)-f(a)/b-a gives the slope of the line joining the points (a,f(a))(a,f(a)) and (b,f(b))(b,f(b)), which is a chord of the graph of f, while f′(x)'(x) gives the slope of the tangent to the curve at the point (x,f(x))(x,f(x)). Thus the mean value theorem says that given any chord of a smooth curve, we can find a point on the curve lying between the end-points of the chord such that the tangent of the curve at that point is parallel to the chord. The following proof illustrates this idea.
+Define g(x)=f(x)−rx(x)=f(x)-rx, where r is a constant. Since f is continuous on [a,b][a,b] and differentiable on (a,b)(a,b), the same is true for g. We now want to choose r so that g satisfies the conditions of Rolle's theorem. Namely
+
+g(a)=g(b)⟺f(a)−ra=f(b)−rb⟺r(b−a)=f(b)−f(a)⟺r=f(b)−f(a)b−a.g(a)=g(b)   (a)-ra=f(b)-rb
+   (b-a)=f(b)-f(a)
+   =f(b)-f(a)/b-a.
+By Rolle's theorem, since g is differentiable and g(a)=g(b)(a)=g(b), there is some c in (a,b)(a,b) for which g′(c)=0'(c)=0 , and it follows from the equality g(x)=f(x)−rx(x)=f(x)-rx that,
+
+g′(x)=f′(x)−rg′(c)=0g′(c)=f′(c)−r=0⇒f′(c)=r=f(b)−f(a)b−a   g'(x)=f'(x)-r
+   g'(c)=0
+   g'(c)=f'(c)-r=0
+   '(c)=r=f(b)-f(a)/b-a
+Implications[edit]
+Theorem 1: Assume that f is a continuous, real-valued function, defined on an arbitrary interval I of the real line. If the derivative of f at every interior point of the interval I exists and is zero, then f is constant in the interior.
+Proof: Assume the derivative of f at every interior point of the interval I exists and is zero. Let (a, b) be an arbitrary open interval in I. By the mean value theorem,[6] there exists a point c in (a, b) such that
+
+0=f′(c)=f(b)−f(a)b−a.0=f'(c)=f(b)-f(a)/b-a.
+This implies that f(a) = f(b). Thus, f is constant on the interior of I and thus is constant on I by continuity. (See below for a multivariable version of this result.)
+Remarks:
+
+Only continuity of f, not differentiability, is needed at the endpoints of the interval I.  No hypothesis of continuity needs to be stated if I is an open interval, since the existence of a derivative at a point implies the continuity at this point.  (See the section continuity and differentiability of the article derivative.)
+The differentiability of f can be relaxed to one-sided differentiability, a proof given in the article on semi-differentiability.
+Theorem 2: If f' (x) = g' (x) for all x in an interval (a, b) of the domain of these functions, then f - g is constant, i.e. f = g + c where c is a constant on (a, b).
+Proof: Let F = f − g, then F' = f' − g' = 0 on the interval (a, b), so the above theorem 1 tells that F = f − g is a constant c or f = g + c.
+Theorem 3: If F is an antiderivative of f on an interval I, then the most general antiderivative of f on I is F(x) + c where c is a constant.
+Proof: It directly follows from the theorem 2 above.
+
+Cauchy's mean value theorem[edit]
+Cauchy's mean value theorem, also known as the extended mean value theorem,[7] is a generalization of the mean value theorem. It states: if the functions f and g are both continuous on the closed interval [a,b][a,b] and differentiable on the open interval (a,b)(a,b), then there exists some c∈(a,b)∈(a,b), such that[5]
+
+Geometrical meaning of Cauchy's theorem
+(f(b)−f(a))g′(c)=(g(b)−g(a))f′(c).(f(b)-f(a))g'(c)=(g(b)-g(a))f'(c).
+Of course, if g(a)≠g(b)(a)(b) and g′(c)≠0'(c)≠0, this is equivalent to:
+
+f′(c)g′(c)=f(b)−f(a)g(b)−g(a).f'(c)/g'(c)=f(b)-f(a)/g(b)-g(a).
+Geometrically, this means that there is some tangent to the graph of the curve[8]
+
+[a,b]→R2t↦(f(t),g(t))[a,b]→ℝ^2
+t↦(f(t),g(t))
+which is parallel to the line defined by the points (f(a),g(a))(f(a),g(a)) and (f(b),g(b))(f(b),g(b)). However, Cauchy's theorem does not claim the existence of such a tangent in all cases where (f(a),g(a))(f(a),g(a)) and (f(b),g(b))(f(b),g(b)) are distinct points, since it might be satisfied only for some value c with f′(c)=g′(c)=0'(c)=g'(c)=0, in other words a value for which the mentioned curve is stationary; in such points no tangent to the curve is likely to be defined at all. An example of this situation is the curve given by
+
+t↦(t3,1−t2),↦(t^3,1-t^2),
+which on the interval [−1,1][-1,1] goes from the point (−1,0)(-1,0) to (1,0)(1,0), yet never has a horizontal tangent; however it has a stationary point (in fact a cusp) at t=0=0.
+Cauchy's mean value theorem can be used to prove L'Hôpital's rule. The mean value theorem is the special case of Cauchy's mean value theorem when g(t)=t(t)=t.
+
+Proof of Cauchy's mean value theorem[edit]
+The proof of Cauchy's mean value theorem is based on the same idea as the proof of the mean value theorem.
+
+
+
+Suppose g(a)≠g(b)(a)(b). Define h(x)=f(x)−rg(x)(x)=f(x)-rg(x), where r is fixed in such a way that h(a)=h(b)(a)=h(b), namely
+h(a)=h(b)⟺f(a)−rg(a)=f(b)−rg(b)⟺r(g(b)−g(a))=f(b)−f(a)⟺r=f(b)−f(a)g(b)−g(a).h(a)=h(b)   (a)-rg(a)=f(b)-rg(b)
+   (g(b)-g(a))=f(b)-f(a)
+   =f(b)-f(a)/g(b)-g(a).
+Since f and g are continuous on [a,b][a,b] and differentiable on (a,b)(a,b), the same is true for h. All in all, h satisfies the conditions of Rolle's theorem: consequently, there is some c in (a,b)(a,b) for which h′(c)=0'(c)=0. Now using the definition of h we have:
+0=h′(c)=f′(c)−rg′(c)=f′(c)−(f(b)−f(a)g(b)−g(a))g′(c).0=h'(c)=f'(c)-rg'(c)=f'(c)-(f(b)-f(a)/g(b)-g(a))g'(c).
+Therefore:
+f′(c)=f(b)−f(a)g(b)−g(a)g′(c),'(c)=f(b)-f(a)/g(b)-g(a)g'(c),
+which implies the result.[5]
+
+
+If g(a)=g(b)(a)=g(b), then, applying Rolle's theorem to g, it follows that there exists c in (a,b)(a,b) for which g′(c)=0'(c)=0. Using this choice of c, Cauchy's mean value theorem (trivially) holds.
+
+
+Generalization for determinants[edit]
+Assume that f,g,,g, and h are differentiable functions on (a,b)(a,b) that are continuous on [a,b][a,b]. Define
+
+D(x)=|f(x)g(x)h(x)f(a)g(a)h(a)f(b)g(b)h(b)|(x)=f(x)   g(x)   h(x)
+f(a)   g(a)   h(a)
+f(b)   g(b)   h(b)
+There exists c∈(a,b)∈(a,b) such that D′(c)=0'(c)=0.
+Notice that
+
+D′(x)=|f′(x)g′(x)h′(x)f(a)g(a)h(a)f(b)g(b)h(b)|'(x)=f'(x)   g'(x)   h'(x)
+f(a)   g(a)   h(a)
+f(b)   g(b)   h(b)
+and if we place h(x)=1(x)=1, we get Cauchy's mean value theorem. If we place h(x)=1(x)=1 and g(x)=x(x)=x we get Lagrange's mean value theorem.
+The proof of the generalization is quite simple: each of D(a)(a) and D(b)(b) are determinants with two identical rows, hence D(a)=D(b)=0(a)=D(b)=0. The Rolle's theorem implies that there exists c∈(a,b)∈(a,b) such that D′(c)=0'(c)=0.
+
+Mean value theorem in several variables[edit]
+The mean value theorem generalizes to real functions of multiple variables. The trick is to use parametrization to create a real function of one variable, and then apply the one-variable theorem.
+Let G be an open subset of Rnℝ^n, and let f:G→R:G→ℝ be a differentiable function. Fix points x,y∈G,y such that the line segment between x,y,y lies in G, and define g(t)=f((1−t)x+ty)(t)=f((1-t)x+ty). Since g is a differentiable function in one variable, the mean value theorem gives:
+
+g(1)−g(0)=g′(c)(1)-g(0)=g'(c)
+for some c between 0 and 1. But since g(1)=f(y)(1)=f(y) and g(0)=f(x)(0)=f(x), computing g′(c)'(c) explicitly we have:
+
+f(y)−f(x)=∇f((1−c)x+cy)⋅(y−x)(y)-f(x)=((1-c)x+cy)·(y-x)
+where ∇∇ denotes a gradient and ⋅· a dot product. This is an exact analog of the theorem in one variable (in the case n=1=1 this is the theorem in one variable). By the Cauchy–Schwarz inequality, the equation gives the estimate:
+
+|f(y)−f(x)|≤|∇f((1−c)x+cy)||y−x|.|f(y)-f(x)|≤|((1-c)x+cy)|{|y-x|.
+In particular, when the partial derivatives of f are bounded, f is Lipschitz continuous (and therefore uniformly continuous).
+As an application of the above, we prove that f is constant if the open subset G is connected and every partial derivative of f is 0. Pick some point x0∈G_0, and let g(x)=f(x)−f(x0)(x)=f(x)-f(x_0). We want to show g(x)=0(x)=0 for every x∈G. For that, let E=x∈G:g(x)=0={x:g(x)=0}. Then E is closed and nonempty. It is open too: for every x∈E ,
+
+|g(y)|=|g(y)−g(x)|≤(0)|y−x|=0|g(y)|=|g(y)-g(x)|≤(0)|y-x|=0
+for every y in some neighborhood of x. (Here, it is crucial that x and y are sufficiently close to each other.) Since G is connected, we conclude E=G=G.
+The above arguments are made in a coordinate-free manner; hence, they generalize to the case when G is a subset of a Banach space.
+
+Mean value theorem for vector-valued functions[edit]
+There is no exact analog of the mean value theorem for vector-valued functions (see below). However, there is an inequality which can be applied to many of the same situations to which the mean value theorem is applicable in the one dimensional case:[9]
+
+
+Theorem — For a continuous vector-valued function f:[a,b]→Rk𝐟:[a,b]→ℝ^k differentiable on (a,b)(a,b), there exists a number c∈(a,b)∈(a,b) such that
+
+|f(b)−f(a)|≤(b−a)|f′(c)||𝐟(b)-𝐟(a)|≤(b-a)|𝐟'(c)|.
+
+The theorem follows from the mean value theorem. Indeed, take φ(t)=(f(b)−f(a))⋅f(t)φ(t)=(f(b)-f(a))·f(t). Then φφ is real-valued and thus, by the mean value theorem,
+
+φ(b)−φ(a)=φ′(c)(b−a)φ(b)-φ(a)=φ'(c)(b-a)
+for some c∈(a,b)∈(a,b). Now, φ(b)−φ(a)=|f(b)−f(a)|2φ(b)-φ(a)=|f(b)-f(a)|^2 and φ′(c)=(f(b)−f(a))⋅f′(c).φ'(c)=(f(b)-f(a))·f'(c). Hence, using the Cauchy–Schwarz inequality, from the above equation, we get:
+
+|f(b)−f(a)|2≤|f(b)−f(a)||f′(c)|(b−a).|f(b)-f(a)|^2≤|f(b)-f(a)||f'(c)|(b-a).
+If f(b)=f(a)f(b)=f(a), the theorem is trivial (any c works). Otherwise, dividing both sides by |f(b)−f(a)||f(b)-f(a)| yields the theorem. ◻□
+Jean Dieudonné in his classic treatise Foundations of Modern Analysis discards the mean value theorem and replaces it by mean inequality (which is given below) as the proof is not constructive and one cannot find the mean value and in applications one only needs mean inequality. Serge Lang in Analysis I uses the mean value theorem, in integral form, as an instant reflex but this use requires the continuity of the derivative. If one uses the Henstock–Kurzweil integral one can have the mean value theorem in integral form without the additional assumption that derivative should be continuous as every derivative is Henstock–Kurzweil integrable.
+The reason why there is no analog of mean value equality is the following: If f : U → Rm is a differentiable function (where U ⊂ Rn is open) and if x + th, x, h ∈ Rn, t ∈ [0, 1] is the line segment in question (lying inside U), then one can apply the above parametrization procedure to each of the component functions fi (i = 1, …, m) of f (in the above notation set y = x + h). In doing so one finds points x + tih on the line segment satisfying
+
+fi(x+h)−fi(x)=∇fi(x+tih)⋅h._i(x+h)-f_i(x)=_i(x+t_ih).
+But generally there will not be a single point x + t*h on the line segment satisfying
+
+fi(x+h)−fi(x)=∇fi(x+t∗h)⋅h._i(x+h)-f_i(x)=_i(x+t^*h).
+for all i simultaneously. For example, define:
+
+f:[0,2π]→R2f(x)=(cos⁡(x),sin⁡(x))f:[0,2π]→ℝ^2
+f(x)=(cos(x),sin(x))
+Then f(2π)−f(0)=0∈R2(2π)-f(0)=0∈ℝ^2, but f1′(x)=−sin⁡(x)_1'(x)=-sin(x) and f2′(x)=cos⁡(x)_2'(x)=cos(x) are never simultaneously zero as x ranges over [0,2π][0,2π].
+The above theorem implies the following:
+
+
+Mean value inequality — [10] For a continuous function f:[a,b]→Rkf:[a,b]→ℝ^k, if ff is differentiable on (a,b)(a,b), then
+
+|f(b)−f(a)|≤(b−a)sup(a,b)|f′||f(b)-f(a)|≤(b-a)sup_(a,b)|f'|.
+
+In fact, the above statement suffices for many applications and can be proved directly as follows. (We shall write f for ff for readability.) First assume f is differentiable at a too. If f′' is unbounded on (a,b)(a,b), there is nothing to prove. Thus, assume sup(a,b)|f′|<∞sup_(a,b)|f'|<∞. Let M>sup(a,b)|f′|>sup_(a,b)|f'| be some real number. Let
+
+E=0≤t≤1∣|f(a+t(b−a))−f(a)|≤Mt(b−a).={0≤1||f(a+t(b-a))-f(a)|(b-a)}.
+We want to show 1∈E1. By continuity of f, the set E is closed. It is also nonempty as 00 is in it. Hence, the set E has the largest element s. If s=1=1, then 1∈E1 and we are done. Thus suppose otherwise. For 1>t>s1>t>s,
+
+|f(a+t(b−a))−f(a)|≤|f(a+t(b−a))−f(a+s(b−a))−f′(a+s(b−a))(t−s)(b−a)|+|f′(a+s(b−a))|(t−s)(b−a)+|f(a+s(b−a))−f(a)|.   |f(a+t(b-a))-f(a)|
+   ≤|f(a+t(b-a))-f(a+s(b-a))-f'(a+s(b-a))(t-s)(b-a)|+|f'(a+s(b-a))|(t-s)(b-a)
+   +|f(a+s(b-a))-f(a)|.
+Let ϵ>0ϵ>0 be such that M−ϵ>sup(a,b)|f′|-ϵ>sup_(a,b)|f'|. By the differentiability of f at a+s(b−a)+s(b-a) (note s may be 0), if t is sufficiently close to s, the first term is ≤ϵ(t−s)(b−a)≤ϵ(t-s)(b-a). The second term is ≤(M−ϵ)(t−s)(b−a)≤(M-ϵ)(t-s)(b-a). The third term is ≤Ms(b−a)(b-a). Hence, summing the estimates up, we get: |f(a+t(b−a))−f(a)|≤tM|b−a||f(a+t(b-a))-f(a)||b-a|, a contradiction to the maximality of s. Hence, 1=s∈M1=s and that means:
+
+|f(b)−f(a)|≤M(b−a).|f(b)-f(a)|(b-a).
+Since M is arbitrary, this then implies the assertion. Finally, if f is not differentiable at a, let a′∈(a,b)'∈(a,b) and apply the first case to f restricted on [a′,b][a',b], giving us:
+
+|f(b)−f(a′)|≤(b−a′)sup(a,b)|f′||f(b)-f(a')|≤(b-a')sup_(a,b)|f'|
+since (a′,b)⊂(a,b)(a',b)⊂(a,b). Letting a′→a' finishes the proof. ◻□
+For some applications of mean value inequality to establish basic results in calculus, see also Calculus on Euclidean space#Basic notions.
+A certain type of generalization of the mean value theorem to vector-valued functions is obtained as follows: Let f be a continuously differentiable real-valued function defined on an open interval I, and let x as well as x + h be points of I. The mean value theorem in one variable tells us that there exists some t* between 0 and 1 such that
+
+f(x+h)−f(x)=f′(x+t∗h)⋅h.(x+h)-f(x)=f'(x+t^*h).
+On the other hand, we have, by the fundamental theorem of calculus followed by a change of variables,
+
+f(x+h)−f(x)=∫xx+hf′(u)du=(∫01f′(x+th)dt)⋅h.(x+h)-f(x)=∫_x^x+hf'(u) du=(∫_0^1f'(x+th) dt).
+Thus, the value f′(x + t*h) at the particular point t* has been replaced by the mean value
+
+∫01f′(x+th)dt.∫_0^1f'(x+th) dt.
+This last version can be generalized to vector valued functions:
+
+
+Proposition — Let U ⊂ Rn be open, f : U → Rm continuously differentiable, and x ∈ U, h ∈ Rn vectors such that the line segment x + th,  0 ≤ t ≤ 1 remains in U. Then we have:
+
+f(x+h)−f(x)=(∫01Df(x+th)dt)⋅h,(x+h)-f(x)=(∫_0^1Df(x+th) dt),
+where Df denotes the Jacobian matrix of f and the integral of a matrix is to be understood componentwise.
+
+
+Proof. Let f1, …, fm denote the components of f and define:
+
+gi:[0,1]→Rgi(t)=fi(x+th)g_i:[0,1]→ℝ
+g_i(t)=f_i(x+th)
+Then we have
+
+fi(x+h)−fi(x)=gi(1)−gi(0)=∫01gi′(t)dt=∫01(∑j=1n∂fi∂xj(x+th)hj)dt=∑j=1n(∫01∂fi∂xj(x+th)dt)hj.f_i(x+h)-f_i(x)   =g_i(1)-g_i(0)=∫_0^1g_i'(t) dt
+   =∫_0^1(∑_j=1^n_i/_j(x+th)h_j)dt=∑_j=1^n(∫_0^1_i/_j(x+th) dt)h_j.
+The claim follows since Df is the matrix consisting of the components ∂fi∂xj_i_j. ◻□
+The mean value inequality can then be obtained as a corollary of the above proposition (though under the assumption the derivatives are continuous).[11]
+
+Cases where the theorem cannot be applied[edit]
+Both conditions for the mean value theorem are necessary:
+
+f(x)f(x) is differentiable on (a,b)(a,b)
+f(x)f(x) is continuous on [a,b][a,b]
+Where one of the above conditions is not satisfied, the mean value theorem is not valid in general, and so it cannot be applied.
+
+Function is differentiable on open interval a,b[edit]
+The necessity of the first condition can be seen by the counterexample where the function f(x)=|x|(x)=|x| on [-1,1] is not differentiable.
+
+Function is continuous on closed interval a,b[edit]
+The necessity of the second condition can be seen by the counterexample where the function f(x)=1,atx=00,ifx∈(0,1](x)=1,   atx=0
+0,   ifx∈(0,1]
+f(x)(x) satisfies criteria 1 since f′(x)=0'(x)=0 on (0,1)(0,1)
+But not criteria 2 since f(1)−f(0)1−0=−1f(1)-f(0)/1-0=-1 and −1≠0=f′(x)-1≠0=f'(x) for all x∈(0,1)∈(0,1) so no such c exists
+
+
+Mean value theorems for definite integrals[edit]
+First mean value theorem for definite integrals[edit]
+Geometrically: interpreting f(c) as the height of a rectangle and b–a as the width, this rectangle has the same area as the region below the curve from a to b[12]
+Let f : [a, b] → R be a continuous function. Then there exists c in (a, b) such that
+
+∫abf(x)dx=f(c)(b−a).∫_a^bf(x) dx=f(c)(b-a).
+Since the mean value of f on [a, b] is defined as
+
+1b−a∫abf(x)dx,1/b-a∫_a^bf(x) dx,
+we can interpret the conclusion as f achieves its mean value at some c in (a, b).[13]
+In general, if f : [a, b] → R is continuous and g is an integrable function that does not change sign on [a, b], then there exists c in (a, b) such that
+
+∫abf(x)g(x)dx=f(c)∫abg(x)dx.∫_a^bf(x)g(x) dx=f(c)∫_a^bg(x) dx.
+Proof that there is some c in [a, b][14][edit]
+Suppose f : [a, b] → R is continuous and g is a nonnegative integrable function on [a, b]. By the extreme value theorem, there exists m and M such that for each x in [a, b], m≤f(x)≤M(x) and f[a,b]=[m,M][a,b]=[m,M]. Since g is nonnegative,
+
+m∫abg(x)dx≤∫abf(x)g(x)dx≤M∫abg(x)dx.∫_a^bg(x) dx≤∫_a^bf(x)g(x) dx∫_a^bg(x) dx.
+Now let
+
+I=∫abg(x)dx.=∫_a^bg(x) dx.
+If I=0=0, we're done since
+
+0≤∫abf(x)g(x)dx≤00≤∫_a^bf(x)g(x) dx≤0
+means
+
+∫abf(x)g(x)dx=0,∫_a^bf(x)g(x) dx=0,
+so for any c in (a, b),
+
+∫abf(x)g(x)dx=f(c)I=0.∫_a^bf(x)g(x) dx=f(c)I=0.
+If I ≠ 0, then
+
+m≤1I∫abf(x)g(x)dx≤M.≤1/I∫_a^bf(x)g(x) dx.
+By the intermediate value theorem, f attains every value of the interval [m, M], so for some c in [a, b]
+
+f(c)=1I∫abf(x)g(x)dx,(c)=1/I∫_a^bf(x)g(x) dx,
+that is,
+
+∫abf(x)g(x)dx=f(c)∫abg(x)dx.∫_a^bf(x)g(x) dx=f(c)∫_a^bg(x) dx.
+Finally, if g is negative on [a, b], then
+
+M∫abg(x)dx≤∫abf(x)g(x)dx≤m∫abg(x)dx,∫_a^bg(x) dx≤∫_a^bf(x)g(x) dx∫_a^bg(x) dx,
+and we still get the same result as above.
+QED
+
+Second mean value theorem for definite integrals[edit]
+There are various slightly different theorems called the second mean value theorem for definite integrals. A commonly found version is as follows:
+
+If G : [a, b] → R is a positive monotonically decreasing function and φ : [a, b] → R is an integrable function, then there exists a number x in (a, b] such that
+∫abG(t)φ(t)dt=G(a+)∫axφ(t)dt.∫_a^bG(t)φ(t) dt=G(a^+)∫_a^xφ(t) dt.
+Here G(a+)(a^+) stands for limx→a+G(x)lim_x^+G(x), the existence of which follows from the conditions. Note that it is essential that the interval (a, b] contains b. A variant not having this requirement is:[15]
+
+If G : [a, b] → R is a monotonic (not necessarily decreasing and positive) function and φ : [a, b] → R is an integrable function, then there exists a number x in (a, b) such that
+∫abG(t)φ(t)dt=G(a+)∫axφ(t)dt+G(b−)∫xbφ(t)dt.∫_a^bG(t)φ(t) dt=G(a^+)∫_a^xφ(t) dt+G(b^-)∫_x^bφ(t) dt.
+Mean value theorem for integration fails for vector-valued functions[edit]
+If the function G returns a multi-dimensional vector, then the MVT for integration is not true, even if the domain of G is also multi-dimensional.
+For example, consider the following 2-dimensional function defined on an n-dimensional cube:
+
+G:[0,2π]n→R2G(x1,…,xn)=(sin⁡(x1+⋯+xn),cos⁡(x1+⋯+xn))G:[0,2π]^n→ℝ^2
+G(x_1,…,x_n)=(sin(x_1+⋯+x_n),cos(x_1+⋯+x_n))
+Then, by symmetry it is easy to see that the mean value of G over its domain is (0,0):
+
+∫[0,2π]nG(x1,…,xn)dx1⋯dxn=(0,0)∫_[0,2π]^nG(x_1,…,x_n)dx_1_n=(0,0)
+However, there is no point in which G=(0,0)=(0,0), because |G|=1|G|=1 everywhere.
+
+A probabilistic analogue of the mean value theorem[edit]
+Let X and Y be non-negative random variables such that E[X] < E[Y] < ∞ and X≤stY≤_stY (i.e. X is smaller than Y in the usual stochastic order). Then there exists an absolutely continuous non-negative random variable Z having probability density function
+
+fZ(x)=Pr(Y>x)−Pr(X>x)E[Y]−E[X],x⩾0._Z(x)=(Y>x)-(X>x)E[Y]-E[X] ,⩾0.
+Let g be a measurable and differentiable function such that E[g(X)], E[g(Y)] < ∞, and let its derivative g′  be measurable and Riemann-integrable on the interval [x, y] for all y ≥ x ≥ 0. Then, E[g′(Z)] is finite and[16]
+
+E[g(Y)]−E[g(X)]=E[g′(Z)][E(Y)−E(X)].E[g(Y)]-E[g(X)]=E[g'(Z)] [E(Y)-E(X)].
+Mean value theorem in complex variables[edit]
+As noted above, the theorem does not hold for differentiable complex-valued functions. Instead, a generalization of the theorem is stated such:[17]
+Let f : Ω → C be a holomorphic function on the open convex set Ω, and let a and b be distinct points in Ω. Then there exist points u, v on the interior of the line segment from a to b such that
+
+Re⁡(f′(u))=Re⁡(f(b)−f(a)b−a),Re(f'(u))=Re(f(b)-f(a)/b-a),
+Im⁡(f′(v))=Im⁡(f(b)−f(a)b−a).Im(f'(v))=Im(f(b)-f(a)/b-a).
+Where Re() is the real part and Im() is the imaginary part of a complex-valued function.
+
+See also: Voorhoeve index
+See also[edit]
+Newmark-beta method
+Mean value theorem (divided differences)
+Racetrack principle
+Stolarsky mean
+Notes[edit]
+
+
+^ J. J. O'Connor and E. F. Robertson (2000). Paramesvara, MacTutor History of Mathematics archive.
+
+^ Ádám Besenyei. "Historical development of the mean value theorem" (PDF).
+
+^ Lozada-Cruz, German (2020-10-02). "Some variants of Cauchy's mean value theorem". International Journal of Mathematical Education in Science and Technology. 51 (7): 1155–1163. Bibcode:2020IJMES..51.1155L. doi:10.1080/0020739X.2019.1703150. ISSN 0020-739X. S2CID 213335491.
+
+^ Sahoo, Prasanna. (1998). Mean value theorems and functional equations. Riedel, T. (Thomas), 1962-. Singapore: World Scientific. ISBN 981-02-3544-5. OCLC 40951137.
+
+^ a b c Kirshna's Real Analysis: (General). Krishna Prakashan Media.
+
+^ "Mean Value Theorem". keepnotes.com.
+
+^ W., Weisstein, Eric. "Extended Mean-Value Theorem". mathworld.wolfram.com. Retrieved 2018-10-08.{{cite web}}:  CS1 maint: multiple names: authors list (link)
+
+^ "Cauchy's Mean Value Theorem". Math24. Retrieved 2018-10-08.
+
+^ Rudin, Walter (1976). Principles of Mathematical Analysis (3rd ed.). New York: McGraw-Hill. p. 113. ISBN 978-0-07-054235-8. Theorem 5.19.
+
+^ Hörmander 2015, Theorem 1.1.1. and remark following it.
+
+^ 
+Lemma — Let v : [a, b] → Rm be a continuous function defined on the interval [a, b] ⊂ R. Then we have
+
+‖∫abv(t)dt‖≤∫ab‖v(t)‖dt.∫_a^bv(t) dt≤∫_a^bv(t) dt.
+
+Proof. Let u in Rm denote the value of the integral
+
+u:=∫abv(t)dt.:=∫_a^bv(t) dt.
+Now we have (using the Cauchy–Schwarz inequality):
+
+‖u‖2=⟨u,u⟩=⟨∫abv(t)dt,u⟩=∫ab⟨v(t),u⟩dt≤∫ab‖v(t)‖⋅‖u‖dt=‖u‖∫ab‖v(t)‖dtu^2=,u⟩=⟨∫_a^bv(t) dt,u⟩=∫_a^b(t),u⟩ dt≤∫_a^bv(t)·u dt=u∫_a^bv(t) dt
+Now cancelling the norm of u from both ends gives us the desired inequality.
+
+
+Mean Value Inequality — If the norm of Df(x + th) is bounded by some constant M for t in [0, 1], then
+
+‖f(x+h)−f(x)‖≤M‖h‖.f(x+h)-f(x)h.
+
+Proof.
+
+‖f(x+h)−f(x)‖=‖∫01(Df(x+th)⋅h)dt‖≤∫01‖Df(x+th)‖⋅‖h‖dt≤M‖h‖.f(x+h)-f(x)=∫_0^1(Df(x+th)) dt≤∫_0^1Df(x+th)·h dth.
+
+^ "Mathwords: Mean Value Theorem for Integrals". www.mathwords.com.
+
+^ Michael Comenetz (2002). Calculus: The Elements. World Scientific. p. 159. ISBN 978-981-02-4904-5.
+
+^ Editorial note: the proof needs to be modified to show there is a c in (a, b)
+
+^ Hobson, E. W. (1909). "On the Second Mean-Value Theorem of the Integral Calculus". Proc. London Math. Soc. S2–7 (1): 14–23. Bibcode:1909PLMS...27...14H. doi:10.1112/plms/s2-7.1.14. MR 1575669.
+
+^ Di Crescenzo, A. (1999). "A Probabilistic Analogue of the Mean Value Theorem and Its Applications to Reliability Theory". J. Appl. Probab. 36 (3): 706–719. doi:10.1239/jap/1032374628. JSTOR 3215435. S2CID 250351233.
+
+^ 1 J.-Cl. Evard, F. Jafari, A Complex Rolle’s Theorem, American Mathematical Monthly, Vol. 99, Issue 9, (Nov. 1992), pp. 858-861.
+
+
+References[edit]
+Hörmander, Lars (2015), The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis, Classics in Mathematics (2nd ed.), Springer, ISBN 9783642614972
+External links[edit]
+"Cauchy theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+PlanetMath: Mean-Value Theorem
+Weisstein, Eric W. "Mean value theorem". MathWorld.
+Weisstein, Eric W. "Cauchy's Mean-Value Theorem". MathWorld.
+"Mean Value Theorem: Intuition behind the Mean Value Theorem" at the Khan Academy
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+vteJoseph-Louis Lagrange
+Lagrange multiplier
+Lagrange polynomial
+Lagrange's four-square theorem
+Lagrange's theorem (group theory)
+Lagrange's identity
+Lagrange's identity (boundary value problem)
+Lagrange's trigonometric identities
+Lagrange multiplier
+Lagrangian mechanics
+Lagrange's mean value theorem
+Lagrange stability
+
+Authority control databases: National 
+Israel
+United States
+
+
+
+

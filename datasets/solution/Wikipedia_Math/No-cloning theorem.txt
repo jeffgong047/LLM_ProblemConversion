@@ -1,0 +1,374 @@
+Theorem in quantum information science
+Part of a series of articles aboutQuantum mechanicsiℏ∂∂t|ψ(t)⟩=H^|ψ(t)⟩ħ∂/|ψ(t)⟩=Ĥ|ψ(t)⟩Schrödinger equation
+Introduction
+Glossary
+History
+Background
+Classical mechanics
+Old quantum theory
+Bra–ket notation
+
+Hamiltonian
+Interference
+
+
+Fundamentals
+Complementarity
+Decoherence
+Entanglement
+Energy level
+Measurement
+Nonlocality
+Quantum number
+State
+Superposition
+Symmetry
+Tunnelling
+Uncertainty
+Wave function
+Collapse
+
+
+Experiments
+Bell's inequality
+Davisson–Germer
+Double-slit
+Elitzur–Vaidman
+Franck–Hertz
+Leggett–Garg inequality
+Mach–Zehnder
+Popper
+
+Quantum eraser
+Delayed-choice
+
+Schrödinger's cat
+Stern–Gerlach
+Wheeler's delayed-choice
+
+
+Formulations
+Overview
+
+Heisenberg
+Interaction
+Matrix
+Phase-space
+Schrödinger
+Sum-over-histories (path integral)
+
+
+Equations
+Dirac
+Klein–Gordon
+Pauli
+Rydberg
+Schrödinger
+
+
+Interpretations
+Bayesian
+Consistent histories
+Copenhagen
+de Broglie–Bohm
+Ensemble
+Hidden-variable
+Local
+Many-worlds
+Objective collapse
+Quantum logic
+Relational
+Transactional
+
+
+Advanced topics
+Relativistic quantum mechanics
+Quantum field theory
+Quantum information science
+Quantum computing
+Quantum chaos
+EPR paradox
+Density matrix
+Scattering theory
+Quantum statistical mechanics
+Quantum machine learning
+
+Scientists
+Aharonov
+Bell
+Bethe
+Blackett
+Bloch
+Bohm
+Bohr
+Born
+Bose
+de Broglie
+Compton
+Dirac
+Davisson
+Debye
+Ehrenfest
+Einstein
+Everett
+Fock
+Fermi
+Feynman
+Glauber
+Gutzwiller
+Heisenberg
+Hilbert
+Jordan
+Kramers
+Pauli
+Lamb
+Landau
+Laue
+Moseley
+Millikan
+Onnes
+Planck
+Rabi
+Raman
+Rydberg
+Schrödinger
+Simmons
+Sommerfeld
+von Neumann
+Weyl
+Wien
+Wigner
+Zeeman
+Zeilinger
+
+vteIn physics, the no-cloning theorem states that it is impossible to create an independent and identical copy of an arbitrary unknown quantum state, a statement which has profound implications in the field of quantum computing among others. The theorem is an evolution of the 1970 no-go theorem authored by James Park,[1] in which he demonstrates that a non-disturbing measurement scheme which is both simple and perfect cannot exist (the same result would be independently derived in 1982 by Wootters and Zurek[2] as well as Dieks[3] the same year). The aforementioned theorems do not preclude the state of one system becoming entangled with the state of another as cloning specifically refers to the creation of a separable state with identical factors. For example, one might use the controlled NOT gate and the Walsh–Hadamard gate to entangle two qubits without violating the no-cloning theorem as no well-defined state may be defined in terms of a subsystem of an entangled state. The no-cloning theorem (as generally understood) concerns only pure states whereas the generalized statement regarding mixed states is known as the no-broadcast theorem.
+The no-cloning theorem has a time-reversed dual, the no-deleting theorem.  Together, these underpin the interpretation of quantum mechanics in terms of category theory, and, in particular, as a dagger compact category.[4][5] This formulation, known as categorical quantum mechanics, allows, in turn, a connection to be made from quantum mechanics to linear logic as the logic of quantum information theory (in the same sense that intuitionistic logic arises from Cartesian closed categories).
+
+
+History[edit]
+According to Asher Peres[6] and David Kaiser,[7] the publication of the 1982 proof of the no-cloning theorem by Wootters and Zurek[2] and by Dieks[3] was prompted by a proposal of Nick Herbert[8] for a superluminal communication device using quantum entanglement, and Giancarlo Ghirardi[9] had proven the theorem 18 months prior to the published proof by Wootters and Zurek in his referee report to said proposal (as evidenced by a letter from the editor[9]). However, Juan Ortigoso[10] pointed out in 2018 that a complete proof along with an interpretation in terms of the lack of simple nondisturbing measurements in quantum mechanics was already delivered by Park in 1970.[1]
+
+Theorem and proof[edit]
+Suppose we have two quantum systems A and B with a common Hilbert space H=HA=HB=H_A=H_B. Suppose we want to have a procedure to copy the state |ϕ⟩A|ϕ⟩_A of quantum system A, over the state |e⟩B|e⟩_B of quantum system B, for any original state |ϕ⟩A|ϕ⟩_A (see bra–ket notation). That is, beginning with the state |ϕ⟩A⊗|e⟩B|ϕ⟩_A⊗|e⟩_B, we want to end up with the state |ϕ⟩A⊗|ϕ⟩B|ϕ⟩_A⊗|ϕ⟩_B. To make a "copy" of the state A, we combine it with system B in some unknown initial, or blank, state |e⟩B|e⟩_B independent of |ϕ⟩A|ϕ⟩_A, of which we have no prior knowledge.
+The state of the initial composite system is then described by the following tensor product:
+
+|ϕ⟩A⊗|e⟩B.|ϕ⟩_A⊗|e⟩_B.
+(in the following we will omit the ⊗⊗ symbol and keep it implicit).
+There are only two permissible quantum operations with which we may manipulate the composite system:
+
+We can perform an observation, which irreversibly collapses the system into some eigenstate of an observable, corrupting the information contained in the qubit(s). This is obviously not what we want.
+Alternatively, we could control the Hamiltonian of the combined system, and thus the time-evolution operator U(t), e.g. for a time-independent Hamiltonian, U(t)=e−iHt/ℏ(t)=e^-iHt/ħ. Evolving up to some fixed time t0_0 yields a unitary operator U on H⊗H, the Hilbert space of the combined system. However, no such unitary operator U can clone all states.
+The no-cloning theorem answers the following question in the negative: Is it possible to construct a unitary operator U, acting on HA⊗HB=H⊗H_A_B=H, under which the state the system B is in always evolves into the state the system A is in, regardless of the state system A is in?
+Theorem: There is no unitary operator U on H⊗H such that for all normalised states |ϕ⟩A|ϕ⟩_A and |e⟩B|e⟩_B in H
+
+U(|ϕ⟩A|e⟩B)=eiα(ϕ,e)|ϕ⟩A|ϕ⟩B(|ϕ⟩_A|e⟩_B)=e^iα(ϕ,e)|ϕ⟩_A|ϕ⟩_B
+for some real number αα depending on ϕϕ and e.
+The extra phase factor expresses the fact that a quantum-mechanical state defines a normalised vector in Hilbert space only up to a phase factor i.e. as an element of projectivised Hilbert space.
+To prove the theorem, we select an arbitrary pair of states |ϕ⟩A|ϕ⟩_A and |ψ⟩A|ψ⟩_A in the Hilbert space H. Because U is supposed to be unitary, we would have
+
+⟨ϕ|ψ⟩⟨e|e⟩≡⟨ϕ|A⟨e|B|ψ⟩A|e⟩B=⟨ϕ|A⟨e|BU†U|ψ⟩A|e⟩B=e−i(α(ϕ,e)−α(ψ,e))⟨ϕ|A⟨ϕ|B|ψ⟩A|ψ⟩B≡e−i(α(ϕ,e)−α(ψ,e))⟨ϕ|ψ⟩2.⟨ϕ|ψ⟩|e⟩≡⟨ϕ|_A|_B|ψ⟩_A|e⟩_B=⟨ϕ|_A|_BU^†U|ψ⟩_A|e⟩_B=e^-i(α(ϕ,e)-α(ψ,e))⟨ϕ|_A⟨ϕ|_B|ψ⟩_A|ψ⟩_B^-i(α(ϕ,e)-α(ψ,e))⟨ϕ|ψ⟩^2.
+Since the  quantum state |e⟩|e⟩ is assumed to be normalized, we thus get
+
+|⟨ϕ|ψ⟩|2=|⟨ϕ|ψ⟩|.|⟨ϕ|ψ⟩|^2=|⟨ϕ|ψ⟩|.
+This implies that either |⟨ϕ|ψ⟩|=1|⟨ϕ|ψ⟩|=1 or |⟨ϕ|ψ⟩|=0|⟨ϕ|ψ⟩|=0. Hence by the Cauchy–Schwarz inequality either |ϕ⟩=eiβ|ψ⟩|ϕ⟩=e^iβ|ψ⟩ or |ϕ⟩|ϕ⟩ is orthogonal to |ψ⟩|ψ⟩. However, this cannot be the case for two arbitrary states. Therefore, a single universal U cannot clone a general quantum state. This proves the no-cloning theorem.
+Take a qubit for example. It can be represented by two complex numbers, called probability amplitudes (normalised to 1), that is three real numbers (two polar angles and one radius). Copying three numbers on a classical computer using any copy and paste operation is trivial (up to a finite precision) but the problem manifests if the qubit is unitarily transformed (e.g. by the Hadamard quantum gate) to be polarised (which unitary transformation is a surjective isometry). In such a case the qubit can be represented by just two real numbers (one polar angle and one radius equal to 1), while the value of the third can be arbitrary in such a representation. Yet a realisation of a qubit (polarisation-encoded photon, for example) is capable of storing the whole qubit information support within its "structure". Thus no single universal unitary evolution U can clone an arbitrary quantum state according to the no-cloning theorem. It would have to depend on the transformed qubit (initial) state and thus would not have been universal.
+
+Generalization[edit]
+In the statement of the theorem, two assumptions were made: the state to be copied is a pure state and the proposed copier acts via unitary time evolution. These assumptions cause no loss of generality. If the state to be copied is a mixed state, it can be "purified," i.e. treated as a pure state of a larger system. Alternately, a different proof can be given that works directly with mixed states; in this case, the theorem is often known as the no-broadcast theorem.[11][12]  Similarly, an arbitrary quantum operation can be implemented via introducing an ancilla and performing a suitable unitary evolution.[clarification needed]  Thus the no-cloning theorem holds in full generality.
+
+Consequences[edit]
+The no-cloning theorem prevents the use of certain classical error correction techniques on quantum states. For example, backup copies of a state in the middle of a quantum computation cannot be created and used for correcting subsequent errors.  Error correction is vital for practical quantum computing, and for some time it was unclear whether or not it was possible. In 1995, Shor and Steane showed that it is, by independently devising the first quantum error correcting codes, which circumvent the no-cloning theorem.
+Similarly, cloning would violate the no-teleportation theorem, which says that it is impossible to convert a quantum state into a sequence of classical bits (even an infinite sequence of bits), copy those bits to some new location, and recreate a copy of the original quantum state in the new location. This should not be confused with entanglement-assisted teleportation, which does allow a quantum state to be destroyed in one location, and an exact copy to be recreated in another location.
+The no-cloning theorem is implied by the no-communication theorem, which states that quantum entanglement cannot be used to transmit classical information (whether superluminally, or slower).  That is, cloning, together with entanglement, would allow such communication to occur.   To see this, consider the EPR thought experiment, and suppose quantum states could be cloned. Assume parts of a maximally entangled Bell state are distributed to Alice and Bob. Alice could send bits to Bob in the following way: If Alice wishes to transmit a "0", she measures the spin of her electron in the z direction, collapsing Bob's state to either |z+⟩B|z+⟩_B or |z−⟩B|z-⟩_B.  To transmit "1", Alice does nothing to her qubit. Bob creates many copies of his electron's state, and measures the spin of each copy in the z direction. Bob will know that Alice has transmitted a "0" if all his measurements produce the same result; otherwise, his measurements will have outcomes |z+⟩B|z+⟩_B or |z−⟩B|z-⟩_B with equal probability. This would allow Alice and Bob to communicate classical bits between each other (possibly across space-like separations, violating causality).
+Quantum states cannot be discriminated perfectly.[13]
+The no cloning theorem prevents an interpretation of the holographic principle for black holes as meaning that there are two copies of information, one lying at the event horizon and the other in the black hole interior. This leads to more radical interpretations, such as black hole complementarity.
+The no-cloning theorem applies to all dagger compact categories: there is no universal cloning morphism for any non-trivial category of this kind.[14]  Although the theorem is inherent in the definition of this category, it is not trivial to see that this is so; the insight is important, as this category includes things that are not finite-dimensional Hilbert spaces, including the category of sets and relations and the category of cobordisms.
+Imperfect cloning[edit]
+Even though it is impossible to make perfect copies of an unknown quantum state, it is possible to produce imperfect copies. This can be done by coupling a larger auxiliary system to the system that is to be cloned, and applying a unitary transformation to the combined system. If the unitary transformation is chosen correctly, several components of the combined system will evolve into approximate copies of the original system. In 1996, V. Buzek and M. Hillery showed that a universal cloning machine can make a clone of an unknown state with the surprisingly high fidelity of 5/6.[15]
+Imperfect quantum cloning can be used as an eavesdropping attack on  quantum cryptography protocols, among other uses in quantum information science.
+
+See also[edit]
+
+Fundamental Fysiks Group
+Monogamy of entanglement
+No-broadcast theorem
+No-communication theorem
+No-deleting theorem
+No-hiding theorem
+Quantum entanglement
+Quantum cloning
+Quantum information
+Quantum teleportation
+Stronger uncertainty relations
+Uncertainty principle
+
+References[edit]
+
+^ a b Park, James (1970). "The concept of transition in quantum mechanics". Foundations of Physics. 1 (1): 23–33. Bibcode:1970FoPh....1...23P. CiteSeerX 10.1.1.623.5267. doi:10.1007/BF00708652. S2CID 55890485.
+
+^ a b Wootters, William; Zurek, Wojciech (1982). "A Single Quantum Cannot be Cloned". Nature. 299 (5886): 802–803. Bibcode:1982Natur.299..802W. doi:10.1038/299802a0. S2CID 4339227.
+
+^ a b Dieks, Dennis (1982). "Communication by EPR devices". Physics Letters A. 92 (6): 271–272. Bibcode:1982PhLA...92..271D. CiteSeerX 10.1.1.654.7183. doi:10.1016/0375-9601(82)90084-6. hdl:1874/16932.
+
+^ Baez, John; Stay, Mike (2010). "Physics, Topology, Logic and Computation: A Rosetta Stone" (PDF). New Structures for Physics. Berlin: Springer. pp. 95–172. ISBN 978-3-642-12821-9.
+
+^ Coecke, Bob (2009). "Quantum Picturalism". Contemporary Physics. 51: 59–83. arXiv:0908.1787. doi:10.1080/00107510903257624. S2CID 752173.
+
+^ Peres, Asher (2003). "How the No-Cloning Theorem Got its Name". Fortschritte der Physik. 51 (45): 458–461. arXiv:quant-ph/0205076. Bibcode:2003ForPh..51..458P. doi:10.1002/prop.200310062. S2CID 16588882.
+
+^ Kaiser, David (2011). How the Hippies Saved Physics: Science, Counterculture, and the Quantum Revival. W. W. Norton. ISBN 978-0-393-07636-3.
+
+^ Herbert, Nick (1982). "FLASH—A superluminal communicator based upon a new kind of quantum measurement". Foundations of Physics. 12 (12): 1171–1179. Bibcode:1982FoPh...12.1171H. doi:10.1007/BF00729622. S2CID 123118337.
+
+^ a b Ghirardi, GianCarlo (2013), "Entanglement, Nonlocality, Superluminal Signaling and Cloning", in Bracken, Paul (ed.), Advances in Quantum Mechanics, IntechOpen (published April 3, 2013), arXiv:1305.2305, doi:10.5772/56429, ISBN 978-953-51-1089-7, S2CID 118778014
+
+^ Ortigoso, Juan (2018). "Twelve years before the quantum no-cloning theorem". American Journal of Physics. 86 (3): 201–205. arXiv:1707.06910. Bibcode:2018AmJPh..86..201O. doi:10.1119/1.5021356. S2CID 119192142.
+
+^ Barnum, Howard; Caves, Carlton M.; Fuchs, Christopher A.; Jozsa, Richard; Schumacher, Benjamin (1996-04-08). "Noncommuting Mixed States Cannot Be Broadcast". Physical Review Letters. 76 (15): 2818–2821. arXiv:quant-ph/9511010. Bibcode:1996PhRvL..76.2818B. doi:10.1103/PhysRevLett.76.2818. PMID 10060796. S2CID 11724387.
+
+^ Kalev, Amir; Hen, Itay (2008-05-29). "No-Broadcasting Theorem and Its Classical Counterpart". Physical Review Letters. 100 (21): 210502. arXiv:0704.1754. Bibcode:2008PhRvL.100u0502K. doi:10.1103/PhysRevLett.100.210502. PMID 18518590. S2CID 40349990.
+
+^ Bae, Joonwoo; Kwek, Leong-Chuan (2015-02-27). "Quantum state discrimination and its applications". Journal of Physics A: Mathematical and Theoretical. 48 (8): 083001. arXiv:1707.02571. Bibcode:2015JPhA...48h3001B. doi:10.1088/1751-8113/48/8/083001. ISSN 1751-8113. S2CID 119199057.
+
+^ S. Abramsky, "No-Cloning in categorical quantum mechanics", (2008) Semantic Techniques for Quantum Computation, I. Mackie and S. Gay (eds), Cambridge University Press. arXiv:0910.2401
+
+^ Bužek, V.; Hillery, M. (1996). "Quantum Copying: Beyond the No-Cloning Theorem". Phys. Rev. A. 54 (3): 1844–1852. arXiv:quant-ph/9607018. Bibcode:1996PhRvA..54.1844B. doi:10.1103/PhysRevA.54.1844. PMID 9913670. S2CID 1446565.
+
+
+Other sources[edit]
+V. Buzek and M. Hillery, Quantum cloning, Physics World 14 (11) (2001), pp. 25–29.
+vteQuantum information scienceGeneral
+DiVincenzo's criteria
+NISQ era
+Quantum computing
+timeline
+Quantum information
+Quantum programming
+Quantum simulation
+Qubit
+physical vs. logical
+Quantum processors
+cloud-based
+Theorems
+Bell's
+Eastin–Knill
+Gleason's
+Gottesman–Knill
+Holevo's
+Margolus–Levitin
+No-broadcasting
+No-cloning
+No-communication
+No-deleting
+No-hiding
+No-teleportation
+PBR
+Threshold
+Solovay–Kitaev
+Purification
+Quantumcommunication
+Classical capacity
+entanglement-assisted
+quantum capacity
+Entanglement distillation
+Monogamy of entanglement
+LOCC
+Quantum channel
+quantum network
+Quantum teleportation
+quantum gate teleportation
+Superdense coding
+Quantum cryptography
+Post-quantum cryptography
+Quantum coin flipping
+Quantum money
+Quantum key distribution
+BB84
+SARG04
+other protocols
+Quantum secret sharing
+
+Quantum algorithms
+Amplitude amplification
+Bernstein–Vazirani
+Boson sampling
+Deutsch–Jozsa
+Grover's
+HHL
+Hidden subgroup
+Quantum annealing
+Quantum counting
+Quantum Fourier transform
+Quantum optimization
+Quantum phase estimation
+Shor's
+Simon's
+VQE
+Quantumcomplexity theory
+BQP
+EQP
+QIP
+QMA
+PostBQP
+Quantum  processor benchmarks
+Quantum supremacy
+Quantum volume
+Randomized benchmarking
+XEB
+Relaxation times
+T1
+T2
+Quantumcomputing models
+Adiabatic quantum computation
+Continuous-variable quantum information
+One-way quantum computer
+cluster state
+Quantum circuit
+quantum logic gate
+Quantum machine learning
+quantum neural network
+Quantum Turing machine
+Topological quantum computer
+Quantumerror correction
+Codes
+CSS
+quantum convolutional
+stabilizer
+Shor
+Bacon–Shor
+Steane
+Toric
+gnu
+Entanglement-assisted
+PhysicalimplementationsQuantum optics
+Cavity QED
+Circuit QED
+Linear optical QC
+KLM protocol
+Ultracold atoms
+Optical lattice
+Trapped-ion QC
+Spin-based
+Kane QC
+Spin qubit QC
+NV center
+NMR QC
+Superconducting
+Charge qubit
+Flux qubit
+Phase qubit
+Transmon
+Quantumprogramming
+OpenQASM–Qiskit–IBM QX
+Quil–Forest/Rigetti QCS
+Cirq
+Q#
+libquantum
+many others...
+
+ Quantum information science
+ Quantum mechanics topics
+
+
+
+

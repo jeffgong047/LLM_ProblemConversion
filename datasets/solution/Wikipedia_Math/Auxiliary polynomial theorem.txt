@@ -1,0 +1,126 @@
+Construction in transcendental number theory
+In mathematics, auxiliary functions are an important construction in transcendental number theory.  They are functions that appear in most proofs in this area of mathematics and that have specific, desirable properties, such as taking the value zero for many arguments, or having a zero of high order at some point.[1]
+
+
+Definition[edit]
+Auxiliary functions are not a rigorously defined kind of function, rather they are functions which are either explicitly constructed or at least shown to exist and which provide a contradiction to some assumed hypothesis, or otherwise prove the result in question.  Creating a function during the course of a proof in order to prove the result is not a technique exclusive to transcendence theory, but the term "auxiliary function" usually refers to the functions created in this area.
+
+Explicit functions[edit]
+Liouville's transcendence criterion[edit]
+Because of the naming convention mentioned above, auxiliary functions can be dated back to their source simply by looking at the earliest results in transcendence theory.  One of these first results was Liouville's proof that transcendental numbers exist when he showed that the so called Liouville numbers were transcendental.[2]  He did this by discovering a transcendence criterion which these numbers satisfied.  To derive this criterion he started with a general algebraic number α and found some property that this number would necessarily satisfy. The auxiliary function he used in the course of proving this criterion was simply the minimal polynomial of α, which is the irreducible polynomial f with integer coefficients such that f(α) = 0.  This function can be used to estimate how well the algebraic number α can be estimated by rational numbers p/q.  Specifically if α has degree d at least two then he showed that
+
+|f(pq)|≥1qd,|f(p/q)|≥1/q^d,
+and also, using the mean value theorem, that there is some constant depending on α, say c(α), such that
+
+|f(pq)|≤c(α)|α−pq|.|f(p/q)|(α)|α-p/q|.
+Combining these results gives a property that the algebraic number must satisfy; therefore any number not satisfying this criterion must be transcendental.
+The auxiliary function in Liouville's work is very simple, merely a polynomial that vanishes at a given algebraic number.  This kind of property is usually the one that auxiliary functions satisfy.  They either vanish or become very small at particular points, which is usually combined with the assumption that they do not vanish or can't be too small to derive a result.
+
+Fourier's proof of the irrationality of e[edit]
+Another simple, early occurrence is in Fourier's proof of the irrationality of e,[3] though the notation used usually disguises this fact.  Fourier's proof used the power series of the exponential function:
+
+ex=∑n=0∞xnn!.^x=∑_n=0^∞x^n/n!.
+By truncating this power series after, say, N + 1 terms we get a polynomial with rational coefficients of degree N which is in some sense "close" to the function ex.  Specifically if we look at the auxiliary function defined by the remainder:
+
+R(x)=ex−∑n=0Nxnn!(x)=e^x-∑_n=0^Nx^n/n!
+then this function—an exponential polynomial—should take small values for x close to zero.  If e is a rational number then by letting x = 1 in the above formula we see that R(1) is also a rational number.  However, Fourier proved that R(1) could not be rational by eliminating every possible denominator.  Thus e cannot be rational.
+
+Hermite's proof of the irrationality of er[edit]
+Hermite extended the work of Fourier by approximating the function ex not with a polynomial but with a rational function, that is a quotient of two polynomials.  In particular he chose polynomials A(x) and B(x) such that the auxiliary function R defined by
+
+R(x)=B(x)ex−A(x)(x)=B(x)e^x-A(x)
+could be made as small as he wanted around x = 0.  But if er were rational then R(r) would have to be rational with a particular denominator, yet Hermite could make R(r) too small to have such a denominator, hence a contradiction.
+
+Hermite's proof of the transcendence of e[edit]
+To prove that e was in fact transcendental, Hermite took his work one step further by approximating not just the function ex, but also the functions ekx for integers k = 1,...,m, where he assumed e was algebraic with degree m.  By approximating ekx by rational functions with integer coefficients and with the same denominator, say Ak(x) / B(x), he could define auxiliary functions Rk(x) by
+
+Rk(x)=B(x)ekx−Ak(x)._k(x)=B(x)e^kx-A_k(x).
+For his contradiction Hermite supposed that e satisfied the polynomial equation with integer coefficients a0 + a1e + ... + amem = 0.  Multiplying this expression through by B(1) he noticed that it implied
+
+R=a0+a1R1(1)+⋯+amRm(1)=a1A1(1)+⋯+amAm(1).=a_0+a_1R_1(1)+⋯+a_mR_m(1)=a_1A_1(1)+⋯+a_mA_m(1).
+The right hand side is an integer and so, by estimating the auxiliary functions and proving that 0 < |R| < 1 he derived the necessary contradiction.
+
+Auxiliary functions from the pigeonhole principle[edit]
+Main article: Siegel's lemma
+The auxiliary functions sketched above can all be explicitly calculated and worked with.  A breakthrough by Axel Thue and Carl Ludwig Siegel in the twentieth century was the realisation that these functions don't necessarily need to be explicitly known – it can be enough to know they exist and have certain properties.  Using the Pigeonhole Principle Thue, and later Siegel, managed to prove the existence of auxiliary functions which, for example, took the value zero at many different points, or took high order zeros at a smaller collection of points.  Moreover they proved it was possible to construct such functions without making the functions too large.[4]  Their auxiliary functions were not explicit functions, then, but by knowing that a certain function with certain properties existed, they used its properties to simplify the transcendence proofs of the nineteenth century and give several new results.[5]
+This method was picked up on and used by several other mathematicians, including Alexander Gelfond and Theodor Schneider who used it independently to prove the Gelfond–Schneider theorem.[6] Alan Baker also used the method in the 1960s for his work on linear forms in logarithms and ultimately Baker's theorem.[7]  Another example of the use of this method from the 1960s is outlined below.
+
+Auxiliary polynomial theorem[edit]
+Let β equal the cube root of b/a in the equation ax3 + bx3 = c and assume m is an integer that satisfies m + 1 > 2n/3 ≥ m ≥ 3 where n is a positive integer.
+Then there exists
+
+F(X,Y)=P(X)+Y∗Q(X)(X,Y)=P(X)+Y*Q(X)
+such that
+
+∑i=0m+nuiXi=P(X),∑_i=0^m+nu_iX^i=P(X),
+∑i=0m+nviXi=Q(X).∑_i=0^m+nv_iX^i=Q(X).
+The auxiliary polynomial theorem states
+
+max0≤i≤m+n(|ui|,|vi|)≤2b9(m+n).max_0+n(|u_i|,|v_i|)≤2b^9(m+n).
+A theorem of Lang[edit]
+Main article: Schneider–Lang theorem
+In the 1960s Serge Lang proved a result using this non-explicit form of auxiliary functions.  The theorem implies both the Hermite–Lindemann and Gelfond–Schneider theorems.[8]  The theorem deals with a number field K and meromorphic functions f1,...,fN of order at most ρ, at least two of which are algebraically independent, and such that if we differentiate any of these functions then the result is a polynomial in all of the functions.  Under these hypotheses the theorem states that if there are m distinct complex numbers ω1,...,ωm such that fi (ωj ) is in K for all combinations of i and j, then m is bounded by
+
+m≤20ρ[K:Q].≤20ρ[K:ℚ].
+To prove the result Lang took two algebraically independent functions from f1,...,fN, say f and g, and then created an auxiliary function which was simply a polynomial F in f and g.  This auxiliary function could not be explicitly stated since f and g are not explicitly known.  But using Siegel's lemma Lang showed how to make F in such a way that it vanished to a high order at the m complex numbers
+ω1,...,ωm.  Because of this high order vanishing it can be shown that a high-order derivative of F takes a value of small size one of the ωis, "size" here referring to an algebraic property of a number.  Using the maximum modulus principle Lang also found a separate way to estimate the absolute values of derivatives of F, and using standard results comparing the size of a number and its absolute value he showed that these estimates were contradicted unless the claimed bound on m holds.
+
+Interpolation determinants[edit]
+After the myriad of successes gleaned from using existent but not explicit auxiliary functions, in the 1990s Michel Laurent introduced the idea of interpolation determinants.[9]  These are alternants – determinants of matrices of the form
+
+M=(φi(ζj))1≤i,j≤Nℳ=(φ_i(ζ_j))_1,j
+where φi are a set of functions interpolated at a set of points ζj.  Since a determinant is just a polynomial in the entries of a matrix, these auxiliary functions succumb to study by analytic means.  A problem with the method was the need to choose a basis before the matrix could be worked with.  A development by Jean-Benoît Bost removed this problem with the use of Arakelov theory,[10] and research in this area is ongoing.  The example below gives an idea of the flavour of this approach.
+
+A proof of the Hermite–Lindemann theorem[edit]
+One of the simpler applications of this method is a proof of the real version of the Hermite–Lindemann theorem.  That is, if α is a non-zero, real algebraic number, then eα is transcendental.  First we let k be some natural number and n be a large multiple of k.  The interpolation determinant considered is the determinant Δ of the n4×n4 matrix
+
+(exp⁡(j2x)xj1−1(i1−1)|x=(i2−1)α).({exp(j_2x)x^j_1-1}^(i_1-1)|_x=(i_2-1)α).
+The rows of this matrix are indexed by 1 ≤ i1 ≤ n4/k and 1 ≤ i2 ≤ k, while the columns are indexed by 1 ≤ j1 ≤ n3 and 1 ≤ j2 ≤ n.  So the functions in our matrix are monomials in x and ex and their derivatives, and we are interpolating at the k points 0,α,2α,...,(k − 1)α.  Assuming that eα is algebraic we can form the number field Q(α,eα) of degree m over Q, and then multiply Δ by a suitable denominator as well as all its images under the embeddings of the field Q(α,eα) into C.  For algebraic reasons this product is necessarily an integer, and using arguments relating to Wronskians it can be shown that it is non-zero, so its absolute value is an integer Ω ≥ 1.
+Using a version of the mean value theorem for matrices it is possible to get an analytic bound on Ω as well, and in fact using big-O notation we have
+
+Ω=O(exp⁡((m+1k−32)n8log⁡n)).Ω=O(exp((m+1/k-3/2)n^8)).
+The number m is fixed by the degree of the field Q(α,eα), but k is the number of points we are interpolating at, and so we can increase it at will.  And once k > 2(m + 1)/3 we will have Ω → 0, eventually contradicting the established condition Ω ≥ 1.  Thus eα cannot be algebraic after all.[11]
+
+Notes[edit]
+
+
+^ Waldschmidt (2008).
+
+^ Liouville (1844).
+
+^ Hermite (1873).
+
+^ Thue  (1977) and Siegel (1929).
+
+^ Siegel (1932).
+
+^ Gel'fond (1934) and Schneider (1934).
+
+^ Baker and Wüstholz (2007).
+
+^ Lang (1966).
+
+^ Laurent (1991).
+
+^ Bost (1996).
+
+^ Adapted from Pila (1993).
+
+
+References[edit]
+Waldschmidt, Michel. "An Introduction to Irrationality and Transcendence Methods" (PDF).
+Liouville, Joseph (1844). "Sur des classes très étendues de quantités dont la valeur n'est ni algébrique, ni même réductible à des irrationnelles algébriques". J. Math. Pures Appl. 18: 883–885, and 910–911.
+Hermite, Charles (1873). "Sur la fonction exponentielle". C. R. Acad. Sci. Paris. 77.
+Thue, Axel (1977). Selected Mathematical Papers. Oslo: Universitetsforlaget.
+Siegel, Carl Ludwig (1929). "Über einige Anwendungen diophantischer Approximationen". Abhandlungen Akad. Berlin. 1: 70.
+Siegel, Carl Ludwig (1932). "Über die Perioden elliptischer Funktionen". Journal für die reine und angewandte Mathematik. 1932 (167): 62–69. doi:10.1515/crll.1932.167.62. S2CID 199545608.
+Gel'fond, A. O. (1934). "Sur le septième Problème de D. Hilbert". Izv. Akad. Nauk SSSR. 7: 623–630.
+Schneider, Theodor (1934). "Transzendenzuntersuchungen periodischer Funktionen. I. Transzendend von Potenzen". J. Reine Angew. Math. 172: 65–69.
+Baker, Alan; Wüstholz, G. (2007), "Logarithmic forms and Diophantine geometry", New Mathematical Monographs, Cambridge University Press, vol. 9, p. 198
+Lang, Serge (1966). Introduction to Transcendental Numbers. Addison–Wesley Publishing Company.
+Laurent, Michel (1991). "Sur quelques résultats récents de transcendance". Astérisque. 198–200: 209–230.
+Bost, Jean-Benoît (1996). "Périodes et isogénies des variétés abéliennes sur les corps de nombres (d'après D. Masser et G. Wüstholz)". Astérisque. 237: 795.
+Pila, Jonathan (1993). "Geometric and arithmetic postulation of the exponential function". J. Austral. Math. Soc. A. 54: 111–127. doi:10.1017/s1446788700037022.
+
+
+

@@ -1,0 +1,99 @@
+Relationship between the rational roots of a polynomial and its extreme coefficients
+In algebra, the rational root theorem (or rational root test, rational zero theorem, rational zero test or p/q theorem) states a constraint on rational solutions of a polynomial equation
+
+anxn+an−1xn−1+⋯+a0=0_nx^n+a_n-1x^n-1+⋯+a_0=0
+with integer coefficients ai∈Z_i∈ℤ and a0,an≠0_0,a_n≠0.  Solutions of the equation are also called roots or zeros of the polynomial on the left side.
+The theorem states that each rational solution x = p⁄q, written in lowest terms so that p and q are relatively prime, satisfies:
+
+p is an integer factor of the constant term a0, and
+q is an integer factor of the leading coefficient an.
+The rational root theorem is a special case (for a single linear factor) of Gauss's lemma on the factorization of polynomials.  The integral root theorem is the special case of the rational root theorem when the leading coefficient is an = 1.
+
+
+Application[edit]
+The theorem is used to find all rational roots of a polynomial, if any. It gives a finite number of possible fractions which can be checked to see if they are roots. If a rational root x = r is found, a linear polynomial (x – r) can be factored out of the polynomial using polynomial long division, resulting in a polynomial of lower degree whose roots are also roots of the original polynomial.
+
+Cubic equation[edit]
+The general cubic equation
+
+ax3+bx2+cx+d=0^3+bx^2+cx+d=0
+with integer coefficients has three solutions in the complex plane. If the rational root test finds no rational solutions, then the only way to express the solutions algebraically uses cube roots. But if the test finds a rational solution r, then factoring out (x – r) leaves a quadratic polynomial whose two roots, found with the quadratic formula, are the remaining two roots of the cubic, avoiding cube roots.
+
+Proofs[edit]
+Elementary proof[edit]
+Let P(x)=anxn+an−1xn−1+⋯+a1x+a0(x)_nx^n+a_n-1x^n-1+⋯+a_1x+a_0 with a0,…an∈Z._0,_n∈ℤ.
+Suppose P(p/q) = 0 for some coprime p, q ∈ ℤ:
+
+P(pq)=an(pq)n+an−1(pq)n−1+⋯+a1(pq)+a0=0.(pq)=a_n(pq)^n+a_n-1(pq)^n-1+⋯+a_1(pq)+a_0=0.
+To clear denominators, multiply both sides by qn: 
+
+anpn+an−1pn−1q+⋯+a1pqn−1+a0qn=0._np^n+a_n-1p^n-1q+⋯+a_1pq^n-1+a_0q^n=0.
+Shifting the a0 term to the right side and factoring out p on the left side produces:
+
+p(anpn−1+an−1qpn−2+⋯+a1qn−1)=−a0qn.(a_np^n-1+a_n-1qp^n-2+⋯+a_1q^n-1)=-a_0q^n.
+Thus, p divides a0qn. But p is coprime to q and therefore to qn, so by Euclid's lemma p must divide the remaining factor a0.
+On the other hand, shifting the an term to the right side and factoring out q on the left side produces:
+
+q(an−1pn−1+an−2qpn−2+⋯+a0qn−1)=−anpn.(a_n-1p^n-1+a_n-2qp^n-2+⋯+a_0q^n-1)=-a_np^n.
+Reasoning as before, it follows that q divides an.[1]
+
+Proof using Gauss's lemma[edit]
+Should there be a nontrivial factor dividing all the coefficients of the polynomial, then one can divide by the greatest common divisor of the coefficients so as to obtain a primitive polynomial in the sense of Gauss's lemma; this does not alter the set of rational roots and only strengthens the divisibility conditions. That lemma says that if the polynomial factors in Q[X], then it also factors in Z[X] as a product of primitive polynomials. Now any rational root p/q corresponds to a factor of degree 1 in Q[X] of the polynomial, and its primitive representative is then qx − p, assuming that p and q are coprime. But any multiple in Z[X] of qx − p has leading term divisible by q and constant term divisible by p, which proves the statement. This argument shows that more generally, any irreducible factor of P can be supposed to have integer coefficients, and leading and constant coefficients dividing the corresponding coefficients of P.
+
+Examples[edit]
+First[edit]
+In the polynomial
+
+2x3+x−1,2x^3+x-1,
+any rational root fully reduced would have to have a numerator that divides evenly into 1 and a denominator that divides evenly into 2. Hence the only possible rational roots are ±1/2 and ±1; since neither of these equates the polynomial to zero, it has no rational roots.
+
+Second[edit]
+In the polynomial
+
+x3−7x+6^3-7x+6
+the only possible rational roots would have a numerator that divides 6 and a denominator that divides 1, limiting the possibilities to ±1, ±2, ±3, and ±6. Of these, 1, 2, and –3 equate the polynomial to zero, and hence are its rational roots. (In fact these are its only roots since a cubic has only three roots; in general, a polynomial could have some rational and some irrational roots.)
+
+Third[edit]
+Every rational root of the polynomial
+
+3x3−5x2+5x−23x^3-5x^2+5x-2
+must be among the numbers
+
+±1,21,3=±1,2,13,23.±1,21,3=±{1,2,13,23}.
+These 8 root candidates x = r can be tested by evaluating P(r), for example using Horner's method. It turns out there is exactly one with P(r) = 0. 
+This process may be made more efficient: if P(r) ≠ 0, it can be used to shorten the list of remaining candidates.[2] For example, x = 1 does not work, as P(1) = 1. Substituting x = 1 + t yields a polynomial in t with constant term P(1) = 1, while the coefficient of t3 remains the same as the coefficient of x3. Applying the rational root theorem thus yields the  possible roots t=±11,3=±11,3, so that 
+
+x=1+t=2,0,43,23.=1+t=2,0,43,23.
+True roots must occur on both lists, so list of rational root candidates has shrunk to just x = 2 and x = 2/3.
+If k ≥ 1 rational roots are found, Horner's method will also yield a polynomial of degree n − k whose roots, together with the rational roots, are exactly the roots of the original polynomial. If none of the candidates is a solution, there can be no rational solution.
+
+See also[edit]
+
+Mathematics portal
+Fundamental theorem of algebra
+Integrally closed domain
+Descartes' rule of signs
+Gauss–Lucas theorem
+Properties of polynomial roots
+Content (algebra)
+Eisenstein's criterion
+Notes[edit]
+
+
+^ Arnold, D.; Arnold, G. (1993). Four unit mathematics. Edward Arnold. pp. 120–121. ISBN 0-340-54335-3.
+
+^ King, Jeremy D. (November 2006). "Integer roots of polynomials". Mathematical Gazette. 90: 455–456.
+
+
+References[edit]
+Charles D. Miller, Margaret L. Lial, David I. Schneider: Fundamentals of College Algebra. Scott & Foresman/Little & Brown Higher Education, 3rd edition 1990, ISBN 0-673-38638-4, pp. 216–221
+Phillip S. Jones, Jack D. Bedient: The historical roots of elementary mathematics. Dover Courier Publications 1998, ISBN 0-486-25563-8, pp. 116–117  (online copy, p. 116, at Google Books)
+Ron Larson: Calculus: An Applied Approach. Cengage Learning 2007, ISBN 978-0-618-95825-2, pp. 23–24  (online copy, p. 23, at Google Books)
+External links[edit]
+Weisstein, Eric W. "Rational Zero Theorem". MathWorld.
+RationalRootTheorem at PlanetMath
+Another proof that nth roots of integers are irrational, except for perfect nth powers by Scott E. Brodie
+The Rational Roots Test at purplemath.com
+
+
+

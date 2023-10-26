@@ -1,0 +1,129 @@
+Formula for number of orbits of a group action
+"Polya theorem" redirects here. For Pólya's theorem for positive polynomials on simplex, see Positive polynomial. For the recurrence of lattice random walks, see Random walk § Higher dimensions.
+The Pólya enumeration theorem, also known as the Redfield–Pólya theorem and Pólya counting, is a theorem in combinatorics that both follows from and ultimately generalizes Burnside's lemma on the number of orbits of a group action on a set. The theorem was first published by J. Howard Redfield in 1927. In 1937 it was independently rediscovered by George Pólya, who then greatly popularized the result by applying it to many counting problems, in particular to the enumeration of chemical compounds.
+The Pólya enumeration theorem has been incorporated into symbolic combinatorics and the theory of combinatorial species.
+
+
+Simplified, unweighted version[edit]
+Let X be a finite set and let G be a group of permutations of X (or a finite symmetry group that acts on X). The set X may represent a finite set of beads, and G may be a chosen group of permutations of the beads. For example, if X is a necklace of n beads in a circle, then rotational symmetry is relevant so G is the cyclic group Cn, while if X is a bracelet of n beads in a circle, rotations and reflections are relevant so G is the dihedral group Dn of order 2n. Suppose further that Y is a finite set of colors — the colors of the beads — so that YX is the set of colored arrangements of beads (more formally: YX is the set of functions X→Y.) Then the group G acts on YX. The Pólya enumeration theorem counts the number of orbits under G of colored arrangements of beads by the following formula:
+
+|YX/G|=1|G|∑g∈Gmc(g)|Y^X/G|=1/|G|∑_gm^c(g)
+where m=|Y|=|Y| is the number of colors and c(g) is the number of cycles of the group element g when considered as a permutation of X.
+
+Full, weighted version[edit]
+In the more general and more important version of the theorem, the colors are also weighted in one or more ways, and there could be an infinite number of colors provided that the set of colors has a generating function with finite coefficients. In the univariate case, suppose that
+
+f(t)=f0+f1t+f2t2+⋯(t)=f_0+f_1t+f_2t^2+⋯
+is the generating function of the set of colors, so that there are fw colors of weight w for each integer w ≥ 0. In the multivariate case, the weight of each color is a vector of integers and there is a generating function f(t1, t2, ...) that tabulates the number of colors with each given vector of weights.
+The enumeration theorem employs another multivariate generating function called the cycle index:
+
+ZG(t1,t2,…,tn)=1|G|∑g∈Gt1c1(g)t2c2(g)⋯tncn(g)_G(t_1,t_2,…,t_n)=1/|G|∑_gt_1^c_1(g)t_2^c_2(g)_n^c_n(g)
+where n is the number of elements of X and ck(g) is the number of k-cycles of the group element g as a permutation of X. 
+A colored arrangement is an orbit of the action of G on the set YX (where Y is the set of colors and YX denotes the set of all functions φ: X→Y). The weight of such an arrangement is defined as the sum of the weights of φ(x) over all x in X. The theorem states that the generating function F of the number of colored arrangements by weight is given by:
+
+F(t)=ZG(f(t),f(t2),f(t3),…,f(tn))(t)=Z_G(f(t),f(t^2),f(t^3),…,f(t^n))
+or in the multivariate case:
+
+F(t1,t2,…)=ZG(f(t1,t2,…),f(t12,t22,…),f(t13,t23,…),…,f(t1n,t2n,…)).(t_1,t_2,…)=Z_G(f(t_1,t_2,…),f(t_1^2,t_2^2,…),f(t_1^3,t_2^3,…),…,f(t_1^n,t_2^n,…)).
+To reduce to the simplified version given earlier, if there are m colors and all have weight 0, then f(t) = m and
+
+|YX/G|=F(0)=ZG(m,m,…,m)=1|G|∑g∈Gmc(g).|Y^X/G|=F(0)=Z_G(m,m,…,m)=1/|G|∑_gm^c(g).
+In the celebrated application of counting trees (see below) and acyclic molecules, an arrangement of "colored beads" is actually an arrangement of arrangements, such as branches of a rooted tree. Thus the generating function f for the colors is derived from the generating function F for arrangements, and the Pólya enumeration theorem becomes a recursive formula.
+
+Examples[edit]
+Necklaces and bracelets[edit]
+Main article: Necklace (combinatorics)
+Colored cubes[edit]
+How many ways are there to color the sides of a three-dimensional cube with m colors, up to rotation of the cube? The rotation group C of the cube acts on the six sides of the cube, which are equivalent to beads. Its cycle index is
+
+ZC(t1,t2,t3,t4)=124(t16+6t12t4+3t12t22+8t32+6t23)_C(t_1,t_2,t_3,t_4)=1/24(t_1^6+6t_1^2t_4+3t_1^2t_2^2+8t_3^2+6t_2^3)
+which is obtained by analyzing the action of each of the 24 elements of C on the 6 sides of the cube, see here for the details.
+We take all colors to have weight 0 and find that there are
+
+F(0)=ZC(m,m,m,m)=124(m6+3m4+12m3+8m2)(0)=Z_C(m,m,m,m)=1/24(m^6+3m^4+12m^3+8m^2)
+different colorings.
+
+Graphs on three and four vertices[edit]
+A graph on m vertices can be interpreted as an arrangement of colored beads. The set X of "beads" is the set of (m2)m2 possible edges, while the set of colors Y = {black, white} corresponds to edges that are present (black) or absent (white). The Pólya enumeration theorem can be used to calculate the number of graphs up to isomorphism with a fixed number of vertices, or the generating function of these graphs according to the number of edges they have. For the latter purpose, we can say that a black or present edge has weight 1, while an absent or white edge has weight 0. Thus f(t)=1+t(t)=1+t is the generating function for the set of colors. The relevant symmetry group is G=Sm,=S_m, the symmetric group on m letters. This group acts on the set X of possible edges: a permutation φ turns the edge {a, b} into the edge {φ(a), φ(b)}. With these definitions, an isomorphism class of graphs with m vertices is the same as an orbit of the action of G on the set YX of colored arrangements; the number of edges of the graph equals the weight of the arrangement.
+
+All graphs on three vertices
+Nonisomorphic graphs on three vertices
+The eight graphs on three vertices (before identifying isomorphic graphs) are shown at the right. There are four isomorphism classes of graphs, also shown at the right.
+The cycle index of the group S3 acting on the set of three edges is
+
+ZG(t1,t2,t3)=16(t13+3t1t2+2t3)_G(t_1,t_2,t_3)=1/6(t_1^3+3t_1t_2+2t_3)
+(obtained by inspecting the cycle structure of the action of the group elements; see here). Thus, according to the enumeration theorem, the generating function of graphs on 3 vertices up to isomorphism is
+
+F(t)=ZG(t+1,t2+1,t3+1)=16((t+1)3+3(t+1)(t2+1)+2(t3+1)),(t)=Z_G(t+1,t^2+1,t^3+1)=1/6((t+1)^3+3(t+1)(t^2+1)+2(t^3+1)),
+which simplifies to
+
+F(t)=t3+t2+t+1.(t)=t^3+t^2+t+1.
+Thus there is one graph each with 0 to 3 edges.
+
+Isomorphism classes of graphs on four vertices.
+The cycle index of the group S4 acting on the set of 6 edges is
+
+ZG(t1,t2,t3,t4)=124(t16+9t12t22+8t32+6t2t4)_G(t_1,t_2,t_3,t_4)=1/24(t_1^6+9t_1^2t_2^2+8t_3^2+6t_2t_4)
+(see here.) Hence
+
+F(t)=ZG(t+1,t2+1,t3+1,t4+1)=(t+1)6+9(t+1)2(t2+1)2+8(t3+1)2+6(t2+1)(t4+1)24(t)=Z_G(t+1,t^2+1,t^3+1,t^4+1)=(t+1)^6+9(t+1)^2(t^2+1)^2+8(t^3+1)^2+6(t^2+1)(t^4+1)/24
+which simplifies to
+
+F(t)=t6+t5+2t4+3t3+2t2+t+1.(t)=t^6+t^5+2t^4+3t^3+2t^2+t+1.
+These graphs are shown at the right.
+
+Rooted ternary trees[edit]
+The set T3 of rooted ternary trees consists of rooted trees where every node (or non-leaf vertex) has exactly three children (leaves or subtrees). Small ternary trees are shown at right. Note that rooted ternary trees with n nodes are equivalent to rooted trees with n vertices of degree at most 3 (by ignoring the leaves). In general, two rooted trees are isomorphic when one can be obtained from the other by permuting the children of its nodes. In other words, the group that acts on the children of a node is the symmetric group S3. We define the weight of such a ternary tree to be the number of nodes (or non-leaf vertices).
+
+Rooted ternary trees on 0, 1, 2, 3 and 4 nodes (=non-leaf vertices). The root is shown in blue, the leaves are not shown. Every node has as many leaves as to make the number of its children equal to 3.
+One can view a rooted, ternary tree as a recursive object which is either a leaf or a node with three children which are themselves rooted ternary trees. These children are equivalent to beads; the cycle index of the symmetric group S3 that acts on them is
+
+ZS3(t1,t2,t3)=t13+3t1t2+2t36._S_3(t_1,t_2,t_3)=t_1^3+3t_1t_2+2t_3/6.
+The Polya enumeration theorem translates the recursive structure of rooted ternary trees into a functional equation for the generating function F(t) of rooted ternary trees by number of nodes. This is achieved by "coloring" the three children with rooted ternary trees, weighted by node number, so that the color generating function is given by f(t)=F(t)(t)=F(t) which by the enumeration theorem gives
+
+F(t)3+3F(t)F(t2)+2F(t3)6F(t)^3+3F(t)F(t^2)+2F(t^3)/6
+as the generating function for rooted ternary trees, weighted by one less than the node number (since the sum of the children weights does not take the root into account), so that
+
+F(t)=1+t⋅F(t)3+3F(t)F(t2)+2F(t3)6.(t)=1+t·F(t)^3+3F(t)F(t^2)+2F(t^3)/6.
+This is equivalent to the following recurrence formula for the number tn of rooted ternary trees with n nodes:
+
+t0=1tn+1=16(∑a+b+c=ntatbtc+3∑a+2b=ntatb+2∑3a=nta)t_0   =1
+t_n+1   =1/6(∑_a+b+c=nt_at_bt_c+3∑_a+2b=nt_at_b+2∑_3a=nt_a)
+where a, b and c are nonnegative integers.
+The first few values of tn_n are
+
+1, 1, 1, 2, 4, 8, 17, 39, 89, 211, 507, 1238, 3057, 7639, 19241 (sequence A000598 in the OEIS).
+Proof of theorem[edit]
+The simplified form of the Pólya enumeration theorem follows from Burnside's lemma, which says that the number of orbits of colorings is the average of the number of elements of YX^X fixed by the permutation g of G over all permutations g. The weighted version of the theorem has essentially the same proof, but with a refined form of Burnside's lemma for weighted enumeration. It is equivalent to apply Burnside's lemma separately to orbits of different weight.
+For clearer notation, let x1,x2,…_1,x_2,… be the variables of the generating function f of Y. Given a vector of weights ωω, let xω^ω denote the corresponding monomial term of f. Applying Burnside's lemma to orbits of weight ωω, the number of orbits of this weight is
+
+1|G|∑g∈G|(YX)ω,g|1/|G|∑_g|(Y^X)_ω,g|
+where (YX)ω,g(Y^X)_ω,g is the set of colorings of weight ωω that are also fixed by g. If we then sum over all possible weights, we obtain
+
+F(x1,x2,…)=1|G|∑g∈G,ωxω|(YX)ω,g|.(x_1,x_2,…)=1/|G|∑_g,ωx^ω|(Y^X)_ω,g|.
+Meanwhile a group element g with cycle structure j1(g),j2(g),…,jn(g)_1(g),j_2(g),…,j_n(g) will contribute the term
+
+t1j1(g)t2j2(g)⋯tnjn(g)_1^j_1(g)t_2^j_2(g)_n^j_n(g)
+to the cycle index of G. The element g fixes an element ϕ∈YXϕ^X if and only if the function φ is constant on every cycle q of g. For every such cycle q, the generating function by weight of |q| identical colors from the set enumerated by f is
+
+f(x1|q|,x2|q|,x3|q|,…).(x_1^|q|,x_2^|q|,x_3^|q|,…).
+It follows that the generating function by weight of the points fixed by g is the product of the above term over all cycles of g, i.e.
+
+∑ωxω|(YX)ω,g|=∏qcycleofgf(x1|q|,x2|q|,x3|q|,…)=f(x1,x2,…)j1(g)f(x12,x22,…)j2(g)⋯f(x1n,x2n,…)jn(g)∑_ωx^ω|(Y^X)_ω,g|   =∏_qcycleofgf(x_1^|q|,x_2^|q|,x_3^|q|,…)
+   =f(x_1,x_2,…)^j_1(g)f(x_1^2,x_2^2,…)^j_2(g)(x_1^n,x_2^n,…)^j_n(g)
+Substituting this in the sum over all g yields the substituted cycle index as claimed.
+
+See also[edit]
+Labelled enumeration theorem
+References[edit]
+Redfield, J. Howard (1927). "The Theory of Group-Reduced Distributions". American Journal of Mathematics. 49 (3): 433–455. doi:10.2307/2370675. JSTOR 2370675. MR 1506633.
+Frank Harary; Ed Palmer (1967). "The Enumeration Methods of Redfield". American Journal of Mathematics. 89 (2): 373–384. doi:10.2307/2373127. JSTOR 2373127. MR 0214487.
+G. Pólya (1937). "Kombinatorische Anzahlbestimmungen für Gruppen, Graphen und chemische Verbindungen". Acta Mathematica. 68 (1): 145–254. doi:10.1007/BF02546665.
+G. Pólya; R. C. Read (1987). Combinatorial Enumeration of Groups, Graphs, and Chemical Compounds. New York: Springer-Verlag. ISBN 0-387-96413-4. MR 0884155.
+External links[edit]
+Applying the Pólya-Burnside Enumeration Theorem by Hector Zenil and Oleksandr Pavlyk, The Wolfram Demonstrations Project.
+Weisstein, Eric W. "Polya Enumeration Theorem". MathWorld.
+Frederic Chyzak Enumerating alcohols and other classes of chemical molecules, an example of Pólya theory.
+
+
+

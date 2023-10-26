@@ -1,0 +1,368 @@
+Relation between genus, degree, and dimension of function spaces over surfaces
+Riemann–Roch theoremFieldAlgebraic geometry and complex analysisFirst proof byGustav RochFirst proof in1865GeneralizationsAtiyah–Singer index theoremGrothendieck–Riemann–Roch theoremHirzebruch–Riemann–Roch theoremRiemann–Roch theorem for surfacesRiemann–Roch-type theoremConsequencesClifford's theorem on special divisorsRiemann–Hurwitz formula
+The Riemann–Roch theorem is an important theorem in mathematics, specifically in complex analysis and algebraic geometry, for the computation of the dimension of the space of meromorphic functions with prescribed zeros and allowed poles. It relates the complex analysis of a connected compact Riemann surface with the surface's purely topological genus g, in a way that can be carried over into purely algebraic settings.
+Initially proved as Riemann's inequality by Riemann (1857), the theorem reached its definitive form for Riemann surfaces after work of Riemann's short-lived student Gustav Roch (1865). It was later generalized to algebraic curves, to higher-dimensional varieties and beyond.
+
+
+Preliminary notions[edit]
+A Riemann surface of genus 3.
+A Riemann surface X is a topological space that is locally homeomorphic to an open subset of Cℂ, the set of complex numbers. In addition, the transition maps between these open subsets are required to be holomorphic. The latter condition allows one to transfer the notions and methods of complex analysis dealing with holomorphic and meromorphic functions on Cℂ to the surface X. For the purposes of the Riemann–Roch theorem, the surface X is always assumed to be compact. Colloquially speaking, the genus g of a Riemann surface is its number of handles; for example the genus of the Riemann surface shown at the right is three. More precisely, the genus is defined as half of the first Betti number, i.e., half of the Cℂ-dimension of the first singular homology group H1(X,C)_1(X,ℂ) with complex coefficients. The genus classifies compact Riemann surfaces up to homeomorphism, i.e., two such surfaces are homeomorphic if and only if their genus is the same. Therefore, the genus is an important topological invariant of a Riemann surface. On the other hand, Hodge theory shows that the genus coincides with the Cℂ-dimension of the space of holomorphic one-forms on X, so the genus also encodes complex-analytic information about the Riemann surface.[1]
+A divisor D is an element of the free abelian group on the points of the surface. Equivalently, a divisor is a finite linear combination of points of the surface with integer coefficients.
+Any meromorphic function f gives rise to a divisor denoted (f)(f) defined as
+
+(f):=∑zν∈R(f)sνzν(f):=∑_z_ν(f)s_νz_ν
+where R(f)(f) is the set of all zeroes and poles of f, and sν_ν is given by
+
+sν:=aifzνisazeroofordera−aifzνisapoleofordera._ν:=a   ifz_νisazeroofordera
+-a   ifz_νisapoleofordera.
+The set R(f)(f) is known to be finite; this is a consequence of X being compact and the fact that the zeros of a (non-zero) holomorphic function do not have an accumulation point. Therefore, (f)(f) is well-defined. Any divisor of this form is called a principal divisor. Two divisors that differ by a principal divisor are called linearly equivalent. The divisor of a meromorphic 1-form is defined similarly. A divisor of a global meromorphic 1-form is called the canonical divisor (usually denoted K). Any two meromorphic 1-forms will yield linearly equivalent divisors, so the canonical divisor is uniquely determined up to linear equivalence (hence "the" canonical divisor).
+The symbol deg⁡(D)(D) denotes the degree (occasionally also called index) of the divisor D, i.e. the sum of the coefficients occurring in D. It can be shown that the divisor of a global meromorphic function always has degree 0, so the degree of a divisor depends only on its linear equivalence class.
+The number ℓ(D)ℓ(D) is the quantity that is of primary interest: the dimension (over Cℂ) of the vector space of meromorphic functions h on the surface, such that all the coefficients of (h)+D(h)+D are non-negative. Intuitively, we can think of this as being all meromorphic functions whose poles at every point are no worse than the corresponding coefficient in D; if the coefficient in D at z is negative, then we require that h has a zero of at least that multiplicity at z – if the coefficient in D is positive, h can have a pole of at most that order. The vector spaces for linearly equivalent divisors are naturally isomorphic through multiplication with the global meromorphic function (which is well-defined up to a scalar).
+
+Statement of the theorem[edit]
+The Riemann–Roch theorem for a compact Riemann surface of genus g with canonical divisor K states
+
+ℓ(D)−ℓ(K−D)=deg⁡(D)−g+1.ℓ(D)-ℓ(K-D)=(D)-g+1.
+Typically, the number ℓ(D)ℓ(D) is the one of interest, while ℓ(K−D)ℓ(K-D) is thought of as a correction term (also called index of speciality[2][3]) so the theorem may be roughly paraphrased by saying
+
+dimension − correction = degree − genus + 1.
+Because it is the dimension of a vector space, the correction term ℓ(K−D)ℓ(K-D) is always non-negative, so that
+
+ℓ(D)≥deg⁡(D)−g+1.ℓ(D)≥(D)-g+1.
+This is called Riemann's inequality. Roch's part of the statement is the description of the possible difference between the sides of the inequality. On a general Riemann surface of genus g, K has degree 2g−22g-2, independently of the meromorphic form chosen to represent the divisor. This follows from putting D=K=K in the theorem. In particular, as long as D has degree at least 2g−12g-1, the correction term is 0, so that
+
+ℓ(D)=deg⁡(D)−g+1.ℓ(D)=(D)-g+1.
+The theorem will now be illustrated for surfaces of low genus. There are also a number other closely related theorems: an equivalent formulation of this theorem using line bundles and a generalization of the theorem to algebraic curves.
+
+Examples[edit]
+The theorem will be illustrated by picking a point P on the surface in question and regarding the sequence of numbers
+
+ℓ(n⋅P),n≥0ℓ(n),n≥0
+i.e., the dimension of the space of functions that are holomorphic everywhere except at P where the function is allowed to have a pole of order at most n. For n=0=0, the functions are thus required to be entire, i.e., holomorphic on the whole surface X. By Liouville's theorem, such a function is necessarily constant. Therefore, ℓ(0)=1ℓ(0)=1. In general, the sequence ℓ(n⋅P)ℓ(n) is an increasing sequence.
+
+Genus zero[edit]
+The Riemann sphere (also called complex projective line) is simply connected and hence its first singular homology is zero. In particular its genus is zero. The sphere can be covered by two copies of Cℂ, with transition map being given by
+
+C×∋z↦1z∈C×.ℂ^×↦1/z∈ℂ^×.
+Therefore, the form ω=dzω=dz on one copy of Cℂ extends to a meromorphic form on the Riemann sphere: it has a double pole at infinity, since
+
+d(1z)=−1z2dz.(1/z)=-1/z^2 dz.
+Thus, its divisor K:=div⁡(ω)=−2P:=div(ω)=-2P (where P is the point at infinity).
+Therefore, the theorem says that the sequence ℓ(n⋅P)ℓ(n) reads
+
+1, 2, 3, ... .
+This sequence can also be read off from the theory of partial fractions. Conversely if this sequence starts this way, then g must be zero.
+
+Genus one[edit]
+A torus.
+The next case is a Riemann surface of genus g=1=1, such as a torus C/Λℂ/Λ, where ΛΛ is a two-dimensional lattice (a group isomorphic to Z2ℤ^2). Its genus is one: its first singular homology group is freely generated by two loops, as shown in the illustration at the right. The standard complex coordinate z on C yields a one-form ω=dzω=dz on X that is everywhere holomorphic, i.e., has no poles at all. Therefore, K, the divisor of ωω is zero.
+On this surface, this sequence is
+
+1, 1, 2, 3, 4, 5 ... ;
+and this characterises the case g=1=1. Indeed, for D=0=0, ℓ(K−D)=ℓ(0)=1ℓ(K-D)=ℓ(0)=1, as was mentioned above. For D=n⋅P=n with n>0>0, the degree of K−D-D is strictly negative, so that the correction term is 0. The sequence of dimensions can also be derived from the theory of elliptic functions.
+
+Genus two and beyond[edit]
+For g=2=2, the sequence mentioned above is
+
+1, 1, ?, 2, 3, ... .
+It is shown from this that the ? term of degree 2 is either 1 or 2, depending on the point. It can be proven that in any genus 2 curve there are exactly six points whose sequences are 1, 1, 2, 2, ... and the rest of the points have the generic sequence 1, 1, 1, 2, ... In particular, a genus 2 curve is a hyperelliptic curve. For g>2>2 it is always true that at most points the sequence starts with g+1+1 ones and there are finitely many points with other sequences (see Weierstrass points).
+
+Riemann–Roch for line bundles[edit]
+Using the close correspondence between divisors and holomorphic line bundles on a Riemann surface, the theorem can also be stated in a different, yet equivalent way: let L be a holomorphic line bundle on X. Let H0(X,L)^0(X,L) denote the space of holomorphic sections of L. This space will be finite-dimensional; its dimension is denoted h0(X,L)^0(X,L). Let K denote the canonical bundle on X. Then, the Riemann–Roch theorem states that
+
+h0(X,L)−h0(X,L−1⊗K)=deg⁡(L)+1−g.^0(X,L)-h^0(X,L^-1)=(L)+1-g.
+The theorem of the previous section is the special case of when L is a point bundle.
+The theorem can be applied to show that there are g linearly independent holomorphic sections of K, or one-forms on X, as follows. Taking L to be the trivial bundle, h0(X,L)=1^0(X,L)=1 since the only holomorphic functions on X are constants. The degree of L is zero, and L−1^-1 is the trivial bundle. Thus,
+
+1−h0(X,K)=1−g.1-h^0(X,K)=1-g.
+Therefore, h0(X,K)=g^0(X,K)=g, proving that there are g holomorphic one-forms.
+
+Degree of canonical bundle[edit]
+Since the canonical bundle K has h0(X,K)=g^0(X,K)=g, applying Riemann–Roch to L=K=K gives
+
+h0(X,K)−h0(X,K−1⊗K)=deg⁡(K)+1−g^0(X,K)-h^0(X,K^-1)=(K)+1-g
+which can be rewritten as
+
+g−1=deg⁡(K)+1−g-1=(K)+1-g
+hence the degree of the canonical bundle is deg⁡(K)=2g−2(K)=2g-2.
+
+Riemann–Roch theorem for algebraic curves[edit]
+Every item in the above formulation of the Riemann–Roch theorem for divisors on Riemann surfaces has an analogue in algebraic geometry. The analogue of a Riemann surface is a non-singular algebraic curve C over a field k. The difference in terminology (curve vs. surface) is because the dimension of a Riemann surface as a real manifold is two, but one as a complex manifold. The compactness of a Riemann surface is paralleled by the condition that the algebraic curve be complete, which is equivalent to being projective. Over a general field k, there is no good notion of singular (co)homology. The so-called geometric genus is defined as
+
+g(C):=dimk⁡Γ(C,ΩC1)(C):=_kΓ(C,Ω_C^1)
+i.e., as the dimension of the space of globally defined (algebraic) one-forms (see Kähler differential). Finally, meromorphic functions on a Riemann surface are locally represented as fractions of holomorphic functions. Hence they are replaced by rational functions which are locally fractions of regular functions. Thus, writing ℓ(D)ℓ(D) for the dimension (over k) of the space of rational functions on the curve whose poles at every point are not worse than the corresponding coefficient in D, the very same formula as above holds:
+
+ℓ(D)−ℓ(K−D)=deg⁡(D)−g+1.ℓ(D)-ℓ(K-D)=(D)-g+1.
+where C is a projective non-singular algebraic curve over an algebraically closed field k. In fact, the same formula holds for projective curves over any field, except that the degree of a divisor needs to take into account multiplicities coming from the possible extensions of the base field and the residue fields of the points supporting the divisor.[4] Finally, for a proper curve over an Artinian ring, the Euler characteristic of the line bundle associated to a divisor is given by the degree of the divisor (appropriately defined) plus the Euler characteristic of the structural sheaf O𝒪.[5]
+The smoothness assumption in the theorem can be relaxed, as well: for a (projective) curve over an algebraically closed field, all of whose local rings are Gorenstein rings, the same statement as above holds, provided that the geometric genus as defined above is replaced by the arithmetic genus ga, defined as
+
+ga:=dimk⁡H1(C,OC)._a:=_kH^1(C,𝒪_C).[6]
+(For smooth curves, the geometric genus agrees with the arithmetic one.) The theorem has also been extended to general singular curves (and higher-dimensional varieties).[7]
+
+Applications[edit]
+Hilbert polynomial[edit]
+One of the important consequences of Riemann–Roch is it gives a formula for computing the Hilbert polynomial of line bundles on a curve. If a line bundle Lℒ is ample, then the Hilbert polynomial will give the first degree L⊗nℒ^ giving an embedding into projective space. For example, the canonical sheaf ωCω_C has degree 2g−22g-2, which gives an ample line bundle for genus g≥2≥2.[8] If we set ωC(n)=ωC⊗nω_C(n)=ω_C^ then the Riemann–Roch formula reads
+
+χ(ωC(n))=deg⁡(ωC⊗n)−g+1=n(2g−2)−g+1=2ng−2n−g+1=(2n−1)(g−1)χ(ω_C(n))   =(ω_C^)-g+1
+   =n(2g-2)-g+1
+   =2ng-2n-g+1
+   =(2n-1)(g-1)
+Giving the degree 11 Hilbert polynomial of ωCω_C
+
+HωC(t)=2(g−1)t−g+1_ω_C(t)=2(g-1)t-g+1
+Because the tri-canonical sheaf ωC⊗3ω_C^⊗3 is used to embed the curve, the Hilbert polynomial
+HC(t)=HωC⊗3(t)_C(t)=H_ω_C^⊗3(t)
+is generally considered while constructing the Hilbert scheme of curves (and the moduli space of algebraic curves). This polynomial is
+HC(t)=(6t−1)(g−1)=6(g−1)t+(1−g)H_C(t)   =(6t-1)(g-1)
+   =6(g-1)t+(1-g)
+and is called the Hilbert polynomial of an genus g curve.
+
+Pluricanonical embedding[edit]
+Analyzing this equation further, the Euler characteristic reads as
+
+χ(ωC⊗n)=h0(C,ωC⊗n)−h0(C,ωC⊗(ωC⊗n)∨)=h0(C,ωC⊗n)−h0(C,(ωC⊗(n−1))∨)χ(ω_C^)   =h^0(C,ω_C^)-h^0(C,ω_C⊗(ω_C^)^∨)
+   =h^0(C,ω_C^)-h^0(C,(ω_C^⊗(n-1))^∨)
+Since deg⁡(ωC⊗n)=n(2g−2)(ω_C^)=n(2g-2)
+
+h0(C,(ωC⊗(n−1))∨)=0^0(C,(ω_C^⊗(n-1))^∨)=0
+for n≥3≥3, since its degree is negative for all g≥2≥2, implying it has no global sections, there is an embedding into some projective space from the global sections of ωC⊗nω_C^. In particular, ωC⊗3ω_C^⊗3 gives an embedding into PN≅P(H0(C,ωC⊗3))ℙ^N≅ℙ(H^0(C,ω_C^⊗3)) where N=5g−5−1=5g−6=5g-5-1=5g-6 since h0(ωC⊗3)=6g−6−g+1^0(ω_C^⊗3)=6g-6-g+1. This is useful in the construction of the moduli space of algebraic curves because it can be used as the projective space to construct the Hilbert scheme with Hilbert polynomial HC(t)_C(t).[9]
+
+Genus of plane curves with singularities[edit]
+An irreducible plane algebraic curve of degree d has (d − 1)(d − 2)/2 − g singularities, when properly counted. It follows that, if a curve has (d − 1)(d − 2)/2 different singularities, it is a rational curve and, thus, admits a rational parameterization.
+
+Riemann–Hurwitz formula[edit]
+The Riemann–Hurwitz formula concerning (ramified) maps between Riemann surfaces or algebraic curves is a consequence of the Riemann–Roch theorem.
+
+Clifford's theorem on special divisors[edit]
+Clifford's theorem on special divisors is also a consequence of the Riemann–Roch theorem. It states that for a special divisor (i.e., such that ℓ(K−D)>0ℓ(K-D)>0) satisfying ℓ(D)>0,ℓ(D)>0, the following inequality holds:[10]
+
+ℓ(D)≤deg⁡D2+1.ℓ(D)≤/2+1.
+Proof[edit]
+Proof for algebraic curves[edit]
+The statement for algebraic curves can be proved using Serre duality. The integer ℓ(D)ℓ(D) is the dimension of the space of global sections of the line bundle L(D)ℒ(D) associated to D (cf. Cartier divisor). In terms of sheaf cohomology, we therefore have ℓ(D)=dimH0(X,L(D))ℓ(D)=dimH^0(X,ℒ(D)), and likewise ℓ(KX−D)=dim⁡H0(X,ωX⊗L(D)∨)ℓ(𝒦_X-D)=^0(X,ω_X⊗ℒ(D)^∨). But Serre duality for non-singular projective varieties in the particular case of a curve states that H0(X,ωX⊗L(D)∨)^0(X,ω_X⊗ℒ(D)^∨) is isomorphic to the dual H1(X,L(D))∨^1(X,ℒ(D))^∨. The left hand side thus equals the Euler characteristic of the divisor D. When D = 0, we find the Euler characteristic for the structure sheaf is 1−g1-g by definition. To prove the theorem for general divisor, one can then proceed by adding points one by one to the divisor and ensure that the Euler characteristic transforms accordingly to the right hand side.
+
+Proof for compact Riemann surfaces[edit]
+The theorem for compact Riemann surfaces can be deduced from the algebraic version using Chow's Theorem and the GAGA principle: in fact, every compact Riemann surface is defined by algebraic equations in some complex projective space. (Chow's Theorem says that any closed analytic subvariety of projective space is defined by algebraic equations, and the GAGA principle says that sheaf cohomology of an algebraic variety is the same as the sheaf cohomology of the analytic variety defined by the same equations).
+One may avoid the use of Chow's theorem by arguing identically to the proof in the case of algebraic curves, but replacing L(D)ℒ(D) with the sheaf OD𝒪_D of meromorphic functions h such that all coefficients of the divisor (h)+D(h)+D are nonnegative. Here the fact that the Euler characteristic transforms as desired when one adds a point to the divisor can be read off from the long exact sequence induced by the short exact sequence
+
+0→OD→OD+P→CP→00→𝒪_D→𝒪_D+P→ℂ_P→0
+where CPℂ_P is the skyscraper sheaf at P, and the map OD+P→CP𝒪_D+P→ℂ_P returns the −k−1-k-1th Laurent coefficient, where k=D(P)=D(P).[11]
+
+Arithmetic Riemann–Roch theorem[edit]
+A version of the arithmetic Riemann–Roch theorem states that if k is a global field, and f is a suitably admissible function of the adeles of k, then for every idele a, one has a Poisson summation formula:
+
+1|a|∑x∈kf^(x/a)=∑x∈kf(ax).1/|a|∑_xf̂(x/a)=∑_xf(ax).
+In the special case when k is the function field of an algebraic curve over a finite field and f is any character that is trivial on k, this recovers the geometric Riemann–Roch theorem.[12]
+Other versions of the arithmetic Riemann–Roch theorem make use of Arakelov theory to resemble the traditional Riemann–Roch theorem more exactly.
+
+Generalizations of the Riemann–Roch theorem[edit]
+See also: Riemann–Roch-type theorem
+The Riemann–Roch theorem for curves was proved for Riemann surfaces by Riemann and Roch in the 1850s and for algebraic curves by Friedrich Karl Schmidt in 1931 as he was working on perfect fields of finite characteristic. As stated by Peter Roquette,[13]
+
+The first main achievement of F. K. Schmidt is the discovery that the classical theorem of Riemann–Roch on compact Riemann surfaces can be transferred to function fields with finite base field. Actually, his proof of the Riemann–Roch theorem works for arbitrary perfect base fields, not necessarily finite.
+It is foundational in the sense that the subsequent theory for curves tries to refine the information it yields (for example in the Brill–Noether theory).
+There are versions in higher dimensions (for the appropriate notion of divisor, or line bundle). Their general formulation depends on splitting the theorem into two parts. One, which would now be called Serre duality, interprets the ℓ(K−D)ℓ(K-D) term as a dimension of a first sheaf cohomology group; with ℓ(D)ℓ(D) the dimension of a zeroth cohomology group, or space of sections, the left-hand side of the theorem becomes an Euler characteristic, and the right-hand side a computation of it as a degree corrected according to the topology of the Riemann surface.
+In algebraic geometry of dimension two such a formula was found by the geometers of the Italian school; a Riemann–Roch theorem for surfaces was proved (there are several versions, with the first possibly being due to Max Noether).
+An n-dimensional generalisation, the Hirzebruch–Riemann–Roch theorem, was found and proved by Friedrich Hirzebruch, as an application of characteristic classes in algebraic topology; he was much influenced by the work of Kunihiko Kodaira. At about the same time Jean-Pierre Serre was giving the general form of Serre duality, as we now know it.
+Alexander Grothendieck proved a far-reaching generalization in 1957, now known as the Grothendieck–Riemann–Roch theorem. His work reinterprets Riemann–Roch not as a theorem about a variety, but about a morphism between two varieties. The details of the proofs were published by Armand Borel and Jean-Pierre Serre in 1958.[14] Later, Grothendieck and his collaborators simplified and generalized the proof.[15]
+Finally a general version was found in algebraic topology, too. These developments were essentially all carried out between 1950 and 1960. After that the Atiyah–Singer index theorem opened another route to generalization. Consequently, the Euler characteristic of a coherent sheaf is reasonably computable. For just one summand within the alternating sum, further arguments such as vanishing theorems must be used.
+
+See also[edit]
+Arakelov theory
+Grothendieck–Riemann–Roch theorem
+Hirzebruch–Riemann–Roch theorem
+Kawasaki's Riemann–Roch formula
+Hilbert polynomial
+Moduli of algebraic curves
+Notes[edit]
+
+
+^ Griffith, Harris, p. 116, 117
+
+^ Stichtenoth p.22
+
+^ Mukai pp.295–297
+
+^ Liu, Qing (2002), Algebraic Geometry and Arithmetic Curves, Oxford University Press, ISBN 978-0-19-850284-5, Section 7.3
+
+^ * Altman, Allen; Kleiman, Steven (1970), Introduction to Grothendieck duality theory, Lecture Notes in Mathematics, Vol. 146, Berlin, New York: Springer-Verlag, Theorem VIII.1.4., p. 164
+
+^ Hartshorne, Robin (1986), "Generalized divisors on Gorenstein curves and a theorem of Noether", Journal of Mathematics of Kyoto University, 26 (3): 375–386, doi:10.1215/kjm/1250520873, ISSN 0023-608X
+
+^ Baum, Paul; Fulton, William; MacPherson, Robert (1975), "Riemann–Roch for singular varieties", Publications Mathématiques de l'IHÉS, 45 (45): 101–145, doi:10.1007/BF02684299, ISSN 1618-1913, S2CID 83458307
+
+^ Note the moduli of elliptic curves can be constructed independently, see https://arxiv.org/abs/0812.1803, and there is only one smooth curve of genus 0, P1ℙ^1, which can be found using deformation theory. See https://arxiv.org/abs/math/0507286
+
+^ Deligne, P.; Mumford, D. (1969). "Irreducibility of the space of curves of given genus". IHES. 36: 75–110. CiteSeerX 10.1.1.589.288. doi:10.1007/BF02684599. S2CID 16482150.
+
+^ Fulton, William (1989), Algebraic curves (PDF), Advanced Book Classics, Addison-Wesley, ISBN 978-0-201-51010-2, p. 109
+
+^ Forster, Otto (1981), Lectures on Riemann Surfaces, Springer Nature, ISBN 978-1-4612-5963-3, Section 16
+
+^ Ramakrishnan, Dinakar; Valenza, Robert (1999), Fourier analysis on number fields, Springer-Verlag, Chapter 7. 
+
+^ "Manuscripts".
+
+^ A. Borel and J.-P. Serre. Bull. Soc. Math. France 86 (1958), 97-136.
+
+^ SGA 6, Springer-Verlag (1971).
+
+
+References[edit]
+Serre, Jean-Pierre; Borel, Armand (1958). "Le théorème de Riemann-Roch". Bulletin de la Société Mathématique de France. 79: 97–136. doi:10.24033/bsmf.1500.
+Griffiths, Phillip; Harris, Joseph (1994), Principles of algebraic geometry, Wiley Classics Library, New York: John Wiley & Sons, doi:10.1002/9781118032527, ISBN 978-0-471-05059-9, MR 1288523
+Grothendieck, Alexander, et al. (1966/67), Théorie des Intersections et Théorème de Riemann–Roch (SGA 6), LNM 225, Springer-Verlag, 1971.
+Fulton, William (1974). Algebraic Curves (PDF). Mathematics Lecture Note Series. W.A. Benjamin. ISBN 0-8053-3080-1.
+Jost, Jürgen (2006). Compact Riemann Surfaces. Berlin, New York: Springer-Verlag. ISBN 978-3-540-33065-3. See pages 208–219 for the proof in the complex situation. Note that Jost uses slightly different notation.
+Hartshorne, Robin (1977). Algebraic Geometry. Berlin, New York: Springer-Verlag. ISBN 978-0-387-90244-9. MR 0463157. OCLC 13348052., contains the statement for curves over an algebraically closed field. See section IV.1.
+"Riemann–Roch theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Hirzebruch, Friedrich (1995). Topological methods in algebraic geometry. Classics in Mathematics. Berlin, New York: Springer-Verlag. ISBN 978-3-540-58663-0. MR 1335917..
+Miranda, Rick (1995). Algebraic Curves and Riemann Surfaces. Graduate Studies in Mathematics. Vol. 5. doi:10.1090/gsm/005. ISBN 9780821802687.
+Shigeru Mukai (2003). An Introduction to Invariants and Moduli. Cambridge studies in advanced mathematics. Vol. 81. William Oxbury (trans.). New York: Cambridge University Press. ISBN 0-521-80906-1.
+Vector bundles on Compact Riemann Surfaces, M. S. Narasimhan, pp. 5–6.
+Riemann, Bernhard (1857). "Theorie der Abel'schen Functionen". Journal für die reine und angewandte Mathematik. 1857 (54): 115–155. doi:10.1515/crll.1857.54.115. hdl:2027/coo.31924060183864. S2CID 16593204.
+Roch, Gustav (1865). "Ueber die Anzahl der willkurlichen Constanten in algebraischen Functionen". Journal für die reine und angewandte Mathematik. 1865 (64): 372–376. doi:10.1515/crll.1865.64.372. S2CID 120178388.
+Schmidt, Friedrich Karl (1931), "Analytische Zahlentheorie in Körpern der Charakteristik p", Mathematische Zeitschrift, 33: 1–32, doi:10.1007/BF01174341, S2CID 186228993, Zbl 0001.05401, archived from the original on 2017-12-22, retrieved 2020-05-16
+Stichtenoth, Henning (1993). Algebraic Function Fields and Codes. Springer-Verlag. ISBN 3-540-56489-6.
+Misha Kapovich, The Riemann–Roch Theorem (lecture note) an elementary introduction
+J. Gray, The Riemann–Roch theorem and Geometry, 1854–1914.
+Is there a Riemann–Roch for smooth projective curves over an arbitrary field? on MathOverflow
+vteTopics in algebraic curvesRational curves
+Five points determine a conic
+Projective line
+Rational normal curve
+Riemann sphere
+Twisted cubic
+Elliptic curvesAnalytic theory
+Elliptic function
+Elliptic integral
+Fundamental pair of periods
+Modular form
+Arithmetic theory
+Counting points on elliptic curves
+Division polynomials
+Hasse's theorem on elliptic curves
+Mazur's torsion theorem
+Modular elliptic curve
+Modularity theorem
+Mordell–Weil theorem
+Nagell–Lutz theorem
+Supersingular elliptic curve
+Schoof's algorithm
+Schoof–Elkies–Atkin algorithm
+Applications
+Elliptic curve cryptography
+Elliptic curve primality
+Higher genus
+De Franchis theorem
+Faltings's theorem
+Hurwitz's automorphisms theorem
+Hurwitz surface
+Hyperelliptic curve
+Plane curves
+AF+BG theorem
+Bézout's theorem
+Bitangent
+Cayley–Bacharach theorem
+Conic section
+Cramer's paradox
+Cubic plane curve
+Fermat curve
+Genus–degree formula
+Hilbert's sixteenth problem
+Nagata's conjecture on curves
+Plücker formula
+Quartic plane curve
+Real plane curve
+Riemann surfaces
+Belyi's theorem
+Bring's curve
+Bolza surface
+Compact Riemann surface
+Dessin d'enfant
+Differential of the first kind
+Klein quartic
+Riemann's existence theorem
+Riemann–Roch theorem
+Teichmüller space
+Torelli theorem
+Constructions
+Dual curve
+Polar curve
+Smooth completion
+Structure of curvesDivisors on curves
+Abel–Jacobi map
+Brill–Noether theory
+Clifford's theorem on special divisors
+Gonality of an algebraic curve
+Jacobian variety
+Riemann–Roch theorem
+Weierstrass point
+Weil reciprocity law
+Moduli
+ELSV formula
+Gromov–Witten invariant
+Hodge bundle
+Moduli of algebraic curves
+Stable curve
+Morphisms
+Hasse–Witt matrix
+Riemann–Hurwitz formula
+Prym variety
+Weber's theorem (Algebraic curves)
+Singularities
+Acnode
+Crunode
+Cusp
+Delta invariant
+Tacnode
+Vector bundles
+Birkhoff–Grothendieck theorem
+Stable vector bundle
+Vector bundles on algebraic curves
+
+vteBernhard Riemann
+Cauchy–Riemann equations
+Generalized Riemann hypothesis
+Grand Riemann hypothesis
+Grothendieck–Hirzebruch–Riemann–Roch theorem
+Hirzebruch–Riemann–Roch theorem
+Local zeta function
+Measurable Riemann mapping theorem
+Riemann (crater)
+Riemann Xi function
+Riemann curvature tensor
+Riemann hypothesis
+Riemann integral
+Riemann invariant
+Riemann mapping theorem
+Riemann form
+Riemann problem
+Riemann series theorem
+Riemann solver
+Riemann sphere
+Riemann sum
+Riemann surface
+Riemann zeta function
+Riemann's differential equation
+Riemann's minimal surface
+Riemannian circle
+Riemannian connection on a surface
+Riemannian geometry
+Riemann–Hilbert correspondence
+Riemann–Hilbert problems
+Riemann–Lebesgue lemma
+Riemann–Liouville integral
+Riemann–Roch theorem
+Riemann–Roch theorem for smooth manifolds
+Riemann–Siegel formula
+Riemann–Siegel theta function
+Riemann–Silberstein vector
+Riemann–Stieltjes integral
+Riemann–von Mangoldt formula
+
+ Category
+
+
+
+

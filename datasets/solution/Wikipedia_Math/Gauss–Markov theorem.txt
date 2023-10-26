@@ -1,0 +1,353 @@
+Theorem related to ordinary least squares
+Not to be confused with Gauss–Markov process.
+"BLUE" redirects here. For queue management algorithm, see Blue (queue management algorithm).
+Part of a series onRegression analysis
+Models
+Linear regression
+Simple regression
+Polynomial regression
+General linear model
+
+Generalized linear model
+Vector generalized linear model
+Discrete choice
+Binomial regression
+Binary regression
+Logistic regression
+Multinomial logistic regression
+Mixed logit
+Probit
+Multinomial probit
+Ordered logit
+Ordered probit
+Poisson
+
+Multilevel model
+Fixed effects
+Random effects
+Linear mixed-effects model
+Nonlinear mixed-effects model
+
+Nonlinear regression
+Nonparametric
+Semiparametric
+Robust
+Quantile
+Isotonic
+Principal components
+Least angle
+Local
+Segmented
+
+Errors-in-variables
+
+Estimation
+Least squares
+Linear
+Non-linear
+
+Ordinary
+Weighted
+Generalized
+Generalized estimating equation
+
+Partial
+Total
+Non-negative
+Ridge regression
+Regularized
+
+Least absolute deviations
+Iteratively reweighted
+Bayesian
+Bayesian multivariate
+Least-squares spectral analysis
+
+Background
+Regression validation
+Mean and predicted response
+Errors and residuals
+Goodness of fit
+Studentized residual
+Gauss–Markov theorem
+
+ Mathematics portalvte
+In statistics, the Gauss–Markov theorem (or simply Gauss theorem for some authors)[1] states that the ordinary least squares (OLS) estimator has the lowest sampling variance within the class of linear unbiased estimators, if the errors in the linear regression model are uncorrelated, have equal variances and expectation value of zero.[2] The errors do not need to be normal, nor do they need to be independent and identically distributed (only uncorrelated with mean zero and homoscedastic with finite variance). The requirement that the estimator be unbiased cannot be dropped, since biased estimators exist with lower variance. See, for example, the James–Stein estimator (which also drops linearity), ridge regression, or simply any degenerate estimator.
+The theorem was named after Carl Friedrich Gauss and Andrey Markov, although Gauss' work significantly predates Markov's.[3] But while Gauss derived the result under the assumption of independence and normality, Markov reduced the assumptions to the form stated above.[4] A further generalization to non-spherical errors was given by Alexander Aitken.[5]
+
+
+Statement[edit]
+Suppose we have, in matrix notation, the linear relationship
+
+y=Xβ+ε,(y,ε∈Rn,β∈RKandX∈Rn×K)=Xβ+ε,  (y,ε∈ℝ^n,β∈ℝ^KandX∈ℝ^n)
+expanding to,
+
+yi=∑j=1KβjXij+εi∀i=1,2,…,n_i=∑_j=1^Kβ_jX_ij+ε_i  =1,2,…,n
+where βjβ_j are non-random but unobservable parameters, Xij_ij are non-random and observable (called the "explanatory variables"), εiε_i are random, and so yi_i are random. The random variables εiε_i are called the "disturbance", "noise" or simply "error" (will be contrasted with "residual" later in the article; see errors and residuals in statistics). Note that to include a constant in the model above, one can choose to introduce the constant as a variable βK+1β_K+1  with a newly introduced last column of X being unity i.e., Xi(K+1)=1_i(K+1)=1 for all i. Note that though yi,_i, as sample responses, are observable, the following statements and arguments including assumptions, proofs and the others assume under the only condition of knowing Xij,_ij, but not yi._i.
+The Gauss–Markov assumptions concern the set of error random variables, εiε_i:
+
+They have mean zero: E⁡[εi]=0.E[ε_i]=0.
+They are homoscedastic, that is all have the same finite variance: Var⁡(εi)=σ2<∞Var(ε_i)=σ^2<∞ for all i and
+Distinct error terms are uncorrelated: Cov(εi,εj)=0,∀i≠j.Cov(ε_i,ε_j)=0,.
+A linear estimator of βjβ_j is a linear combination
+
+β^j=c1jy1+⋯+cnjynβ_j=c_1jy_1+⋯+c_njy_n
+in which the coefficients cij_ij  are not allowed to depend on the underlying coefficients βjβ_j, since those are not observable, but are allowed to depend on the values Xij_ij, since these data are observable.  (The dependence of the coefficients on each Xij_ij is typically nonlinear; the estimator is linear in each yi_i and hence in each random ε,ε, which is why this is "linear" regression.)  The estimator is said to be unbiased if and only if
+
+E⁡[β^j]=βjE[β_j]=β_j
+regardless of the values of Xij_ij. Now, let ∑j=1Kλjβj∑_j=1^Kλ_jβ_j be some linear combination of the coefficients. Then the mean squared error of the corresponding estimation is
+
+E⁡[(∑j=1Kλj(β^j−βj))2],E[(∑_j=1^Kλ_j(β_j-β_j))^2],
+in other words, it is the expectation of the square of the weighted sum (across parameters) of the differences between the estimators and the corresponding parameters to be estimated. (Since we are considering the case in which all the parameter estimates are unbiased, this mean squared error is the same as the variance of the linear combination.) The best linear unbiased estimator (BLUE) of the vector ββ of parameters βjβ_j is one with the smallest mean squared error for every vector λλ of linear combination parameters.  This is equivalent to the condition that
+
+Var⁡(β )−Var⁡(β^)Var(β)-Var(β)
+is a positive semi-definite matrix for every other linear unbiased estimator β β.
+The ordinary least squares estimator (OLS) is the function
+
+β^=(X′X)−1X′yβ=(X'X)^-1X'y
+of y and X (where X′' denotes the transpose of X) that minimizes the sum of squares of residuals (misprediction amounts):
+
+∑i=1n(yi−y^i)2=∑i=1n(yi−∑j=1Kβ^jXij)2.∑_i=1^n(y_i-y_i)^2=∑_i=1^n(y_i-∑_j=1^Kβ_jX_ij)^2.
+The theorem now states that the OLS estimator is a BLUE. The main idea of the proof is that the least-squares estimator is uncorrelated with every linear unbiased estimator of zero, i.e., with every linear combination a1y1+⋯+anyn_1y_1+⋯+a_ny_n whose coefficients do not depend upon the unobservable ββ but whose expected value is always zero.
+
+Remark[edit]
+Proof that the OLS indeed minimizes the sum of squares of residuals may proceed as follows with a calculation of the Hessian matrix and showing that it is positive definite. 
+The MSE function we want to minimize is 
+f(β0,β1,…,βp)=∑i=1n(yi−β0−β1xi1−⋯−βpxip)2(β_0,β_1,…,β_p)=∑_i=1^n(y_i-β_0-β_1x_i1-…-β_px_ip)^2
+for a multiple regression model with p variables. The first derivative is 
+ddβf=−2XT(y−Xβ)=−2[∑i=1n(yi−⋯−βpxip)∑i=1nxi1(yi−⋯−βpxip)⋮∑i=1nxip(yi−⋯−βpxip)]=0p+1,d/dβf   =-2X^𝖳(𝐲-Xβ)
+   =-2[     ∑_i=1^n(y_i-…-β_px_ip); ∑_i=1^nx_i1(y_i-…-β_px_ip);                          ⋮; ∑_i=1^nx_ip(y_i-…-β_px_ip) ]
+   =0_p+1,
+where X is the design matrix 
+X=[1x11⋯x1p1x21⋯x2p⋮1xn1⋯xnp]∈Rn×(p+1);n≥p+1=[    1 x_11    ⋯ x_1p;    1 x_21    ⋯ x_2p;    ⋮;    1 x_n1    ⋯ x_np ]∈ℝ^n×(p+1);+1
+The Hessian matrix of second derivatives is 
+H=2[n∑i=1nxi1⋯∑i=1nxip∑i=1nxi1∑i=1nxi12⋯∑i=1nxi1xip⋮⋮⋱⋮∑i=1nxip∑i=1nxipxi1⋯∑i=1nxip2]=2XTXℋ=2[               n     ∑_i=1^nx_i1               ⋯     ∑_i=1^nx_ip;     ∑_i=1^nx_i1   ∑_i=1^nx_i1^2               ⋯ ∑_i=1^nx_i1x_ip;               ⋮               ⋮               ⋱               ⋮;     ∑_i=1^nx_ip ∑_i=1^nx_ipx_i1               ⋯   ∑_i=1^nx_ip^2 ]=2X^TX
+Assuming the columns of X are linearly independent so that XTX^TX is invertible, let X=[v1v2⋯vp+1]=[   𝐯_1   𝐯_2     ⋯ 𝐯_p+1 ], then 
+k1v1+⋯+kp+1vp+1=0⟺k1=⋯=kp+1=0_1𝐯_1+…+k_p+1𝐯_p+1=0_1=…=k_p+1=0
+Now let k=(k1,…,kp+1)T∈R(p+1)×1𝐤=(k_1,…,k_p+1)^T∈ℝ^(p+1)×1 be an eigenvector of Hℋ. 
+k≠0⟹(k1v1+⋯+kp+1vp+1)2>0𝐤≠0(k_1𝐯_1+…+k_p+1𝐯_p+1)^2>0
+In terms of vector multiplication, this means 
+[k1⋯kp+1][v1⋮vp+1][v1⋯vp+1][k1⋮kp+1]=kTHk=λkTk>0[   k_1     ⋯ k_p+1 ][   𝐯_1;     ⋮; 𝐯_p+1 ][   𝐯_1     ⋯ 𝐯_p+1 ][   k_1;     ⋮; k_p+1 ]=𝐤^𝖳ℋ𝐤=λ𝐤^𝖳𝐤>0
+where λλ is the eigenvalue corresponding to k𝐤. Moreover, 
+kTk=∑i=1p+1ki2>0⟹λ>0𝐤^𝖳𝐤=∑_i=1^p+1k_i^2>0λ>0
+Finally, as eigenvector k𝐤 was arbitrary, it means all eigenvalues of Hℋ are positive, therefore Hℋ is positive definite. Thus, 
+β=(XTX)−1XTYβ=(X^𝖳X)^-1X^𝖳Y
+is indeed a global minimum.
+Or, just see that for all vectors v,vTXTXv=‖Xv‖2≥0𝐯,𝐯^TX^TX𝐯=𝐗𝐯^2≥0. So the Hessian is positive definite if full rank.
+
+Proof[edit]
+Let β =Cyβ̃=Cy be another linear estimator of ββ with C=(X′X)−1X′+D=(X'X)^-1X'+D where D is a K×n non-zero matrix. As we're restricting to unbiased estimators, minimum mean squared error implies minimum variance. The goal is therefore to show that such an estimator has a variance no smaller than that of β^,β, the OLS estimator. We calculate:
+
+E⁡[β ]=E⁡[Cy]=E⁡[((X′X)−1X′+D)(Xβ+ε)]=((X′X)−1X′+D)Xβ+((X′X)−1X′+D)E⁡[ε]=((X′X)−1X′+D)XβE⁡[ε]=0=(X′X)−1X′Xβ+DXβ=(IK+DX)β.E[β̃]   =E[Cy]
+   =E[((X'X)^-1X'+D)(Xβ+ε)]
+   =((X'X)^-1X'+D)Xβ+((X'X)^-1X'+D)E[ε]
+   =((X'X)^-1X'+D)Xβ      E[ε]=0
+   =(X'X)^-1X'Xβ+DXβ
+   =(I_K+DX)β.
+
+Therefore, since ββ is unobservable, β β̃ is unbiased if and only if DX=0=0. Then:
+
+Var⁡(β )=Var⁡(Cy)=CVar(y)C′=σ2CC′=σ2((X′X)−1X′+D)(X(X′X)−1+D′)=σ2((X′X)−1X′X(X′X)−1+(X′X)−1X′D′+DX(X′X)−1+DD′)=σ2(X′X)−1+σ2(X′X)−1(DX)′+σ2DX(X′X)−1+σ2DD′=σ2(X′X)−1+σ2DD′DX=0=Var⁡(β^)+σ2DD′σ2(X′X)−1=Var⁡(β^)Var(β̃)   =Var(Cy)
+   =CVar(y)C'
+   =σ^2CC'
+   =σ^2((X'X)^-1X'+D)(X(X'X)^-1+D')
+   =σ^2((X'X)^-1X'X(X'X)^-1+(X'X)^-1X'D'+DX(X'X)^-1+DD')
+   =σ^2(X'X)^-1+σ^2(X'X)^-1(DX)'+σ^2DX(X'X)^-1+σ^2DD'
+   =σ^2(X'X)^-1+σ^2DD'      DX=0
+   =Var(β)+σ^2DD'      σ^2(X'X)^-1=Var(β)
+Since DD' is a positive semidefinite matrix, Var⁡(β )Var(β̃) exceeds Var⁡(β^)Var(β) by a positive semidefinite matrix.
+
+Remarks on the proof[edit]
+As it has been stated before, the condition of Var⁡(β )−Var⁡(β^)Var(β̃)-Var(β) is a positive semidefinite matrix is equivalent to the property that the best linear unbiased estimator of ℓtβℓ^tβ is ℓtβ^ℓ^tβ (best in the sense that it has minimum variance). To see this, let ℓtβ ℓ^tβ̃ another linear unbiased estimator of ℓtβℓ^tβ.
+
+Var⁡(ℓtβ )=ℓtVar⁡(β )ℓ=σ2ℓt(X′X)−1ℓ+ℓtDDtℓ=Var⁡(ℓtβ^)+(Dtℓ)t(Dtℓ)σ2ℓt(X′X)−1ℓ=Var⁡(ℓtβ^)=Var⁡(ℓtβ^)+‖Dtℓ‖≥Var⁡(ℓtβ^)Var(ℓ^tβ̃)   =ℓ^tVar(β̃)ℓ
+   =σ^2ℓ^t(X'X)^-1ℓ+ℓ^tDD^tℓ
+   =Var(ℓ^tβ)+(D^tℓ)^t(D^tℓ)      σ^2ℓ^t(X'X)^-1ℓ=Var(ℓ^tβ)
+   =Var(ℓ^tβ)+D^tℓ
+   ≥Var(ℓ^tβ)
+Moreover, equality holds if and only if Dtℓ=0^tℓ=0. We calculate
+
+ℓtβ =ℓt(((X′X)−1X′+D)Y)fromabove=ℓt(X′X)−1X′Y+ℓtDY=ℓtβ^+(Dtℓ)tY=ℓtβ^Dtℓ=0ℓ^tβ̃   =ℓ^t(((X'X)^-1X'+D)Y)      fromabove
+   =ℓ^t(X'X)^-1X'Y+ℓ^tDY
+   =ℓ^tβ+(D^tℓ)^tY
+   =ℓ^tβ      D^tℓ=0
+This proves that the equality holds if and only if ℓtβ =ℓtβ^ℓ^tβ̃=ℓ^tβ which gives the uniqueness of the OLS estimator as a BLUE.
+
+Generalized least squares estimator[edit]
+The generalized least squares (GLS), developed by Aitken,[5] extends the Gauss–Markov theorem to the case where the error vector has a non-scalar covariance matrix.[6] The Aitken estimator is also a BLUE.
+
+Gauss–Markov theorem as stated in econometrics[edit]
+In most treatments of OLS, the regressors (parameters of interest) in the design matrix X𝐗 are assumed to be fixed in repeated samples. This assumption is considered inappropriate for a predominantly nonexperimental science like econometrics.[7] Instead, the assumptions of the Gauss–Markov theorem are stated conditional on X𝐗.
+
+Linearity[edit]
+The dependent variable is assumed to be a linear function of the variables specified in the model. The specification must be linear in its parameters. This does not mean that there must be a linear relationship between the independent and dependent variables. The independent variables can take non-linear forms as long as the parameters are linear.  The equation y=β0+β1x2,=β_0+β_1x^2, qualifies as linear while y=β0+β12x=β_0+β_1^2x can be transformed to be linear by replacing β12β_1^2 by another parameter, say γγ. An equation with a parameter dependent on an independent variable does not qualify as linear, for example y=β0+β1(x)⋅x=β_0+β_1(x), where β1(x)β_1(x) is a function of x.
+Data transformations are often used to convert an equation into a linear form. For example, the Cobb–Douglas function—often used in economics—is nonlinear:
+
+Y=ALαK1−αeε=AL^αK^1-αe^ε
+But it can be expressed in linear form by taking the natural logarithm of both sides:[8]
+
+ln⁡Y=ln⁡A+αln⁡L+(1−α)ln⁡K+ε=β0+β1ln⁡L+β2ln⁡K+ε=+α+(1-α)+ε=β_0+β_1+β_2+ε
+This assumption also covers specification issues: assuming that the proper functional form has been selected and there are no omitted variables.
+One should be aware, however, that the parameters that minimize the residuals of the transformed equation do not necessarily minimize the residuals of the original equation.
+
+Strict exogeneity[edit]
+For all n observations, the expectation—conditional on the regressors—of the error term is zero:[9]
+
+E⁡[εi∣X]=E⁡[εi∣x1,…,xn]=0.E[ ε_i|𝐗]=E[ ε_i|𝐱_1,…,𝐱_n]=0.
+where xi=[xi1xi2⋯xik]T𝐱_i=[ x_i1 x_i2    ⋯ x_ik ]^𝖳 is the data vector of regressors for the ith observation, and consequently X=[x1Tx2T⋯xnT]T𝐗=[ 𝐱_1^𝖳 𝐱_2^𝖳     ⋯ 𝐱_n^𝖳 ]^𝖳 is the data matrix or design matrix.
+Geometrically, this assumption implies that xi𝐱_i and εiε_i are orthogonal to each other, so that their inner product (i.e., their cross moment) is zero.
+
+E⁡[xj⋅εi]=[E⁡[xj1⋅εi]E⁡[xj2⋅εi]⋮E⁡[xjk⋅εi]]=0foralli,j∈nE[ 𝐱_j·ε_i ]=[ E[ x_j1·ε_i ]; E[ x_j2·ε_i ];             ⋮; E[ x_jk·ε_i ] ]=0  foralli,j
+This assumption is violated if the explanatory variables are measured with error, or are endogenous.[10] Endogeneity can be the result of simultaneity, where causality flows back and forth between both the dependent and independent variable. Instrumental variable techniques are commonly used to address this problem.
+
+Full rank[edit]
+The sample data matrix X𝐗 must have full column rank.
+
+rank⁡(X)=krank(𝐗)=k
+Otherwise X′X𝐗'𝐗 is not invertible and the OLS estimator cannot be computed.
+A violation of this assumption is perfect multicollinearity, i.e. some explanatory variables are linearly dependent. One scenario in which this will occur is called "dummy variable trap," when a base dummy variable is not omitted resulting in perfect correlation between the dummy variables and the constant term.[11]
+Multicollinearity (as long as it is not "perfect") can be present resulting in a less efficient, but still unbiased estimate. The estimates will be less precise and highly sensitive to particular sets of data.[12] Multicollinearity can be detected from condition number or the variance inflation factor, among other tests.
+
+Spherical errors[edit]
+The outer product of the error vector must be spherical.
+
+E⁡[εεT∣X]=Var⁡[ε∣X]=[σ20⋯00σ2⋯0⋮⋮⋱⋮00⋯σ2]=σ2Iwithσ2>0E[ εε^𝖳|𝐗]=Var[ ε|𝐗]=[ σ^2   0   ⋯   0;   0 σ^2   ⋯   0;   ⋮   ⋮   ⋱   ⋮;   0   0   ⋯ σ^2 ]=σ^2𝐈  withσ^2>0
+This implies the error term has uniform variance (homoscedasticity) and no serial correlation.[13] If this assumption is violated, OLS is still unbiased, but inefficient. The term "spherical errors" will describe the multivariate normal distribution: if Var⁡[ε∣X]=σ2IVar[ ε|𝐗]=σ^2𝐈 in the multivariate normal density, then the equation f(ε)=c(ε)=c is the formula for a ball centered at μ with radius σ in n-dimensional space.[14]
+Heteroskedasticity occurs when the amount of error is correlated with an independent variable. For example, in a regression on food expenditure and income, the error is correlated with income.  Low income people generally spend a similar amount on food, while high income people may spend a very large amount or as little as low income people spend. Heteroskedastic can also be caused by changes in measurement practices. For example, as statistical offices improve their data, measurement error decreases, so the error term declines over time.
+This assumption is violated when there is autocorrelation.  Autocorrelation can be visualized on a data plot when a given observation is more likely to lie above a fitted line if adjacent observations also lie above the fitted regression line. Autocorrelation is common in time series data where a data series may experience "inertia." If a dependent variable takes a while to fully absorb a shock. Spatial autocorrelation can also occur geographic areas are likely to have similar errors. Autocorrelation may be the result of misspecification such as choosing the wrong functional form. In these cases, correcting the specification is one possible way to deal with autocorrelation.
+In the presence of spherical errors, the generalized least squares estimator can be shown to be BLUE.[6]
+
+See also[edit]
+Independent and identically distributed random variables
+Linear regression
+Measurement uncertainty
+Other unbiased statistics[edit]
+Best linear unbiased prediction (BLUP)
+Minimum-variance unbiased estimator (MVUE)
+References[edit]
+
+
+^ See chapter 7 of Johnson, R.A.; Wichern, D.W. (2002). Applied multivariate statistical analysis. Vol. 5. Prentice hall.
+
+^ Theil, Henri (1971). "Best Linear Unbiased Estimation and Prediction". Principles of Econometrics. New York: John Wiley & Sons. pp. 119–124. ISBN 0-471-85845-5.
+
+^ Plackett, R. L. (1949). "A Historical Note on the Method of Least Squares". Biometrika. 36 (3/4): 458–460. doi:10.2307/2332682.
+
+^ David, F. N.; Neyman, J. (1938). "Extension of the Markoff theorem on least squares". Statistical Research Memoirs. 2: 105–116. OCLC 4025782.
+
+^ a b Aitken, A. C. (1935). "On Least Squares and Linear Combinations of Observations". Proceedings of the Royal Society of Edinburgh. 55: 42–48. doi:10.1017/S0370164600014346.
+
+^ a b Huang, David S. (1970). Regression and Econometric Methods. New York: John Wiley & Sons. pp. 127–147. ISBN 0-471-41754-8.
+
+^ Hayashi, Fumio (2000). Econometrics. Princeton University Press. p. 13. ISBN 0-691-01018-8.
+
+^ Walters, A. A. (1970). An Introduction to Econometrics. New York: W. W. Norton. p. 275. ISBN 0-393-09931-8.
+
+^ Hayashi, Fumio (2000). Econometrics. Princeton University Press. p. 7. ISBN 0-691-01018-8.
+
+^ Johnston, John (1972). Econometric Methods (Second ed.). New York: McGraw-Hill. pp. 267–291. ISBN 0-07-032679-7.
+
+^ Wooldridge, Jeffrey (2012). Introductory Econometrics (Fifth international ed.). South-Western. p. 220. ISBN 978-1-111-53439-4.
+
+^ Johnston, John (1972). Econometric Methods (Second ed.). New York: McGraw-Hill. pp. 159–168. ISBN 0-07-032679-7.
+
+^ Hayashi, Fumio (2000). Econometrics. Princeton University Press. p. 10. ISBN 0-691-01018-8.
+
+^ Ramanathan, Ramu (1993). "Nonspherical Disturbances". Statistical Methods in Econometrics. Academic Press. pp. 330–351. ISBN 0-12-576830-3.
+
+
+Further reading[edit]
+Davidson, James (2000). "Statistical Analysis of the Regression Model". Econometric Theory. Oxford: Blackwell. pp. 17–36. ISBN 0-631-17837-6.
+Goldberger, Arthur (1991). "Classical Regression". A Course in Econometrics. Cambridge: Harvard University Press. pp. 160–169. ISBN 0-674-17544-1.
+Theil, Henri (1971). "Least Squares and the Standard Linear Model". Principles of Econometrics. New York: John Wiley & Sons. pp. 101–162. ISBN 0-471-85845-5.
+External links[edit]
+Earliest Known Uses of Some of the Words of Mathematics: G (brief history and explanation of the name)
+Proof of the Gauss Markov theorem for multiple linear regression (makes use of matrix algebra)
+A Proof of the Gauss Markov theorem using geometry
+vteLeast squares and regression analysisComputational statistics
+Least squares
+Linear least squares
+Non-linear least squares
+Iteratively reweighted least squares
+Correlation and dependence
+Pearson product-moment correlation
+Rank correlation (Spearman's rho
+Kendall's tau)
+Partial correlation
+Confounding variable
+Regression analysis
+Ordinary least squares
+Partial least squares
+Total least squares
+Ridge regression
+Regression as a statistical modelLinear regression
+Simple linear regression
+Ordinary least squares
+Generalized least squares
+Weighted least squares
+General linear model
+Predictor structure
+Polynomial regression
+Growth curve (statistics)
+Segmented regression
+Local regression
+Non-standard
+Nonlinear regression
+Nonparametric
+Semiparametric
+Robust
+Quantile
+Isotonic
+Non-normal errors
+Generalized linear model
+Binomial
+Poisson
+Logistic
+Decomposition of variance
+Analysis of variance
+Analysis of covariance
+Multivariate AOV
+Model exploration
+Stepwise regression
+Model selection
+Mallows's Cp
+AIC
+BIC
+Model specification
+Regression validation
+Background
+Mean and predicted response
+Gauss–Markov theorem
+Errors and residuals
+Goodness of fit
+Studentized residual
+Minimum mean-square error
+Frisch–Waugh–Lovell theorem
+Design of experiments
+Response surface methodology
+Optimal design
+Bayesian design
+Numerical approximation
+Numerical analysis
+Approximation theory
+Numerical integration
+Gaussian quadrature
+Orthogonal polynomials
+Chebyshev polynomials
+Chebyshev nodes
+Applications
+Curve fitting
+Calibration curve
+Numerical smoothing and differentiation
+System identification
+Moving least squares
+
+Regression analysis category
+Statistics category
+ Mathematics portal
+Statistics outline
+Statistics topics
+
+
+
+

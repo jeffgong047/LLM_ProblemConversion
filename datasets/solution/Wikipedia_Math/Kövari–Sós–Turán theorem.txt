@@ -1,0 +1,155 @@
+This article is about graphs with no large complete bipartite subgraph. For crossing numbers of complete bipartite graphs, see Zarankiewicz crossing number conjecture.
+The Zarankiewicz problem, an unsolved problem in mathematics, asks for the largest possible number of edges in a bipartite graph that has a given number of vertices and has no complete bipartite subgraphs of a given size.[1] It belongs to the field of extremal graph theory, a branch of combinatorics, and is named after the Polish mathematician Kazimierz Zarankiewicz, who proposed several special cases of the problem in 1951.[2]
+
+
+Problem statement[edit]
+A bipartite graph G=(U∪V,E)=(U,E) consists of two disjoint sets of vertices U and V, and a set of edges each of which connects a vertex in U to a vertex in V. No two edges can both connect the same pair of vertices. A complete bipartite graph is a bipartite graph in which every pair of a vertex from U and a vertex from V is connected to each other. A complete bipartite graph in which U has s vertices and V has t vertices is denoted Ks,t_s,t. If G=(U∪V,E)=(U,E) is a bipartite graph, and there exists a set of s vertices of U and t vertices of V that are all connected to each other, then these vertices induce a subgraph of the form Ks,t_s,t. (In this formulation, the ordering of s and t is significant: the set of s vertices must be from U and the set of t vertices must be from V, not vice versa.)
+The Zarankiewicz function z(m,n;s,t)(m,n;s,t) denotes the maximum possible number of edges in a bipartite graph G=(U∪V,E)=(U,E) for which |U|=m|U|=m and |V|=n|V|=n, but which does not contain a subgraph of the form Ks,t_s,t. As a shorthand for an important special case, z(n;t)(n;t) is the same as z(n,n;t,t)(n,n;t,t). The Zarankiewicz problem asks for a formula for the Zarankiewicz function, or (failing that) for tight asymptotic bounds on the growth rate of z(n;t)(n;t) assuming that t is a fixed constant, in the limit as n goes to infinity.
+For s=t=2=t=2 this problem is the same as determining cages with girth six. The Zarankiewicz problem, cages and finite geometry are strongly interrelated.[3]
+The same problem can also be formulated in terms of digital geometry. The possible edges of a bipartite graph G=(U∪V,E)=(U,E) can be visualized as the points of a |U|×|V||U|×|V| rectangle in the integer lattice, and a complete subgraph is a set of rows and columns in this rectangle in which all points are present. Thus, z(m,n;s,t)(m,n;s,t) denotes the maximum number of points that can be placed within an m×n grid in such a way that no subset of rows and columns forms a complete s×t grid.[4] An alternative and equivalent definition is that z(m,n;s,t)(m,n;s,t) is the smallest integer k such that every (0,1)-matrix of size m×n with k+1+1 ones must have a set of s rows and t columns such that the corresponding s×t submatrix is made up only of 1s.
+
+Examples[edit]
+A bipartite graph with 4 vertices on each side, 13 edges, and no K3,3_3,3 subgraph, and an equivalent set of 13 points in a 4 × 4 grid, showing that z(4;3)≥13(4;3)≥13.
+The number z(n;2)(n;2) asks for the maximum number of edges in a bipartite graph with n vertices on each side that has no 4-cycle (its girth is six or more). Thus, z(2;2)=3(2;2)=3 (achieved by a three-edge path), and z(3;2)=6(3;2)=6 (a hexagon).
+In his original formulation of the problem, Zarankiewicz asked for the values of z(n;3)(n;3) for n=4,5,6=4,5,6. The answers were supplied soon afterwards by Wacław Sierpiński: z(4;3)=13(4;3)=13, z(5;3)=20(5;3)=20, and z(6;3)=26(6;3)=26.[4] The case of z(4;3)(4;3) is relatively simple: a 13-edge bipartite graph with four vertices on each side of the bipartition, and no K3,3_3,3 subgraph, may be obtained by adding one of the long diagonals to the graph of a cube. In the other direction, if a bipartite graph with 14 edges has four vertices on each side, then two vertices on each side must have degree four. Removing these four vertices and their 12 incident edges leaves a nonempty set of edges, any of which together with the four removed vertices forms a K3,3_3,3 subgraph.
+
+Upper bounds[edit]
+The Kővári–Sós–Turán theorem provides an upper bound on the solution to the Zarankiewicz problem. It was established by Tamás Kővári, Vera T. Sós and Pál Turán shortly after the problem had been posed:
+
+z(m,n;s,t)<(s−1)1/t(n−t+1)m1−1/t+(t−1)m.(m,n;s,t)<(s-1)^1/t(n-t+1)m^1-1/t+(t-1)m.
+Kővári, Sós, and Turán originally proved this inequality for z(n;t)(n;t).[5] Shortly afterwards, Hyltén-Cavallius observed that essentially the same argument can be used to prove the above inequality.[6]
+An improvement on the second term of the upper bound on z(n;t)(n;t) was given by Štefan Znám:[7]
+
+z(n;t)<(t−1)1/tn2−1/t+12(t−1)n.(n;t)<(t-1)^1/tn^2-1/t+1/2(t-1)n.
+If s and t are assumed to be constant, then asymptotically, using the big O notation, these formulae can be expressed as
+
+z(m,n;s,t)=O(mn1−1/s+n)(m,n;s,t)=O(mn^1-1/s+n);
+z(m,n;s,t)=O(nm1−1/t+m)(m,n;s,t)=O(nm^1-1/t+m).
+In the particular case m=n=n, assuming without loss of generality that s≤t, we have the asymptotic upper bound
+
+z(n,n;s,t)=O(n2−1/s).(n,n;s,t)=O(n^2-1/s).
+Lower bounds[edit]
+One can verify that among the two asymptotic upper bounds of z(m,n;s,t)(m,n;s,t) in the previous section, the first bound is better when m=o(ns/t)=o(n^s/t), and the second bound becomes better when m=ω(ns/t)=ω(n^s/t). Therefore, if one can show a lower bound for z(ns/t,n;s,t)(n^s/t,n;s,t) that matches the upper bound up to a constant, then by a simple sampling argument (on either an nt/s×t^t/s bipartite graph or an m×ms/t^s/t bipartite graph that achieves the maximum edge number), we can show that for all m,n,n, one of the above two upper bounds is tight up to a constant. This leads to the following question: is it the case that for any fixed s≤t and m≤ns/t^s/t, we have
+
+z(m,n;s,t)=Ω(mn1−1/s)(m,n;s,t)=Ω(mn^1-1/s)? [8]
+In the special case m=n=n, up to constant factors, z(n,n;s,t)(n,n;s,t) has the same order as ex(n,Ks,t)ex(n,K_s,t), the maximum number of edges in an n-vertex (not necessarily bipartite) graph that has no Ks,t_s,t as a subgraph. In one direction, a bipartite graph with n vertices on each side and z(n,n;s,t)(n,n;s,t) edges must have a subgraph with n vertices and at least z(n,n;s,t)/4(n,n;s,t)/4 edges; this can be seen from choosing n/2/2 vertices uniformly at random from each side, and taking the expectation. In the other direction, we can transform a graph with n vertices and no copy of Ks,t_s,t into a bipartite graph with n vertices on each side of its bipartition, twice as many edges and still no copy of Ks,t_s,t, by taking its bipartite double cover.[9] Same as above, with the convention that s≤t, it has been conjectured that
+
+z(n,n;s,t)=Θ(n2−1/s)(n,n;s,t)=Θ(n^2-1/s)
+for all constant values of s,t,t.[10]
+For some specific values of s,t,t (e.g., for t sufficiently larger than s, or for s=2=2), the above statements have been proved using various algebraic and random algebraic constructions. At the same time, the answer to the general question is still unknown to us.
+
+Incidence graphs in finite geometry[edit]
+The Levi graph of the Fano plane gives rise to the Heawood graph, a bipartite graph with seven vertices on each side, 21 edges, and no 4-cycles.
+For s=t=2=t=2, a bipartite graph with n vertices on each side, Ω(n3/2)Ω(n^3/2) edges, and no K2,2_2,2 may be obtained as the Levi graph, or point-line incidence graph, of a projective plane of order q, a system of q2+q+1^2+q+1 points and q2+q+1^2+q+1 lines in which each two points determine a unique line, and each two lines intersect at a unique point. We construct a  bipartite graph associated to this projective plane that has one vertex part as its points, the other vertex part as its lines, such that a point and a line is connected if and only if they are incident in the projective plane. This leads to a K2,2_2,2-free graph with q2+q+1^2+q+1 vertices and (q2+q+1)(q+1)(q^2+q+1)(q+1) edges. 
+Since this lower bound matches the upper bound given by I. Reiman,[11] we have the asymptotic [12]
+
+z(n;2)=(1/2+o(1))n3/2.(n;2)=(1/2+o(1))n^3/2.
+For s=t=3=t=3, bipartite graphs with n vertices on each side, Ω(n5/3)Ω(n^5/3) edges, and no K3,3_3,3 may again be constructed from finite geometry, by letting the vertices represent points and spheres (of a carefully chosen fixed radius) in a three-dimensional finite affine space, and letting the edges represent point-sphere incidences.[13]
+More generally, consider s=2=2 and any t. Let Fq𝔽_q be the q-element finite field, and h be an element of multiplicative order t, in the sense that H=1,h,…,ht−1={1,h,…,h^t-1} form a t-element subgroup of the multiplicative group Fq∗𝔽_q^*. We say that two nonzero elements (a,b),(a′,b′)∈Fq×Fq(a,b),(a',b')∈𝔽_q×𝔽_q are equivalent if we have a′=hda'=h^da and b′=hdb'=h^db for some d. Consider a graph G on the set of all equivalence classes ⟨a,b⟩,b⟩, such that ⟨a,b⟩,b⟩ and ⟨x,y⟩,y⟩ are connected if and only if ax+by∈H+by. One can verify that G is well-defined and free of K2,t+1_2,t+1, and every vertex in G has degree q or q−1-1. Hence we have the upper bound
+[14]
+
+z(n,n;2,t+1)=(t1/2+o(1))n3/2.(n,n;2,t+1)=(t^1/2+o(1))n^3/2.
+Norm graphs and projective norm graphs[edit]
+For t sufficiently larger than s, the above conjecture z(n,n;s,t)=Θ(n2−1/s)(n,n;s,t)=Θ(n^2-1/s) was verified by Kollár, Rónyai, and Szabó
+[15]
+and Alon, Rónyai, and Szabó
+[16]
+using the construction of norm graphs and projective norm graphs over finite fields.
+For t>s!>s!, consider the norm graph NormGraphp,s with vertex set Fps𝔽_p^s, such that every two vertices a,b∈Fps,b∈𝔽_p^s are connected if and only if N(a+b)=1(a+b)=1, where N:Fps→Fp𝔽_p^s→𝔽_p is the norm map
+
+N(x)=x⋅xp⋅xp2⋯xps−1=x(ps−1)/(p−1).(x)=x^p^p^2^p^s-1=x^(p^s-1)/(p-1).
+It is not hard to verify that the graph has ps^s vertices and at least p2s−1/2^2s-1/2 edges. To see that this graph is Ks,s!+1_s,s!+1-free, observe that any common neighbor x of s vertices y1,…,ys∈Fps_1,…,y_s∈𝔽_p^s must satisfy
+
+1=N(x+yi)=(x+yi)⋅(x+yi)p⋯(x+yi)ps−1=(x+yi)⋅(xp+yip)⋯(xps−1+yips−1)1=N(x+y_i)=(x+y_i)·(x+y_i)^p⋯(x+y_i)^p^s-1=(x+y_i)·(x^p+y_i^p)⋯(x^p^s-1+y_i^p^s-1)
+for all i=1,…,s=1,…,s, which a system of equations that has at most s!! solutions.
+The same result can be proved for all t>(s−1)!>(s-1)! using the projective norm graph, a construction slightly stronger than the above. The projective norm graph ProjNormGraphp,s is the graph on vertex set Fps−1×Fp×𝔽_p^s-1×𝔽_p^×, such that two vertices (X,x),(Y,y)(X,x),(Y,y) are adjacent if and only if N(X+Y)=xy(X+Y)=xy, where N:Fps→Fp𝔽_p^s→𝔽_p is the norm map defined by N(x)=x(ps−1)/(p−1)(x)=x^(p^s-1)/(p-1). By a similar argument to the above, one can verify that it is a Ks,t_s,t -free graph with Ω(n2−1/s)Ω(n^2-1/s) edges.
+The above norm graph approach also gives tight lower bounds on z(m,n;s,t)(m,n;s,t) for certain choices of m,n,n.[16]
+In particular, for s≥2≥2, t>s!>s!, and n1/t≤m≤n1+1/t^1/t^1+1/t, we have
+
+z(m,n;s,t)=Θ(mn1−1/s).(m,n;s,t)=Θ(mn^1-1/s).
+In the case m=(1+o(1))n1+1/s=(1+o(1))n^1+1/s, consider the bipartite graph G with bipartition V=V1∪V2=V_1_2, such that V1=Fpt×Fp×_1=𝔽_p^t×𝔽_p^× and V2=Fpt_2=𝔽_p^t. For A∈V1_1 and (B,b)∈V2(B,b)_2, let A∼(B,b)∼(B,b) in G if and only if N(A+B)=b(A+B)=b, where N(⋅)(·) is the norm map defined above. To see that G is Ks,t_s,t -free, consider s tuples (B1,b1),…,(Bs,bs)∈V1(B_1,b_1),…,(B_s,b_s)_1. Observe that if the s tuples have a common neighbor, then the Bi_i must be distinct. Using the same upper bound on he number of solutions to the system of equations, we know that these s tuples have at most s!<t!<t common neighbors.
+
+Clique partitions[edit]
+Using a related result on clique partition numbers, Alon, Mellinger, Mubayi and Verstraëte [17]
+proved a tight lower bound on z(m,n;2,t)(m,n;2,t) for arbitrary t: if m=(1+o(1))nt/2=(1+o(1))n^t/2, then we have
+
+z(m,n;2,t)=(1+o(1))mn1/2(m,n;2,t)=(1+o(1))mn^1/2.
+For 2≤t≤n2, we say that a collection of subsets 
+A1,…,Aℓ⊂[n]_1,…,A_ℓ⊂[n] is a clique partition of H⊂([n]t)⊂[n] if ⋃i=1ℓ(Ait)⋃_i=1^ℓA_i form a partition of 
+H. Observe that for any k, if there exists some H⊂([n]t)⊂[n] of size (1−o(1))(nt)(1-o(1))n and m=(1+o(1))(nt)/(kt)=(1+o(1))n/k, such that there is a partition of H into m cliques of size k, then we have z(m,n;2,t)=km(m,n;2,t)=km. Indeed, supposing A1,…,Am⊂[n]_1,…,A_m⊂[n] is a partition of H into m cliques of size k, we can let G be the m×n bipartite graph with V1=A1,…,Am_1={A_1,…,A_m} and V2=[n]_2=[n], such that Ai∼v_i in G if and only if v∈Ai_i. Since the Ai_i form a clique partition, G cannot contain a copy of K2,t_2,t.
+It remains to show that such a clique partition exists for any m=(1+o(1))nt/2=(1+o(1))n^t/2. To show this, let Fq𝔽_q be the finite field of size q and V=Fq×Fq=𝔽_q×𝔽_q. For every polynomial p(⋅)(·) of degree at most t−1-1 over Fq𝔽_q, define Cp=(x,p(x)):x∈Fq⊂V_p={(x,p(x)):x∈𝔽_q}. Let C𝒞 be the collection of all Cp_p, so that |C|=qt=nt/2|𝒞|=q^t=n^t/2 and every Cp_p has size q=n=√(n). Clearly no two members of C𝒞 can share t members. Since the only t-sets in V that do not belong to H are those that have at least two points sharing the same first coordinate, we know that almost all t-subsets of V are contained in some Cp_p.
+
+Randomized algebraic constructions[edit]
+Alternative proofs of ex(n,Ks,t)=Ω(n2−1/s)ex(n,K_s,t)=Ω(n^2-1/s) for t sufficiently larger than s were also given by Blagojević, Bukh and Karasev
+[18]
+and by Bukh [19]
+using the method of random algebraic constructions. The basic idea is to take a random polynomial f:Fqs×Fqs→Fq:𝔽_q^s×𝔽_q^s→𝔽_q and consider the graph G between two copies of Fqs𝔽_q^s whose edges are all those pairs (x,y)(x,y) such that f(x,y)=0(x,y)=0.
+To start with, let q be a prime power and n=q2=q^2. Let
+
+f∈Fq[x1,…,xs,y1,…,ts]≤s2∈𝔽_q[x_1,…,x_s,y_1,…,t_s]_^2
+be a random polynomial with degree at most s2^2 in X=(x1,…,xs)=(x_1,…,x_s), degree at most s2^2 in Y=(y1,…,ys)=(y_1,…,y_s), and furthermore satisfying f(X,Y)=f(Y,X)(X,Y)=f(Y,X) for all X,Y,Y. Let G be the associated random graph on vertex set Fqs𝔽_q^s, such that two vertices x and y are adjacent if and only if f(x,y)=0(x,y)=0.
+To prove the asymptotic lower bound, it suffices to show that the expected number of edges in G is Ω(q2s−1)Ω(q^2s-1). For every s-subset U⊂Fqs⊂𝔽_q^s, we let ZU_U denote the vertex subset of Fqs∖U𝔽_q^s that "vanishes on f(⋅,U)(·,U)":
+
+ZU=x∈Fqs∖U:f(x,u)=0forallu∈U_U={x∈𝔽_q^s:f(x,u)=0forallu}.
+Using the Lang-Weil bound for polynomials f(⋅,u)(·,u) in Fqs𝔽_q^s, we can deduce that one always has ZU≤C_U or ZU>q/2_U>q/2 for some large constant C, which implies 
+
+P(|ZU|>C)=P(|ZU|>q/2)ℙ(|Z_U|>C)=ℙ(|Z_U|>q/2).
+Since f is chosen randomly over Fq𝔽_q, it is not hard to show that the right-hand side probability is small, so the expected number of s-subsets U with |ZU|>C|Z_U|>C also turned out to be small. If we remove a vertex from every such U, then the resulting graph is Ks,C+1_s,C+1 free, and the expected number of remaining edges is still large. This finishes the proof that ex(n,Ks,t)=Ω(n2−1/s)ex(n,K_s,t)=Ω(n^2-1/s) for all t sufficiently large with respect to s. More recently, there have been a number of results verifying the conjecture z(m,n;s,t)=Ω(n2−1/s)(m,n;s,t)=Ω(n^2-1/s) for different values of s,t,t, using similar ideas but with more tools from algebraic geometry.[8][20]
+
+Applications[edit]
+The Kővári–Sós–Turán theorem has been used in discrete geometry to bound the number of incidences between geometric objects of various types. As a simple example, a set of n points and m lines in the Euclidean plane necessarily has no K2,2_2,2, so by the Kővári–Sós–Turán it has O(nm1/2+m)(nm^1/2+m) point-line incidences. This bound is tight when m is much larger than n, but not when m and n are nearly equal, in which case the Szemerédi–Trotter theorem provides a tighter O(n2/3m2/3+n+m)(n^2/3m^2/3+n+m) bound. However, the Szemerédi–Trotter theorem may be proven by dividing the points and lines into subsets for which the Kővári–Sós–Turán bound is tight.[21]
+
+See also[edit]
+Biclique-free graph, sparse graphs whose sparsity is controlled by the solution to the Zarankiewicz problem
+Forbidden subgraph problem, a non-bipartite generalization of the Zarankiewicz problem
+Forbidden graph characterization, families of graphs defined by forbidden subgraphs of various types
+Turán's theorem, a bound on the number of edges of a graph with a forbidden complete subgraph
+References[edit]
+
+
+^ Bollobás, Béla (2004), "VI.2 Complete subgraphs of r-partite graphs", Extremal Graph Theory, Mineola, NY: Dover Publications Inc., pp. 309–326, MR 2078877. Reprint of 1978 Academic Press edition, MR0506522.
+
+^ Zarankiewicz, K. (1951), "Problem P 101", Colloq. Math., 2: 301. As cited by Bollobás (2004).
+
+^ "Archived copy" (PDF). Archived from the original (PDF) on 2016-03-04. Retrieved 2014-09-16.{{cite web}}:  CS1 maint: archived copy as title (link)
+
+^ a b Sierpiński, W. (1951), "Sur un problème concernant un reseau à 36 points", Ann. Soc. Polon. Math., 24: 173–174, MR 0059876.
+
+^ Kővári, T.; T. Sós, V.; Turán, P. (1954), "On a problem of K. Zarankiewicz" (PDF), Colloquium Math., 3: 50–57, doi:10.4064/cm-3-1-50-57, MR 0065617.
+
+^ Hyltén-Cavallius, C. (1958), "On a combinatorical problem", Colloquium Mathematicum, 6: 59–65, doi:10.4064/cm-6-1-61-65, MR 0103158.  As cited by Bollobás (2004).
+
+^ Znám, Š. (1963), "On a combinatorical problem of K. Zarankiewicz", Colloquium Mathematicum, 11: 81–84, doi:10.4064/cm-11-1-81-84, MR 0162733. As cited by Bollobás (2004).
+
+^ a b Conlon, David (2021), "Some remarks on the Zarankiewicz problem", Mathematical Proceedings of the Cambridge Philosophical Society, 173: 155–161, doi:10.1017/S0305004121000475, S2CID 220793154.
+
+^ Bollobás (2004), Theorem 2.3, p. 310.
+
+^ Bollobás (2004), Conjecture 15, p. 312.
+
+^ Reiman, I. (1958), "Über ein Problem von K. Zarankiewicz", Acta Mathematica Academiae Scientiarum Hungaricae, 9 (3–4): 269–273, doi:10.1007/bf02020254, MR 0101250, S2CID 121692172.
+
+^ Bollobás (2004), Corollary 2.7, p. 313.
+
+^ Brown, W. G. (1966), "On graphs that do not contain a Thomsen graph", Canadian Mathematical Bulletin, 9 (3): 281–285, doi:10.4153/CMB-1966-036-2, MR 0200182, S2CID 121306253.
+
+^ Füredi, Zoltán (1996), "New asymptotics for bipartite Turán numbers", Journal of Combinatorial Theory, Series A, 75 (1): 141–144, doi:10.1006/jcta.1996.0067, MR 1395763.
+
+^ Kollár, János; Rónyai, Lajos; Szabó, Tibor (1996), "Norm-graphs and bipartite Turán numbers", Combinatorica, 16 (3): 399–406, doi:10.1007/BF01261323, MR 1417348, S2CID 26363618.
+
+^ a b Alon, Noga; Rónyai, Lajos; Szabó, Tibor (1999), "Norm-graphs: variations and applications", Journal of Combinatorial Theory, Series B, 76 (2): 280–290, doi:10.1006/jctb.1999.1906, MR 1699238.
+
+^ Alon, Noga; Mellinger, Keith E.; Mubayi, Dhruv; Verstraëte, Jacques (2012), "The de Bruijn-Erdős Theorem for Hypergraphs", Des. Codes Cryptogr., 65 (3): 233–245, arXiv:1007.4150, doi:10.1007/s10623-011-9555-4, S2CID 15064936.
+
+^ Blagojević, Pavle; Bukh, Boris; Karasev, Roman (2013), "Turán numbers for Ks,t-free graphs: topological obstructions and algebraic constructions", Israel Journal of Mathematics, 197: 199–214, arXiv:1108.5254, doi:10.1007/s11856-012-0184-z.
+
+^ Bukh, Boris (2015), "Random algebraic construction of extremal graphs", Bull. London Math. Soc., 47: 939–945, arXiv:1409.3856.
+
+^ Bukh, Boris (2021), Extremal graphs without exponentially-small bicliques, arXiv:2107.04167.
+
+^ Matoušek, Jiří (2002), Lectures on discrete geometry, Graduate Texts in Mathematics, vol. 212, New York: Springer-Verlag, pp. 65–68, doi:10.1007/978-1-4613-0039-7, ISBN 0-387-95373-6, MR 1899299.
+
+
+
+
+

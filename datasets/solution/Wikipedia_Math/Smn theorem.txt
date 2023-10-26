@@ -1,0 +1,46 @@
+On transforming a program by substituting constants for free variables
+In computability theory the S mn  theorem, (also called the translation lemma, parameter theorem, and the parameterization theorem) is a basic result about programming languages (and, more generally, Gödel numberings of the computable functions) (Soare 1987, Rogers 1967).  It was first proved by Stephen Cole Kleene (1943). The name S mn  comes from the occurrence of an S with subscript n and superscript m in the original formulation of the theorem (see below).
+In practical terms, the theorem says that for a given programming language and positive integers m and n, there exists a particular algorithm that accepts as input the source code of a program with m + n free variables, together with m values. This algorithm generates source code that effectively substitutes the values for the first m free variables, leaving the rest of the variables free.
+
+
+Details[edit]
+The basic form of the theorem applies to functions of two arguments (Nies 2009, p. 6). Given a Gödel numbering φφ of recursive functions, there is a primitive recursive function s of two arguments with the following property: for every Gödel number p of a partial computable function f with two arguments, the expressions φs(p,x)(y)φ_s(p,x)(y) and f(x,y)(x,y) are defined for the same combinations of natural numbers x and y, and their values are equal for any such combination. In other words, the following extensional equality of functions holds for every x:
+
+φs(p,x)≃λy.φp(x,y).φ_s(p,x)≃.φ_p(x,y).
+More generally, for any m, n > 0, there exists a primitive recursive function Snm_n^m of m + 1 arguments that behaves as follows: for every Gödel number p of a partial computable function with m + n arguments, and all values of x1, …, xm:
+
+φSnm(p,x1,…,xm)≃λy1,…,yn.φp(x1,…,xm,y1,…,yn).φ_S_n^m(p,x_1,…,x_m)≃_1,…,y_n.φ_p(x_1,…,x_m,y_1,…,y_n).
+The function s described above can be taken to be S11_1^1.
+
+Formal statement[edit]
+Given arities m and n, for every Turing Machine TMxTM_x of arity m+n+n and for all possible values of inputs y1,…,ym_1,…,y_m, there exists a Turing machine TMkTM_k of arity n, such that
+
+∀z1,…,zn:TMx(y1,…,ym,z1,…,zn)=TMk(z1,…,zn)._1,…,z_n:TM_x(y_1,…,y_m,z_1,…,z_n)=TM_k(z_1,…,z_n).
+Furthermore, there is a Turing machine S that allows k to be calculated from x and y; it is denoted k=Snm(x,y1,…,ym)=S_n^m(x,y_1,…,y_m).
+Informally, S finds the Turing Machine TMkTM_k that is the result of hardcoding the values of y into TMxTM_x. The result generalizes to any Turing-complete computing model.
+
+Example[edit]
+The following Lisp code implements s11 for Lisp.
+
+(defun s11 (f x)
+  (let ((y (gensym)))
+    (list 'lambda (list y) (list f x y))))
+
+For example, (s11 '(lambda (x y) (+ x y)) 3) evaluates to (lambda (g42) ((lambda (x y) (+ x y)) 3 g42)).
+
+See also[edit]
+Currying
+Kleene's recursion theorem
+Partial evaluation
+References[edit]
+Kleene, S. C. (1936). "General recursive functions of natural numbers". Mathematische Annalen. 112 (1): 727–742. doi:10.1007/BF01565439.
+Kleene, S. C. (1938). "On Notations for Ordinal Numbers" (PDF). The Journal of Symbolic Logic. 3: 150–155. (This is the reference that the 1989 edition of Odifreddi's "Classical Recursion Theory" gives on p. 131 for the Snm_n^m theorem.)
+Nies, A. (2009). Computability and randomness. Oxford Logic Guides. Vol. 51. Oxford: Oxford University Press. ISBN 978-0-19-923076-1. Zbl 1169.03034.
+Odifreddi, P. (1999). Classical Recursion Theory. North-Holland. ISBN 0-444-87295-7.
+Rogers, H. (1987) [1967]. The Theory of Recursive Functions and Effective Computability. First MIT press paperback edition. ISBN 0-262-68052-1.
+Soare, R. (1987). Recursively enumerable sets and degrees. Perspectives in Mathematical Logic. Springer-Verlag. ISBN 3-540-15299-7.
+External links[edit]
+Weisstein, Eric W. "Kleene's s-m-n Theorem". MathWorld.
+
+
+

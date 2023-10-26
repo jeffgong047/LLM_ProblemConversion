@@ -1,0 +1,116 @@
+Mathematical concept
+In mathematics, uniform integrability is an important concept in real analysis, functional analysis and measure theory, and plays a vital role in the theory of martingales.
+
+
+Measure-theoretic definition[edit]
+Uniform integrability is an extension to the notion of a family of functions being dominated in L1_1 which is central in dominated convergence.
+Several textbooks on real analysis and measure theory use the following definition:[1][2]
+Definition A:  Let (X,M,μ)(X,𝔐,μ) be a positive measure space. A set Φ⊂L1(μ)Φ^1(μ) is called uniformly integrable if supf∈Φ‖f‖L1(μ)<∞sup_f∈Φf_L_1(μ)<∞, and to each ε>0ε>0 there corresponds a δ>0δ>0 such that
+
+∫E|f|dμ<ε∫_E|f| dμ<ε
+whenever f∈Φ∈Φ and μ(E)<δ.μ(E)<δ.
+Definition A is rather restrictive for infinite measure spaces. A more general definition[3] of uniform integrability that works well in general measures spaces was introduced by G. A. Hunt.
+Definition H: Let (X,M,μ)(X,𝔐,μ) be a positive measure space. A set Φ⊂L1(μ)Φ^1(μ) is  called uniformly integrable if and only if
+
+infg∈L+1(μ)supf∈Φ∫|f|>g|f|dμ=0inf_g_+^1(μ)sup_f∈Φ∫_{|f|>g}|f| dμ=0
+where L+1(μ)=g∈L1(μ):g≥0_+^1(μ)={g^1(μ):g≥0}.
+For finite measure spaces the following result[4] follows from Definition H:
+Theorem 1: If (X,M,μ)(X,𝔐,μ) is a (positive) finite  measure space, then  a set Φ⊂L1(μ)Φ^1(μ) is uniformly integrable[clarification needed] if and only if
+
+infa≥0supf∈Φ∫|f|>a|f|dμ=0inf_a≥0sup_f∈Φ∫_{|f|>a}|f| dμ=0
+Many textbooks in probability present Theorem 1 as the definition of uniform integrability in Probability spaces. When the space (X,M,μ)(X,𝔐,μ) is σσ-finite, Definition H yields the following equivalency:
+Theorem 2: Let (X,M,μ)(X,𝔐,μ) be a σσ-finite measure space, and h∈L1(μ)^1(μ) be such that h>0>0 almost surely. A set Φ⊂L1(μ)Φ^1(μ) is uniformly integrable[clarification needed] if and only if supf∈Φ‖f‖L1(μ)<∞sup_f∈Φf_L_1(μ)<∞, and for any ε>0ε>0, there exits δ>0δ>0 such that
+
+supf∈Φ∫A|f|dμ<εsup_f∈Φ∫_A|f| dμ<ε
+whenever ∫Ahdμ<δ∫_Ah dμ<δ.
+In particular,  the equivalence of Definitions A and H for finite measures follows immediately from Theorem 2; for this case, the statement in Definition A is obtained by taking h≡1≡1 in Theorem 2.
+
+Probability definition[edit]
+In the theory of probability, Definition A or the statement of Theorem 1 are often presented  as definitions of uniform integrability using the notation expectation of random variables.,[5][6][7] that is,
+1. A class C𝒞 of random variables is called uniformly integrable if:
+
+There exists a finite M such that, for every X in C𝒞, E⁡(|X|)≤ME(|X|) and
+For every ε>0ε>0 there exists δ>0δ>0 such that, for every measurable A such that P(A)≤δ(A)≤δ and every X in C𝒞,  E⁡(|X|IA)≤εE(|X|I_A)≤ε.
+or alternatively
+2.  A class C𝒞 of random variables is called uniformly integrable (UI) if for every ε>0ε>0 there exists K∈[0,∞)∈[0,∞) such that E⁡(|X|I|X|≥K)≤εforallX∈CE(|X|I_|X|)≤ε{forallX∈𝒞, where I|X|≥K_|X| is the indicator function I|X|≥K=1if|X|≥K,0if|X|<K._|X|=1   if|X|,
+0   if|X|<K..
+
+Tightness and uniform integrability[edit]
+One consequence of uniformly integrability of a class C𝒞  of random variables is that family of  laws or distributions P∘|X|−1(⋅):X∈C{P∘|X|^-1(·):X∈𝒞} is tight. That is, for each δ>0δ>0, there exists a>0>0 such that
+P(|X|>a)≤δ(|X|>a)≤δ
+for all X∈C∈𝒞.[8]
+This however, does not mean that the family of measures VC:=μX:A↦∫A|X|dP,X∈C𝒱_𝒞:={μ_X:A↦∫_A|X| dP, X∈𝒞} is tight. (In any case, tightness would require a topology on ΩΩ in order to be defined.)
+
+Uniform absolute continuity[edit]
+There is another  notion of uniformity, slightly different than uniform integrability,  which also has many applications in probability and measure theory, and which does not require random variables to have a finite integral[9]
+Definition: Suppose (Ω,F,P)(Ω,ℱ,P) is a probability space. A classed C𝒞 of random variables is   uniformly absolutely continuous with respect to P if for any ε>0ε>0, there is δ>0δ>0 such that
+E[|X|IA]<ε[|X|I_A]<ε
+whenever P(A)<δ(A)<δ.
+It is equivalent to uniform integrability if the measure is finite and has no atoms.
+The term "uniform absolute continuity" is not standard,[citation needed] but is used by some authors.[10][11]
+
+Related corollaries[edit]
+The following results apply to the probabilistic definition.[12]
+
+Definition 1 could be rewritten by taking the limits as limK→∞supX∈CE⁡(|X|I|X|≥K)=0.lim_K→∞sup_X∈𝒞E(|X| I_|X|)=0.
+A non-UI sequence. Let Ω=[0,1]⊂RΩ=[0,1]⊂ℝ, and define Xn(ω)=n,ω∈(0,1/n),0,otherwise._n(ω)=n,   ω∈(0,1/n),
+0,   otherwise. Clearly Xn∈L1_n^1, and indeed E⁡(|Xn|)=1,E(|X_n|)=1  for all n. However, E⁡(|Xn|I|Xn|≥K)=1foralln≥K,E(|X_n|I_{|X_n|})=1{foralln, and comparing with definition 1, it is seen that the sequence is not uniformly integrable.
+Non-UI sequence of RVs. The area under the strip is always equal to 1, but Xn→0_n→0 pointwise.
+By using Definition 2 in the above example, it can be seen that the first clause is satisfied as L1^1 norm of all Xn_ns are 1 i.e., bounded. But the second clause does not hold as given any δδ positive, there is an interval (0,1/n)(0,1/n) with measure less than δδ and E[|Xm|:(0,1/n)]=1[|X_m|:(0,1/n)]=1 for all m≥n.
+If X is a UI random variable, by splitting E⁡(|X|)=E⁡(|X|I|X|≥K)+E⁡(|X|I|X|<K)E(|X|)=E(|X|I_{|X|})+E(|X|I_{|X|<K}) and bounding each of the two, it can be seen that a uniformly integrable random variable is always bounded in L1^1.
+If any sequence of random variables Xn_n is dominated by an integrable, non-negative Y: that is, for all ω and n, |Xn(ω)|≤Y(ω),Y(ω)≥0,E⁡(Y)<∞,|X_n(ω)|(ω),(ω)≥0,
+operatornameE(Y)<∞, then the class C𝒞 of random variables Xn{X_n} is uniformly integrable.
+A class of random variables bounded in Lp^p (p>1>1) is uniformly integrable.
+Relevant theorems[edit]
+In the following we use the probabilistic framework, but regardless of the finiteness of the measure, by adding the boundedness condition on the chosen subset of L1(μ)^1(μ).
+
+Dunford–Pettis theorem[13][14]A class[clarification needed] of random variables Xn⊂L1(μ)_n^1(μ) is uniformly integrable if and only if it is relatively compact for the weak topology σ(L1,L∞)σ(L^1,L^∞).[clarification needed][citation needed]
+de la Vallée-Poussin theorem[15][16]The family Xαα∈A⊂L1(μ){X_α}_α∈A^1(μ) is uniformly integrable if and only if there exists a non-negative increasing convex function G(t)(t) such that limt→∞G(t)t=∞andsupαE⁡(G(|Xα|))<∞.lim_t→∞G(t)/t=∞andsup_αE(G(|X_α|))<∞.
+Relation to convergence of random variables[edit]
+Main article: Convergence of random variables
+A sequence Xn{X_n} converges to X in the L1_1 norm if and only if it converges in measure to X and it is uniformly integrable. In probability terms, a sequence of random variables converging in probability also converge in the mean if and only if they are uniformly integrable.[17] This is a generalization of Lebesgue's dominated convergence theorem, see Vitali convergence theorem.
+
+Citations[edit]
+
+
+^ Rudin, Walter (1987). Real and Complex Analysis (3 ed.). Singapore: McGraw–Hill Book Co. p. 133. ISBN 0-07-054234-1.
+
+^ Royden, H.L. & Fitzpatrick, P.M. (2010). Real Analysis (4 ed.). Boston: Prentice Hall. p. 93. ISBN 978-0-13-143747-0.
+
+^ Hunt, G. A. (1966). Martingales et Processus de Markov. Paris: Dunod. p. 254.
+
+^ Klenke, A. (2008). Probability Theory: A Comprehensive Course. Berlin: Springer Verlag. pp. 134–137. ISBN 978-1-84800-047-6.
+
+^ Williams, David (1997). Probability with Martingales (Repr. ed.). Cambridge: Cambridge Univ. Press. pp. 126–132. ISBN 978-0-521-40605-5.
+
+^ Gut, Allan (2005). Probability: A Graduate Course. Springer. pp. 214–218. ISBN 0-387-22833-0.
+
+^ Bass, Richard F. (2011). Stochastic Processes. Cambridge: Cambridge University Press. pp. 356–357. ISBN 978-1-107-00800-7.
+
+^ Gut 2005, p. 236.
+
+^ Bass 2011, p. 356. sfn error: no target: CITEREFBass2011 (help)
+
+^ Benedetto, J. J. (1976). Real Variable and Integration. Stuttgart: B. G. Teubner. p. 89. ISBN 3-519-02209-5.
+
+^ Burrill, C. W. (1972). Measure, Integration, and Probability. McGraw-Hill. p. 180. ISBN 0-07-009223-0.
+
+^ Gut 2005, pp. 215–216.
+
+^ Dunford, Nelson (1938). "Uniformity in linear spaces". Transactions of the American Mathematical Society. 44 (2): 305–356. doi:10.1090/S0002-9947-1938-1501971-X. ISSN 0002-9947.
+
+^ Dunford, Nelson (1939). "A mean ergodic theorem". Duke Mathematical Journal. 5 (3): 635–646. doi:10.1215/S0012-7094-39-00552-1. ISSN 0012-7094.
+
+^ Meyer, P.A. (1966). Probability and Potentials, Blaisdell Publishing Co, N. Y. (p.19, Theorem T22).
+
+^ Poussin, C. De La Vallee (1915). "Sur L'Integrale de Lebesgue". Transactions of the American Mathematical Society. 16 (4): 435–501. doi:10.2307/1988879. hdl:10338.dmlcz/127627. JSTOR 1988879.
+
+^ Bogachev, Vladimir I. (2007). Measure Theory Volume I. Berlin Heidelberg: Springer-Verlag. p. 268. doi:10.1007/978-3-540-34514-5_4. ISBN 978-3-540-34513-8.
+
+
+References[edit]
+Shiryaev, A.N. (1995). Probability (2 ed.). New York: Springer-Verlag. pp. 187–188. ISBN 978-0-387-94549-1.
+Diestel, J. and Uhl, J. (1977). Vector measures, Mathematical Surveys 15, American Mathematical Society, Providence, RI ISBN 978-0-8218-1515-1
+
+
+

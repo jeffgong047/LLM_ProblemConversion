@@ -1,0 +1,119 @@
+Theorem about zeros of holomorphic functions
+For the theorem in linear algebra, see Rouché–Capelli theorem.
+Mathematical analysis → Complex analysisComplex analysis
+Complex numbers
+Real number
+Imaginary number
+Complex plane
+Complex conjugate
+Unit complex number
+
+Complex functions
+Complex-valued function
+Analytic function
+Holomorphic function
+Cauchy–Riemann equations
+Formal power series
+
+Basic theory
+Zeros and poles
+Cauchy's integral theorem
+Local primitive
+Cauchy's integral formula
+Winding number
+Laurent series
+Isolated singularity
+Residue theorem
+Conformal map
+Schwarz lemma
+Harmonic function
+Laplace's equation
+
+Geometric function theory
+People
+Augustin-Louis Cauchy
+Leonhard Euler
+Carl Friedrich Gauss
+Jacques Hadamard
+Kiyoshi Oka
+Bernhard Riemann
+Karl Weierstrass
+
+ Mathematics portalvte
+Rouché's theorem, named after Eugène Rouché, states that for any two  complex-valued functions f and g holomorphic inside some region K with closed contour ∂K, if |g(z)| < |f(z)| on ∂K, then f and f + g have the same number of zeros inside K, where each zero is counted as many times as its multiplicity. This theorem assumes that the contour ∂K is simple, that is, without self-intersections. Rouché's theorem is an easy consequence of a stronger symmetric Rouché's theorem described below.
+
+
+Usage[edit]
+The theorem is usually used to simplify the problem of locating zeros, as follows. Given an analytic function, we write it as the sum of two parts, one of which is simpler and grows faster than (thus dominates) the other part. We can then locate the zeros by looking at only the dominating part. For example, the polynomial z5+3z3+7^5+3z^3+7 has exactly 5 zeros in the disk |z|<2|z|<2 since |3z3+7|≤31<32=|z5||3z^3+7|≤31<32=|z^5| for every |z|=2|z|=2, and z5^5, the dominating part, has five zeros in the disk.
+
+Geometric explanation[edit]
+As z travels along a closed curve C (not shown in the picture), f(z) and h(z) will trace out closed curves in the complex plane (shown in blue and red). So long as the curves never veer too far apart from each other (we require that f(z) remains closer to h(z) than the origin at all times), then the curves will wind around the origin the same number of times. Then, by the argument principle, f(z) and h(z) have the same number of zeros inside C (not shown).
+It is possible to provide an informal explanation of Rouché's theorem.
+Let C be a closed, simple curve (i.e., not self-intersecting).  Let h(z) = f(z) + g(z).  If f and g are both holomorphic on the interior of C, then h must also be holomorphic on the interior of C. Then, with the conditions imposed above, the Rouche's theorem in its original (and not symmetric) form says that
+
+If |f(z)| > |h(z) − f(z)|, for every z in C, then f and h have the same number of zeros in the interior of C.
+Notice that the condition |f(z)| > |h(z) − f(z)| means that for any z, the distance from f(z) to the origin is larger than the length of h(z) − f(z), which in the following picture means that for each point on the blue curve, the segment joining it to the origin is larger than the green segment associated with it. Informally we can say that the blue curve f(z) is always closer to the red curve h(z) than it is to the origin.
+The previous paragraph shows that h(z) must wind around the origin exactly as many times as f(z).  The index of both curves around zero is therefore the same, so by the argument principle, f(z) and h(z) must have the same number of zeros inside C.
+One popular, informal way to summarize this argument is as follows: If a person were to walk a dog on a leash around and around a tree, such that the distance between the person and the tree is always greater than the length of the leash, then the person and the dog go around the tree the same number of times.
+
+Applications[edit]
+See also: Properties of polynomial roots § Bounds on (complex) polynomial roots
+Bounding roots[edit]
+Consider the polynomial z2+2az+b2^2+2az+b^2 (where a>b>0>b>0). By the quadratic formula it has two zeros at −a±a2−b2-a±√(a^2-b^2). Rouché's theorem can be used to obtain more precise positions of them. Since
+|z2+b2|≤2b2<2a|z|forall|z|=b,|z^2+b^2|≤2b^2<2a|z|forall|z|=b,
+Rouché's theorem says that the polynomial has exactly one zero inside the disk |z|<b|z|<b. Since −a−a2−b2-a-√(a^2-b^2) is clearly outside the disk, we conclude that the zero is −a+a2−b2-a+√(a^2-b^2).
+In general, a polynomial f(z)=anzn+⋯+a0(z)=a_nz^n+⋯+a_0. If |ak|rk>∑j≠k|aj|rj|a_k|r^k>∑_j|a_j|r^j for some r>0,k∈0:n>0,k∈0:n, then by Rouche's theorem, the polynomial has exactly k roots inside B(0,r)(0,r).
+This sort of argument can be useful in locating residues when one applies Cauchy's residue theorem.
+
+Fundamental theorem of algebra[edit]
+Rouché's theorem can also be used to give a short proof of the fundamental theorem of algebra.  Let
+p(z)=a0+a1z+a2z2+⋯+anzn,an≠0(z)=a_0+a_1z+a_2z^2+⋯+a_nz^n,_n≠0
+and choose R>0>0 so large that:
+|a0+a1z+⋯+an−1zn−1|≤∑j=0n−1|aj|Rj<|an|Rn=|anzn|for|z|=R.|a_0+a_1z+⋯+a_n-1z^n-1|≤∑_j=0^n-1|a_j|R^j<|a_n|R^n=|a_nz^n|for|z|=R.
+Since anzn_nz^n has n zeros inside the disk |z|<R|z|<R (because R>0>0), it follows from Rouché's theorem that p also has the same number of zeros inside the disk.
+One advantage of this proof over the others is that it shows not only that a polynomial must have a zero but the number of its zeros is equal to its degree (counting, as usual, multiplicity).
+Another use of Rouché's theorem is to prove the open mapping theorem for analytic functions. We refer to the article for the proof.
+
+Symmetric version[edit]
+A stronger version of Rouché's theorem was published by Theodor Estermann in 1962.[1]  It states: let K⊂G be a bounded region with continuous boundary ∂K. Two holomorphic functions f,g∈H(G), g∈ℋ(G) have the same number of roots (counting multiplicity) in K, if the strict inequality
+|f(z)−g(z)|<|f(z)|+|g(z)|(z∈∂K)|f(z)-g(z)|<|f(z)|+|g(z)|    (z∈)
+holds on the boundary ∂K..
+The original version of Rouché's theorem then follows from this symmetric version applied to the functions f+g,f+g,f together with the trivial inequality |f(z)+g(z)|≥0|f(z)+g(z)|≥0 (in fact this inequality is strict since f(z)+g(z)=0(z)+g(z)=0 for some z∈∂K∈ would imply |g(z)|=|f(z)||g(z)|=|f(z)|).
+The statement can be understood intuitively as follows.
+By considering −g-g in place of g, the condition can be rewritten as |f(z)+g(z)|<|f(z)|+|g(z)||f(z)+g(z)|<|f(z)|+|g(z)| for z∈∂K∈.
+Since |f(z)+g(z)|≤|f(z)|+|g(z)||f(z)+g(z)|≤|f(z)|+|g(z)| always holds by the triangle inequality, this is equivalent to saying that |f(z)+g(z)|≠|f(z)|+|g(z)||f(z)+g(z)|≠|f(z)|+|g(z)| on ∂K, which in turn means that for z∈∂K∈ the functions f(z)(z) and g(z)(z) are non-vanishing and arg⁡f(z)≠arg⁡g(z)f(z)≠g(z).
+Intuitively, if the values of f and g never pass through the origin and never point in the same direction as z circles along ∂K, then f(z)(z) and g(z)(z) must wind around the origin the same number of times.
+
+Proof of the symmetric form of Rouché's theorem[edit]
+Let C:[0,1]→C[0,1]→ℂ be a simple closed curve whose image is the boundary ∂K. The hypothesis implies that f has no roots on ∂K, hence by the argument principle, the number Nf(K) of zeros of f in K is
+12πi∮Cf′(z)f(z)dz=12πi∮f∘Cdzz=Indf∘C(0),1/2∮_Cf'(z)/f(z) dz=1/2∮_fdz/z=Ind_f(0),
+i.e., the winding number of the closed curve f∘C around the origin; similarly for g. The hypothesis ensures that g(z) is not a negative real multiple of f(z) for any z = C(x), thus 0 does not lie on the line segment joining f(C(x)) to g(C(x)), and
+Ht(x)=(1−t)f(C(x))+tg(C(x))_t(x)=(1-t)f(C(x))+tg(C(x))
+is a homotopy between the curves f∘C and g∘C avoiding the origin. The winding number is homotopy-invariant: the function
+I(t)=IndHt(0)=12πi∮Htdzz(t)=Ind_H_t(0)=1/2∮_H_tdz/z
+is continuous and integer-valued, hence constant. This shows
+Nf(K)=Indf∘C(0)=Indg∘C(0)=Ng(K)._f(K)=Ind_f(0)=Ind_g(0)=N_g(K).
+
+See also[edit]
+Fundamental theorem of algebra, for its shortest demonstration yet, while using Rouché's theorem
+Hurwitz's theorem (complex analysis)
+Rational root theorem
+Properties of polynomial roots
+Riemann mapping theorem
+Sturm's theorem
+References[edit]
+This article includes a list of references, related reading, or external links, but its sources remain unclear because it lacks inline citations. Please help to improve this article by introducing more precise citations. (May 2015) (Learn how and when to remove this template message)
+
+
+^ Estermann, T. (1962). Complex Numbers and Functions. Athlone Press, Univ. of London. p. 156.
+
+
+
+Beardon, Alan (1979). Complex Analysis: The Argument Principle in Analysis and Topology. John Wiley and Sons. p. 131. ISBN 0-471-99672-6.
+Conway, John B. (1978). Functions of One Complex Variable I. Springer-Verlag New York. ISBN 978-0-387-90328-6.
+Titchmarsh, E. C. (1939). The Theory of Functions (2nd ed.). Oxford University Press. pp. 117–119, 198–203. ISBN 0-19-853349-7.
+Rouché É., Mémoire sur la série de Lagrange, Journal de l'École Polytechnique, tome 22, 1862, p. 193-224. Theorem appears at p. 217. See Gallica archives.
+
+
+
+

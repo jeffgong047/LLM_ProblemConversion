@@ -1,0 +1,322 @@
+Expressing a measure as an integral of another
+In mathematics, the Radon–Nikodym theorem is a result in measure theory that expresses the relationship between two measures defined on the same measurable space. A measure is a set function that assigns a consistent magnitude to the measurable subsets of a measurable space. Examples of a measure include area and volume, where the subsets are sets of points; or the probability of an event, which is a subset of possible outcomes within a wider probability space.
+One way to derive a new measure from one already given is to assign a density to each point of the space, then integrate over the measurable subset of interest. This can be expressed as
+
+ν(A)=∫Afdμ,ν(A)=∫_Af dμ,
+where ν is the new measure being defined for any measurable subset A and the function f is the density at a given point. The integral is with respect to an existing measure μ, which may often be the canonical Lebesgue measure on the real line R or the n-dimensional Euclidean space Rn (corresponding to our standard notions of length, area and volume). For example, if f represented mass density and μ was the Lebesgue measure in three-dimensional space R3, then ν(A) would equal the total mass in a spatial region A.
+The Radon–Nikodym theorem essentially states that, under certain conditions, any measure ν can be expressed in this way with respect to another measure μ on the same space. The function  f  is then called the Radon–Nikodym derivative and is denoted by dνdμdνdμ.[1] An important application is in probability theory, leading to the probability density function of a random variable.
+The theorem is named after Johann Radon, who proved the theorem for the special case where the underlying space is Rn in 1913, and for Otto Nikodym who proved the general case in 1930.[2] In 1936 Hans Freudenthal generalized the Radon–Nikodym theorem by proving the Freudenthal spectral theorem, a result in Riesz space theory; this contains the Radon–Nikodym theorem as a special case.[3]
+A Banach space Y is said to have the Radon–Nikodym property if the generalization of the Radon–Nikodym theorem also holds, mutatis mutandis, for functions with values in Y. All Hilbert spaces have the Radon–Nikodym property.
+
+
+Formal description[edit]
+Radon–Nikodym theorem[edit]
+The Radon–Nikodym theorem involves a measurable space (X,Σ)(X,Σ) on which two σ-finite measures are defined, μμ and ν.ν. 
+It states that, if ν≪μν≪μ (that is, if νν is absolutely continuous with respect to μμ), then there exists a ΣΣ-measurable function f:X→[0,∞),:X→[0,∞), such that for any measurable set A⊆X,,
+ν(A)=∫Afdμ.ν(A)=∫_Af dμ.
+
+Radon–Nikodym derivative[edit]
+The function f satisfying the above equality is uniquely defined up to a μμ-null set, that is, if g is another function which satisfies the same property, then f=g=g μμ-almost everywhere. The function f is commonly written dνdμdν/dμ and is called the Radon–Nikodym derivative. The choice of notation and the name of the function reflects the fact that the function is analogous to a derivative in calculus in the sense that it describes the rate of change of density of one measure with respect to another (the way the Jacobian determinant is used in multivariable integration).
+
+Extension to signed or complex measures[edit]
+A similar theorem can be proven for signed and complex measures: namely, that if μμ is a nonnegative σ-finite measure, and νν is a finite-valued signed or complex measure such that ν≪μ,ν≪μ, that is, νν is absolutely continuous with respect to μ,μ, then there is a μμ-integrable real- or complex-valued function g on X such that for every measurable set A,,
+ν(A)=∫Agdμ.ν(A)=∫_Ag dμ.
+
+Examples[edit]
+In the following examples, the set X is the real interval [0,1], and ΣΣ is the Borel sigma-algebra on X.
+
+μμ is the length measure on X. νν assigns to each subset Y of X, twice the length of Y. Then, dνdμ=2dν/dμ=2.
+μμ is the length measure on X. νν assigns to each subset Y of X, the number of points from the set {0.1, …, 0.9} that are contained in Y. Then, νν is not absolutely-continuous with respect to μμ since it assigns non-zero measure to zero-length points. Indeed, there is no derivative dνdμdν/dμ: there is no finite function that, when integrated e.g. from (0.1−ε)(0.1-ε) to (0.1+ε)(0.1+ε), gives 11 for all ε>0ε>0.
+μ=ν+δ0μ=ν+δ_0, where νν is the length measure on X and δ0δ_0 is the Dirac measure on 0 (it assigns a measure of 1 to any set containing 0 and a measure of 0 to any other set). Then, νν is absolutely continuous with respect to μμ, and dνdμ=1X∖0dν/dμ=1_X∖{0} – the derivative is 0 at x=0=0 and 1 at x>0>0.[4]
+Properties[edit]
+Let ν, μ, and λ be σ-finite measures on the same measurable space. If ν ≪ λ and μ ≪ λ (ν and μ are both absolutely continuous with respect to λ), then d(ν+μ)dλ=dνdλ+dμdλλ-almosteverywhere.d(ν+μ)/dλ=dν/dλ+dμ/dλ  λ-almosteverywhere.
+If ν ≪ μ ≪ λ, then dνdλ=dνdμdμdλλ-almosteverywhere.dν/dλ=dν/dμdμ/dλ  λ-almosteverywhere.
+In particular, if μ ≪ ν and ν ≪ μ, then dμdν=(dνdμ)−1ν-almosteverywhere.dμ/dν=(dν/dμ)^-1  ν-almosteverywhere.
+If μ ≪ λ and g is a μ-integrable function, then ∫Xgdμ=∫Xgdμdλdλ.∫_Xg dμ=∫_Xgdμ/dλ dλ.
+If ν is a finite signed or complex measure, then d|ν|dμ=|dνdμ|.d|ν|μ=|dνμ|.
+Applications[edit]
+Probability theory[edit]
+The theorem is very important in extending the ideas of probability theory from probability masses and probability densities defined over real numbers to probability measures defined over arbitrary sets. It tells if and how it is possible to change from one probability measure to another. Specifically, the probability density function of a random variable is the Radon–Nikodym derivative of the induced measure with respect to some base measure (usually the Lebesgue measure for continuous random variables).
+For example, it can be used to prove the existence of conditional expectation for probability measures. The latter itself is a key concept in probability theory, as conditional probability is just a special case of it.
+
+Financial mathematics[edit]
+Amongst other fields, financial mathematics uses the theorem extensively, in particular via the Girsanov theorem. Such changes of probability measure are the cornerstone of the rational pricing of derivatives and are used for converting actual probabilities into those of the risk neutral probabilities.
+
+Information divergences[edit]
+If μ and ν are measures over X, and μ ≪ ν
+
+The Kullback–Leibler divergence from ν to μ is defined to be DKL(μ∥ν)=∫Xlog⁡(dμdν)dμ._KL(μ∥ν)=∫_Xlog(dμ/dν) dμ.
+For α > 0, α ≠ 1 the Rényi divergence of order α from ν to μ is defined to be Dα(μ∥ν)=1α−1log⁡(∫X(dμdν)α−1dμ)._α(μ∥ν)=1/α-1log(∫_X(dμ/dν)^α-1 dμ).
+The assumption of σ-finiteness[edit]
+The Radon–Nikodym theorem above makes the assumption that the measure μ with respect to which one computes the rate of change of ν is σ-finite.
+
+Negative example[edit]
+Here is an example when μ is not σ-finite and the Radon–Nikodym theorem fails to hold.
+Consider the Borel σ-algebra on the real line. Let the counting measure, μ, of a Borel set A be defined as the number of elements of A if A is finite, and ∞ otherwise. One can check that μ is indeed a measure. It is not σ-finite, as not every Borel set is at most a countable union of finite sets. Let ν be the usual Lebesgue measure on this Borel algebra. Then, ν is absolutely continuous with respect to μ, since for a set A one has μ(A) = 0 only if A is the empty set, and then ν(A) is also zero.
+Assume that the Radon–Nikodym theorem holds, that is, for some measurable function f one has
+
+ν(A)=∫Afdμν(A)=∫_Af dμ
+for all Borel sets. Taking A to be a singleton set, A = {a}, and using the above equality, one finds
+
+0=f(a)0=f(a)
+for all real numbers a. This implies that the function  f , and therefore the Lebesgue measure ν, is zero, which is a contradiction.
+
+Positive result[edit]
+Assuming ν≪μ,ν≪μ, the Radon–Nikodym theorem also holds if μμ is localizable and νν is accessible with respect to μμ,[5]: p. 189, Exercise 9O  i.e., ν(A)=supν(B):B∈P(A)∩μpre(R≥0)ν(A)=sup{ν(B):B∈P(A)∩μ^pre(ℝ_≥0)} for all A∈Σ.∈Σ.[6]: Theorem 1.111 (Radon–Nikodym, II) [5]: p. 190, Exercise 9T(ii) 
+
+Proof[edit]
+This section gives a measure-theoretic proof of the theorem. There is also a functional-analytic proof, using Hilbert space methods, that was first given by von Neumann.
+For finite measures μ and ν, the idea is to consider functions  f  with f dμ ≤ dν. The supremum of all such functions, along with the monotone convergence theorem, then furnishes the Radon–Nikodym derivative. The fact that the remaining part of μ is singular with respect to ν follows from a technical fact about finite measures. Once the result is established for finite measures, extending to σ-finite, signed, and complex measures can be done naturally. The details are given below.
+
+For finite measures[edit]
+Constructing an extended-valued candidate  First, suppose μ and ν are both finite-valued nonnegative measures. Let F be the set of those extended-value measurable functions f  : X → [0, ∞] such that:
+
+∀A∈Σ:∫Afdμ≤ν(A)∈Σ:    ∫_Af dμ≤ν(A)
+F ≠ ∅, since it contains at least the zero function. Now let f1,  f2 ∈ F, and suppose A is an arbitrary measurable set, and define:
+
+A1=x∈A:f1(x)>f2(x),A2=x∈A:f2(x)≥f1(x).A_1   ={x:f_1(x)>f_2(x)},
+A_2   ={x:f_2(x)_1(x)}.
+Then one has
+
+∫Amaxf1,f2dμ=∫A1f1dμ+∫A2f2dμ≤ν(A1)+ν(A2)=ν(A),∫_Amax{f_1,f_2} dμ=∫_A_1f_1 dμ+∫_A_2f_2 dμ≤ν(A_1)+ν(A_2)=ν(A),
+and therefore, max{ f 1,  f 2} ∈ F.
+Now, let { fn } be a sequence of functions in F such that
+
+limn→∞∫Xfndμ=supf∈F∫Xfdμ.lim_n→∞∫_Xf_n dμ=sup_f∫_Xf dμ.
+By replacing  fn  with the maximum of the first n functions, one can assume that the sequence { fn } is increasing. Let g be an extended-valued function defined as
+
+g(x):=limn→∞fn(x).(x):=lim_n→∞f_n(x).
+By Lebesgue's monotone convergence theorem, one has
+
+limn→∞∫Afndμ=∫Alimn→∞fn(x)dμ(x)=∫Agdμ≤ν(A)lim_n→∞∫_Af_n dμ=∫_Alim_n→∞f_n(x) dμ(x)=∫_Ag dμ≤ν(A)
+for each A ∈ Σ, and hence, g ∈ F. Also, by the construction of g,
+
+∫Xgdμ=supf∈F∫Xfdμ.∫_Xg dμ=sup_f∫_Xf dμ.
+Proving equality  Now, since g ∈ F,
+
+ν0(A):=ν(A)−∫Agdμν_0(A):=ν(A)-∫_Ag dμ
+defines a nonnegative measure on Σ. To prove equality, we show that ν0 = 0.
+Suppose ν0 ≠ 0; then, since μ is finite, there is an ε > 0 such that ν0(X) > ε μ(X). To derive a contradiction from ν0 ≠ 0, we look for a positive set P ∈ Σ for the signed measure ν0 − ε μ (i.e. a measurable set P, all of whose measurable subsets have non-negative ν0 − εμ measure), where also P has positive μ-measure. Conceptually, we're looking for a set P, where ν0 ≥ ε μ in every part of P. A convenient approach is to use the Hahn decomposition (P, N) for the signed measure ν0 − ε μ.
+Note then that for every A ∈ Σ one has ν0(A ∩ P) ≥ ε μ(A ∩ P), and hence,
+
+ν(A)=∫Agdμ+ν0(A)≥∫Agdμ+ν0(A∩P)≥∫Agdμ+εμ(A∩P)=∫A(g+ε1P)dμ,ν(A)   =∫_Ag dμ+ν_0(A)
+   ≥∫_Ag dμ+ν_0(A)
+   ≥∫_Ag dμ+εμ(A)=∫_A(g+ε1_P) dμ,
+where 1P is the indicator function of P. Also, note that μ(P) > 0 as desired; for if μ(P) = 0, then (since ν is absolutely continuous in relation to μ) ν0(P) ≤ ν(P) = 0, so ν0(P) = 0 and
+
+ν0(X)−εμ(X)=(ν0−εμ)(N)≤0,ν_0(X)-εμ(X)=(ν_0-εμ)(N)≤0,
+contradicting the fact that ν0(X) > εμ(X).
+Then, since also
+
+∫X(g+ε1P)dμ≤ν(X)<+∞,∫_X(g+ε1_P) dμ≤ν(X)<+∞,
+g + ε 1P ∈ F and satisfies
+
+∫X(g+ε1P)dμ>∫Xgdμ=supf∈F∫Xfdμ.∫_X(g+ε1_P) dμ>∫_Xg dμ=sup_f∫_Xf dμ.
+This is impossible because it violates the definition of a supremum; therefore, the initial assumption that ν0 ≠ 0 must be false. Hence, ν0 = 0, as desired.
+Restricting to finite values  Now, since g is μ-integrable, the set {x ∈ X : g(x) = ∞} is μ-null. Therefore, if a  f  is defined as
+
+f(x)=g(x)ifg(x)<∞0otherwise,(x)=g(x)   ifg(x)<∞
+0   otherwise,
+then f has the desired properties.
+Uniqueness  As for the uniqueness, let  f, g : X → [0, ∞) be measurable functions satisfying
+
+ν(A)=∫Afdμ=∫Agdμν(A)=∫_Af dμ=∫_Ag dμ
+for every measurable set A. Then, g − f  is μ-integrable, and
+
+∫A(g−f)dμ=0.∫_A(g-f) dμ=0.
+In particular, for A = {x ∈ X : f(x) > g(x)}, or {x ∈ X : f(x) < g(x)}. It follows that
+
+∫X(g−f)+dμ=0=∫X(g−f)−dμ,∫_X(g-f)^+ dμ=0=∫_X(g-f)^- dμ,
+and so, that (g − f )+ = 0 μ-almost everywhere; the same is true for (g − f )−, and thus, f = g μ-almost everywhere, as desired.
+
+For σ-finite positive measures[edit]
+If μ and ν are σ-finite, then X can be written as the union of a sequence {Bn}n of disjoint sets in Σ, each of which has finite measure under both μ and ν. For each n, by the finite case, there is a Σ-measurable function  fn  : Bn → [0, ∞) such that
+
+νn(A)=∫Afndμν_n(A)=∫_Af_n dμ
+for each Σ-measurable subset A of Bn. The sum (∑nfn1Bn):=f(∑_nf_n1_B_n):=f of those functions is then the required function such that ν(A)=∫Afdμν(A)=∫_Af dμ. 
+As for the uniqueness, since each of the fn is μ-almost everywhere unique, so is f.
+
+For signed and complex measures[edit]
+If ν is a σ-finite signed measure, then it can be Hahn–Jordan decomposed as ν = ν+ − ν− where one of the measures is finite. Applying the previous result to those two measures, one obtains two functions, g, h : X → [0, ∞), satisfying the Radon–Nikodym theorem for ν+ and ν− respectively, at least one of which is μ-integrable (i.e., its integral with respect to μ is finite). It is clear then that f = g − h satisfies the required properties, including uniqueness, since both g and h are unique up to μ-almost everywhere equality.
+If ν is a complex measure, it can be decomposed as ν = ν1 + iν2, where both ν1 and ν2 are finite-valued signed measures. Applying the above argument, one obtains two functions, g, h : X → [0, ∞), satisfying the required properties for ν1 and ν2, respectively. Clearly, f = g + ih is the required function.
+
+The Lebesgue decomposition theorem[edit]
+Lebesgue's decomposition theorem shows that the assumptions of the Radon–Nikodym theorem can be found even in a situation which is seemingly more general. Consider a σ-finite positive measure μμ on the measure space (X,Σ)(X,Σ) and a σ-finite signed measure νν on ΣΣ, without assuming any absolute continuity. Then there exist unique signed measures νaν_a and νsν_s on ΣΣ such that ν=νa+νsν=ν_a+ν_s, νa≪μν_a≪μ, and νs⊥μν_s⊥μ. The Radon–Nikodym theorem can then be applied to the pair νa,μν_a,μ.
+
+See also[edit]
+Girsanov theorem
+Radon–Nikodym set
+Notes[edit]
+
+
+^ Billingsley, Patrick (1995). Probability and Measure (Third ed.). New York: John Wiley & Sons. pp. 419–427. ISBN 0-471-00710-2.
+
+^ Nikodym, O. (1930). "Sur une généralisation des intégrales de M. J. Radon" (PDF). Fundamenta Mathematicae (in French). 15: 131–179. doi:10.4064/fm-15-1-131-179. JFM 56.0922.02. Retrieved 2018-01-30.
+
+^ Zaanen, Adriaan C. (1996). Introduction to Operator Theory in Riesz Spaces. Springer. ISBN 3-540-61989-5.
+
+^ "Calculating Radon Nikodym derivative". Stack Exchange. April 7, 2018.
+
+^ a b Brown, Arlen; Pearcy, Carl (1977). Introduction to Operator Theory I: Elements of Functional Analysis. ISBN 978-1461299288.
+
+^ Fonseca, Irene; Leoni, Giovanni. Modern Methods in the Calculus of Variations: Lp Spaces. Springer. p. 68. ISBN 978-0-387-35784-3.
+
+
+References[edit]
+Lang, Serge (1969). Analysis II: Real analysis. Addison-Wesley. Contains a proof for vector measures assuming values in a Banach space.
+Royden, H. L.; Fitzpatrick, P. M. (2010). Real Analysis (4th ed.). Pearson. Contains a lucid proof in case the measure ν is not σ-finite.
+Shilov, G. E.; Gurevich, B. L. (1978). Integral, Measure, and Derivative: A Unified Approach. Richard A. Silverman, trans. Dover Publications. ISBN 0-486-63519-8.
+Stein, Elias M.; Shakarchi, Rami (2005). Real analysis: measure theory, integration, and Hilbert spaces. Princeton lectures in analysis. Princeton, N.J: Princeton University Press. ISBN 978-0-691-11386-9. Contains a proof of the generalisation.
+Teschl, Gerald. "Topics in Real and Functional Analysis". (lecture notes).
+This article incorporates material from Radon–Nikodym theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

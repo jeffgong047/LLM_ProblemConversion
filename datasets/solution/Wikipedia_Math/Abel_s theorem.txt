@@ -1,0 +1,82 @@
+This article is about Abel's theorem on power series. For Abel's theorem on algebraic curves, see Abel–Jacobi map. For Abel's theorem on the insolubility of the quintic equation, see Abel–Ruffini theorem. For Abel's theorem on linear differential equations, see Abel's identity. For Abel's theorem on irreducible polynomials, see Abel's irreducibility theorem. For Abel's formula for summation of a series, using an integral, see Abel's summation formula.
+This article includes a list of references, related reading, or external links, but its sources remain unclear because it lacks inline citations. Please help to improve this article by introducing more precise citations. (February 2013) (Learn how and when to remove this template message)
+In mathematics, Abel's theorem for power series relates a limit of a power series to the sum of its coefficients.  It is named after Norwegian mathematician Niels Henrik Abel.
+
+
+Theorem[edit]
+Let the Taylor series
+G(x)=∑k=0∞akxk(x)=∑_k=0^∞a_kx^k
+be a power series with real coefficients ak_k with radius of convergence 1.1.  Suppose that the series 
+∑k=0∞ak∑_k=0^∞a_k 
+converges. 
+Then G(x)(x) is continuous from the left at x=1,=1, that is,
+limx→1−G(x)=∑k=0∞ak.lim_x→1^-G(x)=∑_k=0^∞a_k.
+The same theorem holds for complex power series 
+G(z)=∑k=0∞akzk,(z)=∑_k=0^∞a_kz^k, 
+provided that z→1→1 entirely within a single Stolz sector, that is, a region of the open unit disk where
+|1−z|≤M(1−|z|)|1-z|(1-|z|)
+for some fixed finite M>1>1.  Without this restriction, the limit may fail to exist: for example, the power series
+∑n>0z3n−z2⋅3nn∑_n>0z^3^n-z^2·3^n/n
+converges to 00 at z=1,=1, but is unbounded near any point of the form eπi/3n,^/3^n, so the value at z=1=1 is not the limit as z tends to 1 in the whole open disk.
+Note that G(z)(z) is continuous on the real closed interval [0,t][0,t] for t<1,<1, by virtue of the uniform convergence of the series on compact subsets of the disk of convergence. Abel's theorem allows us to say more, namely that G(z)(z) is continuous on [0,1].[0,1].
+
+Stolz sector[edit]
+20 Stolz sectors, for M ranging from 1.01 to 10. The red lines are the tangents to the cone at the right end.
+The Stolz sector |1−z|≤M(1−|z|)|1-z|(1-|z|) has explicit formulay2=−M4(x2−1)−2M2((x−1)x+1)+2M4(−2M2(x−1)+2x−1)+(x−1)2(M2−1)2^2=-M^4(x^2-1)-2M^2((x-1)x+1)+2√(M^4(-2M^2(x-1)+2x-1))+(x-1)^2/(M^2-1)^2and is plotted on the right for various values. 
+The left end of the sector is x=1−M1+M=1-M/1+M, and the right end is x=1=1. On the right end, it becomes a cone with angle 2θ2θ, where cos⁡θ=1Mcosθ=1/M.
+
+Remarks[edit]
+As an immediate consequence of this theorem, if z is any nonzero complex number for which the series 
+∑k=0∞akzk∑_k=0^∞a_kz^k 
+converges, then it follows that
+limt→1−G(tz)=∑k=0∞akzklim_t→1^-G(tz)=∑_k=0^∞a_kz^k
+in which the limit is taken from below.
+The theorem can also be generalized to account for sums which diverge to infinity.[citation needed] If
+∑k=0∞ak=∞∑_k=0^∞a_k=∞
+then 
+limz→1−G(z)→∞.lim_z→1^-G(z)→∞.
+However, if the series is only known to be divergent, but for reasons other than diverging to infinity, then the claim of the theorem may fail: take, for example, the power series for 
+11+z.1/1+z.
+At z=1=1 the series is equal to 1−1+1−1+⋯,1-1+1-1+⋯, but 11+1=12.11+1=12.
+We also remark the theorem holds for radii of convergence other than R=1=1: let 
+G(x)=∑k=0∞akxk(x)=∑_k=0^∞a_kx^k 
+be a power series with radius of convergence R,, and suppose the series converges at x=R.=R. Then G(x)(x) is continuous from the left at x=R,=R, that is,
+limx→R−G(x)=G(R).lim_x^-G(x)=G(R).
+
+Applications[edit]
+The utility of Abel's theorem is that it allows us to find the limit of a power series as its argument (that is, z) approaches 11 from below, even in cases where the radius of convergence, R,, of the power series is equal to 11 and we cannot be sure whether the limit should be finite or not. See for example, the binomial series. Abel's theorem allows us to evaluate many series in closed form. For example, when 
+ak=(−1)kk+1,_k=(-1)^k/k+1,
+we obtain 
+Ga(z)=ln⁡(1+z)z,0<z<1,_a(z)=ln(1+z)/z,    0<z<1, 
+by integrating the uniformly convergent geometric power series term by term on [−z,0][-z,0]; thus the series 
+∑k=0∞(−1)kk+1∑_k=0^∞(-1)^k/k+1 
+converges to ln⁡(2)ln(2) by Abel's theorem. Similarly, 
+∑k=0∞(−1)k2k+1∑_k=0^∞(-1)^k/2k+1 
+converges to arctan⁡(1)=π4.arctan(1)=π4.
+Ga(z)_a(z) is called the generating function of the sequence a.. Abel's theorem is frequently useful in dealing with generating functions of real-valued and non-negative sequences, such as probability-generating functions. In particular, it is useful in the theory of Galton–Watson processes.
+
+Outline of proof[edit]
+After subtracting a constant from a0,_0, we may assume that ∑k=0∞ak=0.∑_k=0^∞a_k=0. Let sn=∑k=0nak._n=∑_k=0^na_k. Then substituting ak=sk−sk−1_k=s_k-s_k-1 and performing a simple manipulation of the series (summation by parts) results in
+Ga(z)=(1−z)∑k=0∞skzk._a(z)=(1-z)∑_k=0^∞s_kz^k.
+Given ε>0,ε>0, pick n large enough so that |sk|<ε|s_k|<ε for all k≥n and note that
+|(1−z)∑k=n∞skzk|≤ε|1−z|∑k=n∞|z|k=ε|1−z||z|n1−|z|<εM|(1-z)∑_k=n^∞s_kz^k|≤ε|1-z|∑_k=n^∞|z|^k=ε|1-z||z|^n/1-|z|<
+when z lies within the given Stolz angle. Whenever z is sufficiently close to 11 we have
+|(1−z)∑k=0n−1skzk|<ε,|(1-z)∑_k=0^n-1s_kz^k|<ε,
+so that |Ga(z)|<(M+1)ε|G_a(z)|<(M+1)ε when z is both sufficiently close to 11 and within the Stolz angle.
+
+Related concepts[edit]
+Converses to a theorem like Abel's are called Tauberian theorems: There is no exact converse, but results conditional on some hypothesis. The field of divergent series, and their summation methods, contains many theorems of abelian type and of tauberian type.
+
+See also[edit]
+Abel's summation formula – Integration by parts version of Abel's method for summation by parts
+Nachbin resummation – Theorem bounding the growth rate of analytic functionsPages displaying short descriptions of redirect targets
+Summation by parts – Theorem to simplify sums of products of sequences
+Further reading[edit]
+Ahlfors, Lars Valerian (September 1, 1980). Complex Analysis (Third ed.). McGraw Hill Higher Education. pp. 41–42. ISBN 0-07-085008-9. - Ahlfors called it Abel's limit theorem.
+External links[edit]
+Abel summability at PlanetMath. (a more general look at Abelian theorems of this type)
+A.A. Zakharov (2001) [1994], "Abel summation method", Encyclopedia of Mathematics, EMS Press
+Weisstein, Eric W. "Abel's Convergence Theorem". MathWorld.
+
+
+

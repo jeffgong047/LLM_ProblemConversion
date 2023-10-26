@@ -1,0 +1,222 @@
+Power series with negative powers
+This article is about doubly infinite power series. For power series with finitely many negative exponents, see Formal Laurent series.
+A Laurent series is defined with respect to a particular point c and a path of integration γ. The path of integration must lie in an annulus, indicated here by the red color, inside which f(z)(z) is holomorphic (analytic).
+Mathematical analysis → Complex analysisComplex analysis
+Complex numbers
+Real number
+Imaginary number
+Complex plane
+Complex conjugate
+Unit complex number
+
+Complex functions
+Complex-valued function
+Analytic function
+Holomorphic function
+Cauchy–Riemann equations
+Formal power series
+
+Basic theory
+Zeros and poles
+Cauchy's integral theorem
+Local primitive
+Cauchy's integral formula
+Winding number
+Laurent series
+Isolated singularity
+Residue theorem
+Conformal map
+Schwarz lemma
+Harmonic function
+Laplace's equation
+
+Geometric function theory
+People
+Augustin-Louis Cauchy
+Leonhard Euler
+Carl Friedrich Gauss
+Jacques Hadamard
+Kiyoshi Oka
+Bernhard Riemann
+Karl Weierstrass
+
+ Mathematics portalvte
+In mathematics, the Laurent series of a complex function f(z)(z) is a representation of that function as a power series which includes terms of negative degree. It may be used to express complex functions in cases where a Taylor series expansion cannot be applied. The Laurent series was named after and first published by Pierre Alphonse Laurent in 1843.  Karl Weierstrass may have discovered it first in a paper written in 1841, but it was not published until after his death.[1]
+
+
+Definition[edit]
+The Laurent series for a complex function f(z)(z) about a point c is given by
+f(z)=∑n=−∞∞an(z−c)n,(z)=∑_n=-∞^∞a_n(z-c)^n,
+where an_n and c are constants, with an_n defined by a contour integral that generalizes Cauchy's integral formula:
+an=12πi∮γf(z)(z−c)n+1dz._n=1/2∮_γf(z)/(z-c)^n+1 dz.
+The path of integration γγ is counterclockwise around a Jordan curve enclosing c and lying in an annulus A in which f(z)(z) is holomorphic (analytic). The expansion for f(z)(z) will then be valid anywhere inside the annulus. The annulus is shown in red in the figure on the right, along with an example of a suitable path of integration labeled γγ. If we take γγ to be a circle |z−c|=ϱ|z-c|=ϱ, where r<ϱ<R<ϱ<R, this just amounts
+to computing the complex Fourier coefficients of the restriction of f to γγ. The fact that these integrals are unchanged by a deformation of the contour γγ is an immediate consequence of Green's theorem. 
+One may also obtain the Laurent series for a complex function f(z)(z) at z=∞=∞. However, this is the same as when R→∞→∞ (see the example below). 
+In practice, the above integral formula may not offer the most practical method for computing the coefficients
+an_n for a given function f(z)(z); instead, one often pieces together the Laurent series by combining known Taylor expansions. Because the Laurent expansion of a function is unique whenever
+it exists, any expression of this form that equals the given function 
+f(z)(z) in some annulus must actually be the Laurent expansion of f(z)(z).
+
+Convergent Laurent series[edit]
+e−1/x2 and Laurent approximations: see text for key. As the negative degree of the Laurent series rises, it approaches the correct function.
+e−1/x2 and its Laurent approximations with the negative degree rising. The neighborhood around the zero singularity can never be approximated.
+Laurent series with complex coefficients are an important tool in complex analysis, especially to investigate the behavior of functions near singularities.
+Consider for instance the function f(x)=e−1/x2(x)=e^-1/x^2 with f(0)=0(0)=0. As a real function, it is infinitely differentiable everywhere; as a complex function however it is not differentiable at x=0=0. By replacing x with −1/x2-1/x^2 in the power series for the exponential function, we obtain its Laurent series which converges and is equal to f(x)(x) for all complex numbers x except at the singularity x=0=0. The graph opposite shows e−1/x2^-1/x^2 in black and its Laurent approximations
+∑n=0N(−1)nx−2nn!∑_n=0^N(-1)^n x^-2n!
+for N = 1, 2, 3, 4, 5, 6, 7 and 50. As N→∞→∞, the approximation becomes exact for all (complex) numbers x except at the singularity x=0=0.
+More generally, Laurent series can be used to express holomorphic functions defined on an annulus, much as power series are used to express holomorphic functions defined on a disc.
+Suppose 
+∑n=−∞∞an(z−c)n∑_n=-∞^∞a_n(z-c)^n
+is a given Laurent series with complex coefficients an_n and a complex center c. Then there exists a unique inner radius r and outer radius R such that:
+
+The Laurent series converges on the open annulus A=z:r<|z−c|<R={z:r<|z-c|<R}. To say that the Laurent series converges, we mean that both the positive degree power series and the negative degree power series converge. Furthermore, this convergence will be uniform on compact sets. Finally, the convergent series defines a holomorphic function f(z)(z) on the open annulus.
+Outside the annulus, the Laurent series diverges. That is, at each point of the exterior of A, the positive degree power series or the negative degree power series diverges.
+On the boundary of the annulus, one cannot make a general statement, except to say that there is at least one point on the inner boundary and one point on the outer boundary such that f(z)(z) cannot be holomorphically continued to those points.
+It is possible that r may be zero or R may be infinite; at the other extreme, it's not necessarily true that r is less than R.
+These radii can be computed as follows:
+r=limsupn→∞|a−n|1n,1R=limsupn→∞|an|1n.r   =lim sup_n→∞|a_-n|^1/n,
+1   =lim sup_n→∞|a_n|^1/n.
+We take R to be infinite when this latter lim sup is zero.
+Conversely, if we start with an annulus of the form A=z:r<|z−c|<R={z:r<|z-c|<R} and a holomorphic function f(z)(z) defined on A, then there always exists a unique Laurent series with center c which converges (at least) on A and represents the function f(z)(z).
+As an example, consider the following rational function, along with its partial fraction expansion:
+f(z)=1(z−1)(z−2i)=1+2i5(1z−1−1z−2i).(z)=1/(z-1)(z-2i)=1+2i/5(1/z-1-1/z-2i).
+This function has singularities at z=1=1 and z=2i=2i, where the denominator of the expression is zero and the expression is therefore undefined.
+A Taylor series about z=0=0 (which yields a power series) will only converge in a disc of radius 1, since it "hits" the singularity at 1.
+However, there are three possible Laurent expansions about 0, depending on the radius of z:
+
+One series is defined on the inner disc where |z| < 1; it is the same as the Taylor series, f(z)=1+2i5∑n=0∞(1(2i)n+1−1)zn.(z)=1+2i/5∑_n=0^∞(1/(2i)^n+1-1)z^n.  This follows from the partial fraction form of the function, along with the formula for the sum  of a geometric series, 1z−a=−1a∑n=0∞(za)n1/z-a=-1/a∑_n=0^∞(za)^n for |z|<|a||z|<|a|.
+The second series is defined on the middle annulus where 1<z<21<z<2 is caught between the two singularities: f(z)=1+2i5(∑n=1∞z−n+∑n=0∞1(2i)n+1zn).(z)=1+2i/5(∑_n=1^∞z^-n+∑_n=0^∞1/(2i)^n+1z^n). Here, we use the alternative form of the geometric series summation, 1z−a=1z∑n=0∞(az)n1/z-a=1/z∑_n=0^∞(a/z)^n for |z|>|a||z|>|a|.
+The third series is defined on the infinite outer annulus where 2<z<∞2<z<∞, (which is also the Laurent expansion at z=∞=∞) f(z)=1+2i5∑n=1∞(1−(2i)n−1)z−n.(z)=1+2i/5∑_n=1^∞(1-(2i)^n-1)z^-n. This series can be derived using geometric series as before, or by performing polynomial long division of 1 by (x−1)(x−2i)(x-1)(x-2i), not stopping with a remainder but continuing into x−n^-n terms; indeed, the "outer" Laurent series of a rational function is analogous to the decimal form of a fraction. (The "inner" Taylor series expansion can be obtained similarly, just reversing the term order in the division algorithm.)
+The case r=0=0; i.e., a holomorphic function f(z)(z) which may be undefined at a single point c, is especially important. The coefficient a−1_-1 of the Laurent expansion of such a function is called the residue of f(z)(z) at the singularity c; it plays a prominent role in the residue theorem. For an example of this, consider
+f(z)=ezz+e1/z.(z)=e^z+e^1/z.
+This function is holomorphic everywhere except at z=0=0.
+To determine the Laurent expansion about c=0=0, we use our knowledge of the Taylor series of the exponential function:
+f(z)=⋯+(13!)z−3+(12!)z−2+2z−1+2+(12!)z+(13!)z2+(14!)z3+⋯.(z)=⋯+(13!)z^-3+(12!)z^-2+2z^-1+2+(12!)z+(13!)z^2+(14!)z^3+⋯.
+We find that the residue is 2.
+One example for expanding about z=∞=∞:
+f(z)=1+z2−z=z(1+1z2−1)=z(12z2−18z4+116z6−⋯)=12z−18z3+116z5−⋯.(z)=√(1+z^2)-z=z(√(1+1/z^2)-1)=z(1/2z^2-1/8z^4+1/16z^6-⋯)=1/2z-1/8z^3+1/16z^5-⋯.
+
+Uniqueness[edit]
+Suppose a function f(z)(z) holomorphic on the annulus  r<|z−c|<R<|z-c|<R has two Laurent series:
+f(z)=∑n=−∞∞an(z−c)n=∑n=−∞∞bn(z−c)n.(z)=∑_n=-∞^∞a_n(z-c)^n=∑_n=-∞^∞b_n(z-c)^n.
+Multiply both sides by (z−c)−k−1(z-c)^-k-1, where k is an arbitrary integer, and integrate on a path γ inside the annulus,
+∮γ∑n=−∞∞an(z−c)n−k−1dz=∮γ∑n=−∞∞bn(z−c)n−k−1dz.∮_γ ∑_n=-∞^∞a_n(z-c)^n-k-1 dz=∮_γ ∑_n=-∞^∞b_n(z-c)^n-k-1 dz.
+The series converges uniformly on r+ε≤|z−c|≤R−ε+ε≤|z-c|-ε, where ε is a positive number small enough for γ to be contained in the constricted closed annulus, so the integration and summation can be interchanged. Substituting the identity
+∮γ(z−c)n−k−1dz=2πiδnk∮_γ (z-c)^n-k-1 dz=2δ_nk
+into the summation yields
+ak=bk._k=b_k.
+Hence the Laurent series is unique.
+
+Laurent polynomials[edit]
+Main article: Laurent polynomial
+A Laurent polynomial is a Laurent series in which only finitely many coefficients are non-zero. Laurent polynomials differ from ordinary polynomials in that they may have terms of negative degree.
+
+Principal part[edit]
+The principal part of a Laurent series is the series of terms with negative degree, that is
+∑k=−∞−1ak(z−c)k.∑_k=-∞^-1a_k(z-c)^k.
+If the principal part of f is a finite sum, then f has a pole at c of order equal to (negative) the degree of the highest term; on the other hand, if f has an essential singularity at c, the principal part is an infinite sum (meaning it has infinitely many non-zero terms).
+If the inner radius of convergence of the Laurent series for f is 0, then f has an essential singularity at c if and only if the principal part is an infinite sum, and has a pole otherwise.
+If the inner radius of convergence is positive, f may have infinitely many negative terms but still be regular at c, as in the example above, in which case it is represented by a different Laurent series in a disk about c.
+Laurent series with only finitely many negative terms are well-behaved—they are a power series divided by zk^k, and can be analyzed similarly—while Laurent series with infinitely many negative terms have complicated behavior on the inner circle of convergence.
+
+Multiplication and sum[edit]
+Laurent series cannot in general be multiplied.
+Algebraically, the expression for the terms of the product may involve infinite sums which need not converge (one cannot take the convolution of integer sequences).
+Geometrically, the two Laurent series may have non-overlapping annuli of convergence.
+Two Laurent series with only finitely many negative terms can be multiplied: algebraically, the sums are all finite; geometrically, these have poles at c, and inner radius of convergence 0, so they both converge on an overlapping annulus.
+Thus when defining formal Laurent series, one requires Laurent series with only finitely many negative terms.
+Similarly, the sum of two convergent Laurent series need not converge, though it is always defined formally, but the sum of two bounded below Laurent series (or any Laurent series on a punctured disk) has a non-empty annulus of convergence.
+Also, for a field F, by the sum and multiplication defined above, formal Laurent series would form a field F((x))((x)) which is also the field of fractions of the ring F[[x]][[x]] of formal power series.
+
+See also[edit]
+Puiseux series
+Mittag-Leffler's theorem
+Formal Laurent series –  Laurent series considered formally, with coefficients from an arbitrary commutative ring, without regard for convergence, and with only finitely many negative terms, so that multiplication is always defined.
+Z-transform –  the special case where the Laurent series is taken about zero has much use in time-series analysis.
+Fourier series –  the substitution z=eπiw=e^ transforms a Laurent series into a Fourier series, or conversely. This is used in the q-series expansion of the j-invariant.
+Padé approximant –  Another technique used when a Taylor series is not viable.
+References[edit]
+
+
+^ Rodriguez, Rubi; Kra, Irwin; Gilman, Jane P. (2012), Complex Analysis: In the Spirit of Lipman Bers, Graduate Texts in Mathematics, vol. 245, Springer, p. 12, ISBN 9781441973238.
+
+
+External links[edit]
+"Laurent series", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+O'Connor, John J.; Robertson, Edmund F., "Laurent series", MacTutor History of Mathematics Archive, University of St Andrews
+Weisstein, Eric W. "Laurent Series". MathWorld.
+Laurent Series and Mandelbrot set by Robert Munafo
+vteSequences and seriesInteger sequencesBasic
+Arithmetic progression
+Geometric progression
+Harmonic progression
+Square number
+Cubic number
+Factorial
+Powers of two
+Powers of three
+Powers of 10
+Advanced (list)
+Complete sequence
+Fibonacci sequence
+Figurate number
+Heptagonal number
+Hexagonal number
+Lucas number
+Pell number
+Pentagonal number
+Polygonal number
+Triangular number
+array
+Properties of sequences
+Cauchy sequence
+Monotonic function
+Periodic sequence
+Properties of seriesSeries
+Alternating
+Convergent
+Divergent
+Telescoping
+Convergence
+Absolute
+Conditional
+Uniform
+Explicit seriesConvergent
+1/2 − 1/4 + 1/8 − 1/16 + ⋯
+1/2 + 1/4 + 1/8 + 1/16 + ⋯
+1/4 + 1/16 + 1/64 + 1/256 + ⋯
+1 + 1/2s + 1/3s + ... (Riemann zeta function)
+Divergent
+1 + 1 + 1 + 1 + ⋯
+1 − 1 + 1 − 1 + ⋯ (Grandi's series)
+1 + 2 + 3 + 4 + ⋯
+1 − 2 + 3 − 4 + ⋯
+1 + 2 + 4 + 8 + ⋯
+1 − 2 + 4 − 8 + ⋯
+Infinite arithmetic series
+1 − 1 + 2 − 6 + 24 − 120 + ⋯ (alternating factorials)
+1 + 1/2 + 1/3 + 1/4 + ⋯ (harmonic series)
+1/2 + 1/3 + 1/5 + 1/7 + 1/11 + ⋯ (inverses of primes)
+Kinds of series
+Taylor series
+Power series
+Formal power series
+Laurent series
+Puiseux series
+Dirichlet series
+Trigonometric series
+Fourier series
+Generating series
+Hypergeometric series
+Generalized hypergeometric series
+Hypergeometric function of a matrix argument
+Lauricella hypergeometric series
+Modular hypergeometric series
+Riemann's differential equation
+Theta hypergeometric series
+
+ Category
+
+
+
+

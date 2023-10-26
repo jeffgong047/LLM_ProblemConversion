@@ -1,0 +1,89 @@
+About the convergence of Newton's method
+The Kantorovich theorem, or Newton–Kantorovich theorem, is a mathematical statement on the semi-local convergence of Newton's method. It was first stated by Leonid Kantorovich in 1948.[1][2] It is similar to the form of the Banach fixed-point theorem, although it states existence and uniqueness of a zero rather than a fixed point.[3]
+Newton's method constructs a sequence of points that under certain conditions will converge to a solution x of an equation f(x)=0(x)=0 or a vector solution of a system of equation F(x)=0(x)=0. The Kantorovich theorem gives conditions on the initial point of this sequence. If those conditions are satisfied then a solution exists close to the initial point and the sequence converges to that point.[1][2]
+
+
+Assumptions[edit]
+Let X⊂Rn⊂ℝ^n be an open subset and F:X⊂Rn→Rn:X⊂ℝ^n→ℝ^n a differentiable function with a Jacobian F′(x)^'(𝐱) that is locally Lipschitz continuous (for instance if F is twice differentiable). That is, it is assumed that for any x∈X there is an open subset U⊂X such that x∈U and there exists a constant L>0>0 such that for any x,y∈U𝐱,𝐲
+
+‖F′(x)−F′(y)‖≤L‖x−y‖F'(𝐱)-F'(𝐲) 𝐱-𝐲
+holds. The norm on the left is some operator norm that is compatible with the vector norm on the right. This inequality can be rewritten to only use the vector norm. Then for any vector v∈Rn𝐯∈ℝ^n the inequality
+
+‖F′(x)(v)−F′(y)(v)‖≤L‖x−y‖‖v‖F'(𝐱)(𝐯)-F'(𝐲)(𝐯) 𝐱-𝐲 𝐯
+must hold.
+Now choose any initial point x0∈X𝐱_0. Assume that F′(x0)'(𝐱_0) is invertible and construct the Newton step h0=−F′(x0)−1F(x0).𝐡_0=-F'(𝐱_0)^-1F(𝐱_0).
+The next assumption is that not only the next point x1=x0+h0𝐱_1=𝐱_0+𝐡_0 but the entire ball B(x1,‖h0‖)(𝐱_1,𝐡_0) is contained inside the set X. Let M be the Lipschitz constant for the Jacobian over this ball (assuming it exists).
+As a last preparation, construct recursively, as long as it is possible, the sequences (xk)k(𝐱_k)_k, (hk)k(𝐡_k)_k, (αk)k(α_k)_k according to
+
+hk=−F′(xk)−1F(xk)αk=M‖F′(xk)−1‖‖hk‖xk+1=xk+hk.2𝐡_k   =-F'(𝐱_k)^-1F(𝐱_k)
+α_k   =M F'(𝐱_k)^-1 𝐡_k
+𝐱_k+1   =𝐱_k+𝐡_k.
+Statement[edit]
+Now if α0≤12α_0≤12 then 
+
+a solution x∗𝐱^* of F(x∗)=0(𝐱^*)=0 exists inside the closed ball B¯(x1,‖h0‖)B̅(𝐱_1,𝐡_0) and
+the Newton iteration starting in x0𝐱_0 converges to x∗𝐱^* with at least linear order of convergence.
+A statement that is more precise but slightly more difficult to prove uses the roots t∗≤t∗∗^∗^** of the quadratic polynomial
+
+p(t)=(12L‖F′(x0)−1‖−1)t2−t+‖h0‖(t)=(12LF'(𝐱_0)^-1^-1)t^2-t+𝐡_0,
+t∗/∗∗=2‖h0‖1±1−2α0^∗/**=2𝐡_0/1±√(1-2α_0)
+and their ratio 
+
+θ=t∗t∗∗=1−1−2α01+1−2α0.θ=t^*/t^**=1-√(1-2α_0)/1+√(1-2α_0).
+Then
+
+a solution x∗𝐱^* exists inside the closed ball B¯(x1,θ‖h0‖)⊂B¯(x0,t∗)B̅(𝐱_1,θ𝐡_0)⊂B̅(𝐱_0,t^*)
+it is unique inside the bigger ball B(x0,t∗∗)(𝐱_0,t^*∗)
+and the convergence to the solution of F is dominated by the convergence of the Newton iteration of the quadratic polynomial p(t)(t) towards its smallest root t∗^∗,[4] if t0=0,tk+1=tk−p(tk)p′(tk)_0=0, t_k+1=t_k-p(t_k)p'(t_k), then
+‖xk+p−xk‖≤tk+p−tk.𝐱_k+p-𝐱_k_k+p-t_k.
+The quadratic convergence is obtained from the error estimate[5]
+‖xn+1−x∗‖≤θ2n‖xn+1−xn‖≤θ2n2n‖h0‖.𝐱_n+1-𝐱^*≤θ^2^n𝐱_n+1-𝐱_n≤θ^2^n/2^n𝐡_0.
+Corollary[edit]
+In 1986, Yamamoto proved that the error evaluations of the Newton method such as Doring (1969), Ostrowski (1971, 1973),[6][7] Gragg-Tapia (1974), Potra-Ptak (1980),[8] Miel (1981),[9] Potra (1984),[10] can be derived from the Kantorovich theorem.[11]
+
+Generalizations[edit]
+There is a q-analog for the Kantorovich theorem.[12][13] For other generalizations/variations, see Ortega & Rheinboldt (1970).[14]
+
+Applications[edit]
+Oishi and Tanabe claimed that the Kantorovich theorem can be applied to obtain reliable solutions of linear programming.[15]
+
+References[edit]
+
+
+^ a b Deuflhard, P. (2004). Newton Methods for Nonlinear Problems. Affine Invariance and Adaptive Algorithms. Springer Series in Computational Mathematics. Vol. 35. Berlin: Springer. ISBN 3-540-21099-7.
+
+^ a b Zeidler, E. (1985). Nonlinear Functional Analysis and its Applications: Part 1: Fixed-Point Theorems. New York: Springer. ISBN 0-387-96499-1.
+
+^ Dennis, John E.; Schnabel, Robert B. (1983). "The Kantorovich and Contractive Mapping Theorems". Numerical Methods for Unconstrained Optimization and Nonlinear Equations. Englewood Cliffs: Prentice-Hall. pp. 92–94. ISBN 0-13-627216-9.
+
+^ Ortega, J. M. (1968). "The Newton-Kantorovich Theorem". Amer. Math. Monthly. 75 (6): 658–660. doi:10.2307/2313800. JSTOR 2313800.
+
+^ Gragg, W. B.; Tapia, R. A. (1974). "Optimal Error Bounds for the Newton-Kantorovich Theorem". SIAM Journal on Numerical Analysis. 11 (1): 10–13. Bibcode:1974SJNA...11...10G. doi:10.1137/0711002. JSTOR 2156425.
+
+^ Ostrowski, A. M. (1971). "La method de Newton dans les espaces de Banach". C. R. Acad. Sci. Paris. 27 (A): 1251–1253.
+
+^ Ostrowski, A. M. (1973). Solution of Equations in Euclidean and Banach Spaces. New York: Academic Press. ISBN 0-12-530260-6.
+
+^ Potra, F. A.; Ptak, V. (1980). "Sharp error bounds for Newton's process". Numer. Math. 34: 63–72. doi:10.1007/BF01463998.
+
+^ Miel, G. J. (1981). "An updated version of the Kantorovich theorem for Newton's method". Computing. 27 (3): 237–244. doi:10.1007/BF02237981.
+
+^ Potra, F. A. (1984). "On the a posteriori error estimates for Newton's method". Beiträge zur Numerische Mathematik. 12: 125–138.
+
+^ Yamamoto, T. (1986). "A method for finding sharp error bounds for Newton's method under the Kantorovich assumptions". Numerische Mathematik. 49 (2–3): 203–220. doi:10.1007/BF01389624.
+
+^ Rajkovic, P. M.; Stankovic, M. S.; Marinkovic, S. D. (2003). "On q-iterative methods for solving equations and systems". Novi Sad J. Math. 33 (2): 127–137.
+
+^ Rajković, P. M.; Marinković, S. D.; Stanković, M. S. (2005). "On q-Newton–Kantorovich method for solving systems of equations". Applied Mathematics and Computation. 168 (2): 1432–1448. doi:10.1016/j.amc.2004.10.035.
+
+^ Ortega, J. M.; Rheinboldt, W. C. (1970). Iterative Solution of Nonlinear Equations in Several Variables. SIAM. OCLC 95021.
+
+^ Oishi, S.; Tanabe, K. (2009). "Numerical Inclusion of Optimum Point for Linear Programming". JSIAM Letters. 1: 5–8. doi:10.14495/jsiaml.1.5.
+
+
+Further reading[edit]
+John H. Hubbard and Barbara Burke Hubbard: Vector Calculus, Linear Algebra, and Differential Forms: A Unified Approach, Matrix Editions, ISBN 978-0-9715766-3-6 (preview of 3. edition and sample material including Kant.-thm.)
+Yamamoto, Tetsuro (2001). "Historical Developments in Convergence Analysis for Newton's and Newton-like Methods". In Brezinski, C.; Wuytack, L. (eds.). Numerical Analysis : Historical Developments in the 20th Century. North-Holland. pp. 241–263. ISBN 0-444-50617-9.
+
+
+

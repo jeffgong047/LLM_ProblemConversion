@@ -1,0 +1,296 @@
+This article is about the calculus concept. For the statistical concept, see Fisher–Tippett–Gnedenko theorem.
+Continuous real function on a closed interval has a maximum and a minimum
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (June 2012) (Learn how and when to remove this template message)
+A continuous function f(x)(x) on the closed interval [a,b][a,b] showing the absolute max (red) and the absolute min (blue).
+In calculus, the extreme value theorem states that if a real-valued function f is continuous on the closed interval [a,b][a,b], then f must attain a maximum and a minimum, each at least once. That is, there exist numbers c and d in [a,b][a,b] such that:
+f(c)≥f(x)≥f(d)∀x∈[a,b](c)(x)(d)  ∈[a,b]
+The extreme value theorem is more specific than the related  boundedness theorem, which states merely that a continuous function f on the closed interval [a,b][a,b] is bounded on that interval; that is, there exist real numbers m and M such that:
+m≤f(x)≤M∀x∈[a,b].(x)  ∈[a,b].
+This does not say that M and m are necessarily the maximum and minimum values of f on the interval [a,b],[a,b], which is what the extreme value theorem stipulates must also be the case.
+The extreme value theorem is used to prove Rolle's theorem.  In a formulation due to Karl Weierstrass, this theorem states that a continuous function from a non-empty compact space to a subset of the real numbers attains a maximum and a minimum.
+
+
+History[edit]
+The extreme value theorem was originally proven by Bernard Bolzano in the 1830s in a work Function Theory but the work remained unpublished until 1930. Bolzano's proof consisted of showing that a continuous function on a closed interval was bounded, and then showing that the function attained a maximum and a minimum value.  Both proofs involved what is known today as the Bolzano–Weierstrass theorem.[1]
+
+Functions to which the theorem does not apply[edit]
+The following examples show why the function domain must be closed and bounded in order for the theorem to apply.  Each fails to attain a maximum on the given interval.
+
+f(x)=x(x)=x defined over [0,∞)[0,∞) is not bounded from above.
+f(x)=x1+x(x)=x/1+x defined over [0,∞)[0,∞) is bounded but does not attain its least upper bound 11.
+f(x)=1x(x)=1/x defined over (0,1](0,1] is not bounded from above.
+f(x)=1−x(x)=1-x defined over (0,1](0,1] is bounded but never attains its least upper bound 11.
+Defining f(0)=0(0)=0 in the last two examples shows that both theorems require continuity on [a,b][a,b].
+
+Generalization to metric and topological spaces[edit]
+When moving from the real line Rℝ to metric spaces and general topological spaces, the appropriate generalization of a closed bounded interval is a compact set. A set K is said to be compact if it has the following property: from every collection of open sets Uα_α such that  ⋃Uα⊃K_α, a finite subcollection Uα1,…,Uαn_α_1,…,U_α_ncan be chosen such that ⋃i=1nUαi⊃K⋃_i=1^nU_α_i. This is usually stated in short as "every open cover of K has a finite subcover". The Heine–Borel theorem asserts that a subset of the real line is compact if and only if it is both closed and bounded.  Correspondingly, a metric space has the Heine–Borel property if every closed and bounded set is also   compact.
+The concept of a continuous function can likewise be generalized.  Given topological spaces V,W,, a function f:V→W:V is said to be continuous if for every open set U⊂W, f−1(U)⊂V^-1(U) is also open.  Given these definitions, continuous functions can be shown to preserve compactness:[2]
+Theorem. If V,W, are topological spaces, f:V→W:V is a continuous function, and K⊂V is compact, then f(K)⊂W(K) is also compact.
+In particular, if W=R=ℝ, then this theorem implies that f(K)(K) is closed and bounded for any compact set K, which in turn implies that f attains its supremum and infimum on any (nonempty) compact set K.  Thus, we have the following generalization of the extreme value theorem:[2]
+Theorem. If K is a compact set and f:K→R:K→ℝ is a continuous function, then f is bounded and there exist p,q∈K,q such that f(p)=supx∈Kf(x)(p)=sup_xf(x) and f(q)=infx∈Kf(x)(q)=inf_xf(x).
+Slightly more generally, this is also true for an upper semicontinuous function. (see compact space#Functions and compact spaces).
+
+Proving the theorems[edit]
+We look at the proof for the upper bound and the maximum of f. By applying these results to the function −f-f, the existence of the lower bound and the result for the minimum of f follows. Also note that everything in the proof is done within the context of the real numbers.
+We first prove the boundedness theorem, which is a step in the proof of the extreme value theorem. The basic steps involved in the proof of the extreme value theorem are:
+
+Prove the boundedness theorem.
+Find a sequence so that its image converges to the supremum of f.
+Show that there exists a subsequence that converges to a point in the domain.
+Use continuity to show that the image of the subsequence converges to the supremum.
+Proof of the boundedness theorem[edit]
+Statement     If f(x)(x) is continuous on [a,b][a,b] then it is bounded on [a,b][a,b]
+Suppose the function f  is not bounded above on the interval [a,b][a,b].  Then, for every natural number n, there exists an xn∈[a,b]_n∈[a,b] such that f(xn)>n(x_n)>n. This defines a sequence (xn)n∈N(x_n)_n∈ℕ. Because [a,b][a,b] is bounded, the Bolzano–Weierstrass theorem implies that there exists a convergent subsequence (xnk)k∈N(x_n_k)_k∈ℕ of (xn)(x_n). Denote its limit by x. As [a,b][a,b] is closed, it contains x.  Because f is continuous at x, we know that f(xnk)(x_n_k) converges to the real number f(x)(x) (as f is sequentially continuous at x). But f(xnk)>nk≥k(x_n_k)>n_k for every k, which implies that f(xnk)(x_n_k) diverges to +∞+∞, a contradiction. Therefore, f is bounded above on [a,b][a,b]. ◻
+
+Alternative proof[edit]
+Statement     If f(x)(x) is continuous on [a,b][a,b] then it is bounded on [a,b][a,b]
+Proof      Consider the set B of points p in [a,b][a,b] such that f(x)(x) is bounded on [a,p][a,p].  We note that a is one such point, for f(x)(x) is bounded on [a,a][a,a] by the value f(a)(a).  If e>a>a is another point, then all points between a and e also belong to B.  In other words B is an interval closed at its left end by a.
+Now f is continuous on the right at a, hence there exists δ>0δ>0 such that |f(x)−f(a)|<1|f(x)-f(a)|<1 for all x in [a,a+δ][a,a+δ]. Thus f is bounded by f(a)−1(a)-1 and f(a)+1(a)+1 on the interval [a,a+δ][a,a+δ] so that all these points belong to B.
+So far, we know that B is an interval of non-zero length, closed at its left end by a.
+Next, B is bounded above by b.  Hence the set B has a supremum in [a,b][a,b] ; let us call it s. From the non-zero length of B we can deduce that s>a>a.
+Suppose s<b<b.  Now f is continuous at s, hence there exists δ>0δ>0 such that |f(x)−f(s)|<1|f(x)-f(s)|<1 for all x in [s−δ,s+δ][s-δ,s+δ] so that f is bounded on this interval.  But it follows from the supremacy of s that there exists a point belonging to B, e say, which is greater than s−δ/2-δ/2.  Thus f is bounded on [a,e][a,e] which overlaps [s−δ,s+δ][s-δ,s+δ] so that f is bounded on [a,s+δ][a,s+δ].  This however contradicts the supremacy of s.
+We must therefore have s=b=b.  Now f is continuous on the left at s, hence there exists δ>0δ>0 such that |f(x)−f(s)|<1|f(x)-f(s)|<1 for all x in [s−δ,s][s-δ,s] so that f is bounded on this interval.  But it follows from the supremacy of s that there exists a point belonging to B, e say, which is greater than s−δ/2-δ/2.  Thus f is bounded on [a,e][a,e] which overlaps [s−δ,s][s-δ,s] so that f is bounded on [a,s][a,s].   
+∎
+
+Proof of the extreme value theorem[edit]
+By the boundedness theorem, f is bounded from above, hence, by the  Dedekind-completeness of the real numbers, the least upper bound (supremum) M of f exists. It is necessary to find a point d in [a, b] such that M = f(d). Let n be a natural number. As M is the least upper bound, M – 1/n is not an upper bound for f. Therefore, there exists dn in [a, b] so that M – 1/n < f(dn). This defines a sequence {dn}. Since M is an upper bound for f, we have M – 1/n < f(dn) ≤ M for all n.  Therefore, the sequence {f(dn)} converges to M.
+The Bolzano–Weierstrass theorem tells us that there exists a subsequence {dnk_n_k}, which converges to some d and, as [a, b] is closed, d is in [a, b]. Since f is continuous at d, the sequence {f(dnk_n_k)} converges to f(d). But {f(dnk)} is a subsequence of {f(dn)} that converges to M, so M = f(d). Therefore, f attains its supremum M at d. ∎
+
+Alternative proof of the extreme value theorem[edit]
+The set {y ∈ R : y = f(x) for some x ∈ [a,b]} is a bounded set. Hence, its least upper bound exists by least upper bound property of the real numbers. Let M = sup(f(x)) on [a, b].  If there is no point x on [a, b] so that f(x) = M ,then
+f(x) < M on [a, b].  Therefore, 1/(M − f(x)) is continuous on [a, b].
+However, to every positive number ε, there is always some x in [a, b] such that M − f(x) < ε because M is the least upper bound. Hence, 1/(M − f(x)) > 1/ε, which means that 1/(M − f(x)) is not bounded.  Since every continuous function on a [a, b] is bounded, this contradicts the conclusion that 1/(M − f(x)) was continuous on [a, b].  Therefore, there must be a point x in [a, b] such that f(x) = M. ∎
+
+Proof using the hyperreals[edit]
+In the setting of non-standard calculus, let N  be an infinite hyperinteger.  The interval [0, 1] has a natural hyperreal extension.  Consider its partition into N subintervals of equal infinitesimal length 1/N, with partition points xi = i /N as i "runs" from 0 to N.  The function ƒ  is also naturally extended to a function ƒ* defined on the hyperreals between 0 and 1.  Note that in the standard setting (when N  is finite), a point with the maximal value of ƒ can always be chosen among the N+1 points xi, by induction.  Hence, by the transfer principle, there is a hyperinteger i0 such that 0 ≤ i0 ≤ N and f∗(xi0)≥f∗(xi)^*(x_i_0)^*(x_i)  for all i = 0, ..., N.  Consider the real point
+c=st(xi0)=𝐬𝐭(x_i_0)
+where st is the standard part function.  An arbitrary real point x lies in a suitable sub-interval of the partition, namely x∈[xi,xi+1]∈[x_i,x_i+1], so that  st(xi) = x.  Applying st to the inequality f∗(xi0)≥f∗(xi)^*(x_i_0)^*(x_i), we obtain st(f∗(xi0))≥st(f∗(xi))𝐬𝐭(f^*(x_i_0))≥𝐬𝐭(f^*(x_i)).  By continuity of ƒ  we have
+
+st(f∗(xi0))=f(st(xi0))=f(c)𝐬𝐭(f^*(x_i_0))=f(𝐬𝐭(x_i_0))=f(c).
+Hence ƒ(c) ≥ ƒ(x), for all real x, proving c to be a maximum of ƒ.[3]
+
+Proof from first principles[edit]
+Statement       If f(x)(x) is continuous on [a,b][a,b] then it attains its supremum on [a,b][a,b]
+Proof         By the Boundedness Theorem, f(x)(x) is bounded above on [a,b][a,b] and by the completeness property of the real numbers has a supremum in [a,b][a,b].  Let us call it M, or M[a,b][a,b].  It is clear that the restriction of f to the subinterval [a,x][a,x] where x≤b has a supremum M[a,x][a,x] which is less than or equal to M, and that M[a,x][a,x] increases from f(a)(a) to M as x increases from a to b.
+If f(a)=M(a)=M then we are done.  Suppose therefore that f(a)<M(a)<M and let d=M−f(a)=M-f(a).   Consider the set L of points x in [a,b][a,b] such that M[a,x]<M[a,x]<M.
+Clearly  a∈L ; moreover if e>a>a is another point in L then all points between a and e also belong to L because M[a,x][a,x] is monotonic increasing.  Hence L is a non-empty interval, closed at its left end by a.
+Now f is continuous on the right at a, hence there exists δ>0δ>0 such that |f(x)−f(a)|<d/2|f(x)-f(a)|<d/2 for all x in [a,a+δ][a,a+δ]. Thus f is less than M−d/2-d/2 on the interval [a,a+δ][a,a+δ] so that all these points belong to L.
+Next, L is bounded above by b and has therefore a supremum in [a,b][a,b]:  let us call it s.   We see from the above that s>a>a.  We will show that s is the point we are seeking i.e. the point where f attains its supremum, or in other words f(s)=M(s)=M.
+Suppose the contrary viz. f(s)<M(s)<M.  Let d=M−f(s)=M-f(s) and consider the following two cases:
+
+s<b<b.   As f is continuous  at s, there exists δ>0δ>0 such that |f(x)−f(s)|<d/2|f(x)-f(s)|<d/2 for all x in [s−δ,s+δ][s-δ,s+δ].    This means that f is less than M−d/2-d/2 on the interval [s−δ,s+δ][s-δ,s+δ].   But it follows from the supremacy of s that there exists a point, e say, belonging to L which is greater than s−δ-δ.  By the definition of L, M[a,e]<M[a,e]<M.  Let  d1=M−M[a,e]_1=M-M[a,e] then for all x in [a,e][a,e], f(x)≤M−d1(x)-d_1.  Taking d2_2 to be the minimum of d/2/2 and d1_1, we have f(x)≤M−d2(x)-d_2 for all x in [a,s+δ][a,s+δ].  Hence M[a,s+δ]<M[a,s+δ]<M so that s+δ∈L+δ.  This however contradicts the supremacy of s and completes the proof.
+s=b=b.    As f is continuous on the left at s, there exists δ>0δ>0 such that |f(x)−f(s)|<d/2|f(x)-f(s)|<d/2 for all x in [s−δ,s][s-δ,s].    This means that f is less than M−d/2-d/2 on the interval [s−δ,s][s-δ,s].   But it follows from the supremacy of s that there exists a point, e say, belonging to L which is greater than s−δ-δ.  By the definition of L, M[a,e]<M[a,e]<M.  Let  d1=M−M[a,e]_1=M-M[a,e] then for all x in [a,e][a,e], f(x)≤M−d1(x)-d_1.  Taking d2_2 to be the minimum of d/2/2 and d1_1, we have f(x)≤M−d2(x)-d_2 for all x in [a,b][a,b].  This contradicts the supremacy of M and completes the proof.
+Extension to semi-continuous functions[edit]
+If the continuity of the function f is weakened to semi-continuity, then the corresponding half of the boundedness theorem and the extreme value theorem hold and the values –∞ or +∞, respectively, from the extended real number line can be allowed as possible values. More precisely:
+Theorem: If a function f : [a, b] → [–∞, ∞) is upper semi-continuous, meaning that
+limsupy→xf(y)≤f(x)lim sup_yf(y)(x)
+for all x in [a,b], then f is bounded above and attains its supremum.
+Proof: If f(x) = –∞ for all x in [a,b], then the supremum is also –∞ and the theorem is true. In all other cases, the proof is a slight modification of the proofs given above. In the proof of the boundedness theorem, the  upper semi-continuity of f at x only implies that the limit superior of the subsequence {f(xnk)} is bounded above by f(x) < ∞, but that is enough to obtain the contradiction. In the proof of the extreme value theorem, upper semi-continuity of f at d implies that the limit superior of the subsequence {f(dnk)} is bounded above by f(d), but this suffices to conclude that f(d) = M. ∎
+Applying this result to −f proves:
+Theorem: If a function f : [a, b] → (–∞, ∞] is lower semi-continuous, meaning that
+liminfy→xf(y)≥f(x)lim inf_yf(y)(x)
+for all x in [a,b], then f is bounded below and attains its infimum.
+A real-valued function is upper as well as lower semi-continuous, if and only if it is continuous in the usual sense. Hence these two theorems imply the boundedness theorem and the extreme value theorem.
+
+References[edit]
+
+
+^ Rusnock, Paul; Kerr-Lawson, Angus (2005). "Bolzano and Uniform Continuity". Historia Mathematica. 32 (3): 303–311. doi:10.1016/j.hm.2004.11.003.
+
+^ a b Rudin, Walter (1976). Principles of Mathematical Analysis. New York: McGraw Hill. pp. 89–90. ISBN 0-07-054235-X.
+
+^ Keisler, H. Jerome (1986). Elementary Calculus : An Infinitesimal Approach (PDF). Boston: Prindle, Weber & Schmidt. p. 164. ISBN 0-87150-911-3.
+
+
+Further reading[edit]
+Adams, Robert A. (1995). Calculus : A Complete Course. Reading: Addison-Wesley. pp. 706–707. ISBN 0-201-82823-5.
+Protter, M. H.; Morrey, C. B. (1977). "The Boundedness and Extreme–Value Theorems". A First Course in Real Analysis. New York: Springer. pp. 71–73. ISBN 0-387-90215-5.
+External links[edit]
+A Proof for extreme value theorem at cut-the-knot
+Extreme Value Theorem by  Jacqueline Wandzura with additional contributions by Stephen Wandzura, the Wolfram Demonstrations Project.
+Weisstein, Eric W. "Extreme Value Theorem". MathWorld.
+Mizar system proof: http://mizar.org/version/current/html/weierstr.html#T15
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+
+
+

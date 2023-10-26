@@ -1,0 +1,187 @@
+Mathematical theorem about functions
+In mathematics, the Fourier inversion theorem says that for many types of functions it is possible to recover a function from its Fourier transform. Intuitively it may be viewed as the statement that if we know all frequency and phase information about a wave then we may reconstruct the original wave precisely.
+The theorem says that if we have a function f:R→C:ℝ→ℂ satisfying certain conditions, and we use the convention for the Fourier transform that 
+
+(Ff)(ξ):=∫Re−2πiy⋅ξf(y)dy,(ℱf)(ξ):=∫_ℝe^-2·ξ f(y) dy,
+then
+
+f(x)=∫Re2πix⋅ξ(Ff)(ξ)dξ.(x)=∫_ℝe^2·ξ (ℱf)(ξ) dξ.
+In other words, the theorem says that 
+
+f(x)=∬R2e2πi(x−y)⋅ξf(y)dydξ.(x)=∬_ℝ^2e^2(x-y)·ξ f(y) dy dξ.
+This last equation is called the Fourier integral theorem.
+Another way to state the theorem is that if R is the flip operator i.e. (Rf)(x):=f(−x)(Rf)(x):=f(-x), then 
+
+F−1=FR=RF.ℱ^-1=ℱR=Rℱ.
+The theorem holds if both f and its Fourier transform are absolutely integrable (in the Lebesgue sense) and f is continuous at the point x. However, even under more general conditions versions of the Fourier inversion theorem hold. In these cases the integrals above may not converge in an ordinary sense.
+
+
+Statement[edit]
+In this section we assume that f is an integrable continuous function. Use the convention for the Fourier transform that 
+
+(Ff)(ξ):=∫Rne−2πiy⋅ξf(y)dy.(ℱf)(ξ):=∫_ℝ^ne^-2·ξ f(y) dy.
+Furthermore, we assume that the Fourier transform is also integrable.
+
+Inverse Fourier transform as an integral[edit]
+The most common statement of the Fourier inversion theorem is to state the inverse transform as an integral. For any integrable function g and all x∈Rn∈ℝ^n set
+
+F−1g(x):=∫Rne2πix⋅ξg(ξ)dξ.ℱ^-1g(x):=∫_ℝ^ne^2·ξ g(ξ) dξ.
+Then for all x∈Rn∈ℝ^n we have
+
+F−1(Ff)(x)=f(x).ℱ^-1(ℱf)(x)=f(x).
+Fourier integral theorem[edit]
+The theorem can be restated as 
+
+f(x)=∫Rn∫Rne2πi(x−y)⋅ξf(y)dydξ.(x)=∫_ℝ^n∫_ℝ^ne^2(x-y)·ξ f(y) dy dξ.
+If f is real valued then by taking the real part of each side of the above we obtain 
+
+f(x)=∫Rn∫Rncos⁡(2π(x−y)⋅ξ)f(y)dydξ.(x)=∫_ℝ^n∫_ℝ^ncos(2π(x-y)·ξ) f(y) dy dξ.
+Inverse transform in terms of flip operator[edit]
+For any function g define the flip operator[note 1] R by
+
+Rg(x):=g(−x).(x):=g(-x).
+Then we may instead define 
+
+F−1f:=RFf=FRf.ℱ^-1f:=Rℱf=ℱRf.
+It is immediate from the definition of the Fourier transform and the flip operator that both RFfℱf and FRfℱRf match the integral definition of F−1fℱ^-1f, and in particular are equal to each other and satisfy F−1(Ff)(x)=f(x)ℱ^-1(ℱf)(x)=f(x).
+Since Rf=RF−1Ff=RRFFf=Rℱ^-1ℱf=RRℱℱf we have R=F2=ℱ^2 and
+
+F−1=F3.ℱ^-1=ℱ^3.
+Two-sided inverse[edit]
+The form of the Fourier inversion theorem stated above, as is common, is that
+
+F−1(Ff)(x)=f(x).ℱ^-1(ℱf)(x)=f(x).
+In other words, F−1ℱ^-1 is a left inverse for the Fourier transform. However it is also a right inverse for the Fourier transform i.e.
+
+F(F−1f)(ξ)=f(ξ).ℱ(ℱ^-1f)(ξ)=f(ξ).
+Since F−1ℱ^-1 is so similar to Fℱ, this follows very easily from the Fourier inversion theorem (changing variables ζ:=−ζζ:=-ζ):
+
+f=F−1(Ff)(x)=∫Rn∫Rne2πix⋅ξe−2πiy⋅ξf(y)dydξ=∫Rn∫Rne−2πix⋅ζe2πiy⋅ζf(y)dydζ=F(F−1f)(x).f   =ℱ^-1(ℱf)(x)
+   =∫_ℝ^n∫_ℝ^ne^2·ξ e^-2·ξ f(y) dy dξ
+   =∫_ℝ^n∫_ℝ^ne^-2·ζ e^2·ζ f(y) dy dζ
+   =ℱ(ℱ^-1f)(x).
+Alternatively, this can be seen from the relation between F−1fℱ^-1f and the flip operator and the associativity of function composition, since
+
+f=F−1(Ff)=FRFf=F(F−1f).=ℱ^-1(ℱf)=ℱRℱf=ℱ(ℱ^-1f).
+Conditions on the function[edit]
+When used in physics and engineering, the Fourier inversion theorem is often used under the assumption that everything "behaves nicely". In mathematics such heuristic arguments are not permitted, and the Fourier inversion theorem includes an explicit specification of what class of functions is being allowed. However, there is no "best" class of functions to consider so several variants of the Fourier inversion theorem exist, albeit with compatible conclusions.
+
+Schwartz functions[edit]
+The Fourier inversion theorem holds for all Schwartz functions (roughly speaking, smooth functions that decay quickly and whose derivatives all decay quickly). This condition has the benefit that it is an elementary direct statement about the function (as opposed to imposing a condition on its Fourier transform), and the integral that defines the Fourier transform and its inverse are absolutely integrable. This version of the theorem is used in the proof of the Fourier inversion theorem for tempered distributions (see below).
+
+Integrable functions with integrable Fourier transform[edit]
+The Fourier inversion theorem holds for all continuous functions that are absolutely integrable (i.e. L1(Rn)^1(ℝ^n)) with absolutely integrable Fourier transform. This includes all Schwartz functions, so is a strictly stronger form of the theorem than the previous one mentioned. This condition is the one used above in the statement section.
+A slight variant is to drop the condition that the function f be continuous but still require that it and its Fourier transform be absolutely integrable. Then f=g=g almost everywhere where g is a continuous function, and F−1(Ff)(x)=g(x)ℱ^-1(ℱf)(x)=g(x) for every x∈Rn∈ℝ^n.
+
+Integrable functions in one dimension[edit]
+Piecewise smooth; one dimension
+If the function is absolutely integrable in one dimension (i.e. f∈L1(R)^1(ℝ)) and is piecewise smooth then a version of the Fourier inversion theorem holds. In this case we define
+
+F−1g(x):=limR→∞∫−RRe2πixξg(ξ)dξ.ℱ^-1g(x):=lim_R→∞∫_-R^Re^2ξ g(ξ) dξ.
+Then for all x∈R∈ℝ
+
+F−1(Ff)(x)=12(f(x−)+f(x+)),ℱ^-1(ℱf)(x)=1/2(f(x_-)+f(x_+)),
+i.e. F−1(Ff)(x)ℱ^-1(ℱf)(x) equals the average of the left and right limits of f at x. At points where f is continuous this simply equals f(x)(x).
+A higher-dimensional analogue of this form of the theorem also holds, but according to Folland (1992) is "rather delicate and not terribly useful".
+
+Piecewise continuous; one dimension
+If the function is absolutely integrable in one dimension (i.e. f∈L1(R)^1(ℝ)) but merely piecewise continuous then a version of the Fourier inversion theorem still holds. In this case the integral in the inverse Fourier transform is defined with the aid of a smooth rather than a sharp cut off function; specifically we define
+
+F−1g(x):=limR→∞∫Rφ(ξ/R)e2πixξg(ξ)dξ,φ(ξ):=e−ξ2.ℱ^-1g(x):=lim_R→∞∫_ℝφ(ξ/R) e^2ξ g(ξ) dξ,    φ(ξ):=e^-ξ^2.
+The conclusion of the theorem is then the same as for the piecewise smooth case discussed above.
+
+Continuous; any number of dimensions
+If f is continuous and absolutely integrable on Rnℝ^n then the Fourier inversion theorem still holds so long as we again define the inverse transform with a smooth cut off function i.e.  
+
+F−1g(x):=limR→∞∫Rnφ(ξ/R)e2πix⋅ξg(ξ)dξ,φ(ξ):=e−|ξ|2.ℱ^-1g(x):=lim_R→∞∫_ℝ^nφ(ξ/R) e^2·ξ g(ξ) dξ,    φ(ξ):=e^-|ξ|^2.
+The conclusion is now simply that for all x∈Rn∈ℝ^n
+
+F−1(Ff)(x)=f(x).ℱ^-1(ℱf)(x)=f(x).
+No regularity condition; any number of dimensions
+If we drop all assumptions about the (piecewise) continuity of f and assume merely that it is absolutely integrable, then a version of the theorem still holds. The inverse transform is again defined with the smooth cut off, but with the conclusion that 
+
+F−1(Ff)(x)=f(x)ℱ^-1(ℱf)(x)=f(x)
+for almost every x∈Rn.∈ℝ^n. [1]
+
+Square integrable functions[edit]
+In this case the Fourier transform cannot be defined directly as an integral since it may not be absolutely convergent, so it is instead defined by a density argument (see the Fourier transform article). For example, putting 
+
+gk(ξ):=∫y∈Rn:|y|≤ke−2πiy⋅ξf(y)dy,k∈N,_k(ξ):=∫_{y∈ℝ^n:|}e^-2·ξ f(y) dy,∈ℕ,
+we can set Ff:=limk→∞gkℱf:=lim_k→∞g_k where the limit is taken in the L2^2-norm. The inverse transform may be defined by density in the same way or by defining it in terms of the Fourier transform and the flip operator. We then have
+
+f(x)=F(F−1f)(x)=F−1(Ff)(x)(x)=ℱ(ℱ^-1f)(x)=ℱ^-1(ℱf)(x)
+in the mean squared norm. In one dimension (and one dimension only), it can also be shown that it converges for almost every x∈ℝ- this is Carleson's theorem, but is much harder to prove than convergence in the mean squared norm.
+
+Tempered distributions[edit]
+The Fourier transform may be defined on the space of tempered distributions S′(Rn)𝒮'(ℝ^n) by duality of the Fourier transform on the space of Schwartz functions. Specifically for f∈S′(Rn)∈𝒮'(ℝ^n) and for all test functions φ∈S(Rn)φ∈𝒮(ℝ^n) we set
+
+⟨Ff,φ⟩:=⟨f,Fφ⟩,⟨ℱf,φ⟩:=,ℱφ⟩,
+where Fφℱφ is defined using the integral formula. If f∈L1(Rn)∩L2(Rn)^1(ℝ^n)^2(ℝ^n) then this agrees with the usual definition. We may define the inverse transform F−1:S′(Rn)→S′(Rn)ℱ^-1𝒮'(ℝ^n)→𝒮'(ℝ^n), either by duality from the inverse transform on Schwartz functions in the same way, or by defining it in terms of the flip operator (where the flip operator is defined by duality). We then have
+
+FF−1=F−1F=IdS′(Rn).ℱℱ^-1=ℱ^-1ℱ=Id_𝒮'(ℝ^n).
+Relation to Fourier series[edit]
+When considering the Fourier series of a function it is conventional to rescale it so that it acts on [0,2π][0,2π] (or is 2π2π-periodic). In this section we instead use the somewhat unusual convention taking f to act on [0,1][0,1], since that matches the convention of the Fourier transform used here.
+The Fourier inversion theorem is analogous to the convergence of Fourier series. In the Fourier transform case we have
+
+f:Rn→C,f^:Rn→C,ℝ^n→ℂ,  f̂ℝ^n→ℂ,
+f^(ξ):=∫Rne−2πiy⋅ξf(y)dy,f̂(ξ):=∫_ℝ^ne^-2·ξ f(y) dy,
+f(x)=∫Rne2πix⋅ξf^(ξ)dξ.(x)=∫_ℝ^ne^2·ξ f̂(ξ) dξ.
+In the Fourier series case we instead have
+
+f:[0,1]n→C,f^:Zn→C,[0,1]^n→ℂ,  f̂ℤ^n→ℂ,
+f^(k):=∫[0,1]ne−2πiy⋅kf(y)dy,f̂(k):=∫_[0,1]^ne^-2 f(y) dy,
+f(x)=∑k∈Zne2πix⋅kf^(k).(x)=∑_k∈ℤ^ne^2 f̂(k).
+In particular, in one dimension k∈Z∈ℤ and the sum runs from −∞-∞ to ∞∞.
+
+Applications[edit]
+Some problems, such as certain differential equations, become easier to solve when the Fourier transform is applied. In that case the solution to the original problem is recovered using the inverse Fourier transform.
+In applications of the Fourier transform the Fourier inversion theorem often plays a critical role. In many situations the basic strategy is to apply the Fourier transform, perform some operation or simplification, and then apply the inverse Fourier transform. 
+More abstractly, the Fourier inversion theorem is a statement about the Fourier transform as an operator (see Fourier transform on function spaces). For example, the Fourier inversion theorem on f∈L2(Rn)^2(ℝ^n) shows that the Fourier transform is a unitary operator on L2(Rn)^2(ℝ^n).
+
+Properties of inverse transform[edit]
+The inverse Fourier transform is extremely similar to the original Fourier transform: as discussed above, it differs only in the application of a flip operator. For this reason the properties of the Fourier transform hold for the inverse Fourier transform, such as the Convolution theorem and the Riemann–Lebesgue lemma. 
+Tables of Fourier transforms may easily be used for the inverse Fourier transform by composing the looked-up function with the flip operator. For example, looking up the Fourier transform of the rect function we see that
+f(x)=rect⁡(ax)⇒(Ff)(ξ)=1|a|sinc⁡(ξa),(x)=rect(ax)  ⇒  (ℱf)(ξ)=1/|a|sinc(ξ/a),
+so the corresponding fact for the inverse transform is
+g(ξ)=rect⁡(aξ)⇒(F−1g)(x)=1|a|sinc⁡(−xa).(ξ)=rect(aξ)  ⇒  (ℱ^-1g)(x)=1/|a|sinc(-x/a).
+
+Proof[edit]
+The proof uses a few facts, given f(y)(y) and Ff(ξ)=∫Rne−2πiy⋅ξf(y)dyℱf(ξ)=∫_ℝ^ne^-2·ξf(y) dy.
+
+If x∈Rn∈ℝ^n and g(ξ)=e2πix⋅ξψ(ξ)(ξ)=e^2πix·ξψ(ξ), then (Fg)(y)=(Fψ)(y−x)(ℱg)(y)=(ℱψ)(y-x).
+If ε∈Rε∈ℝ and ψ(ξ)=φ(εξ)ψ(ξ)=φ(εξ), then (Fψ)(y)=(Fφ)(y/ε)/|ε|(ℱψ)(y)=(ℱφ)(y/ε)/|ε|.
+For f,g∈L1(Rn),g^1(ℝ^n), Fubini's theorem implies that ∫g(ξ)⋅(Ff)(ξ)dξ=∫(Fg)(y)⋅f(y)dy(ξ)·(ℱf)(ξ) dξ=∫(ℱg)(y)(y) dy.
+Define φ(ξ)=e−π|ξ|2φ(ξ)=e^-π|ξ|^2; then (Fφ)(y)=φ(y)(ℱφ)(y)=φ(y).
+Define φε(y)=φ(y/ε)/εnφ_ε(y)=φ(y/ε)/ε^n. Then with ∗∗ denoting convolution, φεφ_ε is an approximation to the identity: for any continuous f∈L1(Rn)^1(ℝ^n) and point x∈Rn∈ℝ^n, limε→0(φε∗f)(x)=f(x)lim_ε→0(φ_ε)(x)=f(x) (where the convergence is pointwise).
+Since, by assumption, Ff∈L1(Rn)ℱf^1(ℝ^n), then it follows by the dominated convergence theorem that
+
+∫Rne2πix⋅ξ(Ff)(ξ)dξ=limε→0∫Rne−πε2|ξ|2+2πix⋅ξ(Ff)(ξ)dξ.∫_ℝ^ne^2·ξ(ℱf)(ξ) dξ=lim_ε→0∫_ℝ^ne^-πε^2|ξ|^2+2·ξ(ℱf)(ξ) dξ.
+Define gx(ξ)=e−πε2|ξ|2+2πix⋅ξ_x(ξ)=e^-πε^2|ξ|^2+2πix·ξ. Applying facts 1, 2 and 4, repeatedly for multiple integrals if necessary, we obtain
+
+(Fgx)(y)=1εne−πε2|x−y|2=φε(x−y).(ℱg_x)(y)=1/ε^ne^-π/ε^2|x-y|^2=φ_ε(x-y).
+Using fact 3 on f and gx_x, for each x∈Rn∈ℝ^n, we have
+
+∫Rne−πε2|ξ|2+2πix⋅ξ(Ff)(ξ)dξ=∫Rn1εne−πε2|x−y|2f(y)dy=(φε∗f)(x),∫_ℝ^ne^-πε^2|ξ|^2+2·ξ(ℱf)(ξ) dξ=∫_ℝ^n1/ε^ne^-π/ε^2|x-y|^2f(y) dy=(φ_ε*f)(x),
+the convolution of f with an approximate identity. But since f∈L1(Rn)^1(ℝ^n), fact 5 says that
+
+limε→0(φε∗f)(x)=f(x).lim_ε→0(φ_ε*f)(x)=f(x).
+Putting together the above we have shown that
+
+∫Rne2πix⋅ξ(Ff)(ξ)dξ=f(x).◻∫_ℝ^ne^2·ξ(ℱf)(ξ) dξ=f(x).    □
+Notes[edit]
+
+
+^ An operator is a transformation that maps functions to functions. The flip operator, the Fourier transform, the inverse Fourier transform and the identity transform are all examples of operators.
+
+
+References[edit]
+This article includes a list of references, related reading, or external links, but its sources remain unclear because it lacks inline citations. Please help to improve this article by introducing more precise citations. (January 2013) (Learn how and when to remove this template message)
+Folland, G. B. (1992). Fourier Analysis and its Applications. Belmont, CA, USA: Wadsworth. ISBN 0-534-17094-3.
+Folland, G. B. (1995). Introduction to Partial Differential Equations (2nd ed.). Princeton, USA: Princeton Univ. Press. ISBN 978-0-691-04361-6.
+
+^ "DMat0101, Notes 3: The Fourier transform on L^1". I Woke Up In A Strange Place. 2011-03-10. Retrieved 2018-02-12.
+
+
+
+
+

@@ -1,0 +1,424 @@
+Evaluates a line integral through a gradient field using the original scalar field
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vte
+The gradient theorem, also known as the fundamental theorem of calculus for line integrals, says that a line integral through a gradient field can be evaluated by evaluating the original scalar field at the endpoints of the curve. The theorem is a generalization of the second fundamental theorem of calculus to any curve in a plane or space (generally n-dimensional) rather than just the real line.
+For φ : U ⊆ Rn → R as a differentiable function and γ as any continuous curve in U which starts at a point p and ends at a point q, then
+∫γ∇φ(r)⋅dr=φ(q)−φ(p)∫_γ∇φ(𝐫)·d𝐫=φ(𝐪)-φ(𝐩)
+where ∇φ denotes the gradient vector field of φ.
+The gradient theorem implies that line integrals through gradient fields are path-independent. In physics this theorem is one of the ways of defining a conservative force. By placing φ as potential, ∇φ is a conservative field. Work done by conservative forces does not depend on the path followed by the object, but only the end points, as the above equation shows.
+The gradient theorem also has an interesting converse: any path-independent vector field can be expressed as the gradient of a scalar field. Just like the gradient theorem itself, this converse has many striking consequences and applications in both pure and applied mathematics.
+
+
+Proof[edit]
+If φ is a differentiable function from some open subset U ⊆ Rn to R and r is a differentiable function from some closed interval [a, b] to U (Note that r is differentiable at the interval endpoints a and b. To do this, r is defined on an interval that is larger than and includes [a, b].), then by the multivariate chain rule, the composite function φ ∘ r is differentiable on [a, b]:
+ddt(φ∘r)(t)=∇φ(r(t))⋅r′(t)d/dt(φ∘𝐫)(t)=∇φ(𝐫(t))·𝐫'(t)
+for all t in [a, b]. Here the ⋅ denotes the usual inner product.
+Now suppose the domain U of φ contains the differentiable curve γ with endpoints p and q. (This is oriented in the direction from p to q). If r parametrizes γ for t in [a, b] (i.e., r represents γ as a function of t), then
+∫γ∇φ(r)⋅dr=∫ab∇φ(r(t))⋅r′(t)dt=∫abddtφ(r(t))dt=φ(r(b))−φ(r(a))=φ(q)−φ(p),∫_γ∇φ(𝐫)·d𝐫   =∫_a^b∇φ(𝐫(t))·𝐫'(t)dt
+   =∫_a^bd/dtφ(𝐫(t))dt=φ(𝐫(b))-φ(𝐫(a))=φ(𝐪)-φ(𝐩),
+where the definition of a line integral is used in the first equality, the above equation is used in the second equality, and the second fundamental theorem of calculus is used in the third equality.[1]
+Even if the gradient theorem (also called fundamental theorem of calculus for line integrals) has been proved for a differentiable (so looked as smooth) curve so far, the theorem is also proved for a piecewise-smooth curve since this curve is made by joining multiple differentiable curves so the proof for this curve is made by the proof per differentiable curve component.[2]
+
+Examples[edit]
+Example 1[edit]
+Suppose γ ⊂ R2 is the circular arc oriented counterclockwise from (5, 0) to (−4, 3). Using the definition of a line integral,
+∫γydx+xdy=∫0π−tan−1(34)((5sin⁡t)(−5sin⁡t)+(5cos⁡t)(5cos⁡t))dt=∫0π−tan−1(34)25(−sin2⁡t+cos2⁡t)dt=∫0π−tan−1(34)25cos⁡(2t)dt=252sin⁡(2t)|0π−tan−1(34)=252sin⁡(2π−2tan−1(34))=−252sin⁡(2tan−1(34))=−25(3/4)(3/4)2+1=−12.∫_γy dx+x dy   =∫_0^π-tan^-1(3/4)((5)(-5)+(5)(5)) dt
+   =∫_0^π-tan^-1(3/4)25(-sin^2t+cos^2t)dt
+   =∫_0^π-tan^-1(3/4)25cos(2t)dtleft.252sin(2t)|_0^π-tan^-1(34)
+   =252sin(2π-2tan^-1(34))
+   =-252sin(2tan^-1(34))­̄25(3/4)/(3/4)^2+1=-12.
+This result can be obtained much more simply by noticing that the function f(x,y)=xy(x,y)=xy has gradient ∇f(x,y)=(y,x)(x,y)=(y,x), so by the Gradient Theorem:
+∫γydx+xdy=∫γ∇(xy)⋅(dx,dy)=xy|(5,0)(−4,3)=−4⋅3−5⋅0=−12.∫_γy dx+x dy=∫_γ∇(xy)·(dx,dy) |_(5,0)^(-4,3)=-4·3-5·0=-12.
+
+Example 2[edit]
+For a more abstract example, suppose γ ⊂ Rn has endpoints p, q, with orientation from p to q. For u in Rn, let |u| denote the Euclidean norm of u.  If α ≥ 1 is a real number, then
+∫γ|x|α−1x⋅dx=1α+1∫γ(α+1)|x|(α+1)−2x⋅dx=1α+1∫γ∇|x|α+1⋅dx=|q|α+1−|p|α+1α+1∫_γ|𝐱|^α-1𝐱·d𝐱   =1/α+1∫_γ(α+1)|𝐱|^(α+1)-2𝐱·d𝐱
+   =1/α+1∫_γ∇|𝐱|^α+1·d𝐱=|𝐪|^α+1-|𝐩|^α+1/α+1
+Here the final equality follows by the gradient theorem, since the function f(x) = |x|α+1 is differentiable on Rn if α ≥ 1.
+If α < 1 then this equality will still hold in most cases, but caution must be taken if γ passes through or encloses the origin, because the integrand vector field |x|α − 1x will fail to be defined there. However, the case α = −1 is somewhat different; in this case, the integrand becomes |x|−2x = ∇(log |x|), so that the final equality becomes log |q| − log |p|.
+Note that if n = 1, then this example is simply a slight variant of the familiar power rule from single-variable calculus.
+
+Example 3[edit]
+Suppose there are n point charges arranged in three-dimensional space, and the i-th point charge has charge Qi and is located at position pi in R3. We would like to calculate the work done on a particle of charge q as it travels from a point a to a point b in R3. Using Coulomb's law, we can easily determine that the force on the particle at position r will be
+F(r)=kq∑i=1nQi(r−pi)|r−pi|3𝐅(𝐫)=kq∑_i=1^nQ_i(𝐫-𝐩_i)/|𝐫-𝐩_i|^3
+Here |u| denotes the Euclidean norm of the vector u in R3, and k = 1/(4πε0), where ε0 is the vacuum permittivity.
+Let γ ⊂ R3 − {p1, ..., pn} be an arbitrary differentiable curve from a to b. Then the work done on the particle is
+W=∫γF(r)⋅dr=∫γ(kq∑i=1nQi(r−pi)|r−pi|3)⋅dr=kq∑i=1n(Qi∫γr−pi|r−pi|3⋅dr)=∫_γ𝐅(𝐫)·d𝐫=∫_γ(kq∑_i=1^nQ_i(𝐫-𝐩_i)/|𝐫-𝐩_i|^3)·d𝐫=kq∑_i=1^n(Q_i∫_γ𝐫-𝐩_i/|𝐫-𝐩_i|^3·d𝐫)
+Now for each i, direct computation shows that
+r−pi|r−pi|3=−∇1|r−pi|.𝐫-𝐩_i/|𝐫-𝐩_i|^3=-∇1/|𝐫-𝐩_i|.
+Thus, continuing from above and using the gradient theorem,
+W=−kq∑i=1n(Qi∫γ∇1|r−pi|⋅dr)=kq∑i=1nQi(1|a−pi|−1|b−pi|)=-kq∑_i=1^n(Q_i∫_γ∇1/|𝐫-𝐩_i|·d𝐫)=kq∑_i=1^nQ_i(1/|𝐚-𝐩_i|-1/|𝐛-𝐩_i|)
+We are finished. Of course, we could have easily completed this calculation using the powerful language of electrostatic potential or electrostatic potential energy (with the familiar formulas W = −ΔU = −qΔV). However, we have not yet defined potential or potential energy, because the converse of the gradient theorem is required to prove that these are well-defined, differentiable functions and that these formulas hold (see below). Thus, we have solved this problem using only Coulomb's Law, the definition of work, and the gradient theorem.
+
+Converse of the gradient theorem[edit]
+The gradient theorem states that if the vector field F is the gradient of some scalar-valued function (i.e., if F is conservative), then F is a path-independent vector field (i.e., the integral of F over some piecewise-differentiable curve is dependent only on end points). This theorem has a powerful converse:
+
+
+Theorem —  If F is a path-independent vector field, then F is the gradient of some scalar-valued function.[3]
+
+
+It is straightforward to show that a vector field is path-independent if and only if the integral of the vector field over every closed loop in its domain is zero. Thus the converse can alternatively be stated as follows: If the integral of F over every closed loop in the domain of F is zero, then F is the gradient of some scalar-valued function.
+
+Proof of the converse[edit]
+Suppose U is an open, path-connected subset of Rn, and F : U → Rn is a continuous and path-independent vector field. Fix some element a of U, and define f : U → R byf(x):=∫γ[a,x]F(u)⋅du(𝐱):=∫_γ[𝐚,𝐱]𝐅(𝐮)·d𝐮Here γ[a, x] is any (differentiable) curve in U originating at a and terminating at x. We know that f is well-defined because F is path-independent.
+Let v be any nonzero vector in Rn. By the definition of the directional derivative,∂f(x)∂v=limt→0f(x+tv)−f(x)t=limt→0∫γ[a,x+tv]F(u)⋅du−∫γ[a,x]F(u)⋅dut=limt→01t∫γ[x,x+tv]F(u)⋅du(𝐱)/∂𝐯   =lim_t→0f(𝐱+t𝐯)-f(𝐱)/t
+   =lim_t→0∫_γ[𝐚,𝐱+t𝐯]𝐅(𝐮)·d𝐮-∫_γ[𝐚,𝐱]𝐅(𝐮)𝐮/t
+   =lim_t→01/t∫_γ[𝐱,𝐱+t𝐯]𝐅(𝐮)·d𝐮To calculate the integral within the final limit, we must parametrize γ[x, x + tv]. Since F is path-independent, U is open, and t is approaching zero, we may assume that this path is a straight line, and parametrize it as u(s) = x + sv for 0 < s < t. Now, since u'(s) = v, the limit becomeslimt→01t∫0tF(u(s))⋅u′(s)ds=ddt∫0tF(x+sv)⋅vds|t=0=F(x)⋅vlim_t→01/t∫_0^t𝐅(𝐮(s))·𝐮'(s) ds=d/dt∫_0^t𝐅(𝐱+s𝐯)·𝐯 ds|_t=0=𝐅(𝐱)·𝐯where the first equality is from the definition of the derivative with a fact that the integral is equal to 0 at t = 0, and the second equality is from the first fundamental theorem of calculus. Thus we have a formula for ∂vf, (one of ways to represent the directional derivative) where v is arbitrary; for f(x):=∫γ[a,x]F(u)⋅du(𝐱):=∫_γ[𝐚,𝐱]𝐅(𝐮)·d𝐮 (see its full definition above), its directional derivative with respect to v is∂f(x)∂v=∂vf(x)=Dvf(x)=F(x)⋅v(𝐱)/∂𝐯=∂_𝐯f(𝐱)=D_𝐯f(𝐱)=𝐅(𝐱)·𝐯where the first two equalities just show different representations of the directional derivative. According to the definition of the gradient of a scalar function f, ∇f(x)=F(x)(𝐱)=𝐅(𝐱), thus we have found a scalar-valued function f whose gradient is the path-independent vector field F (i.e., F is a conservative vector field.), as desired.[3]
+
+Example of the converse principle[edit]
+Main article: Electric potential energy
+To illustrate the power of this converse principle, we cite an example that has significant physical consequences. In classical electromagnetism, the electric force is a path-independent force; i.e. the work done on a particle that has returned to its original position within an electric field is zero (assuming that no changing magnetic fields are present).
+Therefore, the above theorem implies that the electric force field Fe : S → R3 is conservative (here S is some open, path-connected subset of R3 that contains a charge distribution). Following the ideas of the above proof, we can set some reference point a in S, and define a function Ue: S → R by
+Ue(r):=−∫γ[a,r]Fe(u)⋅du_e(𝐫):=-∫_γ[𝐚,𝐫]𝐅_e(𝐮)·d𝐮
+Using the above proof, we know Ue is well-defined and differentiable, and Fe = −∇Ue (from this formula we can use the gradient theorem to easily derive the well-known formula for calculating work done by conservative forces: W = −ΔU). This function Ue is often referred to as the electrostatic potential energy of the system of charges in S (with reference to the zero-of-potential a). In many cases, the domain S is assumed to be unbounded and the reference point a is taken to be "infinity", which can be made rigorous using limiting techniques. This function Ue is an indispensable tool used in the analysis of many physical systems.
+
+Generalizations[edit]
+Main articles: Stokes' theorem and Closed and exact differential forms
+Many of the critical theorems of vector calculus generalize elegantly to statements about the integration of differential forms on manifolds. In the language of differential forms and exterior derivatives, the gradient theorem states that
+∫∂γϕ=∫γdϕ∫_∂γϕ=∫_γdϕ
+for any 0-form, ϕ, defined on some differentiable curve γ ⊂ Rn (here the integral of ϕ over the boundary of the γ is understood to be the evaluation of ϕ at the endpoints of γ).
+Notice the striking similarity between this statement and the generalized Stokes’ theorem, which says that the integral of any compactly supported differential form ω over the boundary of some orientable manifold Ω is equal to the integral of its exterior derivative dω over the whole of Ω, i.e.,
+∫∂Ωω=∫Ωdω∫_∂Ωω=∫_Ωdω
+This powerful statement is a generalization of the gradient theorem from 1-forms defined on one-dimensional manifolds to differential forms defined on manifolds of arbitrary dimension.
+The converse statement of the gradient theorem also has a powerful generalization in terms of differential forms on manifolds. In particular, suppose ω is a form defined on a contractible domain, and the integral of ω over any closed manifold is zero. Then there exists a form ψ such that ω = dψ. Thus, on a contractible domain, every closed form is exact. This result is summarized by the Poincaré lemma.
+
+See also[edit]
+State function
+Scalar potential
+Jordan curve theorem
+Differential of a function
+Classical mechanics
+Line integral § Path independence
+Conservative vector field § Path independence
+References[edit]
+
+
+^ Williamson, Richard and Trotter, Hale. (2004). Multivariable Mathematics, Fourth Edition, p. 374. Pearson Education, Inc.
+
+^ Stewart, James (2015). "16.3 The Fundamental Theorem for Line Integrals". Calculus (8th ed.). Cengage Learning. pp. 1127–1128. ISBN 978-1-285-74062-1.
+
+^ a b "Williamson, Richard and Trotter, Hale. (2004). Multivariable Mathematics, Fourth Edition, p. 410. Pearson Education, Inc."
+
+
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+
+
+

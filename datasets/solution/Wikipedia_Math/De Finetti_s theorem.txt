@@ -1,0 +1,96 @@
+Conditional independence of exchangeable observations
+In probability theory, de Finetti's theorem states that exchangeable observations are conditionally independent relative to some latent variable. An  epistemic probability distribution could then be assigned to this variable. It is named in honor of Bruno de Finetti.
+For the special case of an exchangeable sequence of Bernoulli random variables it states that such a sequence is a "mixture" of sequences of independent and identically distributed (i.i.d.) Bernoulli random variables.
+A sequence of random variables is called exchangeable if the joint distribution of the sequence is unchanged by any permutation of the indices. While the variables of the exchangeable sequence are not themselves independent, only exchangeable, there is an underlying family of i.i.d. random variables. That is, there are underlying, generally unobservable, quantities that are i.i.d. – exchangeable sequences are mixtures of i.i.d. sequences.
+
+
+Background[edit]
+A Bayesian statistician often seeks the conditional probability distribution of a random quantity given the data. The concept of exchangeability was introduced by de Finetti.  De Finetti's theorem explains a mathematical relationship between independence and exchangeability.[1]
+An infinite sequence
+
+X1,X2,X3,…_1,X_2,X_3,…
+of random variables is said to be exchangeable if for any natural number n and any finite sequence  i1, ..., in and any permutation of the sequence π:{i1, ..., in } → {i1, ..., in },
+
+(Xi1,…,Xin)and(Xπ(i1),…,Xπ(in))(X_i_1,…,X_i_n)and(X_π(i_1),…,X_π(i_n))
+both have the same joint probability distribution.
+If an identically distributed sequence is independent, then the sequence is exchangeable; however, the converse is false—there exist exchangeable random variables that are not statistically independent, for example the Pólya urn model.
+
+Statement of the theorem[edit]
+A random variable X has a Bernoulli distribution if Pr(X = 1) = p and Pr(X = 0) = 1 − p for some p ∈ (0, 1).
+De Finetti's theorem states that the probability distribution of any infinite exchangeable sequence of Bernoulli random variables is a "mixture" of the probability distributions of independent and identically distributed sequences of Bernoulli random variables.  "Mixture", in this sense, means a weighted average, but this need not mean a finite or countably infinite (i.e., discrete) weighted average: it can be an integral rather than a sum.
+More precisely, suppose X1, X2, X3, ... is an infinite exchangeable sequence of Bernoulli-distributed random variables.  Then there is some probability distribution m on the interval [0, 1] and some random variable Y such that
+
+The probability distribution of Y is m, and
+The conditional probability distribution of the whole sequence X1, X2, X3, ... given the value of Y is described by saying that
+X1, X2, X3, ... are conditionally independent given Y, and
+For any i ∈ {1, 2, 3, ...}, the conditional probability that Xi = 1, given the value of Y, is Y.
+Another way of stating the theorem[edit]
+Suppose X1,X2,X3,…_1,X_2,X_3,… is an infinite exchangeable sequence of Bernoulli random variables.  Then X1,X2,X3,…_1,X_2,X_3,… are conditionally independent and identically distributed given the exchangeable sigma-algebra (i.e., the sigma-algebra consisting of events that are measurable with respect to X1,X2,…_1,X_2,… and invariant under finite permutations of the indices).
+
+Example[edit]
+Here is a concrete example. We construct a sequence
+
+X1,X2,X3,…_1,X_2,X_3,…
+of random variables, by "mixing" two i.i.d. sequences as follows.
+We assume p = 2/3 with probability 1/2 and p = 9/10 with probability 1/2. Given the event p = 2/3, the conditional distribution of the sequence is that the Xi are independent and identically distributed and X1 = 1 with probability 2/3 and X1 = 0 with probability 1 − 2/3.  Given the event  p = 9/10, the conditional distribution of the sequence is that the Xi are independent and identically distributed and X1 = 1 with probability 9/10 and X1 = 0 with probability 1 − 9/10.
+This can be interpreted as follows: Make two biased coins, one showing "heads" with 2/3 probability and one showing "heads" with 9/10 probability. Flip a fair coin once to decide which biased coin to use for all flips that are recorded. Here "heads" at flip i means Xi=1.
+The independence asserted here is conditional independence, i.e. the Bernoulli random variables in the sequence are conditionally independent given the event that p = 2/3, and are conditionally independent given the event that p = 9/10. But they are not unconditionally independent; they are positively correlated.
+In view of the strong law of large numbers, we can say that
+
+limn→∞X1+⋯+Xnn=2/3withprobability1/2,9/10withprobability1/2.lim_n→∞X_1+⋯+X_n/n=2/3   withprobability1/2,
+9/10   withprobability1/2.
+Rather than concentrating probability 1/2 at each of two points between 0 and 1, the "mixing distribution" can be any probability distribution supported on the interval from 0 to 1; which one it is depends on the joint distribution of the infinite sequence of Bernoulli random variables.
+The definition of exchangeability, and the statement of the theorem, also makes sense for finite length sequences
+
+X1,…,Xn,_1,…,X_n,
+but the theorem is not generally true in that case.  It is true if the sequence can be extended to an exchangeable sequence that is infinitely long.  The simplest example of an exchangeable sequence of Bernoulli random variables that cannot be so extended is the one in which X1 = 1 − X2 and X1 is either 0 or 1, each with probability 1/2.  This sequence is exchangeable, but cannot be extended to an exchangeable sequence of length 3, let alone an infinitely long one.
+
+Extensions[edit]
+Versions of de Finetti's theorem for  finite exchangeable sequences,[2][3] and for Markov exchangeable sequences[4] have been proved by Diaconis and Freedman and by Kerns and Szekely. 
+Two notions of partial exchangeability of arrays, known as separate and joint exchangeability lead to extensions of de Finetti's theorem for arrays by Aldous and Hoover.[5]
+The computable de Finetti theorem shows that if an exchangeable sequence of real random variables is given by a computer program, then a program which samples from the mixing measure can be automatically recovered.[6]
+In the setting of free probability, there is a noncommutative extension of de Finetti's theorem which characterizes noncommutative sequences invariant under quantum permutations.[7]
+Extensions of de Finetti's theorem to quantum states have been found to be useful in quantum information,[8][9][10] in topics like quantum key distribution[11] and entanglement detection.[12] A multivariate extension of de Finetti’s theorem can be used to derive Bose–Einstein statistics from the statistics of classical (i.e. independent) particles.[13]
+
+See also[edit]
+Choquet theory
+Hewitt–Savage zero–one law
+Krein–Milman theorem
+References[edit]
+
+
+^ See the Oxford lecture notes of Steffen Lauritzen  http://www.stats.ox.ac.uk/~steffen/teaching/grad/definetti.pdf
+
+^ Diaconis, P.; Freedman, D. (1980). "Finite exchangeable sequences". Annals of Probability. 8 (4): 745–764. doi:10.1214/aop/1176994663. MR 0577313. Zbl 0434.60034.
+
+^ Szekely, G. J.; Kerns, J. G. (2006). "De Finetti's theorem for abstract finite exchangeable sequences". Journal of Theoretical Probability. 19 (3): 589–608. doi:10.1007/s10959-006-0028-z. S2CID 119981020.
+
+^ Diaconis, P.; Freedman, D. (1980). "De Finetti's theorem for Markov chains". Annals of Probability. 8 (1): 115–130. doi:10.1214/aop/1176994828. MR 0556418. Zbl 0426.60064.
+
+^ Persi Diaconis and Svante Janson (2008) "Graph Limits and Exchangeable Random Graphs",Rendiconti di Matematica, Ser. VII 28(1), 33–61.
+
+^ 
+Cameron Freer and Daniel Roy (2009) "Computable exchangeable sequences have computable de Finetti measures",  Proceedings of the 5th Conference on Computability in Europe: Mathematical Theory and Computational Practice, Lecture Notes in Computer Science, Vol. 5635, pp. 218–231.
+
+^ 
+Koestler, Claus; Speicher, Roland (2009). "A noncommutative de Finetti theorem: Invariance under quantum permutations is equivalent to freeness with amalgamation". Commun. Math. Phys. 291 (2): 473–490. arXiv:0807.0677. Bibcode:2009CMaPh.291..473K. doi:10.1007/s00220-009-0802-8. S2CID 115155584.
+
+^ Caves, Carlton M.; Fuchs, Christopher A.; Schack, Ruediger (2002-08-20). "Unknown quantum states: The quantum de Finetti representation". Journal of Mathematical Physics. 43 (9): 4537–4559. arXiv:quant-ph/0104088. Bibcode:2002JMP....43.4537C. doi:10.1063/1.1494475. ISSN 0022-2488. S2CID 17416262.
+
+^ J. Baez (2007). "This Week's Finds in Mathematical Physics (Week 251)". Retrieved 29 April 2012.
+
+^ Brandao, Fernando G.S.L.; Harrow, Aram W. (2013-01-01). "Quantum de finetti theorems under local measurements with applications". Proceedings of the forty-fifth annual ACM symposium on Theory of Computing. STOC '13. New York, NY, USA: ACM. pp. 861–870. arXiv:1210.6367. doi:10.1145/2488608.2488718. ISBN 9781450320290. S2CID 1772280.
+
+^ Renner, Renato (2005-12-30). "Security of Quantum Key Distribution". arXiv:quant-ph/0512258.
+
+^ Doherty, Andrew C.; Parrilo, Pablo A.; Spedalieri, Federico M. (2005-01-01). "Detecting multipartite entanglement". Physical Review A. 71 (3): 032333. arXiv:quant-ph/0407143. Bibcode:2005PhRvA..71c2333D. doi:10.1103/PhysRevA.71.032333. S2CID 44241800.
+
+^ Bach, A.; Blank, H.; Francke, H. (1985). "Bose-Einstein statistics derived from the statistics of classical particles". Lettere al Nuovo Cimento. 43 (4): 195–198. doi:10.1007/BF02746978. S2CID 121413539.
+
+
+External links[edit]
+Accardi, L. (2001) [1994], "De Finetti theorem", Encyclopedia of Mathematics, EMS Press
+What is so cool about De Finetti's representation theorem?
+
+
+

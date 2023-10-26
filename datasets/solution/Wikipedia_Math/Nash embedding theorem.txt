@@ -1,0 +1,262 @@
+Every Riemannian manifold can be isometrically embedded into some Euclidean space
+The Nash embedding theorems (or imbedding theorems), named after John Forbes Nash Jr., state that every Riemannian manifold can be isometrically embedded into some Euclidean space. Isometric means preserving the length of every path.  For instance, bending but neither stretching nor tearing a page of paper gives an isometric embedding of the page into Euclidean space because curves drawn on the page retain the same arclength however the page is bent.
+The first theorem is for continuously differentiable (C1) embeddings and the second for embeddings that are analytic or smooth of class Ck, 3 ≤ k ≤ ∞. These two theorems are very different from each other. The first theorem has a very simple proof but leads to some counterintuitive conclusions, while the second theorem has a technical and counterintuitive proof but leads to a less surprising result.
+The C1 theorem was published in 1954, the Ck-theorem in 1956.  The real analytic theorem was first treated by Nash in 1966; his argument was simplified considerably by Greene & Jacobowitz (1971). (A local version of this result was proved by Élie Cartan and Maurice Janet in the 1920s.)  In the real analytic case, the smoothing operators (see below) in the Nash inverse function argument can be replaced by Cauchy estimates.  Nash's proof of the Ck- case was later extrapolated into the h-principle and Nash–Moser implicit function theorem.  A simpler proof of the second Nash embedding theorem was obtained by Günther (1989) who reduced the set of nonlinear partial differential equations to an elliptic system, to which the contraction mapping theorem could be applied.[1]
+
+
+
+Nash–Kuiper theorem (C1 embedding theorem)[edit]
+Given an m-dimensional Riemannian manifold (M, g), an isometric embedding is a continuously differentiable topological embedding f: M → ℝn such that the pullback of the Euclidean metric equals g. In analytical terms, this may be viewed (relative to a smooth coordinate chart x) as a system of 1/2m(m + 1) many first-order partial differential equations for n unknown (real-valued) functions:
+
+gij(x)=∑α=1n∂fα∂xi∂fα∂xj._ij(x)=∑_α=1^n^α/^i^α/^j.
+If n is less than 1/2m(m + 1), then there are more equations than unknowns. From this perspective, the existence of isometric embeddings given by the following theorem is considered surprising.
+
+Nash–Kuiper theorem.[2] Let (M, g) be an m-dimensional Riemannian manifold and f: M → ℝn a short smooth embedding (or immersion) into Euclidean space ℝn, where n ≥ m + 1. This map is not required to be isometric. Then there is a sequence of continuously differentiable isometric embeddings (or immersions) M → ℝn of g which converge uniformly to f.
+The theorem was originally proved by John Nash with the stronger assumption n ≥ m + 2. His method was modified by Nicolaas Kuiper to obtain the theorem above.[3][4]
+The isometric embeddings produced by the Nash–Kuiper theorem are often considered counterintuitive and pathological.[5] They often fail to be smoothly differentiable. For example, a well-known theorem of David Hilbert asserts that the hyperbolic plane cannot be smoothly isometrically immersed into ℝ3. Any Einstein manifold of negative scalar curvature cannot be smoothly isometrically immersed as a hypersurface,[6] and a theorem of Shiing-Shen Chern and Kuiper even says that any closed m-dimensional manifold of nonpositive sectional curvature cannot be smoothly isometrically immersed in ℝ2m – 1.[7] Furthermore, some smooth isometric embeddings exhibit rigidity phenomena which are violated by the largely unrestricted choice of f in the Nash–Kuiper theorem. For example, the image of any smooth isometric hypersurface immersion of the round sphere must itself be a round sphere.[8] By contrast, the Nash–Kuiper theorem ensures the existence of continuously differentiable isometric hypersurface immersions of the round sphere which are arbitrarily close to (for instance) a topological embedding of the sphere as a small ellipsoid.
+Any closed and oriented two-dimensional manifold can be smoothly embedded in ℝ3. Any such embedding can be scaled by an arbitrarily small constant so as to become short, relative to any given Riemannian metric on the surface. It follows from the Nash–Kuiper theorem that there are continuously differentiable isometric embeddings of any such Riemannian surface where the radius of a circumscribed ball is arbitrarily small. By contrast, no negatively curved closed surface can even be smoothly isometrically embedded in ℝ3.[9] Moreover, for any smooth (or even C2) isometric embedding of an arbitrary closed Riemannian surface, there is a quantitative (positive) lower bound on the radius of a circumscribed ball in terms of the surface area and curvature of the embedded metric.[10]
+In higher dimension, as follows from the Whitney embedding theorem, the Nash–Kuiper theorem shows that any closed m-dimensional Riemannian manifold admits an continuously differentiable isometric embedding into an arbitrarily small neighborhood in 2m-dimensional Euclidean space. Although Whitney's theorem also applies to noncompact manifolds, such embeddings cannot simply be scaled by a small constant so as to become short. Nash proved that every m-dimensional Riemannian manifold admits a continuously differentiable isometric embedding into ℝ2m + 1.[11]
+At the time of Nash's work, his theorem was considered to be something of a mathematical curiosity. The result itself has not found major applications. However, Nash's method of proof was adapted by Camillo De Lellis and László Székelyhidi to construct low-regularity solutions, with prescribed kinetic energy, of the Euler equations from the mathematical study of fluid mechanics. In analytical terms, the Euler equations have a formal similarity to the isometric embedding equations, via the quadratic nonlinearity in the first derivatives of the unknown function.[12] The ideas of Nash's proof were abstracted by Mikhael Gromov to the principle of convex integration, with a corresponding h-principle.[13] This was applied by Stefan Müller and Vladimír Šverák to Hilbert's nineteenth problem, constructing minimizers of minimal differentiability in the calculus of variations.[14]
+
+Ck embedding theorem[edit]
+The technical statement appearing in Nash's original paper is as follows: if M is a given m-dimensional Riemannian manifold (analytic or of class Ck, 3 ≤ k ≤ ∞), then there exists a number n (with n ≤ m(3m+11)/2, if M is a compact manifold n ≤ m(m+1)(3m+11)/2 if M is a non-compact manifold) and an isometric embedding ƒ: M → Rn (also analytic or of class Ck).[15] That is ƒ is an embedding of Ck manifolds and for every point p of M, the derivative dƒp is a linear map from the tangent space TpM to Rn which is compatible with the given inner product on TpM and the standard dot product of Rn in the following sense:
+
+⟨u,v⟩=dfp(u)⋅dfp(v),v⟩=df_p(u)_p(v)
+for all vectors u, v in TpM. When n is larger than 1/2m(m + 1), this is an underdetermined system of partial differential equations (PDEs).
+The Nash embedding theorem is a global theorem in the sense that the whole manifold is embedded into Rn.  A local embedding theorem is much simpler and can be proved using the implicit function theorem of advanced calculus in a coordinate neighborhood of the manifold. The proof of the global embedding theorem relies on Nash's implicit function theorem for isometric embeddings. This theorem has been generalized by a number of other authors to abstract contexts, where it is known as Nash–Moser theorem. The basic idea in the proof of Nash's implicit function theorem is the use of Newton's method to construct solutions. The standard Newton's method fails to converge when applied to the system; Nash uses smoothing operators defined by convolution to make the Newton iteration converge: this is Newton's method with postconditioning.  The fact that this technique furnishes a solution is in itself an existence theorem and of independent interest. In other contexts, the convergence of the standard Newton's method had earlier been proved by Leonid Kantorovitch.
+
+Citations[edit]
+
+
+^ Taylor 2011, pp. 147–151.
+
+^ Eliashberg & Mishachev 2002, Chapter 21; Gromov 1986, Section 2.4.9.
+
+^ Nash 1954.
+
+^ Kuiper 1955a; Kuiper 1955b.
+
+^ Kobayashi & Nomizu 1969, Note 18.
+
+^ Kobayashi & Nomizu 1969, Theorem VII.5.3.
+
+^ Kobayashi & Nomizu 1969, Corollary VII.4.8.
+
+^ Kobayashi & Nomizu 1969, Corollary VII.5.4 and Note 15.
+
+^ Kobayashi & Nomizu 1969, Theorem VII.5.6.
+
+^ Burago & Zalgaller 1988, Corollary 6.2.2.
+
+^ Nash 1954, pp. 394–395.
+
+^ De Lellis & Székelyhidi 2013; Isett 2018.
+
+^ Gromov 1986, Section 2.4.
+
+^ Müller & Šverák 2003.
+
+^ Nash 1956.
+
+
+General and cited references[edit]
+
+Burago, Yu. D.; Zalgaller, V. A. (1988). Geometric inequalities. Grundlehren der mathematischen Wissenschaften. Vol. 285. Translated from the Russian by A. B. Sosinskiĭ. Berlin: Springer-Verlag. doi:10.1007/978-3-662-07441-1. ISBN 3-540-13615-0. MR 0936419.
+De Lellis, Camillo; Székelyhidi, László Jr. (2013). "Dissipative continuous Euler flows". Inventiones Mathematicae. 193 (2): 377–407. arXiv:1202.1751. Bibcode:2013InMat.193..377D. doi:10.1007/s00222-012-0429-9. MR 3090182. S2CID 2693636.
+Eliashberg, Y.; Mishachev, N. (2002). Introduction to the h-principle. Graduate Studies in Mathematics. Vol. 48. Providence, RI: American Mathematical Society. doi:10.1090/gsm/048. ISBN 0-8218-3227-1. MR 1909245.
+Greene, Robert E.; Jacobowitz, Howard (1971). "Analytic isometric embeddings". Annals of Mathematics. Second Series. 93 (1): 189–204. doi:10.2307/1970760. JSTOR 1970760. MR 0283728.
+Gromov, Mikhael (1986). Partial differential relations. Ergebnisse der Mathematik und ihrer Grenzgebiete (3). Vol. 9. Berlin: Springer-Verlag. doi:10.1007/978-3-662-02267-2. ISBN 3-540-12177-3. MR 0864505.
+Günther, Matthias (1989). "Zum Einbettungssatz von J. Nash" [On the embedding theorem of J. Nash]. Mathematische Nachrichten (in German). 144 (1): 165–187. doi:10.1002/mana.19891440113. MR 1037168.
+Isett, Philip (2018). "A proof of Onsager's conjecture". Annals of Mathematics. Second Series. 188 (3): 871–963. doi:10.4007/annals.2018.188.3.4. MR 3866888. S2CID 119267892.
+Kobayashi, Shoshichi; Nomizu, Katsumi (1969). Foundations of differential geometry. Vol II. Interscience Tracts in Pure and Applied Mathematics. Vol. 15. Reprinted in 1996. New York–London: John Wiley & Sons, Inc. ISBN 0-471-15732-5. MR 0238225.
+Kuiper, Nicolaas H. (1955a). "On C1-isometric imbeddings. I". Indagationes Mathematicae (Proceedings). 58: 545–556. doi:10.1016/S1385-7258(55)50075-8. MR 0075640.
+Kuiper, Nicolaas H. (1955b). "On C1-isometric imbeddings. II". Indagationes Mathematicae (Proceedings). 58: 683–689. doi:10.1016/S1385-7258(55)50093-X. MR 0075640.
+Müller, S.; Šverák, V. (2003). "Convex integration for Lipschitz mappings and counterexamples to regularity". Annals of Mathematics. Second Series. 157 (3): 715–742. arXiv:math/0402287. doi:10.4007/annals.2003.157.715. MR 1983780. S2CID 55855605.
+Nash, John (1954). "C1 isometric imbeddings". Annals of Mathematics. Second Series. 60 (3): 383–396. doi:10.2307/1969840. JSTOR 1969840. MR 0065993.
+Nash, John (1956). "The imbedding problem for Riemannian manifolds". Annals of Mathematics. Second Series. 63 (1): 20–63. doi:10.2307/1969989. JSTOR 1969989. MR 0075639.  (Erratum:  [1])
+Nash, J. (1966). "Analyticity of the solutions of implicit function problem with analytic data". Annals of Mathematics. Second Series. 84 (3): 345–355. doi:10.2307/1970448. JSTOR 1970448. MR 0205266.
+Taylor, Michael E. (2011). Partial differential equations III. Nonlinear equations. Applied Mathematical Sciences. Vol. 117 (Second edition of 1996 original ed.). New York: Springer. doi:10.1007/978-1-4419-7049-7. ISBN 978-1-4419-7048-0. MR 2744149.
+
+vteRiemannian geometry (Glossary)Basic concepts
+Curvature
+tensor
+Scalar
+Ricci
+Sectional
+Exponential map
+Geodesic
+Inner product
+Metric tensor
+Levi-Civita connection
+Covariant derivative
+Signature
+Raising and lowering indices/Musical isomorphism
+Parallel transport
+Riemannian manifold
+Pseudo-Riemannian manifold
+Riemannian volume form
+Types of manifolds
+Hermitian
+Hyperbolic
+Kähler
+Kenmotsu
+Main results
+Fundamental theorem of Riemannian geometry
+Gauss's lemma
+Gauss–Bonnet theorem
+Hopf–Rinow theorem
+Nash embedding theorem
+Ricci flow
+Schur's lemma
+Generalizations
+Finsler
+Hilbert
+Sub-Riemannian
+Applications
+General relativity
+Geometrization conjecture
+Poincaré conjecture
+Uniformization theorem
+
+vteManifolds (Glossary)Basic concepts
+Topological manifold
+Atlas
+Differentiable/Smooth manifold
+Differential structure
+Smooth atlas
+Submanifold
+Riemannian manifold
+Smooth map
+Submersion
+Pushforward
+Tangent space
+Differential form
+Vector field
+Main results (list)
+Atiyah–Singer index
+Darboux's
+De Rham's
+Frobenius
+Generalized Stokes
+Hopf–Rinow
+Noether's
+Sard's
+Whitney embedding
+Maps
+Curve
+Diffeomorphism
+Local
+Geodesic
+Exponential map
+in Lie theory
+Foliation
+Immersion
+Integral curve
+Lie derivative
+Section
+Submersion
+Types ofmanifolds
+Closed
+(Almost) Complex
+(Almost) Contact
+Fibered
+Finsler
+Flat
+G-structure
+Hadamard
+Hermitian
+Hyperbolic
+Kähler
+Kenmotsu
+Lie group
+Lie algebra
+Manifold with boundary
+Oriented
+Parallelizable
+Poisson
+Prime
+Quaternionic
+Hypercomplex
+(Pseudo−, Sub−) Riemannian
+Rizza
+(Almost) Symplectic
+Tame
+TensorsVectors
+Distribution
+Lie bracket
+Pushforward
+Tangent space
+bundle
+Torsion
+Vector field
+Vector flow
+Covectors
+Closed/Exact
+Covariant derivative
+Cotangent space
+bundle
+De Rham cohomology
+Differential form
+Vector-valued
+Exterior derivative
+Interior product
+Pullback
+Ricci curvature
+flow
+Riemann curvature tensor
+Tensor field
+density
+Volume form
+Wedge product
+Bundles
+Adjoint
+Affine
+Associated
+Cotangent
+Dual
+Fiber
+(Co) Fibration
+Jet
+Lie algebra
+(Stable) Normal
+Principal
+Spinor
+Subbundle
+Tangent
+Tensor
+Vector
+Connections
+Affine
+Cartan
+Ehresmann
+Form
+Generalized
+Koszul
+Levi-Civita
+Principal
+Vector
+Parallel transport
+Related
+Classification of manifolds
+Gauge theory
+History
+Morse theory
+Moving frame
+Singularity theory
+Generalizations
+Banach manifold
+Diffeology
+Diffiety
+Fréchet manifold
+K-theory
+Orbifold
+Secondary calculus
+over commutative algebras
+Sheaf
+Stratifold
+Supermanifold
+Stratified space
+
+
+
+

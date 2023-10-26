@@ -1,0 +1,233 @@
+In mathematics, the closed-subgroup theorem (sometimes referred to as Cartan's theorem) is a theorem in the theory of Lie groups. It states that if H is a closed subgroup of a Lie group G, then H is an embedded Lie group with the smooth structure (and hence the group topology) agreeing with the embedding.[1][2][3]
+One of several results known as Cartan's theorem, it was first published in 1930 by Élie Cartan,[4] who was inspired by John von Neumann's 1929 proof of a special case for groups of linear transformations.[5]
+
+
+Overview[edit]
+Let G be a Lie group with Lie algebra g𝔤. Now let H be an arbitrary closed subgroup of G. It is necessary to show that H is a smooth embedded submanifold of G. The first step is to identify something that could be the Lie algebra of H, that is, the tangent space of H at the identity. The challenge is that H is not assumed to have any smoothness and therefore it is not clear how one may define its tangent space. To proceed, define the "Lie algebra" h𝔥 of H by the formula
+h=X∣etX∈H,∀t∈R.𝔥={X^tX,  ∈ℝ}.
+It is not difficult to show that h𝔥 is a Lie subalgebra of g𝔤.[6] In particular, h𝔥 is a subspace of g𝔤, which one might hope to be the tangent space of H at the identity. For this idea to work, however, h𝔥 must be big enough to capture some interesting information about H. If, for example, H were some large subgroup of G but h𝔥 turned out to be zero, h𝔥 would not be helpful.
+The key step, then, is to show that h𝔥 actually captures all the elements of H that are sufficiently close to the identity. That is to say, it is necessary to prove the following critical lemma:
+
+
+Lemma — Take a small neighborhood U of the origin in g𝔤 such that the exponential map sends U diffeomorphically onto some neighborhood V of the identity in G, and let log:V→Ulog:V be the inverse of the exponential map. Then there is some smaller neighborhood W⊂V such that if h belongs to W∩H, then log⁡(h)log(h) belongs to h𝔥.[7]
+
+
+Once this has been established, one can use exponential coordinates on W, that is, writing each g∈W (not necessarily in H) as g=eX=e^X for X=log⁡(g)=log(g). In these coordinates, the lemma says that X corresponds to a point in H precisely if X belongs to h⊂g𝔥⊂𝔤. That is to say, in exponential coordinates near the identity, H looks like h⊂g𝔥⊂𝔤. Since h𝔥 is just a subspace of g𝔤, this means that h⊂g𝔥⊂𝔤 is just like Rk⊂Rnℝ^k⊂ℝ^n, with k=dim⁡(h)=(𝔥) and n=dim⁡(g)=(𝔤). Thus, we have exhibited a "slice coordinate system" in which H⊂G looks locally like Rk⊂Rnℝ^k⊂ℝ^n, which is the condition for an embedded submanifold.[8]
+It is worth noting that Rossmann shows that for any subgroup H of G (not necessarily closed), the Lie algebra h𝔥 of H is a Lie subalgebra of g𝔤.[9] Rossmann then goes on to introduce coordinates[10] on H that make the identity component of H into a Lie group. It is important to note, however, that the topology on H coming from these coordinates is not the subset topology. That it so say, the identity component of H is an immersed submanifold of G but not an embedded submanifold.
+In particular, the lemma stated above does not hold if H is not closed.
+
+Example of a non-closed subgroup[edit]
+The torus G. Imagine a bent helix laid out on the surface picturing H. If a = p⁄q in lowest terms, the helix will close up on itself at (1, 1) after p rotations in φ and q rotations in θ. If a is irrational, the helix winds indefinitely.
+For an example of a subgroup that is not an embedded Lie subgroup, consider the torus and an "irrational winding of the torus".
+G=T2=(e2πiθ00e2πiϕ)|θ,ϕ∈R,=𝕋^2={.[ e^2θ    0;    0 e^2ϕ ]|θ,ϕ∈ℝ},
+and its subgroup
+H=(e2πiθ00e2πiaθ)|θ∈RwithLiealgebrah=(iθ00iaθ)|θ∈R,={.[ e^2θ    0;    0 e^2θ ]|θ∈ℝ}withLiealgebra𝔥={.[  iθ   0;   0 iaθ ]|θ∈ℝ},
+with a irrational. Then H is dense in G and hence not closed.[11] In the relative topology, a small open subset of H is composed of infinitely many almost parallel line segments on the surface of the torus. This means that H is not locally path connected. In the group topology, the small open sets are single line segments on the surface of the torus and H is locally path connected.
+The example shows that for some groups H one can find points in an arbitrarily small neighborhood U in the relative topology τr of the identity that are exponentials of elements of h, yet they cannot be connected to the identity with a path staying in U.[12] The group (H, τr) is not a Lie group. While the map exp : h → (H, τr) is an analytic bijection, its inverse is not continuous. That is, if U ⊂ h corresponds to a small open interval −ε < θ < ε, there is no open V ⊂ (H, τr) with log(V) ⊂ U due to the appearance of the sets V. However, with the group topology τg, (H, τg) is a Lie group. With this topology the injection ι : (H, τg) → G is an analytic injective immersion, but not a homeomorphism, hence not an embedding. There are also examples of groups H for which one can find points in an arbitrarily small neighborhood (in the relative topology) of the identity that are not exponentials of elements of h.[12] For closed subgroups this is not the case as the proof below of the theorem shows.
+
+Applications[edit]
+Lie groups and Lie algebras
+Classical groups
+General linear GL(n)
+Special linear SL(n)
+Orthogonal O(n)
+Special orthogonal SO(n)
+Unitary U(n)
+Special unitary SU(n)
+Symplectic Sp(n)
+
+
+Simple Lie groups
+Classical
+An
+Bn
+Cn
+Dn
+
+Exceptional
+G2
+F4
+E6
+E7
+E8
+
+
+Other Lie groups
+Circle
+Lorentz
+Poincaré
+Conformal group
+Diffeomorphism
+Loop
+Euclidean
+
+
+Lie algebras
+Lie group–Lie algebra correspondence
+Exponential map
+Adjoint representation
+Killing formIndex
+Simple Lie algebra
+Loop algebra
+Affine Lie algebra
+
+
+Semisimple Lie algebra
+Dynkin diagrams
+Cartan subalgebra
+Root systemWeyl group
+Real formComplexification
+Split Lie algebra
+Compact Lie algebra
+
+
+Representation theory
+Lie group representation
+Lie algebra representation
+Representation theory of semisimple Lie algebras
+Representations of classical Lie groups
+Theorem of the highest weight
+Borel–Weil–Bott theorem
+
+
+Lie groups in physics
+Particle physics and representation theory
+Lorentz group representations
+Poincaré group representations
+Galilean group representations
+
+
+Scientists
+Sophus Lie
+Henri Poincaré
+Wilhelm Killing
+Élie Cartan
+Hermann Weyl
+Claude Chevalley
+Harish-Chandra
+Armand Borel
+
+
+Glossary
+Table of Lie groupsvte
+Because of the conclusion of the theorem, some authors chose to define linear Lie groups or matrix Lie groups as closed subgroups of GL(n, R) or GL(n, C).[13] In this setting, one proves that every element of the group sufficiently close to the identity is the exponential of an element of the Lie algebra.[14] (The proof is practically identical to the proof of the closed subgroup theorem presented below.) It follows every closed subgroup is an embedded submanifold of GL(n, C)[15]
+
+
+The homogeneous space construction theorem — If H ⊂ G is a closed Lie subgroup, then G/H, the left coset space, has a unique real-analytic manifold structure such that the quotient map π:G → G/H is an analytic submersion. The left action given by g1 ⋅ (g2H) = (g1g2)H turns G/H into a homogeneous G-space.
+
+
+The closed subgroup theorem now simplifies the hypotheses considerably, a priori widening the class of homogeneous spaces. Every closed subgroup yields a homogeneous space.
+In a similar way, the closed subgroup theorem simplifies the hypothesis in the following theorem.
+
+If X is a set with transitive group action and the isotropy group or stabilizer of a point x ∈ X is a closed Lie subgroup, then X has a unique smooth manifold structure such that the action is smooth.
+Conditions for being closed[edit]
+A few sufficient conditions for H ⊂ G being closed, hence an embedded Lie group, are given below.
+
+All classical groups are closed in GL(F, n), where F is Rℝ, Cℂ, or Hℍ, the quaternions.
+A subgroup that is locally closed is closed.[16] A subgroup is locally closed if every point has a neighborhood in U ⊂G such that H ∩ U is closed in U.
+If H = AB = {ab | a ∈ A, b ∈ B}, where A is a compact group and B is a closed set, then H is closed.[17]
+If h ⊂ g is a Lie subalgebra such that for no X ∈ g \ h, [X, h] ∈ h, then Γ(h), the group generated by eh, is closed in G.[18]
+If X ∈ g, then the one-parameter subgroup generated by X is not closed if and only if X is similar over Cℂ to a diagonal matrix with two entries of irrational ratio.[19]
+Let h ⊂ g be a Lie subalgebra. If there is a simply connected compact group K with k isomorphic to h, then Γ(h) is closed in G. [20]
+If G is simply connected and h ⊂ g is an ideal, then the connected Lie subgroup with Lie algebra h is closed. [21]
+Converse[edit]
+An embedded Lie subgroup H ⊂ G is closed[22] so a subgroup is an embedded Lie subgroup if and only if it is closed. Equivalently, H is an embedded Lie subgroup if and only if its group topology equals its relative topology.[23]
+
+Proof[edit]
+John von Neumann in 1929 proved the theorem in the case of matrix groups as given here. He was prominent in many areas, including quantum mechanics, set theory and the foundations of mathematics.
+The proof is given for matrix groups with G = GL(n, R) for concreteness and relative simplicity, since matrices and their exponential mapping are easier concepts than in the general case. Historically, this case was proven first, by John von Neumann in 1929, and inspired Cartan to prove the full closed subgroup theorem in 1930.[5] The proof for general G is formally identical,[24] except that elements of the Lie algebra are left invariant vector fields on G and the exponential mapping is the time one flow of the vector field. If H ⊂ G with G closed in GL(n, R), then H is closed in GL(n, R), so the specialization to GL(n, R) instead of arbitrary G ⊂ GL(n, R) matters little.
+
+Proof of the key lemma[edit]
+We begin by establishing the key lemma stated in the "overview" section above.
+Endow g with an inner product (e.g., the Hilbert–Schmidt inner product), and let h be the Lie algebra of H defined as h = {X ∈ Mn(R) = g | etX ∈ H ∀t ∈ R}. Let s = {S ∈ g | (S, T) = 0 ∀T ∈ h}, the orthogonal complement of h. Then g decomposes as the direct sum g = s ⊕ h, so each X ∈ g is uniquely expressed as X = S + T with S ∈ s, T ∈ h.
+Define a map Φ : g → GL(n, R) by (S, T) ↦ eSeT. Expand the exponentials,
+Φ(S,T)=etSetT=I+tS+tT+O(t2),Φ(S,T)=e^tSe^tT=I+tS+tT+O(t^2),
+and the pushforward or differential at 0, Φ∗(S, T) = d/dtΦ(tS, tT)|t = 0 is seen to be S + T, i.e. Φ∗ = Id, the identity. The hypothesis of the inverse function theorem is satisfied with Φ analytic, and thus there are open sets U1 ⊂ g, V1 ⊂ GL(n, R) with 0 ∈ U1 and I ∈ V1 such that Φ is a real-analytic bijection from U1 to V1 with analytic inverse. It remains to show that U1 and V1 contain open sets U and V such that the conclusion of the theorem holds.
+Consider a countable neighborhood basis Β at 0 ∈ g, linearly ordered by reverse inclusion with B1 ⊂ U1.[25] Suppose for the purpose of obtaining a contradiction that for all i, Φ(Bi) ∩ H contains an element hi that is not on the form hi = eTi,Ti ∈ h. Then, since Φ is a bijection on the Bi, there is a unique sequence Xi = Si + Ti, with 0 ≠ Si ∈ s and Ti ∈ h such that Xi ∈ Bi converging to 0 because Β is a neighborhood basis, with eSieTi = hi. Since eTi ∈ H and hi ∈ H, eSi ∈ H as well.
+Normalize the sequence in s, Yi = Si/||Si||. It takes its values in the unit sphere in s and since it is compact, there is a convergent subsequence converging to Y ∈ s.[26] The index i henceforth refers to this subsequence. It will be shown that etY ∈ H, ∀t ∈ R. Fix t and choose a sequence mi of integers such that mi||Si|| → t as i → ∞. For example, mi such that mi||Si|| ≤ t ≤ (mi + 1)||Si|| will do, as Si → 0. Then
+(eSi)mi=emiSi=emi‖Si‖Yi→etY.(e^S_i)^m_i=e^m_iS_i=e^m_iS_iY_i^tY.
+Since H is a group, the left hand side is in H for all i. Since H is closed, etY ∈ H, ∀t,[27] hence Y ∈ h. This is a contradiction. Hence, for some i the sets U = Βi and V = Φ(Βi) satisfy e(U ∩ h) = H ∩ V and the exponential restricted to the open set (U ∩ h) ⊂ h is in analytic bijection with the open set Φ(U) ∩ H ⊂ H. This proves the lemma.
+
+Proof of the theorem[edit]
+For j ≥ i, the image in H of Bj under Φ form a neighborhood basis at I. This is, by the way it is constructed, a neighborhood basis both in the group topology and the relative topology. Since multiplication in G is analytic, the left and right translates of this neighborhood basis by a group element g ∈ G gives a neighborhood basis at g. These bases restricted to H gives neighborhood bases at all h ∈ H. The topology generated by these bases is the relative topology. The conclusion is that the relative topology is the same as the group topology.
+Next, construct coordinate charts on H. First define φ1 : e(U) ⊂ G → g, g ↦ log(g). This is an analytic bijection with analytic inverse. Furthermore, if h ∈ H, then φ1(h) ∈ h. By fixing a basis for g = h ⊕ s and identifying g with Rnℝ^n, then in these coordinates φ1(h) = (x1(h), …, xm(h), 0, …, 0), where m is the dimension of h. This shows that (eU, φ1) is a slice chart. By translating the charts obtained from the countable neighborhood basis used above one obtains slice charts around every point in H. This shows that H is an embedded submanifold of G.
+Moreover, multiplication m, and inversion i in H are analytic since these operations are analytic in G and restriction to a submanifold  (embedded or immersed) with the relative topology again yield analytic operations m : H × H → G and i : H × H → G.[28] But since H is embedded, m : H × H → H and i : H × H → H are analytic as well.[29]
+
+See also[edit]
+Inverse function theorem
+Lie correspondence
+Notes[edit]
+
+
+
+
+^ Lee 2003 Theorem 20.10. Lee states and proves this theorem in all generality.
+
+^ Rossmann 2002 Theorem 1, Section 2.7 Rossmann states the theorem for linear groups. The statement is that there is an open subset U ⊂ g such that U × H → G, (X, H) → eXH is an analytic bijection onto an open neighborhood of H in G.
+
+^ Hall 2015 For linear groups, Hall proves a similar result in Corollary 3.45.
+
+^ Cartan 1930 See § 26.
+
+^ a b von Neumann (1929); Bochner (1958).
+
+^ Hall 2015 Theorem 3.20
+
+^ Hall 2015 Theorem 3.42
+
+^ Lee 2003 Chapter 5
+
+^ Rossmann 2002 Chapter 2, Proposition 1 and Corollary 7
+
+^ Rossmann 2002 Section 2.3
+
+^ Lee 2003 Example 7.3
+
+^ a b Rossmann 2002 See comment to Corollary 5, Section 2.2.
+
+^ E.g. Hall 2015. See definition in Chapter 1.
+
+^ Hall 2015 Theorem 3.42
+
+^ Hall 2015 Corollary 3.45
+
+^ Rossmann 2002 Problem 1. Section 2.7
+
+^ Rossmann 2002 Problem 3. Section 2.7
+
+^ Rossmann 2002 Problem 4. Section 2.7
+
+^ Rossmann 2002 Problem 5. Section 2.7
+
+^ Hall 2015 The result follows from Theorem 5.6
+
+^ Hall 2015 Exercise 14 in Chapter 5
+
+^ Lee 2003 Corollary 15.30.
+
+^ Rossmann 2002 Problem 2. Section 2.7.
+
+^ See for instance Lee 2003 Chapter 21
+
+^ For this one can choose open balls, Β = {Bk| diam(Bk) = 1⁄(k + m), k ∈ N} for some  large enough m such that B1 ⊂ U1. Here the metric obtained from the Hilbert-Schmidt inner product is used.
+
+^ Willard 1970 By problem 17G, s is sequentially compact, meaning every sequence has a convergent subsequence.
+
+^ Willard 1970 Corollary 10.5.
+
+^ Lee 2003 Proposition 8.22.
+
+^ Lee 2003 Corollary 8.25.
+
+
+References[edit]
+Bochner, S. (1958), "John von Neumann 1903–1957" (PDF), Biographical Memoirs of the National Academy of Sciences: 438–456. See in particular p. 441.
+Cartan, Élie (1930), "La théorie des groupes finis et continus et l'Analysis Situs", Mémorial Sc. Math., vol. XLII, pp. 1–61
+Hall, Brian C. (2015), Lie groups, Lie algebras, and representations: An elementary introduction, Graduate Texts in Mathematics, vol. 222 (2nd ed.), Springer, ISBN 978-3319134666
+Lee, J. M. (2003), Introduction to Smooth manifolds, Springer Graduate Texts in Mathematics, vol. 218, ISBN 0-387-95448-1
+von Neumann, John (1929), "Über die analytischen Eigenschaften von Gruppen linearer Transformationen und ihrer Darstellungen", Mathematische Zeitschrift (in German), 30 (1): 3–42, doi:10.1007/BF01187749, S2CID 122565679
+Rossmann, Wulf (2002), Lie Groups – An Introduction Through Linear Groups, Oxford Graduate Texts in Mathematics, Oxford Science Publications, ISBN 0-19-859683-9
+Willard, Stephen (1970), General Topology, Dover Publications, ISBN 0-486-43479-6
+
+
+

@@ -1,0 +1,169 @@
+In mathematics, the (linear) Peetre theorem, named after Jaak Peetre, is a result of functional analysis that gives a characterisation of differential operators in terms of their effect on generalized function spaces, and without mentioning differentiation in explicit terms.  The Peetre theorem is an example of a finite order theorem in which a function or a functor, defined in a very general way, can in fact be shown to be a polynomial because of some extraneous condition or symmetry imposed upon it.
+This article treats two forms of the Peetre theorem.  The first is the original version which, although quite useful in its own right, is actually too general for most applications.
+
+
+The original Peetre theorem[edit]
+Let M be a smooth manifold and let E and F be two vector bundles on M.  Let
+
+Γ∞(E),andΓ∞(F)Γ^∞(E),{and
+Gamma^∞(F)
+be the spaces of smooth sections of E and F.  An operator
+
+D:Γ∞(E)→Γ∞(F):Γ^∞(E)→Γ^∞(F)
+is a morphism of sheaves which is linear on sections such that the support of D is non-increasing: supp Ds ⊆ supp s for every smooth section s of E.   The original Peetre theorem asserts that, for every point p in M, there is a neighborhood U of p and an integer k (depending on U) such that D is a differential operator of order k over U.  This means that D factors through a linear mapping iD from the k-jet of sections of E into the space of smooth sections of F:
+
+D=iD∘jk=i_D^k
+where
+
+jk:Γ∞E→JkE^k:Γ^∞E^kE
+is the k-jet operator and
+
+iD:JkE→F_D:J^kE
+is a linear mapping of vector bundles.
+
+Proof[edit]
+The problem is invariant under local diffeomorphism, so it is sufficient to prove it when M is an open set in Rn and E and F are trivial bundles.  At this point, it relies primarily on two lemmas:
+
+Lemma 1.  If the hypotheses of the theorem are satisfied, then for every x∈M and C > 0, there exists a neighborhood V of x and a positive integer k such that for any y∈V\{x} and for any section s of E whose k-jet  vanishes at y (jks(y)=0), we have |Ds(y)|<C.
+Lemma 2.  The first lemma is sufficient to prove the theorem.
+We begin with the proof of Lemma 1.
+
+Suppose the lemma is false.  Then there is a sequence xk tending to x, and a sequence of very disjoint balls Bk around the xk (meaning that the geodesic distance between any two such balls is non-zero), and sections sk of E over each Bk such that jksk(xk)=0 but |Dsk(xk)|≥C>0.
+Let ρ(x) denote a standard bump function for the unit ball at the origin: a smooth real-valued function which is equal to 1 on B1/2(0), which vanishes to infinite order on the boundary of the unit ball.
+Consider every other section s2k.  At x2k, these satisfy
+j2ks2k(x2k)=0.
+Suppose that 2k is given.  Then, since these functions are smooth and each satisfy j2k(s2k)(x2k)=0, it is possible to specify a smaller ball B′δ(x2k) such that the higher order derivatives obey the following estimate:
+∑|α|≤ksupy∈Bδ′(x2k)|∇αsk(y)|≤1Mk(δ2)k∑_|α|
+sup_y'_δ(x_2k)|∇^αs_k(y)|≤1/M_k(δ/2)^k
+where
+Mk=∑|α|≤ksup|∇αρ|._k=∑_|α|sup|∇^αρ|.
+Now
+ρ2k(y):=ρ(y−x2kδ)ρ_2k(y):=ρ(y-x_2k/δ)
+is a standard bump function supported in B′δ(x2k), and the derivative of the product s2kρ2k is bounded in such a way that
+max|α|≤ksupy∈Bδ′(x2k)|∇α(ρ2ks2k)|≤2−k.max_|α|
+sup_y'_δ(x_2k)|∇^α(ρ_2ks_2k)|≤2^-k.
+As a result, because the following series and all of the partial sums of its derivatives converge uniformly
+q(y)=∑k=1∞ρ2k(y)s2k(y),(y)=∑_k=1^∞ρ_2k(y)s_2k(y),
+q(y) is a smooth function on all of V.
+We now observe that since s2k and ρρ2ks2k are equal in a neighborhood of x2k,
+limk→∞|Dq(x2k)|≥Clim_k→∞|Dq(x_2k)|
+So by continuity |Dq(x)|≥ C>0.  On the other hand,
+limk→∞Dq(x2k+1)=0lim_k→∞Dq(x_2k+1)=0
+since Dq(x2k+1)=0 because q is identically zero in B2k+1 and D is support non-increasing.  So Dq(x)=0.  This is a contradiction.
+We now prove Lemma 2.
+
+First, let us dispense with the constant C from the first lemma.  We show that, under the same hypotheses as Lemma 1, |Ds(y)|=0.  Pick a y in V\{x} so that jks(y)=0 but |Ds(y)|=g>0.  Rescale s by a factor of 2C/g.  Then if g is non-zero, by the linearity of D, |Ds(y)|=2C>C, which is impossible by Lemma 1.  This proves the theorem in the punctured neighborhood V\{x}.
+Now, we must continue the differential operator to the central point x in the punctured neighborhood.  D is a linear differential operator with smooth coefficients.  Furthermore, it sends germs of smooth functions to germs of smooth functions at x as well.  Thus the coefficients of D are also smooth at x.
+A specialized application[edit]
+Let M be a compact smooth manifold (possibly with boundary), and E and F be finite dimensional vector bundles on M.  Let
+
+Γ∞(E)Γ^∞(E)be the collection of smooth sections of E.  An operator
+D:Γ∞(E)→Γ∞(F):Γ^∞(E)→Γ^∞(F)
+is a smooth function (of Fréchet manifolds) which is linear on the fibres and respects the base point on M:
+
+π∘Dp=p.π_p=p.
+The Peetre theorem asserts that for each operator D, there exists an integer k such that D is a differential operator of order k.   Specifically, we can decompose
+
+D=iD∘jk=i_D^k
+where iD_D is a mapping from the jets of sections of E to the bundle F.  See also intrinsic differential operators.
+
+Example: Laplacian[edit]
+Consider the following operator:
+
+(Lf)(x0)=limr→02dr21|Sr|∫Sr(f(x)−f(x0))dx(Lf)(x_0)=lim_r→02d/r^21/|S_r|∫_S_r(f(x)-f(x_0))dx
+where f∈C∞(Rd)^∞(ℝ^d) and Sr_r is the sphere centered at x0_0 with radius r. This is in fact the Laplacian. We show will show L is a differential operator by Peetre's theorem. The main idea is that since Lf(x0)(x_0) is defined only in terms of f's behavior near x0_0, it is local in nature; in particular, if f is locally zero, so is Lf, and hence the support cannot grow.
+The technical proof goes as follows.
+Let M=Rd=ℝ^d and E and F be the rank 11 trivial bundles. 
+Then Γ∞(E)Γ^∞(E) and Γ∞(F)Γ^∞(F) are simply the space C∞(Rd)^∞(ℝ^d) of smooth functions on Rdℝ^d. As a sheaf, F(U)ℱ(U) is the set of smooth functions on the open set U and restriction is function restriction.
+To see L is indeed a morphism, we need to check (Lu)|V=L(u|V)(Lu)|V=L(u|V) for open sets U and V such that V⊆U and u∈C∞(U)^∞(U). This is clear because for x∈V, both [(Lu)|V](x)[(Lu)|V](x) and [L(u|V)](x)[L(u|V)](x) are simply limr→02dr21|Sr|∫Sr(u(y)−u(x))dylim_r→02d/r^21/|S_r|∫_S_r(u(y)-u(x))dy, as the Sr_r eventually sits inside both U and V anyway.
+It is easy to check that L is linear: 
+
+L(f+g)=L(f)+L(g)(f+g)=L(f)+L(g) and L(af)=aL(f)(af)=aL(f)
+Finally, we check that L is local in the sense that suppLf⊆suppf. If x0∉supp(f)_0(f), then ∃r>0>0 such that f=0=0 in the ball of radius  r centered at x0_0. Thus, for x∈B(x0,r)(x_0,r),
+
+∫Sr′(f(y)−f(x))dy=0∫_S_r'(f(y)-f(x))dy=0
+for r′<r−|x−x0|'<r-|x-x_0|, and hence (Lf)(x)=0(Lf)(x)=0.
+Therefore, x0∉suppLf_0.
+So by Peetre's theorem, L is a differential operator.
+
+References[edit]
+Peetre, J., Une caractérisation abstraite des opérateurs différentiels, Math. Scand. 7 (1959), 211-218.
+Peetre, J., Rectification à l'article Une caractérisation abstraite des opérateurs différentiels, Math. Scand. 8 (1960), 116-120.
+Terng, C.L., Natural vector bundles and natural differential operators, Am. J. Math. 100 (1978), 775-828.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

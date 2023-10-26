@@ -1,0 +1,663 @@
+In mathematics, the Plancherel theorem for spherical functions is an important result in the representation theory of semisimple Lie groups, due in its final form to Harish-Chandra. It is a natural generalisation in non-commutative harmonic analysis of the Plancherel formula and Fourier inversion formula in the representation theory of the group of real numbers in classical harmonic analysis and has a similarly close interconnection with the theory of differential equations.
+It is the special case for zonal spherical functions of the general Plancherel theorem for semisimple Lie groups, also proved by Harish-Chandra. The Plancherel theorem gives the eigenfunction expansion of radial functions for the Laplacian operator on the associated symmetric space X; it also gives the direct integral decomposition into irreducible representations of the regular representation on L2(X). In the case of hyperbolic space, these expansions were known from prior results of Mehler, Weyl and Fock.
+The main reference for almost all this material is the encyclopedic text of Helgason (1984).
+
+
+History[edit]
+The first versions of an abstract Plancherel formula for the Fourier transform on a unimodular locally compact group G were due to Segal and Mautner.[1] At around the same time, Harish-Chandra[2][3] and Gelfand & Naimark[4][5] derived an explicit formula for SL(2,R) and complex semisimple Lie groups, so in particular the Lorentz groups. A simpler abstract formula was derived by Mautner for a "topological" symmetric space G/K corresponding to a maximal compact subgroup K. Godement gave a more concrete and satisfactory form for positive definite spherical functions, a class of special functions on G/K. Since when G is a semisimple Lie group these spherical functions φλ were naturally labelled by a parameter λ in the quotient of a Euclidean space by the action of a finite reflection group, it became a central problem to determine explicitly the Plancherel measure in terms of this parametrization. Generalizing the ideas of Hermann Weyl from the spectral theory of ordinary differential equations, Harish-Chandra[6][7] introduced his celebrated c-function c(λ) to describe the asymptotic behaviour of the spherical functions φλ and proposed c(λ)−2 dλ as the Plancherel measure. He verified this formula for the special cases when G is complex or real rank one, thus in particular covering the case when G/K is a hyperbolic space. The general case was reduced to two conjectures about the properties of the c-function and the so-called spherical Fourier transform. Explicit formulas for the c-function were later obtained for a large class of classical semisimple Lie groups by Bhanu-Murthy. In turn these formulas prompted Gindikin and Karpelevich to derive a product formula[8] for the c-function, reducing the computation to Harish-Chandra's formula for the rank 1 case. Their work finally enabled Harish-Chandra to complete his proof of the Plancherel theorem for spherical functions in 1966.[9]
+In many special cases, for example for complex semisimple group or the Lorentz groups, there are simple methods to develop the theory directly. Certain subgroups of these groups can be treated by techniques generalising the well-known "method of descent" due to Jacques Hadamard. In particular Flensted-Jensen (1978) gave a general method for deducing properties of the spherical transform for a real semisimple group from that of its complexification.
+One of the principal applications and motivations for the spherical transform was Selberg's trace formula. The classical Poisson summation formula combines the Fourier inversion formula on a vector group with summation over a cocompact lattice. In Selberg's analogue of this formula, the vector group is replaced by G/K, the Fourier transform by the spherical transform and the lattice by a cocompact (or cofinite) discrete subgroup. The original paper of Selberg (1956) implicitly invokes the spherical transform; it was Godement (1957) who brought the transform to the fore, giving in particular an elementary treatment for SL(2,R) along the lines sketched by Selberg.
+
+Spherical functions[edit]
+Main article: Zonal spherical function
+Let G be a semisimple Lie group and K a maximal compact subgroup of G. The Hecke algebra Cc(K \G/K), consisting of compactly supported K-biinvariant continuous functions on G, acts by convolution on the Hilbert space H=L2(G / K). Because G / K is a symmetric space, this *-algebra is commutative. The closure of its (the Hecke algebra's) image in the operator norm is a non-unital commutative C* algebra A𝔄, so by the Gelfand isomorphism can be identified with the continuous functions vanishing at infinity on its spectrum X.[10] Points in the spectrum are given by continuous *-homomorphisms of A𝔄 into C, i.e. characters of A𝔄.
+If S' denotes the commutant of a set of operators S on H, then A′𝔄^' can be identified with the commutant of the regular representation of G on H. Now A𝔄 leaves invariant the subspace H0 of K-invariant vectors in H. Moreover, the abelian von Neumann algebra it generates on H0 is maximal Abelian. By spectral theory, there is an essentially unique[11] measure μ on the locally compact space X and a unitary transformation U between H0 and L2(X, μ) which carries the operators in A𝔄 onto the corresponding multiplication operators.
+The transformation U is called the spherical Fourier transform or sometimes just the spherical transform and μ is called the Plancherel measure. The Hilbert space H0 can be identified with L2(K\G/K), the space of K-biinvariant square integrable functions on G.
+The characters χλ of A𝔄 (i.e. the points of X) can be described by positive definite spherical functions φλ on G, via the formula
+χλ(π(f))=∫Gf(g)⋅φλ(g)dg.χ_λ(π(f))=∫_Gf(g)·φ_λ(g) dg.
+for f in Cc(K\G/K), where π(f) denotes the convolution operator in A𝔄 and the integral is with respect to Haar measure on G.
+The spherical functions φλ on G are given by Harish-Chandra's formula:
+
+
+
+φλ(g)=∫Kλ′(gk)−1dk.φ_λ(g)=∫_Kλ^'(gk)^-1 dk.
+
+In this formula:
+
+the integral is with respect to Haar measure on K;
+λ is an element of A* =Hom(A,T) where A is the Abelian vector subgroup in the Iwasawa decomposition G =KAN of G;
+λ' is defined on G by first extending λ to a character of the solvable subgroup AN, using the group homomorphism onto A, and then setting λ′(kx)=ΔAN(x)1/2λ(x)λ'(kx)=Δ_AN(x)^1/2λ(x) for k in K and x in AN, where ΔAN is the modular function of AN.
+Two different characters λ1 and λ2 give the same spherical function if and only if λ1 = λ2·s, where s is in the Weyl group of A W=NK(A)/CK(A),=N_K(A)/C_K(A), the quotient of the normaliser of A in K by its centraliser, a finite reflection group.
+It follows that
+
+X can be identified with the quotient space A*/W.
+Spherical principal series[edit]
+See also: Principal series representation
+The spherical function φλ can be identified with the matrix coefficient of the spherical principal series of G. If M is the centralizer of A in K, this is defined as the unitary representation πλ of G induced by the character of B = MAN given by the composition of the homomorphism of MAN onto A and the character λ.
+The induced representation is defined on functions f on G with
+f(gb)=Δ(b)1/2λ(b)f(g)(gb)=Δ(b)^1/2λ(b)f(g)
+for b in B by
+π(g)f(x)=f(g−1x),π(g)f(x)=f(g^-1x),
+where
+‖f‖2=∫K|f(k)|2dk<∞.f^2=∫_K|f(k)|^2 dk<∞.
+The functions f can be identified with functions in L2(K / M) and
+χλ(g)=(π(g)1,1).χ_λ(g)=(π(g)1,1).
+As Kostant (1969) proved, the representations of the spherical principal series are irreducible and two representations πλ and πμ are unitarily equivalent if and only if μ = σ(λ) for some σ in the Weyl group of A.
+
+Example: SL(2, C)[edit]
+The group G = SL(2,C) acts transitively on the quaternionic upper half space
+H3=x+yi+tj∣t>0ℌ^3={x+yi+tj>0}
+by Möbius transformations. The complex matrix
+g=(abcd)=[ a b; c d ]
+acts as
+g(w)=(aw+b)(cw+d)−1.(w)=(aw+b)(cw+d)^-1.
+The stabiliser of the point j is the maximal compact subgroup K = SU(2), so that H3=G/K.ℌ^3=G/K. It carries the G-invariant Riemannian metric
+ds2=r−2(dx2+dy2+dr2)^2=r^-2(dx^2+dy^2+dr^2)
+with associated volume element
+dV=r−3dxdydr=r^-3 dx dy dr
+and Laplacian operator
+Δ=−r2(∂x2+∂y2+∂r2)+r∂r.Δ=-r^2(∂_x^2+∂_y^2+∂_r^2)+r∂_r.
+Every point in H3ℌ^3 can be written as k(etj) with k in SU(2) and t determined up to a sign. The Laplacian has the following form on functions invariant under SU(2), regarded as functions of the real parameter t:
+Δ=−∂t2−2coth⁡t∂t.Δ=-∂_t^2-2∂_t.
+The integral of an SU(2)-invariant function is given by
+∫fdV=∫−∞∞f(t)sinh2⁡tdt. dV=∫_-∞^∞f(t) sinh^2t dt.
+Identifying the square integrable SU(2)-invariant functions with L2(R) by the unitary transformation Uf(t) = f(t) sinh t, Δ is transformed into the operator
+U∗ΔU=−d2dt2+1.^*=-d^2^2+1.
+By the Plancherel theorem and Fourier inversion formula for R, any SU(2)-invariant function f can be expressed in terms of the spherical functions
+Φλ(t)=sin⁡λtλsinh⁡t,Φ_λ(t)=sinλ,
+by the spherical transform
+f (λ)=∫fΦ−λdVf̃(λ)=Φ_-λ dV
+and the spherical inversion formula
+f(x)=∫f (λ)Φλ(x)λ2dλ.(x)=∫f̃(λ)Φ_λ(x)λ^2 dλ.
+Taking f=f2∗⋆f1=f_2^*_1 with fi in Cc(G / K) and f∗(g)=f(g−1)¯^*(g)=f(g^-1), and evaluating at i yields the Plancherel formula
+∫Gf1f2¯dg=∫f 1(λ)f 2(λ)¯λ2dλ.∫_Gf_1f_2 dg=∫f̃_1(λ)f̃_2(λ) λ^2 dλ.
+For biinvariant functions this establishes the Plancherel theorem for spherical functions: the map
+U:L2(K∖G/K)→L2(R,λ2dλ)U:f⟼f U:L^2(K/K)^2(ℝ,λ^2 dλ)
+U:f⟼f̃
+is unitary and sends the convolution operator defined by f∈L1(K∖G/K)^1(K/K) into the multiplication operator defined by f f̃.
+The spherical function Φλ is an eigenfunction of the Laplacian:
+ΔΦλ=(λ2+1)Φλ.ΔΦ_λ=(λ^2+1)Φ_λ.
+Schwartz functions on R are the spherical transforms of functions f belonging to the Harish-Chandra Schwartz space
+S=f|supt|(1+t2)N(I+Δ)Mf(t)sinh⁡(t)|<∞.𝒮={f|sup_t|(1+t^2)^N(I+Δ)^Mf(t)sinh(t)|<∞}..
+By the Paley-Wiener theorem, the spherical transforms of smooth SU(2)-invariant functions of compact support are precisely
+functions on R which are restrictions of holomorphic functions on C satisfying an exponential growth condition
+|F(λ)|≤CeR|Im⁡λ|.|F(λ)|^R|Imλ|.
+As a function on G, Φλ is the matrix coefficient of the spherical principal series defined on L2(C), where C is identified with the boundary of H3ℌ^3. The representation is given by the formula
+πλ(g−1)ξ(z)=|cz+d|−2−iλξ(g(z)).π_λ(g^-1)ξ(z)=|cz+d|^-2-iλξ(g(z)).
+The function
+ξ0(z)=π−1(1+|z|2)−2ξ_0(z)=π^-1(1+|z|^2)^-2
+is fixed by SU(2) and
+Φλ(g)=(πλ(g)ξ0,ξ0).Φ_λ(g)=(π_λ(g)ξ_0,ξ_0).
+The representations πλ are irreducible and unitarily equivalent only when the sign of λ is changed. The map W of L2(H3)^2(ℌ^3) onto L2([0,∞) × C) (with measure λ2 dλ on the first factor) given by
+Wf(λ,z)=∫G/Kf(g)πλ(g)ξ0(z)dg(λ,z)=∫_G/Kf(g)π_λ(g)ξ_0(z) dg
+is unitary and gives the decomposition of L2(H3)^2(ℌ^3) as a direct integral of the spherical principal series.
+
+Example: SL(2, R)[edit]
+The group G = SL(2,R) acts transitively on the Poincaré upper half plane
+H2=x+ri∣r>0ℌ^2={x+ri>0}
+by Möbius transformations. The real matrix
+g=(abcd)=[ a b; c d ]
+acts as
+g(w)=(aw+b)(cw+d)−1.(w)=(aw+b)(cw+d)^-1.
+The stabiliser of the point i is the maximal compact subgroup K = SO(2), so that H2ℌ^2 = G / K.
+It carries the G-invariant Riemannian metric
+ds2=r−2(dx2+dr2)^2=r^-2(dx^2+dr^2)
+with associated area element
+dA=r−2dxdr=r^-2 dx dr
+and Laplacian operator
+Δ=−r2(∂x2+∂r2).Δ=-r^2(∂_x^2+∂_r^2).
+Every point in H2ℌ^2 can be written as k( et i ) with k in SO(2) and t determined up to a sign. The Laplacian has the following form on functions invariant under SO(2), regarded as functions of the real parameter t:
+Δ=−∂t2−coth⁡t∂t.Δ=-∂_t^2-∂_t.
+The integral of an SO(2)-invariant function is given by
+∫fdA=∫−∞∞f(t)|sinh⁡t|dt. dA=∫_-∞^∞f(t)||dt.
+There are several methods for deriving the corresponding eigenfunction expansion for this ordinary differential equation including:
+
+the classical spectral theory of ordinary differential equations applied to the hypergeometric equation (Mehler, Weyl, Fock);
+variants of Hadamard's method of descent, realising 2-dimensional hyperbolic space as the quotient of 3-dimensional hyperbolic space by the free action of a 1-parameter subgroup of SL(2,C);
+Abel's integral equation, following Selberg and Godement;
+orbital integrals (Harish-Chandra, Gelfand & Naimark).
+The second and third technique will be described below, with two different methods of descent: the classical one due Hadamard, familiar from treatments of the heat equation[12] and the wave equation[13] on hyperbolic space; and Flensted-Jensen's method on the hyperboloid.
+
+Hadamard's method of descent[edit]
+If f(x,r) is a function on H2ℌ^2 and
+M1f(x,y,r)=r1/2⋅f(x,r)_1f(x,y,r)=r^1/2(x,r)
+then
+Δ3M1f=M1(Δ2+34)f,Δ_3M_1f=M_1(Δ_2+34)f,
+where Δn is the Laplacian on Hnℌ^n.
+Since the action of SL(2,C) commutes with Δ3, the operator M0 on S0(2)-invariant functions obtained by averaging M1f by the action of SU(2) also satisfies
+Δ3M0=M0(Δ2+34).Δ_3M_0=M_0(Δ_2+34).
+The adjoint operator M1* defined by
+M1∗F(x,r)=r1/2∫−∞∞F(x,y,r)dy_1^*F(x,r)=r^1/2∫_-∞^∞F(x,y,r) dy
+satisfies
+∫H3(M1f)⋅FdV=∫H2f⋅(M1∗F)dA.∫_ℌ^3(M_1f) dV=∫_ℌ^2f·(M_1^*F) dA.
+The adjoint M0*, defined by averaging M*f over SO(2), satisfies
+∫H3(M0f)⋅FdV=∫H2f⋅(M0∗F)dA∫_ℌ^3(M_0f) dV=∫_ℌ^2f·(M_0^*F) dA
+for SU(2)-invariant functions F and SO(2)-invariant functions f. It follows that
+Mi∗Δ3=(Δ2+34)Mi∗._i^*Δ_3=(Δ_2+34)M_i^*.
+The function
+fλ=M1∗Φλ_λ=M_1^*Φ_λ
+is SO(2)-invariant and satisfies
+Δ2fλ=(λ2+14)fλ.Δ_2f_λ=(λ^2+14)f_λ.
+On the other hand,
+b(λ)=fλ(i)=∫sin⁡λtλsinh⁡tdt=πλtanh⁡πλ2,(λ)=f_λ(i)=∫sinλ dt=πλtanhπλ2,
+since the integral can be computed by integrating eiλt/sinh⁡t^i/ around the rectangular indented contour with vertices at ±R and ±R + πi. Thus the eigenfunction
+ϕλ=b(λ)−1M1Φλϕ_λ=b(λ)^-1M_1Φ_λ
+satisfies the normalisation condition φλ(i) = 1. There can only be one such solution either because the Wronskian of the ordinary differential equation must vanish or by expanding as a power series in sinh r.[14] It follows that
+φλ(eti)=12π∫02π(cosh⁡t−sinh⁡tcos⁡θ)−1−iλdθ.φ_λ(e^ti)=1/2π∫_0^2π(-cosθ)^-1-iλ dθ.
+Similarly it follows that
+Φλ=M1ϕλ.Φ_λ=M_1ϕ_λ.
+If the spherical transform of an SO(2)-invariant function on H2ℌ^2 is defined by
+f (λ)=∫fφ−λdA,f̃(λ)=φ_-λ dA,
+then
+(M1∗F)∼(λ)=F (λ).(M_1^*F)^∼(λ)=F̃(λ).
+Taking f=M1*F, the SL(2, C) inversion formula for F immediately yields
+f(x)=∫−∞∞φλ(x)f (λ)λπ2tanh⁡(πλ2)dλ,(x)=∫_-∞^∞φ_λ(x)f̃(λ)λπ2tanh(πλ2) dλ,
+the spherical inversion formula for SO(2)-invariant functions on H2ℌ^2.
+As for SL(2,C), this immediately implies the Plancherel formula for fi in Cc(SL(2,R) / SO(2)):
+∫H2f1f2¯dA=∫−∞∞f 1f2 ¯λπ2tanh⁡(πλ2)dλ.∫_ℌ^2f_1f_2 dA=∫_-∞^∞f̃_1f̃_̃2̃λπ2tanh(πλ2) dλ.
+The spherical function φλ is an eigenfunction of the Laplacian:
+Δ2φλ=(λ2+14)φλ.Δ_2φ_λ=(λ^2+14)φ_λ.
+Schwartz functions on R are the spherical transforms of functions f belonging to the Harish-Chandra Schwartz space
+S=f|supt|(1+t2)N(I+Δ)Mf(t)φ0(t)|<∞.𝒮={f|sup_t|(1+t^2)^N(I+Δ)^Mf(t)φ_0(t)|<∞}..
+The spherical transforms of smooth SO(2)-invariant functions of compact support are precisely functions on R which are restrictions of holomorphic functions on C satisfying an exponential growth condition
+|F(λ)|≤CeR|ℑλ|.|F(λ)|^R|λ|.
+Both these results can be deduced by descent from the corresponding results for SL(2,C),[15] by verifying directly that the spherical transform satisfies the given growth conditions[16][17] and then using the relation (M1∗F)∼=F (M_1^*F)^∼=F̃.
+As a function on G, φλ is the matrix coefficient of the spherical principal series defined on L2(R), where R is identified with the boundary of H2ℌ^2. The representation is given by the formula
+πλ(g−1)ξ(x)=|cx+d|−1−iλξ(g(x)).π_λ(g^-1)ξ(x)=|cx+d|^-1-iλξ(g(x)).
+The function
+ξ0(x)=π−1(1+|x|2)−1ξ_0(x)=π^-1(1+|x|^2)^-1
+is fixed by SO(2) and
+Φλ(g)=(πλ(g)ξ0,ξ0).Φ_λ(g)=(π_λ(g)ξ_0,ξ_0).
+The representations πλ are irreducible and unitarily equivalent only when the sign of λ is changed. The map W:L2(H2)→L2([0,∞)×R):L^2(ℌ^2)^2([0,∞)×ℝ) with measure λπ2tanh⁡(πλ2)dλλπ/2tanh(πλ/2) dλ on the first factor, is given by the formula
+Wf(λ,x)=∫G/Kf(g)πλ(g)ξ0(x)dg(λ,x)=∫_G/Kf(g)π_λ(g)ξ_0(x) dg
+is unitary and gives the decomposition of L2(H2)^2(ℌ^2) as a direct integral of the spherical principal series.
+
+Flensted–Jensen's method of descent[edit]
+Hadamard's method of descent relied on functions invariant under the action of 1-parameter subgroup of translations in the y parameter in H3ℌ^3. Flensted–Jensen's method uses the centraliser of SO(2) in SL(2,C) which splits as a direct product of SO(2) and the 1-parameter subgroup K1 of matrices
+gt=(cosh⁡tisinh⁡t−isinh⁡tcosh⁡t)._t=[     i; -i    ].
+The symmetric space SL(2,C)/SU(2) can be identified with the space H3 of positive 2×2 matrices A with determinant 1
+A=(a+bx+iyx−iya−b)=[  a+b x+iy; x-iy  a-b ]
+with the group action given by
+g⋅A=gAg∗.=gAg^*.
+Thus
+gt⋅A=(acosh⁡2t+ysinh⁡2t+bx+i(ycosh⁡2t+asinh⁡2t)x−i(ycosh⁡2t+asinh⁡2t)acosh⁡2t+ysinh⁡2t−b)._t=[    acosh2t+ysinh2t+b x+i(ycosh2t+asinh2t); x-i(ycosh2t+asinh2t)    acosh2t+ysinh2t-b ].
+So on the hyperboloid a2=1+b2+x2+y2^2=1+b^2+x^2+y^2, gt only changes the coordinates y and a. Similarly the action of SO(2) acts by rotation on the coordinates (b,x) leaving a and y unchanged. The space H2 of real-valued positive matrices A with y = 0 can be identified with the orbit of the identity matrix under SL(2,R). Taking coordinates (b,x,y) in H3 and (b,x) on H2 the volume and area elements are given by
+dV=(1+r2)−1/2dbdxdy,dA=(1+r2)−1/2dbdx,=(1+r^2)^-1/2 db dx dy,   dA=(1+r^2)^-1/2 db dx,
+where r2 equals b2 + x2 + y2 or b2 + x2,
+so that r is related to hyperbolic distance from the origin by r=sinh⁡t=.
+The Laplacian operators are given by the formula
+Δn=−Ln−Rn2−(n−1)Rn,Δ_n=-L_n-R_n^2-(n-1)R_n, 
+where
+L2=∂b2+∂x2,R2=b∂b+x∂x_2=∂_b^2+∂_x^2,   R_2=b∂_b+x∂_x
+and
+L3=∂b2+∂x2+∂y2,R3=b∂b+x∂x+y∂y._3=∂_b^2+∂_x^2+∂_y^2,   R_3=b∂_b+x∂_x+y∂_y. 
+For an SU(2)-invariant function F on H3 and an SO(2)-invariant function on H2, regarded as functions of r or t,
+∫H3FdV=4π∫−∞∞F(t)sinh2⁡tdt,∫H2fdV=2π∫−∞∞f(t)sinh⁡tdt.∫_H^3F dV=4π∫_-∞^∞F(t)sinh^2t dt,   ∫_H^2f dV=2π∫_-∞^∞f(t) dt.
+If f(b,x) is a function on H2, Ef is defined by
+Ef(b,x,y)=f(b,x).(b,x,y)=f(b,x). 
+Thus
+Δ3Ef=E(Δ2−R2)f.Δ_3Ef=E(Δ_2-R_2)f. 
+If f is SO(2)-invariant, then, regarding f as a function of r or t,
+(−Δ2+R2)f=∂t2f+coth⁡t∂tf+r∂rf=∂t2f+(coth⁡t+tanh⁡t)∂tf.(-Δ_2+R_2)f=∂_t^2f+∂_tf+r∂_rf=∂_t^2f+(+)∂_tf.
+On the other hand,
+∂t2+(coth⁡t+tanh⁡t)∂t=∂t2+2coth⁡(2t)∂t.∂_t^2+(+)∂_t=∂_t^2+2(2t)∂_t.
+Thus, setting Sf(t) = f(2t),
+(Δ2−R2)Sf=4SΔ2f,(Δ_2-R_2)Sf=4SΔ_2f,
+leading to the fundamental descent relation of Flensted-Jensen for M0 = ES:
+Δ3M0f=4M0Δ2f.Δ_3M_0f=4M_0Δ_2f.
+The same relation holds with M0 by M, where Mf is obtained by averaging M0f over SU(2).
+The extension Ef is constant in the y variable and therefore invariant under the transformations gs. On the other hand, for F a suitable function on H3, the function QF defined by
+QF=∫K1F∘gsds=∫_K_1F_s ds
+is independent of the y variable. A straightforward change of variables shows that
+∫H3FdV=∫H2(1+b2+x2)1/2QFdA.∫_H^3F dV=∫_H^2(1+b^2+x^2)^1/2QF dA.
+Since K1 commutes with SO(2), QF is SO(2)--invariant if F is, in particular if F is SU(2)-invariant. In this case QF is a function of r or t, so that M*F can be defined by
+M∗F(t)=QF(t/2).^*F(t)=QF(t/2).
+The integral formula above then yields
+∫H3FdV=∫H2M∗FdA∫_H^3F dV=∫_H^2M^*F dA
+and hence, since for f SO(2)-invariant,
+M∗((Mf)⋅F)=f⋅(M∗F),^*((Mf))=f·(M^*F),
+the following adjoint formula:
+∫H3(Mf)⋅FdV=∫H2f⋅(M∗F)dV.∫_H^3(Mf) dV=∫_H^2f·(M*F) dV.
+As a consequence
+M∗Δ3=4Δ2M∗.^*Δ_3=4Δ_2M^*.
+Thus, as in the case of Hadamard's method of descent.
+M∗Φ2λ=b(λ)φλ^*Φ_2λ=b(λ)φ_λ
+with
+b(λ)=M∗Φ2λ(0)=πtanh⁡πλ(λ)=M^*Φ_2λ(0)=πtanhπλ
+and
+Φ2λ=Mφλ.Φ_2λ=Mφ_λ.
+It follows that
+(M∗F)∼(λ)=F (2λ).(M^*F)^∼(λ)=F̃(2λ).
+Taking f=M*F, the SL(2,C) inversion formula for F then immediately yields
+f(x)=∫−∞∞φλ(x)f (λ)λπ2tanh⁡(πλ2)dλ,(x)=∫_-∞^∞φ_λ(x)f̃(λ) λπ2tanh(πλ/2) dλ,
+
+Abel's integral equation[edit]
+The spherical function φλ is given by
+φλ(g)=∫Kα′(kg)dk,φ_λ(g)=∫_Kα'(kg) dk,
+so that
+f (λ)=∫Sf(s)α′(s)ds,f̃(λ)=∫_Sf(s)α'(s) ds,
+Thus
+f (λ)=∫−∞∞∫0∞f(a2+a−2+b22)a−iλ/2dadb,f̃(λ)=∫_-∞^∞∫_0^∞f(a^2+a^-2+b^2/2)a^-iλ/2 da db,
+so that defining F by
+F(u)=∫−∞∞f(u+t22)dt,(u)=∫_-∞^∞f(u+t^2/2) dt,
+the spherical transform can be written
+f (λ)=∫0∞F(a2+a−22)a−iλda=∫0∞F(cosh⁡t)e−itλdt.f̃(λ)=∫_0^∞F(a^2+a^-2/2)a^-iλ da=∫_0^∞F()e^-itλ dt.
+The relation between F and f is classically inverted by the Abel integral equation:
+f(x)=−12π∫−∞∞F′(x+t22)dt.(x)=-1/2π∫_-∞^∞F'(x+t^22) dt.
+In fact[18]
+∫−∞∞F′(x+t22)dt=∫−∞∞∫−∞∞f′(x+t2+u22)dtdu=2π∫0∞f′(x+r22)rdr=2πf(x).∫_-∞^∞F'(x+t^2/2) dt=∫_-∞^∞∫_-∞^∞f'(x+t^2+u^2/2) dt du=2π∫_0^∞f'(x+r^2/2)r dr=2(x).
+The relation between F and f f̃ is inverted by the Fourier inversion formula:
+F(cosh⁡t)=2π∫0∞f (iλ)cos⁡(λt)dλ.()=2π∫_0^∞f̃(iλ)cos() dλ.
+Hence
+f(i)=12π2∫0∞f (λ)λdλ∫−∞∞sin⁡λt/2sinh⁡tcosh⁡t2dt=12π2∫−∞∞f (λ)λπ2tanh⁡(πλ2)dλ.(i)=12π^2∫_0^∞f̃(λ)λ dλ∫_-∞^∞sin/2cosht2 dt=12π^2∫_-∞^∞f̃(λ)λπ2tanh(πλ2) dλ.
+This gives the spherical inversion for the point i. Now for fixed g in SL(2,R) define[19]
+f1(w)=∫Kf(gkw)dk,_1(w)=∫_Kf(gkw) dk,
+another rotation invariant function on H2ℌ^2 with f1(i)=f(g(i)). On the other hand, for biinvariant functions f,
+πλ(f)ξ0=f (λ)ξ0π_λ(f)ξ_0=f̃(λ)ξ_0
+so that
+f 1(λ)=f (λ)⋅φλ(w),f̃_1(λ)=f̃(λ)·φ_λ(w),
+where w = g(i). Combining this with the above inversion formula for f1 yields the general spherical inversion formula:
+f(w)=1π2∫0∞f (λ)φλ(w)λπ2tanh⁡(πλ2)dλ.(w)=1π^2∫_0^∞f̃(λ)φ_λ(w)λπ2tanh(πλ2) dλ.
+
+Other special cases[edit]
+All complex semisimple Lie groups or the Lorentz groups SO0(N,1) with N odd can be treated directly by reduction to the usual Fourier transform.[15][20] The remaining real Lorentz groups can be deduced by Flensted-Jensen's method of descent, as can other semisimple Lie groups of real rank one.[21] Flensted-Jensen's method of descent also applies to the treatment of real semisimple Lie groups for which the Lie algebras are normal real forms of complex semisimple Lie algebras.[15] The special case of SL(N,R) is treated in detail in Jorgenson & Lang (2001); this group is also the normal real form of SL(N,C).
+The approach of Flensted-Jensen (1978) applies to a wide class of real semisimple Lie groups of arbitrary real rank and yields the explicit product form of the Plancherel measure on a𝔞* without using Harish-Chandra's expansion of the spherical functions φλ
+in terms of his c-function, discussed below. Although less general, it gives a simpler approach to the Plancherel theorem for this class of groups.
+
+Complex semisimple Lie groups[edit]
+If G is a complex semisimple Lie group, it is the complexification of its maximal compact subgroup U, a compact semisimple Lie group. If g𝔤 and u𝔲 are their Lie algebras, then g=u⊕iu.𝔤=𝔲𝔲. Let T be a maximal torus in U with Lie algebra t.𝔱. Then setting
+A=exp⁡it,P=exp⁡iu,=𝔱,=𝔲,
+there is the Cartan decomposition:
+G=P⋅U=UAU.=P=UAU.
+The finite-dimensional irreducible representations πλ of U are indexed by certain λ in t∗𝔱^*.[22] The corresponding character formula and dimension formula of Hermann Weyl give explicit formulas for
+χλ(eX)=Tr⁡πλ(eX),(X∈t),d(λ)=dim⁡πλ.χ_λ(e^X)=Trπ_λ(e^X),(X∈𝔱),(λ)=π_λ.
+These formulas, initially defined on t∗×t𝔱^*×𝔱 and t∗𝔱^*, extend holomorphic to their  complexifications. Moreover,
+χλ(eX)=∑σ∈Wsign(σ)eiλ(σX)δ(eX),χ_λ(e^X)=∑_σsign(σ)e^iλ()δ(e^X),
+where W is the Weyl group W=NU(T)/T=N_U(T)/T and δ(eX) is given by a product formula (Weyl's denominator formula) which extends holomorphically to the complexification of t𝔱. There is a similar product formula for d(λ), a polynomial in λ.
+On the complex group G, the integral of a U-biinvariant function F can be evaluated as
+∫GF(g)dg=1|W|∫aF(eX)|δ(eX)|2dX.∫_GF(g) dg=1|W|∫_𝔞F(e^X) |δ(e^X)|^2 dX.
+where a=it𝔞=i𝔱.
+The spherical functions of G are labelled by λ in a=it∗𝔞=i𝔱^* and given by the Harish-Chandra-Berezin formula[23]
+Φλ(eX)=χλ(eX)d(λ).Φ_λ(e^X)=χ_λ(e^X)(λ).
+They are the matrix coefficients of the irreducible spherical principal series of G induced from the character of the Borel subgroup of G corresponding to λ; these representations are irreducible and can all be realized on L2(U/T).
+The spherical transform of a U-biinvariant function F is given by
+F (λ)=∫GF(g)Φ−λ(g)dgF̃(λ)=∫_GF(g)Φ_-λ(g) dg
+and the spherical inversion formula by
+F(g)=1|W|∫a∗F (λ)Φλ(g)|d(λ)|2dλ=∫a+∗F (λ)Φλ(g)|d(λ)|2dλ,(g)=1|W|∫_𝔞^*F̃(λ)Φ_λ(g)|d(λ)|^2 d λ=∫_𝔞_+^*F̃(λ)Φ_λ(g)|d(λ)|^2 d λ,
+where a+∗𝔞_+^* is a Weyl chamber. In fact the result follows from the Fourier inversion formula on a𝔞 since[24]
+d(λ)δ(eX)Φλ(eX)=∑σ∈Wsign(σ)eiλ(X),(λ)δ(e^X)Φ_λ(e^X)=∑_σsign(σ)e^iλ(X),
+so that d(λ)¯F (λ)d(λ)F̃(λ) is just the Fourier transform of F(eX)δ(eX)(e^X)δ(e^X).
+Note that the symmetric space G/U has as compact dual[25] the compact symmetric space U x U / U, where U is the diagonal subgroup. The spherical functions for the latter space, which can be identified with U itself, are the normalized characters χλ/d(λ) indexed by lattice points in the interior of a+∗𝔞_+^* and the role of A is played by T. The spherical transform of f of a class function on U is given by
+f (λ)=∫Uf(u)χλ(u)¯d(λ)duf̃(λ)=∫_Uf(u)χ_λ(u)(λ) du
+and the spherical inversion formula now follows from the theory of Fourier series on T:
+f(u)=∑λf (λ)χλ(u)d(λ)d(λ)2.(u)=∑_λf̃(λ)χ_λ(u)(λ)d(λ)^2.
+There is an evident duality between these formulas and those for the non-compact dual.[26]
+
+Real semisimple Lie groups[edit]
+Let G0 be a normal real form of the complex semisimple Lie group G, the fixed points of an involution σ, conjugate linear on the Lie algebra of G. Let τ be a Cartan involution of G0 extended to an involution of G, complex linear on its Lie algebra, chosen to commute with σ. The fixed point subgroup of τσ is a compact real form U of G, intersecting G0 in a maximal compact subgroup K0. The fixed point subgroup of τ is K, the complexification of K0. Let G0= K0·P0 be the corresponding Cartan decomposition of G0 and let A be a maximal Abelian subgroup of P0. Flensted-Jensen (1978) proved that
+G=KA+U,=KA_+U,
+where A+ is the image of the closure of a Weyl chamber in a𝔞 under the exponential map. Moreover,
+K∖G/U=A+./U=A_+.
+Since
+K0∖G0/K0=A+_0_0/K_0=A_+
+it follows that there is a canonical identification between K \ G / U, K0 \ G0 /K0 and A+. Thus K0-biinvariant functions on G0 can be identified with functions on A+ as can functions on G that are left invariant under K and right invariant under U. Let f be a function in Cc∞(K0∖G0/K0)_c^∞(K_0_0/K_0) and define Mf in Cc∞(U∖G/U)_c^∞(U/U) by
+Mf(a)=∫Uf(ua2)du.(a)=∫_Uf(ua^2) du.
+Here a third Cartan decomposition of G = UAU has been used to identify U \ G / U with A+.
+Let Δ be the Laplacian on G0/K0 and let Δc be the Laplacian on G/U. Then
+4MΔ=ΔcM.4MΔ=Δ_cM.
+For F in Cc∞(U∖G/U)_c^∞(U/U), define M*F in Cc∞(K0∖G0/K0)_c^∞(K_0_0/K_0) by
+M∗F(a2)=∫KF(ga)dg.^*F(a^2)=∫_KF(ga) dg.
+Then M and M* satisfy the duality relations
+∫G/U(Mf)⋅F=∫G0/K0f⋅(M∗F).∫_G/U(Mf)=∫_G_0/K_0f·(M^*F).
+In particular
+M∗Δc=4ΔM∗.^*Δ_c=4^*.
+There is a similar compatibility for other operators in the center of the universal enveloping algebra of G0. It follows from the eigenfunction characterisation of spherical functions that M∗Φ2λ^*Φ_2λ is proportional to φλ on G0, the constant of proportionality being given by
+b(λ)=M∗Φ2λ(1)=∫KΦ2λ(k)dk.(λ)=M^*Φ_2λ(1)=∫_KΦ_2λ(k) dk.
+Moreover, in this case[27]
+(M∗F)∼(λ)=F (2λ).(M^*F)^∼(λ)=F̃(2λ).
+If f = M*F, then the spherical inversion formula for F on G implies that for f on G0:[28][29]
+f(g)=∫a+∗f (λ)φλ(g)2dimA⋅|b(λ)|⋅|d(2λ)|2dλ,(g)=∫_𝔞_+^*f̃(λ)φ_λ(g)  2^dim A·|b(λ)|·|d(2λ)|^2 dλ,
+since
+f(g)=M∗F(g)=∫a+∗F (2λ)M∗Φ2λ(g)2dimA|d(2λ)|2dλ=∫a+∗f (λ)φλ(g)b(λ)2dimA|d(2λ)|2dλ.(g)=M^*F(g)=∫_𝔞_+^*F̃(2λ)M^*Φ_2λ(g)2^dim A|d(2λ)|^2 dλ=∫_𝔞_+^*f̃(λ)φ_λ(g)  b(λ)2^dim A|d(2λ)|^2 dλ.
+The direct calculation of the integral for b(λ), generalising the computation of Godement (1957) for SL(2,R), was left as an open problem by Flensted-Jensen (1978).[30] An explicit product formula for b(λ) was known from the prior determination of the Plancherel measure by Harish-Chandra (1966), giving[31][32]
+b(λ)=C⋅d(2λ)−1⋅∏α>0tanh⁡π(α,λ)(α,α),(λ)=C(2λ)^-1·∏_α>0tanhπ(α,λ)(α,α),
+where α ranges over the positive roots of the root system in a𝔞 and C is a normalising constant, given as a quotient of products of Gamma functions.
+
+Harish-Chandra's Plancherel theorem[edit]
+Let G be a noncompact connected real semisimple Lie group with finite center. Let g𝔤 denote its Lie algebra. Let K be a maximal compact subgroup
+given as the subgroup of fixed points of a Cartan involution σ. Let g±𝔤_± be the ±1 eigenspaces of σ in g𝔤, so that k=g+𝔨=𝔤_+ is the Lie algebra of K and p=g−𝔭=𝔤_- give the Cartan decomposition
+g=k+p,G=exp⁡p⋅K.𝔤=𝔨+𝔭,  G=exp𝔭.
+Let a𝔞 be a maximal Abelian subalgebra of p𝔭 and for α in a∗𝔞^* let
+gα=X∈g:[H,X]=α(H)X(H∈a).𝔤_α={X∈𝔤:[H,X]=α(H)X  (H∈𝔞)}.
+If α ≠ 0 and gα≠(0)𝔤_α≠(0), then α is called a restricted root and mα=dim⁡gα_α=𝔤_α is called its multiplicity. Let A = exp a𝔞, so that G = KAK.The restriction of the Killing form defines an inner product on p𝔭 and hence a𝔞, which allows a∗𝔞^* to be identified with a𝔞. With respect to this inner product, the restricted roots Σ give a root system. Its Weyl group can be identified with W=NK(A)/CK(A)=N_K(A)/C_K(A). A choice of positive roots defines a Weyl chamber a+∗𝔞_+^*. The reduced root system Σ0 consists of roots α such that α/2 is not a root.
+Defining the spherical functions φ λ as above for λ in a∗𝔞^*, the spherical transform of f in Cc∞(K \ G / K) is defined by
+f (λ)=∫Gf(g)φ−λ(g)dg.f̃(λ)=∫_Gf(g)φ_-λ(g) dg.
+The spherical inversion formula states that
+f(g)=∫a+∗f (λ)φλ(g)|c(λ)|−2dλ,(g)=∫_𝔞_+^*f̃(λ)φ_λ(g) |c(λ)|^-2 dλ,
+where Harish-Chandra's c-function c(λ) is defined by[33]
+c(λ)=c0⋅∏α∈Σ0+2−i(λ,α0)Γ(i(λ,α0))Γ(12[12mα+1+i(λ,α0)])Γ(12[12mα+m2α+i(λ,α0)])(λ)=c_0·∏_α∈Σ_0^+2^-i(λ,α_0)Γ(i(λ,α_0))/Γ(1/2[1/2m_α+1+i(λ,α_0)])Γ(1/2[1/2m_α+m_2α+i(λ,α_0)])
+with α0=(α,α)−1αα_0=(α,α)^-1α and the constant c0 chosen so that c(−iρ) = 1 where
+ρ=12∑α∈Σ+mαα.ρ=1/2∑_α∈Σ^+m_αα.
+The Plancherel theorem for spherical functions states that the map
+W:f↦f ,L2(K∖G/K)→L2(a+∗,|c(λ)|−2dλ):f↦f̃,   Ł^2(K/K)^2(𝔞_+^*,|c(λ)|^-2 dλ)
+is unitary and transforms convolution by f∈L1(K∖G/K)^1(K/K) into multiplication by f f̃.
+
+Harish-Chandra's spherical function expansion[edit]
+Since G = KAK, functions on G/K that are invariant under K can be identified with functions on A, and hence a𝔞, that are invariant under the Weyl group W. In particular since the Laplacian Δ on G/K commutes with the action of G, it defines a second order differential operator L on a𝔞, invariant under W, called the radial part of the Laplacian. In general if X is in a𝔞, it defines a first order differential operator (or vector field) by
+Xf(y)=ddtf(y+tX)|t=0.(y)=.d/dtf(y+tX)|_t=0.
+L can be expressed in terms of these operators by the formula[34]
+L=Δa−∑α>0mαcoth⁡αAα,=Δ_𝔞-∑_α>0m_α α A_α,
+where Aα in a𝔞 is defined by
+(Aα,X)=α(X)(A_α,X)=α(X)
+and
+Δa=−∑Xi2Δ_𝔞=-_i^2
+is the Laplacian on a𝔞, corresponding to any choice of orthonormal basis (Xi).
+Thus
+L=L0−∑α>0mα(coth⁡α−1)Aα,=L_0-∑_α>0m_α (α-1)A_α,
+where
+L0=Δa−∑α>0Aα,_0=Δ_𝔞-∑_α>0A_α,
+so that L can be regarded as a perturbation of the constant-coefficient operator L0.
+Now the spherical function φλ is an eigenfunction of the Laplacian:
+Δφλ=(‖λ‖2+‖ρ‖2)φλΔφ_λ=(λ^2+ρ^2)φ_λ
+and therefore of L, when viewed as a W-invariant function on a𝔞.
+Since eiλ–ρ and its transforms under W are eigenfunctions of L0 with the same eigenvalue, it is natural look for a formula for φλ in terms of a perturbation series
+fλ=eiλ−ρ∑μ∈Λaμ(λ)e−μ,_λ=e^iλ-ρ∑_μ∈Λa_μ(λ)e^-μ,
+with Λ the cone of all non-negative integer combinations of positive roots, and the transforms of fλ under W. The expansion
+coth⁡x−1=2∑m>0e−2mx,-1=2∑_m>0e^-2mx,
+leads to a recursive formula for the coefficients aμ(λ). In particular they are uniquely determined and the
+series and its derivatives converges absolutely on a+𝔞_+, a fundamental domain for W. Remarkably it turns out that fλ is also an eigenfunction of the other G-invariant differential operators on G/K, each of which induces a W-invariant differential operator on a𝔞.
+It follows that φλ can be expressed in terms as a linear combination of fλ and its transforms under W:[35]
+φλ=∑s∈Wc(sλ)fsλ.φ_λ=∑_sc(sλ)f_sλ.
+Here c(λ) is Harish-Chandra's c-function. It describes the asymptotic behaviour of φλ in a+𝔞_+,  since[36]
+φλ(etX)∼c(λ)e(iλ−ρ)Xtφ_λ(e^tX)(λ)e^(iλ-ρ)Xt
+for X in a+𝔞_+ and t > 0 large.
+Harish-Chandra obtained a second integral formula for φλ and hence c(λ) using the Bruhat decomposition of G:[37]
+G=⋃s∈WBsB,=⋃_sBsB,
+where B = MAN and the union is disjoint. Taking the Coxeter element s0 of W, the unique element mapping a+𝔞_+ onto −a+-𝔞_+, it follows that σ(N) has a dense open orbit G/B = K/M whose complement is a union of cells of strictly smaller dimension and therefore has measure zero. It follows that the integral formula
+for φλ initially defined over K/M
+φλ(g)=∫K/Mλ′(gk)−1dk.φ_λ(g)=∫_K/Mλ'(gk)^-1 dk.
+can be transferred to σ(N):[38]
+φλ(eX)=eiλ−ρ∫σ(N)λ′(n)¯λ′(eXne−X)dn,φ_λ(e^X)=e^iλ-ρ∫_σ(N)λ'(n)λ'(e^Xne^-X) dn,
+for X in a𝔞.
+Since
+limt→∞etXne−tX=1lim_t→∞e^tXne^-tX=1
+for X in a+𝔞_+, the asymptotic behaviour of φλ can be read off from this integral, leading to the formula:[39]
+c(λ)=∫σ(N)λ′(n)¯dn.(λ)=∫_σ(N)λ'(n) dn.
+
+Harish-Chandra's c-function[edit]
+Main article: Harish-Chandra's c-function
+The many roles of Harish-Chandra's c-function in non-commutative harmonic analysis are surveyed in Helgason (2000). Although it was originally introduced by Harish-Chandra in the asymptotic expansions of spherical functions, discussed above, it was also soon understood to be intimately related to intertwining operators between induced representations, first studied in this context by Bruhat (1957) harvtxt error: no target: CITEREFBruhat1957 (help). These operators exhibit the unitary equivalence between πλ and πsλ for s in the Weyl group and a c-function cs(λ) can be attached to each such operator: namely the value at 1 of the intertwining operator applied to ξ0, the constant function 1, in L2(K/M).[40] Equivalently, since ξ0 is up to scalar multiplication the unique vector fixed by K, it is an eigenvector of the intertwining operator with eigenvalue cs(λ).
+These operators all act on the same space L2(K/M), which can be identified with the representation induced from the 1-dimensional representation defined by λ on MAN. Once A has been chosen, the compact subgroup M is uniquely determined as the centraliser of A in K. The nilpotent subgroup N, however, depends on a choice of a Weyl chamber in a∗𝔞^*, the various choices being permuted by the Weyl group W = M ' / M, where M ' is the normaliser of A in K. The standard intertwining operator corresponding to (s, λ) is defined on the induced representation by[41]
+A(s,λ)F(k)=∫σ(N)∩s−1NsF(ksn)dn,(s,λ)F(k)=∫_σ(N)^-1NsF(ksn) dn,
+where σ is the Cartan involution. It satisfies the intertwining relation
+A(s,λ)πλ(g)=πsλ(g)A(s,λ).(s,λ)π_λ(g)=π_sλ(g)A(s,λ).
+The key property of the intertwining operators and their integrals is the multiplicative cocycle property[42]
+A(s1s2,λ)=A(s1,s2λ)A(s2,λ),(s_1s_2,λ)=A(s_1,s_2λ)A(s_2,λ),
+whenever
+ℓ(s1s2)=ℓ(s1)+ℓ(s2)ℓ(s_1s_2)=ℓ(s_1)+ℓ(s_2)
+for the length function on the Weyl group associated with the choice of Weyl chamber. For s in W, this is the number of chambers crossed by the straight line segment between X and sX for any point X in the interior of the chamber. The unique element of greatest length s0, namely the number of positive restricted roots, is the unique element that carries the Weyl chamber a+∗𝔞_+^* onto −a+∗-𝔞_+^*. By Harish-Chandra's integral formula, it corresponds to Harish-Chandra's c-function:
+c(λ)=cs0(λ).(λ)=c_s_0(λ).
+The c-functions are in general defined by the equation
+Failed to parse (SVG (MathML can be enabled via browser plugin): Invalid response ("Math extension cannot connect to Restbase.") from server "http://localhost:6011/en.wikipedia.org/v1/":): {\displaystyle  A(s,\lambda)\xi_0 =c_s(\lambda)\xi_0,}
+
+where ξ0 is the constant function 1 in L2(K/M). The cocycle property of the intertwining operators implies a similar multiplicative property for the c-functions:
+cs1s2(λ)=cs1(s2λ)cs2(λ)_s_1s_2(λ)=c_s_1(s_2λ)c_s_2(λ)
+provided
+ℓ(s1s2)=ℓ(s1)+ℓ(s2).ℓ(s_1s_2)=ℓ(s_1)+ℓ(s_2).
+This reduces the computation of cs to the case when s = sα, the reflection in a (simple) root α, the so-called "rank-one reduction" of Gindikin & Karpelevich (1962). In fact the integral involves only the closed connected subgroup Gα corresponding to the Lie subalgebra generated by g±α𝔤_±α where α lies in Σ0+.[43] Then Gα is a real semisimple Lie group with real rank one, i.e. dim Aα = 1, and cs is just the Harish-Chandra c-function of Gα. In this case the c-function can be computed directly by various means:
+
+by noting that φλ can be expressed in terms of the hypergeometric function for which the asymptotic expansion is known from the classical formulas of Gauss for the connection coefficients;[6][44]
+by directly computing the integral, which can be expressed as an integral in two variables and hence a product of two beta functions.[45][46]
+This yields the following formula:
+csα(λ)=c02−i(λ,α0)Γ(i(λ,α0))Γ(12(12mα+1+i(λ,α0)))Γ(12(12mα+m2α+i(λ,α0))),_s_α(λ)=c_02^-i(λ,α_0)Γ(i(λ,α_0))/Γ(1/2(1/2m_α+1+i(λ,α_0)))Γ(1/2(1/2m_α+m_2α+i(λ,α_0))),
+where
+c0=2mα/2+m2αΓ(12(mα+m2α+1))._0=2^m_α/2+m_2αΓ(12(m_α+m_2α+1)).
+The general Gindikin–Karpelevich formula for c(λ) is an immediate consequence of this formula and the multiplicative properties of cs(λ).
+
+Paley–Wiener theorem[edit]
+The Paley-Wiener theorem generalizes the classical Paley-Wiener theorem by characterizing the spherical transforms of smooth K-bivariant functions of compact support on G. It is a necessary and sufficient condition that the spherical transform be W-invariant and that there is an R > 0 such that for each N there is an estimate
+|f (λ)|≤CN(1+|λ|)−NeR|Im⁡λ|.|f̃(λ)|_N(1+|λ|)^-Ne^R|Imλ|.
+In this case f is supported in the closed ball of radius R about the origin in G/K.
+This was proved by Helgason and Gangolli (Helgason (1970) pg. 37).
+The theorem was later proved by Flensted-Jensen (1986) independently of the spherical inversion theorem, using a modification of his method of reduction to the complex case.[47]
+
+Rosenberg's proof of inversion formula[edit]
+Rosenberg (1977) noticed that the Paley-Wiener theorem and the spherical inversion theorem could be proved simultaneously, by a trick which considerably simplified previous proofs.
+The first step of his proof consists in showing directly that the inverse transform, defined using Harish-Chandra's c-function, defines a function supported in the closed ball of radius R about the origin if the Paley-Wiener estimate is satisfied. This follows
+because the integrand defining the inverse transform extends to a meromorphic function on the complexification of a∗𝔞^*; the integral can be shifted to a∗+iμt𝔞^*+i for μ in a+∗𝔞_+^* and t > 0. Using Harish-Chandra's expansion
+of φλ and the formulas for c(λ) in terms of Gamma functions, the integral can be bounded for t large and hence can be shown to vanish outside the closed ball of radius R about the origin.[48]
+This part of the Paley-Wiener theorem shows that
+T(f)=∫a+∗f (λ)|c(λ)|−2dλ(f)=∫_𝔞_+^*f̃(λ)|c(λ)|^-2 dλ
+defines a distribution on G/K with support at the origin o. A further estimate for the integral shows that it is in fact given by a measure and that therefore there is a constant C such that
+T(f)=Cf(o).(f)=Cf(o).
+By applying this result to
+f1(g)=∫Kf(x−1kg)dk,_1(g)=∫_Kf(x^-1kg) dk,
+it follows that
+Cf=∫a+∗f (λ)φλ|c(λ)|−2dλ.=∫_𝔞_+^*f̃(λ)φ_λ|c(λ)|^-2 dλ.
+A further scaling argument allows the inequality C = 1 to be deduced from the Plancherel theorem and Paley-Wiener theorem on a𝔞.[49][50]
+
+Schwartz functions[edit]
+The Harish-Chandra Schwartz space can be defined as[51]
+S(K∖G/K)=f∈C∞(G/K)K:supx|(1+d(x,o))m(Δ+I)nf(x)|<∞.𝒮(K/K)={f^∞(G/K)^K:sup_x|(1+d(x,o))^m(Δ+I)^nf(x)|<∞}.
+Under the spherical transform it is mapped onto S(a∗)W,𝒮(𝔞^*)^W, the space of W-invariant
+Schwartz functions on a∗.𝔞^*.
+The original proof of Harish-Chandra was a long argument by induction.[6][7][52] Anker (1991) found a short and simple proof, allowing the result to be deduced directly from versions of the Paley-Wiener and spherical inversion formula. He proved that the spherical transform of a Harish-Chandra Schwartz function is a classical Schwartz function. His key observation was then to show that the inverse transform was continuous on the Paley-Wiener space endowed with classical Schwartz space seminorms, using classical estimates.
+
+Notes[edit]
+
+
+^ Helgason 1984, pp. 492–493, historical notes on the Plancherel theorem for spherical functions
+
+^ Harish-Chandra 1951
+
+^ Harish-Chandra 1952
+
+^ Gelfand & Naimark 1948
+
+^ Guillemin & Sternberg 1977
+
+^ a b c Harish-Chandra 1958a
+
+^ a b Harish-Chandra 1958b
+
+^ Gindikin & Karpelevich 1962
+
+^ Harish-Chandra 1966, section 21
+
+^ The spectrum coincides with that of the commutative Banach *-algebra of integrable K-biinvariant functions on G under convolution, a dense *-subalgebra of A𝔄.
+
+^ The measure class of μ in the sense of the Radon–Nikodym theorem is unique.
+
+^ Davies 1990 harvnb error: no target: CITEREFDavies1990 (help)
+
+^ Lax & Phillips 1976
+
+^ Helgason 1984, p. 38
+
+^ a b c Flensted-Jensen 1978
+
+^ Anker 1991
+
+^ Jorgenson & Lang 2001
+
+^ Helgason 1984, p. 41
+
+^ Helgason 1984, p. 46
+
+^ Takahashi 1963
+
+^ Loeb 1979
+
+^ These are indexed by highest weights shifted by half the sum of the positive roots.
+
+^ Helgason 1984, pp. 423–433
+
+^ Flensted-Jensen 1978, p. 115
+
+^ Helgason 1978
+
+^ The spherical inversion formula for U is equivalent to the statement that the functions χλd(λ)−1/2χ_λd(λ)^-1/2 form an orthonormal basis for the class functions.
+
+^ Flensted-Jensen 1978, p. 133
+
+^ Flensted-Jensen 1978, p. 133
+
+^ Helgason 1984, p. 490–491
+
+^ b(λ) can be written as integral over A0 where K = K0 A0 K0 is the Cartan decomposition of K. The integral then becomes an alternating sum of multidimensional Godement-type integrals, whose combinatorics is governed by that of the Cartan-Helgason theorem for U/K0. An equivalent computation that arises in the theory of the Radon transform has been discussed by Beerends (1987), Stade (1999) and Gindikin (2008).
+
+^ Helgason 1984
+
+^ Beerends 1987, p. 4–5
+
+^ Helgason, p. 447 harvnb error: no target: CITEREFHelgason (help)
+
+^ Helgason 1984, p. 267
+
+^ Helgason 1984, p. 430
+
+^ Helgason 1984, p. 435
+
+^ Helgason 1978, p. 403
+
+^ Helgason 1984, p. 436
+
+^ Helgason 1984, p. 447
+
+^ Knapp 2001, Chapter VII
+
+^ Knapp 2001, p. 177
+
+^ Knapp 2001, p. 182
+
+^ Helgason 1978, p. 407
+
+^ Helgason 1984, p. 484
+
+^ Helgason 1978, p. 414
+
+^ Helgason 1984, p. 437
+
+^ The second statement on supports follows from Flensted-Jensen's proof by using the explicit methods associated with
+Kostant polynomials instead of the results of Mustapha Rais.
+
+^ Helgason 1984, pp. 452–453
+
+^ Rosenberg 1977
+
+^ Helgason 1984, p. 588–589
+
+^ Anker 1991, p. 347
+
+^ Helgason 1984, p. 489
+
+
+References[edit]
+Anker, Jean-Philippe (1991), "The spherical Fourier transform of rapidly decreasing functions. A simple proof of a characterization due to Harish-Chandra, Helgason, Trombi, and Varadarajan", J. Funct. Anal., 96 (2): 331–349, doi:10.1016/0022-1236(91)90065-D
+Beerends, R. J. (1987), "The Fourier transform of Harish-Chandra's c-function and inversion of the Abel transform", Math. Ann., 277: 1–23, doi:10.1007/BF01457275, S2CID 123060173
+Davies, E. B. (1989), Heat Kernels and Spectral Theory, Cambridge University Press, ISBN 0-521-40997-7
+Dieudonné, Jean (1978), Treatise on Analysis, Vol. VI, Academic Press, ISBN 0-12-215506-8
+Flensted-Jensen, Mogens (1978), "Spherical functions of a real semisimple Lie group. A method of reduction to the complex case", J. Funct. Anal., 30: 106–146, doi:10.1016/0022-1236(78)90058-7
+Flensted-Jensen, Mogens (1986), Analysis on non-Riemannian symmetric spaces, CBMS regional conference series in mathematics, vol. 61, American Mathematical Society, ISBN 0-8218-0711-0
+Gelfand, I. M.; Naimark, M. A. (1948), "An analog of Plancherel's formula for the complex unimodular group", Doklady Akademii Nauk SSSR, 63: 609–612
+Gindikin, Simon G.; Karpelevich, Fridrikh I. (1962),  Мера Планшереля для римановых симметрических пространств неположительной кривизны [Plancherel measure for symmetric Riemannian spaces of non-positive curvature], Doklady Akademii Nauk SSSR, 145: 252–255, MR 0150239.
+Gindikin, S.G. (2008), "Horospherical transform on Riemannian symmetric manifolds of noncompact type", Functional Analysis and Its Applications, 42 (4): 290–297, doi:10.1007/s10688-008-0042-2, S2CID 120718983
+Godement, Roger (1957), Introduction aux travaux de A. Selberg (Exposé no. 144, February 1957), Séminaire Bourbaki, vol. 4, Soc. Math. France, pp. 95–110
+Guillemin, Victor; Sternberg, Shlomo (1977), Geometric Asymptotics, American Mathematical Society, ISBN 0-8218-1633-0, Appendix to Chapter VI, The Plancherel Formula for Complex Semisimple Lie Groups.
+Harish-Chandra (1951), "Plancherel formula for complex semisimple Lie groups", Proc. Natl. Acad. Sci. U.S.A., 37 (12): 813–818, Bibcode:1951PNAS...37..813H, doi:10.1073/pnas.37.12.813, JSTOR 88521, PMC 1063477, PMID 16589034
+Harish-Chandra (1952), "Plancherel formula for the 2 x 2 real unimodular group", Proc. Natl. Acad. Sci. U.S.A., 38 (4): 337–342, doi:10.1073/pnas.38.4.337, JSTOR 88737, PMC 1063558, PMID 16589101
+Harish-Chandra (1958a), "Spherical functions on a semisimple Lie group. I", American Journal of Mathematics, American Journal of Mathematics, Vol. 80, No. 2, 80 (2): 241–310, doi:10.2307/2372786, JSTOR 2372786, MR 0094407
+Harish-Chandra (1958b), "Spherical Functions on a Semisimple Lie Group II", American Journal of Mathematics, The Johns Hopkins University Press, 80 (3): 553–613, doi:10.2307/2372772, JSTOR 2372772
+Harish-Chandra (1966), "Discrete series for semisimple Lie groups, II", Acta Mathematica, 116: 1–111, doi:10.1007/BF02392813, S2CID 125806386, section 21.
+Helgason, Sigurdur (1970), "A duality for symmetric spaces with applications to group representations", Advances in Mathematics, 5: 1–154, doi:10.1016/0001-8708(70)90037-X
+Helgason, Sigurdur (1968), Lie groups and symmetric spaces, Battelle Rencontres, Benjamin, pp. 1–71 (a general introduction for physicists)
+Helgason, Sigurdur (1984), Groups and Geometric Analysis. Integral Geometry, Invariant Differential Operators and Spherical Functions, Academic Press, ISBN 0-12-338301-3
+Helgason, Sigurdur (1978), Differential geometry, Lie groups and symmetric spaces, Pure and Applied Mathematics 80, New York: Academic Press, pp. xvi+628, ISBN 0-12-338460-5.
+Helgason, Sigurdur (2000), "Harish-Chandra's c-function: a mathematical jewel", Proceedings of Symposia in Pure Mathematics, 68: 273–284, doi:10.1090/pspum/068/0834
+Jorgenson, Jay; Lang, Serge (2001), Spherical inversion on SL(n,R), Springer Monographs in Mathematics, Springer-Verlag, ISBN 0-387-95115-6
+Knapp, Anthony W. (2001), Representation theory of semisimple groups: an overview based on examples, Princeton University Press, ISBN 0-691-09089-0
+Kostant, Bertram (1969), "On the existence and irreducibility of certain series of representations" (PDF), Bull. Amer. Math. Soc., 75 (4): 627–642, doi:10.1090/S0002-9904-1969-12235-4
+Lang, Serge (1998), SL(2,R), Springer, ISBN 0-387-96198-4
+Lax, Peter D.; Phillips, Ralph (1976), Scattering theory for automorphic functions, Annals of Mathematics Studies, vol. 87, Princeton University Press, ISBN 0-691-08184-0
+Loeb, Jacques (1979), L'analyse harmonique sur les espaces symétriques de rang 1. Une réduction aux espaces hyperboliques réels de dimension impaire, Lecture Notes in Math, vol. 739, Springer, pp. 623–646
+Rosenberg, Jonathan (1977), "A quick proof of Harish-Chandra's Plancherel theorem for spherical functions on a semisimple Lie group", Proceedings of the American Mathematical Society, 63 (1): 143–149, doi:10.1090/S0002-9939-1977-0507231-8, JSTOR 2041084
+Selberg, Atle (1956), "Harmonic analysis and discontinuous groups in weakly symmetric Riemannian spaces with applications to Dirichlet series", J. Indian Math. Soc., 20: 47–87
+Stade, E. (1999), "The hyperbolic tangent and generalized Mellin inversion", Rocky Mountain Journal of Mathematics, 29 (2): 691–707, doi:10.1216/rmjm/1181071659
+Takahashi, R. (1963), "Sur les représentations unitaires des groupes de Lorentz généralisés", Bull. Soc. Math. France (in French), 91: 289–433, doi:10.24033/bsmf.1598
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

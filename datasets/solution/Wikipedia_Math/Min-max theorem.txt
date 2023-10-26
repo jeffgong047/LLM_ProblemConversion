@@ -1,0 +1,425 @@
+Variational characterization of eigenvalues of compact Hermitian operators on Hilbert spaces
+Not to be confused with Minimax theorem.
+"Variational theorem" redirects here. Not to be confused with variational principle.
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Min-max theorem" – news · newspapers · books · scholar · JSTOR (November 2011) (Learn how and when to remove this template message)
+In linear algebra and functional analysis, the min-max theorem, or variational theorem, or Courant–Fischer–Weyl min-max principle, is a result that gives a variational characterization of eigenvalues of compact Hermitian operators on Hilbert spaces. It can be viewed as the starting point of many results of similar nature.
+This article first discusses the finite-dimensional case and its applications before considering compact operators on infinite-dimensional Hilbert spaces. 
+We will see that for compact operators, the proof of the main theorem uses essentially the same idea from the finite-dimensional argument.
+In the case that the operator is non-Hermitian, the theorem provides an equivalent characterization of the associated singular values. 
+The min-max theorem can be extended to self-adjoint operators that are bounded below.
+
+
+Matrices[edit]
+Let A be a n × n Hermitian matrix. As with many other variational results on eigenvalues, one considers the Rayleigh–Ritz quotient RA : Cn \ {0} → R defined by
+
+RA(x)=(Ax,x)(x,x)_A(x)=(Ax,x)/(x,x)
+where (⋅, ⋅) denotes the Euclidean inner product on Cn. 
+Clearly, the Rayleigh quotient of an eigenvector is its associated eigenvalue. Equivalently, the Rayleigh–Ritz quotient can be replaced by
+
+f(x)=(Ax,x),‖x‖=1.(x)=(Ax,x), x=1.
+For Hermitian matrices A, the range of the continuous function RA(x), or f(x), is a compact interval [a, b] of the real line. The maximum b and the minimum a are the largest and smallest eigenvalue of A, respectively. The min-max theorem is a refinement of this fact.
+
+Min-max theorem[edit]
+Let A be an n × n Hermitian matrix with eigenvalues λ1 ≤ ... ≤ λk ≤ ... ≤ λn, then
+
+λk=minUmaxxRA(x)∣x∈Uandx≠0∣dim⁡(U)=kλ_k=min_U{max_x{R_A(x)andx≠0}|(U)=k}
+and
+
+λk=maxUminxRA(x)∣x∈Uandx≠0∣dim⁡(U)=n−k+1λ_k=max_U{min_x{R_A(x)andx≠0}|(U)=n-k+1},
+in particular,
+
+∀x∈Cn∖0:λ1≤RA(x)≤λn∈𝐂^n\{0}λ_1_A(x)≤λ_n
+and these bounds are attained when x is an eigenvector of the appropriate eigenvalues.
+Also the simpler formulation for the maximal eigenvalue λn is given by: 
+
+λn=maxRA(x):x≠0.λ_n=max{R_A(x):x≠0}.
+Similarly, the minimal eigenvalue λ1 is given by: 
+
+λ1=minRA(x):x≠0.λ_1=min{R_A(x):x≠0}.
+Proof
+Since the matrix A is Hermitian it is diagonalizable and we can choose an orthonormal basis of eigenvectors {u1, ..., un} that is, ui is an eigenvector for the eigenvalue λi and such that (ui, ui) = 1 and (ui, uj) = 0 for all i ≠ j.
+If U is a subspace of dimension k then its intersection with the subspace span{uk, ..., un}  isn't zero, 
+for if it were, then the dimension of the span of the two subspaces would be k+(n−k+1)+(n-k+1), which is impossible. Hence there exists a vector v ≠ 0 in this intersection that we can write as
+
+v=∑i=knαiui=∑_i=k^nα_iu_i
+and whose Rayleigh quotient is
+
+RA(v)=∑i=knλi|αi|2∑i=kn|αi|2≥λk_A(v)=∑_i=k^nλ_i|α_i|^2/∑_i=k^n|α_i|^2≥λ_k
+(as all λi≥λkλ_i≥λ_k for i=k,..,n)
+and hence
+
+maxRA(x)∣x∈U≥λkmax{R_A(x)}≥λ_k
+Since this is true for all U, we can conclude that 
+
+minmaxRA(x)∣x∈Uandx≠0∣dim⁡(U)=k≥λkmin{max{R_A(x)andx≠0}|(U)=k}≥λ_k
+This is one inequality. To establish the other inequality, choose the specific k-dimensional space
+V = span{u1, ..., uk} , for which
+
+maxRA(x)∣x∈Vandx≠0≤λkmax{R_A(x)andx≠0}≤λ_k
+because λkλ_k is the largest eigenvalue in V. Therefore, also
+
+minmaxRA(x)∣x∈Uandx≠0∣dim⁡(U)=k≤λkmin{max{R_A(x)andx≠0}|(U)=k}≤λ_k
+To get the other formula, consider the Hermitian matrix A′=−A'=-A, whose eigenvalues in increasing order are λk′=−λn−k+1λ'_k=-λ_n-k+1.
+Applying the result just proved,
+
+−λn−k+1=λk′=minmaxRA′(x)∣x∈U∣dim⁡(U)=k=minmax−RA(x)∣x∈U∣dim⁡(U)=k=−maxminRA(x)∣x∈U∣dim⁡(U)=k-λ_n-k+1=λ'_k   =min{max{R_A'(x)}|(U)=k}
+   =min{max{-R_A(x)}|(U)=k}
+   =-max{min{R_A(x)}|(U)=k}
+The result follows on replacing k with n−k+1-k+1.
+
+
+Counterexample in the non-Hermitian case[edit]
+Let N be the nilpotent matrix
+
+[0100].[ 0 1; 0 0 ].
+Define the Rayleigh quotient RN(x)_N(x) exactly as above in the Hermitian case. Then it is easy to see that the only eigenvalue of N is zero, while the maximum value of the Rayleigh quotient is 1/2. That is, the maximum value of the Rayleigh quotient is larger than the maximum eigenvalue.
+
+Applications[edit]
+Min-max principle for singular values[edit]
+The singular values {σk} of a square matrix M are the square roots of the eigenvalues of M*M (equivalently MM*). An immediate consequence[citation needed] of the first equality in the min-max theorem is:
+
+σk↑=minS:dim⁡(S)=kmaxx∈S,‖x‖=1(M∗Mx,x)12=minS:dim⁡(S)=kmaxx∈S,‖x‖=1‖Mx‖.σ_k^↑=min_S:(S)=kmax_x,x=1(M^*Mx,x)^1/2=min_S:(S)=kmax_x,x=1Mx.
+Similarly,
+
+σk↑=maxS:dim⁡(S)=n−k+1minx∈S,‖x‖=1‖Mx‖.σ_k^↑=max_S:(S)=n-k+1min_x,x=1Mx.
+Here σk=σk↑σ_k=σ_k^↑ denotes the kth entry in the increasing sequence of σ's, so that σ1≤σ2≤⋯σ_1≤σ_2≤⋯.
+
+Cauchy interlacing theorem[edit]
+Main article: Poincaré separation theorem
+Let A be a symmetric n × n matrix. The m × m matrix B, where m ≤ n, is called a compression of A if there exists an orthogonal projection P onto a subspace of dimension m such that PAP* = B. The Cauchy interlacing theorem states:
+
+Theorem. If the eigenvalues of A are α1 ≤ ... ≤ αn, and those of B are β1 ≤ ... ≤ βj ≤ ... ≤ βm, then for all j ≤ m,
+αj≤βj≤αn−m+j.α_j≤β_j≤α_n-m+j.
+This can be proven using the min-max principle. Let βi have corresponding eigenvector bi and Sj be the j dimensional subspace Sj = span{b1, ..., bj}, then
+
+βj=maxx∈Sj,‖x‖=1(Bx,x)=maxx∈Sj,‖x‖=1(PAP∗x,x)≥minSjmaxx∈Sj,‖x‖=1(A(P∗x),P∗x)=αj.β_j=max_x_j,x=1(Bx,x)=max_x_j,x=1(PAP^*x,x)≥min_S_jmax_x_j,x=1(A(P^*x),P^*x)=α_j.
+According to first part of min-max, αj ≤ βj. On the other hand, if we define Sm−j+1 = span{bj, ..., bm}, then
+
+βj=minx∈Sm−j+1,‖x‖=1(Bx,x)=minx∈Sm−j+1,‖x‖=1(PAP∗x,x)=minx∈Sm−j+1,‖x‖=1(A(P∗x),P∗x)≤αn−m+j,β_j=min_x_m-j+1,x=1(Bx,x)=min_x_m-j+1,x=1(PAP^*x,x)=min_x_m-j+1,x=1(A(P^*x),P^*x)≤α_n-m+j,
+where the last inequality is given by the second part of min-max.
+When n − m = 1, we have αj ≤ βj ≤ αj+1, hence the name interlacing theorem.
+
+Compact operators[edit]
+Let A be a compact, Hermitian operator on a Hilbert space H. Recall that the spectrum of such an operator (the set of eigenvalues) is a set of real numbers whose only possible cluster point is zero. 
+It is thus convenient to list the positive eigenvalues of A as
+
+⋯≤λk≤⋯≤λ1,⋯≤λ_k≤⋯≤λ_1,
+where entries are repeated with multiplicity, as in the matrix case. (To emphasize that the sequence is decreasing, we may write λk=λk↓λ_k=λ_k^↓.) 
+When H is infinite-dimensional, the above sequence of eigenvalues is necessarily infinite. 
+We now apply the same reasoning as in the matrix case. Letting Sk ⊂ H be a k dimensional subspace, we can obtain the following theorem.
+
+Theorem (Min-Max). Let A be a compact, self-adjoint operator on a Hilbert space H, whose positive eigenvalues are listed in decreasing order ... ≤ λk ≤ ... ≤ λ1. Then:
+maxSkminx∈Sk,‖x‖=1(Ax,x)=λk↓,minSk−1maxx∈Sk−1⊥,‖x‖=1(Ax,x)=λk↓.max_S_kmin_x_k,x=1(Ax,x)   =λ_k^↓,
+min_S_k-1max_x_k-1^⊥,x=1(Ax,x)   =λ_k^↓.
+A similar pair of equalities hold for negative eigenvalues.
+
+Proof
+Let S'  be the closure of the linear span S′=span⁡uk,uk+1,…'=span{u_k,u_k+1,…}.
+The subspace S'  has codimension k − 1. By the same dimension count argument as in the matrix case, S'  ∩ Sk has positive dimension. So there exists x ∈ S'  ∩ Sk with ‖x‖=1x=1. Since it is an element of S' , such an x necessarily satisfy
+
+(Ax,x)≤λk.(Ax,x)≤λ_k.
+Therefore, for all Sk
+
+infx∈Sk,‖x‖=1(Ax,x)≤λkinf_x_k,x=1(Ax,x)≤λ_k
+But A is compact, therefore the function f(x) = (Ax, x) is weakly continuous. Furthermore, any bounded set in H is weakly compact. This lets us replace the infimum by minimum:
+
+minx∈Sk,‖x‖=1(Ax,x)≤λk.min_x_k,x=1(Ax,x)≤λ_k.
+So
+
+supSkminx∈Sk,‖x‖=1(Ax,x)≤λk.sup_S_kmin_x_k,x=1(Ax,x)≤λ_k.
+Because equality is achieved when Sk=span⁡u1,…,uk_k=span{u_1,…,u_k},
+
+maxSkminx∈Sk,‖x‖=1(Ax,x)=λk.max_S_kmin_x_k,x=1(Ax,x)=λ_k.
+This is the first part of min-max theorem for compact self-adjoint operators.
+Analogously, consider now a (k − 1)-dimensional subspace Sk−1, whose the orthogonal complement is denoted by Sk−1⊥. If S'  = span{u1...uk},
+
+S′∩Sk−1⊥≠0.'_k-1^⊥≠0.
+So
+
+∃x∈Sk−1⊥‖x‖=1,(Ax,x)≥λk._k-1^⊥ x=1,(Ax,x)≥λ_k.
+This implies
+
+maxx∈Sk−1⊥,‖x‖=1(Ax,x)≥λkmax_x_k-1^⊥,x=1(Ax,x)≥λ_k
+where the compactness of A was applied. Index the above by the collection of k-1-dimensional subspaces gives
+
+infSk−1maxx∈Sk−1⊥,‖x‖=1(Ax,x)≥λk.inf_S_k-1max_x_k-1^⊥,x=1(Ax,x)≥λ_k.
+Pick Sk−1 = span{u1, ..., uk−1} and we deduce
+
+minSk−1maxx∈Sk−1⊥,‖x‖=1(Ax,x)=λk.min_S_k-1max_x_k-1^⊥,x=1(Ax,x)=λ_k.
+
+Self-adjoint operators[edit]
+The min-max theorem also applies to (possibly unbounded) self-adjoint operators.[1][2] Recall the essential spectrum is the spectrum without isolated eigenvalues of finite multiplicity. 
+Sometimes we have some eigenvalues below the essential spectrum, and we would like to approximate the eigenvalues and eigenfunctions.
+
+Theorem (Min-Max). Let A be self-adjoint, and let E1≤E2≤E3≤⋯_1_2_3≤⋯ be the eigenvalues of A below the essential spectrum. Then
+En=minψ1,…,ψnmax⟨ψ,Aψ⟩:ψ∈span⁡(ψ1,…,ψn),‖ψ‖=1_n=min_ψ_1,…,ψ_nmax{⟨ψ,Aψ⟩:ψ∈span(ψ_1,…,ψ_n), ψ=1}.
+If we only have N eigenvalues and hence run out of eigenvalues, then we let En:=infσess(A)_n:=infσ_ess(A) (the bottom of the essential spectrum) for n>N, and the above statement holds after replacing min-max with inf-sup.
+
+Theorem (Max-Min). Let A be self-adjoint, and let E1≤E2≤E3≤⋯_1_2_3≤⋯ be the eigenvalues of A below the essential spectrum. Then
+En=maxψ1,…,ψn−1min⟨ψ,Aψ⟩:ψ⊥ψ1,…,ψn−1,‖ψ‖=1_n=max_ψ_1,…,ψ_n-1min{⟨ψ,Aψ⟩:ψ⊥ψ_1,…,ψ_n-1, ψ=1}.
+If we only have N eigenvalues and hence run out of eigenvalues, then we let En:=infσess(A)_n:=infσ_ess(A) (the bottom of the essential spectrum) for n > N, and the above statement holds after replacing max-min with sup-inf.
+The proofs[1][2] use the following results about self-adjoint operators:
+
+Theorem. Let A be self-adjoint. Then (A−E)≥0(A-E)≥0 for E∈R∈ℝ if and only if σ(A)⊆[E,∞)σ(A)⊆[E,∞).[1]: 77 
+Theorem. If A is self-adjoint, then
+infσ(A)=infψ∈D(A),‖ψ‖=1⟨ψ,Aψ⟩infσ(A)=inf_ψ∈𝔇(A),ψ=1⟨ψ,Aψ⟩
+and
+supσ(A)=supψ∈D(A),‖ψ‖=1⟨ψ,Aψ⟩supσ(A)=sup_ψ∈𝔇(A),ψ=1⟨ψ,Aψ⟩.[1]: 77 
+
+See also[edit]
+Courant minimax principle
+Max–min inequality
+References[edit]
+
+
+^ a b c d G. Teschl, Mathematical Methods in Quantum Mechanics (GSM 99) https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf
+
+^ a b Lieb; Loss (2001). Analysis. GSM. Vol. 14 (2nd ed.). Providence: American Mathematical Society. ISBN 0-8218-2783-9.
+
+
+External links and citations to related work[edit]
+Fisk, Steve (2005). "A very short proof of Cauchy's interlace theorem for eigenvalues of Hermitian matrices". arXiv:math/0502408. {{cite journal}}: Cite journal requires |journal= (help)
+Hwang, Suk-Geun (2004). "Cauchy's Interlace Theorem for Eigenvalues of Hermitian Matrices". The American Mathematical Monthly. 111 (2): 157–159. doi:10.2307/4145217. JSTOR 4145217.
+Kline, Jeffery (2020). "Bordered Hermitian matrices and sums of the Möbius function". Linear Algebra and Its Applications. 588: 224–237. doi:10.1016/j.laa.2019.12.004.
+Reed, Michael; Simon, Barry (1978). Methods of Modern Mathematical Physics IV: Analysis of Operators. Academic Press. ISBN 978-0-08-057045-7.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteAnalysis in topological vector spacesBasic concepts
+Abstract Wiener space
+Classical Wiener space
+Bochner space
+Convex series
+Cylinder set measure
+Infinite-dimensional vector function
+Matrix calculus
+Vector calculus
+Derivatives
+Differentiable vector–valued functions from Euclidean space
+Differentiation in Fréchet spaces
+Fréchet derivative
+Total
+Functional derivative
+Gateaux derivative
+Directional
+Generalizations of the derivative
+Hadamard derivative
+Holomorphic
+Quasi-derivative
+Measurability
+Besov measure
+Cylinder set measure
+Canonical Gaussian
+Classical Wiener measure
+Measure like set functions
+infinite-dimensional Gaussian measure
+Projection-valued
+Vector
+Bochner / Weakly / Strongly measurable function
+Radonifying function
+Integrals
+Bochner
+Direct integral
+Dunford
+Gelfand–Pettis/Weak
+Regulated
+Paley–Wiener
+Results
+Cameron–Martin theorem
+Inverse function theorem
+Nash–Moser theorem
+Feldman–Hájek theorem
+No infinite-dimensional Lebesgue measure
+Sazonov's theorem
+Structure theorem for Gaussian measures
+Related
+Crinkled arc
+Covariance operator
+Functional calculus
+Borel functional calculus
+Continuous functional calculus
+Holomorphic functional calculus
+Applications
+Banach manifold (bundle)
+Convenient vector space
+Choquet theory
+Fréchet manifold
+Hilbert manifold
+
+vteSpectral theory and *-algebrasBasic concepts
+Involution/*-algebra
+Banach algebra
+B*-algebra
+C*-algebra
+Noncommutative topology
+Projection-valued measure
+Spectrum
+Spectrum of a C*-algebra
+Spectral radius
+Operator space
+Main results
+Gelfand–Mazur theorem
+Gelfand–Naimark theorem
+Gelfand representation
+Polar decomposition
+Singular value decomposition
+Spectral theorem
+Spectral theory of normal C*-algebras
+Special Elements/Operators
+Isospectral
+Normal operator
+Hermitian/Self-adjoint operator
+Unitary operator
+Unit
+Spectrum
+Krein–Rutman theorem
+Normal eigenvalue
+Spectrum of a C*-algebra
+Spectral radius
+Spectral asymmetry
+Spectral gap
+Decomposition
+Decomposition of a spectrum
+Continuous
+Point
+Residual
+Approximate point
+Compression
+Direct integral
+Discrete
+Spectral abscissa
+Spectral Theorem
+Borel functional calculus
+Min-max theorem
+Positive operator-valued measure
+Projection-valued measure
+Riesz projector
+Rigged Hilbert space
+Spectral theorem
+Spectral theory of compact operators
+Spectral theory of normal C*-algebras
+Special algebras
+Amenable Banach algebra
+With an Approximate identity
+Banach function algebra
+Disk algebra
+Nuclear C*-algebra
+Uniform algebra
+Von Neumann algebra
+Tomita–Takesaki theory
+Finite-Dimensional
+Alon–Boppana bound
+Bauer–Fike theorem
+Numerical range
+Schur–Horn theorem
+Generalizations
+Dirac spectrum
+Essential spectrum
+Pseudospectrum
+Structure space (Shilov boundary)
+Miscellaneous
+Abstract index group
+Banach algebra cohomology
+Cohen–Hewitt factorization theorem
+Extensions of symmetric operators
+Fredholm theory
+Limiting absorption principle
+Schröder–Bernstein theorems for operator algebras
+Sherman–Takeda theorem
+Unbounded operator
+Examples
+Wiener algebra
+Applications
+Almost Mathieu operator
+Corona theorem
+Hearing the shape of a drum (Dirichlet eigenvalue)
+Heat kernel
+Kuznetsov trace formula
+Lax pair
+Proto-value function
+Ramanujan graph
+Rayleigh–Faber–Krahn inequality
+Spectral geometry
+Spectral method
+Spectral theory of ordinary differential equations
+Sturm–Liouville theory
+Superstrong approximation
+Transfer operator
+Transform theory
+Weyl law
+Wiener–Khinchin theorem
+
+
+
+

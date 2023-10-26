@@ -1,0 +1,152 @@
+Mathematical problem
+The art gallery problem or museum problem is a well-studied visibility problem in computational geometry.  It originates from the following real-world problem:
+
+"In an art gallery, what is the minimum number of guards who together can observe the whole gallery?"
+In the geometric version of the problem, the layout of the art gallery is represented by a simple polygon and each guard is represented by a point in the polygon.  A set S of points is said to guard a polygon if, for every point p in the polygon, there is some q∈S such that the line segment between p and q does not leave the polygon.
+The art gallery problem can be applied in several domains such as in robotics, when artificial intelligences (AI) need to execute movements depending on their surroundings. Other domains, where this problem is applied, are in image editing, lighting problems of a stage or installation of infrastructures for the warning of natural disasters.
+
+
+Two dimensions[edit]
+Four cameras cover this gallery.
+There are numerous variations of the original problem that are also referred to as the art gallery problem.  In some versions guards are restricted to the perimeter, or even to the vertices of the polygon.  Some versions require only the perimeter or a subset of the perimeter to be guarded.
+Solving the version in which guards must be placed on vertices and only vertices need to be guarded is equivalent to solving the dominating set problem on the visibility graph of the polygon.
+
+Chvátal's art gallery theorem[edit]
+Chvátal's art gallery theorem, named after Václav Chvátal, gives an upper bound on the minimal number of guards. It states:
+
+"To guard a simple polygon with n vertices, ⌊n/3⌋/3⌋ guards are always sufficient and sometimes necessary."
+History[edit]
+The question about how many vertices/watchmen/guards were needed, was posed to Chvátal by Victor Klee in 1973.[1] Chvátal proved it shortly thereafter.[2] Chvátal's proof was later simplified by Steve Fisk, via a 3-coloring argument.[3] Chvátal has a more geometrical approach, whereas Fisk uses well-known results from Graph theory.
+
+Fisk's short proof[edit]
+A 3-coloring of the vertices of a triangulated polygon. The blue vertices form a set of three guards, as few as is guaranteed by the art gallery theorem. However, this set is not optimal: the same polygon can be guarded by only two guards.
+Steve Fisk's proof is so short and elegant that it was chosen for inclusion in Proofs from THE BOOK.[4]
+The proof goes as follows:
+First, the polygon is triangulated (without adding extra vertices), which is possible, because the existence of triangulations is proven under certain verified conditions. The vertices of the resulting triangulation graph may be 3-colored.[a] Clearly, under a 3-coloring, every triangle must have all three colors. The vertices with any one color form a valid guard set, because every triangle of the polygon is guarded by its vertex with that color. Since the three colors partition the n vertices of the polygon, the color with the fewest vertices defines a valid guard set with at most ⌊n/3⌋/3⌋ guards.
+
+Illustration of the proof[edit]
+To illustrate the proof, we consider the polygon below. The first step is to triangulate the polygon (see Figure 1). Then, one applies a proper 33-colouring (Figure 2) and observes that there are 44 red, 44 blue and 66 green vertices. The colour with the fewest vertices is blue or red, thus the polygon can be covered by 44 guards (Figure 3). This agrees with the art gallery theorem, because the polygon has 1414 vertices, and ⌊143⌋=4⌊14/3⌋=4.
+
+
+
+
+
+Figure 1
+
+
+
+
+
+
+Figure 2
+
+
+
+
+
+
+Figure 3
+
+
+
+
+Generalizations[edit]
+Chvátal's upper bound remains valid if the restriction to guards at corners is loosened to guards at any point not exterior to the polygon.
+There are a number of other generalizations and specializations of the original art-gallery theorem.[6] For instance, for orthogonal polygons, those whose edges/walls meet at right angles, only ⌊n/4⌋/4⌋ guards are needed. There are at least three distinct proofs of this result, none of them simple: by Kahn, Klawe, and Kleitman; by Lubiw; and by Sack and Toussaint.[7][8]
+A related problem asks for the number of guards to cover the exterior of an arbitrary polygon (the "Fortress Problem"): ⌈n/2⌉/2⌉ are sometimes necessary and always sufficient if guards are placed on the boundary of the polygon, while ⌈n/3⌉/3⌉ are sometimes necessary and always sufficient if guards are placed anywhere in the exterior of the polygon.[9] In other words, the infinite exterior is more challenging to cover than the finite interior.
+
+Computational complexity[edit]
+In decision problem versions of the art gallery problem, one is given as input both a polygon and a number k, and must determine whether the polygon can be guarded with k or fewer guards. This problem is ∃R∃ℝ-complete, as is the version where the guards are restricted to the edges of the polygon.[10] Furthermore, most of the other standard variations (such as restricting the guard locations to vertices) are NP-hard.[11]
+Regarding approximation algorithms for the minimum number of guards, Eidenbenz, Stamm & Widmayer (2001) proved the problem to be APX-hard, implying that it is unlikely that any approximation ratio better than some fixed constant can be achieved by a polynomial time approximation algorithm. Ghosh (1987) showed that a logarithmic approximation may be achieved for the minimum number of vertex guards by discretizing the input polygon into convex subregions and then reducing the problem to a set cover problem. As Valtr (1998) showed, the set system derived from an art gallery problem has bounded VC dimension, allowing the application of set cover algorithms based on ε-nets whose approximation ratio is the logarithm of the optimal number of guards rather than of the number of polygon vertices.[12] For unrestricted guards, the infinite number of potential guard positions makes the problem even more difficult. 
+However by restricting the guards to lie on a fine grid, a more complicated logarithmic approximation algorithm can be derived under some mild extra assumptions, as shown by Bonnet & Miltzow (2017). However, efficient algorithms are known for finding a set of  at most ⌊n/3⌋/3⌋ vertex guards, matching Chvátal's upper bound.
+David Avis and Godfried Toussaint (1981) proved that a placement for these guards may be computed in O(n log n) time in the worst case, via a divide and conquer algorithm.
+Kooshesh & Moret (1992) gave a linear time algorithm by using Fisk's short proof and Bernard Chazelle's linear time plane triangulation algorithm.
+For simple polygons that do not contain holes, the existence of a constant factor approximation algorithm for vertex and edge guards was conjectured by Ghosh. Ghosh's conjecture was initially shown to be true for vertex guards in two special sub-classes of simple polygons, viz. monotone polygons and polygons weakly visible from an edge. Krohn & Nilsson (2013) presented an approximation algorithm that computes in polynomial time a vertex guard set for a monotone polygon such that the size of the guard set is at most 30 times the optimal number of vertex guards. Bhattacharya, Ghosh & Roy (2017) presented an approximation algorithm that computes in O(n2) time a vertex guard set for a simple polygon that is weakly visible from an edge such that the size of the guard set is at most 6 times the optimal number of vertex guards. Subsequently, Bhattacharya, Ghosh & Pal (2017) claimed to have settled the conjecture completely by presenting constant factor approximation algorithms for guarding general simple polygons using vertex guards and edge guards. For vertex guarding the subclass of simple polygons that are weakly visible from an edge, a polynomial-time approximation scheme was proposed by Ashur et al. (2019).
+An  exact  algorithm  was  proposed by  Couto, de Rezende & de Souza (2011)  for  vertex  guards.   The authors  conducted  extensive computational  experiments with  several classes  of  polygons showing that optimal  solutions can be  found in relatively  small computation times even  for instances associated  to thousands of  vertices. The input data and the optimal solutions for these instances are available for download.[13]
+
+Three dimensions[edit]
+An orthogonal polyhedron with every vertex invisible from its middle [14]
+An example of a polyhedron with interior points not visible from any vertex, the figure on the right showing a cross-section through its middle, O, and parallel to ABCD
+360° spherical panorama from inside the polyhedron above showing that all vertices are hidden by the yellow faces(view as a 360° interactive panorama)
+If a museum is represented in three dimensions as a polyhedron, then putting a guard at each vertex will not ensure that all of the museum is under observation. Although all of the surface of the polyhedron would be surveyed, for some polyhedra there are points in the interior which might not be under surveillance.[15]
+
+Possible Usage Scenarios of the Art Gallery Problem
+
+The art gallery problem can be used to position multiple cameras when the objective is to cover a large area in view of cameras, using the minimum number of cameras.
+See also[edit]
+Covering a rectilinear polygon with star polygons
+Star-shaped polygon, a class of polygon for which the art gallery problem can be solved with a single guard.
+Illumination problem: does a single guard suffices if walls are mirrored?
+Notes[edit]
+
+
+^ To prove 3-colorability of polygon triangulations, we observe that the weak dual graph to the triangulation (the undirected graph having one vertex per triangle and one edge per pair of adjacent triangles) is a tree, since any cycle in the dual graph would form the boundary of a hole in the polygon, contrary to the assumption that it has no holes. Whenever there is more than one triangle, the dual graph (like any tree) must have a vertex with only one neighbor, corresponding to a triangle that is adjacent to other triangles along only one of its sides. The smaller polygon formed by removing this triangle has a 3-coloring by mathematical induction, and this coloring is easily extended to the one additional vertex of the removed triangle.[5]
+
+
+References[edit]
+
+
+^ O'Rourke (1987), p. 1.
+
+^ Chvátal (1975).
+
+^ Fisk (1978).
+
+^ Aigner & Ziegler (2018).
+
+^ O'Rourke (1987), p. 13.
+
+^ Shermer (1992); Urrutia (2000)
+
+^ Kahn, Klawe & Kleitman (1983); Lubiw (1985); Sack & Toussaint (1988).
+
+^ O'Rourke (1987), pp. 31–80.
+
+^ O'Rourke (1987), pp. 146–154.
+
+^ Abrahamsen, Adamaszek & Miltzow (2018).
+
+^ O'Rourke & Supowit (1983); Lee & Lin (1986).
+
+^ Brönnimann & Goodrich (1995).
+
+^ Couto, de Rezende & de Souza (2011).
+
+^ Eryk Lipka, A note on minimal art galleries, 2019
+
+^ O'Rourke (1987), p. 255.
+
+
+Sources[edit]
+
+Abrahamsen, Mikkel; Adamaszek, Anna; Miltzow, Tillmann (2018), "The art gallery problem is ∃R∃ℝ-complete", in Diakonikolas, Ilias; Kempe, David; Henzinger, Monika (eds.), Proceedings of the 50th Annual ACM SIGACT Symposium on Theory of Computing, STOC 2018, Los Angeles, CA, USA, June 25–29, 2018, ACM, pp. 65–73, arXiv:1704.06969, doi:10.1145/3188745.3188868, MR 3826234, S2CID 15909121
+Aggarwal, A. (1984), The art gallery theorem: Its variations, applications, and algorithmic aspects, Ph.D. thesis, Johns Hopkins University.
+Aigner, Martin; Ziegler, Günter M. (2018), "Chapter 40: How to guard a museum", Proofs from THE BOOK (6th ed.), Berlin: Springer, pp. 281–283, doi:10.1007/978-3-662-57265-8, ISBN 978-3-662-57264-1, MR 3823190.
+Ashur, Stav; Filtser, Omrit; Katz, Matthew J.; Saban, Rachel (2019), "Terrain-Like Graphs: PTASs for Guarding Weakly-Visible Polygons and Terrains", in Bampis, Evripidis; Megow, Nicole (eds.), Approximation and Online Algorithms - 17th International Workshop, WAOA 2019, Munich, Germany, September 12–13, 2019, Revised Selected Papers, Lecture Notes in Computer Science, vol. 11926, Berlin: Springer, pp. 1–17, doi:10.1007/978-3-030-39479-0_1, S2CID 210936577.
+Avis, D.; Toussaint, G. T. (1981), "An efficient algorithm for decomposing a polygon into star-shaped polygons" (PDF), Pattern Recognition, 13 (6): 395–398, Bibcode:1981PatRe..13..395A, doi:10.1016/0031-3203(81)90002-9.
+Bhattacharya, Pritam; Ghosh, Subir Kumar; Pal, Sudebkumar (2017), Constant Approximation Algorithms for Guarding Simple Polygons using Vertex Guards, arXiv:1712.05492
+Bhattacharya, Pritam; Ghosh, Subir Kumar; Roy, Bodhayan (2017), "Approximability of guarding weak visibility polygons", Discrete Applied Mathematics, 228: 109–129, arXiv:1409.4621, doi:10.1016/j.dam.2016.12.015, MR 3662965, S2CID 9916523
+Bonnet, Édouard; Miltzow, Tillmann (2017), "An approximation algorithm for the art gallery problem", in Aronov, Boris; Katz, Matthew J. (eds.), 33rd International Symposium on Computational Geometry, SoCG 2017, July 4-7, 2017, Brisbane, Australia, LIPIcs, vol. 77, Schloss Dagstuhl - Leibniz-Zentrum für Informatik, pp. 20:1–20:15, arXiv:1607.05527, doi:10.4230/LIPIcs.SoCG.2017.20, MR 3685692, S2CID 1293138.
+Brönnimann, H.; Goodrich, M. T. (1995), "Almost optimal set covers in finite VC-dimension", Discrete and Computational Geometry, 14 (1): 463–479, doi:10.1007/BF02570718.
+Chvátal, V. (1975), "A combinatorial theorem in plane geometry", Journal of Combinatorial Theory, Series B, 18: 39–41, doi:10.1016/0095-8956(75)90061-1.
+Couto, M.; de Rezende, P.; de Souza, C. (2011), "An exact algorithm for minimizing vertex guards on art galleries", International Transactions in Operational Research, 18 (4): 425–448, doi:10.1111/j.1475-3995.2011.00804.x.
+de Rezende, P.; de Souza, C.; Couto, M.; Tozoni, D. (2011), "The Art Gallery Problem with Vertex Guards", Art Gallery Problem Project, Instituto de Computação.
+Deshpande, Ajay; Kim, Taejung; Demaine, Erik D.; Sarma, Sanjay E. (2007), "A Pseudopolynomial Time O(logn)-Approximation Algorithm for Art Gallery Problems", Proc. Worksh. Algorithms and Data Structures, Lecture Notes in Computer Science, vol. 4619, Springer-Verlag, pp. 163–174, doi:10.1007/978-3-540-73951-7_15, hdl:1721.1/36243, ISBN 978-3-540-73948-7, S2CID 9148459.
+Eidenbenz, S.; Stamm, C.; Widmayer, P. (2001), "Inapproximability results for guarding polygons and terrains" (PDF), Algorithmica, 31 (1): 79–113, doi:10.1007/s00453-001-0040-8, S2CID 14532511, archived from the original (PDF) on 2003-06-24.
+Fisk, S. (1978), "A short proof of Chvátal's watchman theorem", Journal of Combinatorial Theory, Series B, 24 (3): 374, doi:10.1016/0095-8956(78)90059-X.
+Ghosh, S. K. (1987), "Approximation algorithms for art gallery problems", Proc. Canadian Information Processing Society Congress, pp. 429–434.
+Kahn, J.; Klawe, M.; Kleitman, D. (1983), "Traditional galleries require fewer watchmen", SIAM J. Algebr. Discrete Methods, 4 (2): 194–206, doi:10.1137/0604020.
+Kooshesh, A. A.; Moret, B. M. E. (1992), "Three-coloring the vertices of a triangulated simple polygon", Pattern Recognition, 25 (4): 443, Bibcode:1992PatRe..25..443K, doi:10.1016/0031-3203(92)90093-X.
+Krohn, Erik A.; Nilsson, Bengt J. (2013), "Approximate guarding of monotone and rectilinear polygons", Algorithmica, 66 (3): 564–594, doi:10.1007/s00453-012-9653-3, hdl:2043/11487, MR 3044626, S2CID 1458082.
+Lee, D. T.; Lin, A. K. (1986), "Computational complexity of art gallery problems", IEEE Transactions on Information Theory, 32 (2): 276–282, doi:10.1109/TIT.1986.1057165.
+Lubiw, A. (1985), "Decomposing polygonal regions into convex quadrilaterals", Proc. 1st ACM Symposium on Computational Geometry, pp. 97–106, doi:10.1145/323233.323247, ISBN 0-89791-163-6, S2CID 15752916.
+O'Rourke, Joseph (1987), Art Gallery Theorems and Algorithms, Oxford University Press, ISBN 0-19-503965-3.
+O'Rourke, Joseph; Supowit, Kenneth J. (1983), "Some NP-hard polygon decomposition problems", IEEE Transactions on Information Theory, 29 (2): 181–190, doi:10.1109/TIT.1983.1056648, MR 0712374.
+Sack, J. R.; Toussaint, G. T. (1988), "Guard placement in rectilinear polygons", in Toussaint, G. T. (ed.), Computational Morphology, North-Holland, pp. 153–176.
+Shermer, Thomas (1992), "Recent Results in Art Galleries" (PDF), Proceedings of the IEEE, 80 (9): 1384–1399, doi:10.1109/5.163407.
+Urrutia, Jorge (2000), "Art gallery and illumination problems", in Sack, J. -R.; Urrutia, Jorge (eds.), Handbook of Computational Geometry, North-Holland, pp. 973–1027, doi:10.1016/B978-044482537-7/50023-1.
+Valtr, P. (1998), "Guarding galleries where no point sees a small area", Israel Journal of Mathematics, 104 (1): 1–16, doi:10.1007/BF02897056.
+
+
+
+

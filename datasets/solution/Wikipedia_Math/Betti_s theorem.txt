@@ -1,0 +1,80 @@
+Betti's theorem,  also known as Maxwell–Betti reciprocal work theorem, discovered by Enrico Betti in 1872, states that for a linear elastic structure subject to two sets of forces {Pi} i=1,...,n and {Qj}, j=1,2,...,n, the work done by the set P through the displacements produced by the set Q is equal to the work done by the set Q through the displacements produced by the set P. This theorem has applications in structural engineering where it is used to define influence lines and derive the boundary element method.
+Betti's theorem is used in the design of compliant mechanisms by topology optimization approach.
+
+
+Proof[edit]
+Consider a solid body subjected to a pair of external force systems, referred to as FiP_i^P and FiQ_i^Q.  Consider that each force system causes a displacement field, with the displacements measured at the external force's point of application referred to as diP_i^P and diQ_i^Q.
+When the FiP_i^P force system is applied to the structure, the balance between the work performed by the external force system and the strain energy is:
+
+12∑i=1nFiPdiP=12∫ΩσijPϵijPdΩ1/2∑_i=1^nF_i^Pd_i^P=1/2∫_Ωσ_ij^Pϵ_ij^P dΩ
+The work-energy balance associated with the FiQ_i^Q force system is as follows:
+
+12∑i=1nFiQdiQ=12∫ΩσijQϵijQdΩ1/2∑_i=1^nF_i^Qd_i^Q=1/2∫_Ωσ_ij^Qϵ_ij^Q dΩ
+Now, consider that with the FiP_i^P force system applied, the FiQ_i^Q force system is applied subsequently.  As the FiP_i^P is already applied and therefore won't cause any extra displacement, the work-energy balance assumes the following expression:
+
+12∑i=1nFiPdiP+12∑i=1nFiQdiQ+∑i=1nFiPdiQ=12∫ΩσijPϵijPdΩ+12∫ΩσijQϵijQdΩ+∫ΩσijPϵijQdΩ1/2∑_i=1^nF_i^Pd_i^P+1/2∑_i=1^nF_i^Qd_i^Q+∑_i=1^nF_i^Pd_i^Q=1/2∫_Ωσ_ij^Pϵ_ij^P dΩ+1/2∫_Ωσ_ij^Qϵ_ij^Q dΩ+∫_Ωσ_ij^Pϵ_ij^Q dΩ
+Conversely, if we consider the FiQ_i^Q force system already applied and the FiP_i^P external force system applied subsequently, the work-energy balance will assume the following expression:
+
+12∑i=1nFiQdiQ+12∑i=1nFiPdiP+∑i=1nFiQdiP=12∫ΩσijQϵijQdΩ+12∫ΩσijPϵijPdΩ+∫ΩσijQϵijPdΩ1/2∑_i=1^nF_i^Qd_i^Q+1/2∑_i=1^nF_i^Pd_i^P+∑_i=1^nF_i^Qd_i^P=1/2∫_Ωσ_ij^Qϵ_ij^Q dΩ+1/2∫_Ωσ_ij^Pϵ_ij^P dΩ+∫_Ωσ_ij^Qϵ_ij^P dΩ
+If the work-energy balance for the cases where the external force systems are applied in isolation are respectively subtracted from the cases where the force systems are applied simultaneously, we arrive at the following equations:
+
+∑i=1nFiPdiQ=∫ΩσijPϵijQdΩ∑_i=1^nF_i^Pd_i^Q=∫_Ωσ_ij^Pϵ_ij^Q dΩ
+∑i=1nFiQdiP=∫ΩσijQϵijPdΩ∑_i=1^nF_i^Qd_i^P=∫_Ωσ_ij^Qϵ_ij^P dΩ
+If the solid body where the force systems are applied is formed by a linear elastic material and if the force systems are such that only infinitesimal strains are observed in the body, then the body's constitutive equation, which may follow Hooke's law, can be expressed in the following manner:
+
+σij=Dijklϵklσ_ij=D_ijklϵ_kl
+Replacing this result in the previous set of equations leads us to the following result:
+
+∑i=1nFiPdiQ=∫ΩDijklϵijPϵklQdΩ∑_i=1^nF_i^Pd_i^Q=∫_ΩD_ijklϵ_ij^Pϵ_kl^Q dΩ
+∑i=1nFiQdiP=∫ΩDijklϵijQϵklPdΩ∑_i=1^nF_i^Qd_i^P=∫_ΩD_ijklϵ_ij^Qϵ_kl^P dΩ
+If we subtract both equations then we obtain the following result:
+
+∑i=1nFiPdiQ=∑i=1nFiQdiP∑_i=1^nF_i^Pd_i^Q=∑_i=1^nF_i^Qd_i^P
+Example[edit]
+For a simple example let m=1 and n=1.  Consider a horizontal beam on which two points have been defined: point 1 and point 2.  First we apply a vertical force P at point 1 and measure the vertical displacement of point 2, denoted ΔP2Δ_P2.  Next we remove force P and apply a vertical force Q at point 2, which produces the vertical displacement at point 1 of ΔQ1Δ_Q1.  Betti's reciprocity theorem states that:
+
+PΔQ1=QΔP2. Δ_Q1=Q Δ_P2.
+Example of Betti's Theorem
+See also[edit]
+D'Alembert's principle
+References[edit]
+
+
+A. Ghali; A.M. Neville (1972). Structural analysis: a unified classical and matrix approach. London, New York: E & FN SPON. p. 215. ISBN 0-419-21200-0.
+vteStructural engineeringDynamic analysis
+Duhamel's integral
+Modal analysis
+Static analysis
+Betti's theorem
+Castigliano's method
+Conjugate beam method
+FEM
+Flexibility method
+Macaulay's method
+Moment-area theorem
+Stiffness method
+Shear and moment diagram
+Theorem of three moments
+Structural elements1-dimensional
+Beam
+I-beam
+Lintel
+Post and lintel
+Span
+Compression member
+Strut
+Tie
+2-dimensional
+Arch
+Thin-shell structure
+Structural support
+Bracket
+Theories
+Euler–Bernoulli beam theory
+Mohr–Coulomb theory
+Plate theory
+Timoshenko–Ehrenfest beam theory
+
+
+
+

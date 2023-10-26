@@ -1,0 +1,69 @@
+Not to be confused with the contraction mapping theorem.
+In probability theory, the continuous mapping theorem states that continuous functions preserve limits even if their arguments are sequences of random variables. A continuous function, in Heine’s definition, is such a function that maps convergent sequences into convergent sequences: if xn → x then g(xn) → g(x). The continuous mapping theorem states that this will also be true if we replace the deterministic sequence {xn} with a sequence of random variables {Xn}, and replace the standard notion of convergence of real numbers “→” with one of the types of convergence of random variables.
+This theorem was first proved by Henry Mann and Abraham Wald in 1943,[1] and it is therefore sometimes called the Mann–Wald theorem.[2] Meanwhile, Denis Sargan refers to it as the general transformation theorem.[3]
+
+
+Statement[edit]
+Let {Xn}, X be random elements defined on a metric space S. Suppose a function g: S→S′ (where S′ is another metric space) has the set of discontinuity points Dg such that Pr[X ∈ Dg] = 0. Then[4][5]
+
+Xn→dX⇒g(Xn)→dg(X);Xn→pX⇒g(Xn)→pg(X);Xn→a.s.X⇒g(Xn)→a.s.g(X).X_n{     ⇒(X_n){(X);
+X_n{     ⇒(X_n){(X);
+X_n{     ⇒(X_n){(X).
+where the superscripts, "d", "p", and "a.s." denote convergence in distribution, convergence in probability, and almost sure convergence respectively.
+
+Proof[edit]
+This proof has been adopted from (van der Vaart 1998, Theorem 2.3)
+Spaces S and S′ are equipped with certain metrics. For simplicity we will denote both of these metrics using the |x − y| notation, even though the metrics may be arbitrary and not necessarily Euclidean.
+
+Convergence in distribution[edit]
+We will need a particular statement from the portmanteau theorem: that convergence in distribution Xn→dX_nX is equivalent to
+
+Ef(Xn)→Ef(X)𝔼f(X_n)→𝔼f(X) for every bounded continuous functional f.
+So it suffices to prove that Ef(g(Xn))→Ef(g(X))𝔼f(g(X_n))→𝔼f(g(X)) for every bounded continuous functional f. Note that F=f∘g=f is itself a bounded continuous functional. And so the claim follows from the statement above.
+
+Convergence in probability[edit]
+Fix an arbitrary ε > 0. Then for any δ > 0 consider the set Bδ defined as
+
+Bδ=x∈S∣x∉Dg:∃y∈S:|x−y|<δ,|g(x)−g(y)|>ε._δ={x_g:
+existsy:x-y|<δ, |g(x)-g(y)|>ε}.
+This is the set of continuity points x of the function g(·) for which it is possible to find, within the δ-neighborhood of x, a point which maps outside the ε-neighborhood of g(x). By definition of continuity, this set shrinks as δ goes to zero, so that limδ → 0Bδ = ∅.
+Now suppose that |g(X) − g(Xn)| > ε. This implies that at least one of the following is true: either |X−Xn| ≥ δ, or X ∈ Dg, or X∈Bδ. In terms of probabilities this can be written as
+
+Pr(|g(Xn)−g(X)|>ε)≤Pr(|Xn−X|≥δ)+Pr(X∈Bδ)+Pr(X∈Dg).(|g(X_n)-g(X)|>ε)≤(|X_n-X|≥δ)+(X_δ)+(X_g).
+On the right-hand side, the first term converges to zero as n → ∞ for any fixed δ, by the definition of convergence in probability of the sequence {Xn}. The second term converges to zero as δ → 0, since the set Bδ shrinks to an empty set. And the last term is identically equal to zero by assumption of the theorem. Therefore, the conclusion is that
+
+limn→∞Pr(|g(Xn)−g(X)|>ε)=0,lim_n→∞(|g(X_n)-g(X)|>ε)=0,
+which means that g(Xn) converges to g(X) in probability.
+
+Almost sure convergence[edit]
+By definition of the continuity of the function g(·),
+
+limn→∞Xn(ω)=X(ω)⇒limn→∞g(Xn(ω))=g(X(ω))lim_n→∞X_n(ω)=X(ω)  ⇒  lim_n→∞g(X_n(ω))=g(X(ω))
+at each point X(ω) where g(·) is continuous. Therefore,
+
+Pr(limn→∞g(Xn)=g(X))≥Pr(limn→∞g(Xn)=g(X),X∉Dg)≥Pr(limn→∞Xn=X,X∉Dg)=1,(lim_n→∞g(X_n)=g(X))   ≥(lim_n→∞g(X_n)=g(X),_g)
+   ≥(lim_n→∞X_n=X,_g)=1,
+because the intersection of two almost sure events is almost sure.
+By definition, we conclude that g(Xn) converges to g(X) almost surely.
+
+See also[edit]
+Slutsky's theorem
+Portmanteau theorem
+Pushforward measure
+References[edit]
+
+
+^ Mann, H. B.; Wald, A. (1943). "On Stochastic Limit and Order Relationships". Annals of Mathematical Statistics. 14 (3): 217–226. doi:10.1214/aoms/1177731415. JSTOR 2235800.
+
+^ Amemiya, Takeshi (1985). Advanced Econometrics. Cambridge, MA: Harvard University Press. p. 88. ISBN 0-674-00560-0.
+
+^ Sargan, Denis (1988). Lectures on Advanced Econometric Theory. Oxford: Basil Blackwell. pp. 4–8. ISBN 0-631-14956-2.
+
+^ Billingsley, Patrick (1969). Convergence of Probability Measures. John Wiley & Sons. p. 31 (Corollary 1). ISBN 0-471-07242-7.
+
+^ van der Vaart, A. W. (1998). Asymptotic Statistics. New York: Cambridge University Press. p. 7 (Theorem 2.3). ISBN 0-521-49603-9.
+
+
+
+
+

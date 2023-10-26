@@ -1,0 +1,244 @@
+Statistical physics theorem
+The fluctuation–dissipation theorem (FDT) or fluctuation–dissipation relation (FDR) is a powerful tool in statistical physics for predicting the behavior of systems that obey detailed balance. Given that a system obeys detailed balance, the theorem is a proof that thermodynamic fluctuations in a physical variable  predict the response quantified by the admittance or impedance (to be intended in their general sense, not only in electromagnetic terms) of the same physical variable (like voltage, temperature difference, etc.), and vice versa. The fluctuation–dissipation theorem applies both to classical and quantum mechanical systems.
+The fluctuation–dissipation theorem was proven by Herbert Callen and Theodore Welton in 1951[1] 
+and expanded by Ryogo Kubo. There are antecedents to the general theorem, including Einstein's explanation of Brownian motion[2]
+during his annus mirabilis and Harry Nyquist's explanation in 1928 of Johnson noise in electrical resistors.[3]
+
+
+Qualitative overview and examples[edit]
+The fluctuation–dissipation theorem says that when there is a process that dissipates energy, turning it into heat (e.g., friction), there is a reverse process related to thermal fluctuations. This is best understood by considering some examples:
+
+Drag and Brownian motion
+If an object is moving through a fluid, it experiences drag (air resistance or fluid resistance). Drag dissipates kinetic energy, turning it into heat. The corresponding fluctuation is Brownian motion. An object in a fluid does not sit still, but rather moves around with a small and rapidly-changing velocity, as molecules in the fluid bump into it. Brownian motion converts heat energy into kinetic energy—the reverse of drag.
+Resistance and Johnson noise
+If electric current is running through a wire loop with a resistor in it, the current will rapidly go to zero because of the resistance. Resistance dissipates electrical energy, turning it into heat (Joule heating). The corresponding fluctuation is Johnson noise. A wire loop with a resistor in it does not actually have zero current, it has a small and rapidly-fluctuating current caused by the thermal fluctuations of the electrons and atoms in the resistor. Johnson noise converts heat energy into electrical energy—the reverse of resistance.
+Light absorption and thermal radiation
+When light impinges on an object, some fraction of the light is absorbed, making the object hotter. In this way, light absorption turns light energy into heat. The corresponding fluctuation is thermal radiation (e.g., the glow of a "red hot" object). Thermal radiation turns heat energy into light energy—the reverse of light absorption. Indeed, Kirchhoff's law of thermal radiation confirms that the more effectively an object absorbs light, the more thermal radiation it emits.
+Examples in detail[edit]
+The fluctuation–dissipation theorem is a general result of statistical thermodynamics that quantifies the relation between the fluctuations in a system that obeys detailed balance and the response of the system to applied perturbations.
+
+Brownian motion[edit]
+For example, Albert Einstein noted in his 1905 paper on Brownian motion that the same random forces that cause the erratic motion of a particle in Brownian motion would also cause drag if the particle were pulled through the fluid. In other words, the fluctuation of the particle at rest has the same origin as the dissipative frictional force one must do work against, if one tries to perturb the system in a particular direction.
+From this observation Einstein was able to use statistical mechanics to derive the Einstein–Smoluchowski relation
+
+D=μkBT=μ k_BT
+which connects the diffusion constant D and the particle mobility μ, the ratio of the particle's terminal drift velocity to an applied force. kB is the Boltzmann constant, and T is the absolute temperature.
+
+Thermal noise in a resistor[edit]
+In 1928, John B. Johnson discovered and Harry Nyquist explained Johnson–Nyquist noise. With no applied current, the mean-square voltage depends on the resistance R, kBT_BT, and the bandwidth ΔνΔν over which the voltage is measured:[4]
+
+⟨V2⟩≈4RkBTΔν.^2⟩≈4Rk_BT Δν.
+A simple circuit for illustrating Johnson–Nyquist thermal noise in a resistor.
+This observation can be understood through the lens of the fluctuation-dissipation theorem. Take, for example, a simple circuit consisting of a resistor with a resistance R and a capacitor with a small capacitance C. Kirchhoff's law yields
+
+V=−RdQdt+QC=-RdQ/dt+Q/C
+and so the response function for this circuit is
+
+χ(ω)≡Q(ω)V(ω)=11C−iωRχ(ω)≡Q(ω)/V(ω)=1/1/C-i
+In the low-frequency limit ω≪(RC)−1ω≪(RC)^-1, its imaginary part is simply
+
+Im[χ(ω)]≈ωRC2Im[χ(ω)]≈^2
+which then can be linked to the power spectral density function SV(ω)_V(ω) of the voltage via the fluctuation-dissipation theorem
+
+SV(ω)=SQ(ω)C2≈2kBTC2ωIm[χ(ω)]=2RkBT_V(ω)=S_Q(ω)/C^2≈2k_BT/C^2ωIm[χ(ω)]=2Rk_BT
+The Johnson–Nyquist voltage noise ⟨V2⟩^2⟩ was observed within a small frequency bandwidth Δν=Δω/(2π)Δν=Δω/(2π) centered around ω=±ω0ω=±ω_0. Hence
+
+⟨V2⟩≈SV(ω)×2Δν≈4RkBTΔν^2⟩_V(ω)×2Δν≈4Rk_BTΔν
+General formulation[edit]
+The fluctuation–dissipation theorem can be formulated in many ways; one particularly useful form is the following:[citation needed].
+Let x(t)(t) be an observable of a dynamical system with Hamiltonian H0(x)_0(x) subject to thermal fluctuations.
+The observable x(t)(t) will fluctuate around its mean value ⟨x⟩0⟩_0
+with fluctuations characterized by a power spectrum Sx(ω)=⟨x^(ω)x^∗(ω)⟩_x(ω)=⟨x̂(ω)x̂^*(ω)⟩.
+Suppose that we can switch on a time-varying, spatially constant field f(t)(t) which alters the Hamiltonian
+to H(x)=H0(x)−f(t)x(x)=H_0(x)-f(t)x.
+The response of the observable x(t)(t) to a time-dependent field f(t)(t) is 
+characterized to first order by the susceptibility or linear response function
+χ(t)χ(t) of the system
+
+⟨x(t)⟩=⟨x⟩0+∫−∞tf(τ)χ(t−τ)dτ,(t)⟩=⟩_0+∫_-∞^tf(τ)χ(t-τ) dτ,
+where the perturbation is adiabatically (very slowly) switched on at τ=−∞τ=-∞.
+The fluctuation–dissipation theorem relates the two-sided power spectrum (i.e. both positive and negative frequencies) of x to the imaginary part of the Fourier transform χ^(ω)χ̂(ω) of the susceptibility χ(t)χ(t):
+Sx(ω)=−2kBTωIm⁡χ^(ω)._x(ω)=-2k_BT/ωImχ̂(ω).
+Which holds under the Fourier transform convention f(ω)=∫−∞∞f(t)e−iωtdt(ω)=∫_-∞^∞f(t)e^-i dt. The left-hand side describes fluctuations in x, the right-hand side is closely related to the energy dissipated by the system when pumped by an oscillatory field f(t)=Fsin⁡(ωt+ϕ)(t)=Fsin(+ϕ).
+This is the classical form of the theorem; quantum fluctuations are taken into account by replacing 2kBT/ω2k_BT/ω with ℏcoth⁡(ℏω/2kBT)ħ (ħω/2k_BT) (whose limit for ℏ→0ħ→0 is 2kBT/ω2k_BT/ω). A proof can be found by means of the LSZ reduction, an identity from quantum field theory.[citation needed]
+The fluctuation–dissipation theorem can be generalized in a straightforward way to the case of space-dependent fields, to the case of several variables or to a quantum-mechanics setting.[1] A special case in which the fluctuating quantity is the energy itself is the fluctuation-dissipation theorem for the frequency-dependent specific heat.[5]
+
+Derivation[edit]
+Classical version[edit]
+We derive the fluctuation–dissipation theorem in the form given above, using the same notation.
+Consider the following test case: the field f has been on for infinite time and is switched off at t=0
+
+f(t)=f0θ(−t),(t)=f_0θ(-t),
+where θ(t)θ(t) is the Heaviside function.
+We can express the expectation value of x by the probability distribution W(x,0) and the transition probability P(x′,t|x,0)(x',t|x,0)
+
+⟨x(t)⟩=∫dx′∫dxx′P(x′,t|x,0)W(x,0).(t)⟩=' x'P(x',t|x,0)W(x,0).
+The probability distribution function W(x,0) is an equilibrium distribution and hence
+given by the Boltzmann distribution for the Hamiltonian H(x)=H0(x)−xf0(x)=H_0(x)-xf_0
+
+W(x,0)=exp⁡(−βH(x))∫dx′exp⁡(−βH(x′)),(x,0)=exp(-(x))/' exp(-(x')) ,
+where β−1=kBTβ^-1=k_BT.
+For a weak field βxf0≪1_0≪1, we can expand the right-hand side
+
+W(x,0)≈W0(x)[1+βf0(x(0)−⟨x⟩0)],(x,0)_0(x)[1+_0(x(0)-⟩_0)],
+here W0(x)_0(x) is the equilibrium distribution in the absence of a field.
+Plugging this approximation in the formula for ⟨x(t)⟩(t)⟩ yields
+
+
+
+
+⟨x(t)⟩=⟨x⟩0+βf0A(t),(t)⟩=⟩_0+_0A(t),
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(*)
+
+where A(t) is the auto-correlation function of x in the absence of a field:
+
+A(t)=⟨[x(t)−⟨x⟩0][x(0)−⟨x⟩0]⟩0.(t)=⟨[x(t)-⟩_0][x(0)-⟩_0]⟩_0.
+Note that in the absence of a field the system is invariant under time-shifts.
+We can rewrite ⟨x(t)⟩−⟨x⟩0(t)⟩-⟩_0 using the susceptibility
+of the system and hence find with the above equation (*)
+
+f0∫0∞dτχ(τ)θ(τ−t)=βf0A(t)_0∫_0^∞dτ χ(τ)θ(τ-t)=_0A(t)
+Consequently,
+
+
+
+
+−χ(t)=βdA(t)dtθ(t).-χ(t)=βdA(t)θ(t).
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(**)
+
+To make a statement about frequency dependence, it is necessary to take the Fourier transform of equation (**). By integrating by parts, it is possible to show that
+
+−χ^(ω)=iωβ∫0∞e−iωtA(t)dt−βA(0).-χ̂(ω)=iωβ∫_0^∞e^-iA(t) dt-(0).
+Since A(t)(t) is real and symmetric, it follows that
+
+2Im⁡[χ^(ω)]=−ωβA^(ω).2Im[χ̂(ω)]=-ωβÂ(ω).
+Finally, for stationary processes, the Wiener–Khinchin theorem states that the two-sided spectral density is equal to the Fourier transform of the auto-correlation function:
+
+Sx(ω)=A^(ω)._x(ω)=Â(ω).
+Therefore, it follows that
+
+Sx(ω)=−2kBTωIm⁡[χ^(ω)]._x(ω)=-2k_BT/ωIm[χ̂(ω)].
+Quantum version[edit]
+The fluctuation-dissipation theorem relates  the correlation function of the observable of interest ⟨x^(t)x^(0)⟩⟨x̂(t)x̂(0)⟩ (a measure of fluctuation) to the imaginary part of the response function Im[χ(ω)]=[χ(ω)−χ∗(ω)]/2iIm[χ(ω)]=[χ(ω)-χ^*(ω)]/2i in the frequency domain (a measure of dissipation).  A link between these quantities can be found through the so-called Kubo formula[6]
+
+χ(t−t′)=iℏθ(t−t′)⟨[x^(t),x^(t′)]⟩χ(t-t')=i/ħθ(t-t')⟨[x̂(t),x̂(t')]⟩
+which follows, under the assumptions of the linear response theory, from the time evolution of the ensemble average of the observable ⟨x^(t)⟩⟨x̂(t)⟩ in the presence of a perturbing source. Once Fourier transformed, the Kubo formula allows writing the imaginary part of the response function as
+
+Im[χ(ω)]=12ℏ∫−∞+∞⟨x^(t)x^(0)−x^(0)x^(t)⟩eiωtdt.Im[χ(ω)]=1/2ħ∫_-∞^+∞⟨x̂(t)x̂(0)-x̂(0)x̂(t)^idt.
+In the canonical ensemble, the second term can be re-expressed as
+
+⟨x^(0)x^(t)⟩=Tre−βH^x^(0)x^(t)=Trx^(t)e−βH^x^(0)=Tre−βH^eβH^x^(t)e−βH^⏟x^(t−iℏβ)x^(0)=⟨x^(t−iℏβ)x^(0)⟩⟨x̂(0)x̂(t)⟩=Tre^-βĤx̂(0)x̂(t)=Trx̂(t)e^-βĤx̂(0)=Tre^-βĤe^βĤx̂(t)e^-βĤ_x̂(t-iħβ)x̂(0)=⟨x̂(t-iħβ)x̂(0)⟩
+where in the second equality we re-positioned x^(t)x̂(t) using the cyclic property of trace. Next, in the third equality, we inserted e−βH^eβH^^-βĤe^βĤ next to the trace and interpreted e−βH^^-βĤ as a time evolution operator e−iℏH^Δt^-i/ħĤ  with imaginary time interval Δt=−iℏβ=-iħβ. The imaginary time shift turns into a e−βℏω^-βħω factor after Fourier transform
+
+∫−∞+∞⟨x^(t−iℏβ)x^(0)⟩eiωtdt=e−βℏω∫−∞+∞⟨x^(t)x^(0)⟩eiωtdt∫_-∞^+∞⟨x̂(t-iħβ)x̂(0)^idt=e^-βħω∫_-∞^+∞⟨x̂(t)x̂(0)^idt
+and thus the expression for Im[χ(ω)]Im[χ(ω)] can be easily rewritten as the quantum fluctuation-dissipation relation [7]
+
+Sx(ω)=2ℏ[nBE(ω)+1]Im[χ(ω)]_x(ω)=2ħ[n_BE(ω)+1]Im[χ(ω)]
+where the power spectral density Sx(ω)_x(ω) is the Fourier transform of the auto-correlation ⟨x^(t)x^(0)⟩⟨x̂(t)x̂(0)⟩ and nBE(ω)=(eβℏω−1)−1_BE(ω)=(e^βħω-1)^-1 is the Bose-Einstein distribution function. The same calculation also yields
+
+Sx(−ω)=e−βℏωSx(ω)=2ℏ[nBE(ω)]Im[χ(ω)]≠Sx(+ω)_x(-ω)=e^-βħωS_x(ω)=2ħ[n_BE(ω)]Im[χ(ω)]_x(+ω)
+thus, differently from what obtained in the classical case, the power spectral density is not exactly frequency-symmetric in the quantum limit. Consistently, ⟨x^(t)x^(0)⟩⟨x̂(t)x̂(0)⟩ has an imaginary part originating from the commutation rules of operators.[8] The additional "+1+1" term in the expression of Sx(ω)_x(ω) at positive frequencies can also be thought of as linked to spontaneous emission. An often cited result is also the symmetrized power spectral density
+
+Sx(ω)+Sx(−ω)2=2ℏ[nBE(ω)+12]Im[χ(ω)]=ℏcoth⁡(ℏω2kBT)Im[χ(ω)].S_x(ω)+S_x(-ω)/2=2ħ[n_BE(ω)+1/2]Im[χ(ω)]=ħ(ħω/2k_BT)Im[χ(ω)].
+The "+1/2+1/2" can be thought of as linked to quantum fluctuations, or to zero-point motion of the observable x^x̂. At high enough temperatures, nBE≈(βℏω)−1≫1_BE≈(βħω)^-1≫1, i.e. the quantum contribution is negligible, and we recover the classical version.
+
+Violations in glassy systems[edit]
+While the fluctuation–dissipation theorem provides a general relation between the response of systems obeying detailed balance, when detailed balance is violated comparison of fluctuations to dissipation is more complex. Below the so called glass temperature Tg_g, glassy systems are  not equilibrated, and slowly approach their equilibrium state. This slow approach to equilibrium is synonymous with the violation of detailed balance. Thus these systems require large time-scales to be studied while they slowly move toward equilibrium.
+To study the violation of the fluctuation-dissipation relation in glassy systems, particularly spin glasses, Ref.[9] performed numerical simulations of macroscopic systems (i.e. large compared to their correlation lengths) described by the three-dimensional Edwards-Anderson model using supercomputers. In their simulations, the system is initially prepared at a high temperature, rapidly cooled to a temperature T=0.64Tg=0.64T_g below the glass temperature Tg_g, and left to equilibrate for a very long time tw_w under a magnetic field H. Then, at a later time t+tw+t_w, two dynamical observables are probed, namely the response function
+χ(t+tw,tw)≡∂m(t+tw)∂H|H=0χ(t+t_w,t_w)≡.(t+t_w)/|_H=0
+and the spin-temporal correlation function
+C(t+tw,tw)≡1V∑x⟨Sx(tw)Sx(t+tw)⟩|H=0(t+t_w,t_w)≡1/V.∑_x_x(t_w)S_x(t+t_w)⟩|_H=0
+where Sx=±1_x=±1 is the spin living on the node x of the cubic lattice of volume V, and m(t)≡1V∑x⟨Sx(t)⟩(t)≡1/V∑_x_x(t)⟩ is the magnetization density. The fluctuation-dissipation relation in this system can be written in terms of these observables as
+Tχ(t+tw,tw)=1−C(t+tw,tw)χ(t+t_w,t_w)=1-C(t+t_w,t_w)
+Their results confirm the expectation that as the system is left to equilibrate for longer times, the fluctuation-dissipation relation is closer to be satisfied.
+In the mid-1990s, in the study of dynamics of spin glass models, a generalization of the fluctuation–dissipation theorem was discovered [10] that holds for asymptotic non-stationary states, where the temperature appearing in the equilibrium relation is substituted by an effective temperature with a non-trivial dependence on the time scales. 
+This relation is proposed to hold in glassy systems beyond the models for which it was initially found.
+
+See also[edit]
+Non-equilibrium thermodynamics
+Green–Kubo relations
+Onsager reciprocal relations
+Equipartition theorem
+Boltzmann distribution
+Dissipative system
+Notes[edit]
+
+
+^ a b 
+H.B. Callen; T.A. Welton (1951). "Irreversibility and Generalized Noise". Physical Review. 83 (1): 34–40. Bibcode:1951PhRv...83...34C. doi:10.1103/PhysRev.83.34.
+
+^ 
+Einstein, Albert (May 1905). "Über die von der molekularkinetischen Theorie der Wärme geforderte Bewegung von in ruhenden Flüssigkeiten suspendierten Teilchen". Annalen der Physik. 322 (8): 549–560. Bibcode:1905AnP...322..549E. doi:10.1002/andp.19053220806.
+
+^ 
+Nyquist H (1928). "Thermal Agitation of Electric Charge in Conductors". Physical Review. 32 (1): 110–113. Bibcode:1928PhRv...32..110N. doi:10.1103/PhysRev.32.110.
+
+^ Blundell, Stephen J.; Blundell, Katherine M. (2009). Concepts in thermal physics. OUP Oxford.
+
+^ Nielsen, Johannes K.; Dyre, Jeppe C. (1996-12-01). "Fluctuation-dissipation theorem for frequency-dependent specific heat". Physical Review B. 54 (22): 15754–15761. Bibcode:1996PhRvB..5415754N. doi:10.1103/PhysRevB.54.15754. ISSN 0163-1829. PMID 9985643.
+
+^ Kubo R (1966). "The fluctuation-dissipation theorem". Reports on Progress in Physics. 29 (1): 255–284. Bibcode:1966RPPh...29..255K. doi:10.1088/0034-4885/29/1/306. S2CID 250892844.
+
+^ Hänggi Peter, Ingold Gert-Ludwig (2005). "Fundamental aspects of quantum Brownian motion". Chaos: An Interdisciplinary Journal of Nonlinear Science. 15 (2): 026105. arXiv:quant-ph/0412052. Bibcode:2005Chaos..15b6105H. doi:10.1063/1.1853631. PMID 16035907. S2CID 9787833.
+
+^ Clerk, A. A.; Devoret, M. H.; Girvin, S. M.; Marquardt, Florian; Schoelkopf, R. J. (2010). "Introduction to Quantum Noise, Measurement and Amplification". Reviews of Modern Physics. 82 (2): 1155. arXiv:0810.4729. Bibcode:2010RvMP...82.1155C. doi:10.1103/RevModPhys.82.1155. S2CID 119200464.
+
+^ Baity-Jesi Marco, Calore Enrico, Cruz Andres, Antonio Fernandez Luis, Miguel Gil-Narvión José, Gordillo-Guerrero Antonio, Iñiguez David, Maiorano Andrea, Marinari Enzo, Martin-Mayor Victor, Monforte-Garcia Jorge, Muñoz Sudupe Antonio, Navarro Denis, Parisi Giorgio, Perez-Gaviro Sergio, Ricci-Tersenghi Federico, Jesus Ruiz-Lorenzo Juan, Fabio Schifano Sebastiano, Seoane Beatriz, Tarancón Alfonso, Tripiccione Raffaele, Yllanes David (2017). "A statics-dynamics equivalence through the fluctuation–dissipation ratio provides a window into the spin-glass phase from nonequilibrium measurements". Proceedings of the National Academy of Sciences. 114 (8): 1838–1843. arXiv:1610.01418. Bibcode:2017PNAS..114.1838B. doi:10.1073/pnas.1621242114. PMC 5338409. PMID 28174274.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+
+^ Cugliandolo L. F.; Kurchan J. (1993). "Analytical solution of the off-equilibrium dynamics of a long-range spin-glass model". Physical Review Letters. 71 (1): 173–176. arXiv:cond-mat/9303036. Bibcode:1993PhRvL..71..173C. doi:10.1103/PhysRevLett.71.173. PMID 10054401. S2CID 8591240.
+
+
+References[edit]
+H. B. Callen, T. A. Welton (1951). "Irreversibility and Generalized Noise". Physical Review. 83 (1): 34–40. Bibcode:1951PhRv...83...34C. doi:10.1103/PhysRev.83.34.
+L. D. Landau, E. M. Lifshitz (1980). Statistical Physics. Course of Theoretical Physics. Vol. 5 (3 ed.).
+Umberto Marini Bettolo Marconi; Andrea Puglisi; Lamberto Rondoni; Angelo Vulpiani (2008). "Fluctuation-Dissipation: Response Theory in Statistical Physics". Physics Reports. 461 (4–6): 111–195. arXiv:0803.0719. Bibcode:2008PhR...461..111M. doi:10.1016/j.physrep.2008.02.002. S2CID 118575899.
+Further reading[edit]
+Audio recording of a lecture by Prof. E. W. Carlson of Purdue University
+Kubo's famous text: Fluctuation-dissipation theorem
+Weber J (1956). "Fluctuation Dissipation Theorem". Physical Review. 101 (6): 1620–1626. Bibcode:1956PhRv..101.1620W. doi:10.1103/PhysRev.101.1620.
+Felderhof BU (1978). "On the derivation of the fluctuation-dissipation theorem". Journal of Physics A. 11 (5): 921–927. Bibcode:1978JPhA...11..921F. doi:10.1088/0305-4470/11/5/021.
+Cristani A, Ritort F (2003). "Violation of the fluctuation-dissipation theorem in glassy systems: basic notions and the numerical evidence". Journal of Physics A. 36 (21): R181–R290. arXiv:cond-mat/0212490. Bibcode:2003JPhA...36R.181C. doi:10.1088/0305-4470/36/21/201. S2CID 14144683.
+Chandler D (1987). Introduction to Modern Statistical Mechanics. Oxford University Press. pp. 231–265. ISBN 978-0-19-504277-1.
+Reichl LE (1980). A Modern Course in Statistical Physics. Austin TX: University of Texas Press. pp. 545–595. ISBN 0-292-75080-3.
+Plischke M, Bergersen B (1989). Equilibrium Statistical Physics. Englewood Cliffs, NJ: Prentice Hall. pp. 251–296. ISBN 0-13-283276-3.
+Pathria RK (1972). Statistical Mechanics. Oxford: Pergamon Press. pp. 443, 474–477. ISBN 0-08-018994-6.
+Huang K (1987). Statistical Mechanics. New York: John Wiley and Sons. pp. 153, 394–396. ISBN 0-471-81518-7.
+Callen HB (1985). Thermodynamics and an Introduction to Thermostatistics. New York: John Wiley and Sons. pp. 307–325. ISBN 0-471-86256-8.
+Mazonka, Oleg (2016). "Easy as Pi: The Fluctuation-Dissipation Relation" (PDF). Journal of Reference. 16.
+
+
+

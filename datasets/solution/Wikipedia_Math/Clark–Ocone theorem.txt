@@ -1,0 +1,51 @@
+In mathematics, the Clark–Ocone theorem (also known as the Clark–Ocone–Haussmann theorem or formula) is a theorem of stochastic analysis. It expresses the value of some function F defined on the classical Wiener space of continuous paths starting at the origin as the sum of its mean value and an Itô integral with respect to that path. It is named after the contributions of mathematicians J.M.C. Clark (1970), Daniel Ocone (1984) and U.G. Haussmann (1978).
+
+
+Statement of the theorem[edit]
+Let C0([0, T]; R) (or simply C0 for short) be classical Wiener space with Wiener measure γ. Let F : C0 → R be a BC1 function, i.e. F is bounded and Fréchet differentiable with bounded derivative DF : C0 → Lin(C0; R). Then
+
+F(σ)=∫C0F(p)dγ(p)+∫0TE[∂∂t∇HF(−)|Σt](σ)dσt.(σ)=∫_C_0F(p) dγ(p)+∫_0^T𝐄[.∂/∇_HF(-)|Σ_t](σ) dσ_t.
+In the above
+
+F(σ) is the value of the function F on some specific path of interest, σ;
+the first integral,
+∫C0F(p)dγ(p)=E[F]∫_C_0F(p) dγ(p)=𝐄[F]
+is the expected value of F over the whole of Wiener space C0;
+the second integral,
+∫0T⋯dσ(t)∫_0^T⋯ dσ(t)
+is an Itô integral;
+Σ∗ is the natural filtration of Brownian motion B : [0, T] × Ω → R: Σt is the smallest σ-algebra containing all Bs−1(A) for times 0 ≤ s ≤ t and Borel sets A ⊆ R;
+E[·|Σt] denotes conditional expectation with respect to the sigma algebra Σt;
+∂/∂t denotes differentiation with respect to time t; ∇H denotes the H-gradient; hence, ∂/∂t∇H is the Malliavin derivative.
+More generally, the conclusion holds for any F in L2(C0; R) that is differentiable in the sense of Malliavin.
+
+Integration by parts on Wiener space[edit]
+The Clark–Ocone theorem gives rise to an integration by parts formula on classical Wiener space, and to write Itô integrals as divergences:
+Let B be a standard Brownian motion, and let L02,1 be the Cameron–Martin space for C0 (see abstract Wiener space. Let V : C0 → L02,1 be a vector field such that
+
+V˙=∂V∂t:[0,T]×C0→RV̇=/:[0,T]_0→ℝ
+is in L2(B) (i.e. is Itô integrable, and hence is an adapted process). Let F : C0 → R be BC1 as above. Then
+
+∫C0DF(σ)(V(σ))dγ(σ)=∫C0F(σ)(∫0TV˙t(σ)dσt)dγ(σ),∫_C_0DF(σ)(V(σ)) dγ(σ)=∫_C_0F(σ)(∫_0^TV̇_t(σ) dσ_t) dγ(σ),
+i.e.
+
+∫C0⟨∇HF(σ),V(σ)⟩L02,1dγ(σ)=−∫C0F(σ)div⁡(V)(σ)dγ(σ)∫_C_0⟨∇_HF(σ),V(σ)⟩_L_0^2,1 dγ(σ)=-∫_C_0F(σ)div(V)(σ) dγ(σ)
+or, writing the integrals over C0 as expectations:
+
+E[⟨∇HF,V⟩]=−E[Fdiv⁡V],𝔼[⟨∇_HF,V⟩]=-𝔼[FdivV],
+where the "divergence" div(V) : C0 → R is defined by
+
+div⁡(V)(σ):=−∫0TV˙t(σ)dσt.div(V)(σ):=-∫_0^TV̇_t(σ) dσ_t.
+The interpretation of stochastic integrals as divergences leads to concepts such as the Skorokhod integral and the tools of the Malliavin calculus.
+
+See also[edit]
+Integral representation theorem for classical Wiener space, which uses the Clark–Ocone theorem in its proof
+Integration by parts operator
+Malliavin calculus
+References[edit]
+Nualart, David (2006). The Malliavin calculus and related topics. Probability and its Applications (New York) (Second ed.). Berlin: Springer-Verlag. ISBN 978-3-540-28328-7.
+External links[edit]
+Friz, Peter K. (2005-04-10). "An Introduction to Malliavin Calculus" (PDF). Archived from the original (PDF) on 2007-04-17. Retrieved 2007-07-23.
+
+
+

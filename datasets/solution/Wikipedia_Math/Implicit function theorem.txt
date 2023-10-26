@@ -1,0 +1,268 @@
+On converting relations to functions of several real variables
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vte
+In multivariable calculus, the implicit function theorem[a] is a tool that allows relations to be converted to functions of several real variables. It does so by representing the relation as the graph of a function. There may not be a single function whose graph can represent the entire relation, but there may be such a function on a restriction of the domain of the relation. The implicit function theorem gives a sufficient condition to ensure that there is such a function.
+More precisely, given a system of m equations fi (x1, ..., xn, y1, ..., ym) = 0, i = 1, ..., m (often abbreviated into F(x, y) = 0), the theorem states that, under a mild condition on the partial derivatives (with respect to each yi ) at a point, the m variables yi are differentiable functions of the xj in some neighborhood of the point. As these functions can generally not be expressed in closed form, they are implicitly defined by the equations, and this motivated the name of the theorem.[1]
+In other words, under a mild condition on the partial derivatives, the set of zeros of a system of equations is locally the graph of a function.
+
+
+History[edit]
+Augustin-Louis Cauchy (1789–1857) is credited with the first rigorous form of the implicit function theorem. Ulisse Dini (1845–1918) generalized the real-variable version of the implicit function theorem to the context of functions of any number of real variables.[2]
+
+First example[edit]
+The unit circle can be specified as the level curve f(x, y) = 1 of the function f(x, y) = x2 + y2. Around point A, y can be expressed as a function y(x). In this example this function can be written explicitly as g1(x)=1−x2;_1(x)=√(1-x^2); in many cases no such explicit expression exists, but one can still refer to the implicit function y(x). No such function exists around point B.
+If we define the function f(x, y) = x2 + y2, then the equation f(x, y) = 1 cuts out the unit circle as the level set {(x, y) | f(x, y) = 1}. There is no way to represent the unit circle as the graph of a function of one variable y = g(x) because for each choice of x ∈ (−1, 1), there are two choices of y, namely ±1−x2±√(1-x^2).
+However, it is possible to represent part of the circle as the graph of a function of one variable. If we let g1(x)=1−x2_1(x)=√(1-x^2) for −1 ≤ x ≤ 1, then the graph of y = g1(x) provides the upper half of the circle. Similarly, if g2(x)=−1−x2_2(x)=-√(1-x^2), then the graph of y = g2(x) gives the lower half of the circle.
+The purpose of the implicit function theorem is to tell us that functions like g1(x) and g2(x) almost always exist, even in situations where we cannot write down explicit formulas. It guarantees that g1(x) and g2(x) are differentiable, and it even works in situations where we do not have a formula for f(x, y).
+
+Definitions[edit]
+Let f:Rn+m→Rm:ℝ^n+m→ℝ^m be a continuously differentiable function. We think of Rn+mℝ^n+m as the Cartesian product Rn×Rm,ℝ^n×ℝ^m, and we write a point of this product as (x,y)=(x1,…,xn,y1,…ym).(𝐱,𝐲)=(x_1,…,x_n,y_1,_m). Starting from the given function f, our goal is to construct a function g:Rn→Rm:ℝ^n→ℝ^m whose graph (x,g(x))(x,g(x)) is precisely the set of all (x,y)(x,y) such that f(x,y)=0(x,y)=0.
+As noted above, this may not always be possible. We will therefore fix a point (a,b)=(a1,…,an,b1,…,bm)(a,b)=(a_1,…,a_n,b_1,…,b_m) which satisfies f(a,b)=0(a,b)=0, and we will ask for a g that works near the point (a,b)(a,b). In other words, we want an open set U⊂Rn⊂ℝ^n containing aa, an open set V⊂Rm⊂ℝ^m containing bb, and a function g:U→V:U such that the graph of g satisfies the relation f=0=0 on U×V, and that no other points within U×V do so. In symbols,
+(x,g(x))∣x∈U=(x,y)∈U×V∣f(x,y)=0.{(𝐱,g(𝐱))|𝐱}={(𝐱,𝐲)(𝐱,𝐲)=0}.
+To state the implicit function theorem, we need the Jacobian matrix of f, which is the matrix of the partial derivatives of f. Abbreviating (a1,…,an,b1,…,bm)(a_1,…,a_n,b_1,…,b_m) to (a,b)(a,b), the Jacobian matrix is
+(Df)(a,b)=[∂f1∂x1(a,b)⋯∂f1∂xn(a,b)∂f1∂y1(a,b)⋯∂f1∂ym(a,b)⋮⋱⋮⋮⋱⋮∂fm∂x1(a,b)⋯∂fm∂xn(a,b)∂fm∂y1(a,b)⋯∂fm∂ym(a,b)]=[XY](Df)(𝐚,𝐛)=[[ _1/_1(𝐚,𝐛)          ⋯ _1/_n(𝐚,𝐛) _1/_1(𝐚,𝐛)          ⋯ _1/_m(𝐚,𝐛);          ⋮          ⋱          ⋮          ⋮          ⋱          ⋮; _m/_1(𝐚,𝐛)          ⋯ _m/_n(𝐚,𝐛) _m/_1(𝐚,𝐛)          ⋯ _m/_m(𝐚,𝐛) ]]=[[ X Y ]]
+where X is the matrix of partial derivatives in the variables xi_i and Y is the matrix of partial derivatives in the variables yj_j. The implicit function theorem says that if Y is an invertible matrix, then there are U, V, and g as desired. Writing all the hypotheses together gives the following statement.
+
+Statement of the theorem[edit]
+Let f:Rn+m→Rm:ℝ^n+m→ℝ^m be a continuously differentiable function, and let Rn+mℝ^n+m have coordinates (x,y)(x,y). Fix a point (a,b)=(a1,…,an,b1,…,bm)(a,b)=(a_1,…,a_n,b_1,…,b_m) with f(a,b)=0(a,b)=0, where 0∈Rm0∈ℝ^m is the zero vector. If the Jacobian matrix (this is the right-hand panel of the Jacobian matrix shown in the previous section):
+Jf,y(a,b)=[∂fi∂yj(a,b)]_f,𝐲(𝐚,𝐛)=[_i/_j(𝐚,𝐛)]
+is invertible, then there exists an open set U⊂Rn⊂ℝ^n containing aa such that there exists a unique continuously differentiable function g:U→Rm:U→ℝ^m such that g(a)=b(𝐚)=𝐛, and f(x,g(x))=0forallx∈U(𝐱,g(𝐱))=0 forall 𝐱. Moreover, denoting the left-hand panel of the Jacobian matrix shown in the previous section as:
+Jf,x(a,b)=[∂fi∂xj(a,b)],_f,𝐱(𝐚,𝐛)=[_i/_j(𝐚,𝐛)],
+the Jacobian matrix of partial derivatives of g in U is given by the matrix product:[3]
+[∂gi∂xj(x)]m×n=−[Jf,y(x,g(x))]m×m−1[Jf,x(x,g(x))]m×n[_i/_j(𝐱)]_m=-[J_f,𝐲(𝐱,g(𝐱))]_m^-1 [J_f,𝐱(𝐱,g(𝐱))]_m
+
+Higher derivatives[edit]
+If, moreover, f is analytic or continuously differentiable k times in a neighborhood of (a,b)(a,b), then one may choose U in order that the same holds true for g inside U. [4] In the analytic case, this is called the analytic implicit function theorem.
+
+Proof for 2D case[edit]
+Suppose F:R2→R:ℝ^2→ℝ is a continuously differentiable function defining a curve F(r)=F(x,y)=0(𝐫)=F(x,y)=0. Let (x0,y0)(x_0,y_0) be a point on the curve. The statement of the theorem above can be rewritten for this simple case as follows:
+
+
+Theorem — If ∂F∂y|(x0,y0)≠0./|_(x_0,y_0)≠0 then in a neighbourhood of the point (x0,y0)(x_0,y_0) we can write y=f(x)=f(x), where f is a real function.
+
+
+Proof. Since F is differentiable we write the differential of F through partial derivatives:
+dF=grad⁡F⋅dr=∂F∂xdx+∂F∂ydy.dF=gradF·d𝐫=/dx+/dy.
+Since we are restricted to movement on the curve dF=0dF=0 and by assumption ∂F∂y≠0≠0 around the point (x0,y0)(x_0,y_0) (since ∂F∂y is continuous at (x0,y0)(x_0,y_0) and ∂F∂y|(x0,y0)≠0.|_(x_0,y_0)≠0). Therefore we have a first-order ordinary differential equation:
+∂xFdx+∂yFdy=0,y(x0)=y0∂_xFdx+∂_yFdy=0,(x_0)=y_0
+Now we are looking for a solution to this ODE in an open interval around the point (x0,y0)(x_0,y_0) for which, at every point in it, ∂yF≠0∂_yF≠0. Since F is continuously differentiable and from the assumption we have
+|∂xF|<∞,|∂yF|<∞,∂yF≠0.|∂_xF|<∞,|∂_yF|<∞,∂_yF≠0.
+From this we know that ∂xF∂yF∂_xF∂_yF is continuous and bounded on both ends. From here we know that −∂xF∂yF-∂_xF∂_yF is Lipschitz continuous in both x and y. Therefore, by Cauchy-Lipschitz theorem, there exists unique y(x) that is the solution to the given ODE with the initial conditions. Q.E.D.
+
+The circle example[edit]
+Let us go back to the example of the unit circle. In this case n = m = 1 and f(x,y)=x2+y2−1(x,y)=x^2+y^2-1. The matrix of partial derivatives is just a 1 × 2 matrix, given by
+(Df)(a,b)=[∂f∂x(a,b)∂f∂y(a,b)]=[2a2b](Df)(a,b)=[ (a,b) (a,b) ]=[ 2a 2b ]
+Thus, here, the Y in the statement of the theorem is just the number 2b; the linear map defined by it is invertible if and only if b ≠ 0. By the implicit function theorem we see that we can locally write the circle in the form y = g(x) for all points where y ≠ 0. For (±1, 0) we run into trouble, as noted before. The implicit function theorem may still be applied to these two points, by writing x as a function of y, that is, x=h(y)=h(y); now the graph of the function will be (h(y),y)(h(y),y), since where b = 0 we have a = 1, and the conditions to locally express the function in this form are satisfied.
+The implicit derivative of y with respect to x, and that of x with respect to y, can be found by totally differentiating the implicit function x2+y2−1^2+y^2-1 and equating to 0:
+2xdx+2ydy=0,2x dx+2y dy=0,
+giving
+dydx=−xydy/dx=-x/y
+and
+dxdy=−yx.dx/dy=-y/x.
+
+Application: change of coordinates[edit]
+Suppose we have an m-dimensional space, parametrised by a set of coordinates (x1,…,xm)(x_1,…,x_m). We can introduce a new coordinate system (x1′,…,xm′)(x'_1,…,x'_m) by supplying m functions h1…hm_1_m each being continuously differentiable. These functions allow us to calculate the new coordinates (x1′,…,xm′)(x'_1,…,x'_m) of a point, given the point's old coordinates (x1,…,xm)(x_1,…,x_m) using x1′=h1(x1,…,xm),…,xm′=hm(x1,…,xm)'_1=h_1(x_1,…,x_m),…,x'_m=h_m(x_1,…,x_m). One might want to verify if the opposite is possible: given coordinates (x1′,…,xm′)(x'_1,…,x'_m), can we 'go back' and calculate the same point's original coordinates (x1,…,xm)(x_1,…,x_m)? The implicit function theorem will provide an answer to this question. The (new and old) coordinates (x1′,…,xm′,x1,…,xm)(x'_1,…,x'_m,x_1,…,x_m) are related by f = 0, with
+f(x1′,…,xm′,x1,…,xm)=(h1(x1,…,xm)−x1′,…,hm(x1,…,xm)−xm′).(x'_1,…,x'_m,x_1,…,x_m)=(h_1(x_1,…,x_m)-x'_1,…,h_m(x_1,…,x_m)-x'_m).
+Now the Jacobian matrix of f at a certain point (a, b) [ where a=(x1′,…,xm′),b=(x1,…,xm)=(x'_1,…,x'_m),b=(x_1,…,x_m) ] is given by
+(Df)(a,b)=[−1⋯0⋮⋱⋮0⋯−1|∂h1∂x1(b)⋯∂h1∂xm(b)⋮⋱⋮∂hm∂x1(b)⋯∂hm∂xm(b)]=[−Im|J].(Df)(a,b)=[-1   ⋯   0
+⋮   ⋱   ⋮
+0   ⋯   -1|_1/_1(b)   ⋯   _1/_m(b)
+⋮   ⋱   ⋮
+_m/_1(b)   ⋯   _m/_m(b)
+.]=[-I_m|J].
+where Im denotes the m × m identity matrix, and J is the m × m matrix of partial derivatives, evaluated at (a, b). (In the above, these blocks were denoted by X and Y. As it happens, in this particular application of the theorem, neither matrix depends on a.) The implicit function theorem now states that we can locally express (x1,…,xm)(x_1,…,x_m) as a function of (x1′,…,xm′)(x'_1,…,x'_m) if J is invertible. Demanding J is invertible is equivalent to det J ≠ 0, thus we see that we can go back from the primed to the unprimed coordinates if the determinant of the Jacobian J is non-zero. This statement is also known as the inverse function theorem.
+
+Example: polar coordinates[edit]
+As a simple application of the above, consider the plane, parametrised by polar coordinates (R, θ). We can go to a new coordinate system (cartesian coordinates) by defining functions x(R, θ) = R cos(θ) and y(R, θ) = R sin(θ). This makes it possible given any point (R, θ) to find corresponding Cartesian coordinates (x, y). When can we go back and convert Cartesian into polar coordinates? By the previous example, it is sufficient to have det J ≠ 0, with
+J=[∂x(R,θ)∂R∂x(R,θ)∂θ∂y(R,θ)∂R∂y(R,θ)∂θ]=[cos⁡θ−Rsin⁡θsin⁡θRcos⁡θ].=[   (R,θ)/ (R,θ)/∂θ;   (R,θ)/ (R,θ)/∂θ;  ]=[   cosθ -Rsinθ;   sinθ  Rcosθ ].
+Since det J = R, conversion back to polar coordinates is possible if R ≠ 0. So it remains to check the case R = 0. It is easy to see that in case R = 0, our coordinate transformation is not invertible: at the origin, the value of θ is not well-defined.
+
+Generalizations[edit]
+Banach space version[edit]
+Based on the inverse function theorem in Banach spaces, it is possible to extend the implicit function theorem to Banach space valued mappings.[5][6]
+Let X, Y, Z be Banach spaces. Let the mapping f : X × Y → Z be continuously Fréchet differentiable. If (x0,y0)∈X×Y(x_0,y_0), f(x0,y0)=0(x_0,y_0)=0, and y↦Df(x0,y0)(0,y)(x_0,y_0)(0,y) is a Banach space isomorphism from Y onto Z, then there exist neighbourhoods U of x0 and V of y0 and a Fréchet differentiable function g : U → V such that f(x, g(x)) = 0 and f(x, y) = 0 if and only if y = g(x), for all (x,y)∈U×V(x,y).
+
+Implicit functions from non-differentiable functions[edit]
+Various forms of the implicit function theorem exist for the case when the function f is not differentiable. It is standard that local strict monotonicity suffices in one dimension.[7] The following more general form was proven by Kumagai based on an observation by Jittorntrum.[8][9]
+Consider a continuous function f:Rn×Rm→Rn:ℝ^n×ℝ^m→ℝ^n such that f(x0,y0)=0(x_0,y_0)=0. If there exist open neighbourhoods A⊂Rn⊂ℝ^n and B⊂Rm⊂ℝ^m of x0 and y0, respectively, such that, for all y in B, f(⋅,y):A→Rn(·,y):A→ℝ^n is locally one-to-one then there exist open neighbourhoods A0⊂Rn_0⊂ℝ^n and B0⊂Rm_0⊂ℝ^m of x0 and y0, such that, for all y∈B0_0, the equation
+f(x, y) = 0 has a unique solution
+x=g(y)∈A0,=g(y)_0,
+where g is a continuous function from B0 into A0.
+
+See also[edit]
+Inverse function theorem
+Constant rank theorem: Both the implicit function theorem and the inverse function theorem can be seen as special cases of the constant rank theorem.
+Notes[edit]
+
+
+^ Also called Dini's theorem by the Pisan school in Italy. In the English-language literature, Dini's theorem is a different theorem in mathematical analysis.
+
+
+References[edit]
+
+
+^ Chiang, Alpha C. (1984). Fundamental Methods of Mathematical Economics (3rd ed.). McGraw-Hill. pp. 204–206. ISBN 0-07-010813-7.
+
+^ Krantz, Steven; Parks, Harold (2003). The Implicit Function Theorem. Modern Birkhauser Classics. Birkhauser. ISBN 0-8176-4285-4.
+
+^ de Oliveira, Oswaldo (2013). "The Implicit and Inverse Function Theorems: Easy Proofs". Real Anal. Exchange. 39 (1): 214–216. arXiv:1212.2066. doi:10.14321/realanalexch.39.1.0207. S2CID 118792515.
+
+^ Fritzsche, K.; Grauert, H. (2002). From Holomorphic Functions to Complex Manifolds. Springer. p. 34. ISBN 9780387953953.
+
+^ Lang, Serge (1999). Fundamentals of Differential Geometry. Graduate Texts in Mathematics. New York: Springer. pp. 15–21. ISBN 0-387-98593-X.
+
+^ Edwards, Charles Henry (1994) [1973]. Advanced Calculus of Several Variables. Mineola, New York: Dover Publications. pp. 417–418. ISBN 0-486-68336-2.
+
+^ Kudryavtsev, Lev Dmitrievich (2001) [1994], "Implicit function", Encyclopedia of Mathematics, EMS Press
+
+^ Jittorntrum, K. (1978). "An Implicit Function Theorem". Journal of Optimization Theory and Applications. 25 (4): 575–577. doi:10.1007/BF00933522. S2CID 121647783.
+
+^ Kumagai, S. (1980). "An implicit function theorem: Comment". Journal of Optimization Theory and Applications. 31 (2): 285–288. doi:10.1007/BF00934117. S2CID 119867925.
+
+
+Further reading[edit]
+Allendoerfer, Carl B. (1974). "Theorems about Differentiable Functions". Calculus of Several Variables and Differentiable Manifolds. New York: Macmillan. pp. 54–88. ISBN 0-02-301840-2.
+Binmore, K. G. (1983). "Implicit Functions". Calculus. New York: Cambridge University Press. pp. 198–211. ISBN 0-521-28952-1.
+Loomis, Lynn H.; Sternberg, Shlomo (1990). Advanced Calculus (Revised ed.). Boston: Jones and Bartlett. pp. 164–171. ISBN 0-86720-122-3.
+Protter, Murray H.; Morrey, Charles B. Jr. (1985). "Implicit Function Theorems. Jacobians". Intermediate Calculus (2nd ed.). New York: Springer. pp. 390–420. ISBN 0-387-96058-9.
+
+
+

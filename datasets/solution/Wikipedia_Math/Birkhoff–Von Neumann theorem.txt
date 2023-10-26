@@ -1,0 +1,244 @@
+A square matrix
+In mathematics, especially in probability and combinatorics, a doubly stochastic matrix 
+(also called bistochastic matrix) is a square matrix X=(xij)=(x_ij) of nonnegative real numbers, each of whose rows and columns sums to 1,[1] i.e.,
+
+∑ixij=∑jxij=1,∑_ix_ij=∑_jx_ij=1,
+Thus, a doubly stochastic matrix is both left stochastic and right stochastic.[1][2]
+Indeed, any matrix that is both left and right stochastic must be square: if every row sums to 1 then the sum of all entries in the matrix must be equal to the number of rows, and since the same holds for columns, the number of rows and columns must be equal.[1]
+
+
+Birkhoff polytope[edit]
+Main article: Birkhoff polytope
+The class of n×n doubly stochastic matrices is a convex polytope known as the Birkhoff polytope Bn_n. Using the matrix entries as Cartesian coordinates, it lies in an (n−1)2(n-1)^2-dimensional affine subspace of n2^2-dimensional Euclidean space defined by 2n−12n-1 independent linear constraints specifying that the row and column sums all equal 1. (There are 2n−12n-1 constraints rather than 2n2n because one of these constraints is dependent, as the sum of the row sums must equal the sum of the column sums.)   Moreover, the entries are all constrained to be non-negative and less than or equal to 1.
+
+Birkhoff–von Neumann theorem[edit]
+The Birkhoff–von Neumann theorem (often known simply as Birkhoff's theorem[3][4][5]) states that the polytope Bn_n is the convex hull of the set of n×n permutation matrices, and furthermore that the vertices of  Bn_n are precisely the permutation matrices. In other words, if X is a doubly stochastic matrix, then there exist θ1,…,θk≥0,∑i=1kθi=1θ_1,…,θ_k≥0,∑_i=1^kθ_i=1 and permutation matrices P1,…,Pk_1,…,P_k such that
+
+X=θ1P1+⋯+θkPk.=θ_1P_1+⋯+θ_kP_k.
+(Such a decomposition of X is known as a 'convex combination'.) A proof of the theorem based on Hall's marriage theorem is given below. 
+This representation is known as the Birkhoff–von Neumann decomposition, and may not be unique. It is often described as a real-valued generalization of Kőnig's theorem, where the correspondence is established through adjacency matrices of graphs.
+
+Other properties[edit]
+The product of two doubly stochastic matrices is doubly stochastic. However, the inverse of a nonsingular doubly stochastic matrix need not be doubly stochastic (indeed, the inverse is doubly stochastic iff it has nonnegative entries).
+The stationary distribution of an irreducible aperiodic finite Markov chain is uniform if and only if its transition matrix is doubly stochastic.
+Sinkhorn's theorem states that any matrix with strictly positive entries can be made doubly stochastic by pre- and post-multiplication by diagonal matrices.
+For n=2=2, all bistochastic matrices are unistochastic and orthostochastic, but for larger n this is not the case.
+Van der Waerden's conjecture that the minimum permanent among all n × n doubly stochastic matrices is n!/nn!/n^n, achieved by the matrix for which all entries are equal to 1/n1/n.[6] Proofs of this conjecture were published in 1980 by B. Gyires[7] and in 1981 by G. P. Egorychev[8] and D. I. Falikman;[9] for this work, Egorychev and Falikman won the Fulkerson Prize in 1982.[10]
+
+
+Proof of the Birkhoff–von Neumann theorem[edit]
+Let X be a doubly stochastic matrix. Then we will show that there exists a permutation matrix P such that xij ≠ 0 whenever pij ≠ 0. Thus if we let λ be the smallest xij corresponding to a non-zero pij, the difference X – λP will be a scalar multiple of a doubly stochastic matrix and will have at least one more zero cell than X. Accordingly we may successively reduce the number of non-zero cells in X by removing scalar multiples of permutation matrices until we arrive at the zero matrix, at which point we will have constructed a convex combination of permutation matrices equal to the original X.[3]
+For instance if X=112(705264363)=1/12[ 7 0 5; 2 6 4; 3 6 3 ] then 
+P=(001100010)=[ 0 0 1; 1 0 0; 0 1 0 ], λ=212λ=2/12, and 
+X−λP=112(703064343)-=1/12[ 7 0 3; 0 6 4; 3 4 3 ].
+Proof: Construct a bipartite graph in which the rows of X are listed in one part and the columns in the other, and in which row i is connected to column j iff xij ≠ 0. Let A be any set of rows, and define A' as the set of columns joined to rows in A in the graph. We want to express the sizes |A| and |A'| of the two sets in terms of the xij.
+For every i in A, the sum over j in A' of xij is 1, since all columns j for which xij ≠ 0 are included in A', and X is doubly stochastic; hence |A| is the sum over all i ∈ A, j ∈ A' of xij.
+Meanwhile |A'| is the sum over all i (whether or not in A) and all j in A' of xij ; and this is ≥ the corresponding sum in which the i are limited to rows in A. Hence |A'| ≥ |A|.
+It follows that the conditions of Hall's marriage theorem are satisfied, and that we can therefore find a set of edges in the graph which join each row in X to exactly one (distinct) column. These edges define a permutation matrix whose non-zero cells correspond to non-zero cells in X. ∎
+
+Generalisations[edit]
+There is a simple generalisation to matrices with more columns and rows such that the i th row sum is equal to ri (a positive integer), the column sums are equal to 1, and all cells are non-negative (the sum of the row sums being equal to the number of columns). Any matrix in this form can be expressed as a convex combination of matrices in the same form made up of 0s and 1s. The proof is to replace the i th row of the original matrix by ri separate rows, each equal to the original row divided by ri ; to apply Birkhoff's theorem to the resulting square matrix; and at the end to additively recombine the ri rows into a single i th row.
+In the same way it is possible to replicate columns as well as rows, but the result of recombination is not necessarily limited to 0s and 1s. A different generalisation (with a significantly harder proof) has been put forward by R. M. Caron et al.[4]
+
+See also[edit]
+Stochastic matrix
+Unistochastic matrix
+Birkhoff algorithm
+References[edit]
+
+
+^ a b c Gagniuc, Paul A. (2017). Markov Chains: From Theory to Implementation and Experimentation. USA, NJ: John Wiley & Sons. pp. 9–11. ISBN 978-1-119-38755-8.
+
+^ Marshal, Olkin (1979). Inequalities: Theory of Majorization and Its Applications. pp. 8. ISBN 978-0-12-473750-1.
+
+^ a b Birkhoff's theorem, notes by Gábor Hetyei.
+
+^ a b R. M. Caron et al., 'Nonsquare "Doubly Stochastic" Matrices', 1996.
+
+^ W. B. Jurkat and H. J. Ryser, "Term Ranks and Permanents of Nonnegative Matrices" (1967).
+
+^ van der Waerden, B. L. (1926), "Aufgabe 45", Jber. Deutsch. Math.-Verein., 35: 117.
+
+^ Gyires, B. (1980), "The common source of several inequalities concerning doubly stochastic matrices", Publicationes Mathematicae Institutum Mathematicum Universitatis Debreceniensis, 27 (3–4): 291–304, MR 0604006.
+
+^ Egoryčev, G. P. (1980), Reshenie problemy van-der-Vardena dlya permanentov (in Russian), Krasnoyarsk: Akad. Nauk SSSR Sibirsk. Otdel. Inst. Fiz., p. 12, MR 0602332. Egorychev, G. P. (1981), "Proof of the van der Waerden conjecture for permanents", Akademiya Nauk SSSR (in Russian), 22 (6): 65–71, 225, MR 0638007. Egorychev, G. P. (1981), "The solution of van der Waerden's problem for permanents", Advances in Mathematics, 42 (3): 299–305, doi:10.1016/0001-8708(81)90044-X, MR 0642395.
+
+^ Falikman, D. I. (1981), "Proof of the van der Waerden conjecture on the permanent of a doubly stochastic matrix", Akademiya Nauk Soyuza SSR (in Russian), 29 (6): 931–938, 957, MR 0625097.
+
+^ Fulkerson Prize, Mathematical Optimization Society, retrieved 2012-08-19.
+
+
+Brualdi, Richard A. (2006). Combinatorial matrix classes. Encyclopedia of Mathematics and Its Applications. Vol. 108. Cambridge: Cambridge University Press. ISBN 978-0-521-86565-4. Zbl 1106.05001.
+External links[edit]
+PlanetMath page on Birkhoff–von Neumann theorem
+PlanetMath page on proof of Birkhoff–von Neumann theorem
+vteMatrix classesExplicitly constrained entries
+Alternant
+Anti-diagonal
+Anti-Hermitian
+Anti-symmetric
+Arrowhead
+Band
+Bidiagonal
+Bisymmetric
+Block-diagonal
+Block
+Block tridiagonal
+Boolean
+Cauchy
+Centrosymmetric
+Conference
+Complex Hadamard
+Copositive
+Diagonally dominant
+Diagonal
+Discrete Fourier Transform
+Elementary
+Equivalent
+Frobenius
+Generalized permutation
+Hadamard
+Hankel
+Hermitian
+Hessenberg
+Hollow
+Integer
+Logical
+Matrix unit
+Metzler
+Moore
+Nonnegative
+Pentadiagonal
+Permutation
+Persymmetric
+Polynomial
+Quaternionic
+Signature
+Skew-Hermitian
+Skew-symmetric
+Skyline
+Sparse
+Sylvester
+Symmetric
+Toeplitz
+Triangular
+Tridiagonal
+Vandermonde
+Walsh
+Z
+Constant
+Exchange
+Hilbert
+Identity
+Lehmer
+Of ones
+Pascal
+Pauli
+Redheffer
+Shift
+Zero
+Conditions on eigenvalues or eigenvectors
+Companion
+Convergent
+Defective
+Definite
+Diagonalizable
+Hurwitz
+Positive-definite
+Stieltjes
+Satisfying conditions on products or inverses
+Congruent
+Idempotent or Projection
+Invertible
+Involutory
+Nilpotent
+Normal
+Orthogonal
+Unimodular
+Unipotent
+Unitary
+Totally unimodular
+Weighing
+With specific applications
+Adjugate
+Alternating sign
+Augmented
+Bézout
+Carleman
+Cartan
+Circulant
+Cofactor
+Commutation
+Confusion
+Coxeter
+Distance
+Duplication and elimination
+Euclidean distance
+Fundamental (linear differential equation)
+Generator
+Gram
+Hessian
+Householder
+Jacobian
+Moment
+Payoff
+Pick
+Random
+Rotation
+Seifert
+Shear
+Similarity
+Symplectic
+Totally positive
+Transformation
+Used in statistics
+Centering
+Correlation
+Covariance
+Design
+Doubly stochastic
+Fisher information
+Hat
+Precision
+Stochastic
+Transition
+Used in graph theory
+Adjacency
+Biadjacency
+Degree
+Edmonds
+Incidence
+Laplacian
+Seidel adjacency
+Tutte
+Used in science and engineering
+Cabibbo–Kobayashi–Maskawa
+Density
+Fundamental (computer vision)
+Fuzzy associative
+Gamma
+Gell-Mann
+Hamiltonian
+Irregular
+Overlap
+S
+State transition
+Substitution
+Z (chemistry)
+Related terms
+Jordan normal form
+Linear independence
+Matrix exponential
+Matrix representation of conic sections
+Perfect matrix
+Pseudoinverse
+Row echelon form
+Wronskian
+
+ Mathematics portal
+List of matrices
+Category:Matrices
+
+
+
+

@@ -1,0 +1,284 @@
+Analysis of divide and conquer algorithms
+For other theorems called Master theorem, see Master theorem.
+In the analysis of algorithms, the master theorem for divide-and-conquer recurrences provides an asymptotic analysis (using Big O notation) for recurrence relations of types that occur in the analysis of many divide and conquer algorithms. The approach was first presented by Jon Bentley, Dorothea Blostein (née Haken), and James B. Saxe in 1980, where it was described as a "unifying method" for solving such recurrences.[1] The name "master theorem" was popularized by the widely-used algorithms textbook Introduction to Algorithms by Cormen, Leiserson, Rivest, and Stein. 
+Not all recurrence relations can be solved with the use of this theorem; its generalizations include the Akra–Bazzi method.
+
+
+Introduction[edit]
+Consider a problem that can be solved using a recursive algorithm such as the following:
+
+procedure p(input x of size n):
+    if n < some constant k:
+        Solve x directly without recursion
+    else:
+        Create a subproblems of x, each having size n/b
+        Call procedure p recursively on each subproblem
+        Combine the results from the subproblems
+
+Solution tree.
+The above algorithm divides the problem into a number of subproblems recursively, each subproblem being of size n/b. Its solution tree has a node for each recursive call, with the children of that node being the other calls made from that call. The leaves of the tree are the base cases of the recursion, the subproblems (of size less than k) that do not recurse. The above example would have a child nodes at each non-leaf node. Each node does an amount of work that corresponds to the size of the subproblem n passed to that instance of the recursive call and given by f(n)(n). The total amount of work done by the entire algorithm is the sum of the work performed by all the nodes in the tree. 
+The runtime of an algorithm such as the p above on an input of size n, usually denoted T(n)(n), can be expressed by the recurrence relation
+
+T(n)=aT(nb)+f(n),(n)=a T(n/b)+f(n),
+where f(n)(n) is the time to create the subproblems and combine their results in the above procedure. This equation can be successively substituted into itself and expanded to obtain an expression for the total amount of work done.[2] The master theorem allows many recurrence relations of this form to be converted to Θ-notation directly, without doing an expansion of the recursive relation.
+
+Generic form[edit]
+The master theorem always yields asymptotically tight bounds to recurrences from divide and conquer algorithms that partition an input into smaller subproblems of equal sizes, solve the subproblems recursively, and then combine the subproblem solutions to give a solution to the original problem. The time for such an algorithm can be expressed by adding the work that they perform at the top level of their recursion (to divide the problems into subproblems and then combine the subproblem solutions) together with the time made in the recursive calls of the algorithm. If T(n)(n) denotes the total time for the algorithm on an input of size n, and f(n)(n) denotes the amount of time taken at the top level of the recurrence then the time can be expressed by a recurrence relation that takes the form:
+
+T(n)=aT(nb)+f(n)(n)=a T(n/b)+f(n)
+Here n is the size of an input problem, a is the number of subproblems in the recursion, and b is the factor by which the subproblem size is reduced in each recursive call (b>1). Crucially, a and b must not depend on n. The theorem below also assumes that, as a base case for the recurrence, T(n)=Θ(1)(n)=Θ(1) when n is less than some bound κ>0κ>0, the smallest input size that will lead to a recursive call.
+Recurrences of this form often satisfy one of the three following regimes, based on how the work to split/recombine the problem f(n)(n) relates to the critical exponent ccrit=logb⁡a_crit=log_ba. (The table below uses standard big O notation).
+
+ccrit=logb⁡a=log⁡(#subproblems)/log⁡(relativesubproblemsize)_crit=log_ba=log(#subproblems)/log(relativesubproblemsize)
+
+
+Case
+
+Description
+
+Condition on f(n)(n) in relation to ccrit_crit, i.e. logb⁡alog_ba
+
+Master Theorem bound
+
+Notational examples
+
+
+1
+
+Work to split/recombine a problem is dwarfed by subproblems.
+i.e. the recursion tree is leaf-heavy
+
+
+When f(n)=O(nc)(n)=O(n^c) where c<ccrit<c_crit
+(upper-bounded by a lesser exponent polynomial)
+
+
+... then T(n)=Θ(nccrit)(n)=Θ(n^c_crit)
+(The splitting term does not appear; the recursive tree structure dominates.)
+
+
+If b=a2=a^2 and f(n)=O(n1/2−ϵ)(n)=O(n^1/2-ϵ), then T(n)=Θ(n1/2)(n)=Θ(n^1/2).
+
+
+2
+
+Work to split/recombine a problem is comparable to subproblems.
+
+When f(n)=Θ(nccritlogk⁡n)(n)=Θ(n^c_critlog^kn) for a k≥0≥0
+(rangebound by the critical-exponent polynomial, times zero or more optional loglogs)
+
+
+... then T(n)=Θ(nccritlogk+1⁡n)(n)=Θ(n^c_critlog^k+1n)
+(The bound is the splitting term, where the log is augmented by a single power.)
+
+
+If b=a2=a^2 and f(n)=Θ(n1/2)(n)=Θ(n^1/2), then T(n)=Θ(n1/2log⁡n)(n)=Θ(n^1/2).
+If b=a2=a^2 and f(n)=Θ(n1/2log⁡n)(n)=Θ(n^1/2), then T(n)=Θ(n1/2log2⁡n)(n)=Θ(n^1/2log^2n).
+
+
+
+3
+
+Work to split/recombine a problem dominates subproblems.
+i.e. the recursion tree is root-heavy.
+
+
+When f(n)=Ω(nc)(n)=Ω(n^c) where c>ccrit>c_crit
+(lower-bounded by a greater-exponent polynomial)
+
+
+... this doesn't necessarily yield anything. Furthermore, if
+af(nb)≤kf(n)(n/b)(n) for some constant k<1<1 and sufficiently large n (often called the regularity condition)
+then the total is dominated by the splitting term f(n)(n):
+
+T(n)=Θ(f(n))(n)=Θ(f(n))
+
+If b=a2=a^2 and f(n)=Ω(n1/2+ϵ)(n)=Ω(n^1/2+ϵ) and the regularity condition holds, then T(n)=Θ(f(n))(n)=Θ(f(n)).
+
+A useful extension of Case 2 handles all values of k:[3]
+
+
+
+Case
+
+Condition on f(n)(n) in relation to ccrit_crit, i.e. logb⁡alog_ba
+
+Master Theorem bound
+
+Notational examples
+
+
+2a
+
+When f(n)=Θ(nccritlogk⁡n)(n)=Θ(n^c_critlog^kn) for any k>−1>-1
+
+... then T(n)=Θ(nccritlogk+1⁡n)(n)=Θ(n^c_critlog^k+1n)
+(The bound is the splitting term, where the log is augmented by a single power.)
+
+
+If b=a2=a^2 and f(n)=Θ(n1/2/log1/2⁡n)(n)=Θ(n^1/2/log^1/2n), then T(n)=Θ(n1/2log1/2⁡n)(n)=Θ(n^1/2log^1/2n).
+
+
+2b
+
+When f(n)=Θ(nccritlogk⁡n)(n)=Θ(n^c_critlog^kn) for k=−1=-1
+
+... then T(n)=Θ(nccritlog⁡log⁡n)(n)=Θ(n^c_critlog)
+(The bound is the splitting term, where the log reciprocal is replaced by an iterated log.)
+
+
+If b=a2=a^2 and f(n)=Θ(n1/2/log⁡n)(n)=Θ(n^1/2/), then T(n)=Θ(n1/2log⁡log⁡n)(n)=Θ(n^1/2log).
+
+
+2c
+
+When f(n)=Θ(nccritlogk⁡n)(n)=Θ(n^c_critlog^kn) for any k<−1<-1
+
+... then T(n)=Θ(nccrit)(n)=Θ(n^c_crit)
+(The bound is the splitting term, where the log disappears.)
+
+
+If b=a2=a^2 and f(n)=Θ(n1/2/log2⁡n)(n)=Θ(n^1/2/log^2n), then T(n)=Θ(n1/2)(n)=Θ(n^1/2).
+
+Examples[edit]
+Case 1 example[edit]
+T(n)=8T(n2)+1000n2(n)=8T(n/2)+1000n^2
+As one can see from the formula above:
+
+a=8,b=2,f(n)=1000n2=8, b=2, f(n)=1000n^2, so
+f(n)=O(nc)(n)=O(n^c), where c=2=2
+Next, we see if we satisfy the case 1 condition:
+
+logb⁡a=log2⁡8=3>clog_ba=log_28=3>c.
+It follows from the first case of the master theorem that
+
+T(n)=Θ(nlogb⁡a)=Θ(n3)(n)=Θ(n^log_ba)=Θ(n^3)
+(This result is confirmed by the exact solution of the recurrence relation, which is T(n)=1001n3−1000n2(n)=1001n^3-1000n^2, assuming T(1)=1(1)=1).
+
+Case 2 example[edit]
+T(n)=2T(n2)+10n(n)=2T(n/2)+10n
+As we can see in the formula above the variables get the following values:
+
+a=2,b=2,c=1,f(n)=10n=2, b=2, c=1, f(n)=10n
+f(n)=Θ(nclogk⁡n)(n)=Θ(n^clog^kn) where c=1,k=0=1,k=0
+Next, we see if we satisfy the case 2 condition:
+
+logb⁡a=log2⁡2=1log_ba=log_22=1, and therefore, c and logb⁡alog_ba are equal
+So it follows from the second case of the master theorem:
+
+T(n)=Θ(nlogb⁡alogk+1⁡n)=Θ(n1log1⁡n)=Θ(nlog⁡n)(n)=Θ(n^log_balog^k+1n)=Θ(n^1log^1n)=Θ(n)
+Thus the given recurrence relation T(n)(n) was in Θ(nlog⁡n)Θ(n).
+(This result is confirmed by the exact solution of the recurrence relation, which is T(n)=n+10nlog2⁡n(n)=n+10nlog_2n, assuming T(1)=1(1)=1).
+
+Case 3 example[edit]
+T(n)=2T(n2)+n2(n)=2T(n/2)+n^2
+As we can see in the formula above the variables get the following values:
+
+a=2,b=2,f(n)=n2=2, b=2, f(n)=n^2
+f(n)=Ω(nc)(n)=Ω(n^c), where c=2=2
+Next, we see if we satisfy the case 3 condition:
+
+logb⁡a=log2⁡2=1log_ba=log_22=1, and therefore, yes, c>logb⁡a>log_ba
+The regularity condition also holds:
+
+2(n24)≤kn22(n^2/4)^2, choosing k=1/2=1/2
+So it follows from the third case of the master theorem:
+
+T(n)=Θ(f(n))=Θ(n2).(n)=Θ(f(n))=Θ(n^2).
+Thus the given recurrence relation T(n)(n) was in Θ(n2)Θ(n^2), that complies with the f(n)(n) of the original formula.
+(This result is confirmed by the exact solution of the recurrence relation, which is T(n)=2n2−n(n)=2n^2-n, assuming T(1)=1(1)=1.)
+
+Inadmissible equations[edit]
+The following equations cannot be solved using the master theorem:[4]
+
+T(n)=2nT(n2)+nn(n)=2^nT(n/2)+n^n
+a is not a constant; the number of subproblems should be fixed
+T(n)=2T(n2)+nlog⁡n(n)=2T(n/2)+n/
+non-polynomial difference between f(n)(n) and nlogb⁡a^log_ba (see below; extended version applies)
+T(n)=0.5T(n2)+n(n)=0.5T(n/2)+n
+a<1<1 cannot have less than one sub problem
+T(n)=64T(n8)−n2log⁡n(n)=64T(n/8)-n^2
+f(n)(n), which is the combination time, is not positive
+T(n)=T(n2)+n(2−cos⁡n)(n)=T(n/2)+n(2-)
+case 3 but regularity violation.
+In the second inadmissible example above, the difference between f(n)(n) and nlogb⁡a^log_ba can be expressed with the ratio f(n)nlogb⁡a=n/log⁡nnlog2⁡2=nnlog⁡n=1log⁡nf(n)/n^log_ba=n//n^log_22=n/n=1/.  It is clear that 1log⁡n<nϵ1/<n^ϵ for any constant ϵ>0ϵ>0.  Therefore, the difference is not polynomial and the basic form of the Master Theorem does not apply. The extended form (case 2b) does apply, giving the solution T(n)=Θ(nlog⁡log⁡n)(n)=Θ(nlog).
+
+Application to common algorithms[edit]
+
+
+Algorithm
+
+Recurrence relationship
+
+Run time
+
+Comment
+
+
+Binary search
+
+T(n)=T(n2)+O(1)(n)=T(n/2)+O(1)
+
+O(log⁡n)()
+
+Apply Master theorem case c=logb⁡a=log_ba, where a=1,b=2,c=0,k=0=1,b=2,c=0,k=0[5]
+
+
+Binary tree traversal
+
+T(n)=2T(n2)+O(1)(n)=2T(n/2)+O(1)
+
+O(n)(n)
+
+Apply Master theorem case c<logb⁡a<log_ba where a=2,b=2,c=0=2,b=2,c=0[5]
+
+
+Optimal sorted matrix search
+
+T(n)=2T(n2)+O(log⁡n)(n)=2T(n/2)+O()
+
+O(n)(n)
+
+Apply the Akra–Bazzi theorem for p=1=1 and g(u)=log⁡(u)(u)=log(u) to get Θ(2n−log⁡n)Θ(2n-)
+
+
+Merge sort
+
+T(n)=2T(n2)+O(n)(n)=2T(n/2)+O(n)
+
+O(nlog⁡n)(n)
+
+Apply Master theorem case c=logb⁡a=log_ba, where a=2,b=2,c=1,k=0=2,b=2,c=1,k=0
+
+See also[edit]
+Akra–Bazzi method
+Asymptotic complexity
+Notes[edit]
+
+
+^ Bentley, Jon Louis; Haken, Dorothea; Saxe, James B. (September 1980), "A general method for solving divide-and-conquer recurrences", ACM SIGACT News, 12 (3): 36–44, doi:10.1145/1008861.1008865, S2CID 40642274, archived from the original on September 22, 2017
+
+^ 
+    Duke University,
+    "Big-Oh for Recursive Functions: Recurrence Relations",
+    http://www.cs.duke.edu/~ola/ap/recurrence.html
+
+^ 
+Chee Yap, A real elementary approach to the master recurrence and generalizations, Proceedings of the 8th annual conference on Theory and applications of models of computation (TAMC'11), pages 14–26, 2011. Online copy.
+
+^ 
+    Massachusetts Institute of Technology (MIT),
+    "Master Theorem: Practice Problems and Solutions",
+    https://people.csail.mit.edu/thies/6.046-web/master.pdf
+
+^ a b 
+    Dartmouth College,
+    http://www.math.dartmouth.edu/archive/m19w03/public_html/Section5-2.pdf
+
+
+References[edit]
+Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. Introduction to Algorithms, Second Edition. MIT Press and McGraw–Hill, 2001. ISBN 0-262-03293-7. Sections 4.3 (The master method) and 4.4 (Proof of the master theorem), pp. 73–90.
+Michael T. Goodrich and Roberto Tamassia. Algorithm Design: Foundation, Analysis, and Internet Examples. Wiley, 2002. ISBN 0-471-38365-1. The master theorem (including the version of Case 2 included here, which is stronger than the one from CLRS) is on pp. 268–270.
+
+
+

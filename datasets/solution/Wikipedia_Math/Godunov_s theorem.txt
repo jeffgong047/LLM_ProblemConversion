@@ -1,0 +1,403 @@
+In numerical analysis and computational fluid dynamics, Godunov's theorem — also known as Godunov's order barrier theorem — is a mathematical theorem important in the development of the theory of high-resolution schemes for the numerical solution of partial differential equations.
+The theorem states that:
+
+Linear numerical schemes for solving partial differential equations (PDE's), having the property of not generating new extrema (monotone scheme), can be at most first-order accurate.
+Professor Sergei Godunov originally proved the theorem as a Ph.D. student at Moscow State University. It is his most influential work in the area of applied and numerical mathematics and has had a major impact on science and engineering, particularly in the development of methods used in computational fluid dynamics (CFD) and other computational fields. One of his major contributions was to prove the theorem (Godunov, 1954; Godunov, 1959), that bears his name.
+
+
+The theorem[edit]
+We generally follow Wesseling (2001).
+Aside
+Assume a continuum problem described by a PDE is to be computed using a numerical scheme based upon a uniform computational grid and a one-step, constant step-size, M grid point, integration algorithm, either implicit or explicit. Then if xj=jΔx_j=j  and tn=nΔt^n=n , such a scheme can be described by
+
+
+
+∑m=1Mβmφj+mn+1=∑m=1Mαmφj+mn.∑_m=1^Mβ_mφ_j+m^n+1=∑_m=1^Mα_mφ_j+m^n.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+In other words, the solution φjn+1φ_j^n+1 at time n+1+1 and location j is a linear function of the solution at the previous time step n. We assume that βmβ_m determines φjn+1φ_j^n+1 uniquely. Now, since the above equation represents a linear relationship between φjnφ_j^n and φjn+1φ_j^n+1 we can perform a linear transformation to obtain the following equivalent form,
+
+
+
+φjn+1=∑mMγmφj+mn.φ_j^n+1=∑_m^Mγ_mφ_j+m^n.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+Theorem 1: Monotonicity preserving
+The above scheme of equation (2) is monotonicity preserving if and only if
+
+
+
+γm≥0,∀m.γ_m≥0,  .
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(3)
+
+Proof - Godunov (1959)
+Case 1: (sufficient condition)
+Assume (3) applies and that φjnφ_j^n is monotonically increasing with j.
+Then, because φjn≤φj+1n≤⋯≤φj+mnφ_j^n≤φ_j+1^n≤⋯≤φ_j+m^n it therefore follows that φjn+1≤φj+1n+1≤⋯≤φj+mn+1φ_j^n+1≤φ_j+1^n+1≤⋯≤φ_j+m^n+1 because
+
+
+
+φjn+1−φj−1n+1=∑mMγm(φj+mn−φj+m−1n)≥0.φ_j^n+1-φ_j-1^n+1=∑_m^Mγ_m(φ_j+m^n-φ_j+m-1^n)≥0.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(4)
+
+This means that monotonicity is preserved for this case.
+Case 2: (necessary condition)
+We prove the necessary condition by contradiction. Assume that γp<0γ_p^<0 for some p and choose the following monotonically increasing φjnφ_j^n ,
+
+
+
+φin=0,i<k;φin=1,i≥k.φ_i^n=0,<k;  φ_i^n=1,.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(5)
+
+Then from equation (2) we get
+
+
+
+φjn+1−φj−1n+1=∑mMγm(φj+mn−φj+m−1n)=0,j+m≠kγm,j+m=kφ_j^n+1-φ_j-1^n+1=∑_m^Mγ_m(φ_j+m^n-φ_j+m-1^n)=0,   j+m
+γ_m,   j+m=k
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(6)
+
+Now choose j=k−p=k-p, to give
+
+
+
+φk−pn+1−φk−p−1n+1=γp(φkn−φk−1n)<0,φ_k-p^n+1-φ_k-p-1^n+1=γ_p(φ_k^n-φ_k-1^n)<0,
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(7)
+
+which implies that φjn+1φ_j^n+1 is NOT increasing, and we have a contradiction. Thus, monotonicity is NOT preserved for γp<0γ_p<0, which completes the proof.
+Theorem 2: Godunov’s Order Barrier Theorem
+Linear one-step second-order accurate numerical schemes for the convection equation
+
+
+
+∂φ∂t+c∂φ∂x=0,t>0,x∈R∂φ+c∂φ=0,>0,∈ℝ
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(10)
+
+cannot be monotonicity preserving unless
+
+
+
+σ=|c|ΔtΔx∈N,σ=|c|∈ℕ,
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(11)
+
+where σσ is the signed Courant–Friedrichs–Lewy condition (CFL) number.
+Proof - Godunov (1959)
+Assume a numerical scheme of the form described by equation (2) and choose
+
+
+
+φ(0,x)=(xΔx−12)2−14,φj0=(j−12)2−14.φ(0,x)=(x-12)^2-14,  φ_j^0=(j-12)^2-14.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(12)
+
+The exact solution is
+
+
+
+φ(t,x)=(x−ctΔx−12)2−14.φ(t,x)=(x-ct-12)^2-14.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(13)
+
+If we assume the scheme to be at least second-order accurate, it should produce the following solution exactly
+
+
+
+φj1=(j−σ−12)2−14,φj0=(j−12)2−14.φ_j^1=(j-σ-12)^2-14,  φ_j^0=(j-12)^2-14.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(14)
+
+Substituting into equation (2) gives:
+
+
+
+(j−σ−12)2−14=∑mMγm(j+m−12)2−14.(j-σ-12)^2-14=∑_m^Mγ_m{(j+m-12)^2-14}.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(15)
+
+Suppose that the scheme IS monotonicity preserving, then according to the theorem 1 above, γm≥0γ_m≥0.
+Now, it is clear from equation (15) that
+
+
+
+(j−σ−12)2−14≥0,∀j.(j-σ-12)^2-14≥0,  .
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(16)
+
+Assume σ>0,σ∉Nσ>0,  σ∉ℕ and choose j such that j>σ>(j−1)>σ>(j-1). This implies that (j−σ)>0(j-σ)>0 and (j−σ−1)<0(j-σ-1)<0.
+It therefore follows that,
+
+
+
+(j−σ−12)2−14=(j−σ)(j−σ−1)<0,(j-σ-12)^2-14=(j-σ)(j-σ-1)<0,
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(17)
+
+which contradicts equation (16) and completes the proof.
+The exceptional situation whereby σ=|c|ΔtΔx∈Nσ=|c|∈ℕ is only of theoretical interest, since this cannot be realised with variable coefficients. Also, integer CFL numbers greater than unity would not be feasible for practical problems.
+
+See also[edit]
+Finite volume method
+Flux limiter
+Total variation diminishing
+References[edit]
+Godunov, Sergei K. (1954), Ph.D. Dissertation: Different Methods for Shock Waves, Moscow State University.
+Godunov, Sergei K. (1959), A Difference Scheme for Numerical Solution of Discontinuous Solution of Hydrodynamic Equations, Mat. Sbornik, 47, 271-306, translated US Joint Publ. Res. Service, JPRS 7226, 1969.
+Wesseling, Pieter (2001). Principles of Computational Fluid Dynamics. Berlin: Springer-Verlag. ISBN 9783540678533. OCLC 44972030.
+Further reading[edit]
+Hirsch, Ch (1990). Numerical Computation of Internal and External Flows. Vol. 2. Chichester [England]: Wiley. ISBN 0-471-91762-1. OCLC 16523972.
+Laney, Culbert B. (1998). Computational Gasdynamics. Cambridge: Cambridge University Press. ISBN 978-0-511-77720-2. OCLC 664017316.
+Toro, Elewterio F. (2009). Riemann Solvers and Numerical Methods for Fluid Dynamics a Practical Introduction (3rd ed.). Berlin. ISBN 978-3-540-25202-3. OCLC 391057413.{{cite book}}:  CS1 maint: location missing publisher (link)
+Anderson, Dale A.; Tannehill, John C.; Pletcher, Richard H.; Munipalli, Ramakanth; Shankar, Vijaya (2020). Computational Fluid Mechanics and Heat Transfer (Fourth ed.). Boca Raton, FL: Taylor & Francis. ISBN 978-1-351-12400-3. OCLC 1237821271.
+
+
+

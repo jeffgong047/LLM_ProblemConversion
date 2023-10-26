@@ -1,0 +1,69 @@
+Complex analysis theorem
+Not to be confused with Casorati–Sokhotski–Weierstrass theorem.
+The Sokhotski–Plemelj theorem (Polish spelling is Sochocki) is a theorem in complex analysis, which helps in evaluating certain integrals. The real-line version of it (see below) is often used in physics, although rarely referred to by name. The theorem is named after Julian Sochocki, who proved it in 1868, and Josip Plemelj, who rediscovered it as a main ingredient of his solution of the Riemann–Hilbert problem in 1908.
+
+
+Statement of the theorem[edit]
+Let C be a smooth closed simple curve in the plane, and φφ an analytic function on C. Note that the Cauchy-type integral
+
+ϕ(z)=12πi∫Cφ(ζ)dζζ−z,ϕ(z)=1/2∫_Cφ(ζ) dζ/ζ-z,
+cannot be evaluated for any z on the curve C. However, on the interior and exterior of the curve, the integral produces analytic functions, which will be denoted ϕiϕ_i inside C and ϕeϕ_e outside. The Sokhotski–Plemelj formulas relate the limiting boundary values of these two analytic functions at a point z on C and the Cauchy principal value P𝒫 of the integral:
+
+limw→zϕi(w)=12πiP∫Cφ(ζ)dζζ−z+12φ(z),lim_wϕ_i(w)=1/2𝒫∫_Cφ(ζ) dζ/ζ-z+1/2φ(z),
+limw→zϕe(w)=12πiP∫Cφ(ζ)dζζ−z−12φ(z).lim_wϕ_e(w)=1/2𝒫∫_Cφ(ζ) dζ/ζ-z-1/2φ(z).
+Subsequent generalizations relax the smoothness requirements on curve C and the function φ.
+
+Version for the real line[edit]
+See also: Kramers–Kronig relations
+Especially important is the version for integrals over the real line.
+
+limε→0+1x±iε=∓iπδ(x)+P(1x).lim_ε→0^+1/xε=πδ(x)+𝒫(1/x).
+where δ(x)δ(x) is the Dirac delta function. This should be interpreted as an integral equality, as follows.
+Let f be a complex-valued function which is defined and continuous on the real line, and let a and b be real constants with a<0<b<0<b. Then
+
+limε→0+∫abf(x)x±iεdx=∓iπf(0)+P∫abf(x)xdx,lim_ε→0^+∫_a^bf(x)/xε dx=(0)+𝒫∫_a^bf(x)/x dx,
+where P𝒫 denotes the Cauchy principal value. (Note that this version makes no use of analyticity.)
+
+Proof of the real version[edit]
+A simple proof is as follows.
+
+limε→0+∫abf(x)x±iεdx=∓iπlimε→0+∫abεπ(x2+ε2)f(x)dx+limε→0+∫abx2x2+ε2f(x)xdx.lim_ε→0^+∫_a^bf(x)/xε dx=πlim_ε→0^+∫_a^bε/π(x^2+ε^2)f(x) dx+lim_ε→0^+∫_a^bx^2/x^2+ε^2 f(x)/x dx.
+For the first term, we note that ε⁄π(x2 + ε2) is a nascent delta function, and therefore approaches a Dirac delta function in the limit. Therefore, the first term equals ∓iπ f(0).
+For the second term, we note that the factor x2⁄(x2 + ε2) approaches 1 for |x| ≫ ε, approaches 0 for |x| ≪ ε, and is exactly symmetric about 0. Therefore, in the limit, it turns the integral into a Cauchy principal value integral.
+
+Physics application[edit]
+In quantum mechanics and quantum field theory, one often has to evaluate integrals of the form
+
+∫−∞∞dE∫0∞dtf(E)exp⁡(−iEt)∫_-∞^∞dE ∫_0^∞dt f(E)exp(-iEt)
+where E is some energy and t is time. This expression, as written, is undefined (since the time integral does not converge), so it is typically modified by adding a negative real term to -iEt in the exponential, and then taking that to zero, i.e.:
+
+limε→0+∫−∞∞dE∫0∞dtf(E)exp⁡(−iEt−εt)=−ilimε→0+∫−∞∞f(E)E−iεdE=πf(0)−iP∫−∞∞f(E)EdE,lim_ε→0^+∫_-∞^∞dE ∫_0^∞dt f(E)exp(-iEt-)=-ilim_ε→0^+∫_-∞^∞f(E)/E-iε dE=(0)-i𝒫∫_-∞^∞f(E)/E dE,
+where the latter step uses the real version of the theorem.
+
+Heitler function[edit]
+In theoretical quantum optics, the derivation of a master equation in Lindblad form often requires the following integral function,[1] which is a direct consequence of the Sokhotski–Plemelj theorem and is often called the Heitler-function:
+
+∫0∞dτexp⁡(−i(ω±ν)τ)=πδ(ω±ν)−iP(1ω±ν)∫_0^∞dτ exp(-i(ω±ν)τ)=πδ(ω±ν)-i𝒫(1/ω±ν)
+See also[edit]
+Singular integral operators on closed curves (account of the Sokhotski–Plemelj theorem for the unit circle and a closed Jordan curve)
+Kramers–Kronig relations
+Hilbert transform
+References[edit]
+
+
+^ Breuer, Heinz-Peter; Petruccione, Francesco (2002). The Theory of Open Quantum Systems. Oxford University Press. p. 145. doi:10.1093/acprof:oso/9780199213900.001.0001. ISBN 978-0-19-852063-4.
+
+
+Literature[edit]
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (September 2019) (Learn how and when to remove this template message)
+Weinberg, Steven (1995). The Quantum Theory of Fields, Volume 1: Foundations. Cambridge Univ. Press. ISBN 0-521-55001-7. Chapter 3.1.
+Merzbacher, Eugen (1998). Quantum Mechanics. Wiley, John & Sons, Inc. ISBN 0-471-88702-1. Appendix A, equation (A.19).
+Henrici, Peter (1986). Applied and Computational Complex Analysis, vol. 3. Willey, John & Sons, Inc.
+Plemelj, Josip (1964). Problems in the sense of Riemann and Klein. New York: Interscience Publishers.
+Gakhov, F. D. (1990), Boundary value problems. Reprint of the 1966 translation, Dover Publications, ISBN 0-486-66275-6
+Muskhelishvili, N. I. (1949). Singular integral equations, boundary problems of function theory and their application to mathematical physics. Melbourne: Dept. of Supply and Development, Aeronautical Research Laboratories.
+Blanchard, Bruening: Mathematical Methods in Physics (Birkhauser 2003), Example 3.3.1 4
+Sokhotskii, Y. W. (1873). On definite integrals and functions used in series expansions. St. Petersburg.{{cite book}}:  CS1 maint: location missing publisher (link)
+
+
+

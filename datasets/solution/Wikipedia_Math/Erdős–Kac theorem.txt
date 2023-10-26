@@ -1,0 +1,149 @@
+In number theory, the Erdős–Kac theorem, named after Paul Erdős and Mark Kac, and also known as the fundamental theorem of probabilistic number theory, states that if ω(n) is the number of distinct prime factors of n, then, loosely speaking, the probability distribution of
+
+ω(n)−log⁡log⁡nlog⁡log⁡nω(n)-log/√(log)
+is the standard normal distribution. (ω(n)ω(n) is sequence A001221 in the OEIS.) This is an extension of the Hardy–Ramanujan theorem, which states that the normal order of ω(n) is log log n with a typical error of size log⁡log⁡n√(log).
+
+
+Precise statement[edit]
+For any fixed a < b,
+
+limx→∞(1x⋅#n≤x:a≤ω(n)−log⁡log⁡nlog⁡log⁡n≤b)=Φ(a,b)lim_x→∞(1/x·#{n:a≤ω(n)-log/√(log)})=Φ(a,b)
+where Φ(a,b)Φ(a,b) is the normal (or "Gaussian") distribution, defined as
+
+Φ(a,b)=12π∫abe−t2/2dt.Φ(a,b)=1/√(2π)∫_a^be^-t^2/2 dt.
+More generally, if f(n) is a strongly additive function (f(p1a1⋯pkak)=f(p1)+⋯+f(pk)(p_1^a_1_k^a_k)=f(p_1)+⋯+f(p_k)) with |f(p)|≤1|f(p)|≤1 for all prime p, then
+
+limx→∞(1x⋅#n≤x:a≤f(n)−A(n)B(n)≤b)=Φ(a,b)lim_x→∞(1/x·#{n:a≤f(n)-A(n)/B(n)})=Φ(a,b)
+with
+
+A(n)=∑p≤nf(p)p,B(n)=∑p≤nf(p)2p.(n)=∑_pf(p)/p,(n)=√(∑_pf(p)^2/p).
+Kac's original heuristic[edit]
+Intuitively, Kac's heuristic for the result says that if n is a randomly chosen large integer, then the number of distinct prime factors of n is approximately normally distributed with mean and variance log log n. This comes from the fact that given a random natural number n, the events "the number n is divisible by some prime p"  for each p are mutually independent.
+Now, denoting the event "the number n is divisible by p" by np_p, consider the following sum of indicator random variables:
+
+In2+In3+In5+In7+…_n_2+I_n_3+I_n_5+I_n_7+…
+This sum counts how many distinct prime factors our random natural number n has. It can be shown that this sum satisfies the Lindeberg condition, and therefore the Lindeberg central limit theorem guarantees that after appropriate rescaling, the above expression will be Gaussian.
+The actual proof of the theorem, due to Erdős, uses sieve theory to make rigorous the above intuition.
+
+Numerical examples[edit]
+The Erdős–Kac theorem means that the construction of a number around one billion requires on average three primes.
+For example, 1,000,000,003 = 23 × 307 × 141623. The following table provides a numerical summary of the growth of the average number of distinct prime factors of a natural number n with increasing n.
+
+
+
+n
+
+Number of
+digits in n
+
+
+Average number
+of distinct primes
+
+
+Standard
+deviation
+
+
+
+1,000
+
+4
+
+2
+
+1.4
+
+
+1,000,000,000
+
+10
+
+3
+
+1.7
+
+
+1,000,000,000,000,000,000,000,000
+
+25
+
+4
+
+2
+
+
+1065
+
+66
+
+5
+
+2.2
+
+
+109,566
+
+9,567
+
+10
+
+3.2
+
+
+10210,704,568
+
+210,704,569
+
+20
+
+4.5
+
+
+101022
+
+1022 + 1
+
+50
+
+7.1
+
+
+101044
+
+1044 + 1
+
+100
+
+10
+
+
+1010434
+
+10434 + 1
+
+1000
+
+31.6
+
+A spreading Gaussian distribution of distinct primes illustrating the Erdos-Kac theorem
+Around 12.6% of 10,000 digit numbers are constructed from 10 distinct prime numbers and around 68% are constructed from between 7 and 13 primes.
+A hollow sphere the size of the planet Earth filled with fine sand would have around 1033 grains. A volume the size of the observable universe would have around 1093 grains of sand. There might be room for 10185 quantum strings in such a universe.
+Numbers of this magnitude—with 186 digits—would require on average only 6 primes for construction.
+It is very difficult if not impossible to discover the Erdös-Kac theorem empirically, as the Gaussian only shows up when n starts getting to be around 1010010^100. More precisely, Rényi and Turán showed that the best possible uniform asymptotic bound on the error in the approximation to a Gaussian is O(1log⁡log⁡n)(1/√(log)).[1]
+
+References[edit]
+
+
+^ Rényi, A.; Turán, P. (1958). "On a theorem of Erdös-Kac" (PDF). Acta Arithmetica. 4 (1): 71–84. doi:10.4064/aa-4-1-71-84.
+
+
+Erdős, Paul; Kac, Mark (1940). "The Gaussian Law of Errors in the Theory of Additive Number Theoretic Functions". American Journal of Mathematics. 62 (1/4): 738–742. doi:10.2307/2371483. ISSN 0002-9327. JSTOR 2371483. Zbl 0024.10203.
+Kuo, Wentang; Liu, Yu-Ru (2008). "The Erdős–Kac theorem and its generalizations". In De Koninck, Jean-Marie; Granville, Andrew; Luca, Florian (eds.). Anatomy of integers. Based on the CRM workshop, Montreal, Canada, March 13--17, 2006. CRM Proceedings and Lecture Notes. Vol. 46. Providence, RI: American Mathematical Society. pp. 209–216. ISBN 978-0-8218-4406-9. Zbl 1187.11024.
+Kac, Mark (1959). Statistical Independence in Probability, Analysis and Number Theory. John Wiley and Sons, Inc.
+External links[edit]
+Weisstein, Eric W. "Erdős–Kac Theorem". MathWorld.
+Timothy Gowers: The Importance of Mathematics (part 6, 4 mins in) and (part 7)
+
+
+

@@ -1,0 +1,81 @@
+Local-global result for when an element in a number field is an nth power
+In algebraic number theory, the Grunwald–Wang theorem is a local-global principle stating that—except in some precisely defined cases—an element x in a number field K is an nth power in K if it is an nth power in the completion Kp_𝔭 for all but finitely many primes p𝔭 of K. For example, a rational number is a square of a rational number if it is a square of a p-adic number for almost all primes p. The Grunwald–Wang theorem is an example of a local-global principle.
+It was introduced by Wilhelm Grunwald (1933), but there was a mistake in this original version that was found and corrected by Shianghao Wang (1948). The theorem considered by Grunwald and Wang was more general than the one stated above as they discussed the existence of cyclic extensions with certain local properties, and the statement about nth powers is a consequence of this.
+
+
+History[edit]
+
+
+Some days later I was with Artin in his office when Wang appeared. He said he had a counterexample to a lemma which had been used in the proof. An hour or two later, he produced a counterexample to the theorem itself... Of course he [Artin] was astonished, as were all of us students, that a famous theorem with two published proofs, one of which we had all heard in the seminar without our noticing anything, could be wrong.
+
+
+John Tate, quoted by  Peter Roquette (2005, p.30)
+
+
+Grunwald (1933), a student of Helmut Hasse, gave an incorrect proof of the erroneous statement that an element in a number field is an nth power if it is an nth power locally almost everywhere. George Whaples (1942) gave another incorrect proof of this incorrect statement. However Wang (1948) discovered the following counter-example: 16 is a p-adic 8th power for all odd primes p, but is not a rational or 2-adic 8th power. In his doctoral thesis Wang (1950) written under Emil Artin, Wang gave and proved the correct formulation of Grunwald's assertion, by describing the rare cases when it fails. This result is what is now known as the Grunwald–Wang theorem. The history of Wang's counterexample is discussed by Peter Roquette (2005, section 5.3)
+
+Wang's counter-example[edit]
+Grunwald's original claim that an element that is an nth power almost everywhere locally is an nth power globally can fail in two distinct ways: the element can be an nth power almost everywhere locally but not everywhere locally, or it can be an nth power everywhere locally but not globally.
+
+An element that is an nth power almost everywhere locally but not everywhere locally[edit]
+The element 16 in the rationals is an 8th power at all places except 2, but is not an 8th power in the 2-adic numbers.
+It is clear that 16 is not a 2-adic 8th power, and hence not a rational 8th power, since the 2-adic valuation of 16 is 4 which is not divisible by 8.
+Generally, 16 is an 8th power in a field K if and only if the polynomial X8−16^8-16 has a root in K. Write
+
+X8−16=(X4−4)(X4+4)=(X2−2)(X2+2)(X2−2X+2)(X2+2X+2).^8-16=(X^4-4)(X^4+4)=(X^2-2)(X^2+2)(X^2-2X+2)(X^2+2X+2).
+Thus, 16 is an 8th power in K if and only if 2, −2 or −1 is a square in K. Let p be any odd prime. It follows from the multiplicativity of the Legendre symbol that 2, −2 or −1 is a square modulo p. Hence, by Hensel's lemma, 2, −2 or −1 is a square in Qpℚ_p.
+
+An element that is an nth power everywhere locally but not globally[edit]
+16 is not an 8th power in Q(7)ℚ(√(7)) although it is an 8th power locally everywhere (i.e. in Qp(7)ℚ_p(√(7)) for all p). This follows from the above and the equality Q2(7)=Q2(−1)ℚ_2(√(7))=ℚ_2(√(-1)).
+
+A consequence of Wang's counter-example[edit]
+Wang's counterexample has the following interesting consequence showing that one cannot always find a cyclic Galois extension of a given degree of a number field in which finitely many given prime places split in a specified way:
+There exists no cyclic degree 8 extension K/Q/ℚ in which the prime 2 is totally inert (i.e., such that K2/Q2_2/ℚ_2 is unramified of degree 8).
+
+Special fields[edit]
+For any s≥2≥2 let
+
+ηs:=exp⁡(2πi2s)+exp⁡(−2πi2s)=2cos⁡(2π2s).η_s:=exp(2/2^s)+exp(-2/2^s)=2cos(2π/2^s).
+Note that the 2s2^sth cyclotomic field is
+
+Q2s=Q(i,ηs).ℚ_2^s=ℚ(i,η_s).
+A field is called s-special if it contains ηsη_s, but neither i, ηs+1η_s+1 nor iηs+1η_s+1.
+
+Statement of the theorem[edit]
+Consider a number field K and a natural number n. Let S be a finite (possibly empty) set of primes of K and put
+
+K(n,S):=x∈K∣x∈Kpnforallp∉S.(n,S):={x_𝔭^n}𝔭}.
+The Grunwald–Wang theorem says that
+
+K(n,S)=Kn(n,S)=K^n
+unless we are in the special case which occurs when the following two conditions both hold:
+
+K is s-special with an s such that 2s+12^s+1 divides n.
+S contains the special set S0_0 consisting of those (necessarily 2-adic) primes p𝔭 such that Kp_𝔭 is s-special.
+In the special case the failure of the Hasse principle is finite of order 2: the kernel of
+
+K×/K×n→∏p∉SKp×/Kp×n^×/K^→∏_𝔭K_𝔭^×/K_𝔭^
+is Z/2Z, generated by the element ηns+1.
+
+Explanation of Wang's counter-example[edit]
+The field of rational numbers K=Q=ℚ is 2-special since it contains η2=0η_2=0, but neither i, η3=2η_3=√(2) nor iη3=−2η_3=√(-2). The special set is S0=2_0={2}. Thus, the special case in the Grunwald–Wang theorem occurs when n is divisible by 8, and S contains 2. This explains Wang's counter-example and shows that it is minimal. It is also seen that an element in Qℚ is an nth power if it is a p-adic nth power for all p.
+The field K=Q(7)=ℚ(√(7)) is 2-special as well, but with S0=∅_0=∅. This explains the other counter-example above.[1]
+
+See also[edit]
+The Hasse norm theorem states that for cyclic extensions an element is a norm if it is a norm everywhere locally.
+Notes[edit]
+
+
+^ See Chapter X of Artin–Tate.
+
+
+References[edit]
+Artin, Emil; Tate, John (1990), Class field theory, ISBN 978-0-8218-4426-7, MR 0223335
+Grunwald, Wilhelm (1933), "Ein allgemeiner Existenzsatz für algebraische Zahlkörper", Journal für die reine und angewandte Mathematik, 169: 103–107
+Roquette, Peter (2005), The Brauer-Hasse-Noether theorem in historical perspective (PDF), Schriften der Mathematisch-Naturwissenschaftlichen Klasse der Heidelberger Akademie der Wissenschaften [Publications of the Mathematics and Natural Sciences Section of Heidelberg Academy of Sciences], vol. 15, Berlin, New York: Springer-Verlag, ISBN 978-3-540-23005-2
+Wang, Shianghaw (1948), "A counter-example to Grunwald's theorem", Annals of Mathematics, Second Series, 49: 1008–1009, doi:10.2307/1969410, ISSN 0003-486X, JSTOR 1969410, MR 0026992
+Wang, Shianghaw (1950), "On Grunwald's theorem", Annals of Mathematics, Second Series, 51: 471–484, doi:10.2307/1969335, ISSN 0003-486X, JSTOR 1969335, MR 0033801
+Whaples, George (1942), "Non-analytic class field theory and Grünwald's theorem", Duke Mathematical Journal, 9 (3): 455–473, doi:10.1215/s0012-7094-42-00935-9, ISSN 0012-7094, MR 0007010
+
+
+

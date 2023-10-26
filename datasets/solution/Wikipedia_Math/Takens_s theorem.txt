@@ -1,0 +1,76 @@
+Conditions under which a chaotic system can be reconstructed by observation
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (September 2020) (Learn how and when to remove this template message)
+Rössler attractor reconstructed by Taken's theorem, using different delay lengths. Orbits around the attractor have a period between 5.2 to 6.2.
+In the study of dynamical systems, a delay embedding theorem gives the conditions under which a chaotic dynamical system can be reconstructed from a sequence of observations of the state of that system. The reconstruction preserves the properties of the dynamical system that do not change under smooth coordinate changes (i.e., diffeomorphisms), but it does not preserve the geometric shape of structures in phase space.
+Takens' theorem is the 1981 delay embedding theorem of Floris Takens. It provides the conditions under which a smooth attractor can be reconstructed from the observations made with a generic function. Later results replaced the smooth attractor with a set of arbitrary box counting dimension and the class of generic functions with other classes of functions.
+It is the most commonly used method for attractor reconstruction.[1]
+Delay embedding theorems are simpler to state for
+discrete-time dynamical systems.
+The state space of the dynamical system is a ν-dimensional manifold M. The dynamics is given by a smooth map
+
+f:M→M.:M.
+Assume that the dynamics f has a strange attractor A⊂M with box counting dimension dA.  Using ideas from Whitney's embedding theorem, A can be embedded in k-dimensional Euclidean space with
+
+k>2dA.>2d_A.
+That is, there is a diffeomorphism φ that maps A into Rkℝ^k such that the derivative of φ has full rank.
+A delay embedding theorem uses an observation function to construct the embedding function.  An observation function α:M→Rα:M→ℝ must be twice-differentiable and associate a real number to any point of the attractor A. It must also be typical, so its derivative is of full rank and has no special symmetries in its components. The delay embedding theorem states that the function
+
+φT(x)=(α(x),α(f(x)),…,α(fk−1(x)))φ_T(x)=(α(x), α(f(x)), …, α(f^k-1(x)) )
+is an embedding of the strange attractor A in Rk.ℝ^k.
+
+
+Simplified version[edit]
+Suppose the d-dimensional 
+state vector xt_t evolves according to an unknown but continuous
+and (crucially) deterministic dynamic. Suppose, too, that the
+one-dimensional observable y is a smooth function of x, and “coupled”
+to all the components of x. Now at any time we can look not just at
+the present measurement y(t)(t), but also at observations made at times
+removed from us by multiples of some lag τ:yt+τ,yt+2ττ:y_t+τ,y_t+2τ, etc. If we use
+k lags, we have a k-dimensional vector. One might expect that, as the
+number of lags is increased, the motion in the lagged space will become
+more and more predictable, and perhaps in the limit k→∞→∞ would become
+deterministic. In fact, the dynamics of the lagged vectors become
+deterministic at a finite dimension; not only that, but the deterministic
+dynamics are completely equivalent to those of the original state space (precisely, they are related by a smooth, invertible change of coordinates,
+or diffeomorphism). The magic embedding dimension[clarification needed] k is
+at most 2d+12d+1, and often less.[2][3]
+
+Choice of delay[edit]
+Takens' theorem is usually used to reconstruct strange attractors out of experimental data, for which there is contamination by noise. As such, the choice of delay time becomes important. Whereas for data without noise, any choice of delay is valid, for noisy data, the attractor would be destroyed by noise for delays chosen badly.
+The optimal delay is typically around one-tenth to one-half the mean orbital period around the attractor.[4][5]
+
+See also[edit]
+Whitney embedding theorem
+Nonlinear dimensionality reduction
+References[edit]
+
+
+^ Sauer, Timothy D. (2006-10-24). "Attractor reconstruction". Scholarpedia. 1 (10): 1727. doi:10.4249/scholarpedia.1727. ISSN 1941-6016.
+
+^ Shalizi, Cosma R. (2006). "Methods and Techniques of Complex Systems Science: An Overview". In Deisboeck, ThomasS; Kresh, J.Yasha (eds.). Complex Systems Science in Biomedicine. Topics in Biomedical Engineering International Book Series. Springer US. pp. 33–114. arXiv:nlin/0307015. doi:10.1007/978-0-387-33532-2_2. ISBN 978-0-387-30241-6. S2CID 11972113.
+
+^ Barański, Krzysztof; Gutman, Yonatan; Śpiewak, Adam (2020-09-01). "A probabilistic Takens theorem". Nonlinearity. 33 (9): 4940–4966. arXiv:1811.05959. doi:10.1088/1361-6544/ab8fb8. ISSN 0951-7715. S2CID 119137065.
+
+^ Strogatz, Steven (2015). "12.4 Chemical chaos and attractor reconstruction". Nonlinear dynamics and chaos: with applications to physics, biology, chemistry, and engineering (Second ed.). Boulder, CO. ISBN 978-0-8133-4910-7. OCLC 842877119.{{cite book}}:  CS1 maint: location missing publisher (link)
+
+^ Fraser, Andrew M.; Swinney, Harry L. (1986-02-01). "Independent coordinates for strange attractors from mutual information". Physical Review A. 33 (2): 1134–1140. doi:10.1103/PhysRevA.33.1134. PMID 9896728.
+
+
+Further reading[edit]
+N. Packard, J. Crutchfield, D. Farmer and R. Shaw (1980). "Geometry from a time series". Physical Review Letters. 45 (9): 712–716. Bibcode:1980PhRvL..45..712P. doi:10.1103/PhysRevLett.45.712.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+F. Takens (1981). "Detecting strange attractors in turbulence". In D. A. Rand and L.-S. Young (ed.). Dynamical Systems and Turbulence, Lecture Notes in Mathematics, vol. 898. Springer-Verlag. pp. 366–381.
+R. Mañé (1981). "On the dimension of the compact invariant sets of certain nonlinear maps". In D. A. Rand and L.-S. Young (ed.). Dynamical Systems and Turbulence, Lecture Notes in Mathematics, vol. 898. Springer-Verlag. pp. 230–242.
+G. Sugihara and R.M. May (1990). "Nonlinear forecasting as a way of distinguishing chaos from measurement error in time series". Nature. 344 (6268): 734–741. Bibcode:1990Natur.344..734S. doi:10.1038/344734a0. PMID 2330029. S2CID 4370167.
+Tim Sauer, James A. Yorke, and Martin Casdagli (1991). "Embedology". Journal of Statistical Physics. 65 (3–4): 579–616. Bibcode:1991JSP....65..579S. doi:10.1007/BF01053745.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+G. Sugihara (1994). "Nonlinear forecasting for the classification of natural time series". Phil. Trans. R. Soc. Lond. A. 348 (1688): 477–495. Bibcode:1994RSPTA.348..477S. doi:10.1098/rsta.1994.0106. S2CID 121604829.
+P.A. Dixon, M.J. Milicich, and G. Sugihara (1999). "Episodic fluctuations in larval supply". Science. 283 (5407): 1528–1530. Bibcode:1999Sci...283.1528D. doi:10.1126/science.283.5407.1528. PMID 10066174.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+G. Sugihara, M. Casdagli, E. Habjan, D. Hess, P. Dixon and G. Holland (1999). "Residual delay maps unveil global patterns of atmospheric nonlinearity and produce improved local forecasts". PNAS. 96 (25): 210–215. Bibcode:1999PNAS...9614210S. doi:10.1073/pnas.96.25.14210. PMC 24416. PMID 10588685.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+C. Hsieh; Glaser, SM; Lucas, AJ; Sugihara, G (2005). "Distinguishing random environmental fluctuations from ecological catastrophes for the North Pacific Ocean". Nature. 435 (7040): 336–340. Bibcode:2005Natur.435..336H. doi:10.1038/nature03553. PMID 15902256. S2CID 2446456.
+R. A. Rios, L. Parrott, H. Lange and R. F. de Mello (2015). "Estimating determinism rates to detect patterns in geospatial datasets". Remote Sensing of Environment. 156: 11–20. Bibcode:2015RSEnv.156...11R. doi:10.1016/j.rse.2014.09.019.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+External links[edit]
+[1] Scientio's ChaosKit product uses embedding to create analyses and predictions. Access is provided online via a web service and graphic interface.
+[2] Empirical Dynamic Modelling tools pyEDM and rEDM use embedding for analyses, prediction, and causal inference.
+
+
+

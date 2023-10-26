@@ -1,0 +1,158 @@
+On collapse of the polynomial hierarchy if NP is in non-uniform polynomial time class
+This article may be too technical for most readers to understand. Please help improve it to make it understandable to non-experts, without removing the technical details. (October 2014) (Learn how and when to remove this template message)
+The notation used in this article is explained on the page polynomial hierarchy.
+In complexity theory, the Karp–Lipton theorem states that if the Boolean satisfiability problem (SAT) can be solved by Boolean circuits with a polynomial number of logic gates, then 
+
+Π2=Σ2Π_2=Σ_2  and therefore PH=Σ2.PH=Σ_2. 
+That is, if we assume that NP, the class of nondeterministic polynomial time problems, can be contained in the non-uniform polynomial time complexity class P/poly, then this assumption implies the collapse of the polynomial hierarchy at its second level. Such a collapse is believed unlikely, so the theorem is generally viewed by complexity theorists as evidence for the nonexistence of polynomial size circuits for SAT or for other NP-complete problems. A proof that such circuits do not exist would imply that P ≠ NP. As P/poly contains all problems solvable in randomized polynomial time (Adleman's theorem), the theorem is also evidence that the use of randomization does not lead to polynomial time algorithms for NP-complete problems.
+The Karp–Lipton theorem is named after Richard M. Karp and Richard J. Lipton, who first proved it in 1980. (Their original proof collapsed PH to Σ3Σ_3, but Michael Sipser improved it to Σ2Σ_2.)
+Variants of the theorem state that, under the same assumption, MA = AM, and PH collapses to SP2 complexity class. There are stronger conclusions possible if PSPACE, or some other complexity classes are assumed to have polynomial-sized circuits; see P/poly. If NP is assumed to be a subset of BPP (which is a subset of P/poly), then the polynomial hierarchy collapses to BPP.[1] If coNP is assumed to be subset of NP/poly, then the polynomial hierarchy collapses to its third level.
+
+
+Intuition[edit]
+Suppose that polynomial sized circuits for SAT not only exist, but also that they could be constructed by a polynomial time algorithm. Then this supposition implies that SAT itself could be solved by a polynomial time algorithm that constructs the circuit and then applies it. That is, efficiently constructible circuits for SAT would lead to a stronger collapse, P = NP.
+The assumption of the Karp–Lipton theorem, that these circuits exist, is weaker. But it is still possible for an algorithm in the complexity class Σ2Σ_2 to guess a correct circuit for SAT. The complexity class Σ2Σ_2 describes problems of the form
+
+∃x∀yψ(x,y) ψ(x,y)
+where ψψ is any polynomial-time computable predicate. The existential power of the first quantifier in this predicate can be used to guess a correct circuit for SAT, and the universal power of the second quantifier can be used to verify that the circuit is correct. Once this circuit is guessed and verified, the algorithm in class Σ2Σ_2 can use it as a subroutine for solving other problems.
+
+Self-reducibility[edit]
+To understand the Karp–Lipton proof in more detail, we consider the problem of testing whether a circuit c is a correct circuit for solving SAT instances of a given size, and show that this circuit testing problem belongs to Π1Π_1. That is, there exists a polynomial time computable predicate V such that c is a correct circuit if and only if, for all polynomially-bounded z, V(c,z) is true.
+The circuit c is a correct circuit for SAT if it satisfies two properties:
+
+For every pair (s,x) where s is an instance of SAT and x is a solution to the instance, c(s) must be true
+For every instance s of SAT for which c(s) is true, s must be solvable.
+The first of these two properties is already in the form of problems in class Π1Π_1. To verify the second property, we use the self-reducibility property of SAT.
+Self-reducibility describes the phenomenon that, if we can quickly test whether a SAT instance is solvable, we can almost as quickly find an explicit solution to the instance. To find a solution to an instance s, choose one of the Boolean variables x that is input to s, and make two smaller instances s0 and s1 where si denotes the formula formed by replacing x with the constant i. Once these two smaller instances have been constructed, apply the test for solvability to each of them. If one of these two tests returns that the smaller instance is satisfiable, continue solving that instance until a complete solution has been derived.
+To use self-reducibility to check the second property of a correct circuit for SAT, we rewrite it as follows:
+
+For every instance s of SAT for which c(s) is true, the self-reduction procedure described above finds a valid solution to s.
+Thus, we can test in Π1Π_1 whether c is a valid circuit for solving SAT.
+see Random self-reducibility for more information
+
+Proof of Karp–Lipton theorem[edit]
+The Karp–Lipton theorem can be restated as a result about Boolean formulas with polynomially-bounded quantifiers. Problems in Π2Π_2 are described by formulas of this type, with the syntax
+
+ϕ=∀x∃yψ(x,y)ϕ= ψ(x,y)
+where ψψ is a polynomial-time computable predicate. The Karp–Lipton theorem states that this type of formula can be transformed in polynomial time into an equivalent formula in which the quantifiers appear in the opposite order; such a formula belongs to Σ2Σ_2. Note that the subformula
+
+s(x)=∃yψ(x,y)(x)= ψ(x,y)
+is an instance of SAT. That is, if c is a valid circuit for SAT, then this subformula is equivalent to the unquantified formula c(s(x)). Therefore, the full formula for ϕϕ is equivalent (under the assumption that a valid circuit c exists) to the formula
+
+∃c∀(x,z)V(c,z)∧c(s(x))∀(x,z) V(c,z)(s(x)) 
+where V is the formula used to verify that c really is a valid circuit using self-reducibility, as described above. This equivalent formula has its quantifiers in the opposite order, as desired. Therefore, the Karp–Lipton assumption allows us to transpose the order of existential and universal quantifiers in formulas of this type, showing that Σ2=Π2.Σ_2=Π_2. Repeating the transposition allows formulas with deeper nesting to be simplified to a form in which they have a single existential quantifier followed by a single universal quantifier, showing that PH=Σ2.=Σ_2.
+
+Another proof and SP2[edit]
+Assume NP⊆P/poly𝖭𝖯⊆𝖯/𝗉𝗈𝗅𝗒. Therefore, there exists a family of circuits Cn_n that solves satisfiability on input of length n. Using self-reducibility, there exists a family of circuits Dn_n which outputs a satisfying assignment on true instances.
+Suppose L is a Π2Π_2 set
+
+L=z:∀x.∃y.ϕ(x,y,z)={z:..ϕ(x,y,z)} 
+Since ∃y.ϕ(x,y,z).ϕ(x,y,z) can be considered an instance of SAT (by Cook-Levin theorem), there exists a circuit Dn_n, depending on n=|z|=|z|, such that the formula defining L is equivalent to
+
+
+
+
+∀x.ϕ(x,Dn(x,z),z).ϕ(x,D_n(x,z),z)
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+Furthermore, the circuit can be guessed with existential quantification:
+
+
+
+
+∃D.∀x.ϕ(x,D(x,z),z)..ϕ(x,D(x,z),z)
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+Obviously (1) implies (2). If (1) is false, then ¬∃y.ϕ(x,y,z).ϕ(x,y,z). In this case, no circuit D can output an assignment making ϕ(x,D(x,z),z)ϕ(x,D(x,z),z)  true.
+The proof has shown that a Π2Π_2 set L is in Σ2Σ_2.
+What's more, if the Π2Π_2 formula is true, then the circuit D will work against any x. If the Π2Π_2 formula is false, then x making the formula (1) false will work against any circuit. This property means a stronger collapse, namely to SP2 complexity class (i.e. Π2⊆S2P⊆Σ2Π_2⊆𝖲_2^P⊆Σ_2). It was observed by Sengupta.[2]
+
+AM = MA[edit]
+A modification[3] of the above proof yields
+
+NP⊆P/poly⟹AM=MA𝖭𝖯⊆𝖯/𝗉𝗈𝗅𝗒𝖠𝖬=𝖬𝖠
+(see Arthur–Merlin protocol).
+Suppose that L is in AM, i.e.:
+
+z∈L⟹Prx[∃y.ϕ(x,y,z)]≥23_x[.ϕ(x,y,z)]≥23
+z∉L⟹Prx[∃y.ϕ(x,y,z)]≤13_x[.ϕ(x,y,z)]≤13
+and as previously rewrite ∃y.ϕ(x,y,z).ϕ(x,y,z) using the circuit Dn_n that outputs a satisfying assignment if it exists:
+
+z∈L⟹Prx[ϕ(x,Dn(x,z),z)]≥23_x[ϕ(x,D_n(x,z),z)]≥23
+z∉L⟹Prx[ϕ(x,Dn(x,z),z)]≤13_x[ϕ(x,D_n(x,z),z)]≤13
+Since Dn_n can be guessed:
+
+z∈L⟹∃D.Prx[ϕ(x,D(x,z),z)]≥23._x[ϕ(x,D(x,z),z)]≥23
+z∉L⟹∀D.Prx[ϕ(x,D(x,z),z)]≤13._x[ϕ(x,D(x,z),z)]≤13
+which proves L is in the smaller class MA.
+
+Application to circuit lower bounds – Kannan's theorem[edit]
+Kannan's theorem[4] states that for any fixed k there exists a language L in Σ2Σ_2, which is not in SIZE(nk) (This is a different statement than Σ2⊈P/polyΣ_2⊈𝖯/𝗉𝗈𝗅𝗒, which is currently open and states that there exists a single language that is not in SIZE(nk) for any k). It is a simple circuit lower bound.
+Proof outline:
+There exists a language L∈Σ4−SIZE(nk)∈Σ_4-𝖲𝖨𝖹𝖤(n^k) (the proof uses diagonalization technique). Consider two cases:
+
+If SAT∉P/poly𝖲𝖠𝖳∉𝖯/𝗉𝗈𝗅𝗒 then SAT∉SIZE(nk)𝖲𝖠𝖳∉𝖲𝖨𝖹𝖤(n^k) and theorem is proved.
+If SAT∈P/poly𝖲𝖠𝖳∈𝖯/𝗉𝗈𝗅𝗒, then by Karp–Lipton theorem, Σ4=Σ2Σ_4=Σ_2 and therefore L∈Σ2−SIZE(nk)∈Σ_2-𝖲𝖨𝖹𝖤(n^k).
+A stronger version of Karp–Lipton theorem strengthens Kannan's theorem to: for any k, there exists a language L∈S2P−SIZE(nk)∈𝖲_2^P-𝖲𝖨𝖹𝖤(n^k).
+It is also known that PP is not contained in SIZE(nk)𝖲𝖨𝖹𝖤(n^k), which was proved by Vinodchandran.[5] Proof:[6]
+
+If PP⊈P/poly𝖯𝖯⊈𝖯/𝗉𝗈𝗅𝗒 then PP⊈SIZE(nk)𝖯𝖯⊈𝖲𝖨𝖹𝖤(n^k).
+Otherwise, P#P⊆P/poly𝖯^#𝖯⊆𝖯/𝗉𝗈𝗅𝗒. Since
+P#P⊇PP⊇MA𝖯^#𝖯⊇𝖯𝖯⊇𝖬𝖠 (by property of MA)
+P#P⊇PH⊇Σ2⊇MA𝖯^#𝖯⊇𝖯𝖧⊇Σ_2⊇𝖬𝖠 (by Toda's theorem and property of MA)
+P#P=MA𝖯^#𝖯=𝖬𝖠 (follows from assumption using interactive protocol for permanent, see P/poly)
+the containments are equalities and we get PP=Σ2⊈SIZE(nk)𝖯𝖯=Σ_2⊈𝖲𝖨𝖹𝖤(n^k) by Kannan's theorem.
+References[edit]
+
+^ S. Zachos, Probabilistic quantifiers and games, 1988
+
+^ Jin Yi-Cai. S2P⊆ZPPNP_2^P⊆𝖹𝖯𝖯^𝖭𝖯 [1], section 6
+
+^ V. Arvind, J. Köbler, U. Schöning, R. Schuler, If NP has Polynomial-Size Circuits, then MA = AM
+
+^ Kannan, R. (1982). "Circuit-size lower bounds and non-reducibility to sparse sets". Information and Control. 55 (1–3): 40–56. doi:10.1016/S0019-9958(82)90382-5.
+
+^ N. V. Vinodchandran, A note on the circuit complexity of PP
+
+^ S. Aaronson, Oracles Are Subtle But Not Malicious
+
+
+Karp, R. M.; Lipton, R. J. (1980), "Some connections between nonuniform and uniform complexity classes", Proceedings of the Twelfth Annual ACM Symposium on Theory of Computing, pp. 302–309, doi:10.1145/800141.804678, S2CID 1458043.
+Karp, R. M.; Lipton, R. J. (1982), "Turing machines that take advice", L'Enseignement Mathématique, 28: 191–209, doi:10.5169/seals-52237.
+
+
+

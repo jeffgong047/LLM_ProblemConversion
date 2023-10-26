@@ -1,0 +1,157 @@
+For more theorems that are sometimes called Riesz's theorem, see Riesz theorem.
+In mathematics, the Riesz–Fischer theorem in real analysis is any of a number of closely related results concerning the properties of the space L2 of square integrable functions.  The theorem was proven independently in 1907 by Frigyes Riesz and Ernst Sigismund Fischer.
+For many authors, the Riesz–Fischer theorem refers to the fact that the Lp spaces Lp^p from Lebesgue integration theory are complete.
+
+
+Modern forms of the theorem[edit]
+The most common form of the theorem states that a measurable function on [−π,π][-π,π] is square integrable if and only if the corresponding Fourier series converges in the Lp space L2.^2. This means that if the Nth partial sum of the Fourier series corresponding to a square-integrable function f is given by
+SNf(x)=∑n=−NNFneinx,_Nf(x)=∑_n=-N^NF_n e^inx,
+where Fn,_n, the nth Fourier coefficient, is given by
+Fn=12π∫−ππf(x)e−inxdx,_n=1/2π∫_-π^πf(x) e^-inx dx,
+then
+limN→∞‖SNf−f‖2=0,lim_N→∞_Nf-f_2=0,
+where ‖⋅‖2 · _2 is the L2^2-norm.
+Conversely, if an{a_n}  is a two-sided sequence of complex numbers (that is, its indices range from negative infinity to positive infinity) such that
+∑n=−∞∞|an|2<∞,∑_n=-∞^∞|a_n|^2<∞,
+then there exists a function f such that f is square-integrable and the values an_n are the Fourier coefficients of f.
+This form of the Riesz–Fischer theorem is a stronger form of Bessel's inequality, and can be used to prove Parseval's identity for Fourier series.
+Other results are often called the Riesz–Fischer theorem (Dunford & Schwartz 1958, §IV.16).  Among them is the theorem that, if A is an orthonormal set in a Hilbert space H, and x∈H,, then
+⟨x,y⟩=0,y⟩=0
+for all but countably many y∈A,, and
+∑y∈A|⟨x,y⟩|2≤‖x‖2.∑_y|,y⟩|^2≤x^2. 
+Furthermore, if A is an orthonormal basis for H and x an arbitrary vector, the series
+∑y∈A⟨x,y⟩y∑_y,y⟩ y
+converges commutatively (or unconditionally) to x.  This is equivalent to saying that for every ε>0,ε>0, there exists a finite set B0_0 in A such that
+‖x−∑y∈B⟨x,y⟩y‖<εx-∑_y,y<ε
+for every finite set B containing B0. Moreover, the following conditions on the set A are equivalent:
+
+the set A is an orthonormal basis of H
+for every vector x∈H,,
+‖x‖2=∑y∈A|⟨x,y⟩|2.x^2=∑_y|,y⟩|^2.
+Another result, which also sometimes bears the name of Riesz and Fischer, is the theorem that L2^2 (or more generally Lp,0<p≤∞^p,0<p≤∞) is complete.
+
+Example[edit]
+The Riesz–Fischer theorem also applies in a more general setting.  Let R be an inner product space consisting of functions (for example, measurable functions on the line, analytic functions in the unit disc; in old literature, sometimes called Euclidean Space), and let φn{φ_n} be an orthonormal system in R (e.g. Fourier basis, Hermite or Laguerre polynomials, etc. – see orthogonal polynomials), not necessarily complete (in an inner product space, an orthonormal set is complete if no nonzero vector is orthogonal to every vector in the set).  The theorem asserts that if the normed space R is complete (thus R is a Hilbert space), then any sequence cn{c_n} that has finite ℓ2ℓ^2 norm defines a function f in the space R.
+The function f is defined by
+f=limn→∞∑k=0nckφk,=lim_n→∞∑_k=0^nc_kφ_k, limit in R-norm.
+Combined with the Bessel's inequality, we know the converse as well: if f is a function in R, then the Fourier coefficients (f,φn)(f,φ_n) have finite ℓ2ℓ^2 norm.
+
+History: the Note of Riesz and the Note of Fischer (1907)[edit]
+In his Note, Riesz (1907, p. 616) states the following result (translated here to modern language at one point: the notation L2([a,b])^2([a,b]) was not used in 1907).
+
+Let φn{φ_n}be an orthonormal system in L2([a,b])^2([a,b]) and an{a_n} a sequence of reals. The convergence of the series ∑an2_n^2 is a necessary and sufficient condition for the existence of a function f such that ∫abf(x)φn(x)dx=anforeveryn.∫_a^bf(x)φ_n(x) dx=a_n  foreveryn.
+Today, this result of Riesz is a special case of basic facts about series of orthogonal vectors in Hilbert spaces.
+Riesz's Note appeared in March. In May, Fischer (1907, p. 1023) states explicitly in a theorem (almost with modern words) that a Cauchy sequence in L2([a,b])^2([a,b]) converges in L2^2-norm to some function f∈L2([a,b]).^2([a,b]).  In this Note, Cauchy sequences are called "sequences converging in the mean" and  L2([a,b])^2([a,b]) is denoted by Ω.Ω. Also, convergence to a limit in L2^2–norm is called "convergence in the mean towards a function". Here is the statement, translated from French:
+
+Theorem. If a sequence of functions belonging to ΩΩ converges in the mean, there exists in ΩΩ a function f towards which the sequence converges in the mean.
+Fischer goes on proving the preceding result of Riesz, as a consequence of the orthogonality of the system, and of the completeness of L2.^2.
+Fischer's proof of completeness is somewhat indirect. It uses the fact that the indefinite integrals of the functions gn in the given Cauchy sequence, namely  
+Gn(x)=∫axgn(t)dt,_n(x)=∫_a^xg_n(t) dt,
+converge uniformly on [a,b][a,b] to some function G, continuous with bounded variation.
+The existence of the limit g∈L2^2 for the Cauchy sequence is obtained by applying to G differentiation theorems from Lebesgue's theory. 
+Riesz uses a similar reasoning in his Note, but makes no explicit mention to the completeness of L2,^2, although his result may be interpreted this way. He says that integrating term by term a trigonometric series with given square summable coefficients, he gets a series converging uniformly to a continuous  function F  with bounded variation. The derivative f  of F, defined almost everywhere, is square summable and has for Fourier coefficients the given coefficients.
+
+Completeness of Lp,  0 < p ≤ ∞[edit]
+For some authors, notably Royden,[1] the Riesz-Fischer Theorem is the result that Lp^p is complete: that every Cauchy sequence of functions in Lp^p converges to a function in Lp,^p, under the metric induced by the p-norm. The proof below is based on the convergence theorems for the Lebesgue integral; the result can also be obtained for p∈[1,∞]∈[1,∞] by showing that every Cauchy sequence has a rapidly converging Cauchy sub-sequence, that every Cauchy sequence with a convergent sub-sequence converges, and that every rapidly Cauchy sequence in Lp^p converges in Lp.^p.
+When 1≤p≤∞,1≤∞, the Minkowski inequality implies that the Lp space Lp^p is a normed space. In order to prove that Lp^p is complete, i.e. that Lp^p is a Banach space,  it is enough (see e.g. Banach space#Definition) to prove that every series ∑un_n of functions in Lp(μ)^p(μ) such that
+∑‖un‖p<∞∑u_n_p<∞
+converges in the Lp^p-norm to some function f∈Lp(μ).^p(μ). For p<∞,<∞, the Minkowski inequality and the monotone convergence theorem imply that
+∫(∑n=0∞|un|)pdμ≤(∑n=0∞‖un‖p)p<∞,hencef=∑n=0∞un∫(∑_n=0^∞|u_n|)^p dμ≤(∑_n=0^∞u_n_p)^p<∞,
+hence
+f=∑_n=0^∞u_n
+is defined μμ–almost everywhere and f∈Lp(μ).^p(μ). The dominated convergence theorem is then used to prove that the partial sums of the series converge to f in the Lp^p-norm,
+∫|f−∑k=0nuk|pdμ≤∫(∑ℓ>n|uℓ|)pdμ→0asn→∞.∫|f-∑_k=0^nu_k|^p dμ≤∫(∑_ℓ>n|u_ℓ|)^p dμ→0asn→∞.
+The case 0<p<10<p<1 requires some modifications, because the p-norm is no longer subadditive. One starts with the stronger assumption that
+∑‖un‖pp<∞∑u_n_p^p<∞
+and uses repeatedly that
+|∑k=0nuk|p≤∑k=0n|uk|pwhenp<1|∑_k=0^nu_k|^p≤∑_k=0^n|u_k|^pwhenp<1
+The case p=∞=∞ reduces to a simple question about uniform convergence outside a μμ-negligible set.
+
+See also[edit]
+Banach space – Normed vector space that is complete
+References[edit]
+
+
+^ Royden, H. L. (13 February 2017). Real analysis. Fitzpatrick, Patrick, 1946- (Fourth ed.). New York, New York. ISBN 9780134689494. OCLC 964502015.{{cite book}}:  CS1 maint: location missing publisher (link)
+
+
+Beals, Richard (2004), Analysis: An Introduction, New York: Cambridge University Press, ISBN 0-521-60047-2.
+Dunford, N.; Schwartz, J.T. (1958), Linear operators, Part I, Wiley-Interscience.
+Fischer, Ernst (1907), "Sur la convergence en moyenne", Comptes rendus de l'Académie des sciences, 144: 1022–1024.
+Riesz, Frigyes (1907), "Sur les systèmes orthogonaux de fonctions", Comptes rendus de l'Académie des sciences, 144: 615–619.
+vteLp spacesBasic concepts
+Banach & Hilbert spaces
+Lp spaces
+Measure
+Lebesgue
+Measure space
+Measurable space/function
+Minkowski distance
+Sequence spaces
+L1 spaces
+Integrable function
+Lebesgue integration
+Taxicab geometry
+L2 spaces
+Bessel's
+Cauchy–Schwarz
+Euclidean distance
+Hilbert space
+Parseval's identity
+Polarization identity
+Pythagorean theorem
+Square-integrable function
+L∞^∞ spaces
+Bounded function
+Chebyshev distance
+Infimum and supremum
+Essential
+Uniform norm
+Maps
+Almost everywhere
+Convergence almost everywhere
+Convergence in measure
+Function space
+Integral transform
+Locally integrable function
+Measurable function
+Symmetric decreasing rearrangement
+Inequalities
+Babenko–Beckner
+Chebyshev's
+Clarkson's
+Hanner's
+Hausdorff–Young
+Hölder's
+Markov's
+Minkowski
+Young's convolution
+Results
+Marcinkiewicz interpolation theorem
+Plancherel theorem
+Riemann–Lebesgue
+Riesz–Fischer theorem
+Riesz–Thorin theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+
+Applications & related
+Bochner space
+Fourier analysis
+Lorentz space
+Probability theory
+Quasinorm
+Real analysis
+Sobolev space
+*-algebra
+C*-algebra
+Von Neumann
+
+
+
+

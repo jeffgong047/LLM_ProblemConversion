@@ -1,0 +1,254 @@
+Well-quasi-ordering of finite trees
+In mathematics, Kruskal's tree theorem states that the set of finite trees over a well-quasi-ordered set of labels is itself well-quasi-ordered under homeomorphic embedding. 
+
+
+History[edit]
+The theorem was conjectured by Andrew Vázsonyi and proved by Joseph Kruskal (1960); a short proof was given by  Crispin Nash-Williams (1963). It has since become a prominent example in reverse mathematics as a statement that cannot be proved in ATR0 (a second-order arithmetic theory with a form of arithmetical transfinite recursion).
+In 2004, the result was generalized from trees to graphs as the Robertson–Seymour theorem, a result that has also proved important in reverse mathematics and leads to the even-faster-growing SSCG function which dwarfs TREE(3). A finitary application of the theorem gives the existence of the fast-growing TREE function.
+
+Statement[edit]
+The version given here is that proven by Nash-Williams; Kruskal's formulation is somewhat stronger. All trees we consider are finite.
+Given a tree T with a root, and given vertices v, w, call w a successor of v if the unique path from the root to w contains v, and call w an immediate successor of v if additionally the path from v to w contains no other vertex.
+Take X to be a partially ordered set. If T1, T2 are rooted trees with vertices labeled in X, we say that T1 is inf-embeddable in T2 and write T1 ≤ T2 if there is an injective map F from the vertices of T1 to the vertices of T2 such that
+
+For all vertices v of T1, the label of v precedes the label of F(v),
+If w is any successor of v in T1, then F(w) is a successor of F(v), and
+If w1, w2 are any two distinct immediate successors of v, then the path from F(w1) to F(w2) in T2 contains F(v).
+Kruskal's tree theorem then states: If X is well-quasi-ordered, then the set of rooted trees with labels in X is well-quasi-ordered under the inf-embeddable order defined above. (That is to say, given any infinite sequence T1, T2, … of rooted trees labeled in X, there is some i < j so that Ti ≤ Tj.)
+Friedman's work[edit]
+For a countable label set X, Kruskal's tree theorem can be expressed and proven using second-order arithmetic. However, like Goodstein's theorem or the Paris–Harrington theorem, some special cases and variants of the theorem can be expressed in subsystems of second-order arithmetic much weaker than the subsystems where they can be proved. This was first observed by Harvey Friedman in the early 1980s, an early success of the then-nascent field of reverse mathematics. In the case where the trees above are taken to be unlabeled (that is, in the case where X has order one), Friedman found that the result was unprovable in ATR0,[1] thus giving the first example of a predicative result with a provably impredicative proof.[2] This case of the theorem is still provable by Π11-CA0, but by adding a "gap condition"[3] to the definition of the order on trees above, he found a natural variation of the theorem unprovable in this system.[4][5] Much later, the Robertson–Seymour theorem would give another theorem unprovable by Π11-CA0.
+Ordinal analysis confirms the strength of Kruskal's theorem, with the proof-theoretic ordinal of the theorem equaling the small Veblen ordinal (sometimes confused with the smaller Ackermann ordinal).[citation needed]
+
+Weak tree function[edit]
+Suppose that P(n) is the statement:
+
+There is some m such that if T1,...,Tm is a finite sequence of unlabeled rooted trees where Ti has i + n vertices, then Ti ≤ Tj for some i < j.
+All the statements P(n) are true as a consequence of Kruskal's theorem and Kőnig's lemma. For each n, Peano arithmetic can prove that P(n) is true, but Peano arithmetic cannot prove the statement "P(n) is true for all n".[6]  Moreover the length of the shortest proof of P(n) in Peano arithmetic grows phenomenally fast as a function of n, far faster than any primitive recursive function or the Ackermann function for example.[citation needed] The least m for which P(n) holds similarly grows extremely quickly with n.
+Define tree(n), the weak tree function, as the largest m so that we have the following:
+
+There is a sequence T1,...,Tm of unlabeled rooted trees, where each Ti has at most i + n vertices, such that Ti ≤ Tj does not hold for any i < j  ≤ m.
+It is known that tree(1) = 2, tree(2) = 5, and tree(3) ≥ 844424930131960, tree(4) > Graham's number (by a lot) but TREE(3) (where the argument specifies the number of labels; see below) is larger than treetreetreetreetree8(7)(7)(7)(7)(7)tree^tree^tree^tree^tree^8(7)(7)(7)(7)(7).
+To differentiate the two functions, TREE with all letters capitalized is the big TREE function; tree with all letters in lowercase is the weak tree function.
+
+TREE function[edit]
+A sequence of rooted trees labelled from a set of 3 labels (blue < red < green). The nth tree in the sequence contains at most n vertices, and no tree is inf-embeddable within any later tree in the sequence. TREE(3) is defined to be the longest possible length of such a sequence.
+By incorporating labels, Friedman defined a far faster-growing function.[7] For a positive integer n, take TREE(n)[a] to be the largest m so that we have the following:
+
+There is a sequence T1,...,Tm of rooted trees labelled from a set of n labels, where each Ti has at most i vertices, such that Ti ≤ Tj does not hold for any i < j  ≤ m.
+The TREE sequence begins TREE(1) = 1, TREE(2) = 3, then suddenly TREE(3) explodes to a value that is so big that many other "large" combinatorial constants, such as Friedman's n(4), nn(5)(5), and Graham's number,[b] are extremely small by comparison. A lower bound for n(4), and hence an extremely weak lower bound for TREE(3), is AA(187196)(1).[c][8] Graham's number, for example, is much smaller than the lower bound AA(187196)(1). It is approximately g3↑1871963_3↑^1871963, where gx is Graham's function.
+
+See also[edit]
+Paris–Harrington theorem
+Kanamori–McAloon theorem
+Robertson–Seymour theorem
+Notes[edit]
+^ a  Friedman originally denoted this function by TR[n].
+^ b n(k) is defined as the length of the longest possible sequence that can be constructed with a k-letter alphabet such that no block of letters xi,...,x2i is a subsequence of any later block xj,...,x2j.[9] n(1)=3,n(2)=11,andn(3)>2↑7197158386(1)=3,n(2)=11, and n(3)>2↑^7197158386.
+^ c A(x) taking one argument, is defined as A(x, x), where A(k, n), taking two arguments, is a particular version of Ackermann's function defined as: A(1, n) = 2n, A(k+1, 1) = A(k, 1), A(k+1, n+1) = A(k, A(k+1, n)).
+References[edit]
+Citations
+
+
+
+^ Simpson 1985, Theorem 1.8
+
+^ Friedman 2002, p. 60
+
+^ Simpson 1985, Definition 4.1
+
+^ Simpson 1985, Theorem 5.14
+
+^ Marcone 2001, p. 8–9
+
+^ Smith 1985, p. 120
+
+^ Friedman, Harvey (28 March 2006). "273:Sigma01/optimal/size". Ohio State University Department of Maths. Retrieved 8 August 2017.
+
+^ Friedman, Harvey M. (1 June 2000). "Enormous Integers In Real Life" (PDF). Ohio State University. Retrieved 8 August 2017.
+
+^ Friedman, Harvey M. (8 October 1998). "Long Finite Sequences" (PDF). Ohio State University Department of Mathematics. pp. 5, 48 (Thm.6.8). Retrieved 8 August 2017.
+
+
+Bibliography
+
+Friedman, Harvey M. (2002), Internal finite tree embeddings. Reflections on the foundations of mathematics (Stanford, CA, 1998), Lect. Notes Log., vol. 15, Urbana, IL: Assoc. Symbol. Logic, pp. 60–91, MR 1943303
+Gallier, Jean H. (1991), "What's so special about Kruskal's theorem and the ordinal Γ0? A survey of some results in proof theory" (PDF), Ann. Pure Appl. Logic, 53 (3): 199–260, doi:10.1016/0168-0072(91)90022-E, MR 1129778
+Kruskal, J. B. (May 1960), "Well-quasi-ordering, the tree theorem, and Vazsonyi's conjecture" (PDF), Transactions of the American Mathematical Society, American Mathematical Society, 95 (2): 210–225, doi:10.2307/1993287, JSTOR 1993287, MR 0111704
+Marcone, Alberto (2001). "Wqo and bqo theory in subsystems of second order arithmetic" (PDF). Reverse Mathematics. 21: 303–330.
+Nash-Williams, C. St.J. A. (1963), "On well-quasi-ordering finite trees", Proc. Camb. Phil. Soc., 59 (4): 833–835, Bibcode:1963PCPS...59..833N, doi:10.1017/S0305004100003844, MR 0153601, S2CID 251095188
+Rathjen, Michael; Weiermann, Andreas (1993). "Proof-theoretic investigations on Kruskal's theorem". Annals of Pure and Applied Logic. 60 (1): 49–88. doi:10.1016/0168-0072(93)90192-g.
+Simpson, Stephen G. (1985), "Nonprovability of certain combinatorial properties of finite trees", in Harrington, L. A.; Morley, M.; Scedrov, A.; et al. (eds.), Harvey Friedman's Research on the Foundations of Mathematics, Studies in Logic and the Foundations of Mathematics, North-Holland, pp. 87–117
+Smith, Rick L. (1985), "The consistency strengths of some finite forms of the Higman and Kruskal theorems", in Harrington, L. A.; Morley, M.; Scedrov, A.; et al. (eds.), Harvey Friedman's Research on the Foundations of Mathematics, Studies in Logic and the Foundations of Mathematics, North-Holland, pp. 119–136
+vteLarge numbersExamples innumerical order
+Thousand
+Ten thousand
+Hundred thousand
+Million
+Ten million
+Hundred million
+Billion
+Trillion
+Quadrillion
+Quintillion
+Sextillion
+Septillion
+Octillion
+Nonillion
+Decillion
+Eddington number
+Googol
+Shannon number
+Googolplex
+Skewes's number
+Moser's number
+Graham's number
+TREE(3)
+SSCG(3)
+BH(3)
+Rayo's number
+Transfinite numbers
+ExpressionmethodsNotations
+Scientific notation
+Knuth's up-arrow notation
+Conway chained arrow notation
+Steinhaus–Moser notation
+Operators
+Hyperoperation
+Tetration
+Pentation
+Ackermann function
+Grzegorczyk hierarchy
+Fast-growing hierarchy
+Related articles(alphabetical order)
+Busy beaver
+Extended real number line
+Indefinite and fictitious numbers
+Infinitesimal
+Largest known prime number
+List of numbers
+Long and short scales
+Number systems
+Number names
+Orders of magnitude
+Power of two
+Power of three
+Power of 10
+Sagan Unit
+
+Names
+History
+
+vteOrder theory
+Topics
+Glossary
+Category
+Key concepts
+Binary relation
+Boolean algebra
+Cyclic order
+Lattice
+Partial order
+Preorder
+Total order
+Weak ordering
+Results
+Boolean prime ideal theorem
+Cantor–Bernstein theorem
+Cantor's isomorphism theorem
+Dilworth's theorem
+Dushnik–Miller theorem
+Hausdorff maximal principle
+Knaster–Tarski theorem
+Kruskal's tree theorem
+Laver's theorem
+Mirsky's theorem
+Szpilrajn extension theorem
+Zorn's lemma
+Properties & Types (list)
+Antisymmetric
+Asymmetric
+Boolean algebra
+topics
+Completeness
+Connected
+Covering
+Dense
+Directed
+(Partial) Equivalence
+Foundational
+Heyting algebra
+Homogeneous
+Idempotent
+Lattice
+Bounded
+Complemented
+Complete
+Distributive
+Join and meet
+Reflexive
+Partial order
+Chain-complete
+Graded
+Eulerian
+Strict
+Prefix order
+Preorder
+Total
+Semilattice
+Semiorder
+Symmetric
+Total
+Tolerance
+Transitive
+Well-founded
+Well-quasi-ordering (Better)
+(Pre) Well-order
+Constructions
+Composition
+Converse/Transpose
+Lexicographic order
+Linear extension
+Product order
+Reflexive closure
+Series-parallel partial order
+Star product
+Symmetric closure
+Transitive closure
+Topology & Orders
+Alexandrov topology & Specialization preorder
+Ordered topological vector space
+Normal cone
+Order topology
+Order topology
+Topological vector lattice
+Banach
+Fréchet
+Locally convex
+Normed
+Related
+Antichain
+Cofinal
+Cofinality
+Comparability
+Graph
+Duality
+Filter
+Hasse diagram
+Ideal
+Net
+Subnet
+Order morphism
+Embedding
+Isomorphism
+Order type
+Ordered field
+Ordered vector space
+Partially ordered
+Positive cone
+Riesz space
+Upper set
+Young's lattice
+
+
+
+

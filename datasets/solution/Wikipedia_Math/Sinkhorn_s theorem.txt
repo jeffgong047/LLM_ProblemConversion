@@ -1,0 +1,62 @@
+Every square matrix with positive entries can be written in a certain standard form
+Sinkhorn's theorem states that every square matrix with positive entries can be written in a certain standard form.
+
+
+Theorem[edit]
+If A is an n × n matrix with strictly positive elements, then there exist diagonal matrices D1 and D2 with strictly positive diagonal elements such that D1AD2 is doubly stochastic. The matrices D1 and D2 are unique modulo multiplying the first matrix by a positive number and dividing the second one by the same number.[1]
+[2]
+
+Sinkhorn–Knopp algorithm[edit]
+A simple iterative method to approach the double stochastic matrix is to alternately rescale all rows and all columns of A to sum to 1. Sinkhorn and Knopp presented this algorithm and analyzed its convergence.[3]
+This is essentially the same as the Iterative proportional fitting algorithm, well known in survey statistics.
+
+Analogues and extensions[edit]
+The following analogue for unitary matrices is also true: for every unitary matrix U there exist two diagonal unitary matrices L and R such that LUR has each of its columns and rows summing to 1.[4]
+The following extension to maps between matrices is also true (see Theorem 5[5] and also Theorem 4.7[6]): given a Kraus operator
+that represents the quantum operation Φ mapping a density matrix into another,
+
+S↦Φ(S)=∑iBiSBi∗,↦Φ(S)=∑_iB_iSB_i^*,
+that is trace preserving,
+
+∑iBi∗Bi=I,∑_iB_i^*B_i=I,
+and, in addition, whose range is in the interior of the positive definite cone (strict positivity), there exist scalings xj, for j in {0,1}, that are positive definite so that the rescaled Kraus operator
+
+S↦x1Φ(x0−1Sx0−1)x1=∑i(x1Bix0−1)S(x1Bix0−1)∗_1Φ(x_0^-1Sx_0^-1)x_1=∑_i(x_1B_ix_0^-1)S(x_1B_ix_0^-1)^*
+is doubly stochastic. In other words, it is such that both,
+
+x1Φ(x0−1Ix0−1)x1=I,_1Φ(x_0^-1Ix_0^-1)x_1=I,
+as well as for the adjoint,
+
+x0−1Φ∗(x1Ix1)x0−1=I,_0^-1Φ^*(x_1Ix_1)x_0^-1=I,
+where I denotes the identity operator.
+
+Applications[edit]
+In the 2010s Sinkhorn's theorem came to be used to find solutions of entropy-regularised optimal transport problems.[7] This has been of interest in machine learning because such "Sinkhorn distances" can be used to evaluate the difference between data distributions and permutations.[8][9][10] This improves the training of machine learning algorithms, in situations where maximum likelihood training may not be the best method.
+
+References[edit]
+
+
+^ Sinkhorn, Richard. (1964). "A relationship between arbitrary positive matrices and doubly stochastic matrices." Ann. Math. Statist. 35, 876–879. doi:10.1214/aoms/1177703591
+
+^ Marshall, A.W., & Olkin, I. (1967). "Scaling of matrices to achieve specified row and column sums." Numerische Mathematik. 12(1), 83–90. doi:10.1007/BF02170999
+
+^ Sinkhorn, Richard, & Knopp, Paul. (1967). "Concerning nonnegative matrices and doubly stochastic matrices". Pacific J. Math. 21, 343–348.
+
+^ Idel, Martin; Wolf, Michael M. (2015). "Sinkhorn normal form for unitary matrices". Linear Algebra and Its Applications. 471: 76–84. arXiv:1408.5728. doi:10.1016/j.laa.2014.12.031. S2CID 119175915.
+
+^ Georgiou, Tryphon; Pavon, Michele (2015). "Positive contraction mappings for classical and quantum Schrödinger systems". Journal of Mathematical Physics. 56 (3): 033301–1–24. arXiv:1405.6650. Bibcode:2015JMP....56c3301G. doi:10.1063/1.4915289. S2CID 119707158.
+
+^ Gurvits, Leonid (2004). "Classical complexity and quantum entanglement". Journal of Computational Science. 69 (3): 448–484. doi:10.1016/j.jcss.2004.06.003.
+
+^ Cuturi, Marco (2013). "Sinkhorn distances: Lightspeed computation of optimal transport". Advances in neural information processing systems. pp. 2292–2300.
+
+^ Mensch, Arthur; Blondel, Mathieu; Peyre, Gabriel (2019). "Geometric losses for distributional learning". Proc ICML 2019. arXiv:1905.06005.
+
+^ Mena, Gonzalo; Belanger, David; Munoz, Gonzalo; Snoek, Jasper (2017). "Sinkhorn networks: Using optimal transport techniques to learn permutations". NIPS Workshop in Optimal Transport and Machine Learning.
+
+^ Kogkalidis, Konstantinos; Moortgat, Michael; Moot, Richard (2020). "Neural Proof Nets". Proceedings of the 24th Conference on Computational Natural Language Learning.
+
+
+
+
+

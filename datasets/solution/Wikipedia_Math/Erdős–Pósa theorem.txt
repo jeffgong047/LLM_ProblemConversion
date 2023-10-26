@@ -1,0 +1,47 @@
+Mathematical discipline of graph theory
+In the mathematical discipline of graph theory, the Erdős–Pósa theorem, named after Paul Erdős and Lajos Pósa, relates two parameters of a graph:
+
+The size of the largest collection of vertex-disjoint cycles contained in the graph;
+The size of the smallest feedback vertex set in the graph: a set that contains one vertex from every cycle.
+
+Motivation and statement[edit]
+In many applications, we are interested in finding a minimum feedback vertex set in a graph: a small set that includes one vertex from every cycle, or, equivalently, a small set of vertices whose removal destroys all cycles. This is a hard computational problem; if we are not able to solve it exactly, we can instead try to find lower and upper bounds on the size of the minimum feedback vertex set. 
+One approach to find lower bounds is to find a collection of vertex-disjoint cycles in a graph. For example, consider the graph in Figure 1. The cycles A-B-C-F-A and G-H-I-J-G share no vertices. As a result, if we want to remove vertices and destroy all cycles in the graph, we must remove at least two vertices: one from the first cycle and one from the second. This line of reasoning generalizes: if we can find k vertex-disjoint cycles in a graph, then every feedback vertex set in the graph must have at least k vertices.
+
+Figure 1: in red, two vertex-disjoint cycles, A-B-C-F-A and G-H-I-J-G. In blue, a feedback vertex set {A,C,G}.
+Unfortunately, in general, this bound is not tight: if the largest collection of vertex-disjoint cycles in a graph contains k cycles, then it does not necessarily follow that there is a feedback vertex set of size k. The graph in Figure 1 is an example of this: even if we destroy cycle G-H-I-J-G by removing one of the vertices G, H, I, or J, we cannot destroy all four of the cycles A-B-C-F-A, A-B-E-F-A, B-C-D-E-B, and C-D-E-F-C by removing only one more vertex. Any minimum feedback vertex set in the graph in Figure 1 has three vertices: for example, the three vertices A, C, and G. 
+It is possible to construct examples in which the gap between the two quantities - the size of the largest collection of vertex-disjoint cycles, and the size of the smallest feedback vertex set - is arbitrarily large. The Erdős–Pósa theorem says that despite this, knowing one quantity does put lower and upper bounds on the other quantity. Formally, the theorem states that there exists a function f:N→N:ℕ→ℕ such that for each positive integer k, every graph either
+
+contains a collection of k vertex-disjoint cycles, or
+has a feedback vertex set of at most f(k) vertices.
+For example, suppose we have determined that for the graph in Figure 1, there is a collection of 2 vertex-disjoint cycles, but no collection of 3 vertex-disjoint cycles. Our earlier argument says that the smallest feedback vertex set must have at least 2 vertices; the Erdős–Pósa theorem says that the smallest feedback vertex set must have at most f(3) vertices.
+In principle, many functions f could satisfy the theorem. For the purpose of discussing bounds on how large f(k) needs to be, we define the Erdős–Pósa function to give, for each positive integer k, the least value of f(k) for which the statement of the theorem holds.
+
+Bounds on the Erdős–Pósa function[edit]
+In addition to proving that the function f(k) exists, Erdős & Pósa (1965) obtained the bounds c1k log k < f(k) < c2k log k for some constants c1 and c2. In Big O notation, f(k) = Θ(k log k).
+A previous unpublished result of Béla Bollobás stated f(2) = 3: in simpler terms, any graph which does not contain two vertex-disjoint cycles has a feedback vertex set of at most three vertices. One example showing that f(2) ≥ 3 is K5, the complete graph on 5 vertices. Here, because any cycle must contain at least three vertices, and there are only 5 vertices total, any two cycles must overlap in at least one vertex. On the other hand, a set of only two vertices cannot be a feedback vertex set because the other three vertices will form a cycle: a feedback vertex set must contain at least three vertices.
+The result that f(2) = 3 was first published by Lovász (1965), who also gave a complete characterization of the case k = 2: that is, he described the graphs which, like the example of K5 given above, do not contain two vertex-disjoint cycles. Later, Voss (1969) proved f(3) = 6 and 9 ≤ f(4) ≤ 12.
+
+Erdős–Pósa property[edit]
+A family F of graphs or hypergraphs is defined to have the Erdős–Pósa property if there exists a function f:N→N:ℕ→ℕ such that for every (hyper-)graph G and every integer k one of the following is true:
+
+G contains k vertex-disjoint subgraphs each isomorphic to a graph in F; or
+G contains a vertex set C of size at most f(k) such that G − C has no subgraph isomorphic to a graph in F.
+The definition is often phrased as follows. If one denotes by ν(G) the maximum number of vertex disjoint subgraphs of G isomorphic to a graph in F and by τ(G) the minimum number of vertices whose deletion from G leaves a graph without a subgraph isomorphic to a graph in F, then τ(G) ≤ f(ν(G)), for some function f:N→N:ℕ→ℕ not depending on G.
+
+Rephrased in this terminology, the Erdős–Pósa theorem states that the family F consisting of all cycles has the Erdős–Pósa property, with bounding function f(k) = Θ(k log k). Robertson and Seymour (1986) generalized this considerably. Given a graph H, let F(H) denote the family of all graphs that contain H as a minor. As a corollary of their grid minor theorem, Robertson and Seymour proved that F(H) has the Erdős–Pósa property if and only if H is a planar graph. Moreover, it is now known that the corresponding bounding function is  f(k) = Θ(k) if H is a forest (Fiorini, Joret & Wood 2013), while f(k) = Θ(k log k) for every other planar graph H (Cames van Batenburg et al. 2019). 
+When we take H to be a triangle, the family F(H) consists of all graphs that contain at least one cycle, and a vertex set C such that G − C has no subgraph isomorphic to a graph in F(H) is exactly a feedback vertex set. Thus, the special case where H  is a triangle is equivalent to the Erdős–Pósa theorem.
+
+References[edit]
+Erdős, Paul; Pósa, Lajos (1965). "On independent circuits contained in a graph". Canadian Journal of Mathematics. 17: 347–352. doi:10.4153/CJM-1965-035-8. S2CID 123981328.
+Robertson, Neil; Seymour, Paul (1986). "Graph minors. V. Excluding a planar graph". Journal of Combinatorial Theory, Series B. 41: 92–114. doi:10.1016/0095-8956(86)90030-4.
+Voss, Heinz-Jürgen (1969). "Eigenschaften von Graphen, die keine k+1 knotenfremde Kreise enthalten". Mathematische Nachrichten. 40 (1–3): 19–25. doi:10.1002/mana.19690400104.
+Lovász, László (1965). "On graphs not containing independent circuits". Mat. Lapok. 16: 289–299.
+Cames van Batenburg, Wouter; Huynh, Tony; Joret, Gwenaël; Raymond, Jean-Florent (2019). "A tight Erdős-Pósa function for planar minors". Advances in Combinatorics. 2: 33pp. doi:10.19086/aic.10807.
+Fiorini, Samuel; Joret, Gwenaël; Wood, David R. (2013). "Excluded Forest Minors and the Erdős–Pósa Property". Combinatorics, Probability and Computing. 22 (5): 700–721. arXiv:1204.5192. doi:10.1017/S0963548313000266. S2CID 122708.
+See also[edit]
+Pósa theorem (1962).
+A list of graph classes for which the Erdös-Pósa property is known to (not) hold.
+
+
+

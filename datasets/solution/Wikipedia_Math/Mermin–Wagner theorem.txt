@@ -1,0 +1,150 @@
+No spontaneous symmetry breaking in two-dimensional systems at finite temperature
+In quantum field theory and statistical mechanics, the Mermin–Wagner theorem (also known as Mermin–Wagner–Hohenberg theorem, Mermin–Wagner–Berezinskii theorem,  or Coleman theorem) states that continuous symmetries cannot be spontaneously broken at finite temperature in systems with sufficiently short-range interactions in dimensions d ≤ 2. Intuitively, this means that long-range fluctuations can be created with little energy cost, and since they increase the entropy, they are favored.
+This is because if such a spontaneous symmetry breaking occurred, then the corresponding Goldstone bosons, being massless, would have an infrared divergent correlation function.
+The absence of spontaneous symmetry breaking in d ≤ 2 dimensional systems was rigorously proved by David Mermin, Herbert Wagner (1966), and Pierre Hohenberg (1967) in statistical mechanics and by Sidney Coleman (1973) in quantum field theory. That the theorem does not apply to discrete symmetries can be seen in the two-dimensional Ising model.
+
+
+Introduction[edit]
+Consider the free scalar field φ of mass m in two Euclidean dimensions. Its propagator is:
+
+G(x)=⟨φ(x)φ(0)⟩=∫d2k(2π)2eik⋅xk2+m2.(x)=⟨φ(x)φ(0)⟩=∫d^2k/(2π)^2e^ik/k^2+m^2.
+For small m, G is a solution to Laplace's equation with a point source:
+
+∇2G=δ(x).∇^2G=δ(x).
+This is because the propagator is the reciprocal of ∇2 in k space.  To use Gauss's law, define the electric field analog to be E = ∇G. The divergence of the electric field is zero. In two dimensions, using a large Gaussian ring:
+
+E=12πr.=12.
+So that the function G has a logarithmic divergence both at small and large r.
+
+G(r)=12πlog⁡(r)(r)=12πlog(r)
+The interpretation of the divergence is that the field fluctuations cannot stay centred around a mean. If you start at a point where the field has the value 1, the divergence tells you that as you travel far away, the field is arbitrarily far from the starting value. This makes a two dimensional massless scalar field slightly tricky to define mathematically. If you define the field by a Monte Carlo simulation, it doesn't stay put, it slides to infinitely large values with time.
+This happens in one dimension too, when the field is a one dimensional scalar field, a random walk in time. A random walk also moves arbitrarily far from its starting point, so that a one-dimensional or two-dimensional scalar does not have a well defined average value.
+If the field is an angle, θ, as it is in the Mexican hat model where the complex field A = Reiθ has an expectation value but is free to slide in the θ direction, the angle θ will be random at large distances. This is the Mermin–Wagner theorem: there is no spontaneous breaking of a continuous symmetry in two dimensions.
+
+XY model transition[edit]
+While the Mermin–Wagner theorem prevents any spontaneous symmetry breaking on a global scale, ordering transitions of Kosterlitz–Thouless–type may be allowed. This is the case for the XY model where the continuous (internal) O(2) symmetry on a spatial lattice of dimension d ≤ 2, i.e. the (spin-)field's expectation value, remains zero for any finite temperature (quantum phase transitions remain unaffected). However, the theorem does not prevent the existence of a phase transition in the sense of a diverging correlation length ξ. To this end, the model has two phases: a conventional disordered phase at high temperature with dominating exponential decay of the correlation function G(r)∼exp⁡(−r/ξ)(r)∼exp(-r/ξ) for r/ξ≫1/ξ≫1, and a low-temperature phase with quasi-long-range order where G(r) decays according to some power law for "sufficiently large", but finite distance r (a ≪ r ≪ ξ with a the lattice spacing).
+
+Heisenberg model[edit]
+We will present an intuitive way[1] to understand the mechanism that prevents symmetry breaking in low dimensions, through an application to the Heisenberg model, that is a system of n-component spins Si of unit length |Si| = 1, located at the sites of a d-dimensional square lattice, with nearest neighbour coupling J. Its Hamiltonian is 
+
+H=−J∑⟨i,j⟩Si⋅Sj.=-J∑_⟨i,j⟩𝐒_i·𝐒_j.
+The name of this model comes from its rotational symmetry. Consider the low temperature behavior of this system and assume that there exists a spontaneously broken symmetry, that is a phase where all spins point in the same direction, e.g. along the x-axis. Then the O(n) rotational symmetry of the system is spontaneously broken, or rather reduced to the O(n − 1) symmetry under rotations around this direction. We can parametrize the field in terms of independent fluctuations σα around this direction as follows:
+
+S=x^(1−∑ασα2,σα),α=1,⋯,n−1.𝐒=x̂(√(1-∑_ασ_α^2),{σ_α}),    α=1,⋯,n-1.
+with |σα| ≪ 1, and Taylor expand the resulting Hamiltonian. We have
+
+Si⋅Sj=(1−∑ασiα2)(1−∑ασjα2)+∑ασiασjα=1−12∑α(σiα2+σjα2)+∑ασiασjα+O(σ4)=1−12∑α(σiα−σjα)2+…𝐒_i·𝐒_j   =√((1-∑_ασ_iα^2)(1-∑_ασ_jα^2))+∑_ασ_iασ_jα
+   =1-12∑_α(σ_iα^2+σ_jα^2)+∑_ασ_iασ_jα+𝒪(σ^4)
+   =1-12∑_α(σ_iα-σ_jα)^2+…
+whence
+
+H=H0+12J∑⟨i,j⟩∑α(σiα−σjα)2+⋯=H_0+12J∑_,j⟩∑_α(σ_iα-σ_jα)^2+⋯
+Ignoring the irrelevant constant term H0 = −JNd and passing to the continuum limit, given that we are interested in the low temperature phase where long-wavelength fluctuations dominate, we get
+
+H=12J∫ddx∑α(∇σα)2+….=12J∫d^dx∑_α(∇σ_α)^2+….
+The field fluctuations σα are called spin waves and can be recognized as Goldstone bosons. Indeed, they are n-1 in number and they have zero mass since there is no mass term in the Hamiltonian.
+To find if this hypothetical phase really exists we have to check if our assumption is self-consistent, that is if the expectation value of the magnetization, calculated in this framework, is finite as assumed. To this end we need to calculate the first order correction to the magnetization due to the fluctuations. This is the procedure followed in the derivation of the well-known Ginzburg criterion.
+The model is Gaussian to first order and so the momentum space correlation function is proportional to k−2. Thus the real space two-point correlation function for each of these modes is
+
+⟨σα(r)σα(0)⟩=1βJ∫1addk(2π)deik⋅rk2⟨σ_α(r)σ_α(0)⟩=1/∫^1/ad^dk/(2π)^de^i𝐤·𝐫/k^2
+where a is the lattice spacing. The average magnetization is
+
+⟨S1⟩=1−12∑α⟨σα2⟩+…_1⟩=1-12∑_α⟨σ_α^2⟩+…
+and the first order correction can now easily be calculated:
+
+∑α⟨σα2(0)⟩=(n−1)1βJ∫1addk(2π)d1k2.∑_α⟨σ_α^2(0)⟩=(n-1)1/∫^1/ad^dk/(2π)^d1/k^2.
+The integral above is proportional to
+
+∫1akd−3dk∫^1/ak^d-3dk
+and so it is finite for d > 2, but appears to be divergent for d ≤ 2 (logarithmically for d = 2). 
+This divergence signifies that fluctuations  σα are large so that the expansion in the parameter |σα| ≪ 1 performed above is not self-consistent. One can naturally expect then that beyond that approximation, the average magnetization is zero.
+We thus conclude that for d ≤ 2 our assumption that there exists a phase of spontaneous magnetization is incorrect for all T > 0, because the fluctuations are strong enough to destroy the spontaneous symmetry breaking. This is a general result:
+
+Mermin–Wagner–Hohenberg Theorem. There is no phase with spontaneous breaking of a continuous symmetry for T > 0, in d ≤ 2 dimensions.
+The result can also be extended to other geometries, such as Heisenberg films with an arbitrary number of layers, as well as to other lattice systems (Hubbard model, s-f model).[2]
+
+Generalizations[edit]
+Much stronger results than absence of magnetization can actually be proved, and the setting can be substantially more general. In particular[citation needed]:
+
+The Hamiltonian can be invariant under the action of an arbitrary compact, connected Lie group G.
+Long-range interactions can be allowed (provided that they decay fast enough; necessary and sufficient conditions are known).
+In this general setting, Mermin–Wagner theorem admits the following strong form (stated here in an informal way): 
+
+All (infinite-volume) Gibbs states associated to this Hamiltonian are invariant under the action of G.
+When the assumption that the Lie group be compact is dropped, a similar result holds, but with the conclusion that infinite-volume Gibbs states do not exist.
+Finally, there are other important applications of these ideas and methods, most notably to the proof that there cannot be non-translation invariant Gibbs states in 2-dimensional systems. A typical such example would be the absence of crystalline states in a system of hard disks (with possibly additional attractive interactions).
+It has been proved however that interactions of hard-core type can lead in general to violations of Mermin–Wagner theorem.
+
+History[edit]
+Already in 1930, Felix Bloch has argued by diagonalizing the Slater determinant for fermions, that magnetism in 2D should not exist.[3] Some easy arguments, which are summarized below, were given by Rudolf Peierls based on entropic and energetic considerations.[4] Also Lev Landau did some work about symmetry breaking in two dimensions.[5]
+
+Energetic argument[edit]
+The sketch shows a chain of length L consisting of magnetic moments, which can be tilted within a plane, in the lowest excited mode. The angle between neighbouring moments is γγ
+One reason for the lack of global symmetry breaking is, that one can easily excite long wavelength fluctuations which destroy perfect order. ``Easily excited´´ means, that the energy for those fluctuations tend to zero for large enough systems. Let's consider a magnetic model (e.g. the XY-model in one dimension). It is a chain of magnetic moments of length L. We consider harmonic approximation, where the forces (torque) between neighbouring moments increase linearly with the angle of twisting γiγ_i. This implies, that the energy due to twisting increases quadratically Ei∝γi2_i∝γ_i^2. The total energy is the sum of all twisted pairs of magnetic moments Eges∝∑iγi2_ges∝∑_iγ_i^2. If one considers the excited mode with the lowest energy in one dimension (see figure), then the moments on the chain of length L are tilted by 2π2π along the chain. The relative angle between neighbouring moments is the same for all pairs of moments in this mode and equals γi=2π/Nγ_i=2π/N, if the chain consists of N magnetic moments. It follows that the total energy of this lowest mode is Eges∝N⋅γi2=N4π2N2∝L4π2L2_ges·γ_i^2=N4π^2/N^24π^2/L^2. It decreases with increasing system size ∝1/L∝1/L  and tends to zero in the thermodynamic limit L→∞→∞, N→∞→∞, L/N=const./N=const.. For arbitrary large systems follows, that the lowest modes do not cost any energy and will be thermally excited. Simultaneously, the long range order is destroyed on the chain. In two dimensions (or in a plane) the number of magnetic moments is proportional to the area of the plain N∝L2^2. The energy for the lowest excited mode is then Eges∝N2⋅γi2=∝L24π2L2_ges^2·γ_i^2=^24π^2/L^2, which tends to a constant in the thermodynamic limit. Thus the modes will be excited at sufficiently large temperatures. In three dimensions, the number of magnetic moments is proportional to the volume V=L3=L^3 and the energy of the lowest mode is Eges∝N3⋅γi2=∝L34π2L2_ges^3·γ_i^2=^34π^2/L^2. It diverges with system size and will thus not be excited for large enough systems. Long range order is not affected by this mode and global symmetry breaking is allowed.
+
+Entropic argument[edit]
+There is only one way between neighbouring particles in one dimension, two ways in two dimensions and six different ways in three dimensions. An entropic argument against perfect long range order in crystals with D<3<3 is as follows (see figure): consider a chain of atoms/particles with an average particle distance of ⟨a⟩⟩. Thermal fluctuations between particle 00 and particle 11 will lead to fluctuations of the average particle distance of the order of ξ0,1ξ_0,1, thus the distance is given by a=⟨a⟩±ξ0,1=⟩±ξ_0,1. The fluctuations between particle −1-1 and 00 will be of the same size:  |ξ−1,0|=|ξ0,1||ξ_-1,0|=|ξ_0,1|. We assume that the thermal fluctuations are statistically independent (which is evident if we consider only nearest neighbour interaction) and the fluctuations between −1-1 and particle +1+1 (with double the distance) has to be summed statistically independent (or incoherent): ξ−1,1=2⋅ξ0,1ξ_-1,1=√(2)·ξ_0,1. For particles N-times the average distance, the fluctuations will increase with the square root ξ0,N=N⋅ξ0,1ξ_0,N=√(N)·ξ_0,1 if neighbouring fluctuations are summed independently. Although the average distance ⟨a⟩⟩ is well defined, the deviations from a perfect periodic chain increase with the square root of the system size. In three dimensions, one has to walk along three linearly independent directions to cover the whole space; in a cubic crystal, this is effectively along the space diagonal, to get from particle 00 to particle 33. As one can easily see in the figure, there are six different possibilities to do this. This implies, that the fluctuations on the six different pathways cannot be statistically independent, since they pass the same particles at position 00 and 33. Now, the fluctuations of the six different ways have to be summed in a coherent way and will be of the order of ξξ – independent of the size of the cube. The fluctuations stay finite and lattice sites are well defined. For the case of two dimensions, Herbert Wagner and David Mermin have proved rigorously, that fluctuations distances increase logarithmically with systems size ξ∝ln(L)ξ(L). This is frequently called the logarithmic divergence of displacements.
+Crystals in 2D[edit]
+2D x-tal with thermal fluctuations of particle positions. Red lines symbolize lattice axis, and green arrows symbolize the deviations of equilibrium positions.
+The image shows a (quasi-) two-dimensional crystal of colloidal particles. These are micrometre-sized particles dispersed in water and sedimented on a flat interface, thus they can perform Brownian motions only within a plane. The sixfold crystalline order is easy to detect on a local scale, since the logarithmic increase of displacements is rather slow. The deviations from the (red) lattice axis are easy to detect, too, here shown as green arrows. The deviations are basically given by the elastic lattice vibrations (acoustic phonons). A direct experimental proof of Mermin–Wagner–Hohenberg fluctuations would be, if the displacements increase logarithmic with the distance of a locally fitted coordinate frame (blue). This logarithmic divergence goes along with an algebraic (slow) decay of positional correlations. The spatial order of a 2D crystal is called quasi-long-range (see also such hexatic phase for the phase behaviour of 2D ensembles).
+Interestingly, significant signatures of Mermin–Wagner–Hohenberg fluctuations have not been found in crystals but in disordered amorphous systems.[6][7][8]
+This work did not investigate the logarithmic displacements of lattice sites (which are difficult to quantify for a finite system size), but the magnitude of the mean squared displacement of the particles as function of time. This way, the displacements are not analysed in space but in the time domain. The theoretical background is given by D. Cassi, as well as F. Merkl and H. Wagner.[9][10] This work analyses the recurrence probability of random walks and spontaneous symmetry breaking in various dimensions. The finite recurrence probability of a random walk in one and two dimension shows a dualism to the lack of perfect long-range order in one and two dimensions, while the vanishing recurrence probability of a random walk in 3D is dual to existence of perfect long-range order and the possibility of symmetry breaking.
+
+Limits[edit]
+Real magnets usually do not have a continuous symmetry, since the spin-orbit coupling of the electrons imposes an anisotropy. For atomic systems like graphene, one can show that monolayers of cosmological (or at least continental) size are necessary to measure a significant size of the amplitudes of fluctuations.[11]
+A recent discussion about the Mermin–Wagner-Hohenberg–Theorems and its limitations is given by Bertrand Halperin.[12]
+The most severe physical limitation are finite-size effects in 2D, because the suppression due to infrared fluctuations is only logarithmic in the size. The sample would have to be larger than the observable universe for a 2D superconducting transition to be suppressed below ~100 K. For magnetism, there is a roughly order-of-magnitude suppression of Tc, which still allows magnetic order in 2D samples at ~10 K. However, because disorder and interlayer coupling compete with finite-size effects at restoring order, it cannot be said a priori which of them is responsible for the observation of magnetic ordering in a given 2D sample.[13]
+
+Remarks[edit]
+The discrepancy between the Mermin–Wagner–Hohenberg theorem (ruling out long range order in 2D) and the first computer simulations (Alder&Wainwright), which indicated crystallization in 2D, once motivated Michael Kosterlitz and David Thouless, to work on topological phase transitions in 2D. This work is awarded with the 2016 Nobel-prize in physics (together with Duncan Haldane). 
+
+See also[edit]
+Elitzur's theorem
+Notes[edit]
+
+
+^ see Cardy (2002)
+
+^ See Gelfert & Nolting (2001).
+
+^ Bloch, F (1930-02-01). "Zur Theorie des Ferromagnetismus". Zeitschrift für Physik. 61 (3–4): 206–219. Bibcode:1930ZPhy...61..206B. doi:10.1007/bf01339661. S2CID 120459635.
+
+^ Peierls, R.E. (1934). "Bemerkungen über Umwandlungstemperaturen". Helv. Phys. Acta. 7: 81. doi:10.5169/seals-110415.
+
+^ Landau, L.D. "Theory of phase transformations II". Phys. Z. Sowjetunion. 11: 545.
+
+^ Shiba, H.; Yamada, Y.; Kawasaki, T.; Kim, K. (2016). "Unveiling Dimensionality Dependence of Glassy Dynamics: 2D Infinite Fluctuation Eclipses Inherent Structural Relaxation". Physical Review Letters. 117 (24): 245701. arXiv:1510.02546. Bibcode:2016PhRvL.117x5701S. doi:10.1103/PhysRevLett.117.245701. PMID 28009193. S2CID 30893052.
+
+^ Vivek, S.; Kelleher, C. P.; Chaikin, P. M.; Weeks, E. R. (2017). "Long-wavelength fluctuations and the glass transition in two dimensions and three dimensions". Proceedings of the National Academy of Sciences. 114 (8): 1850–1855. arXiv:1604.07338. Bibcode:2017PNAS..114.1850V. doi:10.1073/pnas.1607226113. PMC 5338427. PMID 28137847.
+
+^ Illing, B.; Fritschi, S.; Kaiser, H.; Klix, C. L.; Maret, G.; Keim, P. (2017). "Mermin–Wagner fluctuations in 2D amorphous solids". Proceedings of the National Academy of Sciences. 114 (8): 1856–1861. Bibcode:2017PNAS..114.1856I. doi:10.1073/pnas.1612964114. PMC 5338416. PMID 28137872.
+
+^ Cassi, D. (1992). "Phase transitions and random walks on graphs: A generalization of the Mermin-Wagner theorem to disordered lattices, fractals, and other discrete structures". Physical Review Letters. 68 (24): 3631–3634. Bibcode:1992PhRvL..68.3631C. doi:10.1103/PhysRevLett.68.3631. PMID 10045753.
+
+^ Merkl, F.; Wagner, H. (1994). "Recurrent random walks and the absence of continuous symmetry breaking on graphs". Journal of Statistical Physics. 75 (1): 153–165. Bibcode:1994JSP....75..153M. doi:10.1007/bf02186284. S2CID 120429502.
+
+^ Thompson-Flagg, R.C.; Moura, M.J.B; Marder, M. (2009). "Rippling of graphene". EPL. 85 (4): 46002. arXiv:0807.2938. Bibcode:2009EL.....8546002T. doi:10.1209/0295-5075/85/46002. S2CID 119024976.
+
+^ Halperin, B.I. (2019). "On the Hohenberg–Mermin–Wagner Theorem and Its Limitations". Journal of Statistical Physics. 175 (3–4): 521–529. arXiv:1812.00220. Bibcode:2019JSP...175..521H. doi:10.1007/s10955-018-2202-y. S2CID 119512932.
+
+^ Palle, G.; Sunko, D.K. (2021). "Physical Limitations of the Hohenberg–Mermin–Wagner Theorem". Journal of Physics A: Mathematical and Theoretical. 54 (31): 315001. arXiv:2107.09714. Bibcode:2021JPhA...54E5001P. doi:10.1088/1751-8121/ac0a9d. S2CID 235719970.
+
+
+References[edit]
+Hohenberg, P.C. (1967), "Existence of Long-Range Order in One and Two Dimensions", Phys. Rev., 158 (2): 383, Bibcode:1967PhRv..158..383H, doi:10.1103/PhysRev.158.383
+Mermin, N.D.; Wagner, H. (1966), "Absence of Ferromagnetism or Antiferromagnetism in One- or Two-Dimensional Isotropic Heisenberg Models", Phys. Rev. Lett., 17 (22): 1133–1136, Bibcode:1966PhRvL..17.1133M, doi:10.1103/PhysRevLett.17.1133
+Coleman, Sidney (1973), "There are no Goldstone bosons in two dimensions", Commun. Math. Phys., 31 (4): 259–264, Bibcode:1973CMaPh..31..259C, doi:10.1007/BF01646487, S2CID 120770166
+Gelfert, Axel; Nolting, Wolfgang (2001), "The absence of finite-temperature phase transitions in low-dimensional many-body models: a survey and new results", J. Phys.: Condens. Matter, 13 (27): R505–R524, arXiv:cond-mat/0106090, Bibcode:2001JPCM...13R.505G, doi:10.1088/0953-8984/13/27/201, S2CID 119150988
+Dobrushin, R.L.; Shlosman, S.B. (1975), "Absence of breakdown of continuous symmetry in two-dimensional models of statistical physics", Comm. Math. Phys., 42 (1): 31, Bibcode:1975CMaPh..42...31D, doi:10.1007/bf01609432, S2CID 120426435
+Pfister, C.-E. (1981), "On the symmetry of the Gibbs states in two-dimensional lattice systems", Comm. Math. Phys., 79 (2): 181, Bibcode:1981CMaPh..79..181P, doi:10.1007/bf01942060, S2CID 119794070
+Fröhlich, J.; Pfister, C.E. (1981), "On the absence of spontaneous symmetry breaking and of crystalline ordering in two-dimensional systems", Comm. Math. Phys., 81 (2): 277, Bibcode:1981CMaPh..81..277F, doi:10.1007/bf01208901, S2CID 119956468
+Klein, A.; Landau, L.J.; Shucker, D.S. (1981), "On the absence of spontaneous breakdown of continuous symmetry for equilibrium states in two dimensions", J. Statist. Phys., 26 (3): 505, Bibcode:1981JSP....26..505K, doi:10.1007/bf01011431, S2CID 122941200
+Bonato, C.A.; Perez, J.F.; Klein, A. (1982), "The Mermin-Wagner phenomenon and cluster properties of one- and two-dimensional systems", J. Statist. Phys., 29 (2): 159, Bibcode:1982JSP....29..159B, doi:10.1007/bf01020779, S2CID 121753398
+Ioffe, D.; Shlosman, S.B.; Velenik, Y. (2002), "2D models of statistical physics with continuous symmetry: the case of singular interactions", Comm. Math. Phys., 226 (2): 433, arXiv:math/0110127, Bibcode:2002CMaPh.226..433I, doi:10.1007/s002200200627, S2CID 53514841
+Cardy, John (2002), Scaling and renormalization in statistical physics (Reprinted (with corr.) ed.), [Cambridge]: Cambridge University Press, ISBN 978-0-521-49959-0
+Richthammer, T. (2007), "Translation-invariance of two-dimensional Gibbsian point processes", Commun. Math. Phys., 274 (1): 81, arXiv:0706.3637, Bibcode:2007CMaPh.274...81R, doi:10.1007/s00220-007-0274-7, S2CID 14362162
+Herbert Wagner (ed.). "Mermin-Wagner Theorem". Scholarpedia.
+Friedli, S.; Velenik, Y. (2017). Statistical Mechanics of Lattice Systems: a Concrete Mathematical Introduction. Cambridge: Cambridge University Press. ISBN 9781107184824.
+
+
+

@@ -1,0 +1,176 @@
+In mathematics, the Abel–Jacobi map is a construction of algebraic geometry which relates an algebraic curve to its Jacobian variety. In Riemannian geometry, it is a more general construction mapping a manifold to its Jacobi torus.
+The name derives from the theorem of Abel and Jacobi that two effective divisors are linearly equivalent if and only if they are indistinguishable under the Abel–Jacobi map.
+
+
+Construction of the map[edit]
+In complex algebraic geometry, the Jacobian of a curve C is constructed using path integration. Namely, suppose C has genus g, which means topologically that
+
+H1(C,Z)≅Z2g._1(C,ℤ)≅ℤ^2g.
+Geometrically, this homology group consists of (homology classes of) cycles in C, or in other words, closed loops. Therefore, we can choose 2g loops γ1,…,γ2gγ_1,…,γ_2g generating it. On the other hand, another more algebro-geometric way of saying that the genus of C is g is that
+
+H0(C,K)≅Cg,^0(C,K)≅ℂ^g,
+where K is the canonical bundle on C.
+By definition, this is the space of globally defined holomorphic differential forms on C, so we can choose g linearly independent forms ω1,…,ωgω_1,…,ω_g. Given forms and closed loops we can integrate, and we define 2g vectors
+
+Ωj=(∫γjω1,…,∫γjωg)∈Cg.Ω_j=(∫_γ_jω_1,…,∫_γ_jω_g)∈ℂ^g.
+It follows from the Riemann bilinear relations that the ΩjΩ_j generate a nondegenerate lattice ΛΛ (that is, they are a real basis for Cg≅R2gℂ^g≅ℝ^2g), and the Jacobian is defined by
+
+J(C)=Cg/Λ.(C)=ℂ^g/Λ.
+The Abel–Jacobi map is then defined as follows. We pick some base point p0∈C_0 and, nearly mimicking the definition of Λ,Λ, define the map
+
+u:C→J(C)u(p)=(∫p0pω1,…,∫p0pωg)modΛu:C(C)
+u(p)=(∫_p_0^pω_1,…,∫_p_0^pω_g)Λ
+Although this is seemingly dependent on a path from p0_0 to p,, any two such paths define a closed loop in C and, therefore, an element of H1(C,Z),_1(C,ℤ), so integration over it gives an element of Λ.Λ. Thus the difference is erased in the passage to the quotient by ΛΛ. Changing base-point p0_0 does change the map, but only by a translation of the torus.
+
+The Abel–Jacobi map of a Riemannian manifold[edit]
+Let M be a smooth compact manifold. Let π=π1(M)π=π_1(M) be its fundamental group. Let f:π→πab:π→π^ab be its abelianisation map. Let tor=tor⁡(πab)tor=tor(π^ab) be the torsion subgroup of πabπ^ab. Let g:πab→πab/tor:π^ab→π^ab/tor be the quotient by torsion. If M is a surface, πab/torπ^ab/tor is non-canonically isomorphic to Z2gℤ^2g, where g is the genus; more generally, πab/torπ^ab/tor is non-canonically isomorphic to Zbℤ^b, where b is the first Betti number. Let φ=g∘f:π→Zbφ=g:π→ℤ^b be the composite homomorphism.
+Definition. The cover M¯M̅ of the manifold M corresponding to the subgroup ker⁡(φ)⊂π(φ)⊂π is called the universal (or maximal) free abelian cover.
+Now assume M has a Riemannian metric. Let E be the space of harmonic 1-forms on M, with dual E∗^* canonically identified with H1(M,R)_1(M,ℝ). By integrating an integral harmonic 1-form along paths from a basepoint x0∈M_0, we obtain a map to the circle R/Z=S1ℝ/ℤ=S^1.
+Similarly, in order to define a map M→H1(M,R)/H1(M,Z)R_1(M,ℝ)/H_1(M,ℤ)_ℝ without choosing a basis for cohomology, we argue as follows. Let x be a point in the universal cover M M̃ of M. Thus x is represented by a point of M together with a path c from x0_0 to it. By integrating along the path c, we obtain a linear form on E: 
+
+h→∫ch.→∫_ch.
+This gives rise a map 
+
+M →E∗=H1(M,R),M̃^*=H_1(M,ℝ),
+which, furthermore, descends to a map
+
+A¯M:M¯→E∗c↦(h↦∫ch)A_M:M^*
+c↦(h↦∫_ch)
+where M¯M is the universal free abelian cover.
+Definition. The Jacobi variety (Jacobi torus) of M is the torus
+
+J1(M)=H1(M,R)/H1(M,Z)R._1(M)=H_1(M,ℝ)/H_1(M,ℤ)_ℝ.
+Definition. The Abel–Jacobi map
+
+AM:M→J1(M),_M:M_1(M),
+is obtained from the map above by passing to quotients.
+The Abel–Jacobi map is unique up to translations of the Jacobi torus. The map has applications in Systolic geometry. The Abel–Jacobi map of a Riemannian manifold shows up in the large time asymptotics of the heat kernel on a periodic manifold (Kotani & Sunada (2000) and Sunada (2012)).
+In much the same way, one can define a graph-theoretic analogue of Abel–Jacobi map as a piecewise-linear map from a finite graph into a flat torus (or a Cayley graph associated with a finite abelian group), which is closely related to asymptotic behaviors of random walks on crystal lattices, and can be used for design of crystal structures.
+
+The Abel-Jacobi map of a compact Riemann surface[edit]
+We provide an analytic construction of the Abel-Jacobi map on compact Riemann surfaces.
+Let M denotes a compact Riemann surface of genus g>0>0. Let a1,...,ag,b1,...,bg{a_1,...,a_g,b_1,...,b_g} be a canonical homology basis on M, and ζ1,...,ζg{ζ_1,...,ζ_g} the dual basis for H1(M)ℋ^1(M), which is a g dimensional complex vector space consists of holomorphic differential forms. Dual basis we mean ∫akζj=δjk∫_a_kζ_j=δ_jk, for j,k=1,...,g,k=1,...,g. We can form a symmetric matrix whose entries are ∫bkζj∫_b_kζ_j, for j,k=1,...,g,k=1,...,g. Let L be the lattice generated by the 2g2g-columns of the g×2g×2g matrix whose entries consists of ∫ckζj∫_c_kζ_j for j,k=1,...,g,k=1,...,g where ck∈ak,bk_k∈{a_k,b_k}. We call J(M)=Cg/L(M)(M)=ℂ^g/L(M) the Jacobian variety of M which is a compact, commutative g-dimensional complex Lie group.
+We can define a map φ:M→J(M)φ:M(M) by choosing a point P0∈M_0 and setting
+φ(P)=(∫P0Pζ1,...,∫P0Pζg).φ(P)=(∫_P_0^Pζ_1,...,∫_P_0^Pζ_g).
+which is a well-defined holomorphic mapping with rank 1 (maximal rank). Then we can naturally extend this to a mapping of divisor classes;
+If we denote Div(M)Div(M) the divisor class group of M then define a map φ:Div(M)→J(M)φ:Div(M)(M) by setting
+φ(D)=∑j=1rφ(Pj)−∑j=1sφ(Qj),D=P1⋯Pr/Q1⋯Qs.φ(D)=∑_j=1^rφ(P_j)-∑_j=1^sφ(Q_j),=P_1_r/Q_1_s.
+Note that if r=s=s then this map is independent of the choice of the base point so we can define the base point independent map
+φ0:Div(0)(M)→J(M)φ_0:Div^(0)(M)(M) where Div(0)(M)Div^(0)(M) denotes the divisors of degree zero of M.
+The below Abel's theorem show that the kernel of the map φ0φ_0 is precisely the subgroup of principal divisors. Together with the Jacobi inversion problem, we can say that As a group, J(M)(M) is isomorphic to the group of divisors of degree zero modulo its subgroup of principal divisors.
+
+Abel–Jacobi theorem[edit]
+The following theorem was proved by Abel (known as Abel's theorem): Suppose that
+
+D=∑inipi=∑_in_ip_i
+is a divisor (meaning a formal integer-linear combination of points of C). We can define
+
+u(D)=∑iniu(pi)(D)=∑_in_iu(p_i)
+and therefore speak of the value of the Abel–Jacobi map on divisors. The theorem is then that if D and E are two effective divisors, meaning that the ni_i are all positive integers, then
+
+u(D)=u(E)(D)=u(E) if and only if D is linearly equivalent to E.. This implies that the Abel-Jacobi map induces an injective map (of abelian groups) from the space of divisor classes of degree zero to the Jacobian.
+Jacobi proved that this map is also surjective (known as Jacobi inversion problem), so the two groups are naturally isomorphic.
+The Abel–Jacobi theorem implies that the Albanese variety of a compact complex curve (dual of holomorphic 1-forms modulo periods) is isomorphic to its Jacobian variety (divisors of degree 0 modulo equivalence). For higher-dimensional compact projective varieties the Albanese variety and the Picard variety are dual but need not be isomorphic.
+
+References[edit]
+E. Arbarello; M. Cornalba; P. Griffiths; J. Harris (1985). "1.3, Abel's Theorem". Geometry of Algebraic Curves, Vol. 1. Grundlehren der Mathematischen Wissenschaften. Springer-Verlag. ISBN 978-0-387-90997-4.
+Kotani, Motoko; Sunada, Toshikazu (2000), "Albanese maps and an off diagonal long time asymptotic for the heat kernel", Comm. Math. Phys., 209: 633–670, Bibcode:2000CMaPh.209..633K, doi:10.1007/s002200050033
+Sunada, Toshikazu (2012), "Lecture on topological crystallography", Japan. J. Math., 7: 1–39, doi:10.1007/s11537-012-1144-4
+Farkas, Hershel M; Kra, Irwin (23 December 1991), Riemann surfaces, New York: Springer, ISBN 978-0387977034
+vteTopics in algebraic curvesRational curves
+Five points determine a conic
+Projective line
+Rational normal curve
+Riemann sphere
+Twisted cubic
+Elliptic curvesAnalytic theory
+Elliptic function
+Elliptic integral
+Fundamental pair of periods
+Modular form
+Arithmetic theory
+Counting points on elliptic curves
+Division polynomials
+Hasse's theorem on elliptic curves
+Mazur's torsion theorem
+Modular elliptic curve
+Modularity theorem
+Mordell–Weil theorem
+Nagell–Lutz theorem
+Supersingular elliptic curve
+Schoof's algorithm
+Schoof–Elkies–Atkin algorithm
+Applications
+Elliptic curve cryptography
+Elliptic curve primality
+Higher genus
+De Franchis theorem
+Faltings's theorem
+Hurwitz's automorphisms theorem
+Hurwitz surface
+Hyperelliptic curve
+Plane curves
+AF+BG theorem
+Bézout's theorem
+Bitangent
+Cayley–Bacharach theorem
+Conic section
+Cramer's paradox
+Cubic plane curve
+Fermat curve
+Genus–degree formula
+Hilbert's sixteenth problem
+Nagata's conjecture on curves
+Plücker formula
+Quartic plane curve
+Real plane curve
+Riemann surfaces
+Belyi's theorem
+Bring's curve
+Bolza surface
+Compact Riemann surface
+Dessin d'enfant
+Differential of the first kind
+Klein quartic
+Riemann's existence theorem
+Riemann–Roch theorem
+Teichmüller space
+Torelli theorem
+Constructions
+Dual curve
+Polar curve
+Smooth completion
+Structure of curvesDivisors on curves
+Abel–Jacobi map
+Brill–Noether theory
+Clifford's theorem on special divisors
+Gonality of an algebraic curve
+Jacobian variety
+Riemann–Roch theorem
+Weierstrass point
+Weil reciprocity law
+Moduli
+ELSV formula
+Gromov–Witten invariant
+Hodge bundle
+Moduli of algebraic curves
+Stable curve
+Morphisms
+Hasse–Witt matrix
+Riemann–Hurwitz formula
+Prym variety
+Weber's theorem (Algebraic curves)
+Singularities
+Acnode
+Crunode
+Cusp
+Delta invariant
+Tacnode
+Vector bundles
+Birkhoff–Grothendieck theorem
+Stable vector bundle
+Vector bundles on algebraic curves
+
+
+
+

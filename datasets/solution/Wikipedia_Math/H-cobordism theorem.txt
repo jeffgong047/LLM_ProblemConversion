@@ -1,0 +1,70 @@
+In geometric topology and differential topology, an (n + 1)-dimensional cobordism W between n-dimensional manifolds M and N is an h-cobordism (the h stands for homotopy equivalence) if the inclusion maps
+
+M↪WandN↪W  
+are homotopy equivalences.
+The h-cobordism theorem gives sufficient conditions for an h-cobordism to be trivial, i.e., to be C-isomorphic to the cylinder M × [0, 1]. Here C refers to any of the categories of smooth, piecewise linear, or topological manifolds.
+The theorem was first proved by Stephen Smale for which he received the Fields Medal and is a fundamental result in the theory of high-dimensional manifolds. For a start, it almost immediately proves the generalized Poincaré conjecture.
+
+
+Background[edit]
+Before Smale proved this theorem, mathematicians became stuck while trying to understand manifolds of dimension 3 or 4, and assumed that the higher-dimensional cases were even harder. The h-cobordism theorem showed that (simply connected) manifolds of dimension at least 5 are much easier than those of dimension 3 or 4. The proof of the theorem depends on the "Whitney trick" of Hassler Whitney, which geometrically untangles homologically-tangled spheres of complementary dimension in a manifold of dimension >4. An informal reason why manifolds of dimension 3 or 4 are unusually hard is that the trick fails to work in lower dimensions, which have no room for entanglement.
+
+Precise statement of the h-cobordism theorem[edit]
+Let n be at least 5 and let W be a compact (n + 1)-dimensional h-cobordism between M and N in the category C=Diff, PL, or Top such that W, M and N are simply connected, then W is C-isomorphic to M × [0, 1]. The isomorphism can be chosen to be the identity on M × {0}.
+This means that the homotopy equivalence between M and N (or, between M × [0, 1], W and N × [0, 1]) is homotopic to a C-isomorphism.
+
+Lower dimensional versions[edit]
+For n = 4, the h-cobordism theorem is true topologically (proved by Michael Freedman using a 4-dimensional Whitney trick) but is false PL and smoothly (as shown by Simon Donaldson).
+For n = 3, the h-cobordism theorem for smooth manifolds has not been proved and, due to the 3-dimensional Poincaré conjecture, is equivalent to the hard open question of whether the 4-sphere has non-standard smooth structures.
+For n = 2, the h-cobordism theorem is equivalent to the Poincaré conjecture stated by Poincaré in 1904 (one of the Millennium Problems[1]) and was proved by Grigori Perelman in a series of three papers in 2002 and 2003,[2][3][4] where he follows Richard S. Hamilton's program using Ricci flow.
+For n = 1, the h-cobordism theorem is vacuously true, since there is no closed simply-connected 1-dimensional manifold.
+For n = 0, the h-cobordism theorem is trivially true: the interval is the only connected cobordism between connected 0-manifolds.
+
+A proof sketch[edit]
+A Morse function f:W→[a,b]:W→[a,b] induces a handle decomposition of W, i.e., if there is a single critical point of index k in f−1([c,c′])^-1([c,c']), then the ascending cobordism Wc′_c' is obtained from Wc_c by attaching a k-handle. The goal of the proof is to find a handle decomposition with no handles at all so that integrating the non-zero gradient vector field of f gives the desired diffeomorphism to the trivial cobordism.
+This is achieved through a series of techniques.
+1) Handle rearrangement
+First, we want to rearrange all handles by order so that lower order handles are attached first. The question is thus when can we slide an i-handle off of a j-handle? This can be done by a radial isotopy so long as the i attaching sphere and the j belt sphere do not intersect. We thus want (i−1)+(n−j)≤dim⁡∂W−1=n−1(i-1)+(n-j)≤-1=n-1 which is equivalent to i≤j.
+We then define the handle chain complex (C∗,∂∗)(C_*,∂_*) by letting Ck_k be the free abelian group on the k-handles and defining ∂k:Ck→Ck−1∂_k:C_k_k-1 by sending a k-handle hαk_α^k to ∑β⟨hαk∣hβk−1⟩hβk−1∑_β_α^k_β^k-1_β^k-1, where ⟨hαk∣hβk−1⟩_α^k_β^k-1⟩ is the intersection number of the k-attaching sphere and the (k − 1)-belt sphere.
+2) Handle cancellation
+Next, we want to "cancel" handles. The idea is that attaching a k-handle hαk_α^k might create a hole that can be filled in by attaching a (k + 1)-handle hβk+1_β^k+1. This would imply that ∂k+1hβk+1=±hαk∂_k+1h_β^k+1=_α^k and so the (α,β)(α,β) entry in the matrix of ∂k+1∂_k+1 would be ±1±1. However, when is this condition sufficient? That is, when can we geometrically cancel handles if this condition is true? The answer lies in carefully analyzing when the manifold remains simply-connected after removing the attaching and belt spheres in question, and finding an embedded disk using the Whitney trick. This analysis leads to the requirement that n must be at least 5. Moreover, during the proof one requires that the cobordism has no 0-,1-,n-, or (n + 1)-handles which is obtained by the next technique.
+3) Handle trading
+The idea of handle trading is to create a cancelling pair of (k + 1)- and (k + 2)-handles so that a given k-handle cancels with the (k + 1)-handle leaving behind the (k + 2)-handle. To do this, consider the core of the k-handle which is an element in πk(W,M)π_k(W,M). This group is trivial since W is an h-cobordism. Thus, there is a disk Dk+1^k+1 which we can fatten to a cancelling pair as desired, so long as we can embed this disk into the boundary of W. This embedding exists if dim⁡∂W−1=n−1≥2(k+1)-1=n-1≥2(k+1). Since we are assuming n is at least 5 this means that k is either 0 or 1. Finally, by considering the negative of the given Morse function, −f, we can turn the handle decomposition upside down and also remove the n- and (n + 1)-handles as desired.
+4) Handle sliding
+Finally, we want to make sure that doing row and column operations on ∂k∂_k corresponds to a geometric operation. Indeed, it isn't hard to show (best done by drawing a picture) that sliding a k-handle hαk_α^k over another k-handle hβk_β^k replaces hαk_α^k by hαk±hβk_α^k_β^k in the basis for Ck_k.
+The proof of the theorem now follows: the handle chain complex is exact since H∗(W,M;Z)=0_*(W,M;ℤ)=0. Thus Ck≅coker⁡∂k+1⊕im⁡∂k+1_k≅coker∂_k+1⊕im∂_k+1 since the Ck_k are free. Then ∂k∂_k, which is an integer matrix, restricts to an invertible morphism which can thus be diagonalized via elementary row operations (handle sliding) and must have only ±1±1 on the diagonal because it is invertible. Thus, all handles are paired with a single other cancelling handle yielding a decomposition with no handles.
+
+The s-cobordism theorem[edit]
+If the assumption that M and N are simply connected is dropped, h-cobordisms need not be cylinders; the obstruction is exactly the Whitehead torsion τ (W, M) of the inclusion M↪W.
+Precisely, the s-cobordism theorem (the s stands for simple-homotopy equivalence), proved independently by Barry Mazur, John Stallings, and Dennis Barden, states (assumptions as above but where M and N need not be simply connected):
+
+An h-cobordism is a cylinder if and only if Whitehead torsion τ (W, M) vanishes.
+The torsion vanishes if and only if the inclusion M↪W is not just a homotopy equivalence, but a simple homotopy equivalence.
+Note that one need not assume that the other inclusion N↪W is also a simple homotopy equivalence—that follows from the theorem.
+Categorically, h-cobordisms form a groupoid.
+Then a finer statement of the s-cobordism theorem is that the isomorphism classes of this groupoid (up to C-isomorphism of h-cobordisms) are torsors for the respective[5] Whitehead groups Wh(π), where π≅π1(M)≅π1(W)≅π1(N).π≅π_1(M)≅π_1(W)≅π_1(N).
+
+See also[edit]
+Semi-s-cobordism
+Notes[edit]
+
+^ "Millennium Problems | Clay Mathematics Institute". www.claymath.org. Retrieved 2016-03-30.
+
+^ Perelman, Grisha (2002-11-11). "The entropy formula for the Ricci flow and its geometric applications". arXiv:math/0211159.
+
+^ Perelman, Grisha (2003-03-10). "Ricci flow with surgery on three-manifolds". arXiv:math/0303109.
+
+^ Perelman, Grisha (2003-07-17). "Finite extinction time for the solutions to the Ricci flow on certain three-manifolds". arXiv:math/0307245.
+
+^ Note that identifying the Whitehead groups of the various manifolds requires that one choose base points m∈M,n∈N,n and a path in W connecting them.
+
+
+References[edit]
+Freedman, Michael H; Quinn, Frank (1990). Topology of 4-manifolds. Princeton Mathematical Series. Vol. 39. Princeton, NJ: Princeton University Press. ISBN 0-691-08577-3. (This does the theorem for topological 4-manifolds.)
+Milnor, John, Lectures on the h-cobordism theorem, notes by L. Siebenmann and J. Sondow, Princeton University Press, Princeton, NJ, 1965.  v+116 pp.  This gives the proof for smooth manifolds.
+Rourke, Colin Patrick; Sanderson, Brian Joseph, Introduction to piecewise-linear topology,  Springer Study Edition, Springer-Verlag, Berlin-New York, 1982.  ISBN 3-540-11102-6. This proves the theorem for PL manifolds.
+S. Smale,   "On the structure of manifolds"  Amer. J. Math., 84  (1962)  pp. 387–399
+Rudyak, Yu.B. (2001) [1994], "h-cobordism", Encyclopedia of Mathematics, EMS Press
+
+
+

@@ -1,0 +1,117 @@
+Extremal graph theory bound on clique-free graph edges
+Not to be confused with Turán's method in analytic number theory.
+In graph theory, Turán's theorem bounds the number of edges that can be included in an undirected graph that does not have a complete subgraph of a given size. It is one of the central results of extremal graph theory, an area studying the largest or smallest graphs with given properties, and is a special case of the forbidden subgraph problem on the maximum number of edges in a graph that does not have a given subgraph.
+An example of an n-vertex graph that does not contain any (r+1)(r+1)-vertex clique Kr+1_r+1 may be formed by partitioning the set of n vertices into r parts of equal or nearly equal size, and connecting two vertices by an edge whenever they belong to two different parts. The resulting graph is the Turán graph T(n,r)(n,r). Turán's theorem states that the Turán graph has the largest number of edges among all Kr+1-free n-vertex graphs.
+Turán's theorem, and the Turán graphs giving its extreme case, were first described and studied by Hungarian mathematician Pál Turán in 1941.[1] The special case of the theorem for triangle-free graphs is known as Mantel's theorem; it was stated in 1907 by Willem Mantel, a Dutch mathematician.[2]
+
+
+Statement[edit]
+Turán's theorem states that every graph G with n vertices that does not contain Kr+1_r+1 as a subgraph has at most as many edges as the Turán graph T(n,r)(n,r). For a fixed value of r, this graph has(1−1r+o(1))n22(1-1/r+o(1))n^2/2edges, using little-o notation. Intuitively, this means that as n gets larger, the fraction of edges included in T(n,r)(n,r) gets closer and closer to 1−1r1-1/r. Many of the following proofs only give the upper bound of (1−1r)n22(1-1/r)n^2/2.[3]
+
+Proofs[edit]
+Aigner & Ziegler (2018) list five different proofs of Turán's theorem.[3]
+Many of the proofs involve reducing to the case where the graph is a complete multipartite graph, and showing that the number of edges is maximized when there are r parts of size as close as possible to equal.
+
+Induction[edit]
+(Induction on n) An example of sets A and B for r=3=3.
+(Maximal Degree Vertex) Deleting edges within A and drawing edges between A and B.
+This was Turán's original proof. Take a Kr+1_r+1-free graph on n vertices with the maximal number of edges. Find a Kr_r (which exists by maximality), and partition the vertices into the set A of the r vertices in the Kr_r and the set B of the n−r-r other vertices.
+Now, one can bound edges above as follows:
+
+There are exactly (r2)r2 edges within A.
+There are at most (r−1)|B|=(r−1)(n−r)(r-1)|B|=(r-1)(n-r) edges between A and B, since no vertex in B can connect to all of A.
+The number of edges within B is at most the number of edges of T(n−r,r)(n-r,r) by the inductive hypothesis.
+Adding these bounds gives the result.[1][3]
+
+Maximal Degree Vertex[edit]
+This proof is due to Paul Erdős. Take the vertex v of largest degree. Consider the set A of vertices not adjacent to v and the set B of vertices adjacent to v.
+Now, delete all edges within A and draw all edges between A and B. This increases the number of edges by our maximality assumption and keeps the graph Kr+1_r+1-free. Now, B is Kr_r-free, so the same argument can be repeated on B.
+Repeating this argument eventually produces a graph in the same form as a Turán graph, which is a collection of independent sets, with edges between each two vertices from different independent sets. A simple calculation shows that the number of edges of this graph is maximized when all independent set sizes are as close to equal as possible.[3][4]
+
+Complete Multipartite Optimization[edit]
+This proof, as well as the Zykov Symmetrization proof, involve reducing to the case where the graph is a complete multipartite graph, and showing that the number of edges is maximized when there are r independent sets of size as close as possible to equal. This step can be done as follows:
+Let S1,S2,…,Sr_1,S_2,…,S_r be the independent sets of the multipartite graph. Since two vertices have an edge between them if and only if they are not in the same independent set, the number of edges is
+∑i≠j|Si||Sj|=12(n2−∑i|Si|2),∑_i|S_i||S_j|=1/2(n^2-∑_i|S_i|^2),
+where the left hand side follows from direct counting, and the right hand side follows from complementary counting. To show the (1−1r)n22(1-1/r)n^2/2 bound, applying the Cauchy–Schwarz inequality to the ∑i|Si|2∑_i|S_i|^2 term on the right hand side suffices, since ∑i|Si|=n∑_i|S_i|=n.
+To prove the Turán Graph is optimal, one can argue that no two Si_i differ by more than one in size. In particular, supposing that we have |Si|≥|Sj|+2|S_i|≥|S_j|+2 for some i≠j, moving one vertex from Sj_j to Si_i (and adjusting edges accordingly) would increase the value of the sum. This can be seen by examining the changes to either side of the above expression for the number of edges, or by noting that the degree of the moved vertex increases.
+
+Lagrangian[edit]
+This proof is due to Motzkin & Straus (1965). They begin by considering a Kr+1_r+1 free graph with vertices labelled 1,2,…,n1,2,…,n, and considering maximizing the functionf(x1,x2,…,xn)=∑i,jadjacentxixj(x_1,x_2,…,x_n)=∑_i,j{adjacentx_ix_jover all nonnegative x1,x2,…,xn_1,x_2,…,x_n with sum 11. This function is known as the Lagrangian of the graph and its edges.
+The idea behind their proof is that if xi,xj_i,x_j are both nonzero while i,j,j are not adjacent in the graph, the functionf(x1,…,xi−t,…,xj+t,…,xn)(x_1,…,x_i-t,…,x_j+t,…,x_n)is linear in t. Hence, one can either replace (xi,xj)(x_i,x_j) with either (xi+xj,0)(x_i+x_j,0) or (0,xi+xj)(0,x_i+x_j) without decreasing the value of the function. Hence, there is a point with at most r nonzero variables where the function is maximized.
+
+Now, the Cauchy–Schwarz inequality gives that the maximal value is at most  12(1−1r)1/2(1-1/r). Plugging in xi=1n_i=1/n for all i gives that the maximal value is at least |E|n2|E|/n^2, giving the desired bound.[3][5]
+
+Probabilistic Method[edit]
+The key claim in this proof was independently found by Caro and Wei. This proof is due to Noga Alon and Joel Spencer, from their book The Probabilistic Method. The proof shows that every graph with degrees d1,d2,…,dn_1,d_2,…,d_n has an independent set of size at leastS=1d1+1+1d2+1+⋯+1dn+1.=1/d_1+1+1/d_2+1+⋯+1/d_n+1.The proof attempts to find such an independent set as follows:
+
+Consider a random permutation of the vertices of a Kr+1_r+1-free graph
+Select every vertex that is adjacent to none of the vertices before it.
+A vertex of degree d is included in this with probability 1d+11/d+1, so this process gives an average of S vertices in the chosen set.
+
+(Zykov Symmetrization) Example of first step.
+Applying this fact to the complement graph and bounding the size of the chosen set using the Cauchy–Schwarz inequality proves Turán's theorem.[3] See Method of conditional probabilities § Turán's theorem for more.
+
+(Zykov Symmetrization) Example of second step.
+Zykov Symmetrization[edit]
+Aigner and Ziegler call the final one of their five proofs "the most beautiful of them all". Its origins are unclear, but the approach is often referred to as Zykov Symmetrization as it was used in Zykov's proof of a generalization of Turán's Theorem [6]. This proof goes by taking a Kr+1_r+1-free graph, and applying steps to make it more similar to the Turán Graph while increasing edge count.
+In particular, given a Kr+1_r+1-free graph, the following steps are applied:
+
+If u,v,v are non-adjacent vertices and u has a higher degree than v, replace v with a copy of u. Repeat this until all non-adjacent vertices have the same degree.
+If u,v,w,v,w are vertices with u,v,v and v,w,w non-adjacent but u,w,w adjacent, then replace both u and w with copies of v.
+All of these steps keep the graph Kr+1_r+1 free while increasing the number of edges.
+Now, non-adjacency forms an equivalence relation. The equivalence classes give that any maximal graph the same form as a Turán graph. As in the maximal degree vertex proof, a simple calculation shows that the number of edges is maximized when all independent set sizes are as close to equal as possible.[3]
+
+Mantel's theorem[edit]
+The special case of Turán's theorem for r=2=2 is Mantel's theorem: The maximum number of edges in an n-vertex triangle-free graph is ⌊n2/4⌋.^2/4⌋.[2] In other words, one must delete nearly half of the edges in Kn_n to obtain a triangle-free graph.
+A strengthened form of Mantel's theorem states that any Hamiltonian graph with at least n2/4^2/4 edges must either be the complete bipartite graph Kn/2,n/2_n/2,n/2 or it must be pancyclic: not only does it contain a triangle, it must also contain cycles of all other possible lengths up to the number of vertices in the graph.[7]
+Another strengthening of Mantel's theorem states that the edges of every n-vertex graph may be covered by at most ⌊n2/4⌋^2/4⌋ cliques which are either edges or triangles. As a corollary, the graph's intersection number (the minimum number of cliques needed to cover all its edges) is at most ⌊n2/4⌋^2/4⌋.[8]
+
+Generalizations[edit]
+Other Forbidden Subgraphs[edit]
+Turán's theorem shows that the largest number of edges in a Kr+1_r+1-free graph is (1−1r+o(1))n22(1-1/r+o(1))n^2/2. The Erdős–Stone theorem finds the number of edges up to a o(n2)(n^2) error in all other graphs:(Erdős–Stone) Suppose H is a graph with chromatic number χ(H)χ(H). The largest possible number of edges in a graph where H does not appear as a subgraph is(1−1χ(H)−1+o(1))n22(1-1/χ(H)-1+o(1))n^2/2where the o(1)(1) constant only depends on H. One can see that the Turán graph T(n,χ(H)−1)(n,χ(H)-1) cannot contain any copies of H, so the Turán graph establishes the lower bound. As a Kr+1_r+1 has chromatic number r+1+1, Turán's theorem is the special case in which H is a Kr+1_r+1.
+The general question of how many edges can be included in a graph without a copy of some H is the forbidden subgraph problem.
+
+Maximizing Other Quantities[edit]
+Another natural extension of Turán's theorem is the following question: if a graph has no Kr+1_r+1s, how many copies of Ka_a can it have? Turán's theorem is the case where a=2=2. Zykov's Theorem answers this question:(Zykov's Theorem) The graph on n vertices with no Kr+1_r+1s and the largest possible number of Ka_as is the Turán graph T(n,r)(n,r)This was first shown by Zykov (1949) using Zykov Symmetrization[1][3]. Since the Turán Graph contains r parts with size around nrn/r, the number of Ka_as in T(n,r)(n,r) is around (ra)(nr)ara(n/r)^a.
+A paper by Alon and Shikhelman in 2016 gives the following generalization, which is similar to the Erdos-Stone generalization of Turán's theorem:(Alon-Shikhelman, 2016) Let H be a graph with chromatic number χ(H)>aχ(H)>a. The largest possible number of Ka_as in a graph with no copy of H is
+(1+o(1))(χ(H)−1a)(nχ(H)−1)a.(1+o(1))χ(H)-1a(n/χ(H)-1)^a.[9]As in Erdős–Stone, the Turán graph T(n,χ(H)−1)(n,χ(H)-1) attains the desired number of copies of Ka_a.
+Edge-Clique region[edit]
+Turan's theorem states that if a graph has edge homomorphism density strictly above 1−1r−11-1/r-1, it has a nonzero number of Kr_rs. One could ask the far more general question: if you are given the edge density of a graph, what can you say about the density of Kr_rs?
+An issue with answering this question is that for a given density, there may be some bound not attained by any graph, but approached by some infinite sequence of graphs. To deal with this, weighted graphs or graphons are often considered. In particular, graphons contain the limit of any infinite sequence of graphs.
+
+For a given edge density d, the construction for the largest Kr_r density is as follows:Take a number of vertices N approaching infinity. Pick a set of dN√(d)N of the vertices, and connect two vertices if and only if they are in the chosen set.This gives a Kr_r density of dk/2.^k/2. The construction for the smallest Kr_r density is as follows:Take a number of vertices approaching infinity. Let t be the integer such that 1−1t−1<d≤1−1t1-1/t-1<d≤1-1/t. Take a t-partite graph where all parts but the unique smallest part have the same size, and sizes of the parts are chosen such that the total edge density is d.For d≤1−1r−1≤1-1/r-1, this gives a graph that is (r−1)(r-1)-partite and hence gives no Kr_rs.
+The lower bound was proven by Razborov (2008)[10] for the case of triangles, and was later generalized to all cliques by Reiher (2016)[11]. The upper bound is a consequence of the Kruskal–Katona theorem [12].
+
+See also[edit]
+Erdős–Stone theorem, a generalization of Turán's theorem from forbidden cliques to forbidden Turán graphs
+References[edit]
+
+
+^ a b c Turán, Paul (1941), "On an extremal problem in graph theory", Matematikai és Fizikai Lapok (in Hungarian), 48: 436–452
+
+^ a b Mantel, W. (1907), "Problem 28 (Solution by H. Gouwentak, W. Mantel, J. Teixeira de Mattes, F. Schuh and W. A. Wythoff)", Wiskundige Opgaven, 10: 60–61
+
+^ a b c d e f g h Aigner, Martin; Ziegler, Günter M. (2018), "Chapter 41: Turán's graph theorem", Proofs from THE BOOK (6th ed.), Springer-Verlag, pp. 285–289, doi:10.1007/978-3-662-57265-8_41, ISBN 978-3-662-57265-8
+
+^ Erdős, Pál (1970), "Turán Pál gráf tételéről" [On the graph theorem of Turán] (PDF), Matematikai Lapok (in Hungarian), 21: 249–251, MR 0307975
+
+^ Motzkin, T. S.; Straus, E. G. (1965), "Maxima for graphs and a new proof of a theorem of Turán", Canadian Journal of Mathematics, 17: 533–540, doi:10.4153/CJM-1965-053-6, MR 0175813, S2CID 121387797
+
+^ Zykov, A. (1949), "On some properties of linear complexes", Mat. Sb., New Series (in Russian), 24: 163–188
+
+^ Bondy, J. A. (1971), "Pancyclic graphs I", Journal of Combinatorial Theory, Series B, 11 (1): 80–84, doi:10.1016/0095-8956(71)90016-5
+
+^ Erdős, Paul; Goodman, A. W.; Pósa, Louis (1966), "The representation of a graph by set intersections" (PDF), Canadian Journal of Mathematics, 18 (1): 106–112, doi:10.4153/CJM-1966-014-3, MR 0186575, S2CID 646660
+
+^ Alon, Noga; Shikhelman, Clara (2016), "Many T copies in H-free graphs", Journal of Combinatorial Theory, Series B, 121: 146–172, arXiv:1409.4192, doi:10.1016/j.jctb.2016.03.004, S2CID 5552776
+
+^ Razborov, Alexander (2008). "On the minimal density of triangles in graphs" (PDF). Combinatorics, Probability and Computing. 17 (4): 603–618. doi:10.1017/S0963548308009085. S2CID 26524353 – via MathSciNet (AMS).
+
+^ Reiher, Christian (2016), "The clique density theorem", Annals of Mathematics, 184 (3): 683–707, arXiv:1212.2454, doi:10.4007/annals.2016.184.3.1, S2CID 59321123
+
+^ Lovász, László, Large networks and graph limits
+
+
+
+
+

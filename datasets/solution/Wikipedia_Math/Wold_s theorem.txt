@@ -1,0 +1,348 @@
+Theorem of stationary processes; that such time series are sums of deterministic and stochastic ones
+This article is about the theorem as used in time series analysis. For an abstract mathematical statement, see Wold decomposition.
+In statistics, Wold's decomposition or the Wold representation theorem (not to be confused with the Wold theorem that is the discrete-time analog of the Wiener–Khinchin theorem),  named after Herman Wold, says that every covariance-stationary time series Yt_t can be written as the sum of two time series, one deterministic and one stochastic.
+Formally
+
+Yt=∑j=0∞bjεt−j+ηt,_t=∑_j=0^∞b_jε_t-j+η_t,
+where:
+
+Yt_t is the time series being considered,
+εtε_t is an uncorrelated sequence which is the innovation process to the process Yt_t – that is, a white noise process that is input to the linear filter bj{b_j}.
+b is the possibly infinite vector of moving average weights (coefficients or parameters)
+ηtη_t is a deterministic time series, such as one represented by a sine wave.
+The moving average coefficients have these properties:
+
+Stable, that is square summable ∑j=1∞|bj|2∑_j=1^∞|b_j|^2 < ∞∞
+Causal (i.e. there are no terms with j < 0)
+Minimum delay[clarification needed]
+Constant (bj_j independent of t)
+It is conventional to define b0=1_0=1
+This theorem can be considered as an existence theorem: any stationary process has this seemingly special representation.  Not only is the existence of such a simple linear and exact representation remarkable, but even more so is the special nature of the moving average model.  Imagine creating a process that is a moving average but not satisfying these properties 1–4.  For example, the coefficients bj_j could define an acausal and non-minimum delay[clarification needed] model.  Nevertheless the theorem assures the existence of a causal minimum delay moving average[clarification needed] that exactly represents this process.  How this all works for the case of causality and the minimum delay property is discussed in Scargle (1981), where an extension of the Wold Decomposition is discussed.
+The usefulness of the Wold Theorem is that it allows the dynamic evolution of a variable Yt_t to be approximated by a linear model. If the innovations εtε_t are independent, then the linear model is the only possible representation relating the observed value of Yt_t to its past evolution. However, when εtε_t is merely an uncorrelated but not independent sequence, then the linear model exists but it is not the only representation of the dynamic dependence of the series. In this latter case, it is possible that the linear model may not be very useful, and there would be a nonlinear model relating the observed value of Yt_t to its past evolution. However, in practical time series analysis, it is often the case that only linear predictors are considered, partly on the grounds of simplicity, in which case the Wold decomposition is directly relevant.
+The Wold representation depends on an infinite number of parameters, although in practice they usually decay rapidly. The autoregressive model is an alternative that may have only a few coefficients if the corresponding moving average has many.  These two models can be combined into an autoregressive-moving average (ARMA) model, or an autoregressive-integrated-moving average (ARIMA) model if non-stationarity is involved.  See Scargle (1981) and references there; in addition this paper gives an extension of the Wold Theorem that allows more generality for the moving average (not necessarily stable, causal, or minimum delay) accompanied by a sharper characterization of the innovation (identically and independently distributed, not just uncorrelated). This extension allows the possibility of models that are more faithful to physical or astrophysical processes, and in particular can sense ″the arrow of time.″
+
+References[edit]
+Anderson, T. W. (1971). The Statistical Analysis of Time Series. Wiley.
+Nerlove, M.; Grether, David M.; Carvalho, José L. (1995). Analysis of Economic Time Series (Revised ed.). San Diego: Academic Press. pp. 30–36. ISBN 0-12-515751-7.
+Scargle, J. D. (1981). Studies in astronomical time series analysis. I – Modeling random processes in the time domain. Astrophysical Journal Supplement Series. Vol. 45. pp. 1–71.
+Wold, H. (1954) A Study in the Analysis of Stationary Time Series, Second revised edition, with an Appendix on "Recent Developments in Time Series Analysis" by Peter Whittle. Almqvist and Wiksell Book Co., Uppsala.
+vteStatistics
+Outline
+Index
+Descriptive statisticsContinuous dataCenter
+Mean
+Arithmetic
+Arithmetic-Geometric
+Cubic
+Generalized/power
+Geometric
+Harmonic
+Heronian
+Heinz
+Lehmer
+Median
+Mode
+Dispersion
+Average absolute deviation
+Coefficient of variation
+Interquartile range
+Percentile
+Range
+Standard deviation
+Variance
+Shape
+Central limit theorem
+Moments
+Kurtosis
+L-moments
+Skewness
+Count data
+Index of dispersion
+Summary tables
+Contingency table
+Frequency distribution
+Grouped data
+Dependence
+Partial correlation
+Pearson product-moment correlation
+Rank correlation
+Kendall's τ
+Spearman's ρ
+Scatter plot
+Graphics
+Bar chart
+Biplot
+Box plot
+Control chart
+Correlogram
+Fan chart
+Forest plot
+Histogram
+Pie chart
+Q–Q plot
+Radar chart
+Run chart
+Scatter plot
+Stem-and-leaf display
+Violin plot
+Data collectionStudy design
+Effect size
+Missing data
+Optimal design
+Population
+Replication
+Sample size determination
+Statistic
+Statistical power
+Survey methodology
+Sampling
+Cluster
+Stratified
+Opinion poll
+Questionnaire
+Standard error
+Controlled experiments
+Blocking
+Factorial experiment
+Interaction
+Random assignment
+Randomized controlled trial
+Randomized experiment
+Scientific control
+Adaptive designs
+Adaptive clinical trial
+Stochastic approximation
+Up-and-down designs
+Observational studies
+Cohort study
+Cross-sectional study
+Natural experiment
+Quasi-experiment
+Statistical inferenceStatistical theory
+Population
+Statistic
+Probability distribution
+Sampling distribution
+Order statistic
+Empirical distribution
+Density estimation
+Statistical model
+Model specification
+Lp space
+Parameter
+location
+scale
+shape
+Parametric family
+Likelihood (monotone)
+Location–scale family
+Exponential family
+Completeness
+Sufficiency
+Statistical functional
+Bootstrap
+U
+V
+Optimal decision
+loss function
+Efficiency
+Statistical distance
+divergence
+Asymptotics
+Robustness
+Frequentist inferencePoint estimation
+Estimating equations
+Maximum likelihood
+Method of moments
+M-estimator
+Minimum distance
+Unbiased estimators
+Mean-unbiased minimum-variance
+Rao–Blackwellization
+Lehmann–Scheffé theorem
+Median unbiased
+Plug-in
+Interval estimation
+Confidence interval
+Pivot
+Likelihood interval
+Prediction interval
+Tolerance interval
+Resampling
+Bootstrap
+Jackknife
+Testing hypotheses
+1- & 2-tails
+Power
+Uniformly most powerful test
+Permutation test
+Randomization test
+Multiple comparisons
+Parametric tests
+Likelihood-ratio
+Score/Lagrange multiplier
+Wald
+Specific tests
+Z-test (normal)
+Student's t-test
+F-test
+Goodness of fit
+Chi-squared
+G-test
+Kolmogorov–Smirnov
+Anderson–Darling
+Lilliefors
+Jarque–Bera
+Normality (Shapiro–Wilk)
+Likelihood-ratio test
+Model selection
+Cross validation
+AIC
+BIC
+Rank statistics
+Sign
+Sample median
+Signed rank (Wilcoxon)
+Hodges–Lehmann estimator
+Rank sum (Mann–Whitney)
+Nonparametric anova
+1-way (Kruskal–Wallis)
+2-way (Friedman)
+Ordered alternative (Jonckheere–Terpstra)
+Van der Waerden test
+Bayesian inference
+Bayesian probability
+prior
+posterior
+Credible interval
+Bayes factor
+Bayesian estimator
+Maximum posterior estimator
+CorrelationRegression analysisCorrelation
+Pearson product-moment
+Partial correlation
+Confounding variable
+Coefficient of determination
+Regression analysis
+Errors and residuals
+Regression validation
+Mixed effects models
+Simultaneous equations models
+Multivariate adaptive regression splines (MARS)
+Linear regression
+Simple linear regression
+Ordinary least squares
+General linear model
+Bayesian regression
+Non-standard predictors
+Nonlinear regression
+Nonparametric
+Semiparametric
+Isotonic
+Robust
+Heteroscedasticity
+Homoscedasticity
+Generalized linear model
+Exponential families
+Logistic (Bernoulli) / Binomial / Poisson regressions
+Partition of variance
+Analysis of variance (ANOVA, anova)
+Analysis of covariance
+Multivariate ANOVA
+Degrees of freedom
+Categorical / Multivariate / Time-series / Survival analysisCategorical
+Cohen's kappa
+Contingency table
+Graphical model
+Log-linear model
+McNemar's test
+Cochran–Mantel–Haenszel statistics
+Multivariate
+Regression
+Manova
+Principal components
+Canonical correlation
+Discriminant analysis
+Cluster analysis
+Classification
+Structural equation model
+Factor analysis
+Multivariate distributions
+Elliptical distributions
+Normal
+Time-seriesGeneral
+Decomposition
+Trend
+Stationarity
+Seasonal adjustment
+Exponential smoothing
+Cointegration
+Structural break
+Granger causality
+Specific tests
+Dickey–Fuller
+Johansen
+Q-statistic (Ljung–Box)
+Durbin–Watson
+Breusch–Godfrey
+Time domain
+Autocorrelation (ACF)
+partial (PACF)
+Cross-correlation (XCF)
+ARMA model
+ARIMA model (Box–Jenkins)
+Autoregressive conditional heteroskedasticity (ARCH)
+Vector autoregression (VAR)
+Frequency domain
+Spectral density estimation
+Fourier analysis
+Least-squares spectral analysis
+Wavelet
+Whittle likelihood
+SurvivalSurvival function
+Kaplan–Meier estimator (product limit)
+Proportional hazards models
+Accelerated failure time (AFT) model
+First hitting time
+Hazard function
+Nelson–Aalen estimator
+Test
+Log-rank test
+ApplicationsBiostatistics
+Bioinformatics
+Clinical trials / studies
+Epidemiology
+Medical statistics
+Engineering statistics
+Chemometrics
+Methods engineering
+Probabilistic design
+Process / quality control
+Reliability
+System identification
+Social statistics
+Actuarial science
+Census
+Crime statistics
+Demography
+Econometrics
+Jurimetrics
+National accounts
+Official statistics
+Population statistics
+Psychometrics
+Spatial statistics
+Cartography
+Environmental statistics
+Geographic information system
+Geostatistics
+Kriging
+
+Category
+ Mathematics portal
+Commons
+ WikiProject
+
+
+
+

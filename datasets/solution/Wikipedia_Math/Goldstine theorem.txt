@@ -1,0 +1,326 @@
+In functional analysis, a branch of mathematics, the Goldstine theorem, named after Herman Goldstine, is stated as follows:
+
+Goldstine theorem. Let X be a Banach space, then the image of the closed unit ball B⊆X under the canonical embedding into the closed unit ball B′′^'' of the bidual space X′′^'' is a weak*-dense subset.
+The conclusion of the theorem is not true for the norm topology, which can be seen by considering the Banach space  of real sequences that converge to zero, c0 space c0,_0, and its bi-dual space Lp space ℓ∞.ℓ^∞.
+
+
+Proof[edit]
+Lemma[edit]
+For all x′′∈B′′,^''^'', φ1,…,φn∈X′φ_1,…,φ_n^' and δ>0,δ>0, there exists an x∈(1+δ)B∈(1+δ)B such that φi(x)=x′′(φi)φ_i(x)=x^''(φ_i) for all 1≤i≤n.1.
+
+Proof of lemma[edit]
+By the surjectivity of
+Φ:X→Cn,x↦(φ1(x),⋯,φn(x))Φ:X→ℂ^n,
+x↦(φ_1(x),⋯,φ_n(x))
+it is possible to find x∈X with φi(x)=x′′(φi)φ_i(x)=x^''(φ_i) for 1≤i≤n.1.
+Now let
+Y:=⋂iker⁡φi=ker⁡Φ.:=⋂_iφ_i=Φ.
+Every element of z∈(x+Y)∩(1+δ)B∈(x+Y)∩(1+δ)B satisfies z∈(1+δ)B∈(1+δ)B and φi(z)=φi(x)=x′′(φi),φ_i(z)=φ_i(x)=x^''(φ_i), so it suffices to show that the intersection is nonempty.
+Assume for contradiction that it is empty. Then dist⁡(x,Y)≥1+δdist(x,Y)≥1+δ and by the Hahn–Banach theorem there exists a linear form φ∈X′φ^' such that φ|Y=0,φ(x)≥1+δφ|_Y=0,φ(x)≥1+δ and ‖φ‖X′=1.φ_X^'=1. Then φ∈span⁡φ1,…,φnφ∈span{φ_1,…,φ_n}[1] and therefore
+1+δ≤φ(x)=x′′(φ)≤‖φ‖X′‖x′′‖X′′≤1,1+δ≤φ(x)=x^''(φ)≤φ_X^'x^''_X^''≤1,
+which is a contradiction.
+
+Proof of theorem[edit]
+Fix x′′∈B′′,^''^'', φ1,…,φn∈X′φ_1,…,φ_n^' and ϵ>0.ϵ>0. Examine the set
+U:=y′′∈X′′:|(x′′−y′′)(φi)|<ϵ,1≤i≤n.:={y^''^'':|(x^''-y^'')(φ_i)|<ϵ,1}.
+Let J:X→X′′:X^'' be the embedding defined by J(x)=Evx,(x)=Ev_x, where Evx(φ)=φ(x)Ev_x(φ)=φ(x) is the evaluation at x map. Sets of the form U form a base for the weak* topology,[2] so density follows once it is shown J(B)∩U≠∅(B)≠∅ for all such U.. The lemma above says that for any δ>0δ>0 there exists a x∈(1+δ)B∈(1+δ)B such that x′′(φi)=φi(x),^''(φ_i)=φ_i(x), 1≤i≤n,1, and in particular Evx∈U.Ev_x.  Since J(B)⊂B′′,(B)^'', we have Evx∈(1+δ)J(B)∩U.Ev_x∈(1+δ)J(B). We can scale to get 11+δEvx∈J(B).1/1+δEv_x(B). The goal is to show that for a sufficiently small δ>0,δ>0, we have 11+δEvx∈J(B)∩U.1/1+δEv_x(B).
+Directly checking, one has
+|[x′′−11+δEvx](φi)|=|φi(x)−11+δφi(x)|=δ1+δ|φi(x)|.|[x^''-1/1+δEv_x](φ_i)|=|φ_i(x)-1/1+δφ_i(x)|=δ/1+δ|φ_i(x)|.
+Note that one can choose M sufficiently large so that ‖φi‖X′≤Mφ_i_X^' for 1≤i≤n.1.[3] Note as well that ‖x‖X≤(1+δ).x_X≤(1+δ). If one chooses δδ so that δM<ϵ,<ϵ, then
+δ1+δ|φi(x)|≤δ1+δ‖φi‖X′‖x‖X≤δ‖φi‖X′≤δM<ϵ.δ/1+δ|φ_i(x)|≤δ/1+δφ_i_X^'x_X≤δφ_i_X^'≤<ϵ.
+Hence one gets 11+δEvx∈J(B)∩U1/1+δEv_x(B) as desired.
+
+See also[edit]
+Banach–Alaoglu theorem – Theorem in functional analysis
+Bishop–Phelps theorem
+Eberlein–Šmulian theorem – Relates three different kinds of weak compactness in a Banach space
+James' theorem – theorem in mathematicsPages displaying wikidata descriptions as a fallback
+Mazur's lemma – On strongly convergent combinations of a weakly convergent sequence in a Banach space
+References[edit]
+
+
+^ Rudin, Walter. Functional Analysis (Second ed.). Lemma 3.9. pp. 63–64.{{cite book}}:  CS1 maint: location (link)
+
+^ Rudin, Walter. Functional Analysis (Second ed.). Equation (3) and the remark after. p. 69.{{cite book}}:  CS1 maint: location (link)
+
+^ Folland, Gerald. Real Analysis: Modern Techniques and Their Applications (Second ed.). Proposition 5.2. pp. 153–154.{{cite book}}:  CS1 maint: location (link)
+
+
+Rudin, Walter (1991). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 8 (Second ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 978-0-07-054236-5. OCLC 21163277.
+vteBanach space topicsTypes of Banach spaces
+Asplund
+Banach
+list
+Banach lattice
+Grothendieck 
+Hilbert
+Inner product space
+Polarization identity
+(Polynomially) Reflexive
+Riesz
+L-semi-inner product
+(B
+Strictly
+Uniformly) convex
+Uniformly smooth
+(Injective
+Projective) Tensor product (of Hilbert spaces)
+Banach spaces are:
+Barrelled
+Complete
+F-space
+Fréchet
+tame
+Locally convex
+Seminorms/Minkowski functionals
+Mackey
+Metrizable
+Normed
+norm
+Quasinormed
+Stereotype
+Function space Topologies
+Banach–Mazur compactum
+Dual
+Dual space
+Dual norm
+Operator
+Ultraweak
+Weak
+polar
+operator
+Strong
+polar
+operator
+Ultrastrong
+Uniform convergence
+Linear operators
+Adjoint
+Bilinear
+form
+operator
+sesquilinear
+(Un)Bounded
+Closed
+Compact
+on Hilbert spaces
+(Dis)Continuous
+Densely defined
+Fredholm
+kernel
+operator
+Hilbert–Schmidt
+Functionals
+positive
+Pseudo-monotone
+Normal
+Nuclear
+Self-adjoint
+Strictly singular
+Trace class
+Transpose
+Unitary
+Operator theory
+Banach algebras
+C*-algebras
+Operator space
+Spectrum
+C*-algebra
+radius
+Spectral theory
+of ODEs
+Spectral theorem
+Polar decomposition
+Singular value decomposition
+Theorems
+Anderson–Kadec
+Banach–Alaoglu
+Banach–Mazur
+Banach–Saks
+Banach–Schauder (open mapping)
+Banach–Steinhaus (Uniform boundedness)
+Bessel's inequality
+Cauchy–Schwarz inequality
+Closed graph
+Closed range
+Eberlein–Šmulian
+Freudenthal spectral
+Gelfand–Mazur
+Gelfand–Naimark
+Goldstine
+Hahn–Banach
+hyperplane separation
+Kakutani fixed-point
+Krein–Milman
+Lomonosov's invariant subspace
+Mackey–Arens
+Mazur's lemma
+M. Riesz extension
+Parseval's identity
+Riesz's lemma
+Riesz representation
+Robinson-Ursescu
+Schauder fixed-point
+Analysis
+Abstract Wiener space
+Banach manifold
+bundle
+Bochner space
+Convex series
+Differentiation in Fréchet spaces
+Derivatives
+Fréchet
+Gateaux
+functional
+holomorphic
+quasi
+Integrals
+Bochner
+Dunford
+Gelfand–Pettis
+regulated
+Paley–Wiener
+weak
+Functional calculus
+Borel
+continuous
+holomorphic
+Measures
+Lebesgue
+Projection-valued
+Vector
+Weakly / Strongly measurable function
+Types of sets
+Absolutely convex
+Absorbing
+Affine
+Balanced/Circled
+Bounded
+Convex
+Convex cone (subset)
+Convex series related ((cs, lcs)-closed, (cs, bcs)-complete, (lower) ideally convex, (Hx), and (Hwx))
+Linear cone (subset)
+Radial
+Radially convex/Star-shaped
+Symmetric
+Zonotope
+Subsets / set operations
+Affine hull
+(Relative) Algebraic interior (core)
+Bounding points
+Convex hull
+Extreme point
+Interior
+Linear span
+Minkowski addition
+Polar
+(Quasi) Relative interior
+Examples
+Absolute continuity AC
+ba(Σ)(Σ)
+c space
+Banach coordinate BK
+Besov Bp,qs(R)_p,q^s(ℝ)
+Birnbaum–Orlicz
+Bounded variation BV
+Bs space
+Continuous C(K) with K compact Hausdorff
+Hardy Hp
+Hilbert H
+Morrey–Campanato Lλ,p(Ω)^λ,p(Ω)
+ℓp
+ℓ∞ℓ^∞
+Lp
+L∞^∞
+weighted
+Schwartz S(Rn)(ℝ^n)
+Segal–Bargmann F
+Sequence space
+Sobolev Wk,p
+Sobolev inequality
+Triebel–Lizorkin
+Wiener amalgam W(X,Lp)(X,L^p)
+Applications
+Differential operator
+Finite element method
+Mathematical formulation of quantum mechanics
+Ordinary Differential Equations (ODEs)
+Validated numerics
+
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

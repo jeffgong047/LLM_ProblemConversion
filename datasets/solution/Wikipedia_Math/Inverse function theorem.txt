@@ -1,0 +1,543 @@
+Theorem in mathematics
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vte
+In mathematics, specifically differential calculus, the inverse function theorem gives a sufficient condition for a function to be invertible in a neighborhood of a point in its domain: namely, that its derivative is continuous and non-zero at the point. The theorem also gives a formula for the derivative of the inverse function.
+In multivariable calculus, this theorem can be generalized to any continuously differentiable, vector-valued function whose Jacobian determinant is nonzero at a point in its domain, giving a formula for the Jacobian matrix of the inverse. There are also versions of the inverse function theorem for complex holomorphic functions, for differentiable maps between manifolds, for differentiable functions between Banach spaces, and so forth.
+The theorem was first established by Picard and Goursat using an iterative scheme: the basic idea is to prove a fixed point theorem using the contraction mapping theorem.
+
+
+Statements[edit]
+For functions of a single variable, the theorem states that if f is a continuously differentiable function with nonzero derivative at the point a; then f is injective (or bijective onto the image) in a neighborhood of a, the inverse is continuously differentiable near b=f(a)=f(a), and the derivative of the inverse function at b is the reciprocal of the derivative of f at a:
+(f−1)′(b)=1f′(a)=1f′(f−1(b)).(f^-1)'(b)=1/f'(a)=1/f'(f^-1(b)).
+It can happen that a function f may be injective near a point a while f′(a)=0'(a)=0. An example is f(x)=(x−a)3(x)=(x-a)^3. In fact, for such a function, the inverse cannot be differentiable at b=f(a)=f(a), since if f−1^-1 were differentiable at b, then, by the chain rule, 1=(f−1∘f)′(a)=(f−1)′(b)f′(a)1=(f^-1)'(a)=(f^-1)'(b)f'(a), which implies f′(a)≠0'(a)≠0. (The situation is different for holomorphic functions; see #Holomorphic inverse function theorem below.)
+For functions of more than one variable, the theorem states that if f is a continuously differentiable function from an open subset A of Rnℝ^n into Rnℝ^n, and the derivative f′(a)'(a) is invertible at a point a (that is, the determinant of the Jacobian matrix of f at a is non-zero), then there exist neighborhoods U of a in A and V of b=f(a)=f(a) such that f(U)⊂V(U) and f:U→V:U is bijective.[1] Writing f=(f1,…,fn)=(f_1,…,f_n), this means that the system of n equations yi=fi(x1,…,xn)_i=f_i(x_1,…,x_n) has a unique solution for x1,…,xn_1,…,x_n in terms of y1,…,yn_1,…,y_n when x∈U,y∈V,y. Note that the theorem does not say f is bijective onto the image where f′' is invertible but that it is locally bijective where f′' is invertible.
+Moreover, the theorem says that the inverse function f−1:V→U^-1:V is continuously differentiable, and its derivative at b=f(a)=f(a) is the inverse map of f′(a)'(a); i.e.,
+
+(f−1)′(b)=f′(a)−1.(f^-1)'(b)=f'(a)^-1.
+In other words, if Jf−1(b),Jf(a)^-1(b),Jf(a) are the Jacobian matrices representing (f−1)′(b),f′(a)(f^-1)'(b),f'(a), this means:
+
+Jf−1(b)=Jf(a)−1.^-1(b)=Jf(a)^-1.
+The hard part of the theorem is the existence and differentiability of f−1^-1. Assuming this, the inverse derivative formula follows from the chain rule applied to f−1∘f=I^-1=I. (Indeed, I=(f−1∘f)′(a)=(f−1)′(b)∘f′(a).=(f^-1)^'(a)=(f^-1)'(b)'(a).) Since taking the inverse is infinitely differentiable, the formula for the derivative of the inverse shows that if f is continuously k times differentiable, with invertible derivative at the point a, then the inverse is also continuously k times differentiable. Here k is a positive integer or ∞∞.
+There are two variants of the inverse function theorem.[1] Given a continuously differentiable map f:U→Rm:U→ℝ^m, the first is
+
+The derivative f′(a)'(a) is surjective (i.e., the Jacobian matrix representing it has rank m) if and only if there exists a continuously differentiable function g on a neighborhood V of b=f(a)=f(a) such f∘g=I=I near b,
+and the second is
+
+The derivative f′(a)'(a) is injective if and only if there exists a continuously differentiable function g on a neighborhood V of b=f(a)=f(a) such g∘f=I=I near a.
+In the first case (when f′(a)'(a) is surjective), the point b=f(a)=f(a) is called a regular value. Since m=dim⁡ker⁡(f′(a))+dim⁡im⁡(f′(a))=(f'(a))+im(f'(a)), the first case is equivalent to saying b=f(a)=f(a) is not in the image of critical points a (a critical point is a point a such that the kernel of f′(a)'(a) is nonzero). The statement in the first case is a special case of the submersion theorem.
+These variants are restatements of the inverse functions theorem. Indeed, in the first case when f′(a)'(a) is surjective, we can find an (injective) linear map T such that f′(a)∘T=I'(a)=I. Define h(x)=a+Tx(x)=a+Tx so that we have:
+
+(f∘h)′(0)=f′(a)∘T=I.(f)'(0)=f'(a)=I.
+Thus, by the inverse function theorem, f∘h has inverse near 00; i.e., f∘h∘(f∘h)−1=I∘(f)^-1=I near b. The second case (f′(a)'(a) is injective) is seen in the similar way.
+
+Example[edit]
+Consider the vector-valued function F:R2→R2:ℝ^2→ℝ^2 defined by:
+
+F(x,y)=[excos⁡yexsin⁡y].(x,y)=[ e^x; e^x;  ].
+The Jacobian matrix is:
+
+JF(x,y)=[excos⁡y−exsin⁡yexsin⁡yexcos⁡y]_F(x,y)=[  e^x -e^x;  e^x  e^x;  ]
+with Jacobian determinant:
+
+detJF(x,y)=e2xcos2⁡y+e2xsin2⁡y=e2x._F(x,y)=e^2xcos^2y+e^2xsin^2y=e^2x. 
+The determinant e2x^2x is nonzero everywhere.  Thus the theorem guarantees that, for every point p in R2ℝ^2, there exists a neighborhood about p over which F is invertible. This does not mean F is invertible over its entire domain: in this case F is not even injective since it is periodic: F(x,y)=F(x,y+2π)(x,y)=F(x,y+2π).
+
+Counter-example[edit]
+The function f(x)=x+2x2sin⁡(1x)(x)=x+2x^2sin(1x) is bounded inside a quadratic envelope near the line y=x=x, so f′(0)=1'(0)=1. Nevertheless, it has local max/min points accumulating at x=0=0, so it is not one-to-one on any surrounding interval.
+If one drops the assumption that the derivative is continuous, the function no longer need be invertible. For example f(x)=x+2x2sin⁡(1x)(x)=x+2x^2sin(1x) and f(0)=0(0)=0 has discontinuous derivative
+f′(x)=1−2cos⁡(1x)+4xsin⁡(1x)'(x)=1-2cos(1x)+4xsin(1x) and f′(0)=1'(0)=1, which vanishes arbitrarily close to x=0=0. These critical points are local max/min points of f, so f is not one-to-one (and not invertible) on any interval containing x=0=0. Intuitively, the slope f′(0)=1'(0)=1 does not propagate to nearby points, where the slopes are governed by a weak but rapid oscillation.
+
+Methods of proof[edit]
+As an important result, the inverse function theorem has been given numerous proofs. The proof most commonly seen in textbooks relies on the contraction mapping principle, also known as the Banach fixed-point theorem (which can also be used as the key step in the proof of existence and uniqueness of solutions to ordinary differential equations).[2][3]
+Since the fixed point theorem applies in infinite-dimensional (Banach space) settings, this proof generalizes immediately to the infinite-dimensional version of the inverse function theorem[4] (see Generalizations below).
+An alternate proof in finite dimensions hinges on the extreme value theorem for functions on a compact set.[5]
+Yet another proof uses Newton's method, which has the advantage of providing an effective version of the theorem: bounds on the derivative of the function imply an estimate of the size of the neighborhood on which the function is invertible.[6]
+
+A proof using successive approximation[edit]
+To prove existence, it can be assumed after an affine transformation that f(0)=0(0)=0 and f′(0)=I^'(0)=I, so that a=b=0=b=0.
+By the mean value theorem for vector-valued functions, for a function u:[0,1]→Rm:[0,1]→ℝ^m, ‖u(1)−u(0)‖≤sup0≤t≤1‖u′(t)‖u(1)-u(0)≤sup_0≤1u^'(t). Setting u(t)=f(x+t(x′−x))−x−t(x′−x)(t)=f(x+t(x^'-x))-x-t(x^'-x), it follows that
+
+‖f(x)−f(x′)−x+x′‖≤‖x−x′‖sup0≤t≤1‖f′(x+t(x′−x))−I‖.f(x)-f(x^')-x+x^'≤x-x^' sup_0≤1f^'(x+t(x^'-x))-I.
+Now choose δ>0δ>0 so that ‖f′(x)−I‖<12f'(x)-I<12 for ‖x‖<δx<δ. Suppose that ‖y‖<δ/2y<δ/2 and define xn_n inductively by x0=0_0=0 and xn+1=xn+y−f(xn)_n+1=x_n+y-f(x_n). The assumptions show that if ‖x‖,‖x′‖<δx,  x^'<δ then
+
+‖f(x)−f(x′)−x+x′‖≤‖x−x′‖/2f(x)-f(x^')-x+x^'≤x-x^'/2.
+In particular f(x)=f(x′)(x)=f(x^') implies x=x′=x^'. In the inductive scheme ‖xn‖<δx_n<δ
+and ‖xn+1−xn‖<δ/2nx_n+1-x_n<δ/2^n. Thus (xn)(x_n) is a Cauchy sequence tending to x. By construction f(x)=y(x)=y as required.
+To check that g=f−1=f^-1 is C1, write g(y+k)=x+h(y+k)=x+h so that
+f(x+h)=f(x)+k(x+h)=f(x)+k. By the inequalities above, ‖h−k‖<‖h‖/2h-k<h/2 so that ‖h‖/2<‖k‖<2‖h‖h/2<k<2h.
+On the other hand if A=f′(x)=f^'(x), then ‖A−I‖<1/2A-I<1/2. Using the geometric series for B=I−A=I-A, it follows that ‖A−1‖<2A^-1<2. But then
+
+‖g(y+k)−g(y)−f′(g(y))−1k‖‖k‖=‖h−f′(x)−1[f(x+h)−f(x)]‖‖k‖≤4‖f(x+h)−f(x)−f′(x)h‖‖h‖g(y+k)-g(y)-f^'(g(y))^-1kk=h-f^'(x)^-1[f(x+h)-f(x)]k≤4f(x+h)-f(x)-f^'(x)hh
+tends to 0 as k and h tend to 0, proving that g is C1 with g′(y)=f′(g(y))−1^'(y)=f^'(g(y))^-1.
+The proof above is presented for a finite-dimensional space, but applies equally well for Banach spaces.  If an invertible function f is Ck with k>1>1, then so too is its inverse. This follows by induction using the fact that the map F(A)=A−1(A)=A^-1 on operators is Ck for any k (in the finite-dimensional case this is an elementary fact because the inverse of a matrix is given as the adjugate matrix divided by its determinant).
+[1][7] The method of proof here can be found in the books of Henri Cartan, Jean Dieudonné, Serge Lang, Roger Godement and Lars Hörmander.
+
+A proof using the contraction mapping principle[edit]
+Here is a proof based on the contraction mapping theorem. Specifically, following T. Tao,[8] it uses the following consequence of the contraction mapping theorem.
+
+
+Lemma — Let B(0,r)(0,r) denote an open ball of radius r in Rnℝ^n with center 0. If g:B(0,r)→Rn:B(0,r)→ℝ^n is a map such that g(0)=0(0)=0 and there exists a constant 0<c<10<c<1 such that 
+
+|g(y)−g(x)|≤c|y−x||g(y)-g(x)||y-x|
+for all x,y,y in B(0,r)(0,r), then f=I+g=I+g is injective on B(0,r)(0,r) and B(0,(1−c)r)⊂f(B(0,r))⊂B(0,(1+c)r)(0,(1-c)r)(B(0,r))(0,(1+c)r).
+(More generally, the statement remains true if Rnℝ^n is replaced by a Banach space.)
+
+
+Basically, the lemma says that a small perturbation of the identity map by a contraction map is injective and preserves a ball in some sense. Assuming the lemma for a moment, we prove the theorem first. As in the above proof, it is enough to prove the special case when a=0,b=f(a)=0=0,b=f(a)=0 and f′(0)=I'(0)=I. Let g=f−I=f-I. The mean value inequality applied to t↦g(x+t(y−x))(x+t(y-x)) says:
+
+|g(y)−g(x)|≤|y−x|sup0<t<1|g′(x+t(y−x))|.|g(y)-g(x)|≤|y-x|sup_0<t<1|g'(x+t(y-x))|.
+Since g′(0)=I−I=0'(0)=I-I=0 and g′' is continuous, we can find an r>0>0 such that
+
+|g(y)−g(x)|≤2−1|y−x||g(y)-g(x)|≤2^-1|y-x|
+for all x,y,y in B(0,r)(0,r). Then the early lemma says that f=g+I=g+I is injective on B(0,r)(0,r) and B(0,r/2)⊂f(B(0,r))(0,r/2)(B(0,r)). Then
+
+f:U=B(0,r)∩f−1(B(0,r/2))→V=B(0,r/2):U=B(0,r)^-1(B(0,r/2))=B(0,r/2)
+is bijective and thus has an inverse. Next, we show the inverse f−1^-1 is continuously differentiable (this part of the argument is the same as that in the previous proof). This time, let g=f−1=f^-1 denote the inverse of f and A=f′(x)=f'(x). For x=g(y)=g(y), we write g(y+k)=x+h(y+k)=x+h or y+k=f(x+h)+k=f(x+h). Now, by the early estimate, we have
+
+|h−k|=|f(x+h)−f(x)−h|≤|h|/2|h-k|=|f(x+h)-f(x)-h|≤|h|/2
+and so |h|/2≤|k||h|/2≤|k|. Writing ‖⋅‖· for the operator norm,
+
+|g(y+k)−g(y)−A−1k|=|h−A−1(f(x+h)−f(x))|≤‖A−1‖|Ah−f(x+h)+f(x)|.|g(y+k)-g(y)-A^-1k|=|h-A^-1(f(x+h)-f(x))|≤A^-1|Ah-f(x+h)+f(x)|.
+As k→0→0, we have h→0→0 and |h|/|k||h|/|k| is bounded. Hence, g is differentiable at y with the derivative g′(y)=f′(g(y))−1'(y)=f'(g(y))^-1. Also, g′' is the same as the composition ι∘f′∘gι' where ι:T↦T−1ι:T^-1; so g′' is continuous.
+It remains to show the lemma. First, the map f is injective on B(0,r)(0,r) since if f(x)=f(y)(x)=f(y), then g(y)−g(x)=x−y(y)-g(x)=x-y and so
+
+|g(y)−g(x)|=|y−x||g(y)-g(x)|=|y-x|,
+which is a contradiction unless y=x=x. (This part does not need the assumption g(0)=0(0)=0.) Next we show f(B(0,r))⊃B(0,(1−c)r)(B(0,r))(0,(1-c)r). The idea is to note that this is equivalent to, given a point y in B(0,(1−c)r)(0,(1-c)r), find a fixed point of the map
+
+F:B¯(0,r′)→B¯(0,r′),x↦y−g(x):B(0,r')→B(0,r'), x-g(x)
+where 0<r′<r0<r'<r such that |y|≤(1−c)r′|y|≤(1-c)r' and the bar means a closed ball. To find a fixed point, we use the contraction mapping theorem and checking that F is a well-defined strict-contraction mapping is straightforward. Finally, we have: f(B(0,r))⊂B(0,(1+c)r)(B(0,r))(0,(1+c)r) since
+
+|f(x)|=|x+g(x)−g(0)|≤(1+c)|x|.◻|f(x)|=|x+g(x)-g(0)|≤(1+c)|x|.□
+As might be clear, this proof is not substantially different from the previous one, as the proof of the contraction mapping theorem is by successive approximation.
+
+Applications[edit]
+Implicit function theorem[edit]
+The inverse function theorem can be used to solve a system of equations
+
+f1(x)=y1⋮fn(x)=yn,   f_1(x)=y_1
+     ⋮
+   f_n(x)=y_n,
+i.e., expressing y1,…,yn_1,…,y_n as functions of x=(x1,…,xn)=(x_1,…,x_n), provided the Jacobian matrix is invertible. The implicit function theorem allows to solve a more general system of equations:
+
+f1(x,y)=0⋮fn(x,y)=0   f_1(x,y)=0
+     ⋮
+   f_n(x,y)=0
+for y in terms of x. Though more general, the theorem is actually a consequence of the inverse function theorem. First, the precise statement of the implicit function theorem is as follows:[9]
+
+given a map f:Rn×Rm→Rm:ℝ^n×ℝ^m→ℝ^m, if f(a,b)=0(a,b)=0, f is continuously differentiable in a neighborhood of (a,b)(a,b) and the derivative of y↦f(a,y)(a,y) at b is invertible, then there exists a differentiable map g:U→V:U for some neighborhoods U,V,V of a,b,b such that f(x,g(x))=0(x,g(x))=0. Moreover, if f(x,y)=0,x∈U,y∈V(x,y)=0,x,y, then y=g(x)=g(x); i.e., g(x)(x) is a unique solution.
+To see this, consider the map F(x,y)=(x,f(x,y))(x,y)=(x,f(x,y)). By the inverse function theorem, F:U×V→W:U has the inverse G for some neighborhoods U,V,W,V,W. We then have:
+
+(x,y)=F(G1(x,y),G2(x,y))=(G1(x,y),f(G1(x,y),G2(x,y)),(x,y)=F(G_1(x,y),G_2(x,y))=(G_1(x,y),f(G_1(x,y),G_2(x,y)),
+implying x=G1(x,y)=G_1(x,y) and y=f(x,G2(x,y)).=f(x,G_2(x,y)). Thus g(x)=G2(x,0)(x)=G_2(x,0) has the required property. ◻□
+
+Giving a manifold structure[edit]
+In differential geometry, the inverse function theorem is used to show that the pre-image of a regular value under a smooth map is a manifold.[10] Indeed, let f:U→Rr:U→ℝ^r be such a smooth map from an open subset of Rnℝ^n (since the result is local, there is no loss of generality with considering such a map). Fix a point a in f−1(b)^-1(b) and then, by permuting the coordinates on Rnℝ^n, assume the matrix [∂fi∂xj(a)]1≤i,j≤r[_i/_j(a)]_1,j has rank r. Then the map F:U→Rr×Rn−r=Rn,x↦(f(x),xr+1,…,xn):U→ℝ^r×ℝ^n-r=ℝ^n, x↦(f(x),x_r+1,…,x_n) is such that F′(a)'(a) has rank n. Hence, by the inverse function theorem, we find the smooth inverse G of F defined in a neighborhood V×W of (b,ar+1,…,an)(b,a_r+1,…,a_n). We then have
+
+x=(F∘G)(x)=(f(G(x)),Gr+1(x),…,Gn(x)),=(F)(x)=(f(G(x)),G_r+1(x),…,G_n(x)),
+which implies
+
+(f∘G)(x1,…,xn)=(x1,…,xr).(f)(x_1,…,x_n)=(x_1,…,x_r).
+That is, after the change of coordinates by G, f is a coordinate projection (this fact is known as the submersion theorem). Moreover, since G:V×W→U′=G(V×W):V'=G(V) is bijective, the map
+
+g=G(b,⋅):W→f−1(b)∩U′,(xr+1,…,xn)↦G(b,xr+1,…,xn)=G(b,·):W^-1(b)', (x_r+1,…,x_n)(b,x_r+1,…,x_n)
+is bijective with the smooth inverse. That is to say, g gives a local parametrization of f−1(b)^-1(b) around a. Hence, f−1(b)^-1(b) is a manifold. ◻□ (Note the proof is quite similar to the proof of the implicit function theorem and, in fact, the implicit function theorem can be also used instead.)
+More generally, the theorem shows that if a smooth map f:P→E:P is transversal to a submanifold M⊂E, then the pre-image f−1(M)↪P^-1(M) is a submanifold.[11]
+
+Global version[edit]
+The inverse function theorem is a local result; it applies to each point. A priori, the theorem thus only shows the function f is locally bijective (or locally diffeomorphic of some class). The next topological lemma can be used to upgrade local injectivity to injectivity that is global to some extent.
+
+
+Lemma — [12][full citation needed][13] If A is a closed subset of a (second-countable) topological manifold X (or, more generally, a topological space admitting an exhaustion by compact subsets) and f:X→Z:X, Z some topological space, is a local homeomorphism that is injective on A, then f is injective on some neighborhood of A.
+
+
+Proof:[14] First assume X is compact. If the conclusion of the theorem is false, we can find two sequences xi≠yi_i_i such that f(xi)=f(yi)(x_i)=f(y_i) and xi,yi_i,y_i each converge to some points x,y,y in A. Since f is injective on A, x=y=y. Now, if i is large enough, xi,yi_i,y_i are in a neighborhood of x=y=y where f is injective; thus, xi=yi_i=y_i, a contradiction.
+In general, consider the set E=(x,y)∈X2∣x≠y,f(x)=f(y)={(x,y)^2,f(x)=f(y)}. It is disjoint from S×S for any subset S⊂X where f is injective. Let X1⊂X2⊂⋯_1_2⊂⋯ be an increasing sequence of compact subsets with union X and with Xi_i contained in the interior of Xi+1_i+1. Then, by the first part of the proof, for each i, we can find a neighborhood Ui_i of A∩Xi_i such that Ui2⊂X2−E_i^2^2-E. Then U=⋃iUi=⋃_iU_i has the required property. ◻□ (See also [15] for an alternative approach.)
+The lemma implies the following (a sort of) global version of the inverse function theorem:
+
+
+Inverse function theorem — [16] Let f:U→V:U be a map between open subsets of Rn,Rmℝ^n,ℝ^m or more generally of manifolds. Assume f is continuously differentiable (or is Ck^k). If f is injective on a closed subset A⊂U and if the Jacobian matrix of f is invertible at each point of A, then f is injective in a neighborhood A′' of A and f−1:f(A′)→A′^-1:f(A')' is continuously differentiable (or is Ck^k).
+
+
+Note that if A is a point, then the above is the usual inverse function theorem.
+
+Holomorphic inverse function theorem[edit]
+There is a version of the inverse function theorem for holomorphic maps.
+
+
+Theorem — [17][18] Let U,V⊂Cn,V⊂ℂ^n be open subsets such that 0∈U0 and f:U→V:U a holomorphic map whose Jacobian matrix in variables zi,z¯i_i,z_i is invertible (the determinant is nonzero) at 00. Then f is injective in some neighborhood W of 00 and the inverse f−1:f(W)→W^-1:f(W) is holomorphic.
+
+
+The theorem follows from the usual inverse function theorem. Indeed, let JR(f)_ℝ(f) denote the Jacobian matrix of f in variables xi,yi_i,y_i and J(f)(f) for that in zj,z¯j_j,z_j. Then we have detJR(f)=|detJ(f)|2_ℝ(f)=|(f)|^2, which is nonzero by assumption. Hence, by the usual inverse function theorem, f is injective near 00 with continuously differentiable inverse. By chain rule, with w=f(z)=f(z),
+
+∂∂z¯j(fj−1∘f)(z)=∑k∂fj−1∂wk(w)∂fk∂z¯j(z)+∑k∂fj−1∂w¯k(w)∂f¯k∂z¯j(z)∂/∂z_j(f_j^-1)(z)=∑_k_j^-1/_k(w)_k/∂z_j(z)+∑_k_j^-1/∂w_k(w)∂f_k/∂z_j(z)
+where the left-hand side and the first term on the right vanish since fj−1∘f_j^-1 and fk_k are holomorphic. Thus, ∂fj−1∂w¯k(w)=0_j^-1/∂w_k(w)=0 for each k. ◻□
+Similarly, there is the implicit function theorem for holomorphic functions.[19]
+As already noted earlier, it can happen that an injective smooth function has the inverse that is not smooth (e.g., f(x)=x3(x)=x^3 in a real variable). This is not the case for holomorphic functions because of:
+
+
+Proposition — [19] If f:U→V:U is an injective holomorphic map between open subsets of Cnℂ^n, then f−1:f(U)→U^-1:f(U) is holomorphic.
+
+
+Formulations for manifolds[edit]
+The inverse function theorem can be rephrased in terms of differentiable maps between differentiable manifolds. In this context the theorem states that for a differentiable map F:M→N:M (of class C1^1), if the differential of F,
+
+dFp:TpM→TF(p)N_p:T_pM_F(p)N
+is a linear isomorphism at a point p in M then there exists an open neighborhood U of p such that
+
+F|U:U→F(U)|_U:U(U)
+is a diffeomorphism. Note that this implies that the connected components of M and N containing p and F(p) have the same dimension, as is already directly implied from the assumption that dFp is an isomorphism.
+If the derivative of F is an isomorphism at all points p in M then the map F is a local diffeomorphism.
+
+Generalizations[edit]
+Banach spaces[edit]
+The inverse function theorem can also be generalized to differentiable maps between Banach spaces X and Y.[20] Let U be an open neighbourhood of the origin in X and F:U→Y:U a continuously differentiable function, and assume that the Fréchet derivative dF0:X→Y_0:X of F at 0 is a bounded linear isomorphism of X onto Y. Then there exists an open neighbourhood V of F(0)(0) in Y and a continuously differentiable map G:V→X:V such that F(G(y))=y(G(y))=y for all y in V. Moreover, G(y)(y) is the only sufficiently small solution x of the equation F(x)=y(x)=y.
+There is also the inverse function theorem for Banach manifolds.[21]
+
+Constant rank theorem[edit]
+The inverse function theorem (and the implicit function theorem) can be seen as a special case of the constant rank theorem, which states that a smooth map with constant rank near a point can be put in a particular normal form near that point.[22] Specifically, if F:M→N:M has constant rank near a point p∈M, then there are open neighborhoods U of p and V of F(p)(p) and there are diffeomorphisms u:TpM→U:T_pM and v:TF(p)N→V:T_F(p)N such that F(U)⊆V(U) and such that the derivative dFp:TpM→TF(p)N_p:T_pM_F(p)N is equal to v−1∘F∘u^-1. That is, F "looks like" its derivative near p.  The set of points p∈M such that the rank is constant in a neighborhood of p is an open dense subset of M; this is a consequence of semicontinuity of the rank function. Thus the constant rank theorem applies to a generic point of the domain.
+When the derivative of F is injective (resp. surjective) at a point p, it is also injective (resp. surjective) in a neighborhood of p, and hence the rank of F is constant on that neighborhood, and the constant rank theorem applies.
+
+Polynomial functions[edit]
+If it is true, the Jacobian conjecture would be a variant of the inverse function theorem for polynomials. It states that if a vector-valued polynomial function has a Jacobian determinant that is an invertible polynomial (that is a nonzero constant), then it has an inverse that is also a polynomial function. It is unknown whether this is true or false, even in the case of two variables. This is a major open problem in the theory of polynomials.
+
+Selections[edit]
+When f:Rn→Rm:ℝ^n→ℝ^m with m≤n, f is k times continuously differentiable, and the Jacobian A=∇f(x¯)=(x) at a point x¯x is of rank m, the inverse of f may not be unique. However, there exists a local selection function s such that f(s(y))=y(s(y))=y for all y in a neighborhood of y¯=f(x¯)y=f(x), s(y¯)=x¯(y)=x, s is k times continuously differentiable in this neighborhood, and ∇s(y¯)=AT(AAT)−1(y)=A^T(AA^T)^-1 (∇s(y¯)(y) is the Moore–Penrose pseudoinverse of A).[23]
+
+See also[edit]
+Nash–Moser theorem
+Notes[edit]
+
+
+^ a b c Theorem 1.1.7. in Hörmander, Lars (2015). The Analysis of Linear Partial Differential Operators I: Distribution Theory and Fourier Analysis. Classics in Mathematics (2nd ed.). Springer. ISBN 9783642614972.
+
+^ McOwen, Robert C. (1996). "Calculus of Maps between Banach Spaces". Partial Differential Equations: Methods and Applications. Upper Saddle River, NJ: Prentice Hall. pp. 218–224. ISBN 0-13-121880-8.
+
+^ Tao, Terence (September 12, 2011). "The inverse function theorem for everywhere differentiable maps". Retrieved 2019-07-26.
+
+^ Jaffe, Ethan. "Inverse Function Theorem" (PDF).
+
+^ Spivak 1965, pages 31–35
+
+^ Hubbard, John H.; Hubbard, Barbara Burke (2001). Vector Analysis, Linear Algebra, and Differential Forms: A Unified Approach (Matrix ed.).
+
+^ Cartan, Henri (1971). Calcul Differentiel (in French). Hermann. pp. 55–61. ISBN 9780395120330.
+
+^ Theorem 17.7.2 in Tao, Terence (2014). Analysis. II. Texts and Readings in Mathematics. Vol. 38 (Third edition of 2006 original ed.). New Delhi: Hindustan Book Agency. ISBN 978-93-80250-65-6. MR 3310023. Zbl 1300.26003.
+
+^ Spivak 1965, Theorem 2-12.
+
+^ Spivak 1965, Theorem 5-1. and Theorem 2-13.
+
+^ https://sites.math.northwestern.edu/~jnkf/classes/mflds/4transversality.pdf[bare URL PDF]
+
+^ One of Spivak's books (Editorial note: give the exact location).
+
+^ Hirsch 1976, Ch. 2, § 1., Exercise 7. NB: This one is for a C1^1-immersion.
+
+^ Lemma 13.3.3. of https://www.utsc.utoronto.ca/people/kupers/wp-content/uploads/sites/50/2020/12/difffop-2020.pdf
+
+^ Dan Ramras (https://mathoverflow.net/users/4042/dan-ramras), On a proof of the existence of tubular neighborhoods., URL (version: 2017-04-13): https://mathoverflow.net/q/58124
+
+^ Ch. I., § 3, Exercise 10. and § 8, Exercise 14. in V. Guillemin, A. Pollack. "Differential Topology". Prentice-Hall Inc., 1974. ISBN 0-13-212605-2.
+
+^ Griffiths & Harris 1978, p. 18.
+
+^ Fritzsche, K.; Grauert, H. (2002). From Holomorphic Functions to Complex Manifolds. Springer. pp. 33–36. ISBN 9780387953953.
+
+^ a b Griffiths & Harris 1978, p. 19.
+
+^ Luenberger, David G. (1969). Optimization by Vector Space Methods. New York: John Wiley & Sons. pp. 240–242. ISBN 0-471-55359-X.
+
+^ Lang, Serge (1985). Differential Manifolds. New York: Springer. pp. 13–19. ISBN 0-387-96113-5.
+
+^ Boothby, William M. (1986). An Introduction to Differentiable Manifolds and Riemannian Geometry (Second ed.). Orlando: Academic Press. pp. 46–50. ISBN 0-12-116052-1.
+
+^ Dontchev, Asen L.; Rockafellar, R. Tyrrell (2014). Implicit Functions and Solution Mappings: A View from Variational Analysis (Second ed.). New York: Springer-Verlag. p. 54. ISBN 978-1-4939-1036-6.
+
+
+References[edit]
+Allendoerfer, Carl B. (1974). "Theorems about Differentiable Functions". Calculus of Several Variables and Differentiable Manifolds. New York: Macmillan. pp. 54–88. ISBN 0-02-301840-2.
+Baxandall, Peter; Liebeck, Hans (1986). "The Inverse Function Theorem". Vector Calculus. New York: Oxford University Press. pp. 214–225. ISBN 0-19-859652-9.
+Nijenhuis, Albert (1974). "Strong derivatives and inverse mappings". Amer. Math. Monthly. 81 (9): 969–980. doi:10.2307/2319298. hdl:10338.dmlcz/102482. JSTOR 2319298.
+Griffiths, Phillip; Harris, Joseph (1978), Principles of Algebraic Geometry, John Wiley & Sons, ISBN 978-0-471-05059-9.
+Hirsch, Morris W. (1976). Differential Topology. Springer-Verlag. ISBN 978-0-387-90148-0.
+Protter, Murray H.; Morrey, Charles B., Jr. (1985). "Transformations and Jacobians". Intermediate Calculus (Second ed.). New York: Springer. pp. 412–420. ISBN 0-387-96058-9.{{cite book}}:  CS1 maint: multiple names: authors list (link)
+Renardy, Michael; Rogers, Robert C. (2004). An Introduction to Partial Differential Equations. Texts in Applied Mathematics 13 (Second ed.). New York: Springer-Verlag. pp. 337–338. ISBN 0-387-00444-0.
+Rudin, Walter (1976). Principles of mathematical analysis. International Series in Pure and Applied Mathematics (Third ed.). New York: McGraw-Hill Book. pp. 221–223. ISBN 9780070856134.
+Spivak, Michael (1965). Calculus on Manifolds: A Modern Approach to Classical Theorems of Advanced Calculus. San Francisco: Benjamin Cummings. ISBN 0-8053-9021-9.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteAnalysis in topological vector spacesBasic concepts
+Abstract Wiener space
+Classical Wiener space
+Bochner space
+Convex series
+Cylinder set measure
+Infinite-dimensional vector function
+Matrix calculus
+Vector calculus
+Derivatives
+Differentiable vector–valued functions from Euclidean space
+Differentiation in Fréchet spaces
+Fréchet derivative
+Total
+Functional derivative
+Gateaux derivative
+Directional
+Generalizations of the derivative
+Hadamard derivative
+Holomorphic
+Quasi-derivative
+Measurability
+Besov measure
+Cylinder set measure
+Canonical Gaussian
+Classical Wiener measure
+Measure like set functions
+infinite-dimensional Gaussian measure
+Projection-valued
+Vector
+Bochner / Weakly / Strongly measurable function
+Radonifying function
+Integrals
+Bochner
+Direct integral
+Dunford
+Gelfand–Pettis/Weak
+Regulated
+Paley–Wiener
+Results
+Cameron–Martin theorem
+Inverse function theorem
+Nash–Moser theorem
+Feldman–Hájek theorem
+No infinite-dimensional Lebesgue measure
+Sazonov's theorem
+Structure theorem for Gaussian measures
+Related
+Crinkled arc
+Covariance operator
+Functional calculus
+Borel functional calculus
+Continuous functional calculus
+Holomorphic functional calculus
+Applications
+Banach manifold (bundle)
+Convenient vector space
+Choquet theory
+Fréchet manifold
+Hilbert manifold
+
+
+
+

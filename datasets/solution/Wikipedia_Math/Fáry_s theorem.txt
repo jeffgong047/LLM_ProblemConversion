@@ -1,0 +1,56 @@
+Planar graphs have straight drawings
+For other uses, see Fáry–Milnor theorem.
+In the mathematical field of graph theory, Fáry's theorem states that any simple, planar graph can be drawn without crossings so that its edges are straight line segments. That is, the ability to draw graph edges as curves instead of as straight line segments does not allow a larger class of graphs to be drawn.  The theorem is named after István Fáry, although it was proved independently by Klaus Wagner (1936), Fáry (1948), and Sherman K. Stein (1951).
+
+
+Proof[edit]
+Induction step for proof of Fáry's theorem.
+One way of proving Fáry's theorem is to use mathematical induction.[1] Let  G  be a simple plane graph with n vertices; we may add edges if necessary so that G is a maximally plane graph. If n < 3, the result is trivial. If n ≥ 3, then all faces of  G must be triangles, as we could add an edge into any face with more sides while preserving planarity, contradicting the assumption of maximal planarity. Choose some three vertices a, b, c forming a triangular face of G. We prove by induction on n that there exists a straight-line combinatorially isomorphic re-embedding of G in which triangle abc is the outer face of the embedding.  (Combinatorially isomorphic means that the vertices, edges, and faces in the new drawing can be made to correspond to those in the old drawing, such that all incidences between edges, vertices, and faces—not just between vertices and edges—are preserved.) As a base case, the result is trivial when n = 3 and a, b and c are the only vertices in G. Thus, we may assume that n ≥ 4.
+By Euler's formula for planar graphs, G has 3n − 6 edges; equivalently, if one defines the deficiency of a vertex v in G to be 6 − deg(v), the sum of the deficiencies is 12. Since G has at least four vertices and all faces of G are triangles, it follows that every vertex in G has degree at least three. Therefore each vertex in G has deficiency at most three, so there are at least four vertices with positive deficiency. In particular we can choose a vertex v with at most five neighbors that is different from a, b and c. Let G' be formed by removing v from G and retriangulating the face f formed by removing v.  By induction, G' has a combinatorially isomorphic straight line re-embedding in which abc is the outer face. Because the re-embedding of G' was combinatorially isomorphic to G', removing from it the edges which were added to create G' leaves the face f, which is now a polygon P with at most five sides.  To complete the drawing to a straight-line combinatorially isomorphic re-embedding of G, v should be placed in the polygon and joined by straight lines to the vertices of the polygon. By the art gallery theorem, there exists a point interior to P at which v can be placed so that the edges from v to the vertices of P do not cross any other edges, completing the proof.
+The induction step of this proof is illustrated at right.
+
+
+Related results[edit]
+De Fraysseix, Pach and Pollack showed how to find in linear time a straight-line drawing in a grid with dimensions linear in the size of the graph, giving a universal point set with quadratic size. A similar method has been followed by Schnyder to prove enhanced bounds and a characterization of planarity based on the incidence partial order. His work stressed the existence of a particular partition of the edges of a maximal planar graph into three trees known as a Schnyder wood.
+Tutte's spring theorem states that every 3-connected planar graph can be drawn on a plane without crossings so that its edges are straight line segments and an outside face is a convex polygon (Tutte 1963). It is so called because such an embedding can be found as the equilibrium position for a system of springs representing the edges of the graph.
+Steinitz's theorem states that every 3-connected planar graph can be represented as the edges of a convex polyhedron in three-dimensional space. A straight-line embedding of G,, of the type described by Tutte's theorem, may be formed by projecting such a polyhedral representation onto the plane.
+The Circle packing theorem states that every planar graph may be represented as the intersection graph of a collection of non-crossing circles in the plane. Placing each vertex of the graph at the center of the corresponding circle leads to a straight line representation.
+
+
+
+Unsolved problem in mathematics:
+Does every planar graph have a straight line representation in which all edge lengths are integers?
+(more unsolved problems in mathematics)
+
+Heiko Harborth raised the question of whether every planar graph has a straight line representation in which all edge lengths are integers.[2] The truth of Harborth's conjecture remains unknown as of 2023[update]. However, integer-distance straight line embeddings are known to exist for cubic graphs.[3]
+Sachs (1983) raised the question of whether every graph with a linkless embedding in three-dimensional Euclidean space has a linkless embedding in which all edges are represented by straight line segments, analogously to Fáry's theorem for two-dimensional embeddings.
+
+See also[edit]
+Bend minimization
+Notes[edit]
+
+
+^ The proof that follows can be found in Chartrand, Gary; Lesniak, Linda; Zhang, Ping (2010), Graphs & Digraphs (5th ed.), CRC Press, pp. 259–260, ISBN 9781439826270.
+
+^ Harborth et al. (1987); Kemnitz & Harborth (2001); Mohar & Thomassen (2001); Mohar (2003).
+
+^ Geelen, Guo & McKinnon (2008).
+
+
+References[edit]
+Fáry, István (1948), "On straight-line representation of planar graphs", Acta Sci. Math. (Szeged), 11: 229–233, MR 0026311.
+de Fraysseix, Hubert; Pach, János; Pollack, Richard (1988), "Small sets supporting Fary embeddings of planar graphs", Twentieth Annual ACM Symposium on Theory of Computing, pp. 426–433, doi:10.1145/62212.62254, ISBN 0-89791-264-0, S2CID 15230919.
+de Fraysseix, Hubert; Pach, János; Pollack, Richard (1990), "How to draw a planar graph on a grid", Combinatorica, 10: 41–51, doi:10.1007/BF02122694, MR 1075065, S2CID 6861762.
+Geelen, Jim; Guo, Anjie; McKinnon, David (2008), "Straight line embeddings of cubic planar graphs with integer edge lengths" (PDF), Journal of Graph Theory, 58 (3): 270–274, doi:10.1002/jgt.20304.
+Harborth, H.; Kemnitz, A.; Moller, M.; Sussenbach, A. (1987), "Ganzzahlige planare Darstellungen der platonischen Korper", Elem. Math., 42: 118–122.
+Kemnitz, A.; Harborth, H. (2001), "Plane integral drawings of planar graphs", Discrete Mathematics, 236 (1–3): 191–195, doi:10.1016/S0012-365X(00)00442-8.
+Mohar, Bojan (2003), Problems from the book Graphs on Surfaces.
+Mohar, Bojan; Thomassen, Carsten (2001), Graphs on Surfaces, Johns Hopkins University Press, pp. roblem 2.8.15, ISBN 0-8018-6689-8.
+Sachs, Horst (1983), "On a spatial analogue of Kuratowski's theorem on planar graphs — An open problem", in Horowiecki, M.; Kennedy, J. W.; Sysło, M. M. (eds.), Graph Theory: Proceedings of a Conference held in Łagów, Poland, February 10–13, 1981, Lecture Notes in Mathematics, vol. 1018, Springer-Verlag, pp. 230–241, doi:10.1007/BFb0071633, ISBN 978-3-540-12687-4.
+Schnyder, Walter (1990), "Embedding planar graphs on the grid", Proc. 1st ACM/SIAM Symposium on Discrete Algorithms (SODA), pp. 138–148, ISBN 9780898712513.
+Stein, S. K. (1951), "Convex maps", Proceedings of the American Mathematical Society, 2 (3): 464–466, doi:10.2307/2031777, JSTOR 2031777, MR 0041425.
+Tutte, W. T. (1963), "How to draw a graph", Proceedings of the London Mathematical Society, 13: 743–767, doi:10.1112/plms/s3-13.1.743, MR 0158387.
+Wagner, Klaus (1936), "Bemerkungen zum Vierfarbenproblem", Jahresbericht der Deutschen Mathematiker-Vereinigung, 46: 26–32.
+
+
+

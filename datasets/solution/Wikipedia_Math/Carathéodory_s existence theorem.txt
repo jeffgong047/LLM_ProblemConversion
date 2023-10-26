@@ -1,0 +1,209 @@
+Statement on solutions to ordinary differential equations
+Differential equations
+Scope
+Fields
+Natural sciencesEngineering
+Astronomy
+Physics
+Chemistry
+Biology
+Geology
+
+Applied mathematics
+Continuum mechanics
+Chaos theory
+Dynamical systems
+
+Social sciences
+Economics
+Population dynamics
+
+
+List of named differential equations
+
+Classification
+Types
+
+Ordinary
+Partial
+Differential-algebraic
+Integro-differential
+Fractional
+Linear
+Non-linear
+
+
+By variable type
+Dependent and independent variables
+
+Autonomous
+Coupled / Decoupled
+Exact
+Homogeneous / Nonhomogeneous
+
+
+Features
+
+Order
+Operator
+
+Notation
+
+
+Relation to processes
+Difference (discrete analogue)
+
+Stochastic
+Stochastic partial
+Delay
+
+
+Solution
+Existence and uniqueness
+Picard–Lindelöf theorem 
+Peano existence theorem
+Carathéodory's existence theorem
+Cauchy–Kowalevski theorem
+
+General topics
+Initial conditions
+Boundary values
+Dirichlet
+Neumann
+Robin
+Cauchy problem
+Wronskian
+Phase portrait
+Lyapunov / Asymptotic / Exponential stability
+Rate of convergence
+Series / Integral solutions
+Numerical integration
+Dirac delta function
+
+
+Solution methods
+Inspection
+Method of characteristics
+Euler
+Exponential response formula
+Finite difference (Crank–Nicolson)
+Finite element
+Infinite element
+Finite volume
+Galerkin
+Petrov–Galerkin
+Green's function
+Integrating factor
+Integral transforms
+Perturbation theory
+Runge–Kutta
+
+Separation of variables
+Undetermined coefficients
+Variation of parameters
+
+People
+List
+Isaac Newton
+Gottfried Leibniz
+Jacob Bernoulli
+Leonhard Euler
+Józef Maria Hoene-Wroński
+Joseph Fourier
+Augustin-Louis Cauchy
+George Green
+Carl David Tolmé Runge
+Martin Kutta
+Rudolf Lipschitz
+Ernst Lindelöf
+Émile Picard
+Phyllis Nicolson
+John Crank
+
+vte
+In mathematics, Carathéodory's existence theorem says that an ordinary differential equation has a solution under relatively mild conditions. It is a generalization of Peano's existence theorem. Peano's theorem requires that the right-hand side of the differential equation be continuous, while Carathéodory's theorem shows existence of solutions (in a more general sense) for some discontinuous equations. The theorem is named after Constantin Carathéodory.
+
+
+Introduction[edit]
+Consider the differential equation
+
+y′(t)=f(t,y(t))'(t)=f(t,y(t))
+with initial condition
+
+y(t0)=y0,(t_0)=y_0,
+where the function ƒ is defined on a rectangular domain of the form
+
+R=(t,y)∈R×Rn:|t−t0|≤a,|y−y0|≤b.={(t,y)∈𝐑×𝐑^n : |t-t_0|,|y-y_0|}.
+Peano's existence theorem states that if ƒ is continuous, then the differential equation has at least one solution in a neighbourhood of the initial condition.[1]
+However, it is also possible to consider differential equations with a discontinuous right-hand side, like the equation
+
+y′(t)=H(t),y(0)=0,'(t)=H(t),(0)=0,
+where H denotes the Heaviside function defined by
+
+H(t)=0,ift≤0;1,ift>0.(t)=0,   ift≤0;
+1,   ift>0.
+It makes sense to consider the ramp function
+
+y(t)=∫0tH(s)ds=0,ift≤0;t,ift>0(t)=∫_0^tH(s) ds=0,   ift≤0;
+t,   ift>0
+as a solution of the differential equation. Strictly speaking though, it does not satisfy the differential equation at t=0=0, because the function is not differentiable there. This suggests that the idea of a solution be extended to allow for solutions that are not everywhere differentiable, thus motivating the following definition.
+A function y is called a solution in the extended sense of the differential equation y′=f(t,y)'=f(t,y) with initial condition y(t0)=y0(t_0)=y_0 if y is absolutely continuous, y satisfies the differential equation almost everywhere and y satisfies the initial condition.[2] The absolute continuity of y implies that its derivative exists almost everywhere.[3]
+
+Statement of the theorem[edit]
+Consider the differential equation
+
+y′(t)=f(t,y(t)),y(t0)=y0,'(t)=f(t,y(t)),(t_0)=y_0,
+with f defined on the rectangular domain R=(t,y)||t−t0|≤a,|y−y0|≤b={(t,y) | |t-t_0|,|y-y_0|}. If the function f satisfies the following three conditions:
+
+f(t,y)(t,y) is continuous in y for each fixed t,
+f(t,y)(t,y) is measurable in t  for each fixed y,
+there is a Lebesgue-integrable function m:[t0−a,t0+a]→[0,∞):[t_0-a,t_0+a]→[0,∞) such that |f(t,y)|≤m(t)|f(t,y)|(t) for all (t,y)∈R(t,y),
+then the differential equation has a solution in the extended sense in a neighborhood of the initial condition.[4]
+A mapping f:R→Rn→𝐑^n is said to satisfy the Carathéodory conditions on R if it fulfills the condition of the theorem.[5]
+
+Uniqueness of a solution[edit]
+Assume that the mapping f satisfies the Carathéodory conditions on R and there is a Lebesgue-integrable function k:[t0−a,t0+a]→[0,∞):[t_0-a,t_0+a]→[0,∞), such that 
+
+|f(t,y1)−f(t,y2)|≤k(t)|y1−y2|,|f(t,y_1)-f(t,y_2)|(t)|y_1-y_2|,
+for all (t,y1)∈R,(t,y2)∈R.(t,y_1),(t,y_2). Then, there exists a unique solution y(t)=y(t,t0,y0)(t)=y(t,t_0,y_0)
+to the initial value problem
+
+y′(t)=f(t,y(t)),y(t0)=y0.'(t)=f(t,y(t)),(t_0)=y_0.
+Moreover, if the mapping f is defined on the whole space R×Rn𝐑×𝐑^n
+and if for any initial condition (t0,y0)∈R×Rn(t_0,y_0)∈𝐑×𝐑^n, there exists a compact rectangular domain R(t0,y0)⊂R×Rn_(t_0,y_0)⊂𝐑×𝐑^n such  that the mapping f satisfies all conditions from above on R(t0,y0)_(t_0,y_0). Then, the domain E⊂R2+n⊂𝐑^2+n of definition of the function y(t,t0,y0)(t,t_0,y_0) is open and y(t,t0,y0)(t,t_0,y_0) is continuous on E.[6]
+
+Example[edit]
+Consider a linear initial value problem of the form
+
+y′(t)=A(t)y(t)+b(t),y(t0)=y0.'(t)=A(t)y(t)+b(t),(t_0)=y_0.
+Here, the components of the matrix-valued mapping A:R→Rn×n𝐑→𝐑^n and of the inhomogeneity b:R→Rn𝐑→𝐑^n are assumed to be integrable on every finite interval. Then, the right hand side of the differential equation satisfies the Carathéodory conditions and there exists a unique solution to the initial value problem.[7]
+
+See also[edit]
+
+Mathematics portal
+Picard–Lindelöf theorem
+Cauchy–Kowalevski theorem
+Notes[edit]
+
+^ Coddington & Levinson (1955), Theorem 1.2 of Chapter 1
+
+^ Coddington & Levinson (1955), page 42
+
+^ Rudin (1987), Theorem 7.18
+
+^ Coddington & Levinson (1955), Theorem 1.1 of Chapter 2
+
+^ Hale (1980), p.28
+
+^ Hale (1980), Theorem 5.3 of Chapter 1
+
+^ Hale (1980), p.30
+
+
+References[edit]
+Coddington, Earl A.; Levinson, Norman (1955), Theory of Ordinary Differential Equations, New York: McGraw-Hill.
+Hale, Jack K. (1980), Ordinary Differential Equations (2nd ed.), Malabar: Robert E. Krieger Publishing Company, ISBN 0-89874-011-8.
+Rudin, Walter (1987), Real and complex analysis (3rd ed.), New York: McGraw-Hill, ISBN 978-0-07-054234-1, MR 0924157.
+
+
+

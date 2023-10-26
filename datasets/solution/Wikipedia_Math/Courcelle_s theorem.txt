@@ -1,0 +1,132 @@
+In the study of graph algorithms, Courcelle's theorem is the statement that every graph property definable in the monadic second-order logic of graphs can be decided in linear time on graphs of bounded treewidth.[1][2][3] The result was first proved by Bruno Courcelle in 1990[4] and independently rediscovered by Borie, Parker & Tovey (1992).[5]
+It is considered the archetype of algorithmic meta-theorems.[6][7]
+
+
+Formulations[edit]
+Vertex sets[edit]
+In one variation of monadic second-order graph logic known as MSO1, the graph is described by a set of vertices and a binary adjacency relation adj⁡(.,.)adj(.,.), and the restriction to monadic logic means that the graph property in question may be defined in terms of sets of vertices of the given graph, but not in terms of sets of edges, or sets of tuples of vertices.
+As an example, the property of a graph being colorable with three colors (represented by three sets of vertices R, G, and B) may be defined by the monadic second-order formula
+∃R∃G∃B(∀v(v∈R∨v∈G∨v∈B)∧∀u∀v((u∈R∧v∈R)→¬adj⁡(u,v))∧∀u∀v((u∈G∧v∈G)→¬adj⁡(u,v))∧∀u∀v((u∈B∧v∈B)→¬adj⁡(u,v)))
+existsG
+existsB{(   v)∧
+   
+forallv{((u)→¬adj(u,v))∧
+   
+forallv{((u)→¬adj(u,v))∧
+   
+forallv{((u)→¬adj(u,v)))
+with the naming convention that uppercase variables denote sets of vertices and lowercase variables denote individual vertices (so that an explicit declaration of which is which can be omitted from the formula). The first part of this formula ensures that the three color classes cover all the vertices of the graph, and the rest ensures that they each form an independent set. (It would also be possible to add clauses to the formula to ensure that the three color classes are disjoint, but this makes no difference to the result.) Thus, by Courcelle's theorem, 3-colorability of graphs of bounded treewidth may be tested in linear time.
+For this variation of graph logic, Courcelle's theorem can be extended from treewidth to clique-width: for every fixed MSO1 property ΠΠ, and every fixed bound b on the clique-width of a graph, there is a linear-time algorithm for testing whether a graph of clique-width at most b has property ΠΠ.[8] The original formulation of this result required the input graph to be given together with a construction proving that it has bounded clique-width, but later approximation algorithms for clique-width removed this requirement.[9]
+
+Edge sets[edit]
+Courcelle's theorem may also be used with a stronger variation of monadic second-order logic known as MSO2. In this formulation, a graph is represented by a set V of vertices, a set 
+E of edges, and an incidence relation between vertices and edges. This variation allows quantification over sets of vertices or edges, but not over more complex relations on tuples of vertices or edges.
+For instance, the property of having a Hamiltonian cycle may be expressed in MSO2 by describing the cycle  as a set of edges that includes exactly two edges incident to each vertex, such that every nonempty proper subset of vertices has an edge in the putative cycle with exactly one endpoint in the subset.  However, Hamiltonicity cannot be expressed in MSO1.[10]
+
+Labeled graphs[edit]
+It is possible to apply the same results to graphs in which the vertices or edges have labels from a fixed finite set, either by augmenting the graph logic to incorporate predicates describing the labels, or by representing the labels by unquantified vertex set or edge set variables.[11]
+
+Modular congruences[edit]
+Another direction for extending Courcelle's theorem concerns logical formulas that include predicates for counting the size of the test.
+In this context, it is not possible to perform arbitrary arithmetic operations on set sizes, nor even to test whether two sets have the same size.
+However, MSO1 and MSO2 can be extended to logics called CMSO1 and CMSO2, that include for every two constants q and r a predicate cardq,r⁡(S)card_q,r(S) which tests whether the cardinality of set S is congruent to r modulo q. Courcelle's theorem can be extended to these logics.[4]
+
+Decision versus optimization[edit]
+As stated above, Courcelle's theorem applies primarily to decision problems: does a graph have a property or not. However, the same methods also allow the solution to optimization problems in which the vertices or edges of a graph have integer weights, and one seeks the minimum or maximum weight vertex set that satisfies a given property, expressed in second-order logic. These optimization problems can be solved in linear time on graphs of bounded clique-width.[8][11]
+
+Space complexity[edit]
+Rather than bounding the time complexity of an algorithm that recognizes an MSO property on bounded-treewidth graphs, it is also possible to analyze the space complexity of such an algorithm; that is, the amount of memory needed above and beyond the size of the input itself (which is assumed to be represented in a read-only way so that its space requirements cannot be put to other purposes).
+In particular, it is possible to recognize the graphs of bounded treewidth, and any MSO property on these graphs, by a deterministic Turing machine that uses only logarithmic space.[12]
+
+Proof strategy and complexity[edit]
+The typical approach to proving Courcelle's theorem involves the construction of a finite bottom-up tree automaton that acts on the tree decompositions of the given graph.[6]
+In more detail, two graphs G1 and G2, each with a specified subset T of vertices called terminals, may be defined to be equivalent with respect to an MSO formula F if, for all other graphs H whose intersection with G1 and G2 consists only of vertices in T, the two graphs
+G1 ∪ H and G2 ∪ H behave the same with respect to F: either they both model F or they both do not model F. This is an equivalence relation, and it can be shown by induction on the length of F that (when the sizes of T and F are both bounded) it has finitely many equivalence classes.[13]
+A tree decomposition of a given graph G consists of a tree and, for each tree node, a subset of the vertices of G called a bag. It must satisfy two properties: for each vertex v of G, the bags containing v must be associated with a contiguous subtree of the tree, and for each edge uv of G, there must be a bag containing both u and v.
+The vertices in a bag can be thought of as the terminals of a subgraph of G, represented by the subtree of the tree decomposition descending from that bag. When G has bounded treewidth, it has a tree decomposition in which all bags have bounded size, and such a decomposition can be found in fixed-parameter tractable time.[14] Moreover, it is possible to choose this tree decomposition so that it forms a binary tree, with only two child subtrees per bag. Therefore, it is possible to perform a bottom-up computation on this tree decomposition, computing an identifier for the equivalence class of the subtree rooted at each bag by combining the edges represented within the bag with the two identifiers for the equivalence classes of its two children.[15]
+The size of the automaton constructed in this way is not an elementary function of the size of the input MSO formula. This non-elementary complexity is necessary, in the sense that (unless P = NP) it is not possible to test MSO properties on trees in a time that is fixed-parameter tractable with an elementary dependence on the parameter.[16]
+
+Bojańczyk-Pilipczuk's theorem[edit]
+The proofs of Courcelle's theorem show a stronger result: not only can every (counting) monadic second-order property be recognized in linear time for graphs of bounded treewidth, but also it can be recognized by a finite-state tree automaton. Courcelle conjectured a converse to this: if a property of graphs of bounded treewidth is recognized by a tree automaton, then it can be defined in counting monadic second-order logic. In 1998 Lapoire (1998), claimed a resolution of the conjecture.[17] However, the proof is widely regarded as unsatisfactory.[18][19] Until 2016, only a few special cases were resolved: in particular, the conjecture has been proved for graphs of treewidth at most three,[20] for k-connected graphs of treewidth k, for graphs of constant treewidth and chordality, and for k-outerplanar graphs.
+The general version of the conjecture was finally proved by Mikołaj Bojańczyk and Michał Pilipczuk.[21]
+Moreover, for Halin graphs (a special case of treewidth three graphs) counting is not needed: for these graphs, every property that can be recognized by a tree automaton can also be defined in monadic second-order logic. The same is true more generally for certain classes of graphs in which a tree decomposition can itself be described in MSOL. However, it cannot be true for all graphs of bounded treewidth, because in general counting adds extra power over monadic second-order logic without counting. For instance, the graphs with an even number of vertices can be recognized using counting, but not without.[19]
+
+Satisfiability and Seese's theorem[edit]
+The satisfiability problem for a formula of monadic second-order logic is the problem of determining whether there exists at least one graph (possibly within a restricted family of graphs) for which the formula is true. For arbitrary graph families, and arbitrary formulas, this problem is undecidable. However, satisfiability of MSO2 formulas is decidable for the graphs of bounded treewidth, and satisfiability of MSO1 formulas is decidable for graphs of bounded clique-width. The proof involves building a tree automaton for the formula and then testing whether the automaton has an accepting path.
+As a partial converse, Seese (1991) proved that, whenever a family of graphs has a decidable MSO2 satisfiability problem, the family must have bounded treewidth. The proof is based on a theorem of Robertson and Seymour that the families of graphs with unbounded treewidth have arbitrarily large grid minors.[22] Seese also conjectured that every family of graphs with a decidable MSO1 satisfiability problem must have bounded clique-width; this has not been proven, but a weakening of the conjecture that replaces MSO1 by CMSO1 is true.[23]
+
+Applications[edit]
+Grohe (2001) used Courcelle's theorem to show that computing the crossing number of a graph G is fixed-parameter tractable with a quadratic dependence on the size of G, improving a cubic-time algorithm based on the Robertson–Seymour theorem. An additional later improvement to linear time by Kawarabayashi & Reed (2007) follows the same approach. If the given graph G has small treewidth, Courcelle's theorem can be applied directly to this problem. On the other hand, if G has large treewidth, then it contains a large grid minor, within which the graph can be simplified while leaving the crossing number unchanged. Grohe's algorithm performs these simplifications until the remaining graph has a small treewidth, and then applies Courcelle's theorem to solve the reduced subproblem.[24][25]
+Gottlob & Lee (2007) observed that Courcelle's theorem applies to several problems of finding minimum multi-way cuts in a graph, when the structure formed by the graph and the set of cut pairs has bounded treewidth. As a result they obtain a fixed-parameter tractable algorithm for these problems, parameterized by a single parameter, treewidth, improving previous solutions that had combined multiple parameters.[26]
+In computational topology, Burton & Downey (2014) extend Courcelle's theorem from MSO2 to a form of monadic second-order logic on simplicial complexes of bounded dimension that allows quantification over simplices of any fixed dimension. As a consequence, they show how to compute certain quantum invariants of 3-manifolds as well as how to solve certain problems in discrete Morse theory efficiently, when the manifold has a triangulation (avoiding degenerate simplices) whose dual graph has small treewidth.[27]
+Methods based on Courcelle's theorem have also been applied to database theory,[28] knowledge representation and reasoning,[29] automata theory,[30] and model checking.[31]
+
+References[edit]
+
+
+^ Eger, Steffen (2008), Regular Languages, Tree Width, and Courcelle's Theorem: An Introduction, VDM Publishing, ISBN 9783639076332.
+
+^ Courcelle, Bruno; Engelfriet, Joost (2012), Graph Structure and Monadic Second-Order Logic: A Language-Theoretic Approach (PDF), Encyclopedia of Mathematics and its Applications, vol. 138, Cambridge University Press, ISBN 9781139644006, Zbl 1257.68006.
+
+^ Downey, Rodney G.; Fellows, Michael R. (2013), "Chapter 13: Courcelle's theorem", Fundamentals of parameterized complexity, Texts in Computer Science, London: Springer, pp. 265–278, CiteSeerX 10.1.1.456.2729, doi:10.1007/978-1-4471-5559-1, ISBN 978-1-4471-5558-4, MR 3154461, S2CID 23517218.
+
+^ a b Courcelle, Bruno (1990), "The monadic second-order logic of graphs. I. Recognizable sets of finite graphs", Information and Computation, 85 (1): 12–75, doi:10.1016/0890-5401(90)90043-H, MR 1042649, Zbl 0722.03008
+
+^ Borie, Richard B.; Parker, R. Gary; Tovey, Craig A. (1992), "Automatic generation of linear-time algorithms from predicate calculus descriptions of problems on recursively constructed graph families", Algorithmica, 7 (5–6): 555–581, doi:10.1007/BF01758777, MR 1154588, S2CID 22623740.
+
+^ a b Kneis, Joachim; Langer, Alexander (2009), "A practical approach to Courcelle's theorem", Electronic Notes in Theoretical Computer Science, 251: 65–81, doi:10.1016/j.entcs.2009.08.028.
+
+^ Lampis, Michael (2010), "Algorithmic meta-theorems for restrictions of treewidth", in de Berg, Mark; Meyer, Ulrich (eds.), Proc. 18th Annual European Symposium on Algorithms, Lecture Notes in Computer Science, vol. 6346, Springer, pp. 549–560, doi:10.1007/978-3-642-15775-2_47, Zbl 1287.68078.
+
+^ a b Courcelle, B.; Makowsky, J. A.; Rotics, U. (2000), "Linear time solvable optimization problems on graphs of bounded clique-width", Theory of Computing Systems, 33 (2): 125–150, CiteSeerX 10.1.1.414.1845, doi:10.1007/s002249910009, MR 1739644, S2CID 15402031, Zbl 1009.68102.
+
+^ Oum, Sang-il; Seymour, Paul (2006), "Approximating clique-width and branch-width", Journal of Combinatorial Theory, Series B, 96 (4): 514–528, doi:10.1016/j.jctb.2005.10.006, MR 2232389.
+
+^ Courcelle & Engelfriet (2012), Proposition 5.13, p. 338.
+
+^ a b Arnborg, Stefan; Lagergren, Jens; Seese, Detlef (1991), "Easy problems for tree-decomposable graphs", Journal of Algorithms, 12 (2): 308–340, CiteSeerX 10.1.1.12.2544, doi:10.1016/0196-6774(91)90006-K, MR 1105479.
+
+^ Elberfeld, Michael; Jakoby, Andreas; Tantau, Till (October 2010), "Logspace Versions of the Theorems of Bodlaender and Courcelle" (PDF), Proc. 51st Annual IEEE Symposium on Foundations of Computer Science (FOCS 2010), pp. 143–152, doi:10.1109/FOCS.2010.21, S2CID 1820251.
+
+^ Downey & Fellows (2013), Theorem 13.1.1, p. 266.
+
+^ Downey & Fellows (2013), Section 10.5: Bodlaender's theorem, pp. 195–203.
+
+^ Downey & Fellows (2013), Section 12.6: Tree automata, pp. 237–247.
+
+^ Frick, Markus; Grohe, Martin (2004), "The complexity of first-order and monadic second-order logic revisited", Annals of Pure and Applied Logic, 130 (1–3): 3–31, doi:10.1016/j.apal.2004.01.007, MR 2092847.
+
+^ Lapoire, Denis (1998), "Recognizability equals monadic second-order definability for sets of graphs of bounded tree-width", STACS 98: 15th Annual Symposium on Theoretical Aspects of Computer Science Paris, France, February 27, 1998, Proceedings, vol. 1373, pp. 618–628, Bibcode:1998LNCS.1373..618L, CiteSeerX 10.1.1.22.7805, doi:10.1007/bfb0028596.
+
+^ Courcelle, B.; Engelfriet., J. (2012), "Graph Structure and Monadic Second Order Logic -- A Language-Theoretic Approach", Encyclopedia of mathematics and its applications, vol. 138, Cambridge University Press.
+
+^ a b Jaffke, Lars; Bodlaender, Hans L. (2015), MSOL-definability equals recognizability for Halin graphs and bounded degree k-outerplanar graphs, arXiv:1503.01604, Bibcode:2015arXiv150301604J.
+
+^ Kaller, D. (2000), "Definability equals recognizability of partial 3-trees and k-connected partial k-trees", Algorithmica, 27 (3): 348–381, doi:10.1007/s004530010024, S2CID 39798483.
+
+^ Bojańczyk, Mikołaj; Pilipczuk, Michał (2016), "Definability equals recognizability for graphs of bounded treewidth", Proceedings of the 31st Annual ACM/IEEE Symposium on Logic in Computer Science (LICS 2016), pp. 407–416, arXiv:1605.03045, doi:10.1145/2933575.2934508, S2CID 1213054.
+
+^ Seese, D. (1991), "The structure of the models of decidable monadic theories of graphs", Annals of Pure and Applied Logic, 53 (2): 169–195, doi:10.1016/0168-0072(91)90054-P, MR 1114848.
+
+^ Courcelle, Bruno; Oum, Sang-il (2007), "Vertex-minors, monadic second-order logic, and a conjecture by Seese" (PDF), Journal of Combinatorial Theory, Series B, 97 (1): 91–126, doi:10.1016/j.jctb.2006.04.003, MR 2278126.
+
+^ Grohe, Martin (2001), "Computing crossing numbers in quadratic time", Proceedings of the Thirty-Third Annual ACM Symposium on Theory of Computing (STOC '01), pp. 231–236, arXiv:cs/0009010, doi:10.1145/380752.380805, S2CID 724544.
+
+^ Kawarabayashi, Ken-ichi; Reed, Bruce (2007), "Computing crossing number in linear time", Proceedings of the Thirty-Ninth Annual ACM Symposium on Theory of Computing (STOC '07), pp. 382–390, doi:10.1145/1250790.1250848, S2CID 13000831.
+
+^ Gottlob, Georg; Lee, Stephanie Tien (2007), "A logical approach to multicut problems", Information Processing Letters, 103 (4): 136–141, doi:10.1016/j.ipl.2007.03.005, MR 2330167.
+
+^ Burton, Benjamin A.; Downey, Rodney G. (2014), Courcelle's theorem for triangulations, arXiv:1403.2926, Bibcode:2014arXiv1403.2926B. Short communication, International Congress of Mathematicians, 2014.
+
+^ Grohe, Martin; Mariño, Julian (1999), "Definability and descriptive complexity on databases of bounded tree-width", Database Theory — ICDT'99: 7th International Conference Jerusalem, Israel, January 10–12, 1999, Proceedings, Lecture Notes in Computer Science, vol. 1540, pp. 70–82, CiteSeerX 10.1.1.52.2984, doi:10.1007/3-540-49257-7_6.
+
+^ Gottlob, Georg; Pichler, Reinhard; Wei, Fang (January 2010), "Bounded treewidth as a key to tractability of knowledge representation and reasoning", Artificial Intelligence, 174 (1): 105–132, doi:10.1016/j.artint.2009.10.003.
+
+^ Madhusudan, P.; Parlato, Gennaro (2011), "The Tree Width of Auxiliary Storage", Proceedings of the 38th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL '11) (PDF), SIGPLAN Notices, vol. 46, pp. 283–294, doi:10.1145/1926385.1926419, S2CID 6976816
+
+^ Obdržálek, Jan (2003), "Fast mu-calculus model checking when tree-width is bounded", Computer Aided Verification: 15th International Conference, CAV 2003, Boulder, CO, USA, July 8-12, 2003, Proceedings, Lecture Notes in Computer Science, vol. 2725, pp. 80–92, CiteSeerX 10.1.1.2.4843, doi:10.1007/978-3-540-45069-6_7.
+
+
+
+
+

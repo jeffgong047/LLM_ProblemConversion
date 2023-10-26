@@ -1,0 +1,47 @@
+Donsker's invariance principle for simple random walk on Zℤ.
+In probability theory, Donsker's theorem (also known as Donsker's invariance principle, or the functional central limit theorem), named after Monroe D. Donsker, is a functional extension of the central limit theorem. 
+Let X1,X2,X3,…_1,X_2,X_3,… be a sequence of independent and identically distributed (i.i.d.) random variables with mean 0 and variance 1. Let Sn:=∑i=1nXi_n:=∑_i=1^nX_i. The stochastic process S:=(Sn)n∈N:=(S_n)_n∈ℕ is known as a random walk. Define the diffusively rescaled random walk (partial-sum process) by
+
+W(n)(t):=S⌊nt⌋n,t∈[0,1].^(n)(t):=S_⌋/√(n),∈[0,1].
+The central limit theorem asserts that W(n)(1)^(n)(1) converges in distribution to a standard Gaussian random variable W(1)(1) as n→∞→∞. Donsker's invariance principle[1][2] extends this convergence to the whole function W(n):=(W(n)(t))t∈[0,1]^(n):=(W^(n)(t))_t∈[0,1]. More precisely, in its modern form, Donsker's invariance principle states that: As random variables taking values in the Skorokhod space D[0,1]𝒟[0,1], the random function W(n)^(n) converges in distribution to a standard Brownian motion W:=(W(t))t∈[0,1]:=(W(t))_t∈[0,1] as n→∞.→∞.
+
+Donsker-Skorokhod-Kolmogorov theorem for uniform distributions.
+Donsker-Skorokhod-Kolmogorov theorem for normal distributions
+
+Formal statement[edit]
+Let Fn be the  empirical distribution function of the sequence of i.i.d. random variables  X1,X2,X3,…_1,X_2,X_3,… with distribution function F. Define the centered and scaled version of Fn by
+
+Gn(x)=n(Fn(x)−F(x))_n(x)=√(n)(F_n(x)-F(x))
+indexed by x ∈ R. By the classical central limit theorem, for fixed x, the random variable Gn(x) converges in distribution to a Gaussian (normal) random variable G(x) with zero mean and variance F(x)(1 − F(x)) as the sample size n grows.
+Theorem (Donsker, Skorokhod, Kolmogorov) The sequence of Gn(x), as random elements of the Skorokhod space D(−∞,∞)𝒟(-∞,∞), converges in distribution to a Gaussian process G with zero mean and covariance given by
+
+cov⁡[G(s),G(t)]=E[G(s)G(t)]=minF(s),F(t)−F(s)cov[G(s),G(t)]=E[G(s)G(t)]=min{F(s),F(t)}-F(s)F(t).F(t).
+The process G(x) can be written as B(F(x)) where B is a standard Brownian bridge on the unit interval.
+
+History and related results[edit]
+Kolmogorov (1933) showed that when F is continuous, the supremum suptGn(t)sup_tG_n(t) and supremum of absolute value, supt|Gn(t)|sup_t|G_n(t)| converges in distribution to the laws of the same functionals of the Brownian bridge B(t), see the Kolmogorov–Smirnov test. In 1949 Doob asked whether the convergence in distribution held for more general functionals, thus formulating a problem of weak convergence of random functions in a suitable function space.[3]
+In 1952 Donsker stated and proved (not quite correctly)[4] a general extension for the Doob–Kolmogorov heuristic approach. In the original paper, Donsker proved that the  convergence in law of Gn to the Brownian bridge holds for Uniform[0,1] distributions with respect to uniform convergence in t over the interval [0,1].[2]
+However Donsker's formulation was not quite correct because of the problem of measurability of the functionals of discontinuous processes. In 1956 Skorokhod and Kolmogorov defined a separable metric d, called the Skorokhod metric, on the space of càdlàg functions on [0,1], such that convergence for d to a continuous function is equivalent to convergence for the sup norm, and showed that Gn converges in law in D[0,1]𝒟[0,1] to the Brownian bridge.
+Later Dudley reformulated Donsker's result to avoid the problem of measurability and the need of the Skorokhod metric. One can prove[4] that there exist Xi, iid uniform in [0,1] and a sequence of sample-continuous Brownian bridges Bn, such that
+
+‖Gn−Bn‖∞G_n-B_n_∞
+is measurable and converges in probability to 0. An improved version of this result, providing more detail on the rate of convergence, is the Komlós–Major–Tusnády approximation.
+
+See also[edit]
+Glivenko–Cantelli theorem
+Kolmogorov–Smirnov test
+References[edit]
+
+
+^ Donsker, M.D. (1951). "An invariance principle for certain probability limit theorems". Memoirs of the American Mathematical Society (6). MR 0040613.
+
+^ a b Donsker, M. D. (1952). "Justification and extension of Doob's heuristic approach to the Kolmogorov–Smirnov theorems". Annals of Mathematical Statistics. 23 (2): 277–281. doi:10.1214/aoms/1177729445. MR 0047288. Zbl 0046.35103.
+
+^ Doob, Joseph L. (1949). "Heuristic approach to the Kolmogorov–Smirnov theorems". Annals of Mathematical Statistics. 20 (3): 393–403. doi:10.1214/aoms/1177729991. MR 0030732. Zbl 0035.08901.
+
+^ a b Dudley, R.M. (1999). Uniform Central Limit Theorems. Cambridge University Press. ISBN 978-0-521-46102-3.
+
+
+
+
+

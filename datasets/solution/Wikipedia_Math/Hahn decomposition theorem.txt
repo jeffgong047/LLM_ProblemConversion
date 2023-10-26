@@ -1,0 +1,219 @@
+Measurability theorem
+In mathematics, the Hahn decomposition theorem, named after the Austrian mathematician Hans Hahn, states that for any measurable space (X,Σ)(X,Σ) and any signed measure μμ defined on the σσ-algebra ΣΣ, there exist two ΣΣ-measurable sets, P and N, of X such that:
+
+P∪N=X=X and  P∩N=∅=∅.
+For every E∈Σ∈Σ such that E⊆P, one has μ(E)≥0μ(E)≥0, i.e., P is a positive set for μμ.
+For every E∈Σ∈Σ such that E⊆N, one has μ(E)≤0μ(E)≤0, i.e., N is a negative set for μμ.
+Moreover, this decomposition is essentially unique, meaning that for any other pair (P′,N′)(P',N') of ΣΣ-measurable subsets of X fulfilling the three conditions above, the symmetric differences P△P′' and N△N′' are μμ-null sets in the strong sense that every ΣΣ-measurable subset of them has zero measure. The pair (P,N)(P,N) is then called a Hahn decomposition of the signed measure μμ.
+
+
+Jordan measure decomposition[edit]
+A consequence of the Hahn decomposition theorem is the Jordan decomposition theorem, which states that every signed measure μμ defined on ΣΣ has a unique decomposition into a difference μ=μ+−μ−μ=μ^+-μ^- of two positive measures, μ+μ^+ and μ−μ^-, at least one of which is finite, such that μ+(E)=0μ^+(E)=0 for every ΣΣ-measurable subset E⊆N and μ−(E)=0μ^-(E)=0 for every ΣΣ-measurable subset E⊆P, for any Hahn decomposition (P,N)(P,N) of μμ. We call μ+μ^+ and μ−μ^- the positive and negative part of μμ, respectively. The pair (μ+,μ−)(μ^+,μ^-) is called a Jordan decomposition (or sometimes Hahn–Jordan decomposition) of μμ. The two measures can be defined as
+
+μ+(E):=μ(E∩P)andμ−(E):=−μ(E∩N)μ^+(E):=μ(E)    and    μ^-(E):=-μ(E)
+for every E∈Σ∈Σ and any Hahn decomposition (P,N)(P,N) of μμ.
+Note that the Jordan decomposition is unique, while the Hahn decomposition is only essentially unique.
+The Jordan decomposition has the following corollary: Given a Jordan decomposition (μ+,μ−)(μ^+,μ^-) of a finite signed measure μμ, one has
+
+μ+(E)=supB∈Σ,B⊆Eμ(B)andμ−(E)=−infB∈Σ,B⊆Eμ(B)μ^+(E)=sup_B∈Σ, Bμ(B)  and  μ^-(E)=-inf_B∈Σ, Bμ(B)
+for any E in ΣΣ. Furthermore, if μ=ν+−ν−μ=ν^+-ν^- for a pair (ν+,ν−)(ν^+,ν^-) of finite non-negative measures on X, then
+
+ν+≥μ+andν−≥μ−.ν^+≥μ^+  and  ν^-≥μ^-.
+The last expression means that the Jordan decomposition is the minimal decomposition of μμ into a difference of non-negative measures. This is the minimality property of the Jordan decomposition.
+Proof of the Jordan decomposition: For an elementary proof of the existence, uniqueness, and minimality of the Jordan measure decomposition see Fischer (2012).
+
+Proof of the Hahn decomposition theorem[edit]
+Preparation: Assume that μμ does not take the value −∞-∞ (otherwise decompose according to −μ-μ). As mentioned above, a negative set is a set A∈Σ∈Σ such that μ(B)≤0μ(B)≤0 for every ΣΣ-measurable subset B⊆A.
+Claim: Suppose that D∈Σ∈Σ satisfies μ(D)≤0μ(D)≤0. Then there is a negative set A⊆D such that μ(A)≤μ(D)μ(A)≤μ(D).
+Proof of the claim: Define A0:=D_0:=D. Inductively assume for n∈N0∈ℕ_0 that An⊆D_n has been constructed. Let
+
+tn:=sup(μ(B)∣B∈ΣandB⊆An)_n:=sup({μ(B)∈Σ and B_n})
+denote the supremum of μ(B)μ(B) over all the ΣΣ-measurable subsets B of An_n. This supremum might a priori be infinite. As the empty set ∅∅ is a possible candidate for B in the definition of tn_n, and as μ(∅)=0μ(∅)=0, we have tn≥0_n≥0. By the definition of tn_n, there then exists a ΣΣ-measurable subset Bn⊆An_n_n satisfying
+
+μ(Bn)≥min(1,tn2).μ(B_n)≥min(1,t_n/2).
+Set An+1:=An∖Bn_n+1:=A_n_n to finish the induction step. Finally, define
+
+A:=Dn=0∞Bn.:=D\⋃_n=0^∞B_n.
+As the sets (Bn)n=0∞(B_n)_n=0^∞ are disjoint subsets of D, it follows from the sigma additivity of the signed measure μμ that
+
+μ(D)=μ(A)+∑n=0∞μ(Bn)≥μ(A)+∑n=0∞min(1,tn2)≥μ(A).μ(D)=μ(A)+∑_n=0^∞μ(B_n)≥μ(A)+∑_n=0^∞min(1,t_n/2)≥μ(A).
+This shows that μ(A)≤μ(D)μ(A)≤μ(D). Assume A were not a negative set. This means that there would exist a ΣΣ-measurable subset B⊆A that satisfies μ(B)>0μ(B)>0. Then tn≥μ(B)_n≥μ(B) for every n∈N0∈ℕ_0, so the series on the right would have to diverge to +∞+∞, implying that μ(D)=+∞μ(D)=+∞, which is a contradiction, since μ(D)≤0μ(D)≤0. Therefore, A must be a negative set.
+Construction of the decomposition: Set N0=∅_0=∅. Inductively, given Nn_n, define
+
+sn:=inf(μ(D)∣D∈ΣandD⊆X∖Nn)._n:=inf({μ(D)∈Σ and D_n}).
+as the infimum of μ(D)μ(D) over all the ΣΣ-measurable subsets D of X∖Nn_n. This infimum might a priori be −∞-∞. As ∅∅ is a possible candidate for D in the definition of sn_n, and as μ(∅)=0μ(∅)=0, we have sn≤0_n≤0. Hence, there exists a ΣΣ-measurable subset Dn⊆X∖Nn_n_n such that
+
+μ(Dn)≤max(sn2,−1)≤0.μ(D_n)≤max(s_n/2,-1)≤0.
+By the claim above, there is a negative set An⊆Dn_n_n such that μ(An)≤μ(Dn)μ(A_n)≤μ(D_n). Set Nn+1:=Nn∪An_n+1:=N_n_n to finish the induction step. Finally, define
+
+N:=⋃n=0∞An.:=⋃_n=0^∞A_n.
+As the sets (An)n=0∞(A_n)_n=0^∞ are disjoint, we have for every ΣΣ-measurable subset B⊆N that
+
+μ(B)=∑n=0∞μ(B∩An)μ(B)=∑_n=0^∞μ(B_n)
+by the sigma additivity of μμ. In particular, this shows that N is a negative set. Next, define P:=X∖N:=X. If P were not a positive set, there would exist a ΣΣ-measurable subset D⊆P with μ(D)<0μ(D)<0. Then sn≤μ(D)_n≤μ(D) for all n∈N0∈ℕ_0 and[clarification needed]
+
+μ(N)=∑n=0∞μ(An)≤∑n=0∞max(sn2,−1)=−∞,μ(N)=∑_n=0^∞μ(A_n)≤∑_n=0^∞max(s_n/2,-1)=-∞,
+which is not allowed for μμ. Therefore, P is a positive set.
+Proof of the uniqueness statement:
+Suppose that (N′,P′)(N',P') is another Hahn decomposition of X. Then P∩N′'  is a positive set and also a negative set. Therefore, every measurable subset of it has measure zero. The same applies to N∩P′'. As
+
+P△P′=N△N′=(P∩N′)∪(N∩P′),'=N'=(P')∪(N'),
+this completes the proof. Q.E.D.
+
+References[edit]
+Billingsley, Patrick (1995). Probability and Measure -- Third Edition. Wiley Series in Probability and Mathematical Statistics. New York: John Wiley & Sons. ISBN 0-471-00710-2.
+Fischer, Tom (2012). "Existence, uniqueness, and minimality of the Jordan measure decomposition". arXiv:1206.5449 [math.ST].
+External links[edit]
+Hahn decomposition theorem at PlanetMath.
+"Hahn decomposition", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+"Jordan decomposition (of a signed measure)", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

@@ -1,0 +1,111 @@
+Theorem used in quantum mechanics for angular momentum calculations
+The Wigner–Eckart theorem is a theorem of representation theory and quantum mechanics. It states that matrix elements of spherical tensor operators in the basis of angular momentum eigenstates can be expressed as the product of two factors, one of which is independent of angular momentum orientation, and the other a Clebsch–Gordan coefficient. The name derives from physicists Eugene Wigner and Carl Eckart, who developed the formalism as a link between the symmetry transformation groups of space (applied to the Schrödinger equations) and the laws of conservation of energy, momentum, and angular momentum.[1]
+Mathematically, the Wigner–Eckart theorem is generally stated in the following way.  Given a tensor operator T(k)^(k) and two states of angular momenta j and j′', there exists a constant ⟨j‖T(k)‖j′⟩T^(k)j'⟩ such that for all m, m′', and q, the following equation is satisfied:
+
+⟨jm|Tq(k)|j′m′⟩=⟨j′m′kq|jm⟩⟨j‖T(k)‖j′⟩, m|T_q^(k)|j' m'⟩=' m' k q|j m⟩T^(k)j'⟩,
+where
+
+Tq(k)_q^(k) is the q-th component of the spherical tensor operator T(k)^(k) of rank k,[2]
+|jm⟩|jm⟩ denotes an eigenstate of total angular momentum J2 and its z component Jz,
+⟨j′m′kq|jm⟩'m'kq|jm⟩ is the Clebsch–Gordan coefficient for coupling j′ with k to get j,
+⟨j‖T(k)‖j′⟩T^(k)j'⟩ denotes[3] some value that does not depend on m, m′, nor q and is referred to as the reduced matrix element.
+The Wigner–Eckart theorem states indeed that operating with a spherical tensor operator of rank k on an angular momentum eigenstate is like adding a state with angular momentum k to the state. The matrix element one finds for the spherical tensor operator is proportional to a Clebsch–Gordan coefficient, which arises when considering adding two angular momenta. When stated another way, one can say that the Wigner–Eckart theorem is a theorem that tells how vector operators behave in a subspace. Within a given subspace, a component of a vector operator will behave in a way proportional to the same component of the angular momentum operator.  This definition is given in the book Quantum Mechanics by Cohen–Tannoudji, Diu and Laloe.
+
+
+Background and overview[edit]
+Motivating example: position operator matrix elements for 4d → 2p transition[edit]
+Let's say we want to calculate transition dipole moments for an electron transition from a 4d to a 2p orbital of a hydrogen atom, i.e. the matrix elements of the form ⟨2p,m1|ri|4d,m2⟩⟨2p,m_1|r_i|4d,m_2⟩, where ri is either the x, y, or z component of the position operator, and m1, m2 are the magnetic quantum numbers that distinguish different orbitals within the 2p or 4d subshell. If we do this directly, it involves calculating 45 different integrals: there are 3 possibilities for m1 (−1, 0, 1), 5 possibilities for m2 (−2, −1, 0, 1, 2), and 3 possibilities for i, so the total is 3 × 5 × 3 = 45.
+The Wigner–Eckart theorem allows one to obtain the same information after evaluating just one of those 45 integrals (any of them can be used, as long as it is nonzero). Then the other 44 integrals can be inferred from that first one—without the need to write down any wavefunctions or evaluate any integrals—with the help of Clebsch–Gordan coefficients, which can be easily looked up in a table or computed by hand or computer.
+
+Qualitative summary of proof[edit]
+The Wigner–Eckart theorem works because all 45 of these different calculations are related to each other by rotations. If an electron is in one of the 2p orbitals, rotating the system will generally move it into a different 2p orbital (usually it will wind up in a quantum superposition of all three basis states, m = +1, 0, −1). Similarly, if an electron is in one of the 4d orbitals, rotating the system will move it into a different 4d orbital. Finally, an analogous statement is true for the position operator: when the system is rotated, the three different components of the position operator are effectively interchanged or mixed.
+If we start by knowing just one of the 45 values (say, we know that ⟨2p,m1|ri|4d,m2⟩=K⟨2p,m_1|r_i|4d,m_2⟩=K) and then we rotate the system, we can infer that K is also the matrix element between the rotated version of ⟨2p,m1|⟨2p,m_1|, the rotated version of ri_i, and the rotated version of |4d,m2⟩|4d,m_2⟩. This gives an algebraic relation involving K and some or all of the 44 unknown matrix elements. Different rotations of the system lead to different algebraic relations, and it turns out that there is enough information to figure out all of the matrix elements in this way.
+(In practice, when working through this math, we usually apply angular momentum operators to the states, rather than rotating the states. But this is fundamentally the same thing, because of the close mathematical relation between rotations and angular momentum operators.)
+
+In terms of representation theory[edit]
+To state these observations more precisely and to prove them, it helps to invoke the mathematics of representation theory. For example, the set of all possible 4d orbitals (i.e., the 5 states m = −2, −1, 0, 1, 2 and their quantum superpositions) form a 5-dimensional abstract vector space. Rotating the system transforms these states into each other, so this is an example of a "group representation", in this case, the 5-dimensional irreducible representation ("irrep") of the rotation group SU(2) or SO(3), also called the "spin-2 representation". Similarly, the 2p quantum states form a 3-dimensional irrep (called "spin-1"), and the components of the position operator also form the 3-dimensional "spin-1" irrep.
+Now consider the matrix elements ⟨2p,m1|ri|4d,m2⟩⟨2p,m_1|r_i|4d,m_2⟩. It turns out that these are transformed by rotations according to the tensor product of those three representations, i.e. the spin-1 representation of the 2p orbitals, the spin-1 representation of the components of r, and the spin-2 representation of the 4d orbitals. This direct product, a 45-dimensional representation of SU(2), is not an irreducible representation, instead it is the direct sum of a spin-4 representation, two spin-3 representations, three spin-2 representations, two spin-1 representations, and a spin-0 (i.e. trivial) representation. The nonzero matrix elements can only come from the spin-0 subspace. The Wigner–Eckart theorem works because the direct product decomposition contains one and only one spin-0 subspace, which implies that all the matrix elements are determined by a single scale factor.
+Apart from the overall scale factor, calculating the matrix element ⟨2p,m1|ri|4d,m2⟩⟨2p,m_1|r_i|4d,m_2⟩ is equivalent to calculating the projection of the corresponding abstract vector (in 45-dimensional space) onto the spin-0 subspace. The results of this calculation are the Clebsch–Gordan coefficients. The key qualitative aspect of the Clebsch–Gordan decomposition that makes the argument work is that in the decomposition of the tensor product of two irreducible representations, each irreducible representation occurs only once. This allows Schur's lemma to be used.[4]
+
+Proof[edit]
+Starting with the definition of a spherical tensor operator, we have
+
+[J±,Tq(k)]=ℏ(k∓q)(k±q+1)Tq±1(k),[J_±,T_q^(k)]=ħ√((k)(k+1))T_q±1^(k),
+which we use to then calculate
+
+⟨jm|[J±,Tq(k)]|j′m′⟩=ℏ(k∓q)(k±q+1)⟨jm|Tq±1(k)|j′m′⟩.    m|[J_±,T_q^(k)]|j' m'⟩=ħ√((k)(k+1))  m|T_q±1^(k)|j' m'⟩.
+If we expand the commutator on the LHS by calculating the action of the J± on the bra and ket, then we get
+
+⟨jm|[J±,Tq(k)]|j′m′⟩=ℏ(j±m)(j∓m+1)⟨j(m∓1)|Tq(k)|j′m′⟩−ℏ(j′∓m′)(j′±m′+1)⟨jm|Tq(k)|j′(m′±1)⟩. m|[J_±,T_q^(k)]|j' m'⟩=   ħ√((j)(j+1))  (m∓1)|T_q^(k)|j' m'⟩
+   -ħ√((j'')(j''+1))  m|T_q^(k)|j' (m'±1)⟩.
+We may combine these two results to get
+
+(j±m)(j∓m+1)⟨j(m∓1)|Tq(k)|j′m′⟩=(j′∓m′)(j′±m′+1)⟨jm|Tq(k)|j′(m′±1)⟩+(k∓q)(k±q+1)⟨jm|Tq±1(k)|j′m′⟩.√((j)(j+1)) (m∓1)|T_q^(k)|j' m'⟩=   √((j'')(j''+1))  m|T_q^(k)|j' (m'±1)⟩
+   +√((k)(k+1))  m|T_q±1^(k)|j' m'⟩.
+This recursion relation for the matrix elements closely resembles that of the Clebsch–Gordan coefficient.  In fact, both are of the form Σc ab, c xc = 0. We therefore have two sets of linear homogeneous equations:
+
+∑cab,cxc=0,∑cab,cyc=0.∑_ca_b,cx_c   =0,   ∑_ca_b,cy_c   =0.
+one for the Clebsch–Gordan coefficients (xc) and one for the matrix elements (yc). It is not possible to exactly solve for xc. We can only say that the ratios are equal, that is
+
+xcxd=ycydx_c/x_d=y_c/y_d
+or that xc ∝ yc, where the coefficient of proportionality is independent of the indices. Hence, by comparing recursion relations, we can identify the Clebsch–Gordan coefficient ⟨j1 m1 j2 (m2 ± 1)|j m⟩ with the matrix element ⟨j′ m′|T(k)q ± 1|j m⟩, then we may write
+
+⟨j′m′|Tq±1(k)|jm⟩∝⟨jmk(q±1)|j′m′⟩.' m'|T_q±1^(k)|j m⟩∝ m k (q±1)|j' m'⟩.
+Alternative conventions[edit]
+There are different conventions for the reduced matrix elements.  One convention, used by Racah[5] and Wigner,[6] includes an additional phase and normalization factor,
+
+⟨jm|Tq(k)|j′m′⟩=(−1)2k⟨j′m′kq|jm⟩⟨j‖T(k)‖j′⟩R2j+1=(−1)j−m(jkj′−mqm′)⟨j‖T(k)‖j′⟩R. m|T_q^(k)|j' m'⟩=(-1)^2k' m' k q|j m⟩T^(k)j'⟩_R/√(2j+1)=(-1)^j-m[  j  k j'; -m  q m' ]T^(k)j'⟩_R.
+where the 2 × 3 array denotes the 3-j symbol.  (Since in practice k is often an integer, the (−1)2 k factor is sometimes omitted in literature.)  With this choice of normalization, the reduced matrix element satisfies the relation:
+
+⟨j‖T†(k)‖j′⟩R=(−1)k+j′−j⟨j′‖T(k)‖j⟩R∗,T^†(k)j'⟩_R=(-1)^k+j'-j'T^(k)j⟩_R^*,
+where the Hermitian adjoint is defined with the k − q convention.  Although this relation is not affected by the presence or absence of the (−1)2 k phase factor in the definition of the reduced matrix element, it is affected by the phase convention for the Hermitian adjoint.
+Another convention for reduced matrix elements is that of Sakurai's Modern Quantum Mechanics:
+
+⟨jm|Tq(k)|j′m′⟩=⟨j′m′kq|jm⟩⟨j‖T(k)‖j′⟩2j′+1. m|T_q^(k)|j' m'⟩=' m' k q|j m⟩T^(k)j'⟩/√(2j'+1).
+Example[edit]
+Consider the position expectation value ⟨n j m|x|n j m⟩. This matrix element is the expectation value of a Cartesian operator in a spherically symmetric hydrogen-atom-eigenstate basis, which is a nontrivial problem. However, the Wigner–Eckart theorem simplifies the problem. (In fact, we could obtain the solution quickly using parity, although a slightly longer route will be taken.)
+We know that x is one component of r, which is a vector.  Since vectors are rank-1 spherical tensor operators, it follows that x must be some linear combination of a rank-1 spherical tensor T(1)q with q ∈ {−1, 0, 1}.  In fact, it can be shown that
+
+x=T−1(1)−T1(1)2,=T_-1^(1)-T_1^(1)/√(2),
+where we define the spherical tensors as[7]
+
+Tq(1)=4π3rY1q_q^(1)=√(4π/3)rY_1^q
+and Ylm are spherical harmonics, which themselves are also spherical tensors of rank l.  Additionally, T(1)0 = z, and
+
+T±1(1)=∓x±iy2._±1^(1)=∓x/√(2).
+Therefore,
+
+⟨njm|x|n′j′m′⟩=⟨njm|T−1(1)−T1(1)2|n′j′m′⟩=12⟨nj‖T(1)‖n′j′⟩(⟨j′m′1(−1)|jm⟩−⟨j′m′11|jm⟩). j m|x|n' j' m'⟩   = j m|T_-1^(1)-T_1^(1)/√(2)|n' j' m'⟩
+   =1/√(2) jT^(1)n' j'⟩ (' m' 1 (-1)|j m⟩-' m' 1 1|j m⟩).
+The above expression gives us the matrix element for x in the |n j m⟩ basis.  To find the expectation value, we set n′ = n, j′ = j, and m′ = m.  The selection rule for m′ and m is m ± 1 = m′ for the T(1)±1 spherical tensors.  As we have m′ = m, this makes the Clebsch–Gordan Coefficients zero, leading to the expectation value to be equal to zero.
+
+See also[edit]
+Tensor operator
+Landé g-factor
+References[edit]
+
+^ Eckart Biography – The National Academies Press.
+
+^ The parenthesized superscript (k) provides a reminder of its rank.  However, unlike q, it need not be an actual index.
+
+^ This is a special notation specific to the Wigner–Eckart theorem.
+
+^ Hall 2015 Appendix C.
+
+^ Racah, G. (1942). "Theory of Complex Spectra II". Physical Review. 62 (9–10): 438–462. Bibcode:1942PhRv...62..438R. doi:10.1103/PhysRev.62.438.
+
+^ Wigner, E. P. (1951). "On the Matrices Which Reduce the Kronecker Products of Representations of S. R. Groups". In Wightman, Arthur S. (ed.). The Collected Works of Eugene Paul Wigner. Vol. 3. p. 614. doi:10.1007/978-3-662-02781-3_42. ISBN 978-3-642-08154-5.
+
+^ J. J. Sakurai: "Modern quantum mechanics" (Massachusetts, 1994, Addison-Wesley).
+
+
+General[edit]
+Hall, Brian C. (2015), Lie groups, Lie algebras, and representations: An elementary introduction, Graduate Texts in Mathematics, vol. 222 (2nd ed.), Springer, ISBN 978-3319134666
+External links[edit]
+J. J. Sakurai, (1994). "Modern Quantum Mechanics", Addison Wesley, ISBN 0-201-53929-2.
+Weisstein, Eric W. "Wigner–Eckart theorem". MathWorld.
+Wigner–Eckart theorem
+Tensor Operators
+
+
+

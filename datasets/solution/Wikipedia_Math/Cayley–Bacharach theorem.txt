@@ -1,0 +1,162 @@
+Statement about cubic curves in the projective plane
+Image for 9-points theorem, special case, when both C1 and C2 are unions of 3 lines
+In mathematics, the Cayley–Bacharach theorem is a statement about cubic curves (plane curves of degree three) in the projective plane P2. The original form states:
+
+Assume that two cubics C1 and C2 in the projective plane meet in nine (different) points, as they do in general over an algebraically closed field. Then every cubic that passes through any eight of the points also passes through the ninth point.
+A more intrinsic form of the Cayley–Bacharach theorem reads as follows:
+
+Every cubic curve C over an algebraically closed field that passes through a given set of eight points P1, ..., P8 also passes through (counting multiplicities) a ninth point P9 which depends only on P1, ..., P8.
+A related result on conics was first proved by the French geometer Michel Chasles and later generalized to cubics by Arthur Cayley and Isaak Bacharach.[1]
+
+
+Details[edit]
+If seven of the points P1, ..., P8 lie on a conic, then the ninth point can be chosen on that conic, since C will always contain the whole conic on account of Bézout's theorem. In other cases, we have the following.
+
+If no seven points out of P1, ..., P8 are co-conic, then the vector space of cubic homogeneous polynomials that vanish on (the affine cones of) P1, ..., P8 (with multiplicity for double points) has dimension two.
+In that case, every cubic through P1, ..., P8 also passes through the intersection of any two different cubics through P1, ..., P8, which has at least nine points (over the algebraic closure) on account of Bézout's theorem. These points cannot be covered by P1, ..., P8 only, which gives us P9.
+Since degenerate conics are a union of at most two lines, there are always four out of seven points on a degenerate conic that are collinear. Consequently:
+
+If no seven points out of P1, ..., P8 lie on a non-degenerate conic, and no four points out of P1, ..., P8 lie on a line, then the vector space of cubic homogeneous polynomials that vanish on (the affine cones of) P1, ..., P8 has dimension two.
+On the other hand, assume P1, P2, P3, P4 are collinear and no seven points out of P1, ..., P8 are co-conic. Then no five points of P1, ..., P8 and no three points of P5, P6, P7, P8 are collinear. Since C will always contain the whole line through P1, P2, P3, P4 on account of Bézout's theorem, the vector space of cubic homogeneous polynomials that vanish on (the affine cones of) P1, ..., P8 is isomorphic to the vector space of quadratic homogeneous polynomials that vanish (the affine cones of) P5, P6, P7, P8, which has dimension two.
+Although the sets of conditions for both dimension two results are different, they are both strictly weaker than full general positions: three points are allowed to be collinear, and six points are allowed to lie on a conic (in general two points determine a line and five points determine a conic). For the Cayley–Bacharach theorem, it is necessary to have a family of cubics passing through the nine points, rather than a single one.
+According to Bézout's theorem, two different cubic curves over an algebraically closed field which have no common irreducible component meet in exactly nine points (counted with multiplicity). The Cayley–Bacharach theorem thus asserts that the last point of intersection of any two members in the family of curves does not move if eight intersection points (without seven co-conic ones) are already prescribed.
+
+Applications[edit]
+A special case is Pascal's theorem, in which case the two cubics in question are all degenerate: given six points on a conic (a hexagon), consider the lines obtained by extending opposite sides – this yields two cubics of three lines each, which intersect in 9 points – the 6 points on the conic, and 3 others. These 3 additional points lie on a line, as the conic plus the line through any two of the points is a cubic passing through 8 of the points.
+A second application is Pappus's hexagon theorem, similar to the above, but the six points are on two lines instead of on a conic.
+Finally, a third case is found for proving the associativity of elliptic curve point addition. Let a first cubic contain the three lines BC, O(A+B) and A(B+C); and a second cubic containing the three lines AB, O(B+C) and C(A+B). The following eight points are common to both cubics: A, B, C, A+B, -A-B, B+C, -B-C, O. Hence their ninth points must be the same -A-(B+C)=-(A+B)-C, giving the associativity.
+
+Dimension counting[edit]
+One can understand the Cayley–Bacharach theorem, and why it arises for degree 3, by dimension counting. Simply stated, nine points determine a cubic, but in general define a unique cubic. Thus if the nine points lie on more than one cubic, equivalently on the intersection of two cubics (as 3 × 3 = 9), they are not in general position – they are overdetermined by one dimension – and thus cubics passing through them satisfying one additional constraint, as reflected in the "eight implies nine" property. The general phenomenon is called superabundance; see Riemann–Roch theorem for surfaces.
+
+Details[edit]
+Formally, first recall that given two curves of degree d, they define a pencil (one-parameter linear system) of degree d curves by taking projective linear combinations of the defining equations; this corresponds to two points determining a projective line in the parameter space of curves, which is simply projective space.
+The Cayley–Bacharach theorem arises for high degree because the number of intersection points of two curves of degree d, namely d 2 (by Bézout's theorem), grows faster than the number of points needed to define a curve of degree d, which is given by
+
+(d+1)(d+2)2−1=d2+3d2.(d+1)(d+2)/2-1=d^2+3d/2.
+These first agree for d = 3, which is why the Cayley–Bacharach theorem occurs for cubics, and for higher degree d 2 is greater, hence the higher degree generalizations.
+In detail, the number of points required to determine a curve of degree d is the number of monomials of degree d, minus 1 from projectivization. For the first few d these yield:
+
+d = 1: 2 and 1: two points determine a line, two lines intersect in a point,
+d = 2: 5 and 4: five points determine a conic, two conics intersect in four points,
+d = 3: 9 and 9: nine points determine a cubic, two cubics intersect in nine points,
+d = 4: 14 and 16.
+Thus these first agree for 3, and the number of intersections is larger when d > 3.
+The meaning of this is that the 9 points of intersection of two cubics are in special position with respect to cubics, a fortiori for higher degree, but unlike for lower degree: two lines intersect in a point, which is trivially in general linear position, and two quadratics intersect in four points, which (assuming the quadratics are irreducible so no three points are collinear) are in general quadratic position because five points determine a quadratic, and any four points (in general linear position) have a pencil of quadratics through them, since the system is underdetermined. For cubics, nine points determine a cubic, but in general they determine a unique cubic – thus having two different cubics pass through them (and thus a pencil) is special – the solution space is one dimension higher than expected, and thus the solutions satisfy an additional constraint, namely the "8 implies 9" property.
+More concretely, because the vector space of homogeneous polynomials P(x, y, z) of degree three in three variables x, y, z has dimension 10, the system of cubic curves passing through eight (different) points is parametrized by a vector space of dimension ≥ 2 (the vanishing of the polynomial at one point imposes a single linear condition). It can be shown that the dimension is exactly two if no four of the points are collinear and no seven points lie on a conic. The Cayley–Bacharach theorem can be deduced from this fact.[2]
+
+See also[edit]
+Linear system of divisors
+References[edit]
+Footnotes[edit]
+
+
+^ Bacharach (1886).
+
+^ Hartshorne, Robin. Algebraic geometry. chapter 5, section 4 (The cubic surface in P3𝐏^3), Corollary 4.5.
+
+
+Bibliography[edit]
+Michel Chasles, Traité des sections coniques, Gauthier-Villars, Paris, 1885.
+Bacharach, Isaak (1886), "Ueber den Cayley'schen Schnittpunktsatz", Mathematische Annalen, Berlin/Heidelberg: Springer, 26 (2): 275–299, doi:10.1007/BF01444338, ISSN 0025-5831, S2CID 120983080
+Cayley, Arthur (1889), On the Intersection of Curves, Cambridge: Cambridge University Press
+Edward D. Davis, Anthony V. Geramita, and Ferruccio Orecchia, Gorenstein algebras and Cayley–Bacharach theorem, Proceedings of the American Mathematical Society 93 (1985), 593–597.
+David Eisenbud, Mark Green, and Joe Harris, Cayley–Bacharach theorems and conjectures, Bulletin of the American Mathematical Society 33 (1996), no. 3, 295—324. MR1376653
+Katz, Gabriel (2005). "Curves in cages: an algebro-geometric zoo". arXiv:math/0508076.
+vteTopics in algebraic curvesRational curves
+Five points determine a conic
+Projective line
+Rational normal curve
+Riemann sphere
+Twisted cubic
+Elliptic curvesAnalytic theory
+Elliptic function
+Elliptic integral
+Fundamental pair of periods
+Modular form
+Arithmetic theory
+Counting points on elliptic curves
+Division polynomials
+Hasse's theorem on elliptic curves
+Mazur's torsion theorem
+Modular elliptic curve
+Modularity theorem
+Mordell–Weil theorem
+Nagell–Lutz theorem
+Supersingular elliptic curve
+Schoof's algorithm
+Schoof–Elkies–Atkin algorithm
+Applications
+Elliptic curve cryptography
+Elliptic curve primality
+Higher genus
+De Franchis theorem
+Faltings's theorem
+Hurwitz's automorphisms theorem
+Hurwitz surface
+Hyperelliptic curve
+Plane curves
+AF+BG theorem
+Bézout's theorem
+Bitangent
+Cayley–Bacharach theorem
+Conic section
+Cramer's paradox
+Cubic plane curve
+Fermat curve
+Genus–degree formula
+Hilbert's sixteenth problem
+Nagata's conjecture on curves
+Plücker formula
+Quartic plane curve
+Real plane curve
+Riemann surfaces
+Belyi's theorem
+Bring's curve
+Bolza surface
+Compact Riemann surface
+Dessin d'enfant
+Differential of the first kind
+Klein quartic
+Riemann's existence theorem
+Riemann–Roch theorem
+Teichmüller space
+Torelli theorem
+Constructions
+Dual curve
+Polar curve
+Smooth completion
+Structure of curvesDivisors on curves
+Abel–Jacobi map
+Brill–Noether theory
+Clifford's theorem on special divisors
+Gonality of an algebraic curve
+Jacobian variety
+Riemann–Roch theorem
+Weierstrass point
+Weil reciprocity law
+Moduli
+ELSV formula
+Gromov–Witten invariant
+Hodge bundle
+Moduli of algebraic curves
+Stable curve
+Morphisms
+Hasse–Witt matrix
+Riemann–Hurwitz formula
+Prym variety
+Weber's theorem (Algebraic curves)
+Singularities
+Acnode
+Crunode
+Cusp
+Delta invariant
+Tacnode
+Vector bundles
+Birkhoff–Grothendieck theorem
+Stable vector bundle
+Vector bundles on algebraic curves
+
+
+
+

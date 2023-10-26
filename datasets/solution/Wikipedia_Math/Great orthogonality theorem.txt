@@ -1,0 +1,146 @@
+In mathematics, the Schur orthogonality relations, which were proven by Issai Schur through Schur's lemma, express a central fact about representations of finite groups. 
+They admit a generalization to the case of compact groups in general, and in particular compact Lie groups, such as the rotation group SO(3).
+
+
+Finite groups[edit]
+Intrinsic statement[edit]
+The space of complex-valued class functions of a finite group G has a natural inner product:
+
+⟨α,β⟩:=1|G|∑g∈Gα(g)β(g)¯⟨α,β⟩:=1/|G|∑_gα(g)β(g)
+where β(g)¯β(g) means the complex conjugate of the value of ββ on g.  With respect to this inner product, the irreducible characters form an orthonormal basis
+for the space of class functions, and this yields the orthogonality relation for the rows of the character
+table:
+
+⟨χi,χj⟩=0ifi≠j,1ifi=j.⟨χ_i,χ_j⟩=0   i,
+1   i=j.
+For g,h∈G,h, applying the same inner product to the columns of the character table yields:
+
+∑χiχi(g)χi(h)¯=|CG(g)|,ifg,hareconjugate0otherwise.∑_χ_iχ_i(g)χ_i(h)=|C_G(g)|,   g,h
+0   
+where the sum is over all of the irreducible characters χiχ_i of G and the symbol |CG(g)||C_G(g)| denotes the order of the centralizer of g. Note that since g and h are conjugate iff they are in the same column of the character table, this implies that the columns of the character table are orthogonal.
+The orthogonality relations can aid many computations including:
+
+decomposing an unknown character as a linear combination of irreducible characters;
+constructing the complete character table when only some of the irreducible characters are known;
+finding the orders of the centralizers of representatives of the conjugacy classes of a group; and
+finding the order of the group.
+Coordinates statement[edit]
+Let Γ(λ)(R)mnΓ^(λ)(R)_mn be a matrix element of an irreducible matrix representation
+Γ(λ)Γ^(λ) of a finite group  G=R={R} of order  |G|, i.e. G has |G| elements. Since it can be proven that any matrix representation of any finite group is equivalent to a unitary representation, we assume Γ(λ)Γ^(λ) is unitary:
+
+∑n=1lλΓ(λ)(R)nm∗Γ(λ)(R)nk=δmkforallR∈G,∑_n=1^l_λ Γ^(λ)(R)_nm^* Γ^(λ)(R)_nk=δ_mk  forall,
+where lλ_λ is the (finite) dimension of the irreducible representation Γ(λ)Γ^(λ).[1]
+The orthogonality relations, only valid for matrix elements of irreducible representations, are:
+
+∑R∈G|G|Γ(λ)(R)nm∗Γ(μ)(R)n′m′=δλμδnn′δmm′|G|lλ.∑_R^|G| Γ^(λ)(R)_nm^* Γ^(μ)(R)_n'm'=δ_λμδ_nn'δ_mm'|G|/l_λ.
+Here Γ(λ)(R)nm∗Γ^(λ)(R)_nm^* is the complex conjugate of Γ(λ)(R)nmΓ^(λ)(R)_nm  and the sum is over all elements of G.
+The Kronecker delta δλμδ_λμ is unity if the matrices are in the same irreducible representation Γ(λ)=Γ(μ)Γ^(λ)=Γ^(μ). If Γ(λ)Γ^(λ) and Γ(μ)Γ^(μ) are non-equivalent
+it is zero. The other two Kronecker delta's state that  
+the row and column indices must be equal (n=n′=n' and m=m′=m') in order to obtain a non-vanishing result.  This theorem is also known as the Great (or Grand) Orthogonality Theorem.
+Every group has an identity representation (all group elements mapped onto the real number 1).
+This is an irreducible representation. The great orthogonality relations immediately imply that 
+
+∑R∈G|G|Γ(μ)(R)nm=0∑_R^|G| Γ^(μ)(R)_nm=0
+for n,m=1,…,lμ,m=1,…,l_μ and any irreducible representation Γ(μ)Γ^(μ)  not equal to the identity representation.
+
+Example of the permutation group on 3 objects[edit]
+The 3! permutations of three objects form a group of order 6, commonly denoted S3 (symmetric group). This group is isomorphic to the point group C3v_3v, consisting of a threefold rotation axis and three vertical mirror planes. The groups have a 2-dimensional irreducible representation (l = 2). In the case of S3 one usually labels this representation
+by the Young tableau λ=[2,1]λ=[2,1] and in the case of C3v_3v
+one usually writes  λ=Eλ=E. In both cases the representation consists of the following six real matrices, each representing a single group element:[2]
+
+(1001)(100−1)(−12323212)(−12−32−3212)(−1232−32−12)(−12−3232−12)[ 1 0; 0 1;  ]  [  1  0;  0 -1;  ]  [   -1/2 √(3)/2; √(3)/2    1/2;  ]  [    -1/2 -√(3)/2; -√(3)/2     1/2;  ]  [    -1/2  √(3)/2; -√(3)/2    -1/2;  ]  [    -1/2 -√(3)/2;  √(3)/2    -1/2;  ]
+The normalization of the (1,1) element:
+
+∑R∈G6Γ(R)11∗Γ(R)11=12+12+(−12)2+(−12)2+(−12)2+(−12)2=3.∑_R^6 Γ(R)_11^* Γ(R)_11=1^2+1^2+(-12)^2+(-12)^2+(-12)^2+(-12)^2=3.
+In the same manner one can show the normalization of the other matrix elements: (2,2), (1,2), and (2,1).
+The orthogonality of the (1,1) and (2,2)  elements:
+
+∑R∈G6Γ(R)11∗Γ(R)22=12+(1)(−1)+(−12)(12)+(−12)(12)+(−12)2+(−12)2=0.∑_R^6 Γ(R)_11^* Γ(R)_22=1^2+(1)(-1)+(-12)(12)+(-12)(12)+(-12)^2+(-12)^2=0.
+Similar relations hold for the orthogonality of the elements (1,1) and (1,2), etc.
+One verifies easily in the example that all sums of corresponding matrix elements vanish because of
+the orthogonality of the given irreducible representation to the identity representation.
+
+Direct implications[edit]
+The trace of a matrix is a sum of diagonal matrix elements,
+
+Tr⁡(Γ(R))=∑m=1lΓ(R)mm.Tr(Γ(R))=∑_m=1^lΓ(R)_mm.
+The collection of traces is the character χ≡Tr⁡(Γ(R))|R∈Gχ≡{Tr(Γ(R)) | R} of a representation. Often one writes for
+the trace of a matrix in an irreducible representation with character  χ(λ)χ^(λ)
+
+χ(λ)(R)≡Tr⁡(Γ(λ)(R)).χ^(λ)(R)≡Tr(Γ^(λ)(R)).
+In this notation we can write several character formulas:
+
+∑R∈G|G|χ(λ)(R)∗χ(μ)(R)=δλμ|G|,∑_R^|G|χ^(λ)(R)^* χ^(μ)(R)=δ_λμ|G|,
+which allows us to check whether or not a representation is irreducible. (The formula means that the lines in any character table have to be orthogonal vectors.)
+And
+
+∑R∈G|G|χ(λ)(R)∗χ(R)=n(λ)|G|,∑_R^|G|χ^(λ)(R)^* χ(R)=n^(λ)|G|,
+which helps us to determine how often the irreducible representation Γ(λ)Γ^(λ) is contained within the reducible representation ΓΓ  with character χ(R)χ(R).
+For instance, if
+
+n(λ)|G|=96^(λ) |G|=96
+and  the order of the group is
+
+|G|=24|G|=24 
+then the number of times that Γ(λ)Γ^(λ)  is contained within the given
+reducible representation ΓΓ  is
+
+n(λ)=4.^(λ)=4 .
+See Character theory for more about group characters.
+
+Compact groups[edit]
+The generalization of the orthogonality relations from finite groups to compact groups (which include compact Lie groups such as SO(3)) is basically simple: Replace the summation over the group by an integration over the group.
+Every compact group G has unique bi-invariant Haar measure, so that the volume of the group is 1.  Denote this measure by dg.  Let (πα)(π^α) be a complete set of irreducible representations of G, and let ϕv,wα(g)=⟨v,πα(g)w⟩ϕ_v,w^α(g)=,π^α(g)w⟩ be a matrix coefficient of the representation παπ^α.  The orthogonality relations can then be stated in two parts:
+1) If πα≆πβπ^απ^β then
+
+∫Gϕv,wα(g)ϕv′,w′β(g)dg=0∫_Gϕ_v,w^α(g)ϕ_v',w'^β(g)dg=0
+2) If ei{e_i} is an orthonormal basis of the representation space παπ^α then
+
+∫Gϕei,ejα(g)ϕem,enα(g)¯dg=δi,mδj,n1dα∫_Gϕ_e_i,e_j^α(g)ϕ_e_m,e_n^α(g)dg=δ_i,mδ_j,n1/d^α
+where dα^α is the dimension of παπ^α.  These orthogonality relations and the fact that all of the representations have finite dimensions are consequences of the Peter–Weyl theorem.
+
+An example: SO(3)[edit]
+An example of an r = 3 parameter group is the matrix group SO(3) consisting of all 3 x 3 orthogonal matrices with unit determinant. A possible parametrization of this group is in terms of Euler angles: x=(α,β,γ)𝐱=(α,β,γ) (see e.g., this article for the explicit form of an element of SO(3) in terms of Euler angles). The bounds are 0≤α,γ≤2π0≤α,γ≤2π and 0≤β≤π0≤β≤π.
+Not only the recipe for the computation of the volume element ω(x)dx1dx2⋯dxrω(𝐱) dx_1dx_2_r depends on the chosen parameters, but also the final result, i.e. the analytic form of the weight function (measure) ω(x)ω(𝐱).
+For instance, the Euler angle parametrization of SO(3) gives the weight ω(α,β,γ)=sinβ,ω(α,β,γ)=sinβ , while the n, ψ parametrization gives the weight ω(ψ,θ,ϕ)=2(1−cos⁡ψ)sinθω(ψ,θ,ϕ)=2(1-cosψ)sinθ 
+with 0≤ψ≤π,0≤ϕ≤2π,0≤θ≤π.0≤ψ≤π,  0≤ϕ≤2π,  0≤θ≤π.
+It can be shown that the irreducible matrix representations of compact Lie groups are finite-dimensional and can be chosen to be unitary:
+
+Γ(λ)(R−1)=Γ(λ)(R)−1=Γ(λ)(R)†withΓ(λ)(R)mn†≡Γ(λ)(R)nm∗.Γ^(λ)(R^-1)=Γ^(λ)(R)^-1=Γ^(λ)(R)^†  with  Γ^(λ)(R)_mn^†≡Γ^(λ)(R)_nm^*.
+With the shorthand notation
+
+Γ(λ)(x)=Γ(λ)(R(x))Γ^(λ)(𝐱)=Γ^(λ)(R(𝐱))
+the orthogonality relations take the form
+
+∫x10x11⋯∫xr0xr1Γ(λ)(x)nm∗Γ(μ)(x)n′m′ω(x)dx1⋯dxr=δλμδnn′δmm′|G|lλ,∫_x_1^0^x_1^1⋯∫_x_r^0^x_r^1 Γ^(λ)(𝐱)_nm^*Γ^(μ)(𝐱)_n'm' ω(𝐱)dx_1_r =δ_λμδ_nn'δ_mm'|G|/l_λ,
+with the volume of the group:
+
+|G|=∫x10x11⋯∫xr0xr1ω(x)dx1⋯dxr.|G|=∫_x_1^0^x_1^1⋯∫_x_r^0^x_r^1ω(𝐱)dx_1_r.
+As an example we note that the irreducible representations of SO(3) are Wigner D-matrices Dℓ(αβγ)^ℓ(αβγ), which are of dimension 2ℓ+12ℓ+1. Since
+
+|SO(3)|=∫02πdα∫0πsinβdβ∫02πdγ=8π2,|SO(3)|=∫_0^2πdα∫_0^πsinβ dβ∫_0^2πdγ=8π^2,
+they satisfy
+
+∫02π∫0π∫02πDℓ(αβγ)nm∗Dℓ′(αβγ)n′m′sinβdαdβdγ=δℓℓ′δnn′δmm′8π22ℓ+1.∫_0^2π∫_0^π∫_0^2πD^ℓ(αβγ)_nm^* D^ℓ'(αβγ)_n'm' sinβ dα dβ dγ=δ_ℓℓ'δ_nn'δ_mm'8π^2/2ℓ+1.
+Notes[edit]
+
+
+^ The finiteness of lλ_λ follows from the fact that any irreducible representation of a finite group G is contained in the regular representation.
+
+^ This choice is not unique, any orthogonal similarity transformation
+applied to the matrices gives a valid irreducible representation.
+
+
+References[edit]
+Any physically or chemically oriented book on group theory mentions the orthogonality relations. The following more advanced books give the proofs:
+
+M. Hamermesh, Group Theory and its Applications to Physical Problems, Addison-Wesley, Reading (1962). (Reprinted by Dover).
+W. Miller, Jr., Symmetry Groups and their Applications, Academic Press, New York (1972).
+J. F. Cornwell, Group Theory in Physics, (Three volumes), Volume 1, Academic Press, New York (1997).
+The following books give more mathematically inclined treatments:
+
+Serre, Jean-Pierre (1977). Linear Representations of Finite Groups. New York: Springer-Verlag. pp. 13-20. ISBN 0387901906. ISSN 0072-5285. OCLC 2202385.
+Sengupta, Ambar N. (2012). Representing Finite Groups, A Semisimple Introduction. Springer. ISBN 978-1-4614-1232-8. OCLC 875741967.
+
+
+

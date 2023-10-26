@@ -1,0 +1,646 @@
+Mathematical result that there is no perfect voting system
+Arrow's impossibility theorem, the general possibility theorem or Arrow's paradox is an impossibility theorem in social choice theory that states that when voters have three or more distinct alternatives (options), no ranked voting electoral system can convert the ranked preferences of individuals into a community-wide (complete and transitive) ranking while also meeting the specified set of criteria: unrestricted domain, non-dictatorship, Pareto efficiency, and independence of irrelevant alternatives. The theorem is often cited in discussions of voting theory as it is further interpreted by the Gibbard–Satterthwaite theorem. The theorem is named after economist and Nobel laureate Kenneth Arrow, who demonstrated the theorem in his doctoral thesis and popularized it in his 1951 book Social Choice and Individual Values.  The original paper was titled "A Difficulty in the Concept of Social Welfare".[1]
+In short, the theorem states that no rank-order electoral system can be designed that always satisfies these three "fairness" criteria:
+
+If every voter prefers alternative X over alternative Y, then the group prefers X over Y.
+If every voter's preference between X and Y remains unchanged, then the group's preference between X and Y will also remain unchanged (even if voters' preferences between other pairs like X and Z, Y and Z, or Z and W change).
+There is no "dictator": no single voter possesses the power to always determine the group's preference.
+Cardinal voting electoral systems are not covered by the theorem, as they convey more information than rank orders.[2][3] Gibbard's theorem and the Duggan–Schwartz theorem show that strategic voting remains a problem. The axiomatic approach Arrow adopted can treat all conceivable rules (that are based on preferences) within one unified framework. In that sense, the approach is qualitatively different from the earlier one in voting theory, in which rules were investigated one by one. One can therefore say that the contemporary paradigm of social choice theory started from this theorem.[4]
+The practical consequences of the theorem are debatable. Arrow has said: "Most systems are not going to work badly all of the time. All I proved is that all can work badly at times."[5] When asked what he would change about US elections, he said, "The first thing that I'd certainly do is go to a system where people ranked all the candidates."[6]
+
+
+Statement[edit]
+The need to aggregate preferences occurs in many disciplines: in welfare economics, where one attempts to find an economic outcome which would be acceptable and stable; in decision theory, where a person has to make a rational choice based on several criteria; and most naturally in electoral systems, which are mechanisms for extracting a governance-related decision from a multitude of voters' preferences.
+The framework for Arrow's theorem assumes that we need to extract a preference order on a given set of options (outcomes). Each individual in the society (or equivalently, each decision criterion) gives a particular order of preferences on the set of outcomes. We are searching for a ranked voting electoral system, called a social welfare function (preference aggregation rule), which transforms the set of preferences (profile of preferences) into a single global societal preference order. Arrow's theorem says that if the decision-making body has at least two members and at least three options to decide among, then it is impossible to design a social welfare function that satisfies all these conditions (assumed to be a reasonable requirement of a fair electoral system) at once:
+
+Non-dictatorship
+The social welfare function should account for the wishes of multiple voters. It cannot simply mimic the preferences of a single voter.
+Unrestricted domain, or universality
+For any set of individual voter preferences, the social welfare function should yield a unique and complete ranking of societal choices. Thus:It must do so in a manner that results in a complete ranking of preferences for society.It must deterministically provide the same ranking each time voters' preferences are presented the same way.
+Independence of irrelevant alternatives (IIA)
+The social preference between x and y should depend only on the individual preferences between x and y (pairwise independence). More generally, changes in individuals' rankings of irrelevant alternatives (ones outside a certain subset) should have no impact on the societal ranking of the subset. For example, if candidate x ranks socially before candidate y, then x should rank socially before y even if a third candidate z is removed from participation. (See Remarks below.)
+Monotonicity, or positive association of social and individual values
+If any individual modifies his or her preference order by promoting a certain option, then the societal preference order should respond only by promoting that same option or not changing, never by placing it lower than before. An individual should not be able to hurt an option by ranking it higher.
+Non-imposition, or citizen sovereignty
+Every possible societal preference order should be achievable by some set of individual preference orders. This means that the social welfare function is surjective: It has an unrestricted target space.
+A later (1963)[7] version of Arrow's theorem replaced the monotonicity and non-imposition criteria with:
+
+Pareto efficiency, or unanimity
+If every individual prefers a certain option to another, then so must the resulting societal preference order. This, again, is a demand that the social welfare function will be minimally sensitive to the preference profile.
+This later version is more general, having weaker conditions. The axioms of monotonicity, non-imposition, and IIA together imply Pareto efficiency, whereas Pareto efficiency (itself implying non-imposition) and IIA together do not imply monotonicity.
+
+Independence of irrelevant alternatives (IIA)[edit]
+The IIA condition has three purposes (or effects):[8]
+
+Normative
+Irrelevant alternatives should not matter.
+Practical
+Use of minimal information.
+Strategic
+Providing the right incentives for the truthful revelation of individual preferences. Though the strategic property is conceptually different from IIA, it is closely related.
+Arrow's death-of-a-candidate example (1963, page 26)[7] suggests that the agenda (the set of feasible alternatives) shrinks from, say, X = {a, b, c} to S = {a, b} because of the death of candidate c. This example is misleading since it can give the reader an impression that IIA is a condition involving two agenda and one profile. The fact is that IIA involves just one agendum ({x, y} in case of pairwise independence) but two profiles. If the condition is applied to this confusing example, it requires this: Suppose an aggregation rule satisfying IIA chooses b from the agenda {a, b} when the profile is given by (cab, cba), that is, individual 1 prefers c to a to b, 2 prefers c to b to a. Then, it must still choose b from {a, b} if the profile were, say: (abc, bac); (acb, bca); (acb, cba); or (abc, cba).
+In different words, Arrow defines IIA as saying that the social preferences between alternatives x and y depend only on the individual preferences between x and y (not on those involving other candidates).
+
+Formal statement of the theorem[edit]
+Let A be a set of outcomes, N a number of voters or decision criteria. We shall denote the set of all full linear orderings of A by L(A).
+A (strict) social welfare function (preference aggregation rule) is a function
+
+F:L(A)N→L(A):L(A)^N→L(A)
+which aggregates voters' preferences into a single preference order on A.[9]
+An N-tuple (R1, …, RN) ∈ L(A)N of voters' preferences is called a preference profile.  In its strongest and simplest form, Arrow's impossibility theorem states that whenever the set A of possible alternatives has more than 2 elements, then the following three conditions become incompatible:
+
+Unanimity, or weak Pareto efficiency
+If alternative a is ranked strictly higher than b for all orderings R1 , …, RN, then a is ranked strictly higher than b by F(R1, R2, …, RN). (Unanimity implies non-imposition.)
+Non-dictatorship
+There is no individual, i whose strict preferences always prevail. That is, there is no i ∈ {1, …, N}  such that for all (R1, …, RN) ∈ L(A)N and all a and b, when a is ranked strictly higher than b by Ri then a is ranked strictly higher than b by F(R1, R2, …, RN).
+Independence of irrelevant alternatives
+For two preference profiles (R1, …, RN) and (S1, …, SN) such that for all individuals i, alternatives a and b have the same order in Ri as in Si, alternatives a and b have the same order in F(R1, …, RN) as in F(S1, …, SN).
+Proof by decisive coalitions[edit]
+Arrow's proof used the concept of decisive coalitions.[7]
+Definition: 
+
+A subset of voters is a coalition.
+A coalition is decisive over an ordered pair (x,y)(x,y) if and only if when everyone in the coalition ranks x≻iy≻_iy, then x≻y overall.
+A coalition is decisive if and only if it is decisive over all ordered pairs.
+The following proof is a simplification taken from (Sen, 2014)[10] and (Rubinstein, 2012).[11] The simplified proof uses an addition concept: 
+
+A coalition is weakly decisive over (x,y)(x,y) if and only if when every voter i in the coalition ranks x≻iy≻_iy, and every voter j outside the coalition ranks y≻jx≻_jx, then x≻y.
+Thenceforth assume that the social choice system satisfies unrestricted domain, Pareto efficiency, and IIA. Also assume that there are at least 3 distinct outcomes.
+Field expansion lemma — if a coalition G is weakly decisive over (x,y)(x,y) for some x≠y, then it is decisive.
+
+
+Proof
+Let z be an outcome distinct from x,y,y.
+Claim: G is decisive over (x,z)(x,z).
+Let everyone in G vote x over z. By IIA, changing the votes on y does not matter for x,z,z. So change the votes such that x≻iy≻iz≻_iy≻_iz in G and y≻ix≻_ix and z outside of G.
+By Pareto, y≻z. By coalition weak-decisiveness over (x,y)(x,y), x≻y. Thus x≻z.  ◻□
+Similarly, G is decisive over (z,y)(z,y).
+By iterating the above two claims (note that decisiveness implies weak-decisiveness), we find that G is decisive over all ordered pairs in x,y,z{x,y,z}. Then iterating that, we find that G is decisive over all ordered pairs in X.
+
+
+
+Group contraction lemma — If a coalition is decisive, and has size ≥2≥2, then it has a proper subset that is also decisive.
+
+
+Proof
+Let G be a coalition with size ≥2≥2. Partition the coalition into nonempty subsets G1,G2_1,G_2.
+Fix distinct x,y,z,y,z. Design the following voting pattern (notice that it is the cyclic voting pattern which causes the Condorcet paradox):
+votersinG1:x≻iy≻izvotersinG2:z≻ix≻iyvotersoutsideG:y≻iz≻ixvotersinG_1   :x≻_iy≻_iz
+votersinG_2   :z≻_ix≻_iy
+votersoutsideG   :y≻_iz≻_ix
+(Items other than x,y,z,y,z are not relevant.)
+Since G is decisive, we have x≻y. So at least one is true: x≻z or z≻y.
+If x≻z, then G1_1 is weakly decisive over (x,z)(x,z). If z≻y, then G2_2 is weakly decisive over (z,y)(z,y). Now apply the field expansion lemma.
+
+
+By Pareto, the entire set of voters is decisive, thus by group contraction lemma, there is a size-one decisive coalition — a dictator.
+
+Proof by the pivotal voter[edit]
+Proofs using the concept of the pivotal voter originated from Salvador Barberá in 1980.[12] The proof given here is a simplified version based on two proofs published in Economic Theory.[13][14]
+We will prove that any social choice system respecting unrestricted domain, unanimity, and independence of irrelevant alternatives (IIA) is a dictatorship. The key idea is to identify a pivotal voter whose ballot swings the societal outcome.  We then prove that this voter is a partial dictator (in a specific technical sense, described below).  Finally we conclude by showing that all of the partial dictators are the same person, hence this voter is a dictator.
+For simplicity we have presented all rankings as if there are no ties.  A complete proof taking possible ties into account is not essentially different from the one given here, except that one ought to say "not above" instead of "below" or "not below" instead of "above" in some cases. Full details are given in the original articles.
+
+Part one: There is a "pivotal" voter for B over A[edit]
+Part one: Successively move B from the bottom to the top of voters' ballots.  The voter whose change results in B being ranked over A is the pivotal voter for B over A.
+Say there are three choices for society, call them A, B, and C.  Suppose first that everyone prefers option B the least: everyone prefers  A to B, and everyone prefers C to B.  By unanimity, society must also prefer both A and C to B.  Call this situation profile 0.
+On the other hand, if everyone preferred B to everything else, then society would have to prefer B to everything else by unanimity.  Now arrange all the voters in some arbitrary but fixed order, and for each i let profile i be the same as profile 0, but move B to the top of the ballots for voters 1 through i.  So profile 1 has B at the top of the ballot for voter 1, but not for any of the others.  Profile 2 has B at the top for voters 1 and 2, but no others, and so on.
+Since B eventually moves to the top of the societal preference, there must be some profile, number k, for which B first moves above A in the societal rank. We call the voter k whose ballot change causes this to happen the pivotal voter for B over A.  Note that the pivotal voter for B over A is not, a priori, the same as the pivotal voter for A over B.  In part three of the proof we will show that these do turn out to be the same.
+Also note that by IIA the same argument applies if profile 0 is any profile in which A is ranked above B by every voter, and the pivotal voter for B over A will still be voter k.  We will use this observation below.
+
+Part two: The pivotal voter for B over A is a dictator for B over C[edit]
+In this part of the argument we refer to voter k, the pivotal voter for B over A, as the pivotal voter for simplicity.  We will show that the pivotal voter dictates society's decision for B over C.  That is, we show that no matter how the rest of society votes, if pivotal voter ranks B over C, then that is the societal outcome.  Note again that the dictator for B over C is not a priori the same as that for C over B.  In part three of the proof we will see that these turn out to be the same too.
+
+Part two:  Switching A and B on the ballot of voter k causes the same switch to the societal outcome, by part one of the argument.  Making any or all of the indicated switches to the other ballots has no effect on the outcome.
+In the following, we call voters 1 through k − 1, segment one, and voters k + 1 through N, segment two.  To begin, suppose that the ballots are as follows:
+
+Every voter in segment one ranks B above C and C above A.
+Pivotal voter ranks A above B and B above C.
+Every voter in segment two ranks A above B and B above C.
+Then by the argument in part one (and the last observation in that part), the societal outcome must rank A above B.  This is because, except for a repositioning of C, this profile is the same as profile k − 1 from part one.  Furthermore, by unanimity the societal outcome must rank B above C.  Therefore, we know the outcome in this case completely.
+Now suppose that pivotal voter moves B above A, but keeps C in the same position and imagine that any number (even all!) of the other voters change their ballots to move B below C, without changing the position of A.    Then aside from a repositioning of C this is the same as profile k from part one and hence the societal outcome ranks B above A.  Furthermore, by IIA the societal outcome must rank A above C, as in the previous case.  In particular, the societal outcome ranks B above C, even though Pivotal Voter may have been the only voter to rank B above C.  By IIA, this conclusion holds independently of how A is positioned on the ballots, so pivotal voter is a dictator for B over C.
+
+Part three: There exists a dictator[edit]
+Part three: Since voter k is the dictator for B over C, the pivotal voter for B over C must appear among the first k voters.  That is, outside of segment two.  Likewise, the pivotal voter for C over B must appear among voters k through N.  That is, outside of Segment One.
+In this part of the argument we refer back to the original ordering of voters, and compare the positions of the different pivotal voters (identified by applying parts one and two to the other pairs of candidates).  First, the pivotal voter for B over C must appear earlier (or at the same position) in the line than the dictator for B over C:  As we consider the argument of part one applied to B and C, successively moving B to the top of voters' ballots, the pivot point where society ranks B above C must come at or before we reach the dictator for B over C.  Likewise, reversing the roles of B and C, the pivotal voter for C over B must be at or later in line than the dictator for B over C.  In short, if kX/Y denotes the position of the pivotal voter for X over Y (for any two candidates X and Y), then we have shown
+
+kB/C ≤ kB/A ≤ kC/B.
+Now repeating the entire argument above with B and C switched, we also have
+
+kC/B ≤ kB/C.
+Therefore, we have
+
+kB/C = kB/A = kC/B
+and the same argument for other pairs shows that all the pivotal voters (and hence all the dictators) occur at the same position in the list of voters.  This voter is the dictator for the whole election.
+
+Interpretations[edit]
+Although Arrow's theorem is a mathematical result, it is often expressed in a non-mathematical way with a statement such as no voting method is fair, every ranked voting method is flawed, or the only voting method that is not flawed is a dictatorship.[15] These statements are simplifications of Arrow's result which are not universally considered to be true. What Arrow's theorem does state is that a deterministic preferential voting mechanism—that is, one where a preference order is the only information in a vote, and any possible set of votes gives a unique result—cannot comply with all of the conditions given above simultaneously.
+Various theorists have suggested weakening the IIA criterion as a way out of the paradox. Proponents of ranked voting methods contend that the IIA is an unreasonably strong criterion.  It is the one breached in most useful electoral systems. Advocates of this position point out that failure of the standard IIA criterion is trivially implied by the possibility of cyclic preferences. If voters cast ballots as follows:
+
+1 vote for A > B > C
+1 vote for B > C > A
+1 vote for C > A > B
+then the pairwise majority preference of the group is that A wins over B, B wins over C, and C wins over A: these yield rock-paper-scissors preferences for any pairwise comparison.  In this circumstance, any aggregation rule that satisfies the very basic majoritarian requirement that a candidate who receives a majority of votes must win the election, will fail the IIA criterion, if social preference is required to be transitive (or acyclic).  To see this, suppose that such a rule satisfies IIA.  Since majority preferences are respected, the society prefers A to B (two votes for A > B and one for B > A), B to C, and C to A.  Thus a cycle is generated, which contradicts the assumption that social preference is transitive.
+So, what Arrow's theorem really shows is that any majority-wins electoral system is a non-trivial game, and that game theory should be used to predict the outcome of most voting mechanisms.[16] This could be seen as a discouraging result, because a game need not have efficient equilibria; e.g., a ballot could result in an alternative nobody really wanted in the first place, yet everybody voted for.
+
+Remark: Scalar rankings from a vector of attributes and the IIA property[edit]
+The IIA property might not be satisfied in human decision-making of realistic  complexity because the scalar preference ranking is effectively derived from the weighting—not usually explicit—of a vector of attributes (one book dealing with the Arrow theorem invites the reader to consider the related problem of creating a scalar measure for the track and field decathlon event—e.g. how does one make scoring 600 points in the discus event "commensurable" with scoring 600 points in the 1500 m race) and this scalar ranking can depend sensitively on the weighting of different attributes, with the tacit weighting itself affected by the context and contrast created by apparently "irrelevant" choices.  Edward MacNeal discusses this sensitivity problem with respect to the ranking of "most livable city" in the chapter "Surveys" of his book MathSemantics: making numbers talk sense (1994).
+
+Alternatives based on functions of preference profiles[edit]
+In an attempt to escape from the negative conclusion of Arrow's theorem, social choice theorists have investigated various possibilities ("ways out"). This section includes approaches that deal with
+
+aggregation rules (functions that map each preference profile into a social preference), and
+other functions, such as functions that map each preference profile into an alternative.
+Since these two approaches often overlap, we discuss them at the same time. What is characteristic of these approaches is that they investigate various possibilities by eliminating or weakening or replacing one or more conditions (criteria) that Arrow imposed.
+
+Infinitely many individuals[edit]
+Several theorists (e.g., Fishburn[17] and Kirman and Sondermann[18]) point out that when one drops the assumption that there are only finitely many individuals, one can find aggregation rules that satisfy all of Arrow's other conditions.
+However, such aggregation rules are practically of limited interest, since they are based on ultrafilters, highly non-constructive mathematical objects. In particular, Kirman and Sondermann argue that there is an "invisible dictator" behind such a rule.[18] Mihara[19][20] shows that such a rule violates algorithmic computability.[21] These results can be seen to establish the robustness of Arrow's theorem.[22]
+On the other hand, the ultrafilters (indeed, constructing them in an infinite model relies on the axiom of choice) are inherent in finite models as well (with no need of the axiom of choice).
+They can be interpreted as decisive hierarchies, with the only difference that the hierarchy's top level - Arrow's dictator - always exists in a finite model but can be unattainable (= missing) in an infinite hierarchy. 
+In the latter case, the "invisible dictator" is nothing else but the infinite decisive hierarchy itself.
+If desired, it can be complemented with a limit point, which then becomes a "visible dictator".
+Since dictators are inseparable from decisive hierarchies, the Dictatorship prohibition automatically prohibits decisive hierarchies, which is much less self-evident than the Dictatorship prohibition.[23][24][25]
+See also paragraph "Relaxing the Dictatorship prohibition".
+
+Limiting the number of alternatives[edit]
+When there are only two alternatives to choose from, May's theorem shows that only simple majority rule satisfies a certain set of criteria (e.g., equal treatment of individuals and of alternatives; increased support for a winning alternative should not make it into a losing one). On the other hand, when there are at least three alternatives, Arrow's theorem points out the difficulty of collective decision making. Why is there such a sharp difference between the case of less than three alternatives and that of at least three alternatives?
+Nakamura's theorem (about the core of simple games) gives an answer more generally. It establishes that if the number of alternatives is less than a certain integer called the Nakamura number, then the rule in question will identify "best" alternatives without any problem; if the number of alternatives is greater or equal to the Nakamura number, then the rule will not always work, since for some profile a voting paradox (a cycle such as alternative A socially preferred to alternative B, B to C, and C to A) will arise. Since the Nakamura number of majority rule is 3 (except the case of four individuals), one can conclude from Nakamura's theorem that majority rule can deal with up to two alternatives rationally. Some super-majority rules (such as those requiring 2/3 of the votes) can have a Nakamura number greater than 3, but such rules violate other conditions given by Arrow.[26]
+
+Pairwise voting[edit]
+A common way "around" Arrow's paradox is limiting the alternative set to two alternatives. Thus, whenever more than two alternatives should be put to the test, it seems very tempting to use a mechanism that pairs them and votes by pairs. As tempting as this mechanism seems at first glance, it is generally far from satisfying even Pareto efficiency, not to mention IIA. The specific order by which the pairs are decided strongly influences the outcome. This is not necessarily a bad feature of the mechanism. Many sports use the tournament mechanism—essentially a pairing mechanism—to choose a winner.  This gives considerable opportunity for weaker teams to win, thus adding interest and tension throughout the tournament. This means that the person controlling the order by which the choices are paired (the agenda maker) has great control over the outcome. In any case, when viewing the entire voting process as one game, Arrow's theorem still applies.
+
+Domain restrictions[edit]
+Another approach is relaxing the universality condition, which means restricting the domain of aggregation rules. The best-known result along this line assumes "single peaked" preferences.
+Duncan Black has shown that if there is only one dimension on which every individual has a "single-peaked" preference, then all of Arrow's conditions are met by majority rule. Suppose that there is some predetermined linear ordering of the alternative set. An individual's preference is single-peaked with respect to this ordering if he has some special place that he likes best along that line, and his dislike for an alternative grows larger as the alternative goes further away from that spot (i.e., the graph of his utility function has a single peak if alternatives are placed according to the linear ordering on the horizontal axis).  For example, if voters were voting on where to set the volume for music, it would be reasonable to assume that each voter had their own ideal volume preference and that as the volume got progressively too loud or too quiet they would be increasingly dissatisfied.
+If the domain is restricted to profiles in which every individual has a single peaked preference with respect to the linear ordering, then simple[27] aggregation rules, which include majority rule, have an acyclic (defined below) social preference, hence "best" alternative.[28] In particular, when there are odd number of individuals, then the social preference becomes transitive, and the socially "best" alternative is equal to the median of all the peaks of the individuals (Black's median voter theorem[29]). Under single-peaked preferences, the majority rule is in some respects the most natural voting mechanism.
+One can define the notion of "single-peaked" preferences on higher-dimensional sets of alternatives. However, one can identify the "median" of the peaks only in exceptional cases. Instead, we typically have the destructive situation suggested by McKelvey's Chaos Theorem:[30] for any x and y, one can find a sequence of alternatives such that x is beaten by x1 by a majority, x1 by x2, up to xk by y.
+In 1977, Ehud Kalai and Eitan Muller gave a full characterization of domain restrictions admitting a nondictatorial Arrow Social Welfare function.[31]
+
+Relaxing transitivity[edit]
+By relaxing the transitivity of social preferences, we can find aggregation rules that satisfy Arrow's other conditions. If we impose neutrality (equal treatment of alternatives) on such rules, however, there exists an individual who has a "veto". So the possibility provided by this approach is also very limited.
+First, suppose that a social preference is quasi-transitive (instead of transitive); this means that the strict preference ≻≻ ("better than") is transitive: if x≻y and y≻z, then x≻z. Then, there do exist non-dictatorial aggregation rules satisfying Arrow's conditions, but such rules are oligarchic.[32] This means that there exists a coalition L such that L is decisive (if every member in L prefers x to y, then the society prefers x to y), and each member in L has a veto (if she prefers x to y, then the society cannot prefer y to x).
+Second, suppose that a social preference is acyclic (instead of transitive): there do not exist alternatives x1,…,xk_1,…,x_k that form a cycle (x1≻x2,x2≻x3,…,xk−1≻xk,xk≻x1_1_2, x_2_3, …, x_k-1_k, x_k_1). Then, provided that there are at least as many alternatives as individuals, an aggregation rule satisfying Arrow's other conditions is collegial.[33] This means that there are individuals who belong to the intersection ("collegium") of all decisive coalitions. If there is someone who has a veto, then he belongs to the collegium. If the rule is assumed to be neutral, then it does have someone who has a veto.
+Finally, Brown's theorem left open the case of acyclic social preferences where the number of alternatives is less than the number of individuals. One can give a definite answer for that case using the Nakamura number.  See limiting the number of alternatives.
+
+Relaxing assumption IIA[edit]
+There are numerous examples of aggregation rules satisfying Arrow's conditions except IIA. The Borda rule is one of them. These rules, however, are susceptible to strategic manipulation by individuals.[34]
+See also Interpretations of the theorem above.
+
+Relaxing the Pareto criterion[edit]
+Wilson (1972)[35] shows that if an aggregation rule is non-imposed and non-null, then there is either a dictator or an inverse dictator, provided that Arrow's conditions other than Pareto are also satisfied. Here, an inverse dictator is an individual i such that whenever i prefers x to y, then the society prefers y to x.
+Amartya Sen offered both relaxation of transitivity and removal of the Pareto principle.[36] He demonstrated another interesting impossibility result, known as the "impossibility of the Paretian Liberal" (see liberal paradox for details). Sen went on to argue that this demonstrates the futility of demanding Pareto optimality in relation to voting mechanisms.
+
+Relaxing the dictatorship prohibition[edit]
+Andranik Tangian (2010) introduced measures of dictator's "representativeness", for instance, the "popularity index" defined as the average size of the social group whose pairwise preferences are shared (that is, represented) by the dictator, averaged over all pairs of alternatives and all preference profiles. It was shown that there always exist "good" Arrow's dictators who on the average represent a majority.[37] Since they are rather representatives of the society - like democratically elected  presidents - there are no self-evident reasons to prohibit them. Restricting the notion of dictator to "bad" ones only, i.e. those who on the average represent a minority, Arrow's axioms were proven to be consistent.[24][25]
+
+Social choice instead of social preference[edit]
+In social decision making, to rank all alternatives is not usually a goal.  It often suffices to find some alternative. The approach focusing on choosing an alternative investigates either social choice functions (functions that map each preference profile into an alternative) or social choice rules (functions that map each preference profile into a subset of alternatives).
+As for social choice functions, the Gibbard–Satterthwaite theorem is well-known, which states that if a social choice function whose range contains at least three alternatives is strategy-proof, then it is dictatorial.
+As for social choice rules, we should assume there is a social preference behind them. That is, we should regard a rule as choosing the maximal elements ("best" alternatives) of some social preference. The set of maximal elements of a social preference is called the core. Conditions for existence of an alternative in the core have been investigated in two approaches. The first approach assumes that preferences are at least acyclic (which is necessary and sufficient for the preferences to have a maximal element on any finite subset).  For this reason, it is closely related to relaxing transitivity. The second approach drops the assumption of acyclic preferences. Kumabe and Mihara[38] adopt this approach. They make a more direct assumption that individual preferences have maximal elements, and examine conditions for the social preference to have a maximal element. See Nakamura number for details of these two approaches.
+
+Other alternatives[edit]
+Arrow originally rejected cardinal utility as a meaningful tool for expressing social welfare,[39] and so focused his theorem on preference rankings, but later stated that a cardinal score system with three or four classes "is probably the best".[2]
+Arrow's framework assumes that individual and social preferences are "orderings" (i.e., satisfy completeness and transitivity) on the set of alternatives. This means that if the preferences are represented by a utility function, its value is an ordinal utility in the sense that it is meaningful so far as the greater value indicates the better alternative. For instance, having ordinal utilities of 4, 3, 2, 1 for alternatives a, b, c, d, respectively, is the same as having 1000, 100.01, 100, 0, which in turn is the same as having 99, 98, 1, .997. They all represent the ordering in which a is preferred to b to c to d. The assumption of ordinal preferences, which precludes interpersonal comparisons of utility, is an integral part of Arrow's theorem.
+For various reasons, an approach based on cardinal utility, where the utility has a meaning beyond just giving a ranking of alternatives, is not common in contemporary economics. However, once one adopts that approach, one can take intensities of preferences into consideration, or one can compare (i) gains and losses of utility or (ii) levels of utility, across different individuals. In particular, Harsanyi (1955)[40] gives a justification of utilitarianism (which evaluates alternatives in terms of the sum of individual utilities), originating from Jeremy Bentham. Hammond (1976)[41] gives a justification of the maximin principle (which evaluates alternatives in terms of the utility of the worst-off individual), originating from John Rawls.
+Not all voting methods use, as input, only an ordering of all candidates.[42] Methods which do not, often called "rated" or "cardinal" (as opposed to "ranked", "ordinal", or "preferential") electoral system, can be viewed as using information that only cardinal utility can convey. In that case, it is not surprising if some of them satisfy all of Arrow's conditions that are reformulated.[43]
+Range voting is such a method.[5][44]
+Whether such a claim is correct depends on how each condition is reformulated.[45] Other rated electoral system which pass certain generalizations of Arrow's criteria include approval voting and majority judgment. Note that Arrow's theorem does not apply to single-winner methods such as these, but Gibbard's theorem still does: no non-defective electoral system is fully strategy-free, so the informal dictum that "no electoral system is perfect" still has a mathematical basis.[46]
+Finally, though not an approach investigating some kind of rules, there is a criticism by James M. Buchanan, Charles Plott, and others. It argues that it is silly to think that there might be social preferences that are analogous to individual preferences.[47] Arrow (1963, Chapter 8)[48] answers this sort of criticism seen in the early period, which come at least partly from misunderstanding.
+
+See also[edit]
+
+Economics portal
+Condorcet paradox
+Gibbard's theorem
+Holmström's theorem
+Market failure
+Voting paradox
+Comparison of electoral systems
+References[edit]
+
+
+^ Arrow, Kenneth J. (1950). "A Difficulty in the Concept of Social Welfare" (PDF). Journal of Political Economy. 58 (4): 328–346. doi:10.1086/256963. JSTOR 1828886. S2CID 13923619. Archived from the original (PDF) on 2011-07-20.
+
+^ a b "Interview with Dr. Kenneth Arrow". The Center for Election Science. October 6, 2012. CES: you mention that your theorem applies to preferential systems or ranking systems. ... But ... Approval Voting, falls within a class called cardinal systems. ... Dr. Arrow: And as I said, that in effect implies more information. ... I'm a little inclined to think that score systems where you categorize in maybe three or four classes ... is probably the best.
+
+^ Sen, Amartya (1999). "The Possibility of Social Choice". American Economic Review. 89 (3): 349–378. doi:10.1257/aer.89.3.349. JSTOR 117024. Does Arrow's impossibility ... go away with the use of interpersonal comparisons in social welfare judgments? ... yes. The additional informational availability allows sufficient discrimination to escape impossibilities of this type. ... even weaker forms of comparability would still permit making consistent social welfare judgments, satisfying all of Arrow's requirements
+
+^ Suzumura, Kōtarō (2002). "Introduction". In Arrow, Kenneth J.; Sen, Amartya K.; Suzumura, Kōtarō (eds.). Handbook of social choice and welfare. Vol. 1. Amsterdam, Netherlands: Elsevier. p. 10. ISBN 978-0-444-82914-6.
+
+^ a b McKenna, Phil (12 April 2008). "Vote of no confidence". New Scientist. 198 (2651): 30–33. doi:10.1016/S0262-4079(08)60914-8.
+
+^ Aaron, Hamlin (25 May 2015). "CES Podcast with Dr Arrow". Center for Election Science. CES. Retrieved 9 March 2023.
+
+^ a b c Arrow, Kenneth Joseph Arrow (1963). Social Choice and Individual Values (PDF). Yale University Press. ISBN 978-0300013641. Archived (PDF) from the original on 2022-10-09.
+
+^ Mas-Colell, Andreu; Whinston, Michael Dennis; Green, Jerry R. (1995). Microeconomic Theory. Oxford University Press. p. 794. ISBN 978-0-19-507340-9.
+
+^ Note that by definition, a social welfare function as defined here satisfies the Unrestricted domain condition.  Restricting the range to the social preferences that are never indifferent between distinct outcomes is probably a very restrictive assumption, but the goal here is to give a simple statement of the theorem.  Even if the restriction is relaxed, the impossibility result will persist.
+
+^ Sen, Amartya (2014-07-22). "Arrow and the Impossibility Theorem". The Arrow Impossibility Theorem. Columbia University Press. pp. 29–42. doi:10.7312/mask15328-003. ISBN 978-0-231-52686-9.
+
+^ Rubinstein, Ariel (2012). Lecture Notes in Microeconomic Theory: The Economic Agent (2nd ed.). Princeton University Press. Problem 9.5. ISBN 978-1-4008-4246-9. OL 29649010M.
+
+^ Barberá, Salvador (January 1980). "Pivotal voters: A new proof of arrow's theorem". Economics Letters. 6 (1): 13–16. doi:10.1016/0165-1765(80)90050-6. ISSN 0165-1765.
+
+^ Geanakoplos, John (2005). "Three Brief Proofs of Arrow's Impossibility Theorem" (PDF). Economic Theory. 26 (1): 211–215. CiteSeerX 10.1.1.193.6817. doi:10.1007/s00199-004-0556-7. JSTOR 25055941. S2CID 17101545. Archived (PDF) from the original on 2022-10-09.
+
+^ Yu, Ning Neil (2012). "A one-shot proof of Arrow's theorem". Economic Theory. 50 (2): 523–525. doi:10.1007/s00199-012-0693-3. JSTOR 41486021. S2CID 121998270.
+
+^ Cockrell, Jeff (2016-03-08). "What economists think about voting". Capital Ideas. Chicago Booth. Archived from the original on 2016-03-26. Retrieved 2016-09-05. Is there such a thing as a perfect voting system? The respondents were unanimous in their insistence that there is not.
+
+^ This does not mean various normative criteria will be satisfied if we use equilibrium concepts in game theory. Indeed, the mapping from profiles to equilibrium outcomes defines a social choice rule, whose performance can be investigated by social choice theory. See Austen-Smith & Banks (1999) Section 7.2.
+
+^ Fishburn, Peter Clingerman (1970). "Arrow's impossibility theorem: concise proof and infinite voters". Journal of Economic Theory. 2 (1): 103–106. doi:10.1016/0022-0531(70)90015-3.
+
+^ a b Kirman, A.; Sondermann, D. (1972). "Arrow's theorem, many agents, and invisible dictators". Journal of Economic Theory. 5 (2): 267–277. doi:10.1016/0022-0531(72)90106-8.
+
+^ Mihara, H. R. (1997). "Arrow's Theorem and Turing computability" (PDF). Economic Theory. 10 (2): 257–276. CiteSeerX 10.1.1.200.520. doi:10.1007/s001990050157. JSTOR 25055038. S2CID 15398169. Archived from the original (PDF) on 2011-08-12.  Reprinted in Velupillai, K. V.; Zambelli, S.; Kinsella, S., eds. (2011). Computable Economics. International Library of Critical Writings in Economics. Edward Elgar. ISBN 978-1-84376-239-3.
+
+^ Mihara, H. R. (1999). "Arrow's theorem, countably many agents, and more visible invisible dictators". Journal of Mathematical Economics. 32 (3): 267–277. CiteSeerX 10.1.1.199.1970. doi:10.1016/S0304-4068(98)00061-5.
+
+^ Mihara's definition of a computable aggregation rule is based on computability of a simple game (see Rice's theorem).
+
+^ See Chapter 6 of Taylor, Alan D. (2005). Social choice and the mathematics of manipulation. New York: Cambridge University Press. ISBN 978-0-521-00883-9 for a concise discussion of social choice for infinite societies.
+
+^ Tanguiane (Tangian), Andranick (1994). "Arrow's paradox and mathematical theory of democracy". Social Choice and Welfare. 11 (1): 1–82. doi:10.1007/BF00182898. S2CID 154076212.
+
+^ a b Tangian, Andranik (2014). Mathematical theory of democracy. Berlin-Heidelberg: Springer.
+
+^ a b Tangian, Andranik (2020). Analytical theory of democracy. Vols. 1 and 2. Cham, Switzerland: Springer.
+
+^ Austen-Smith & Banks (1999, Chapter 3) gives a detailed discussion of the approach trying to limit the number of alternatives.
+
+^ Austen-Smith, David; Banks, Jeffrey S. (1999). Positive political theory I: Collective preference. Ann Arbor: University of Michigan Press. ISBN 978-0-472-08721-1. Retrieved 2016-02-16.
+
+^ Indeed, many different social welfare functions can meet Arrow's conditions under such restrictions of the domain. It has been proved, however, that under any such restriction, if there exists any social welfare function that adheres to Arrow's criteria, then the majority rule will adhere to Arrow's criteria. See Campbell, D. E.; Kelly, J. S. (2000). "A simple characterization of majority rule". Economic Theory. 15 (3): 689–700. doi:10.1007/s001990050318. JSTOR 25055296. S2CID 122290254.
+
+^ Black, Duncan (1968). The theory of committees and elections. Cambridge, Eng.: University Press. ISBN 978-0-89838-189-4.
+
+^ McKelvey, Richard D. (1976). "Intransitivities in multidimensional voting models and some implications for agenda control". Journal of Economic Theory. 12 (3): 472–482. doi:10.1016/0022-0531(76)90040-5.
+
+^ Kalai, Ehud; Muller, Eitan (1977). "Characterization of Domains Admitting Nondictatorial Social Welfare Functions and Nonmanipulable Voting Procedures". Journal of Economic Theory. 16 (2): 457–469.
+
+^ Gibbard, Allan F. (2014) [1969]. "Intransitive social indifference and the Arrow dilemma". Review of Economic Design. 18 (1): 3–10. doi:10.1007/s10058-014-0158-1. S2CID 154682454.
+
+^ Brown, D. J. (1975). "Aggregation of Preferences". Quarterly Journal of Economics. 89 (3): 456–469. doi:10.2307/1885263. JSTOR 1885263.
+
+^ Blair, Douglas; Muller, Eitan (1983). "Essential aggregation procedures on restricted domains of preferences". Journal of Economic Theory. 30 (1): 34–53. doi:10.1016/0022-0531(83)90092-3.
+
+^ Wilson, Robert (1972). "Social Choice Theory without the Pareto principle". Journal of Economic Theory. 5 (3): 478–486. doi:10.1016/0022-0531(72)90051-8.
+
+^ Sen, Amartya (September 1979a). "Personal Utilities and Public Judgements: Or What's Wrong With Welfare Economics?". The Economic Journal. 89 (355): 537–558. doi:10.2307/2231867. JSTOR 2231867.
+
+^ Tangian, Andranik (2010). "Application of the mathematical theory of democracy to Arrow's Impossibility Theorem (How dictatorial are Arrow's dictators?)". Social Choice and Welfare. 35 (1): 135–167. doi:10.1007/s00355-009-0433-1. S2CID 206958453.
+
+^ Kumabe, M.; Mihara, H. R. (2011). "Preference aggregation theory without acyclicity: the core without majority dissatisfaction" (PDF). Games and Economic Behavior. 72: 187–201. arXiv:1107.0431. Bibcode:2011arXiv1107.0431K. doi:10.1016/j.geb.2010.06.008. S2CID 6685306. Archived (PDF) from the original on 2022-10-09.
+
+^ "Modern economic theory has insisted on the ordinal concept of utility; that is, only orderings can be observed, and therefore no measurement of utility independent of these orderings has any significance. In the field of consumer's demand theory the ordinalist position turned out to create no problems; cardinal utility had no explanatory power above and beyond ordinal. Leibniz' Principle of the identity of indiscernibles demanded then the excision of cardinal utility from our thought patterns." Arrow (1967), as quoted on p. 33 by Racnchetti, Fabio (2002), "Choice without utility? Some reflections on the loose foundations of standard consumer theory", in Bianchi, Marina (ed.), The Active Consumer: Novelty and Surprise in Consumer Choice, Routledge Frontiers of Political Economy, vol. 20, Routledge, pp. 21–45
+
+^ Harsanyi, John C. (1955). "Cardinal Welfare, Individualistic Ethics, and Interpersonal Comparisons of Utility". Journal of Political Economy. 63 (4): 309–321. doi:10.1086/257678. JSTOR 1827128. S2CID 222434288.
+
+^ Hammond, Peter J. (1976). "Equity, Arrow's Conditions, and Rawls' Difference Principle". Econometrica. 44 (4): 793–804. doi:10.2307/1913445. JSTOR 1913445.
+
+^ It is sometimes asserted that such methods may trivially fail the universality criterion.  However, it is more appropriate to consider that such methods fail Arrow's definition of an aggregation rule (or that of a function whose domain consists of preference profiles), if preference orderings cannot uniquely translate into a ballot.
+
+^  However, a modified version of Arrow's theorem may still apply to such methods (e.g., Brams; Fishburn (2002). "Chapter 4". In Arrow, Kenneth J.; Sen, Amartya K.; Suzumura, Kōtarō (eds.). Handbook of social choice and welfare. Vol. 1. Amsterdam, Netherlands: Elsevier. Theorem 4.2 framework. ISBN 978-0-444-82914-6.
+
+^ 
+Smith, Warren D.; et al. "How can range voting accomplish the impossible?". Retrieved 2016-02-16.
+
+^  No voting method that nontrivially uses cardinal utility satisfies Arrow's IIA (in which preference profiles are replaced by lists of ballots or lists of utilities). For this reason, a weakened notion of IIA is proposed (e.g., Sen (1979, p. 129)). The notion requires that the social ranking of two alternatives depend only on the levels of utility attained by individuals at the two alternatives. (More formally, a social welfare functional F is a function that maps each list u=(u1,…,un)=(u_1,…,u_n) of utility functions into a social preference. F satisfies IIA (for social welfare functionals) if for all lists u,u′,u' and for all alternatives x,y,y, if ui(x)=ui′(x)_i(x)=u'_i(x) and ui(y)=ui′(y)_i(y)=u'_i(y) for all i, then xF(u)yiffxF(u′)y(u)yiffxF(u')y.) Many cardinal voting methods (including range voting) satisfy the weakened version of IIA.
+
+^ Poundstone, William (2009-02-17). Gaming the Vote: Why Elections Are not Fair (and What We Can Do About It). Macmillan. ISBN 9780809048922.
+
+^ Feldman, Allan M.; Serrano, Roberto (2006). Welfare Economics and Social Choice Theory. Springer Science & Business Media. ISBN 9780387293684. It is quite silly in the first place to think that there might be social preferences that are analogous to individual preferences. It is nonsense to talk about social preferences since society itself is nothing more than a collection of individuals, each with his own interests. ... this first reaction to Arrow's Theorem is logically attractive, but it can lead to varieties of nihilism that are unappealing to some people, including us.
+
+^ Arrow, Kenneth Joseph (1963). "Chapter VIII Notes on the Theory of Social Choice, Section III. What Is the Problem of Social Choice?". Social Choice and Individual Values. Yale University Press. pp. 103–109. ISBN 978-0300013641. these criticisms are based on misunderstandings of my position
+
+
+Further reading[edit]
+Campbell, D. E. (2002). "Impossibility theorems in the Arrovian framework". In Arrow, Kenneth J.; Sen, Amartya K.; Suzumura, Kōtarō (eds.). Handbook of social choice and welfare. Vol. 1. Amsterdam, Netherlands: Elsevier. pp. 35–94. ISBN 978-0-444-82914-6. Surveys many of approaches discussed in #Alternatives based on functions of preference profiles.
+Dardanoni, Valentino (2001). "A pedagogical proof of Arrow's Impossibility Theorem" (PDF). Social Choice and Welfare. 18 (1): 107–112. doi:10.1007/s003550000062. JSTOR 41106398. S2CID 7589377. preprint.
+Hansen, Paul (2002). "Another Graphical Proof of Arrow's Impossibility Theorem". The Journal of Economic Education. 33 (3): 217–235. doi:10.1080/00220480209595188. S2CID 145127710.
+Hunt, Earl (2007). The Mathematics of Behavior. Cambridge University Press. ISBN 9780521850124.. The chapter "Defining Rationality: Personal and Group Decision Making" has a detailed discussion of the Arrow Theorem, with proof.
+Lewis, Harold W. (1997). Why flip a coin? : The art and science of good decisions. John Wiley. ISBN 0-471-29645-7. Gives explicit examples of preference rankings and apparently anomalous results under different electoral system.  States but does not prove Arrow's theorem.
+Sen, Amartya Kumar (1979). Collective choice and social welfare. Amsterdam: North-Holland. ISBN 978-0-444-85127-7.
+Skala, Heinz J. (2012). "What Does Arrow's Impossibility Theorem Tell Us?". In Eberlein, G.; Berghel, H. A. (eds.). Theory and Decision : Essays in Honor of Werner Leinfellner. Springer. pp. 273–286. ISBN 978-94-009-3895-3.
+Tang, Pingzhong; Lin, Fangzhen (2009). "Computer-aided Proofs of Arrow's and Other Impossibility Theorems". Artificial Intelligence. 173 (11): 1041–1053. doi:10.1016/j.artint.2009.02.005.
+External links[edit]
+"Arrow's impossibility theorem" entry  in the Stanford Encyclopedia of Philosophy
+A proof by Terence Tao, assuming a much stronger version of non-dictatorship
+vteCommon paradoxesPhilosophical
+Analysis
+Buridan's bridge
+Dream argument
+Epicurean
+Fiction
+Fitch's knowability
+Free will
+Goodman's
+Hedonism
+Liberal
+Meno's
+Mere addition
+Moore's
+Newcomb's
+Nihilism
+Omnipotence
+Preface
+Rule-following
+Sorites
+Theseus' ship
+White horse
+Zeno's
+Logical
+Barber
+Berry
+Bhartrhari's
+Burali-Forti
+Court
+Crocodile
+Curry's
+Epimenides
+Free choice paradox
+Grelling–Nelson
+Kleene–Rosser
+Liar
+Card
+No-no
+Pinocchio
+Quine's
+Yablo's
+Opposite Day
+Paradoxes of set theory
+Richard's
+Russell's
+Socratic
+Hilbert's Hotel
+Temperature paradox
+Barbershop
+Catch-22
+Chicken or the egg
+Drinker
+Entailment
+Lottery
+Plato's beard
+Raven
+Ross's
+Unexpected hanging
+"What the Tortoise Said to Achilles"
+Heat death paradox
+Olbers' paradox
+Economic
+Allais
+Antitrust
+Arrow information
+Bertrand
+Braess's
+Competition
+Income and fertility
+Downs–Thomson
+Easterlin
+Edgeworth
+Ellsberg
+European
+Gibson's
+Giffen good
+Icarus
+Jevons
+Leontief
+Lerner
+Lucas
+Mandeville's
+Mayfield's
+Metzler
+Plenty
+Productivity
+Prosperity
+Scitovsky
+Service recovery
+St. Petersburg
+Thrift
+Toil
+Tullock
+Value
+Decision theory
+Abilene
+Apportionment
+Alabama
+New states
+Population
+Arrow's
+Buridan's ass
+Chainstore
+Condorcet's
+Decision-making
+Downs
+Ellsberg
+Fenno's
+Fredkin's
+Green
+Hedgehog's
+Inventor's
+Kavka's toxin puzzle
+Morton's fork
+Navigation
+Newcomb's
+Parrondo's
+Preparedness
+Prevention
+Prisoner's dilemma
+Tolerance
+Willpower
+
+ List
+ Category
+
+vteTopics in game theoryDefinitions
+Congestion game
+Cooperative game
+Determinacy
+Escalation of commitment
+Extensive-form game
+First-player and second-player win
+Game complexity
+Graphical game
+Hierarchy of beliefs
+Information set
+Normal-form game
+Preference
+Sequential game
+Simultaneous game
+Simultaneous action selection
+Solved game
+Succinct game
+Equilibriumconcepts
+Bayesian Nash equilibrium
+Berge equilibrium
+ Core
+Correlated equilibrium
+Epsilon-equilibrium
+Evolutionarily stable strategy
+Gibbs equilibrium
+Mertens-stable equilibrium
+Markov perfect equilibrium
+Nash equilibrium
+Pareto efficiency
+Perfect Bayesian equilibrium
+Proper equilibrium
+Quantal response equilibrium
+Quasi-perfect equilibrium
+Risk dominance
+Satisfaction equilibrium
+Self-confirming equilibrium
+Sequential equilibrium
+Shapley value
+Strong Nash equilibrium
+Subgame perfection
+Trembling hand
+Strategies
+Backward induction
+Bid shading
+Collusion
+Forward induction
+Grim trigger
+Markov strategy
+Dominant strategies
+Pure strategy
+Mixed strategy
+Strategy-stealing argument
+Tit for tat
+Classesof games
+Bargaining problem
+Cheap talk
+Global game
+Intransitive game
+Mean-field game
+Mechanism design
+n-player game
+Perfect information
+Large Poisson game
+Potential game
+Repeated game
+Screening game
+Signaling game
+Stackelberg competition
+Strictly determined game
+Stochastic game
+Symmetric game
+Zero-sum game
+Games
+Go
+Chess
+Infinite chess
+Checkers
+Tic-tac-toe
+Prisoner's dilemma
+Gift-exchange game
+Optional prisoner's dilemma
+Traveler's dilemma
+Coordination game
+Chicken
+Centipede game
+Lewis signaling game
+Volunteer's dilemma
+Dollar auction
+Battle of the sexes
+Stag hunt
+Matching pennies
+Ultimatum game
+Rock paper scissors
+Pirate game
+Dictator game
+Public goods game
+Blotto game
+War of attrition
+El Farol Bar problem
+Fair division
+Fair cake-cutting
+Cournot game
+Deadlock
+Diner's dilemma
+Guess 2/3 of the average
+Kuhn poker
+Nash bargaining game
+Induction puzzles
+Trust game
+Princess and monster game
+Rendezvous problem
+Theorems
+Arrow's impossibility theorem
+Aumann's agreement theorem
+Folk theorem
+Minimax theorem
+Nash's theorem
+Negamax theorem
+Purification theorem
+Revelation principle
+Sprague–Grundy theorem
+Zermelo's theorem
+Keyfigures
+Albert W. Tucker
+Amos Tversky
+Antoine Augustin Cournot
+Ariel Rubinstein
+Claude Shannon
+Daniel Kahneman
+David K. Levine
+David M. Kreps
+Donald B. Gillies
+Drew Fudenberg
+Eric Maskin
+Harold W. Kuhn
+Herbert Simon
+Hervé Moulin
+John Conway
+Jean Tirole
+Jean-François Mertens
+Jennifer Tour Chayes
+John Harsanyi
+John Maynard Smith
+John Nash
+John von Neumann
+Kenneth Arrow
+Kenneth Binmore
+Leonid Hurwicz
+Lloyd Shapley
+Melvin Dresher
+Merrill M. Flood
+Olga Bondareva
+Oskar Morgenstern
+Paul Milgrom
+Peyton Young
+Reinhard Selten
+Robert Axelrod
+Robert Aumann
+Robert B. Wilson
+Roger Myerson
+ Samuel Bowles
+Suzanne Scotchmer
+Thomas Schelling
+William Vickrey
+Miscellaneous
+All-pay auction
+Alpha–beta pruning
+Bertrand paradox
+Bounded rationality
+Combinatorial game theory
+Confrontation analysis
+Coopetition
+Evolutionary game theory
+First-move advantage in chess
+Game Description Language
+Game mechanics
+Glossary of game theory
+List of game theorists
+List of games in game theory
+No-win situation
+Solving chess
+Topological game
+Tragedy of the commons
+Tyranny of small decisions
+
+
+
+

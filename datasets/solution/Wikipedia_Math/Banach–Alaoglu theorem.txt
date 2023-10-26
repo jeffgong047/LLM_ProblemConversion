@@ -1,0 +1,647 @@
+Theorem in functional analysis
+In functional analysis and related branches of mathematics, the Banach–Alaoglu theorem (also known as Alaoglu's theorem) states that the closed unit ball of the dual space of a normed vector space is compact in the weak* topology.[1] 
+A common proof identifies the unit ball with the weak-* topology as a closed subset of a product of compact sets with the product topology. 
+As a consequence of Tychonoff's theorem, this product, and hence the unit ball within, is compact.
+This theorem has applications in physics when one describes the set of states of an algebra of observables, namely that any state can be written as a convex linear combination of so-called pure states.
+
+
+History[edit]
+According to Lawrence Narici and Edward Beckenstein, the Alaoglu theorem is a “very important result—maybe the most important fact about the weak-* topology—[that] echos throughout functional analysis.”[2] 
+In 1912, Helly proved that the unit ball of the continuous dual space of C([a,b])([a,b]) is countably weak-* compact.[3] 
+In 1932, Stefan Banach proved that the closed unit ball in the continuous dual space of any separable normed space is sequentially weak-* compact (Banach only considered sequential compactness).[3] 
+The proof for the general case was published in 1940 by the mathematician Leonidas Alaoglu. 
+According to Pietsch [2007], there are at least twelve mathematicians who can lay claim to this theorem or an important predecessor to it.[2]
+The Bourbaki–Alaoglu theorem is a generalization[4][5] of the original theorem by Bourbaki to dual topologies on locally convex spaces. 
+This theorem is also called the Banach–Alaoglu theorem or the weak-* compactness theorem and it is commonly called simply the Alaoglu theorem.[2]
+
+Statement[edit]
+See also: Topological vector space § Dual space, Dual system, and Polar set
+If X is a vector space over the field K𝕂 then X#^# will denote the algebraic dual space of X and these two spaces are henceforth associated with the bilinear evaluation map ⟨⋅,⋅⟩:X×X#→K⟨·,·⟩:X^#→𝕂 defined by 
+⟨x,f⟩=deff(x),f⟩ def= f(x)
+where the triple ⟨X,X#,⟨⋅,⋅⟩⟩,X^#,⟨·,·⟩⟩ forms a dual system called the canonical dual system. 
+If X is a topological vector space (TVS) then its continuous dual space will be denoted by X′,^', where X′⊆X#^'^# always holds. 
+Denote the weak-* topology on X#^# by σ(X#,X)σ(X^#,X) and denote the weak-* topology on X′^' by σ(X′,X).σ(X^',X). 
+The weak-* topology is also called the topology of pointwise convergence because given a map f and a net of maps f∙=(fi)i∈I,_∙=(f_i)_i, the net f∙_∙ converges to f in this topology if and only if for every point x in the domain, the net of values (fi(x))i∈I(f_i(x))_i converges to the value f(x).(x).
+
+
+Alaoglu theorem[3] — For any topological vector space (TVS) X (not necessarily Hausdorff or locally convex) with continuous dual space X′,^', the polar
+U∘=f∈X′:supu∈U|f(u)|≤1^∘={f^' : sup_u|f(u)|≤1} 
+of any neighborhood U of origin in X is compact in the weak-* topology[note 1] σ(X′,X)σ(X^',X) on X′.^'. Moreover, U∘^∘ is equal to the polar of U  with respect to the canonical system ⟨X,X#⟩,X^#⟩ and it is also a compact subset of (X#,σ(X#,X)).(X^#,σ(X^#,X)).
+
+
+Proof involving duality theory[edit]
+Proof
+Denote by the underlying field of X by K,𝕂, which is either the real numbers Rℝ or complex numbers C.ℂ. 
+This proof will use some of the basic properties that are listed in the articles: polar set, dual system, and continuous linear operator. 
+To start the proof, some definitions and readily verified results are recalled. When X#^# is endowed with the weak-* topology σ(X#,X),σ(X^#,X), then this Hausdorff locally convex topological vector space is denoted by (X#,σ(X#,X)).(X^#,σ(X^#,X)). 
+The space (X#,σ(X#,X))(X^#,σ(X^#,X)) is always a complete TVS; however, (X′,σ(X′,X))(X^',σ(X^',X)) may fail to be a complete space, which is the reason why this proof involves the space (X#,σ(X#,X)).(X^#,σ(X^#,X)). 
+Specifically, this proof will use the fact that a subset of a complete Hausdorff space is compact if (and only if) it is closed and totally bounded. 
+Importantly, the subspace topology that X′^' inherits from (X#,σ(X#,X))(X^#,σ(X^#,X)) is equal to σ(X′,X).σ(X^',X). This can be readily verified by showing that given any f∈X′,^', a net in X′^' converges to f in one of these topologies if and only if it also converges to f in the other topology (the conclusion follows because two topologies are equal if and only if they have the exact same convergent nets). 
+The triple ⟨X,X′⟩,X^'⟩ is a dual pairing although unlike ⟨X,X#⟩,,X^#⟩, it is in general not guaranteed to be a dual system. 
+Throughout, unless stated otherwise, all polar sets will be taken with respect to the canonical pairing ⟨X,X′⟩.,X^'⟩.
+Let U  be a neighborhood of the origin in X and let: 
+
+U∘=f∈X′:supu∈U|f(u)|≤1^∘={f^' : sup_u|f(u)|≤1} be the polar of U with respect to the canonical pairing ⟨X,X′⟩,X^'⟩;
+U∘∘=x∈X:supf∈U∘|f(x)|≤1^∘∘={x : sup_f^∘|f(x)|≤1} be the bipolar of U with respect to ⟨X,X′⟩,X^'⟩;
+U#=f∈X#:supu∈U|f(u)|≤1^#={f^# : sup_u|f(u)|≤1} be the polar of U with respect to the canonical dual system ⟨X,X#⟩.,X^#⟩. Note that U∘=U#∩X′.^∘=U^#^'.
+A well known fact about polar sets is that U∘∘∘⊆U∘.^∘∘∘^∘.
+
+Show that U#^# is a σ(X#,X)σ(X^#,X)-closed subset of X#:^#: Let f∈X#^# and suppose that f∙=(fi)i∈I_∙=(f_i)_i is a net in U#^# that converges to f in (X#,σ(X#,X)).(X^#,σ(X^#,X)). To conclude that f∈U#,^#, it is sufficient (and necessary) to show that |f(u)|≤1|f(u)|≤1 for every u∈U.. Because fi(u)→f(u)_i(u)(u) in the scalar field K𝕂 and every value fi(u)_i(u) belongs to the closed (in K𝕂) subset s∈K:|s|≤1,{s∈𝕂:|s|≤1}, so too must this net's limit f(u)(u) belong to this set. Thus |f(u)|≤1.|f(u)|≤1.
+Show that U#=U∘^#=U^∘ and then conclude that U∘^∘ is a closed subset of both (X#,σ(X#,X))(X^#,σ(X^#,X)) and (X′,σ(X′,X)):(X^',σ(X^',X)): The inclusion U∘⊆U#^∘^# holds because every continuous linear functional is (in particular) a linear functional. For the reverse inclusion U#⊆U∘, U^#^∘,  let f∈U#^# so that supu∈U|f(u)|≤1, sup_u|f(u)|≤1,  which states exactly that the linear functional f is bounded on the neighborhood U; thus f is a continuous linear functional (that is, f∈X′^') and so f∈U∘,^∘, as desired. Using (1) and the fact that the intersection U#∩X′=U∘∩X′=U∘^#^'=U^∘^'=U^∘ is closed in the subspace topology on X′,^', the claim about U∘^∘ being closed follows.
+Show that U∘^∘ is a σ(X′,X)σ(X^',X)-totally bounded subset of X′:^': By the bipolar theorem, U⊆U∘∘^∘∘ where because the neighborhood U is an absorbing subset of X,, the same must be true of the set U∘∘;^∘∘; it is possible to prove that this implies that U∘^∘ is a σ(X′,X)σ(X^',X)-bounded subset of X′.^'. Because X distinguishes points of X′,^', a subset of X′^' is σ(X′,X)σ(X^',X)-bounded if and only if it is σ(X′,X)σ(X^',X)-totally bounded. So in particular, U∘^∘ is also σ(X′,X)σ(X^',X)-totally bounded.
+Conclude that U∘^∘ is also a σ(X#,X)σ(X^#,X)-totally bounded subset of X#:^#: Recall that the σ(X′,X)σ(X^',X) topology on X′^' is identical to the subspace topology that X′^' inherits from (X#,σ(X#,X)).(X^#,σ(X^#,X)). This fact, together with (3) and the definition of "totally bounded", implies that U∘^∘ is a σ(X#,X)σ(X^#,X)-totally bounded subset of X#.^#.
+Finally, deduce that U∘^∘ is a σ(X′,X)σ(X^',X)-compact subset of X′:^': Because (X#,σ(X#,X))(X^#,σ(X^#,X)) is a complete TVS and U∘^∘ is a closed (by (2)) and totally bounded (by (4)) subset of (X#,σ(X#,X)),(X^#,σ(X^#,X)), it follows that U∘^∘ is compact. ◼▪
+
+If X is a normed vector space, then the polar of a neighborhood is closed and norm-bounded in the dual space. 
+In particular, if U  is the open (or closed) unit ball in X then the polar of U is the closed unit ball in the continuous dual space X′^' of X (with the usual dual norm). 
+Consequently, this theorem can be specialized to:
+
+
+Banach–Alaoglu theorem — If X is a normed space then the closed unit ball in the continuous dual space X′^' (endowed with its usual operator norm) is compact with respect to the weak-* topology.
+
+
+When the continuous dual space X′^' of X is an infinite dimensional normed space then it is impossible for the closed unit ball in X′^' to be a compact subset when X′^' has its usual norm topology. 
+This is because the unit ball in the norm topology is compact if and only if the space is finite-dimensional (cf. F. Riesz theorem). 
+This theorem is one example of the utility of having different topologies on the same vector space.
+It should be cautioned that despite appearances, the Banach–Alaoglu theorem does not imply that the weak-* topology is locally compact. 
+This is because the closed unit ball is only a neighborhood of the origin in the strong topology, but is usually not a neighborhood of the origin in the weak-* topology, as it has empty interior in the weak* topology, unless the space is finite-dimensional. 
+In fact, it is a result of Weil that all locally compact Hausdorff topological vector spaces must be finite-dimensional.
+
+Elementary proof[edit]
+The following elementary proof does not utilize duality theory and requires only basic concepts from set theory, topology, and functional analysis. 
+What is needed from topology is a working knowledge of net convergence in topological spaces and familiarity with the fact that a linear functional is continuous if and only if it is bounded on a neighborhood of the origin (see the articles on continuous linear functionals and sublinear functionals for details). 
+Also required is a proper understanding of the technical details of how the space KX𝕂^X of all functions of the form X→K→𝕂 is identified as the Cartesian product ∏x∈XK,∏_x𝕂, and the relationship between pointwise convergence, the product topology, and subspace topologies they induce on subsets such as the algebraic dual space X#^# and products of subspaces such as ∏x∈XBrx.∏_xB_r_x. 
+An explanation of these details is now given for readers who are interested. 
+
+
+
+
+Premiere on product/function spaces, nets, and pointwise convergence
+
+
+
+For every real r,, Br=defc∈K:|c|≤r_r def= {c∈𝕂:|c|} will denote the closed ball of radius r centered at 00 and rU=defru:u∈U def= {ru:u} for any U⊆X,,
+Identification of functions with tuples
+The Cartesian product ∏x∈XK∏_x𝕂 is usually thought of as the set of all X-indexed tuples s∙=(sx)x∈X_∙=(s_x)_x but, since tuples are technically just functions from an indexing set, it can also be identified with the space KX𝕂^X of all functions having prototype X→K,→𝕂, as is now described: 
+
+Function →→ Tuple: A function s:X→K:X→𝕂 belonging to KX𝕂^X is identified with its (X-indexed) "tuple of values" s∙=def(s(x))x∈X._∙ def= (s(x))_x.
+Tuple →→ Function: A tuple s∙=(sx)x∈X_∙=(s_x)_x in ∏x∈XK∏_x𝕂 is identified with the function s:X→K:X→𝕂 defined by s(x)=defsx(x) def= s_x; this function's "tuple of values" is the original tuple (sx)x∈X.(s_x)_x.
+This is the reason why many authors write, often without comment, the equality 
+KX=∏x∈XK𝕂^X=∏_x𝕂
+and why the Cartesian product ∏x∈XK∏_x𝕂 is sometimes taken as the definition of the set of maps KX𝕂^X (or conversely). 
+However, the Cartesian product, being the (categorical) product in the category of sets (which is a type of inverse limit), also comes equipped with associated maps that are known as its (coordinate) projections. 
+The canonical projection of the Cartesian product at a given point z∈X is the function
+Prz:∏x∈XK→Kdefinedbys∙=(sx)x∈X↦sz_z:∏_x𝕂→𝕂  definedby_∙=(s_x)_x_z
+where under the above identification, Prz_z sends a function s:X→K:X→𝕂 to
+Prz(s)=defs(z)._z(s) def= s(z). 
+Stated in words, for a point z and function s,, "plugging z into s" is the same as "plugging s into Prz_z". 
+In particular, suppose that (rx)x∈X(r_x)_x are non-negative real numbers. 
+Then ∏x∈XBrx⊆∏x∈XK=KX,∏_xB_r_x⊆∏_x𝕂=𝕂^X, where under the above identification of tuples with functions, ∏x∈XBrx∏_xB_r_x is the set of all functions s∈KX∈𝕂^X such that s(x)∈Brx(x)_r_x for every x∈X..
+If a subset U⊆X partitions X into X=U∪(X∖U)=U ∪ (X) then the linear bijection
+H:∏x∈XK→(∏u∈UK)×∏x∈X∖UK(fx)x∈X↦((fu)u∈U,(fx)x∈X∖U)4H:       ∏_x𝕂       →    (∏_u𝕂)×∏_x𝕂
+      (f_x)_x       ↦    ((f_u)_u, (f_x)_x)
+
+canonically identifies these two Cartesian products; moreover, this map is a homeomorphism when these products are endowed with their product topologies. 
+In terms of function spaces, this bijection could be expressed as 
+H:KX→KU×KX∖Uf↦(f|U,f|X∖U).4H:       𝕂^X       →    𝕂^U×𝕂^X
+      f       ↦    (f|_U, f|_X)
+.
+Notation for nets and function composition with nets
+A net x∙=(xi)i∈I_∙=(x_i)_i in X is by definition a function x∙:I→X_∙:I from a non-empty directed set (I,≤).(I,≤). 
+Every sequence in X,, which by definition is just a function of the form N→X,ℕ, is also a net. 
+As with sequences, the value of a net x∙_∙ at an index i∈I is denoted by xi_i; however, for this proof, this value xi_i may also be denoted by the usual function parentheses notation x∙(i)._∙(i). 
+Similarly for function composition, if F:X→Y:X is any function then the net (or sequence) that results from "plugging x∙_∙ into F" is just the function F∘x∙:I→Y,_∙:I, although this is typically denoted by (F(xi))i∈I(F(x_i))_i (or by (F(xi))i=1∞(F(x_i))_i=1^∞ if x∙_∙ is a sequence). 
+In the proofs below, this resulting net may be denoted by any of the following notations 
+F(x∙)=(F(xi))i∈I=defF∘x∙,(x_∙)=(F(x_i))_i def= F_∙, 
+depending on whichever notation is cleanest or most clearly communicates the intended information. 
+In particular, if F:X→Y:X is continuous and x∙→x_∙ in X,, then the conclusion commonly written as (F(xi))i∈I→F(x)(F(x_i))_i(x) may instead be written as F(x∙)→F(x)(x_∙)(x) or F∘x∙→F(x)._∙(x).
+Topology
+The set KX=∏x∈XK𝕂^X=∏_x𝕂 is assumed to be endowed with the product topology. It is well known that the product topology is identical to the topology of pointwise convergence. 
+This is because given f and a net (fi)i∈I,(f_i)_i, where f and every fi_i is an element of KX=∏x∈XK,𝕂^X=∏_x𝕂, then the net (fi)i∈I→f(f_i)_i converges in the product topology if and only if
+
+for every z∈X,, the net Prz((fi)i∈I)→Prz(f)_z((f_i)_i)→_z(f) converges in K,𝕂,
+where because Prz(f)=f(z) _z(f)=f(z)  and 
+Prz((fi)i∈I)=def(Prz(fi))i∈I=(fi(z))i∈I,_z((f_i)_i) def= (_z(f_i))_i=(f_i(z))_i, 
+this happens if and only if 
+
+for every z∈X,, the net (fi(z))i∈I→f(z)(f_i(z))_i(z) converges in K,𝕂,
+Thus (fi)i∈I(f_i)_i converges to f in the product topology if and only if it converges to f pointwise on X..
+This proof will also use the fact that the topology of pointwise convergence is preserved when passing to topological subspaces. 
+This means, for example, that if for every x∈X,, Sx⊆K_x⊆𝕂 is some (topological) subspace of K𝕂 then the topology of pointwise convergence (or equivalently, the product topology) on ∏x∈XSx∏_xS_x is equal to the subspace topology that the set ∏x∈XSx∏_xS_x inherits from ∏x∈XK.∏_x𝕂. 
+And if Sx_x is closed in K𝕂 for every x∈X,, then ∏x∈XSx∏_xS_x is a closed subset of ∏x∈XK.∏_x𝕂.
+Characterization of supu∈U|f(u)|≤rsup_u|f(u)|
+An important fact used by the proof is that for any real r,,
+supu∈U|f(u)|≤rifandonlyiff(U)⊆Brsup_u|f(u)|    ifandonlyif(U)_r
+where sup sup  denotes the supremum and f(U)=deff(u):u∈U.(U) def= {f(u):u}. 
+As a side note, this characterization does not hold if the closed ball Br_r is replaced with the open ball c∈K:|c|<r{c∈𝕂:|c|<r} (and replacing supu∈U|f(u)|≤r sup_u|f(u)|  with the strict inequality supu∈U|f(u)|<r sup_u|f(u)|<r  will not change this; for counter-examples, consider X=defK def= 𝕂 and the identity map f=defId def= Id on X). 
+
+
+The essence of the Banach–Alaoglu theorem can be found in the next proposition, from which the Banach–Alaoglu theorem follows. 
+Unlike the Banach–Alaoglu theorem, this proposition does not require the vector space X to endowed with any topology. 
+
+
+Proposition[3] — Let U be a subset of a vector space X over the field K𝕂 (where K=RorK=C𝕂=ℝor𝕂=ℂ) and for every real number r,, endow the closed ball Br=defs∈K:|s|≤r_r def= {s∈𝕂:|s|} with its usual topology (X need not be endowed with any topology, but K𝕂 has its usual Euclidean topology). 
+Define
+U#=deff∈X#:supu∈U|f(u)|≤1.^# def= {f^# : sup_u|f(u)|≤1}.
+If for every x∈X,, rx>0_x>0 is a real number such that x∈rxU,_xU, then U#^# is a closed and compact subspace of the product space ∏x∈XBrx∏_xB_r_x (where because this product topology is identical to the topology of pointwise convergence, which is also called the weak-* topology in functional analysis, this means that U#^# is compact in the weak-* topology or "weak-* compact" for short).
+
+
+Before proving the proposition above, it is first shown how the Banach–Alaoglu theorem follows from it (unlike the proposition, Banach–Alaoglu assumes that X is a topological vector space (TVS) and that U is a neighborhood of the origin). 
+
+Proof that Banach–Alaoglu follows from the proposition above
+Assume that X is a topological vector space with continuous dual space X′^' and that U is a neighborhood of the origin. 
+Because U is a neighborhood of the origin in X,, it is also an absorbing subset of X,, so for every x∈X,, there exists a real number rx>0_x>0 such that x∈rxU._xU. 
+Thus the hypotheses of the above proposition are satisfied, and so the set U#^# is therefore compact in the weak-* topology.  
+The proof of the Banach–Alaoglu theorem will be complete once it is shown that U#=U∘,^#=U^∘,[note 2] 
+where recall that U∘^∘ was defined as
+U∘=deff∈X′:supu∈U|f(u)|≤1=U#∩X′.^∘ def= {f^' : sup_u|f(u)|≤1} = U^#^'.
+Proof that U∘=U#:^∘=U^#: 
+Because U∘=U#∩X′,^∘=U^#^', the conclusion is equivalent to U#⊆X′.^#^'. 
+If f∈U#^# then supu∈U|f(u)|≤1, sup_u|f(u)|≤1,  which states exactly that the linear functional f is bounded on the neighborhood U;; thus f is a continuous linear functional (that is, f∈X′^'), as desired. 
+◼▪
+
+
+Proof of Proposition
+The product space ∏x∈XBrx∏_xB_r_x is compact by Tychonoff's theorem (since each closed ball Brx=defs∈K:|s|≤rx_r_x def= {s∈𝕂:|s|_x} is a Hausdorff[note 3] compact space). Because a closed subset of a compact space is compact, the proof of the proposition will be complete once it is shown that
+U#=deff∈X#:supu∈U|f(u)|≤1=f∈X#:f(U)⊆B1^# def= {f^# : sup_u|f(u)|≤1} = {f^# : f(U)_1}
+is a closed subset of ∏x∈XBrx.∏_xB_r_x. 
+The following statements guarantee this conclusion:
+
+U#⊆∏x∈XBrx.^#⊆∏_xB_r_x.
+U#^# is a closed subset of the product space ∏x∈XK=KX.∏_x𝕂=𝕂^X.
+Proof of (1): 
+For any z∈X,, let Prz:∏x∈XK→K_z:∏_x𝕂→𝕂 denote the projection to the zth coordinate (as defined above). 
+To prove that U#⊆∏x∈XBrx,^#⊆∏_xB_r_x, it is sufficient (and necessary) to show that Prx(U#)⊆Brx_x(U^#)_r_x for every x∈X.. 
+So fix x∈X and let f∈U#.^#. 
+Because Prx(f)=f(x),_x(f) = f(x), it remains to show that f(x)∈Brx.(x)_r_x. 
+Recall that rx>0_x>0 was defined in the proposition's statement as being any positive real number that satisfies x∈rxU_xU (so for example, ru:=1_u:=1 would be a valid choice for each u∈U), which implies ux=def1rxx∈U. u_x def= 1/r_x x.  
+Because f is a positive homogeneous function that satisfies supu∈U|f(u)|≤1, sup_u|f(u)|≤1, 
+1rx|f(x)|=|1rxf(x)|=|f(1rxx)|=|f(ux)|≤supu∈U|f(u)|≤1.1/r_x|f(x)|=|1/r_xf(x)|=|f(1/r_xx)|=|f(u_x)|≤sup_u|f(u)|≤1.
+Thus |f(x)|≤rx,|f(x)|_x, which shows that f(x)∈Brx,(x)_r_x, as desired. 
+Proof of (2): 
+The algebraic dual space X#^# is always a closed subset of KX=∏x∈XK𝕂^X=∏_x𝕂 (this is proved in the lemma below for readers who are not familiar with this result). 
+The set
+UB1=deff∈KX:supu∈U|f(u)|≤1=f∈KX:f(u)∈B1forallu∈U=(fx)x∈X∈∏x∈XK:fu∈B1forallu∈U=∏x∈XCxwhereCx=defB1ifx∈UKifx∉U9U_B_1    def= {           f
+in𝕂^X     :sup_u|f(u)|≤1}
+   ={           f ∈𝕂^X     :f(u)_1forallu}
+   ={(f_x)_x∈∏_x𝕂  :   f_u _1forallu}
+   =∏_xC_x  where_x def= B_1   ifx
+𝕂   ifx
+
+
+is closed in the product topology on ∏x∈XK=KX∏_x𝕂=𝕂^X since it is a product of closed subsets of K.𝕂. 
+Thus UB1∩X#=U#_B_1^#=U^# is an intersection of two closed subsets of KX,𝕂^X, which proves (2).[note 4]
+◼▪
+
+
+The conclusion that the set UB1=f∈KX:f(U)⊆B1_B_1={f∈𝕂^X:f(U)_1} is closed can also be reached by applying the following more general result, this time proved using nets, to the special case Y:=K:=𝕂 and B:=B1.:=B_1.
+
+Observation: If U⊆X is any set and if B⊆Y is a closed subset of a topological space Y,, then UB=deff∈YX:f(U)⊆B_B def= {f^X:f(U)} is a closed subset of YX^X in the topology of pointwise convergence.
+Proof of observation: Let f∈YX^X and suppose that (fi)i∈I(f_i)_i is a net in UB_B that converges pointwise to f.. It remains to show that f∈UB,_B, which by definition means f(U)⊆B.(U). For any u∈U,, because (fi(u))i∈I→f(u)(f_i(u))_i(u) in Y and every value fi(u)∈fi(U)⊆B_i(u)inf_i(U) belongs to the closed (in Y) subset B,, so too must this net's limit belong to this closed set; thus f(u)∈B,(u), which completes the proof. ◼▪
+
+Lemma (X#^# is closed in KX𝕂^X) — The algebraic dual space X#^# of any vector space X over a field K𝕂 (where K𝕂 is Rℝ or Cℂ) is a closed subset of KX=∏x∈XK𝕂^X=∏_x𝕂 in the topology of pointwise convergence. (The vector space X need not be endowed with any topology).
+
+
+
+
+
+Proof of lemma
+
+
+
+Let f∈KX∈𝕂^X and suppose that f∙=(fi)i∈I_∙=(f_i)_i is a net in X#^# the converges to f in KX.𝕂^X. 
+To conclude that f∈X#,^#, it must be shown that f is a linear functional. So let s be a scalar and let x,y∈X.,y.
+For any z∈X,, let f∙(z):I→K_∙(z):I→𝕂 denote f∙_∙'s net of values at z
+f∙(z)=def(fi(z))i∈I._∙(z) def= (f_i(z))_i.
+Because f∙→f_∙ in KX,𝕂^X, which has the topology of pointwise convergence, f∙(z)→f(z)_∙(z)(z) in K𝕂 for every z∈X.. 
+By using x,y,sx,andx+y,,y,sx,andx+y, in place of z,, it follows that each of the following nets of scalars converges in K:𝕂:
+f∙(x)→f(x),f∙(y)→f(y),f∙(x+y)→f(x+y),andf∙(sx)→f(sx)._∙(x)(x),_∙(y)(y),_∙(x+y)(x+y),  and_∙(sx)(sx).
+
+Proof that f(sx)=sf(x):(sx)=sf(x): 
+Let M:K→K:𝕂→𝕂 be the "multiplication by s" map defined by M(c)=defsc.(c) def= sc. 
+Because M is continuous and f∙(x)→f(x)_∙(x)(x) in K,𝕂, it follows that M(f∙(x))→M(f(x))(f_∙(x))(f(x)) where the right hand side is M(f(x))=sf(x)(f(x))=sf(x) and the left hand side is
+M(f∙(x))=defM∘f∙(x)bydefinitionofnotation=(M(fi(x)))i∈Ibecausef∙(x)=(fi(x))i∈I:I→K=(sfi(x))i∈IM(fi(x))=defsfi(x)=(fi(sx))i∈Ibylinearityoffi=f∙(sx)notation4M(f_∙(x))def=    M_∙(x)      bydefinitionofnotation
+=    (M(f_i(x)))_i         becausef_∙(x)=(f_i(x))_i:I→𝕂
+=    (sf_i(x))_i      M(f_i(x)) def= sf_i(x)
+=    (f_i(sx))_i      bylinearityoff_i
+=    f_∙(sx)      notation
+which proves that f∙(sx)→sf(x)._∙(sx)(x). Because also f∙(sx)→f(sx)_∙(sx)(sx) and limits in K𝕂 are unique, it follows that sf(x)=f(sx),(x)=f(sx), as desired. 
+
+Proof that f(x+y)=f(x)+f(y):(x+y)=f(x)+f(y): 
+Define a net z∙=(zi)i∈I:I→K×K_∙=(z_i)_i:I→𝕂×𝕂 by letting zi=def(fi(x),fi(y))_i def= (f_i(x),f_i(y)) for every i∈I.. 
+Because f∙(x)=(fi(x))i∈I→f(x)_∙(x)=(f_i(x))_i(x) and f∙(y)=(fi(y))i∈I→f(y),_∙(y)=(f_i(y))_i(y), it follows that z∙→(f(x),f(y))_∙→(f(x),f(y)) in K×K.𝕂×𝕂. 
+Let A:K×K→K:𝕂×𝕂→𝕂 be the addition map defined by A(x,y)=defx+y.(x,y) def= x+y. 
+The continuity of A implies that A(z∙)→A(f(x),f(y))(z_∙)(f(x),f(y)) in K𝕂 where the right hand side is A(f(x),f(y))=f(x)+f(y)(f(x),f(y))=f(x)+f(y) and the left hand side is
+A(z∙)=defA∘z∙=(A(zi))i∈I=(A(fi(x),fi(y)))i∈I=(fi(x)+fi(y))i∈I=(fi(x+y))i∈I=f∙(x+y)(z_∙) def= A_∙=(A(z_i))_i=(A(f_i(x),f_i(y)))_i=(f_i(x)+f_i(y))_i=(f_i(x+y))_i=f_∙(x+y)
+which proves that f∙(x+y)→f(x)+f(y)._∙(x+y)(x)+f(y). Because also f∙(x+y)→f(x+y),_∙(x+y)(x+y), it follows that f(x+y)=f(x)+f(y),(x+y)=f(x)+f(y), as desired. 
+◼▪
+
+
+The lemma above actually also follows from its corollary below since ∏x∈XK∏_x𝕂 is a Hausdorff complete uniform space and any subset of such a space (in particular X#^#) is closed if and only if it is complete. 
+
+
+Corollary to lemma (X#^# is weak-* complete) — When the algebraic dual space X#^# of a vector space X is equipped with the topology σ(X#,X)σ(X^#,X) of pointwise convergence (also known as the weak-* topology) then the resulting topological space (X#,σ(X#,X))(X^#,σ(X^#,X)) is a complete Hausdorff locally convex topological vector space.
+
+
+
+
+
+Proof of corollary to lemma
+
+
+
+Because the underlying field K𝕂 is a complete Hausdorff locally convex topological vector space, the same is true of the product space KX=∏x∈XK.𝕂^X=∏_x𝕂. 
+A closed subset of a complete space is complete, so by the lemma, the space (X#,σ(X#,X))(X^#,σ(X^#,X)) is complete.
+◼▪
+
+
+
+The above elementary proof of the Banach–Alaoglu theorem actually shows that if U⊆X is any subset that satisfies X=(0,∞)U=defru:r>0,u∈U=(0,∞)U def= {ru:r>0,u} (such as any absorbing subset of X), then U#=deff∈X#:f(U)⊆B1^# def= {f^#:f(U)_1} is a weak-* compact subset of X#.^#.
+As a side note, with the help of the above elementary proof, it may be shown (see this footnote)[proof 1] 
+that there exist X-indexed non-negative real numbers m∙=(mx)x∈X_∙=(m_x)_x such that 
+U∘=U#=X#∩∏x∈XBmx=X′∩∏x∈XBmx4U^∘   =U^#      
+   =X^#      ∩∏_xB_m_x
+   =X^'      ∩∏_xB_m_x
+
+where these real numbers m∙_∙ can also be chosen to be "minimal" in the following sense: 
+using P=defU∘ def= U^∘ (so P=U#=U^# as in the proof) and defining the notation ∏BR∙=def∏x∈XBRx_R_∙ def= ∏_xB_R_x for any R∙=(Rx)x∈X∈RX,_∙=(R_x)_x∈ℝ^X, if
+TP=defR∙∈RX:P⊆∏BR∙_P def= {R_∙∈ℝ^X : P⊆_R_∙} 
+then m∙∈TP_∙_P and for every x∈X,, mx=infRx:R∙∈TP,_x=inf{R_x:R_∙_P}, 
+which shows that these numbers m∙_∙ are unique; indeed, this infimum formula can be used to define them. 
+In fact, if BoxPBox_P denotes the set of all such products of closed balls containing the polar set P,,
+BoxP⁡=def∏BR∙:R∙∈TP=∏BR∙:P⊆∏BR∙,Box_P def= {_R_∙ : R_∙_P} = {_R_∙ : P⊆_R_∙}, 
+then 
+∏Bm∙=∩BoxP∈BoxP_m_∙=∩Box_P∈Box_P 
+where ⋂BoxP⋂Box_P denotes the intersection of all sets belonging to BoxP.Box_P.
+This implies (among other things[note 5]) 
+that ∏Bm∙=∏x∈XBmx_m_∙=∏_xB_m_x the unique least element of BoxPBox_P with respect to ⊆; ⊆; this may be used as an alternative definition of this (necessarily convex and balanced) set.  
+The function m∙=def(mx)x∈X:X→[0,∞)_∙ def= (m_x)_x:X→[0,∞) is a seminorm and it is unchanged if U is replaced by the convex balanced hull of U (because U#=[cobal⁡U]#^#=[cobalU]^#). 
+Similarly, because U∘=[clX⁡U]∘,^∘=[cl_XU]^∘, m∙_∙ is also unchanged if U is replaced by its closure in X..
+
+Sequential Banach–Alaoglu theorem[edit]
+A special case of the Banach–Alaoglu theorem is the sequential version of the theorem, which asserts that the closed unit ball of the dual space of a separable normed vector space is sequentially compact in the weak-* topology. 
+In fact, the weak* topology on the closed unit ball of the dual of a separable space is metrizable, and thus compactness and sequential compactness are equivalent.
+Specifically, let X be a separable normed space and B the closed unit ball in X′.^'. Since X is separable, let x∙=(xn)n=1∞_∙=(x_n)_n=1^∞ be a countable dense subset. 
+Then the following defines a metric, where for any x,y∈B,y
+ρ(x,y)=∑n=1∞2−n|⟨x−y,xn⟩|1+|⟨x−y,xn⟩|ρ(x,y)=∑_n=1^∞ 2^-n |-y,x_n⟩|/1+|-y,x_n⟩|
+in which ⟨⋅,⋅⟩⟨·,·⟩ denotes the duality pairing of X′^' with X.. 
+Sequential compactness of B in this metric can be shown by a diagonalization argument similar to the one employed in the proof of the Arzelà–Ascoli theorem.
+Due to the constructive nature of its proof (as opposed to the general case, which is based on the axiom of choice), the sequential Banach–Alaoglu theorem is often used in the field of partial differential equations to construct solutions to PDE or variational problems. 
+For instance, if one wants to minimize a functional F:X′→R:X^'→ℝ on the dual of a separable normed vector space X,, one common strategy is to first construct a minimizing sequence x1,x2,…∈X′_1,x_2,…^' which approaches the infimum of F,, use the sequential Banach–Alaoglu theorem to extract a subsequence that converges in the weak* topology to a limit x,, and then establish that x is a minimizer of F.. 
+The last step often requires F to obey a (sequential) lower semi-continuity property in the weak* topology.
+When X′^' is the space of finite Radon measures on the real line (so that X=C0(R)=C_0(ℝ) is the space of continuous functions vanishing at infinity, by the Riesz representation theorem), the sequential Banach–Alaoglu theorem is equivalent to the Helly selection theorem.
+
+Proof
+For every x∈X,, let
+Dx=c∈C:|c|≤‖x‖_x={c∈ℂ:|c|≤x}
+and let
+D=∏x∈XDx=∏_xD_x
+be endowed with the product topology. 
+Because every Dx_x is a compact subset of the complex plane, Tychonoff's theorem guarantees that their product D is compact. 
+The closed unit ball in X′,^', denoted by B1′,_1^ ', can be identified as a subset of D in a natural way:
+F:B1′→Df↦(f(x))x∈X.4F:       B_1^ '       →    D
+      f       ↦    (f(x))_x.
+
+This map is injective and it is continuous when B1′_1^ ' has the weak-* topology. 
+This map's inverse, defined on its image, is also continuous. 
+It will now be shown that the image of the above map is closed, which will complete the proof of the theorem. 
+Given a point λ∙=(λx)x∈X∈Dλ_∙=(λ_x)_x and a net (fi(x))x∈X(f_i(x))_x in the image of F indexed by i∈I such that 
+limi(fi(x))x∈X→λ∙inD,lim_i(f_i(x))_x→λ_∙  inD,
+the functional g:X→C:X→ℂ defined by
+g(x)=λxforeveryx∈X,(x)=λ_x    foreveryx,
+lies in B1′_1^ ' and F(g)=λ∙.(g)=λ_∙.
+◼▪
+
+
+Consequences[edit]
+Consequences for normed spaces[edit]
+Assume that X is a normed space and endow its continuous dual space X′^' with the usual dual norm. 
+
+
+The closed unit ball in X′^' is weak-* compact.[3]  So if X′^' is infinite dimensional then its closed unit ball is necessarily not compact in the norm topology by F. Riesz's theorem (despite it being weak-* compact).
+
+A Banach space is reflexive if and only if its closed unit ball is σ(X,X′)σ(X,X^')-compact; this is known as James' theorem.[3]
+If X is a reflexive Banach space, then every bounded sequence in X has a weakly convergent subsequence. 
+(This follows by applying the Banach–Alaoglu theorem to a weakly metrizable subspace of X; or, more succinctly, by applying the Eberlein–Šmulian theorem.) 
+For example, suppose that X is the space Lp space Lp(μ)^p(μ) where 1<p<∞1<p<∞ and let q satisfy 1p+1q=1.1/p+1/q=1.
+Let f1,f2,…_1,f_2,… be a bounded sequence of functions in X.. 
+Then there exists a subsequence (fnk)k=1∞(f_n_k)_k=1^∞ and an f∈X such that
+∫fnkgdμ→∫fgdμforallg∈Lq(μ)=X′._n_kg dμ→ dμ    forallg^q(μ)=X^'.
+The corresponding result for p=1=1 is not true, as L1(μ)^1(μ) is not reflexive.
+
+Consequences for Hilbert spaces[edit]
+
+In a Hilbert space, every bounded and closed set is weakly relatively compact, hence every bounded net has a weakly convergent subnet (Hilbert spaces are reflexive).
+As norm-closed, convex sets are weakly closed (Hahn–Banach theorem), norm-closures of convex bounded sets in Hilbert spaces or reflexive Banach spaces are weakly compact.
+Closed and bounded sets in B(H)(H) are precompact with respect to the weak operator topology (the weak operator topology is weaker than the ultraweak topology which is in turn the weak-* topology with respect to the predual of B(H),(H), the trace class operators). Hence bounded sequences of operators have a weak accumulation point. 
+As a consequence, B(H)(H) has the Heine–Borel property, if equipped with either the weak operator or the ultraweak topology.
+
+Relation to the axiom of choice and other statements[edit]
+See also: Krein–Milman theorem § Relation to other statements
+The Banach–Alaoglu may be proven by using Tychonoff's theorem, which under the Zermelo–Fraenkel set theory (ZF) axiomatic framework is equivalent to the axiom of choice. 
+Most mainstream functional analysis relies on ZF + the axiom of choice, which is often denoted by ZFC. 
+However, the theorem does not rely upon the axiom of choice in the separable case (see above): in this case there actually exists a constructive proof. 
+In the general case of an arbitrary normed space, the ultrafilter Lemma, which is strictly weaker than the axiom of choice and equivalent to Tychonoff's theorem for compact Hausdorff spaces, suffices for the proof of the Banach–Alaoglu theorem, and is in fact equivalent to it.
+The Banach–Alaoglu theorem is equivalent to the ultrafilter lemma, which implies the Hahn–Banach theorem for real vector spaces (HB) but is not equivalent to it (said differently, Banach–Alaoglu is also strictly stronger than HB). 
+However, the Hahn–Banach theorem is equivalent to the following weak version of the Banach–Alaoglu theorem for normed space[6] in which the conclusion of compactness (in the weak-* topology of the closed unit ball of the dual space) is replaced with the conclusion of quasicompactness (also sometimes called convex compactness); 
+
+
+Weak version of Alaoglu theorem[6] — Let X be a normed space and let B denote the closed unit ball of its continuous dual space X′.^'. Then B has the following property, which is called (weak-*) quasicompactness or convex compactness: whenever C𝒞 is a cover of B by convex weak-* closed subsets of X′^' such that B∩C:C∈C{B:C∈𝒞} has the finite intersection property, then B∩⋂C∈CC∩⋂_C∈𝒞C is not empty.
+
+
+Compactness implies convex compactness because a topological space is compact if and only if every family of closed subsets having the finite intersection property (FIP) has non-empty intersection. 
+The definition of convex compactness is similar to this characterization of compact spaces in terms of the FIP, except that it only involves those closed subsets that are also convex (rather than all closed subsets).
+
+See also[edit]
+Bishop–Phelps theorem
+Banach–Mazur theorem
+Delta-compactness theorem
+Eberlein–Šmulian theorem – Relates three different kinds of weak compactness in a Banach space
+Goldstine theorem
+James' theorem – theorem in mathematicsPages displaying wikidata descriptions as a fallback
+Krein-Milman theorem – On when a space equals the closed convex hull of its extreme pointsPages displaying short descriptions of redirect targets
+Mazur's lemma – On strongly convergent combinations of a weakly convergent sequence in a Banach space
+Topological vector space – Vector space with a notion of nearness
+Notes[edit]
+
+
+^ Explicitly, a subset B′⊆X′^'^' is said to be "compact (resp. totally bounded, etc.) in the weak-* topology" if when X′^' is given the weak-* topology and the subset B′^' is given the subspace topology inherited from (X′,σ(X′,X)),(X^',σ(X^',X)), then B′^' is a compact (resp. totally bounded, etc.) space.
+
+^ If ττ denotes the topology that X is (originally) endowed with, then the equality U∘=U#^∘=U^# shows that the polar U∘=f∈X′:supu∈U|f(u)|≤1^∘={f^' : sup_u|f(u)|≤1} of U is dependent only on U (and X#^#) and that the rest of the topology ττ can be ignored.  To clarify what is meant, suppose σσ is any TVS topology on X such that the set U is (also) a neighborhood of the origin in (X,σ).(X,σ).  Denote the continuous dual space of (X,σ)(X,σ) by (X,σ)′(X,σ)^' and denote the polar of U with respect to (X,σ)(X,σ) by 
+U∘,σ=deff∈(X,σ)′:supu∈U|f(u)|≤1^∘,σ def= {f∈(X,σ)^' : sup_u|f(u)|≤1}
+so that U∘,τ^∘,τ is just the set U∘^∘ from above. 
+Then U∘,τ=U∘,σ^∘,τ=U^∘,σ because both of these sets are equal to U#.^#.  Said differently, the polar set U∘,σ^∘,σ's defining "requirement" that U∘,σ^∘,σ be a subset of the continuous dual space (X,σ)′(X,σ)^' is inconsequential and can be ignored because it does not have any effect on the resulting set of linear functionals. However, if νν is a TVS topology on X such that U is not a neighborhood of the origin in (X,ν)(X,ν) then the polar U∘,ν^∘,ν of U with respect to (X,ν)(X,ν) is not guaranteed to equal U#^# and so the topology νν can not be ignored.
+
+^ Because every Brx_r_x is also a Hausdorff space, the conclusion that ∏x∈XBrx∏_xB_r_x is compact only requires the so-called "Tychonoff's theorem for compact Hausdorff spaces," which is equivalent to the ultrafilter lemma and strictly weaker than the axiom of choice.
+
+^ The conclusion UB1=∏x∈XCx_B_1=∏_xC_x can be written as UB1=(∏u∈UB1)×∏x∈X∖UK._B_1 = (∏_uB_1)×∏_x𝕂. The set U#^# may thus equivalently be defined by U#=defX#∩[(∏u∈UB1)×∏x∈X∖UK].^# def= X^#∩[(∏_uB_1)×∏_x𝕂]. Rewriting the definition in this way helps make it apparent that the set U#^# is closed in ∏x∈XK∏_x𝕂 because this is true of X#.^#.
+
+^ This tuple m∙=def(mx)x∈X_∙ def= (m_x)_x is the least element of TP_P with respect to natural induced pointwise partial order defined by R∙≤S∙_∙_∙ if and only if Rx≤Sx_x_x for every x∈X.. Thus, every neighborhood U of the origin in X can be associated with this unique (minimum) function m∙:X→[0,∞)._∙:X→[0,∞). For any x∈X,, if r>0>0 is such that x∈rU then mx≤r_x so that in particular, m0=0_0=0 and mu≤1_u≤1 for every u∈U..
+
+
+Proofs
+
+
+
+^ 
+For any non-empty subset A⊆[0,∞),⊆[0,∞), the equality ∩Ba:a∈A=BinfA∩{B_a:a}=B_inf_A holds (the intersection on the left is a closed, rather than open, disk − possibly of radius 00 − because it is an intersection of closed subsets of K𝕂 and so must itself be closed). For every x∈X,, let mx=infRx:R∙∈TP_x=inf_{R_x:R_∙_P} so that the previous set equality implies ∩BoxP=⋂R∙∈TP∏x∈XBRx=∏x∈X⋂R∙∈TPBRx=∏x∈XBmx.∩Box_P=⋂_R_∙_P∏_xB_R_x=∏_x⋂_R_∙_PB_R_x=∏_xB_m_x. From P⊆∩BoxP⊆∩Box_P it follows that m∙∈TP_∙_P and ∩BoxP∈BoxP,∩Box_P∈Box_P, thereby making ∩BoxP∩Box_P the least element of BoxPBox_P with respect to ⊆. ⊆.  (In fact, the family BoxPBox_P is closed under (non-nullary) arbitrary intersections and also under finite unions of at least one set). The elementary proof showed that TP_P and BoxPBox_P are not empty and moreover, it also even showed that TP_P has an element (rx)x∈X(r_x)_x that satisfies ru=1_u=1 for every u∈U,, which implies that mu≤1_u≤1 for every u∈U.. The inclusion P⊆(∩BoxP)∩X′⊆(∩BoxP)∩X# ⊆ (∩Box_P)^' ⊆ (∩Box_P)^# is immediate; to prove the reverse inclusion, let f∈(∩BoxP)∩X#.∈(∩Box_P)^#. By definition, f∈P=defU# def= U^# if and only if supu∈U|f(u)|≤1,sup_u|f(u)|≤1, so let u∈U and it remains to show that |f(u)|≤1.|f(u)|≤1. From f∈∩BoxP=∏Bm∙,∈∩Box_P=_m_∙, it follows that f(u)=Pru(f)∈Pru(∏x∈XBmx)=Bmu,(u)=_u(f)∈_u(∏_xB_m_x)=B_m_u, which implies that |f(u)|≤mu≤1,|f(u)|_u≤1, as desired. 
+◼▪
+
+
+Citations[edit]
+
+
+^ Rudin 1991, Theorem 3.15.
+
+^ a b c Narici & Beckenstein 2011, pp. 235–240.
+
+^ a b c d e f Narici & Beckenstein 2011, pp. 225–273.
+
+^ Köthe 1983, Theorem (4) in §20.9.
+
+^ Meise & Vogt 1997, Theorem 23.5.
+
+^ a b Bell, J.; Fremlin, David (1972). "A Geometric Form of the Axiom of Choice" (PDF). Fundamenta Mathematicae. 77 (2): 167–170. doi:10.4064/fm-77-2-167-170. Retrieved 26 Dec 2021.
+
+
+References[edit]
+
+Köthe, Gottfried (1983) [1969]. Topological Vector Spaces I. Grundlehren der mathematischen Wissenschaften. Vol. 159. Translated by Garling, D.J.H. New York: Springer Science & Business Media. ISBN 978-3-642-64988-2. MR 0248498. OCLC 840293704.
+Meise, Reinhold; Vogt, Dietmar (1997). "Theorem 23.5". Introduction to Functional Analysis. Oxford, England: Clarendon Press. p. 264. ISBN 0-19-851485-9.
+Narici, Lawrence; Beckenstein, Edward (2011). Topological Vector Spaces. Pure and applied mathematics (Second ed.). Boca Raton, FL: CRC Press. ISBN 978-1584888666. OCLC 144216834.
+Rudin, Walter (1991). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 8 (Second ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 978-0-07-054236-5. OCLC 21163277.  See Theorem 3.15, p. 68.
+Schaefer, Helmut H.; Wolff, Manfred P. (1999). Topological Vector Spaces. GTM. Vol. 8 (Second ed.). New York, NY: Springer New York Imprint Springer. ISBN 978-1-4612-7155-0. OCLC 840278135.
+Schechter, Eric (1996). Handbook of Analysis and Its Foundations. San Diego, CA: Academic Press. ISBN 978-0-12-622760-4. OCLC 175294365.
+Trèves, François (2006) [1967]. Topological Vector Spaces, Distributions and Kernels. Mineola, N.Y.: Dover Publications. ISBN 978-0-486-45352-1. OCLC 853623322.
+
+Further reading[edit]
+Conway, John B. (1990). A Course in Functional Analysis. Graduate Texts in Mathematics. Vol. 96 (2nd ed.). New York: Springer-Verlag. ISBN 978-0-387-97245-9. OCLC 21195908.
+Lax, Peter D. (2002). Functional Analysis (PDF). Pure and Applied Mathematics. New York: Wiley-Interscience. ISBN 978-0-471-55604-6. OCLC 47767143. Retrieved July 22, 2020.
+vteDuality and spaces of linear mapsBasic concepts
+Dual space
+Dual system
+Dual topology
+Duality
+Operator topologies
+Polar set
+Polar topology
+Topologies on spaces of linear maps
+Topologies
+Norm topology
+Dual norm
+Ultraweak/Weak-*
+Weak
+polar
+operator
+in Hilbert spaces
+Mackey 
+Strong dual
+polar topology
+operator
+Ultrastrong
+Main results
+Banach–Alaoglu
+Mackey–Arens
+Maps
+Transpose of a linear map
+Subsets
+Saturated family
+Total set
+Other concepts
+Biorthogonal system
+
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteTopological vector spaces (TVSs)Basic concepts
+Banach space
+Completeness
+Continuous linear operator
+Linear functional
+Fréchet space
+Linear map
+Locally convex space
+Metrizability
+Operator topologies
+Topological vector space
+Vector space
+Main results
+Anderson–Kadec
+Banach–Alaoglu
+Closed graph theorem
+F. Riesz's
+Hahn–Banach (hyperplane separation
+Vector-valued Hahn–Banach)
+Open mapping (Banach–Schauder)
+Bounded inverse
+Uniform boundedness (Banach–Steinhaus)
+Maps
+Bilinear operator
+form
+Linear map
+Almost open
+Bounded
+Continuous
+Closed
+Compact
+Densely defined
+Discontinuous
+Topological homomorphism
+Functional
+Linear
+Bilinear
+Sesquilinear
+Norm
+Seminorm
+Sublinear function
+Transpose
+Types of sets
+Absolutely convex/disk
+Absorbing/Radial
+Affine
+Balanced/Circled
+Banach disks
+Bounding points
+Bounded
+Complemented subspace
+Convex
+Convex cone (subset)
+Linear cone (subset)
+Extreme point
+Pre-compact/Totally bounded
+Prevalent/Shy
+Radial
+Radially convex/Star-shaped
+Symmetric
+Set operations
+Affine hull
+(Relative) Algebraic interior (core)
+Convex hull
+Linear span
+Minkowski addition
+Polar
+(Quasi) Relative interior
+Types of TVSs
+Asplund
+B-complete/Ptak
+Banach
+(Countably) Barrelled
+BK-space
+(Ultra-) Bornological
+Brauner
+Complete
+Convenient
+(DF)-space
+Distinguished
+F-space
+FK-AK space
+FK-space
+Fréchet
+tame Fréchet
+Grothendieck
+Hilbert
+Infrabarreled
+Interpolation space
+K-space
+LB-space
+LF-space
+Locally convex space
+Mackey
+(Pseudo)Metrizable
+Montel
+Quasibarrelled
+Quasi-complete
+Quasinormed
+(Polynomially
+Semi-) Reflexive
+Riesz
+Schwartz
+Semi-complete
+Smith
+Stereotype
+(B
+Strictly
+Uniformly) convex
+(Quasi-) Ultrabarrelled
+Uniformly smooth
+Webbed
+With the approximation property
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

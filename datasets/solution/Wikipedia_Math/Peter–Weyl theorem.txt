@@ -1,0 +1,118 @@
+Basic result in harmonic analysis on compact topological groups
+In mathematics, the Peter–Weyl theorem is a basic result in the theory of harmonic analysis, applying to topological groups that are compact, but are not necessarily abelian. It was initially proved by Hermann Weyl, with his student Fritz Peter, in the setting of a compact topological group G (Peter & Weyl 1927). The theorem is a collection of results generalizing the significant facts about the decomposition of the regular representation of any finite group, as discovered by Ferdinand Georg Frobenius and Issai Schur.
+Let G be a compact group. The theorem has three parts.  The first part states that the matrix coefficients of irreducible representations of G are dense in the space C(G) of continuous complex-valued functions on G, and thus also in the space L2(G) of square-integrable functions.  The second part asserts the complete reducibility of unitary representations of G.  The third part then asserts that the regular representation of G on L2(G) decomposes as the direct sum of all irreducible unitary representations.  Moreover, the matrix coefficients of the irreducible unitary representations form an orthonormal basis of L2(G). In the case that G is the group of unit complex numbers, this last result is simply a standard result from Fourier series.
+
+
+Matrix coefficients[edit]
+A matrix coefficient of the group G is a complex-valued function φφ on G given as the composition
+
+φ=L∘πφ=L∘π
+where π : G → GL(V) is a finite-dimensional (continuous) group representation of G, and L is a linear functional on the vector space of endomorphisms of V (e.g. trace), which contains GL(V) as an open subset.  Matrix coefficients are continuous, since representations are by definition continuous, and linear functionals on finite-dimensional spaces are also continuous.
+The first part of the Peter–Weyl theorem asserts (Bump 2004, §4.1; Knapp 1986, Theorem 1.12):
+
+Peter–Weyl Theorem (Part I). The set of matrix coefficients of G is dense in the space of continuous complex functions C(G) on G, equipped with the uniform norm.
+This first result resembles the Stone–Weierstrass theorem in that it indicates the density of a set of functions in the space of all continuous functions, subject only to an algebraic characterization.  In fact, the matrix coefficients form a unital algebra invariant under complex conjugation because the product of two matrix coefficients is a matrix coefficient of the tensor product representation, and the complex conjugate is a matrix coefficient of the dual representation. Hence the theorem follows directly from the Stone–Weierstrass theorem if the matrix coefficients separate points, which is obvious if G is a matrix group (Knapp 1986, p. 17). Conversely, it is a consequence of the theorem that any compact Lie group is isomorphic to a matrix group (Knapp 1986, Theorem 1.15).
+A corollary of this result is that the matrix coefficients of G are dense in L2(G).
+
+Decomposition of a unitary representation[edit]
+The second part of the theorem gives the existence of a decomposition of a unitary representation of G into finite-dimensional representations. Now, intuitively groups were conceived as rotations on geometric objects, so it is only natural to study representations which essentially arise from continuous actions on Hilbert spaces. (For those who were first introduced to dual groups consisting of characters which are the continuous homomorphisms into the circle group, this approach is similar except that the circle group is (ultimately) generalised to the group of unitary operators on a given Hilbert space.)
+Let G be a topological group and H a complex Hilbert space.
+A continuous action ∗ : G × H → H, gives rise to a continuous map ρ∗ : G → HH (functions from H to H with the strong topology) defined by: ρ∗(g)(v) = ∗(g,v). This map is clearly a homomorphism from G into GL(H), the homeomorphic[clarification needed] automorphisms of H. Conversely, given such a map, we can uniquely recover the action in the obvious way.
+Thus we define the representations of G on a Hilbert space H to be those group homomorphisms, ρ, which arise from continuous actions of G on H. We say that a representation ρ is unitary if ρ(g) is a unitary operator for all g ∈ G; i.e., ⟨ρ(g)v,ρ(g)w⟩=⟨v,w⟩⟨ρ(g)v,ρ(g)w⟩=,w⟩ for all v, w ∈ H. (I.e. it is unitary if ρ : G → U(H). Notice how this generalises the special case of the one-dimensional Hilbert space, where U(C) is just the circle group.)
+Given these definitions, we can state the second part of the Peter–Weyl theorem (Knapp 1986, Theorem 1.12):
+
+Peter–Weyl Theorem (Part II). Let ρ be a unitary representation of a compact group G on a complex Hilbert space H.  Then H splits into an orthogonal direct sum of irreducible finite-dimensional unitary representations of G.
+Decomposition of square-integrable functions[edit]
+To state the third and final part of the theorem, there is a natural Hilbert space over G consisting of square-integrable functions, L2(G)^2(G); this makes sense because the Haar measure exists on G. The group G has a unitary representation ρ on L2(G)^2(G) given by acting on the left, via
+
+ρ(h)f(g)=f(h−1g).ρ(h)f(g)=f(h^-1g).
+The final statement of the Peter–Weyl theorem (Knapp 1986, Theorem 1.12) gives an explicit orthonormal basis of L2(G)^2(G).  Roughly it asserts that the matrix coefficients for G, suitably renormalized, are an orthonormal basis of L2(G).  In particular, L2(G)^2(G) decomposes into an orthogonal direct sum of all the irreducible unitary representations, in which the multiplicity of each irreducible representation is equal to its degree (that is, the dimension of the underlying space of the representation).  Thus,
+
+L2(G)=⨁^π∈ΣEπ⊕dim⁡Eπ^2(G)=π∈Σ⊕E_π^⊕_π
+where Σ denotes the set of (isomorphism classes of) irreducible unitary representations of G, and the summation denotes the closure of the direct sum of the total spaces Eπ of the representations π.
+We may also regard L2(G)^2(G) as a representation of the direct product group G×G, with the two factors acting by translation on the left and the right, respectively. Fix a representation (π,Eπ)(π,E_π) of G. The space of matrix coefficients for the representation may be identified with End⁡(Eπ)End(E_π), the space of linear maps of Eπ_π to itself. The natural left and right action of G×G on the matrix coefficients corresponds to the action on End⁡(Eπ)End(E_π) given by
+
+(g,h)⋅A=π(g)Aπ(h)−1.(g,h)=π(g)Aπ(h)^-1.
+Then we may decompose L2(G)^2(G) as unitary representation of G×G in the form
+
+L2(G)=⨁^π∈ΣEπ⊗Eπ∗.^2(G)=π∈Σ⊕E_π_π^*.
+Finally, we may form an orthonormal basis for L2(G)^2(G) as follows. Suppose that a representative π is chosen for each isomorphism class of irreducible unitary representation, and denote the collection of all such π by Σ. Let uij(π)u_ij^(π) be the matrix coefficients of π in an orthonormal basis, in other words
+
+uij(π)(g)=⟨π(g)ej,ei⟩._ij^(π)(g)=⟨π(g)e_j,e_i⟩.
+for each g ∈ G.  Finally, let d(π) be the degree of the representation π. The theorem now asserts that the set of functions
+
+d(π)uij(π)∣π∈Σ,1≤i,j≤d(π){√(d^(π))u_ij^(π)| π∈Σ,  1,j^(π)}
+is an orthonormal basis of L2(G).^2(G).
+
+Restriction to class functions[edit]
+A function f on G is called a class function if f(hgh−1)=f(g)(hgh^-1)=f(g) for all g and h in G. The space of square-integrable class functions forms a closed subspace of L2(G)^2(G), and therefore a Hilbert space in its own right. Within the space of matrix coefficients for a fixed representation ππ is the character χπχ_π of ππ, defined by
+
+χπ(g)=trace⁡(π(g)).χ_π(g)=trace(π(g)).
+In the notation above, the character is the sum of the diagonal matrix coefficients:
+
+χπ=∑i=1d(π)uii(π).χ_π=∑_i=1^d^(π)u_ii^(π).
+An important consequence of the preceding result is the following:
+
+Theorem: The characters of the irreducible representations of G form a Hilbert basis for the space of square-integrable class functions on G.
+This result plays an important part in Weyl's classification of the representations of a connected compact Lie group.[1]
+
+An example: U(1)[edit]
+A simple but helpful example is the case of the group of complex numbers of magnitude 1, G=S1=S^1. In this case, the irreducible representations are one-dimensional and given by
+
+πn(eiθ)=einθ.π_n(e^iθ)=e^inθ.
+There is then a single matrix coefficient for each representation, the function
+
+un(eiθ)=einθ._n(e^iθ)=e^inθ.
+The last part of the Peter–Weyl theorem then asserts in this case that these functions form an orthonormal basis for L2(S1)^2(S^1). In this case, the theorem is simply a standard result from the theory of Fourier series. 
+For any compact group G, we can regard the decomposition of L2(G)^2(G) in terms of matrix coefficients as a generalization of the theory of Fourier series. Indeed, this decomposition is often referred to as a Fourier series.
+
+An example: SU(2)[edit]
+We use the standard representation of the group SU(2) as
+
+SU⁡(2)=(α−β¯βα¯):α,β∈C,|α|2+|β|2=1,SU(2)={[  α -β;  β  α ]:
+α,β∈ℂ, |α|^2+|β|^2=1} ,
+Thus, SU(2) is represented as the 3-sphere S3^3 sitting inside C2=R4ℂ^2=ℝ^4.
+The irreducible representations of SU(2), meanwhile, are labeled by a non-negative integer m and can be realized as the natural action of SU(2) on the space of homogeneous polynomials of degree m in two complex variables.[2] The matrix coefficients of the mth representation are hyperspherical harmonics of degree m, that is, the restrictions to S3^3 of homogeneous harmonic polynomials of degree m in αα and ββ. The key to verifying this claim is to compute that for any two complex numbers z1_1 and z2_2, the function 
+
+(α,β)↦(z1α+z2β)m(α,β)↦(z_1α+z_2β)^m
+is harmonic as a function of (α,β)∈C2=R4(α,β)∈ℂ^2=ℝ^4.
+In this case, finding an orthonormal basis for L2(SU⁡(2))=L2(S3)^2(SU(2))=L^2(S^3) consisting of matrix coefficients amounts to finding an orthonormal basis consisting of hyperspherical harmonics, which is a standard construction in analysis on spheres.
+
+Consequences[edit]
+Representation theory of connected compact Lie groups[edit]
+The Peter–Weyl theorem—specifically the assertion that the characters form an orthonormal basis for the space of square-integrable class functions—plays a key role in the classification of the irreducible representations of a connected compact Lie group.[3] The argument also depends on the Weyl integral formula (for class functions) and the Weyl character formula.
+An outline of the argument may be found here.
+
+Linearity of compact Lie groups[edit]
+One important consequence of the Peter–Weyl theorem is the following:[4]
+
+Theorem: Every compact Lie group has a faithful finite-dimensional representation and is therefore isomorphic to a closed subgroup of GL⁡(n;C)GL(n;ℂ) for some n.
+Structure of compact topological groups[edit]
+From the Peter–Weyl theorem, one can deduce a significant general structure theorem. Let G be a compact topological group, which we assume Hausdorff. For any finite-dimensional G-invariant subspace V in L2(G), where G acts on the left, we consider the image of G in GL(V). It is closed, since G is compact, and a subgroup of the Lie group GL(V). It follows by a theorem of Élie Cartan that the image of G is a Lie group also.
+If we now take the limit (in the sense of category theory) over all such spaces V, we get a result about G: Because G acts faithfully on L2(G), G is an inverse limit of Lie groups. It may of course not itself be a Lie group: it may for example be a profinite group.
+
+See also[edit]
+Pontryagin duality
+References[edit]
+Peter, F.; Weyl, H. (1927), "Die Vollständigkeit der primitiven Darstellungen einer geschlossenen kontinuierlichen Gruppe", Math. Ann., 97: 737–755, doi:10.1007/BF01447892.
+Bump, Daniel (2004), Lie groups, Springer, ISBN 0-387-21154-3.
+Hall, Brian C. (2015), Lie Groups, Lie Algebras, and Representations: An Elementary Introduction, Graduate Texts in Mathematics, vol. 222 (2nd ed.), Springer, ISBN 978-3319134666.
+"Peter-Weyl theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Knapp, Anthony (1986), Representation theory of semisimple groups, Princeton University Press, ISBN 0-691-09089-0.
+Knapp, Anthony W. (2002), Lie Groups Beyond an Introduction, Progress in Mathematics, vol. 140 (2nd ed.), Boston: Birkhäuser, ISBN 0-8176-4259-5.
+Mostow, George D. (1961), "Cohomology of topological groups and solvmanifolds", Annals of Mathematics, Princeton University Press, 73 (1): 20–48, doi:10.2307/1970281, JSTOR 1970281
+Palais, Richard S.; Stewart, T. E. (1961), "The cohomology of differentiable transformation groups", American Journal of  Mathematics, The Johns Hopkins University Press, 83 (4): 623–644, doi:10.2307/2372901, JSTOR 2372901.
+Specific
+
+^ Hall 2015 Chapter 12
+
+^ Hall 2015 Example 4.10
+
+^ Hall 2015 Section 12.5
+
+^ Knapp 2002, Corollary IV.4.22
+
+
+
+
+

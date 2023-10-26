@@ -1,0 +1,51 @@
+Equivalence between strongly orientable graphs and bridgeless graphs
+This article is about Robbins' theorem in graph theory. For Robin's theorem in number theory, see divisor function.
+In graph theory, Robbins' theorem, named after Herbert Robbins (1939), states that the graphs that have strong orientations are exactly the 2-edge-connected graphs. That is, it is possible to choose a direction for each edge of an undirected graph G, turning it into a directed graph that has a path from every vertex to every other vertex, if and only if G is connected and has no bridge.
+
+
+Orientable graphs[edit]
+An ear decomposition of a bridgeless graph. Orienting each ear as a directed path or a directed cycle makes the whole graph strongly connected.
+Robbins' characterization of the graphs with strong orientations may be proven using ear decomposition, a tool introduced by Robbins for this task.
+If a graph has a bridge, then it cannot be strongly orientable, for no matter which orientation is chosen for the bridge there will be no path from one of the two endpoints of the bridge to the other.
+In the other direction, it is necessary to show that every connected bridgeless graph can be strongly oriented. As Robbins proved, every such graph has a partition into a sequence of subgraphs called "ears", in which the first subgraph in the sequence is a cycle and each subsequent subgraph is a path, with the two path endpoints both belonging to earlier ears in the sequence. (The two path endpoints may be equal, in which case the subgraph is a cycle.) Orienting the edges within each ear so that it forms a directed cycle or a directed path leads to a strongly connected orientation of the overall graph.[1]
+
+Related results[edit]
+An extension of Robbins' theorem to mixed graphs by Boesch & Tindell (1980) shows that, if G is a graph in which some edges may be directed and others undirected, and G contains a path respecting the edge orientations from every vertex to every other vertex, then any undirected edge of G that is not a bridge may be made directed without changing the connectivity of G. In particular, a bridgeless undirected graph may be made into a strongly connected directed graph by a greedy algorithm that directs edges one at a time while preserving the existence of paths between every pair of vertices; it is impossible for such an algorithm to get stuck in a situation in which no additional orientation decisions can be made.
+
+Algorithms and complexity[edit]
+A strong orientation of a given bridgeless undirected graph may be found in linear time by performing a depth-first search of the graph, orienting all edges in the depth-first search tree away from the tree root, and orienting all the remaining edges (which must necessarily connect an ancestor and a descendant in the depth-first search tree) from the descendant to the ancestor.[2] Although this algorithm is not suitable for parallel computers, due to the difficulty of performing depth-first search on them, alternative algorithms are available that solve the problem efficiently in the parallel model.[3] Parallel algorithms are also known for finding strongly connected orientations of mixed graphs.[4]
+
+Applications[edit]
+Robbins originally motivated his work by an application to the design of one-way streets in cities. Another application arises in structural rigidity, in the theory of grid bracing. This theory concerns the problem of making a square grid, constructed from rigid rods attached at flexible joints, rigid by adding more rods or wires as cross bracing on the diagonals of the grid. A set of added rods makes the grid rigid if an associated undirected graph is connected, and is doubly braced (remaining rigid if any edge is removed) if in addition it is bridgeless. Analogously, a set of added wires (which can bend to reduce the distance between the points they connect, but cannot expand) makes the grid rigid if an associated directed graph is strongly connected.[5] Therefore, reinterpreting Robbins' theorem for this application, the doubly braced structures are exactly the structures whose rods can be replaced by wires while remaining rigid.
+
+Notes[edit]
+
+
+^ Gross & Yellen (2006).
+
+^ Vishkin (1985) credits this observation to Atallah (1984), and Balakrishnan (1996) credits it to Roberts (1978). But as Clark & Holton (1991) point out, the same algorithm is already included (with the assumption of 2-vertex-connectivity rather than 2-edge-connectivity) in the seminal earlier work of Hopcroft & Tarjan (1973) on depth-first search.
+
+^ Vishkin (1985).
+
+^ Soroker (1988).
+
+^ Baglivo & Graver (1983).
+
+
+References[edit]
+
+Atallah, Mikhail J. (1984), "Parallel strong orientation of an undirected graph", Information Processing Letters, 18 (1): 37–39, doi:10.1016/0020-0190(84)90072-3, MR 0742079.
+Baglivo, Jenny A.; Graver, Jack E. (1983), "3.10 Bracing structures", Incidence and Symmetry in Design and Architecture, Cambridge Urban and Architectural Studies, Cambridge, UK: Cambridge University Press, pp. 76–87, ISBN 9780521297844
+Balakrishnan, V. K. (1996), "4.6 Strong Orientation of Graphs", Introductory Discrete Mathematics, Mineola, NY: Dover Publications Inc., p. 135, ISBN 978-0-486-69115-2, MR 1402469.
+Boesch, Frank; Tindell, Ralph (1980), "Robbins's theorem for mixed multigraphs", The American Mathematical Monthly, 87 (9): 716–719, doi:10.2307/2321858, JSTOR 2321858, MR 0602828.
+Clark, John; Holton, Derek Allan (1991), "7.4 Traffic Flow", A first look at graph theory, Teaneck, NJ: World Scientific Publishing Co. Inc., pp. 254–260, ISBN 978-981-02-0489-1, MR 1119781.
+Gross, Jonathan L.; Yellen, Jay (2006), "Characterization of strongly orientable graphs", Graph Theory and its Applications, Discrete Mathematics and its Applications (2nd ed.), Boca Raton, FL: Chapman & Hall/CRC, pp. 498–499, ISBN 978-1-58488-505-4, MR 2181153.
+Hopcroft, John; Tarjan, Robert (1973), "Algorithm 447: efficient algorithms for graph manipulation", Communications of the ACM, 16 (6): 372–378, doi:10.1145/362248.362272, S2CID 14772567.
+Robbins, H. E. (1939), "A theorem on graphs, with an application to a problem on traffic control", American Mathematical Monthly, 46 (5): 281–283, doi:10.2307/2303897, JSTOR 2303897.
+Roberts, Fred S. (1978), "Chapter 2. The One-Way Street Problem", Graph Theory and its Applications to Problems of Society, CBMS-NSF Regional Conference Series in Applied Mathematics, vol. 29, Philadelphia, Pa.: Society for Industrial and Applied Mathematics (SIAM), pp. 7–14, ISBN 9780898710267, MR 0508050.
+Soroker, Danny (1988), "Fast parallel strong orientation of mixed graphs and related augmentation problems", Journal of Algorithms, 9 (2): 205–223, doi:10.1016/0196-6774(88)90038-7, MR 0936106.
+Vishkin, Uzi (1985), "On efficient parallel strong orientation", Information Processing Letters, 20 (5): 235–240, doi:10.1016/0020-0190(85)90025-0, MR 0801988.
+
+
+
+

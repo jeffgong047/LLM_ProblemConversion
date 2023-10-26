@@ -1,0 +1,266 @@
+Mode of convergence of an infinite series
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (February 2013) (Learn how and when to remove this template message)
+In mathematics, an infinite series of numbers is said to converge absolutely (or to be absolutely convergent) if the sum of the absolute values of the summands is finite.  More precisely, a real or complex series ∑n=0∞an∑_n=0^∞a_n is said to converge absolutely if ∑n=0∞|an|=L∑_n=0^∞|a_n|=L for some real number L.. Similarly, an improper integral of a function, ∫0∞f(x)dx,∫_0^∞f(x) dx, is said to converge absolutely if the integral of the absolute value of the integrand is finite—that is, if ∫0∞|f(x)|dx=L.∫_0^∞|f(x)|dx=L.
+Absolute convergence is important for the study of infinite series because its definition is strong enough to have properties of finite sums that not all convergent series possess – a convergent series that is not absolutely convergent is called conditionally convergent, while absolutely convergent series behave "nicely".  For instance, rearrangements do not change the value of the sum.  This is not true for conditionally convergent series: The alternating harmonic series 1−12+13−14+15−16+⋯1-1/2+1/3-1/4+1/5-1/6+⋯ converges to ln⁡2,ln2, while its rearrangement 1+13−12+15+17−14+⋯1+1/3-1/2+1/5+1/7-1/4+⋯ (in which the repeating pattern of signs is two positive terms followed by one negative term) converges to 32ln⁡2.3/2ln2.
+
+
+Background[edit]
+In finite sums, the order in which terms are added is both associative and commutative, meaning that grouping and rearranging do not matter. (1 + 2) + 3 is the same as 1 + (2 + 3), and both are the same as (3 + 2) + 1. However, this is not true when adding infinitely many numbers, and wrongly assuming that it is true can lead to apparent paradoxes. One classic example is the alternating sum
+S=1−1+1−1+1−1...=1-1+1-1+1-1...
+whose terms alternate between +1 and −1. What is the value of S? One way to evaluate S is to group the first and second term, the third and fourth, and so on:
+S1=(1−1)+(1−1)+(1−1)....=0+0+0...=0_1=(1-1)+(1-1)+(1-1)....=0+0+0...=0
+But another way to evaluate S is to leave the first term alone and group the second and third term, then the fourth and fifth term, and so on:
+S2=1+(−1+1)+(−1+1)+(−1+1)....=1+0+0+0...=1_2=1+(-1+1)+(-1+1)+(-1+1)....=1+0+0+0...=1
+This leads to an apparent paradox: does S=0=0 or  S=1=1? 
+The answer is that because S is not absolutely convergent, grouping or rearranging its terms changes the value of the sum. This means  S1_1 and S2_2 are not equal. In fact, the series  1−1+1−1+...1-1+1-1+... does not converge, so S does not have a value to find in the first place. A series that is absolutely convergent does not have this problem: grouping or rearranging its terms does not change the value of the sum.
+
+Definition for real and complex numbers[edit]
+A sum of real numbers or complex numbers ∑n=0∞an∑_n=0^∞a_n is absolutely convergent if the sum of the absolute values of the terms ∑n=0∞|an|∑_n=0^∞|a_n| converges.
+
+Sums of more general elements[edit]
+The same definition can be used for series ∑n=0∞an∑_n=0^∞a_n whose terms an_n are not numbers but rather elements of an arbitrary abelian topological group. In that case, instead of using the absolute value, the definition requires the group to have a norm, which is a positive real-valued function ‖⋅‖:G→R+·:G→ℝ_+ on an abelian group G (written additively, with identity element 0) such that:
+
+The norm of the identity element of G is zero: ‖0‖=0.0=0.
+For every x∈G,, ‖x‖=0x=0 implies x=0.=0.
+For every x∈G,, ‖−x‖=‖x‖.-x=x.
+For every x,y∈G,,y, ‖x+y‖≤‖x‖+‖y‖.x+y≤x+y.
+In this case, the function d(x,y)=‖x−y‖(x,y)=x-y induces the structure of a metric space (a type of topology) on G..
+Then, a G-valued series is absolutely convergent if ∑n=0∞‖an‖<∞.∑_n=0^∞a_n<∞.
+In particular, these statements apply using the norm |x||x| (absolute value) in the space of real numbers or complex numbers.
+
+In topological vector spaces[edit]
+If X is a topological vector space (TVS) and (xα)α∈A(x_α)_α is a (possibly uncountable) family in X then this family is absolutely summable if[1]
+
+(xα)α∈A(x_α)_α is summable in X (that is, if the limit limH∈F(A)xHlim_H∈ℱ(A)x_H of the net (xH)H∈F(A)(x_H)_H∈ℱ(A) converges in X,, where F(A)ℱ(A) is the directed set of all finite subsets of A directed by inclusion ⊆⊆ and xH:=∑i∈Hxi_H:=∑_ix_i), and
+for every continuous seminorm p on X,, the family (p(xα))α∈A(p(x_α))_α is summable in R.ℝ.
+If X is a normable space and if (xα)α∈A(x_α)_α is an absolutely summable family in X,, then necessarily all but a countable collection of xα_α's are 0.
+Absolutely summable families play an important role in the theory of nuclear spaces.
+
+Relation to convergence[edit]
+If G is complete with respect to the metric d,, then every absolutely convergent series is convergent.  The proof is the same as for complex-valued series: use the completeness to derive the Cauchy criterion for convergence—a series is convergent if and only if its tails can be made arbitrarily small in norm—and apply the triangle inequality.
+In particular, for series with values in any Banach space, absolute convergence implies convergence. The converse is also true: if absolute convergence implies convergence in a normed space, then the space is a Banach space.
+If a series is convergent but not absolutely convergent, it is called conditionally convergent. An example of a conditionally convergent series is the alternating harmonic series. Many standard tests for divergence and convergence, most notably including the ratio test and the root test, demonstrate absolute convergence. This is because a power series is absolutely convergent on the interior of its disk of convergence.[a]
+
+Proof that any absolutely convergent series of complex numbers is convergent[edit]
+Suppose that ∑|ak|,ak∈C∑|a_k|,a_k∈ℂ is convergent. Then equivalently, ∑[Re⁡(ak)2+Im⁡(ak)2]1/2∑[Re(a_k)^2+Im(a_k)^2]^1/2 is convergent, which implies that ∑|Re⁡(ak)|∑|Re(a_k)| and ∑|Im⁡(ak)|∑|Im(a_k)| converge by termwise comparison of non-negative terms. It suffices to show that the convergence of these series implies the convergence of ∑Re⁡(ak)∑Re(a_k) and ∑Im⁡(ak),∑Im(a_k), for then, the convergence of ∑ak=∑Re⁡(ak)+i∑Im⁡(ak)_k=∑Re(a_k)+i∑Im(a_k) would follow, by the definition of the convergence of complex-valued series.
+The preceding discussion shows that we need only prove that convergence of ∑|ak|,ak∈R∑|a_k|,a_k∈ℝ implies the convergence of ∑ak._k.
+Let ∑|ak|,ak∈R∑|a_k|,a_k∈ℝ be convergent.  Since 0≤ak+|ak|≤2|ak|,0_k+|a_k|≤2|a_k|, we have
+0≤∑k=1n(ak+|ak|)≤∑k=1n2|ak|.0≤∑_k=1^n(a_k+|a_k|)≤∑_k=1^n2|a_k|.
+Since ∑2|ak|∑2|a_k| is convergent, sn=∑k=1n(ak+|ak|)_n=∑_k=1^n(a_k+|a_k|) is a bounded monotonic sequence of partial sums, and ∑(ak+|ak|)∑(a_k+|a_k|) must also converge. Noting that ∑ak=∑(ak+|ak|)−∑|ak|_k=∑(a_k+|a_k|)-∑|a_k| is the difference of convergent series, we conclude that it too is a convergent series, as desired.
+
+Alternative proof using the Cauchy criterion and triangle inequality[edit]
+By applying the Cauchy criterion for the convergence of a complex series, we can also prove this fact as a simple implication of the triangle inequality.[2]  By the Cauchy criterion, ∑|ai|∑|a_i| converges if and only if for any ε>0,ε>0, there exists N such that |∑i=mn|ai||=∑i=mn|ai|<ε|∑_i=m^n|a_i||=∑_i=m^n|a_i|<ε for any n>m≥N.>m. But the triangle inequality implies that |∑i=mnai|≤∑i=mn|ai|,|∑_i=m^na_i|≤∑_i=m^n|a_i|, so that |∑i=mnai|<ε|∑_i=m^na_i|<ε for any n>m≥N,>m, which is exactly the Cauchy criterion for ∑ai._i.
+
+Proof that any absolutely convergent series in a Banach space is convergent[edit]
+The above result can be easily generalized to every Banach space (X,‖⋅‖).(X, · ).  Let ∑xn_n be an absolutely convergent series in X.. As ∑k=1n‖xk‖∑_k=1^nx_k is a Cauchy sequence of real numbers, for any ε>0ε>0 and large enough natural numbers m>n>n it holds:
+|∑k=1m‖xk‖−∑k=1n‖xk‖|=∑k=n+1m‖xk‖<ε.|∑_k=1^mx_k-∑_k=1^nx_k|=∑_k=n+1^mx_k<ε.
+By the triangle inequality for the norm ǁ⋅ǁ, one immediately gets:
+‖∑k=1mxk−∑k=1nxk‖=‖∑k=n+1mxk‖≤∑k=n+1m‖xk‖<ε,∑_k=1^mx_k-∑_k=1^nx_k=∑_k=n+1^mx_k≤∑_k=n+1^mx_k<ε,
+which means that ∑k=1nxk∑_k=1^nx_k is a Cauchy sequence in X,, hence the series is convergent in X..[3]
+
+Rearrangements and unconditional convergence[edit]
+Real and complex numbers[edit]
+When a series of real or complex numbers is absolutely convergent, any rearrangement or reordering of that series' terms will still converge to the same value. This fact is one reason absolutely convergent series are useful: showing a series is absolutely convergent allows terms to be paired or rearranged in convenient ways without changing the sum's value.
+The Riemann rearrangement theorem shows that the converse is also true: every real or complex-valued series whose terms cannot be reordered to give a different value is absolutely convergent. 
+
+Series with coefficients in more general space[edit]
+The term unconditional convergence is used to refer to a series where any rearrangement of its terms still converges to the same value. For any series with values in a normed abelian group G, as long as G is complete, every series which converges absolutely also converges unconditionally.
+Stated more formally:
+
+
+Theorem —  Let G be a normed abelian group. Suppose 
+∑i=1∞ai=A∈G,∑i=1∞‖ai‖<∞.∑_i=1^∞a_i=A,  ∑_i=1^∞a_i<∞.
+If σ:N→Nσ:ℕ→ℕ is any permutation, then 
+∑i=1∞aσ(i)=A.∑_i=1^∞a_σ(i)=A.
+
+
+For series with more general coefficients, the converse is more complicated. As stated in the previous section, for real-valued and complex-valued series, unconditional convergence always implies absolute convergence. However, in the more general case of a series with values in any normed abelian group G, the converse does not always hold: there can exist series which are not absolutely convergent, yet unconditionally convergent.
+For example, in the Banach space ℓ∞, one series which is unconditionally convergent but not absolutely convergent is:
+∑n=1∞1nen,∑_n=1^∞1ne_n,
+where enn=1∞{e_n}_n=1^∞ is an orthonormal basis.  A theorem of A. Dvoretzky and C. A. Rogers asserts that every infinite-dimensional Banach space has an unconditionally convergent series that is not absolutely convergent.[4]
+
+Proof of the theorem[edit]
+For any ε>0,ε>0, we can choose some κε,λε∈N,κ_ε,λ_ε∈ℕ, such that:
+forallN>κε∑n=N∞‖an‖<ε2forallN>λε‖∑n=1Nan−A‖<ε2forallN>κ_ε     ∑_n=N^∞a_n<ε2
+forallN>λ_ε     ∑_n=1^Na_n-A<ε2
+Let
+Nε=maxκε,λεMσ,ε=maxσ−1(1,…,Nε)N_ε   =max{κ_ε,λ_ε}
+M_σ,ε   =max{σ^-1({1,…,N_ε})}
+where σ−1(1,…,Nε)=σ−1(1),…,σ−1(Nε)σ^-1({1,…,N_ε})={σ^-1(1),…,σ^-1(N_ε)} so that Mσ,ε_σ,ε is the smallest natural number such that the list aσ(0),…,aσ(Mσ,ε)_σ(0),…,a_σ(M_σ,ε) includes all of the terms a0,…,aNε_0,…,a_N_ε (and possibly others).
+Finally for any integer N>Mσ,ε>M_σ,ε let
+Iσ,ε=1,…,N∖σ−1(1,…,Nε)Sσ,ε=minσ(Iσ,ε)=minσ(k):k∈Iσ,εLσ,ε=maxσ(Iσ,ε)=maxσ(k):k∈Iσ,εI_σ,ε   ={1,…,N}∖σ^-1({1,…,N_ε})
+S_σ,ε   =minσ(I_σ,ε)=min{σ(k) _σ,ε}
+L_σ,ε   =maxσ(I_σ,ε)=max{σ(k) _σ,ε}
+
+so that 
+‖∑i∈Iσ,εaσ(i)‖≤∑i∈Iσ,ε‖aσ(i)‖≤∑j=Sσ,εLσ,ε‖aj‖sinceIσ,ε⊆Sσ,ε,Sσ,ε+1,…,Lσ,ε≤∑j=Nε+1∞‖aj‖sinceSσ,ε≥Nε+1<ε2∑_i_σ,εa_σ(i)   ≤∑_i_σ,εa_σ(i)
+   ≤∑_j=S_σ,ε^L_σ,εa_j      sinceI_σ,ε⊆{S_σ,ε,S_σ,ε+1,…,L_σ,ε}
+   ≤∑_j=N_ε+1^∞a_j      sinceS_σ,ε_ε+1
+   <ε/2
+and thus
+‖∑i=1Naσ(i)−A‖=‖∑i∈σ−1(1,…,Nε)aσ(i)−A+∑i∈Iσ,εaσ(i)‖≤‖∑j=1Nεaj−A‖+‖∑i∈Iσ,εaσ(i)‖<‖∑j=1Nεaj−A‖+ε2<ε∑_i=1^Na_σ(i)-A   =∑_i∈σ^-1({1,…,N_ε})a_σ(i)-A+∑_i_σ,εa_σ(i)
+   ≤∑_j=1^N_εa_j-A+∑_i_σ,εa_σ(i)
+   <∑_j=1^N_εa_j-A+ε/2
+   <ε
+This shows that
+forallε>0,thereexistsMσ,ε,forallN>Mσ,ε‖∑i=1Naσ(i)−A‖<ε,forallε>0,thereexistsM_σ,ε,forallN>M_σ,ε  ∑_i=1^Na_σ(i)-A<ε,
+that is:
+∑i=1∞aσ(i)=A.∑_i=1^∞a_σ(i)=A.
+Q.E.D.
+
+Products of series[edit]
+The Cauchy product of two series converges to the product of the sums if at least one of the series converges absolutely.  That is, suppose that
+∑n=0∞an=Aand∑n=0∞bn=B.∑_n=0^∞a_n=A  and  ∑_n=0^∞b_n=B.
+The Cauchy product is defined as the sum of terms cn_n where:
+cn=∑k=0nakbn−k._n=∑_k=0^na_kb_n-k.
+If either the an_n or bn_n sum converges absolutely then
+∑n=0∞cn=AB.∑_n=0^∞c_n=AB.
+
+Absolute convergence over sets[edit]
+A generalization of the absolute convergence of a series, is the absolute convergence of a sum of a function over a set.  We can first consider a countable set X and a function f:X→R.:X→ℝ.  We will give a definition below of the sum of f over X,, written as ∑x∈Xf(x).∑_xf(x).
+First note that because no particular enumeration (or "indexing") of X has yet been specified, the series ∑x∈Xf(x)∑_xf(x) cannot be understood by the more basic definition of a series.  In fact, for certain examples of X and f,, the sum of f over X may not be defined at all, since some indexing may produce a conditionally convergent series.  
+Therefore we define ∑x∈Xf(x)∑_xf(x) only in the case where there exists some bijection g:Z+→X:ℤ^+ such that ∑n=1∞f(g(n))∑_n=1^∞f(g(n)) is absolutely convergent.  Note that here, "absolutely convergent" uses the more basic definition, applied to an indexed series.  In this case, the value of the sum of f over X[5] is defined by 
+∑x∈Xf(x):=∑n=1∞f(g(n))∑_xf(x):=∑_n=1^∞f(g(n))
+Note that because the series is absolutely convergent, then every rearrangement is identical to a different choice of bijection g..  Since all of these sums have the same value, then the sum of f over X is well-defined.  
+Even more generally we may define the sum of f over X when X is uncountable.  But first we define what it means for the sum to be convergent.
+Let X be any set, countable or uncountable, and f:X→R:X→ℝ a function.  We say that the sum of f over X converges absolutely if 
+sup∑x∈A|f(x)|:A⊆X,Aisfinite<∞.sup{∑_x|f(x)|:A,Aisfinite}<∞.
+There is a theorem which states that, if the sum of f over X is absolutely convergent, then f takes non-zero values on a set that is at most countable.  Therefore, the following is a consistent definition of the sum of f over X when the sum is absolutely convergent.  
+∑x∈Xf(x):=∑x∈X:f(x)≠0f(x).∑_xf(x):=∑_x:f(x)≠0f(x).
+Note that the final series uses the definition of a series over a countable set.
+Some authors define an iterated sum ∑m=1∞∑n=1∞am,n∑_m=1^∞∑_n=1^∞a_m,n to be absolutely convergent if the iterated series ∑m=1∞∑n=1∞|am,n|<∞.∑_m=1^∞∑_n=1^∞|a_m,n|<∞.[6]  This is in fact equivalent to the absolute convergence of ∑(m,n)∈N×Nam,n.∑_(m,n)∈ℕ×ℕa_m,n.  That is to say, if the sum of f over X,, ∑(m,n)∈N×Nam,n,∑_(m,n)∈ℕ×ℕa_m,n, converges absolutely, as defined above, then the iterated sum ∑m=1∞∑n=1∞am,n∑_m=1^∞∑_n=1^∞a_m,n converges absolutely, and vice versa.
+
+Absolute convergence of integrals[edit]
+The integral ∫Af(x)dx∫_Af(x) dx of a real or complex-valued function is said to converge absolutely if ∫A|f(x)|dx<∞.∫_A|f(x)| dx<∞.  One also says that f is absolutely integrable.  The issue of absolute integrability is intricate and depends on whether the Riemann, Lebesgue, or Kurzweil-Henstock (gauge) integral is considered; for the Riemann integral, it also depends on whether we only consider integrability in its proper sense (f and A both bounded), or permit the more general case of improper integrals.
+As a standard property of the Riemann integral, when A=[a,b]=[a,b] is a bounded interval, every continuous function is bounded and (Riemann) integrable, and since f continuous implies |f||f| continuous, every continuous function is absolutely integrable.  In fact, since g∘f is Riemann integrable on [a,b][a,b] if f is (properly) integrable and g is continuous, it follows that |f|=|⋅|∘f|f|=|·| is properly Riemann integrable if f is.  However, this implication does not hold in the case of improper integrals.  For instance, the function f:[1,∞)→R:x↦sin⁡xx:[1,∞)→ℝ:x↦/x is improperly Riemann integrable on its unbounded domain, but it is not absolutely integrable:
+∫1∞sin⁡xxdx=12[π−2Si(1)]≈0.62,but∫1∞|sin⁡xx|dx=∞.∫_1^∞/x dx=1/2[π-2 Si(1)]≈0.62,but∫_1^∞|/x|dx=∞.
+Indeed, more generally, given any series ∑n=0∞an∑_n=0^∞a_n one can consider the associated step function fa:[0,∞)→R_a:[0,∞)→ℝ defined by fa([n,n+1))=an._a([n,n+1))=a_n.  Then ∫0∞fadx∫_0^∞f_a dx converges absolutely, converges conditionally or diverges according to the corresponding behavior of ∑n=0∞an.∑_n=0^∞a_n.
+The situation is different for the Lebesgue integral, which does not handle bounded and unbounded domains of integration separately (see below).  The fact that the integral of |f||f| is unbounded in the examples above implies that f is also not integrable in the Lebesgue sense.  In fact, in the Lebesgue theory of integration, given that f is measurable, f is (Lebesgue) integrable if and only if |f||f| is (Lebesgue) integrable.  However, the hypothesis that f is measurable is crucial; it is not generally true that absolutely integrable functions on [a,b][a,b] are integrable (simply because they may fail to be measurable): let S⊂[a,b]⊂[a,b] be a nonmeasurable subset and consider f=χS−1/2,=χ_S-1/2, where χSχ_S is the characteristic function of S..  Then f is not Lebesgue measurable and thus not integrable, but |f|≡1/2|f|≡1/2 is a constant function and clearly integrable.
+On the other hand, a function f may be Kurzweil-Henstock integrable (gauge integrable) while |f||f| is not.  This includes the case of improperly Riemann integrable functions.
+In a general sense, on any measure space A,, the Lebesgue integral of a real-valued function is defined in terms of its positive and negative parts, so the facts:
+
+f integrable implies |f||f| integrable
+f measurable, |f||f| integrable implies f integrable
+are essentially built into the definition of the Lebesgue integral.  In particular, applying the theory to the counting measure on a set S,, one recovers the notion of unordered summation of series developed by Moore–Smith using (what are now called) nets.  When S=N=ℕ is the set of natural numbers, Lebesgue integrability, unordered summability and absolute convergence all coincide.
+Finally, all of the above holds for integrals with values in a Banach space.  The definition of a Banach-valued Riemann integral is an evident modification of the usual one.  For the Lebesgue integral one needs to circumvent the decomposition into positive and negative parts with Daniell's more functional analytic approach, obtaining the Bochner integral.
+
+See also[edit]
+Cauchy principal value – Method for assigning values to certain improper integrals which would otherwise be undefined
+Conditional convergence – a property of infinite seriesPages displaying wikidata descriptions as a fallback
+Convergence of Fourier series
+Fubini's theorem – Conditions for switching order of integration in calculus
+Modes of convergence (annotated index) – Annotated index of various modes of convergence
+Radius of convergence – Domain of convergence of power series
+Riemann series theorem – Unconditional series converge absolutely
+Unconditional convergence – Order-independent convergence of a sequence
+1/2 − 1/4 + 1/8 − 1/16 + · · · – mathematical infinite seriesPages displaying wikidata descriptions as a fallback
+1/2 + 1/4 + 1/8 + 1/16 + · · · – Mathematical infinite seriesPages displaying short descriptions of redirect targets
+Notes[edit]
+
+
+^ Here, the disk of convergence is used to refer to all points whose distance from the center of the series is less than the radius of convergence. That is, the disk of convergence is made up of all points for which the power series converges.
+
+
+
+
+References[edit]
+This article has an unclear citation style. The references used may be made clearer with a different or consistent style of citation and footnoting. (August 2020) (Learn how and when to remove this template message)
+
+
+^ Schaefer & Wolff 1999, pp. 179–180.
+
+^ Rudin, Walter (1976). Principles of Mathematical Analysis. New York: McGraw-Hill. pp. 71–72. ISBN 0-07-054235-X.
+
+^ Megginson, Robert E. (1998), An introduction to Banach space theory, Graduate Texts in Mathematics, vol. 183, New York: Springer-Verlag, p. 20, ISBN 0-387-98431-3 (Theorem 1.3.9)
+
+^ Dvoretzky, A.; Rogers, C. A. (1950), "Absolute and unconditional convergence in normed linear spaces", Proc. Natl. Acad. Sci. U.S.A. 36:192–197.
+
+^ Tao, Terrance (2016). Analysis I. New Delhi: Hindustan Book Agency. pp. 188–191. ISBN 978-9380250649.
+
+^ Strichartz, Robert (2000). The Way of Analysis. Jones & Bartlett Learning. pp. 259, 260. ISBN 978-0763714970.
+
+
+Works cited[edit]
+Schaefer, Helmut H.; Wolff, Manfred P. (1999). Topological Vector Spaces. GTM. Vol. 8 (Second ed.). New York, NY: Springer New York Imprint Springer. ISBN 978-1-4612-7155-0. OCLC 840278135.
+General references[edit]
+Narici, Lawrence; Beckenstein, Edward (2011). Topological Vector Spaces. Pure and applied mathematics (Second ed.). Boca Raton, FL: CRC Press. ISBN 978-1584888666. OCLC 144216834.
+Walter Rudin, Principles of Mathematical Analysis (McGraw-Hill: New York, 1964).
+Pietsch, Albrecht (1979). Nuclear Locally Convex Spaces. Ergebnisse der Mathematik und ihrer Grenzgebiete. Vol. 66 (Second ed.). Berlin, New York: Springer-Verlag. ISBN 978-0-387-05644-9. OCLC 539541.
+Robertson, A. P. (1973). Topological vector spaces. Cambridge England: University Press. ISBN 0-521-29882-2. OCLC 589250.
+Ryan, Raymond A. (2002). Introduction to Tensor Products of Banach Spaces. Springer Monographs in Mathematics. London New York: Springer. ISBN 978-1-85233-437-6. OCLC 48092184.
+Trèves, François (2006) [1967]. Topological Vector Spaces, Distributions and Kernels. Mineola, N.Y.: Dover Publications. ISBN 978-0-486-45352-1. OCLC 853623322.
+Wong, Yau-Chuen (1979). Schwartz Spaces, Nuclear Spaces, and Tensor Products. Lecture Notes in Mathematics. Vol. 726. Berlin New York: Springer-Verlag. ISBN 978-3-540-09513-2. OCLC 5126158.
+vteSequences and seriesInteger sequencesBasic
+Arithmetic progression
+Geometric progression
+Harmonic progression
+Square number
+Cubic number
+Factorial
+Powers of two
+Powers of three
+Powers of 10
+Advanced (list)
+Complete sequence
+Fibonacci sequence
+Figurate number
+Heptagonal number
+Hexagonal number
+Lucas number
+Pell number
+Pentagonal number
+Polygonal number
+Triangular number
+array
+Properties of sequences
+Cauchy sequence
+Monotonic function
+Periodic sequence
+Properties of seriesSeries
+Alternating
+Convergent
+Divergent
+Telescoping
+Convergence
+Absolute
+Conditional
+Uniform
+Explicit seriesConvergent
+1/2 − 1/4 + 1/8 − 1/16 + ⋯
+1/2 + 1/4 + 1/8 + 1/16 + ⋯
+1/4 + 1/16 + 1/64 + 1/256 + ⋯
+1 + 1/2s + 1/3s + ... (Riemann zeta function)
+Divergent
+1 + 1 + 1 + 1 + ⋯
+1 − 1 + 1 − 1 + ⋯ (Grandi's series)
+1 + 2 + 3 + 4 + ⋯
+1 − 2 + 3 − 4 + ⋯
+1 + 2 + 4 + 8 + ⋯
+1 − 2 + 4 − 8 + ⋯
+Infinite arithmetic series
+1 − 1 + 2 − 6 + 24 − 120 + ⋯ (alternating factorials)
+1 + 1/2 + 1/3 + 1/4 + ⋯ (harmonic series)
+1/2 + 1/3 + 1/5 + 1/7 + 1/11 + ⋯ (inverses of primes)
+Kinds of series
+Taylor series
+Power series
+Formal power series
+Laurent series
+Puiseux series
+Dirichlet series
+Trigonometric series
+Fourier series
+Generating series
+Hypergeometric series
+Generalized hypergeometric series
+Hypergeometric function of a matrix argument
+Lauricella hypergeometric series
+Modular hypergeometric series
+Riemann's differential equation
+Theta hypergeometric series
+
+ Category
+
+
+
+

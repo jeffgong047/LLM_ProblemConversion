@@ -1,0 +1,55 @@
+On Hamiltonian cycles in planar graphs
+A graph that can be proven non-Hamiltonian using Grinberg's theorem
+In graph theory, Grinberg's theorem is a necessary condition for a planar graph to contain a Hamiltonian cycle, based on the lengths of its face cycles. If a graph does not meet this condition, it is not Hamiltonian. The result has been widely used to prove that certain planar graphs constructed to have additional properties are not Hamiltonian; for instance it can prove non-Hamiltonicity of some counterexamples to Tait's conjecture that cubic polyhedral graphs are Hamiltonian.
+Grinberg's theorem is named after Latvian mathematician Emanuel Grinberg, who proved it in 1968.
+
+
+Formulation[edit]
+A planar graph is a graph that can be drawn without crossings in the Euclidean plane. If the points belonging to vertices and edges are removed from the plane, the connected components of the remaining points form polygons, called faces, including an unbounded face extending to infinity. A face is a k-gon if its boundary is formed by a cycle of k vertices and k edges of the graph drawing. A Hamiltonian cycle in a graph is a cycle that passes through each vertex exactly once. Let G be a finite planar graph with a Hamiltonian cycle C, with a fixed planar drawing. By the Jordan curve theorem, C separates the plane into the subset inside of C and the subset outside of C; every face belongs to one of these two subsets. Denote by fk_k and gk_k the number of k-gonal faces of the drawing that are inside and outside of C, respectively.  Then Grinberg's theorem states that
+∑k≥3(k−2)(fk−gk)=0.∑_k≥3(k-2)(f_k-g_k)=0.
+The proof is an easy consequence of Euler's formula.[1][2]
+As a corollary of this theorem, if an embedded planar graph has only one face whose number of sides is not 2 mod 3, and the remaining faces all have numbers of sides that are 2 mod 3, then the graph is not Hamiltonian. To see this, consider a sum of the form given in the statement of the theorem, for an arbitrary partition of the faces into two subsets, counted by numbers fk_k and gk_k. Each face whose number of sides is 2 mod 3 contributes a multiple of three to the sum, because of the factor k−2-2 in the term to which it contributes, while the one remaining face does not. Therefore, the sum is not a multiple of three, and in particular is not zero. Since there is no way of partitioning the faces into two subsets that produce a sum obeying Grinberg's theorem, there can be no Hamiltonian cycle.[1] For instance, for the graph in the figure, all the bounded faces have 5 or 8 sides, but the unbounded face has 9 sides, so it satisfies this condition on numbers of sides and is not Hamiltonian.
+
+Applications[edit]
+Grinberg used his theorem to find non-Hamiltonian cubic polyhedral graphs with high cyclic edge connectivity. The cyclic edge connectivity of a graph is the smallest number of edges whose deletion leaves a subgraph with more than one cyclic component. The 46-vertex Tutte graph, and the smaller cubic non-Hamiltonian polyhedral graphs derived from it, have cyclic edge connectivity three. Grinberg used his theorem to find a non-Hamiltonian cubic polyhedral graph with 44 vertices, 24 faces, and cyclic edge connectivity four, and another example (shown in the figure) with 46 vertices, 25 faces, and cyclic edge connectivity five, the maximum possible cyclic edge connectivity for a cubic planar graph other than K4_4. In the example shown, all of the bounded faces have either five or eight edges, both of which are numbers that are 2 mod 3, but the unbounded face has nine edges, unequal to 2 mod 3. Therefore, by the corollary to Grinberg's theorem, the graph cannot be Hamiltonian.[1]
+Grinberg's theorem has also been used to find planar hypohamiltonian graphs, graphs that are not Hamiltonian but that can be made Hamiltonian by removing any single vertex. The construction again makes all but one face have a number of edges congruent to 2 mod 3.[3] Thomassen (1981) uses the theorem in a somewhat more complicated way to find a planar cubic hypohamiltonian graph: the graph he constructs includes a 4-edge face adjacent to four 7-edge faces, and all other faces have five or eight edges. In order to satisfy Grinberg's theorem, a Hamiltonian cycle would have to separate one of the 4- or 7-edge faces from the other four, which is not possible.[4]
+It can also be applied to analyze the Hamiltonian cycles of certain non-planar graphs, such as generalized Petersen graphs, by finding large planar subgraphs of these graphs, using Grinberg's theorem to show that these subgraphs are non-Hamiltonian, and concluding that any Hamiltonian cycle must include some of the remaining edges that are not part of these subgraphs.[5]
+
+Limitations[edit]
+There exist planar non-Hamiltonian graphs in which all faces have five or eight sides. For these graphs, Grinberg's formula taken modulo three is always satisfied by any partition of the faces into two subsets, preventing the application of his theorem to proving non-Hamiltonicity in this case.[6]
+It is not possible to use Grinberg's theorem to find counterexamples to Barnette's conjecture, that every cubic bipartite polyhedral graph is Hamiltonian. Every cubic bipartite polyhedral graph has a partition of the faces into two subsets satisfying Grinberg's theorem, regardless of whether it also has a Hamiltonian cycle.[7]
+
+Notes[edit]
+
+
+^ a b c Grinberg 1968.
+
+^ Malkevitch 2005.
+
+^ Thomassen 1976, Wiener & Araya 2009.
+
+^ Thomassen 1981.
+
+^ Chia & Thomassen 2011.
+
+^ Zaks 1977.
+
+^ Krooss 2004.
+
+
+References[edit]
+
+Chia, G. L.; Thomassen, Carsten (2011), "Grinberg's criterion applied to some non-planar graphs" (PDF), Ars Combinatoria, 100: 3–7, MR 2829474
+Grinberg, È. Ja. (1968), "Plane homogeneous graphs of degree three without Hamiltonian circuits", Latvian Math. Yearbook 4 (in Russian), Riga: Izdat. "Zinatne", pp. 51–58, MR 0238732; English translation by Dainis Zeps, arXiv:0908.2563
+Krooss, André (2004), "Die Barnette'sche Vermutung und die Grinberg'sche Formel", Analele Universităţii din Craiova. Seria Matematică-Informatică (in German), 31: 59–65, MR 2153849
+Malkevitch, Joseph (January 2005), Euler's Polyhedral Formula: Part II, Feature Column, American Mathematical Society
+Thomassen, Carsten (1976), "Planar and infinite hypohamiltonian and hypotraceable graphs", Discrete Mathematics, 14 (4): 377–389, doi:10.1016/0012-365X(76)90071-6, MR 0422086
+Thomassen, Carsten (1981), "Planar cubic hypo-Hamiltonian and hypotraceable graphs", Journal of Combinatorial Theory, Series B, 30 (1): 36–44, doi:10.1016/0095-8956(81)90089-7, MR 0609592
+Wiener, Gábor; Araya, Makoto (2009), The ultimate question, arXiv:0904.3012, Bibcode:2009arXiv0904.3012W
+Zaks, Joseph (1977), "Non-Hamiltonian non-Grinbergian graphs", Discrete Mathematics, 17 (3): 317–321, doi:10.1016/0012-365X(77)90165-0, MR 0460189
+
+External links[edit]
+Grinberg Graphs, from MathWorld.
+
+
+

@@ -1,0 +1,213 @@
+This article provides insufficient context for those unfamiliar with the subject. Please help improve the article by providing more context for the reader. (January 2022) (Learn how and when to remove this template message)
+In mathematical analysis, the final value theorem (FVT) is one of several similar theorems used to relate frequency domain expressions to the time domain behavior as time approaches infinity.[1][2][3][4]
+Mathematically, if f(t)(t) in continuous time has (unilateral) Laplace transform F(s)(s), then a final value theorem establishes conditions under which
+
+limt→∞f(t)=lims→0sF(s)lim_t→∞f(t)=lim_s → 0sF(s)
+Likewise, if f[k][k] in discrete time has (unilateral) Z-transform F(z)(z), then a final value theorem establishes conditions under which
+
+limk→∞f[k]=limz→1(z−1)F(z)lim_k→∞f[k]=lim_z→1(z-1)F(z)
+An Abelian final value theorem makes assumptions about the time-domain behavior of f(t)(t) (or f[k][k]) to calculate lims→0sF(s)lim_s → 0sF(s). 
+Conversely, a Tauberian final value theorem makes assumptions about the frequency-domain behaviour of F(s)(s) to calculate limt→∞f(t)lim_t→∞f(t) (or limk→∞f[k]lim_k→∞f[k]) 
+(see Abelian and Tauberian theorems for integral transforms).
+
+
+Final value theorems for the Laplace transform[edit]
+Deducing limt → ∞ f(t)[edit]
+In the following statements, the notation 's→0→0' means that s approaches 0, whereas 's↓0↓0' means that s approaches 0 through the positive numbers. 
+
+Standard Final Value Theorem[edit]
+Suppose that every pole of F(s)(s) is either in the open left half plane or at the origin, and that F(s)(s) has at most a single pole at the origin.  Then sF(s)→L∈R(s)∈ℝ as s→0→0, and limt→∞f(t)=Llim_t→∞f(t)=L.[5]
+
+Final Value Theorem using Laplace transform of the derivative[edit]
+Suppose that f(t)(t) and f′(t)'(t) both have Laplace transforms that exist for all s>0>0. If limt→∞f(t)lim_t→∞f(t) exists and lims→0sF(s)lim_s → 0sF(s) exists then limt→∞f(t)=lims→0sF(s)lim_t→∞f(t)=lim_s → 0sF(s).[3]: Theorem 2.36 [4]: 20 [6]
+
+Remark
+Both limits must exist for the theorem to hold. For example, if f(t)=sin⁡(t)(t)=sin(t) then limt→∞f(t)lim_t→∞f(t) does not exist, but 
+lims→0sF(s)=lims→0ss2+1=0lim_s → 0sF(s)=lim_s → 0s/s^2+1=0.[3]: Example 2.37 [4]: 20 
+
+Improved Tauberian converse Final Value Theorem[edit]
+Suppose that f:(0,∞)→C:(0,∞)→ℂ is bounded and differentiable, and that
+tf′(t)'(t) is also bounded on (0,∞)(0,∞). If sF(s)→L∈C(s)∈ℂ as s→0→0 then limt→∞f(t)=Llim_t→∞f(t)=L.[7]
+
+Extended Final Value Theorem[edit]
+Suppose that every pole of F(s)(s) is either in the open left half-plane or at the origin. Then one of the following occurs:
+
+sF(s)→L∈R(s)∈ℝ as s↓0↓0, and limt→∞f(t)=Llim_t→∞f(t)=L.
+sF(s)→+∞∈R(s)→+∞∈ℝ as s↓0↓0, and f(t)→+∞(t)→+∞ as t→∞→∞.
+sF(s)→−∞∈R(s)→-∞∈ℝ as s↓0↓0, and f(t)→−∞(t)→-∞ as t→∞→∞.
+In particular, if s=0=0 is a multiple pole of F(s)(s) then case 2 or 3 applies (f(t)→+∞(t)→+∞ or f(t)→−∞(t)→-∞).[5]
+
+Generalized Final Value Theorem[edit]
+Suppose that f(t)(t) is Laplace transformable. Let λ>−1λ>-1. If limt→∞f(t)tλlim_t→∞f(t)/t^λ exists and lims↓0sλ+1F(s)lim_s↓0s^λ+1F(s) exists then
+
+limt→∞f(t)tλ=1Γ(λ+1)lims↓0sλ+1F(s)lim_t→∞f(t)/t^λ=1/Γ(λ+1)lim_s↓0s^λ+1F(s)
+where Γ(x)Γ(x) denotes the Gamma function.[5]
+
+Applications[edit]
+Final value theorems for obtaining limt→∞f(t)lim_t→∞f(t) have applications in establishing the long-term stability of a system.
+
+Deducing lims → 0 s F(s)[edit]
+Abelian Final Value Theorem[edit]
+Suppose that f:(0,∞)→C:(0,∞)→ℂ is bounded and measurable and limt→∞f(t)=α∈Clim_t→∞f(t)=α∈ℂ. Then F(s)(s) exists for all s>0>0 and lims→0+sF(s)=αlim_s → 0^+sF(s)=α.[7]
+Elementary proof[7]
+Suppose for convenience that |f(t)|≤1|f(t)|≤1 on (0,∞)(0,∞), and let α=limt→∞f(t)α=lim_t→∞f(t). Let ϵ>0ϵ>0, and choose A so that |f(t)−α|<ϵ|f(t)-α|<ϵ for all t>A>A. Since s∫0∞e−stdt=1∫_0^∞e^-st dt=1, for every s>0>0 we have
+
+sF(s)−α=s∫0∞(f(t)−α)e−stdt;(s)-α=s∫_0^∞(f(t)-α)e^-st dt;
+hence
+
+|sF(s)−α|≤s∫0A|f(t)−α|e−stdt+s∫A∞|f(t)−α|e−stdt≤2s∫0Ae−stdt+ϵs∫A∞e−stdt=I+II.|sF(s)-α|∫_0^A|f(t)-α|e^-st dt+s∫_A^∞|f(t)-α|e^-st dt≤2s∫_0^Ae^-st dt+∫_A^∞e^-st dt=I+II.
+Now for every s>0>0 we have 
+
+II<ϵs∫0∞e−stdt=ϵ<∫_0^∞e^-st dt=ϵ.
+On the other hand, since A<∞<∞ is fixed it is clear that lims→0I=0lim_s→0I=0, and so |sF(s)−α|<ϵ|sF(s)-α|<ϵ if s>0>0 is small enough.
+
+Final Value Theorem using Laplace transform of the derivative[edit]
+Suppose that all of the following conditions are satisfied:
+
+f:(0,∞)→C:(0,∞)→ℂ is continuously differentiable and both f and f′' have a Laplace transform
+f′' is absolutely integrable - that is, ∫0∞|f′(τ)|dτ∫_0^∞|f'(τ)| dτ is finite
+limt→∞f(t)lim_t→∞f(t) exists and is finite
+Then
+
+lims→0+sF(s)=limt→∞f(t)lim_s→0^+sF(s)=lim_t→∞f(t).[8]
+Remark
+The proof uses the dominated convergence theorem.[8]
+
+Final Value Theorem for the mean of a function[edit]
+Let f:(0,∞)→C:(0,∞)→ℂ be a continuous and bounded function such that such that the following limit exists
+
+limT→∞1T∫0Tf(t)dt=α∈Clim_T→∞1/T∫_0^Tf(t) dt=α∈ℂ
+Then lims→0,s>0sF(s)=αlim_s → 0, s>0sF(s)=α.[9]
+
+Final Value Theorem for asymptotic sums of periodic functions[edit]
+Suppose that f:[0,∞)→R:[0,∞)→ℝ is continuous and absolutely integrable in [0,∞)[0,∞). Suppose further that f is asymptotically equal to a finite sum of periodic functions fas_as, that is
+
+|f(t)−fas(t)|<ϕ(t)|f(t)-f_as(t)|<ϕ(t)
+where ϕ(t)ϕ(t) is absolutely integrable in [0,∞)[0,∞) and vanishes at infinity. Then
+
+lims→0sF(s)=limt→∞1t∫0tf(x)dxlim_s→0sF(s)=lim_t→∞1/t∫_0^tf(x) dx.[10]
+Final Value Theorem for a function that diverges to infinity[edit]
+Let f(t):[0,∞)→R(t):[0,∞)→ℝ and F(s)(s) be the Laplace transform of f(t)(t). Suppose that f(t)(t) satisfies all of the following conditions:
+
+f(t)(t) is infinitely differentiable at zero
+f(k)(t)^(k)(t) has a Laplace transform for all non-negative integers k
+f(t)(t) diverges to infinity as t→∞→∞
+Then sF(s)(s) diverges to infinity as s→0+→0^+.[11]
+
+Final Value Theorem for improperly integrable functions (Abel's theorem for integrals)[edit]
+Let h:[0,∞)→R:[0,∞)→ℝ be measurable and such that the (possibly improper) integral f(x):=∫0xh(t)dt(x):=∫_0^xh(t) dt converges for x→∞→∞. Then
+
+∫0∞h(t)dt:=limx→∞f(x)=lims↓0∫0∞e−sth(t)dt.∫_0^∞h(t) dt:=lim_x→∞f(x)=lim_s↓0∫_0^∞e^-sth(t) dt.
+This is a version of Abel's theorem.
+To see this, notice that f′(t)=h(t)'(t)=h(t) and apply the final value theorem to f after an integration by parts: For s>0>0,
+
+s∫0∞e−stf(t)dt=[−e−stf(t)]t=o∞+∫0∞e−stf′(t)dt=∫0∞e−sth(t)dt.∫_0^∞e^-stf(t) dt=[-e^-stf(t)]_t=o^∞+∫_0^∞e^-stf'(t) dt=∫_0^∞e^-sth(t) dt.
+By the final value theorem, the left-hand side converges to limx→∞f(x)lim_x→∞f(x) for s→0→0. 
+To establish the convergence of the improper integral limx→∞f(x)lim_x→∞f(x) in practice, Dirichlet's test for improper integrals is often helpful. An example is the Dirichlet integral.
+
+Applications[edit]
+Final value theorems for obtaining lims→0sF(s)lim_s → 0sF(s) have applications in probability and statistics to calculate the moments of a random variable. Let R(x)(x) be cumulative distribution function of a continuous random variable X and let ρ(s)ρ(s) be the Laplace–Stieltjes transform of R(x)(x). Then the n-th moment of X can be calculated as
+
+E[Xn]=(−1)ndnρ(s)dsn|s=0[X^n]=(-1)^n.d^nρ(s)/ds^n|_s=0
+The strategy is to write
+
+dnρ(s)dsn=F(G1(s),G2(s),…,Gk(s),…)d^nρ(s)/ds^n=ℱ(G_1(s),G_2(s),…,G_k(s),…)
+where F(…)ℱ(…) is continuous and 
+for each k, Gk(s)=sFk(s)_k(s)=sF_k(s) for a function Fk(s)_k(s). For each k, put fk(t)_k(t) as the inverse Laplace transform of Fk(s)_k(s), obtain 
+limt→∞fk(t)lim_t→∞f_k(t), and apply a final value theorem to deduce 
+lims→0Gk(s)=lims→0sFk(s)=limt→∞fk(t)lim_s → 0G_k(s)=lim_s → 0sF_k(s)=lim_t→∞f_k(t).  Then
+
+dnρ(s)dsn|s=0=F(lims→0G1(s),lims→0G2(s),…,lims→0Gk(s),…).d^nρ(s)/ds^n|_s=0=ℱ(lim_s → 0G_1(s),lim_s → 0G_2(s),…,lim_s → 0G_k(s),…)
+and hence E[Xn][X^n] is obtained.
+
+Examples[edit]
+This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (October 2011) (Learn how and when to remove this template message)
+Example where FVT holds[edit]
+For example, for a system described by transfer function
+
+H(s)=6s+2,(s)=6/s+2,
+the impulse response converges to
+
+limt→∞h(t)=lims→06ss+2=0.lim_t→∞h(t)=lim_s→06s/s+2=0.
+That is, the system returns to zero after being disturbed by a short impulse. However, the Laplace transform of the unit step response is
+
+G(s)=1s6s+2(s)=1/s6/s+2
+and so the step response converges to
+
+limt→∞g(t)=lims→0ss6s+2=62=3lim_t→∞g(t)=lim_s→0s/s6/s+2=6/2=3
+So a zero-state system will follow an exponential rise to a final value of 3.
+
+Example where FVT does not hold[edit]
+For a system described by the transfer function
+
+H(s)=9s2+9,(s)=9/s^2+9,
+the final value theorem appears to predict the final value of the impulse response to be 0 and the final value of the step response to be 1. However, neither time-domain limit exists, and so the final value theorem predictions are not valid. In fact, both the impulse response and step response oscillate, and (in this special case) the final value theorem describes the average values around which the responses oscillate.
+There are two checks performed in Control theory which confirm valid results for the Final Value Theorem:
+
+All non-zero roots of the denominator of H(s)(s) must have negative real parts.
+H(s)(s) must not have more than one pole at the origin.
+Rule 1 was not satisfied in this example, in that the roots of the denominator are 0+j30+j3 and 0−j30-j3.
+
+Final value theorems for the Z transform[edit]
+Deducing limk → ∞ f[k][edit]
+Final Value Theorem[edit]
+If limk→∞f[k]lim_k→∞f[k] exists and limz→1(z−1)F(z)lim_z → 1(z-1)F(z) exists then limk→∞f[k]=limz→1(z−1)F(z)lim_k→∞f[k]=lim_z → 1(z-1)F(z).[4]: 101 
+
+Final value of linear systems[edit]
+Continuous-time LTI systems[edit]
+Final value of the system
+
+x˙(t)=Ax(t)+Bu(t)𝐱̇(t)=𝐀𝐱(t)+𝐁𝐮(t)
+y(t)=Cx(t)𝐲(t)=𝐂𝐱(t)
+in response to a step input u(t)𝐮(t) with amplitude R is:
+
+limt→∞y(t)=−CA−1BRlim_t→∞𝐲(t)=-𝐂𝐀^-1𝐁R
+Sampled-data systems[edit]
+The sampled-data system of the above continuous-time LTI system at the aperiodic sampling times ti,i=1,2,..._i,i=1,2,... is the discrete-time system
+
+x(ti+1)=Φ(hi)x(ti)+Γ(hi)u(ti)𝐱(t_i+1)=Φ(h_i)𝐱(t_i)+Γ(h_i)𝐮(t_i)
+y(ti)=Cx(ti)𝐲(t_i)=𝐂𝐱(t_i)
+where hi=ti+1−ti_i=t_i+1-t_i and
+
+Φ(hi)=eAhiΦ(h_i)=e^𝐀h_i,  Γ(hi)=∫0hieAsdsΓ(h_i)=∫_0^h_ie^𝐀s ds
+The final value of this system in response to a step input u(t)𝐮(t) with amplitude R is the same as the final value of its original continuous-time system. [12]
+
+See also[edit]
+Initial value theorem
+Z-transform
+Laplace Transform
+Abelian and Tauberian theorems
+Notes[edit]
+
+^ Wang, Ruye (2010-02-17). "Initial and Final Value Theorems". Retrieved 2011-10-21.
+
+^ Alan V. Oppenheim; Alan S. Willsky; S. Hamid Nawab (1997). Signals & Systems. New Jersey, USA: Prentice Hall. ISBN 0-13-814757-4.
+
+^ a b c Schiff, Joel L. (1999). The Laplace Transform: Theory and Applications. New York: Springer. ISBN 978-1-4757-7262-3.
+
+^ a b c d Graf, Urs (2004). Applied Laplace Transforms and z-Transforms for Scientists and Engineers. Basel: Birkhäuser Verlag. ISBN 3-7643-2427-9.
+
+^ a b c Chen, Jie; Lundberg, Kent H.; Davison, Daniel E.; Bernstein, Dennis S. (June 2007). "The Final Value Theorem Revisited - Infinite Limits and Irrational Function". IEEE Control Systems Magazine. 27 (3): 97–99. doi:10.1109/MCS.2007.365008.
+
+^ "Final Value Theorem of Laplace Transform". ProofWiki. Retrieved 12 April 2020.
+
+^ a b c Ullrich, David C. (2018-05-26). "The tauberian final value Theorem". Math Stack Exchange.
+
+^ a b Sopasakis, Pantelis (2019-05-18). "A proof for the Final Value theorem using Dominated convergence theorem". Math Stack Exchange.
+
+^ Murthy, Kavi Rama (2019-05-07). "Alternative version of the Final Value theorem for Laplace Transform". Math Stack Exchange.
+
+^ Gluskin, Emanuel (1 November 2003). "Let us teach this generalization of the final-value theorem". European Journal of Physics. 24 (6): 591–597. doi:10.1088/0143-0807/24/6/005.
+
+^ Hew, Patrick (2020-04-22). "Final Value Theorem for function that diverges to infinity?". Math Stack Exchange.
+
+^ Mohajeri, Kamran; Madadi, Ali; Tavassoli, Babak (2021). "Tracking Control with Aperiodic Sampling over Networks with Delay and Dropout". International Journal of Systems Science. 52 (10): 1987–2002. doi:10.1080/00207721.2021.1874074.
+
+
+External links[edit]
+https://web.archive.org/web/20101225034508/http://wikis.controltheorypro.com/index.php?title=Final_Value_Theorem
+http://fourier.eng.hmc.edu/e102/lectures/Laplace_Transform/node17.html Archived 2017-12-26 at the Wayback Machine: final value for Laplace
+https://web.archive.org/web/20110719222313/http://www.engr.iupui.edu/~skoskie/ECE595s7/handouts/fvt_proof.pdf: final value proof for Z-transforms
+
+
+

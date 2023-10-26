@@ -1,0 +1,436 @@
+In mathematics, the Brunn–Minkowski theorem (or Brunn–Minkowski inequality) is an inequality relating the volumes (or more generally Lebesgue measures) of compact subsets of Euclidean space. The original version of the Brunn–Minkowski theorem (Hermann Brunn 1887; Hermann Minkowski 1896) applied to convex sets; the generalization to compact nonconvex sets stated here is due to Lazar Lyusternik (1935). 
+
+
+Statement[edit]
+Let n ≥ 1 and let μ denote the Lebesgue measure on Rn. Let A and B be two nonempty compact subsets of Rn. Then the following inequality holds:
+
+[μ(A+B)]1/n≥[μ(A)]1/n+[μ(B)]1/n,[μ(A+B)]^1/n≥[μ(A)]^1/n+[μ(B)]^1/n,
+where A + B denotes the Minkowski sum:
+
+A+B:=a+b∈Rn∣a∈A,b∈B.+B:={ a+b∈ℝ^n, }.
+The theorem is also true in the setting where A,B,A+B,B,A+B are only assumed to be measurable and non-empty.[1]
+
+Multiplicative version[edit]
+The multiplicative form of Brunn–Minkowski inequality states that μ(λA+(1−λ)B)≥μ(A)λμ(B)1−λμ(+(1-λ)B)≥μ(A)^λμ(B)^1-λ for all λ∈[0,1]λ∈[0,1].
+The Brunn–Minkowski inequality is equivalent to the multiplicative version. 
+In one direction, use the inequality λx+(1−λ)y≥xλy1−λ+(1-λ)y^λy^1-λ (exponential is convex), which holds for  x,y≥0,λ∈[0,1],y≥0,λ∈[0,1]. In particular, μ(λA+(1−λ)B)≥(λμ(A)1/n+(1−λ)μ(B)1/n)n≥μ(A)λμ(B)1−λμ(+(1-λ)B)≥(λμ(A)^1/n+(1-λ)μ(B)^1/n)^n≥μ(A)^λμ(B)^1-λ. 
+Conversely, using the multiplicative form, we find
+μ(A+B)=μ(λAλ+(1−λ)B1−λ)≥μ(A)λμ(B)1−λλnλ(1−λ)n(1−λ)μ(A+B)=μ(λA/λ+(1-λ)B/1-λ)≥μ(A)^λμ(B)^1-λ/λ^nλ(1-λ)^n(1-λ)
+The right side is maximized at λ=11+eC,C=1nln⁡μ(A)μ(B)λ=1/1+e^C,C=1/nlnμ(A)/μ(B), which gives 
+μ(A+B)≥(μ(A)1/n+μ(B)1/n)nμ(A+B)≥(μ(A)^1/n+μ(B)^1/n)^n.
+The Prékopa–Leindler inequality is a functional generalization of this version of Brunn–Minkowski.
+
+On the hypothesis[edit]
+Measurability[edit]
+It is possible for A,B,B to be Lebesgue measurable and A+B+B to not be; a counter example can be found in "Measure zero sets with non-measurable sum." On the other hand, if A,B,B are Borel measurable, then A+B+B is the continuous image of the Borel set  A×B, so analytic and thus measurable. See the discussion in Gardner's survey for more on this, as well as ways to avoid measurability hypothesis. 
+We note that in the case that A and B are compact, so is A + B, being the image of the compact set A×B under the continuous addition map : +:Rn×Rn→Rn+:ℝ^n×ℝ^n→ℝ^n, so the measurability conditions are easy to verify.
+
+Non-emptiness[edit]
+The condition that A,B,B are both non-empty is clearly necessary. This condition is not part of the multiplicative versions of BM stated below.
+
+Proofs[edit]
+We give two well known proofs of Brunn–Minkowski. 
+
+
+
+
+Geometric proof via cuboids and measure theory
+
+
+
+We give a well-known argument that follows a general recipe of arguments in measure theory; namely, it establishes a simple case by direct analysis, uses induction to establish a finitary extension of that special case, and then uses general machinery to obtain the general case as a limit. A discussion of this history of this proof can be found in Theorem 4.1 in Gardner's survey on Brunn–Minkowski.
+We prove the version of the Brunn–Minkowski theorem that only requires A,B,A+B,B,A+B to be measurable and non-empty. 
+
+The case that A and B are axis aligned boxes:
+By translation invariance of volumes, it suffices to take A=∏i=1n[0,ai],B=∏i=1n[0,bi]=∏_i=1^n[0,a_i],B=∏_i=1^n[0,b_i]. Then A+B=∏i=1n[0,ai+bi]+B=∏_i=1^n[0,a_i+b_i]. In this special case, the Brunn–Minkowski inequality asserts that ∏(ai+bi)1/n≥∏ai1/n+∏bi1/n∏(a_i+b_i)^1/n≥_i^1/n+_i^1/n. After dividing both sides by ∏(ai+bi)1/n∏(a_i+b_i)^1/n , this follows from the AM–GM inequality: (∏aiai+bi)1/n+(∏biai+bi)1/n≤∑1nai+biai+bi=1(∏a_i/a_i+b_i)^1/n+(∏b_i/a_i+b_i)^1/n≤∑1/na_i+b_i/a_i+b_i=1.
+
+The case where A and B are both disjoint unions of finitely many such boxes:
+We will use induction on the total number of boxes, where the previous calculation establishes the base case of two boxes. First, we observe that there is an axis aligned hyperplane H that such that each side of H contains an entire box of A. To see this, it suffices to reduce to the case where A consists of two boxes, and then calculate that the negation of this statement implies that the two boxes have a point in common.
+For a body X, we let X−,X+^-,X^+ denote the intersections of X with the "right" and "left" halfspaces defined by H. Noting again that the statement of Brunn–Minkowski is translation invariant, we then translate B so that μ(A+)μ(B+)=μ(A−)μ(B−)μ(A^+)/μ(B^+)=μ(A^-)/μ(B^-); such a translation exists by the intermediate value theorem because t→μ((B+tv)+)→μ((B+tv)^+) is a continuous function, if v is perpendicular to H μ((B+tv)+)μ((B+tv)−)μ((B+tv)^+)/μ((B+tv)^-) has limiting values 0 and ∞∞ as t→−∞,t→∞→-∞,t→∞, so takes on  μ(A+)μ(A−)μ(A^+)/μ(A^-) at some point.
+We now have the pieces in place to complete the induction step. First, observe that A++B+^++B^+ and A−+B−^-+B^- are disjoint subsets of A+B+B, and so μ(A+B)≥μ(A++B+)+μ(A−+B−).μ(A+B)≥μ(A^++B^+)+μ(A^-+B^-). Now, A+,A−^+,A^- both have one fewer box than A, while B+,B−^+,B^- each have at most as many boxes as B. Thus, we can apply the induction hypothesis: μ(A++B+)≥(μ(A+)1/n+μ(B+)1/n)nμ(A^++B^+)≥(μ(A^+)^1/n+μ(B^+)^1/n)^n and μ(A−+B−)≥(μ(A−)1/n+μ(B−)1/n)nμ(A^-+B^-)≥(μ(A^-)^1/n+μ(B^-)^1/n)^n.
+Elementary algebra shows that if μ(A+)μ(B+)=μ(A−)μ(B−)μ(A^+)/μ(B^+)=μ(A^-)/μ(B^-), then also μ(A+)μ(B+)=μ(A−)μ(B−)=μ(A)μ(B)μ(A^+)/μ(B^+)=μ(A^-)/μ(B^-)=μ(A)/μ(B), so we can calculate:
+
+μ(A+B)≥μ(A++B+)+μ(A−+B−)≥(μ(A+)1/n+μ(B+)1/n)n+(μ(A−)1/n+μ(B−)1/n)n=μ(B+)(1+μ(A+)1/nμ(B+)1/n)n+μ(B−)(1+μ(A−)1/nμ(B−)1/n)n=(1+μ(A)1/nμ(B)1/n)n(μ(B+)+μ(B−))=(μ(B)1/n+μ(A)1/n)nμ(A+B)≥μ(A^++B^+)+μ(A^-+B^-)≥(μ(A^+)^1/n+μ(B^+)^1/n)^n+(μ(A^-)^1/n+μ(B^-)^1/n)^n
+=μ(B^+)(1+μ(A^+)^1/n/μ(B^+)^1/n)^n+μ(B^-)(1+μ(A^-)^1/n/μ(B^-)^1/n)^n=(1+μ(A)^1/n/μ(B)^1/n)^n(μ(B^+)+μ(B^-))=(μ(B)^1/n+μ(A)^1/n)^n
+The case that A and B are bounded open sets:
+In this setting, both bodies can be approximated arbitrarily well by unions of disjoint axis aligned rectangles contained in their interior; this follows from general facts about the Lebesgue measure of open sets. That is, we have a sequence of bodies Ak⊆A_k, which are disjoint unions of finitely many axis aligned rectangles, where μ(A∖Ak)≤1/kμ(A_k)≤1/k, and likewise Bk⊆B_k. Then we have that A+B⊇Ak+Bk+B_k+B_k, so μ(A+B)1/n≥μ(Ak+Bk)1/n≥μ(Ak)1/n+μ(Bk)1/nμ(A+B)^1/n≥μ(A_k+B_k)^1/n≥μ(A_k)^1/n+μ(B_k)^1/n. The right hand side converges to μ(A)1/n+μ(B)1/nμ(A)^1/n+μ(B)^1/n as k→∞→∞, establishing this special case.
+
+The case that A and B are compact sets:
+For a compact body X, define Xϵ=X+B(0,ϵ)_ϵ=X+B(0,ϵ) to be the ϵϵ-thickening of X. Here each B(0,ϵ)(0,ϵ) is the open ball of radius ϵϵ, so that Xϵ_ϵ is a bounded, open set. We note that ⋂ϵ>0Xϵ=cl(X)⋂_ϵ>0X_ϵ=cl(X), so that if X is compact, then limϵ→0μ(Xϵ)=μ(X)lim_ϵ→0μ(X_ϵ)=μ(X). By using associativity and commutativity of Minkowski sum, along with the previous case, we can calculate that μ((A+B)2ϵ)1/n=μ(Aϵ+Bϵ)1/n≥μ(Aϵ)1/n+μ(Bϵ)1/nμ((A+B)_2ϵ)^1/n=μ(A_ϵ+B_ϵ)^1/n≥μ(A_ϵ)^1/n+μ(B_ϵ)^1/n. Sending  ϵϵ to 0 establishes the result.
+
+The case of bounded measurable sets:
+Recall that by the regularity theorem for Lebesgue measure for any bounded measurable set X, and for any k>≥>≥, there is a compact set Xk⊆X_k with  μ(X∖Xk)<1/kμ(X_k)<1/k. Thus, μ(A+B)≥μ(Ak+Bk)≥(μ(Ak)1/n+μ(Bk)1/n)nμ(A+B)≥μ(A_k+B_k)≥(μ(A_k)^1/n+μ(B_k)^1/n)^n for all k, using the case of Brunn–Minkowski shown for compact sets. Sending k→∞→∞ establishes the result.
+
+The case of measurable sets:
+We let Ak=[−k,k]n∩A,Bk=[−k,k]n∩B_k=[-k,k]^n,B_k=[-k,k]^n, and again argue using the previous case that μ(A+B)≥μ(Ak+Bk)≥(μ(Ak)1/n+μ(Bk)1/n)nμ(A+B)≥μ(A_k+B_k)≥(μ(A_k)^1/n+μ(B_k)^1/n)^n, hence the result follows by sending k to infinity.
+
+
+
+
+
+Proof as a corollary of the Prékopa–Leindler inequality
+
+
+
+We give a proof of the Brunn–Minkowski inequality as a corollary to the Prékopa–Leindler inequality, a functional version of the BM inequality. We will first prove PL, and then show that PL implies a multiplicative version of BM, then show that multiplicative BM implies additive BM. The argument here is simpler than the proof via cuboids, in particular, we only need to prove the BM inequality in one dimensions. This happens because the more general statement of the PL-inequality than the BM-inequality allows for an induction argument.
+
+The multiplicative form of the BM inequality
+First, we note that the Brunn–Minkowski inequality implies a multiplicative version, using the inequality λx+(1−λ)y≥xλyλ+(1-λ)y^λy^λ, which holds for  x,y≥0,λ∈[0,1],y≥0,λ∈[0,1]. In particular, μ(λA+(1−λ)B)≥(λμ(A)1/n+(1−λ)μ(B)1/n)n≥μ(A)λμ(B)1−λμ(+(1-λ)B)≥(λμ(A)^1/n+(1-λ)μ(B)^1/n)^n≥μ(A)^λμ(B)^1-λ. The Prékopa–Leindler inequality is a functional generalization of this version of Brunn–Minkowski. 
+
+Prékopa–Leindler inequality
+Theorem (Prékopa–Leindler inequality): Fix λ∈(0,1)λ∈(0,1). Let f,g,h:Rn→R+,g,h:ℝ^n→ℝ_+ be non-negative, measurable functions satisfying h(λx+(1−λ)y)≥f(x)λg(y)1−λ(+(1-λ)y)(x)^λg(y)^1-λ for all x,y∈Rn,y∈ℝ^n. Then  ∫Rnh(x)dx≥(∫Rnf(x)dx)λ(∫Rng(x)dx)1−λ∫_ℝ^nh(x)dx≥(∫_ℝ^nf(x)dx)^λ(∫_ℝ^ng(x)dx)^1-λ.
+Proof (Mostly following this lecture): 
+We will need the one dimensional version of BM, namely that if A,B,A+B⊆R,B,A+B⊆ℝ are measurable, then μ(A+B)≥μ(A)+μ(B)μ(A+B)≥μ(A)+μ(B). First, assuming that A,B,B are bounded, we shift A,B,B so that A∩B=0={0}. Thus, A+B⊃A∪B+B, whence by almost disjointedness we have that μ(A+B)≥μ(A)+μ(B)μ(A+B)≥μ(A)+μ(B). We then pass to the unbounded case by filtering with the intervals [−k,k].[-k,k].
+We first show the n=1=1 case of the PL inequality. Let  Lh(t)=x:h(x)≥t_h(t)={x:h(x)}, and note that  Lh(t)⊇λLf(t)+(1−λ)Lg(t)_h(t)⊇_f(t)+(1-λ)L_g(t). Thus, by the one-dimensional version of Brunn–Minkowski, we have that μ(Lh(t))≥μ(λLf(t)+(1−λ)Lg(t))≥λμ(Lf(t))+(1−λ)μ(Lg(t))μ(L_h(t))≥μ(_f(t)+(1-λ)L_g(t))≥λμ(L_f(t))+(1-λ)μ(L_g(t)). We recall that if f(x)(x) is non-negative, then Fubini's theorem implies ∫Rh(x)dx=∫t≥0μ(Lh(t))dt∫_ℝh(x)dx=∫_t≥0μ(L_h(t))dt. Then, we have that  ∫Rh(x)dx=∫t≥0μ(Lh(t))dt≥λ∫t≥0μ(Lf(t))+(1−λ)∫t≥0μ(Lg(t))=λ∫Rf(x)dx+(1−λ)∫Rg(x)dx≥(∫Rf(x)dx)λ(∫Rg(x)dx)1−λ∫_ℝh(x)dx=∫_t≥0μ(L_h(t))dt≥λ∫_t≥0μ(L_f(t))+(1-λ)∫_t≥0μ(L_g(t))=λ∫_ℝf(x)dx+(1-λ)∫_ℝg(x)dx≥(∫_ℝf(x)dx)^λ(∫_ℝg(x)dx)^1-λ, where in the last step we use the weighted AM–GM inequality, which asserts that λx+(1−λ)y≥xλy1−λ+(1-λ)y^λy^1-λ for λ∈(0,1),x,y≥0λ∈(0,1),x,y≥0.
+Now we prove the  n>1>1 case. For x,y∈Rn−1,α,β∈R,y∈ℝ^n-1,α,β∈ℝ, we pick λ∈[0,1]λ∈[0,1] and set γ=λα+(1−λ)βγ=λα+(1-λ)β. For any c, we define hc(x)=h(x,c)_c(x)=h(x,c), that is, defining a new function on n-1 variables by setting the last variable to be  c. Applying the hypothesis and doing nothing but formal manipulation of the definitions, we have that hγ(λx+(1−λ)y)=h(λx+(1−λ)y,λα+(1−λ)β))=h(λ(x,α)+(1−λ)(y,β))≥f(x,α)λg(y,β)1−λ=fα(x)λgβ(y)1−λ_γ(+(1-λ)y)=h(+(1-λ)y,λα+(1-λ)β))=h(λ(x,α)+(1-λ)(y,β))(x,α)^λg(y,β)^1-λ=f_α(x)^λg_β(y)^1-λ.
+Thus, by the inductive case applied to the functions hγ,fα,gβ_γ,f_α,g_β, we obtain ∫Rn−1hγ(z)dz≥(∫Rn−1fα(z)dz)λ(∫Rn−1gβ(z)dz)1−λ∫_ℝ^n-1h_γ(z)dz≥(∫_ℝ^n-1f_α(z)dz)^λ(∫_ℝ^n-1g_β(z)dz)^1-λ. We define H(γ):=∫Rn−1hγ(z)dz(γ):=∫_ℝ^n-1h_γ(z)dz and F(α),G(β)(α),G(β) similarly. In this notation, the previous calculation can be rewritten as: H(λα+(1−λ)β)≥F(α)λG(β)1−λ(λα+(1-λ)β)(α)^λG(β)^1-λ. Since we have proven this for any fixed α,β∈Rα,β∈ℝ, this means that the function H,F,G,F,G satisfy the hypothesis for the one dimensional version of the PL theorem. Thus, we have that ∫RH(γ)dγ≥(∫RF(α)dα)λ(∫RF(β)dβ)1−λ∫_ℝH(γ)dγ≥(∫_ℝF(α)dα)^λ(∫_ℝF(β)dβ)^1-λ, implying the claim by Fubini's theorem. QED
+
+PL implies multiplicative BM
+The multiplicative version of Brunn–Minkowski follows from the PL inequality, by taking  h=1λA+(1−λ)B,f=1A,g=1B=1_+(1-λ)B,f=1_A,g=1_B. 
+
+Multiplicative BM implies Additive BM
+We now explain how to derive the BM-inequality from the PL-inequality. First, by using the indicator functions for A,B,λA+(1−λ)B,B,+(1-λ)B  Prékopa–Leindler inequality quickly gives the multiplicative version of Brunn–Minkowski: μ(λA+(1−λ)B)≥μ(A)λμ(B)1−λμ(+(1-λ)B)≥μ(A)^λμ(B)^1-λ. We now show how the multiplicative BM-inequality implies the usual, additive version.
+We assume that both A,B have positive volume, as otherwise the inequality is trivial, and normalize them to have volume 1 by setting A′=Aμ(A)1/n,B′=Bμ(B)1/n'=A/μ(A)^1/n,B'=B/μ(B)^1/n. We define λ′=λμ(B)1/n(1−λ)μ(A)1/n+λμ(B)1/nλ'=λμ(B)^1/n/(1-λ)μ(A)^1/n+λμ(B)^1/n; note that 1−λ′=(1−λ)μ(A)1/n(1−λ)μ(A)1/n+λμ(B)1/n1-λ'=(1-λ)μ(A)^1/n/(1-λ)μ(A)^1/n+λμ(B)^1/n. With these definitions, and using that μ(A′)=μ(B′)=1μ(A')=μ(B')=1, we calculate using the multiplicative Brunn–Minkowski inequality that:
+
+μ((1−λ)A+λB(1−λ)μ(A)1/n+λμ(B)1/n)=μ((1−λ′)A′+λ′B)≥μ(A′)1−λ′μ(B′)λ′=1.μ((1-λ)A+/(1-λ)μ(A)^1/n+λμ(B)^1/n)=μ((1-λ')A'+λ'B)≥μ(A')^1-λ'μ(B')^λ'=1.
+The additive form of Brunn–Minkowski now follows by pulling the scaling out of the leftmost volume calculation and rearranging.
+
+
+Important corollaries[edit]
+The Brunn–Minkowski inequality gives much insight into the geometry of high dimensional convex bodies. In this section we sketch a few of those insights.
+
+Concavity of the radius function (Brunn's theorem)[edit]
+Consider a convex body K⊆Rn⊆ℝ^n. Let K(x)=K∩x1=x(x)=K∩{x_1=x} be vertical slices of K. Define r(x)=μ(K(x))1n−1(x)=μ(K(x))^1/n-1 to be the radius function; if the slices of K are discs, then r(x) gives the radius of the disc K(x), up to a constant. For more general bodies this radius function does not appear to have a completely clear geometric interpretation beyond being the radius of the disc obtained by packing the volume of the slice as close to the origin as possible; in the case when K(x) is not a disc, the example of a hypercube shows that the average distance to the center of mass can be much larger than r(x). We note that sometimes in the context of a convex geometry, the radius function has a different meaning, here we follow the terminology of this lecture.
+By convexity of K, we have that K(λx+(1−λ)y)⊇λK(x)+(1−λ)K(y)(+(1-λ)y)⊇(x)+(1-λ)K(y). Applying the Brunn–Minkowski inequality gives r(K(λx+(1−λ)y))≥λr(K(x))+(1−λ)r(K(y))(K(+(1-λ)y))≥(K(x))+(1-λ)r(K(y)), provided K(x)≠∅,K(y)≠∅(x)≠∅,K(y)≠∅. This shows that the radius function is concave on its support, matching the intuition that a convex body does not dip into itself along any direction. This result is sometimes known as Brunn's theorem.
+
+Brunn–Minkowski symmetrization of a convex body[edit]
+Again consider a convex body  K. Fix some line  l and for each  t∈l let  Ht_t denote the affine hyperplane orthogonal to  l that passes through  t. Define,  r(t)=Vol(K∩Ht)(t)=Vol(K_t); as discussed in the previous section, this function is concave. Now, let K′=⋃t∈l,K∩Ht≠∅B(t,r(t))∩Ht'=⋃_t,K_t≠∅B(t,r(t))_t. That is, K′' is obtained from K by replacing each slice  Ht∩K_t with a disc of the same (n−1)(n-1)-dimensional volume centered  l inside of  Ht_t. The concavity of the radius function defined in the previous section implies that that K′' is convex. This construction is called the Brunn–Minkowski symmetrization. 
+
+Grunbaum's theorem[edit]
+Theorem (Grunbaum's theorem[citation needed]): Consider a convex body K⊆Rn⊆ℝ^n. Let H be any half-space containing the center of mass of  K; that is, the expected location of a uniform point sampled from K.. Then μ(H∩K)≥(nn+1)nμ(K)≥1eμ(K)μ(H)≥(n/n+1)^nμ(K)≥1/eμ(K). 
+Grunbaum's theorem can be proven using Brunn–Minkowski inequality, specifically the convexity of the Brunn–Minkowski symmetrization[citation needed]. See these lecture notes for a proof sketch.
+Grunbaum's inequality has the following fair cake cutting interpretation. Suppose two players are playing a game of cutting up an n dimensional, convex cake. Player 1 chooses a point in the cake, and player two chooses a hyperplane to cut the cake along. Player 1 then receives the cut of the cake containing his point. Grunbaum's theorem implies that if player 1 chooses the center of mass, then the worst that an adversarial player 2 can do is give him a piece of cake with volume at least a 1/e1/e fraction of the total. In dimensions 2 and 3, the most common dimensions for cakes, the bounds given by the theorem are approximately .444,.42.444,.42 respectively. Note, however, that in n dimensions, calculating the centroid is #P#P hard[citation needed], limiting the usefulness of this cake cutting strategy for higher dimensional, but computationally bounded creatures.
+Applications of Grunbaum's theorem also appear in convex optimization, specifically in analyzing the converge of the center of gravity method. See theorem 2.1 in these notes.
+
+Isoperimetric inequality[edit]
+Let B=B(0,1)=x∈Rn:||x||2≤1=B(0,1)={x∈ℝ^n:||x||_2≤1} denote the unit ball. For a convex body, K, let S(K)=limϵ→0μ(K+ϵB)−μ(K)ϵ(K)=lim_ϵ→0μ(K+)-μ(K)/ϵ define its surface area. This agrees with the usual meaning of surface area by the Minkowski-Steiner formula. Consider the function c(X)=μ(K)1/nS(K)1/(n−1)(X)=μ(K)^1/n/S(K)^1/(n-1). The isoperimetric inequality states that this is maximized on Euclidean balls.
+
+
+
+
+Proof of isoperimetric inequality via Brunn–Minkowski
+
+
+
+First, observe that Brunn–Minkowski implies μ(K+ϵB)≥(μ(K)1/n+ϵV(B)1/n)n=μ(K)(1+ϵ(μ(B)μ(K))1/n)n≥μ(K)(1+nϵ(μ(B)μ(K))1/n),μ(K+)≥(μ(K)^1/n+(B)^1/n)^n=μ(K)(1+ϵ(μ(B)/μ(K))^1/n)^n≥μ(K)(1+nϵ(μ(B)/μ(K))^1/n), where in the last inequality we used that (1+x)n≥1+nx(1+x)^n≥1+nx for x≥0≥0. We use this calculation to lower bound the surface area of  K via S(K)=limϵ→0μ(K+ϵB)−μ(K)ϵ≥nμ(K)(μ(B)μ(K))1/n.(K)=lim_ϵ→0μ(K+)-μ(K)/ϵμ(K)(μ(B)/μ(K))^1/n. Next, we use the fact that  S(B)=nμ(B)(B)=nμ(B), which follows from the Minkowski-Steiner formula, to calculate S(K)S(B)=S(K)nμ(B)≥μ(K)(μ(B)μ(K))1/nμ(B)=μ(K)n−1nμ(B)1−nn.S(K)/S(B)=S(K)/nμ(B)≥μ(K)(μ(B)/μ(K))^1/n/μ(B)=μ(K)^n-1/nμ(B)^1-n/n. Rearranging this yields the isoperimetric inequality: μ(B)1/nS(B)1/(n−1)≥μ(K)1/nS(K)1/(n−1).μ(B)^1/n/S(B)^1/(n-1)≥μ(K)^1/n/S(K)^1/(n-1).
+
+
+Applications to inequalities between mixed volumes[edit]
+The Brunn–Minkowski inequality can be used to deduce the following inequality  V(K,…,K,L)n≥V(K)n−1V(L)(K,…,K,L)^n(K)^n-1V(L), where the  V(K,…,K,L)(K,…,K,L) term is a mixed-volume. Equality holds iff K,L are homothetic. (See theorem 3.4.3 in Hug and Weil's course on convex geometry.)
+
+
+
+
+Proof
+
+
+
+We recall the following facts about mixed volumes :  μ(λ1K1+λ2K2)=∑j1,…,jn=1rV(Kj1,…,V(Kjn)λj1…λjnμ(λ_1K_1+λ_2K_2)=∑_j_1,…,j_n=1^rV(K_j_1,…,V(K_j_n)λ_j_1…λ_j_n, so that in particular if  g(t)=μ(K+tL)=μ(V)+nV(K,…,K,L)t+…(t)=μ(K+tL)=μ(V)+nV(K,…,K,L)t+…, then g′(0)=nV(K,…,K,L)'(0)=nV(K,…,K,L).
+Let  f(t):=μ(K+tL)1/n(t):=μ(K+tL)^1/n. Brunn's theorem implies that this is concave for  t∈[0,1]∈[0,1]. Thus,  f+(0)≥f(1)−f(0)=μ(K+L)1/n−V(K)1/n^+(0)(1)-f(0)=μ(K+L)^1/n-V(K)^1/n, where  f+(0)^+(0) denotes the right derivative. We also have that  f+(0)=1nμ(K)n−1nnV(K,…,K,L)^+(0)=1/nμ(K)^n-1/nnV(K,…,K,L). From this we get  μ(K)n−1nV(K,…,K,L)≥μ(K+L)1/n−V(K)1/n≥V(L)1/nμ(K)^n-1/nV(K,…,K,L)≥μ(K+L)^1/n-V(K)^1/n(L)^1/n, where we applied BM in the last inequality.
+
+
+Concentration of measure on the sphere and other strictly convex surfaces[edit]
+We prove the following theorem on concentration of measure, following notes by Barvinok and notes by Lap Chi Lau. See also Concentration of measure#Concentration on the sphere.
+Theorem: Let S be the unit sphere in Rnℝ^n. Let X⊆S. Define Xϵ=z∈S:d(z,X)≤ϵ_ϵ={z:d(z,X)≤ϵ}, where d refers to the Euclidean distance in Rnℝ^n. Let νν denote the surface area on the sphere. Then, for any ϵ∈(0,1]ϵ∈(0,1] we have that ν(Xϵ)ν(S)≥1−ν(S)ν(X)e−nϵ24ν(X_ϵ)/ν(S)≥1-ν(S)/ν(X)e^-nϵ^2/4.
+
+
+
+
+Proof
+
+
+
+Proof: Let  δ=ϵ2/8δ=ϵ^2/8, and let  Y=S∖Xϵ=S_ϵ. Then, for x∈X,y∈Y,y one can show, using  12||x+y||2=||x||2+||y||2−12||x−y||21/2||x+y||^2=||x||^2+||y||^2-1/2||x-y||^2 and  1−x≤1−x/2√(1-x)≤1-x/2 for  x≤1≤1, that  ||x+y2||≤1−δ||x+y/2||≤1-δ. In particular,  x+y2∈(1−δ)B(0,1)x+y/2∈(1-δ)B(0,1). 
+We let  X¯=Conv(X,0),Y¯=Conv(Y,0)X=Conv(X,{0}),Y=Conv(Y,{0}), and aim to show that  X¯+Y¯2⊆(1−δ)B(0,1)X+Y/2⊆(1-δ)B(0,1). Let   x∈X,y∈Y,α,β∈[0,1],x¯=αx,y¯=αy,y,α,β∈[0,1],x̅=,y̅=. The argument below will be symmetric in   x¯,y¯x̅,y̅, so we assume without loss of generality that   α≥βα≥β and set  γ=β/α≤1γ=β/α≤1. Then,
+
+x¯+y¯2=αx+βy2=αx+γy2=α(γx+y2+(1−γ)x2)=αγx+y2+α(1−γ)x2x̅+y̅/2=+/2=αx+/2=α(γx+y/2+(1-γ)x/2)=αγx+y/2+α(1-γ)x/2.
+This implies that  x¯+y¯2∈αγ(1−δ)B+α(1−γ)(1−δ)B=α(1−δ)B⊆(1−δ)Bx̅+y̅/2∈αγ(1-δ)B+α(1-γ)(1-δ)B=α(1-δ)B⊆(1-δ)B. (Using that for any convex body K and γ∈[0,1]γ∈[0,1], γK+(1−γ)K=K+(1-γ)K=K.)
+Thus, we know that  X¯+Y¯2⊆(1−δ)B(0,1)X+Y/2⊆(1-δ)B(0,1), so  μ(X¯+Y¯2)≤(1−δ)nμ(B(0,1))μ(X+Y/2)≤(1-δ)^nμ(B(0,1)). We apply the multiplicative form of the Brunn–Minkowski inequality to lower bound the first term by  μ(X¯)μ(Y¯)√(μ(X̅)μ(Y̅)), giving us  (1−δ)nμ(B)≥μ(X¯)1/2μ(Y¯)1/2(1-δ)^nμ(B)≥μ(X̅)^1/2μ(Y̅)^1/2.
+1−ν(Xϵ)ν(S)=ν(Y)ν(S)=μ(Y¯)μ(B)≤(1−δ)2nμ(B)μ(X¯)≤(1−δ)2nν(S)ν(X)≤e−2nδν(S)ν(X)=e−nϵ2/4ν(S)ν(X)1-ν(X_ϵ)/ν(S)=ν(Y)/ν(S)=μ(Y̅)/μ(B)≤(1-δ)^2nμ(B)/μ(X̅)≤(1-δ)^2nν(S)/ν(X)^-2nδν(S)/ν(X)=e^-nϵ^2/4ν(S)/ν(X). QED
+
+
+Version of this result hold also for so-called strictly convex surfaces, where the result depends on the modulus of convexity. However, the notion of surface area requires modification, see: the aforementioned notes on concentration of measure from Barvinok.
+
+Remarks[edit]
+The proof of the Brunn–Minkowski theorem establishes that the function
+
+A↦[μ(A)]1/n↦[μ(A)]^1/n
+is concave in the sense that, for every pair of nonempty compact subsets A and B of Rn and every 0 ≤ t ≤ 1,
+
+[μ(tA+(1−t)B)]1/n≥t[μ(A)]1/n+(1−t)[μ(B)]1/n.[μ(tA+(1-t)B)]^1/n[μ(A)]^1/n+(1-t)[μ(B)]^1/n.
+For convex sets A and B of positive measure, the inequality in the theorem is strict
+for 0 < t < 1 unless A and B are positive homothetic, i.e. are equal up to translation and dilation by a positive factor.
+
+Examples[edit]
+Rounded cubes[edit]
+It is instructive to consider the case where A an l×l square in the plane, and B a ball of radius  ϵϵ. In this case, A+B+B is a rounded square, and its volume can be accounted for as the four rounded quarter circles of radius  ϵϵ, the four rectangles of dimensions  l×ϵ×ϵ along the sides, and the original square. Thus,  μ(A+B)=l2+4ϵl+44πϵ2=μ(A)+4ϵl+μ(B)≥μ(A)+2πϵl+μ(B)=μ(A)+2μ(A)μ(B)+μ(B)=(μ(A)1/2+μ(B)1/2)2μ(A+B)=l^2+4+4/4πϵ^2=μ(A)+4+μ(B)≥μ(A)+2√(π)+μ(B)=μ(A)+2√(μ(A)μ(B))+μ(B)=(μ(A)^1/2+μ(B)^1/2)^2.
+This example also hints at the theory of mixed-volumes, since the terms that appear in the expansion of the volume of  A+B+B correspond to the differently dimensional pieces of A. In particular, if we rewrite Brunn–Minkowski as μ(A+B)≥(μ(A)1/n+μ(B)1/n)nμ(A+B)≥(μ(A)^1/n+μ(B)^1/n)^n, we see that we can think of the cross terms of the binomial expansion of the latter as accounting, in some fashion, for the mixed volume representation of μ(A+B)=V(A,…,A)+nV(B,A,…,A)+…+(nj)V(B,…,B,A,…,A)+…nV(B,…,B,A)+μ(B)μ(A+B)=V(A,…,A)+nV(B,A,…,A)+…+nV(B,…,B,A,…,A)+(B,…,B,A)+μ(B). This same phenomenon can also be seen for the sum of an n-dimensional l×l box and a ball of radius ϵϵ, where the cross terms in  (μ(A)1/n+μ(B)1/n)n(μ(A)^1/n+μ(B)^1/n)^n, up to constants, account for the mixed volumes. This is made precise for the first mixed volume in the section above on the applications to mixed volumes.
+
+Examples where the lower bound is loose[edit]
+The left-hand side of the BM inequality can in general be much larger than the right side. For instance, we can take X to be the x-axis, and Y the y-axis inside the plane; then each has measure zero but the sum has infinite measure. Another example is given by the Cantor set. If C denotes the middle third Cantor set, then it is an exercise in analysis to show that C+C=[0,2]+C=[0,2].
+
+Connections to other parts of mathematics[edit]
+The Brunn–Minkowski inequality continues to be relevant to modern geometry and algebra. For instance, there are connections to algebraic geometry,[2][3] and combinatorial versions about counting sets of points inside the integer lattice.[4]
+
+See also[edit]
+Isoperimetric inequality
+Milman's reverse Brunn–Minkowski inequality
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Mixed volume
+References[edit]
+Brunn, H. (1887). "Über Ovale und Eiflächen". Inaugural Dissertation, München. {{cite journal}}: Cite journal requires |journal= (help)
+Fenchel, Werner; Bonnesen, Tommy (1934). Theorie der konvexen Körper. Ergebnisse der Mathematik und ihrer Grenzgebiete. Vol. 3. Berlin: 1. Verlag von Julius Springer.
+Fenchel, Werner; Bonnesen, Tommy (1987). Theory of convex bodies. Moscow, Idaho: L. Boron, C. Christenson and B. Smith. BCS Associates. ISBN 9780914351023.
+Dacorogna, Bernard (2004). Introduction to the Calculus of Variations. London: Imperial College Press. ISBN 1-86094-508-2.
+Heinrich Guggenheimer (1977) Applicable Geometry, page 146, Krieger, Huntington ISBN 0-88275-368-1 .
+Lyusternik, Lazar A. (1935). "Die Brunn–Minkowskische Ungleichnung für beliebige messbare Mengen". Comptes Rendus de l'Académie des Sciences de l'URSS. Nouvelle Série. III: 55–58.
+Minkowski, Hermann (1896). Geometrie der Zahlen. Leipzig: Teubner.
+Ruzsa, Imre Z. (1997). "The Brunn–Minkowski inequality and nonconvex sets". Geometriae Dedicata. 67 (3): 337–348. doi:10.1023/A:1004958110076. MR 1475877. S2CID 117749981.
+Rolf Schneider, Convex bodies: the Brunn–Minkowski theory, Cambridge University Press, Cambridge, 1993.
+References[edit]
+
+
+^ Gardner, Richard J. (2002). "The Brunn–Minkowski inequality". Bull. Amer. Math. Soc. (N.S.) 39 (3): pp. 355–405 (electronic). doi:10.1090/S0273-0979-02-00941-2. ISSN 0273-0979.
+
+^ GROMOV, M. (1990). "CONVEX SETS AND KÄHLER MANIFOLDS". Advances in Differential Geometry and Topology. WORLD SCIENTIFIC. pp. 1–38. doi:10.1142/9789814439381_0001. ISBN 978-981-02-0494-5.
+
+^ Neeb, Karl-Hermann (2015-10-12). "Kaehler Geometry, Momentum Maps and Convex Sets". arXiv:1510.03289v1 [math.SG].
+
+^ Hernández Cifre, María A.; Iglesias, David; Nicolás, Jesús Yepes (2018). "On a Discrete Brunn--Minkowski Type Inequality". SIAM Journal on Discrete Mathematics. Society for Industrial & Applied Mathematics (SIAM). 32 (3): 1840–1856. doi:10.1137/18m1166067. ISSN 0895-4801.
+
+
+vteLp spacesBasic concepts
+Banach & Hilbert spaces
+Lp spaces
+Measure
+Lebesgue
+Measure space
+Measurable space/function
+Minkowski distance
+Sequence spaces
+L1 spaces
+Integrable function
+Lebesgue integration
+Taxicab geometry
+L2 spaces
+Bessel's
+Cauchy–Schwarz
+Euclidean distance
+Hilbert space
+Parseval's identity
+Polarization identity
+Pythagorean theorem
+Square-integrable function
+L∞^∞ spaces
+Bounded function
+Chebyshev distance
+Infimum and supremum
+Essential
+Uniform norm
+Maps
+Almost everywhere
+Convergence almost everywhere
+Convergence in measure
+Function space
+Integral transform
+Locally integrable function
+Measurable function
+Symmetric decreasing rearrangement
+Inequalities
+Babenko–Beckner
+Chebyshev's
+Clarkson's
+Hanner's
+Hausdorff–Young
+Hölder's
+Markov's
+Minkowski
+Young's convolution
+Results
+Marcinkiewicz interpolation theorem
+Plancherel theorem
+Riemann–Lebesgue
+Riesz–Fischer theorem
+Riesz–Thorin theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+
+Applications & related
+Bochner space
+Fourier analysis
+Lorentz space
+Probability theory
+Quasinorm
+Real analysis
+Sobolev space
+*-algebra
+C*-algebra
+Von Neumann
+
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

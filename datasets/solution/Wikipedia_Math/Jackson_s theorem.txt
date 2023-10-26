@@ -1,0 +1,242 @@
+Mathematical disciplineThis article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (June 2012) (Learn how and when to remove this template message)In queueing theory, a discipline within the mathematical theory of probability, a Jackson network (sometimes Jacksonian network[1]) is a class of queueing network where the equilibrium distribution is particularly simple to compute as the network has a product-form solution. It was the first significant development in the theory of networks of queues, and generalising and applying the ideas of the theorem to search for similar product-form solutions in other networks has been the subject of much research,[2] including ideas used in the development of the Internet.[3] The networks were first identified by James R. Jackson[4][5] and his paper was re-printed in the journal Management Science’s ‘Ten Most Influential Titles of Management Sciences First Fifty Years.’[6]
+Jackson was inspired by the work of Burke and Reich,[7] though Jean Walrand notes "product-form results … [are] a much less immediate result of the output theorem than Jackson himself appeared to believe in his fundamental paper".[8]
+An earlier product-form solution was found by R. R. P. Jackson for tandem queues (a finite chain of queues where each customer must visit each queue in order) and cyclic networks (a loop of queues where each customer must visit each queue in order).[9]
+A Jackson network consists of a number of nodes, where each node represents a queue in which the service rate can be both node-dependent (different nodes have different service rates) and state-dependent (service rates change depending on queue lengths). Jobs travel among the nodes following a fixed routing matrix. All jobs at each node belong to a single "class" and jobs follow the same service-time distribution and the same routing mechanism. Consequently, there is no notion of priority in serving the jobs: all jobs at each node are served on a first-come, first-served basis.
+Jackson networks where a finite population of jobs travel around a closed network also have a product-form solution described by the Gordon–Newell theorem.[10]
+
+
+Necessary conditions for a Jackson network[edit]
+A network of m interconnected queues is known as a Jackson network[11] or Jacksonian network[12] if it meets the following conditions:
+
+if the network is open, any external arrivals to node i form a Poisson process,
+All service times are exponentially distributed and the service discipline at all queues is first-come, first-served,
+a customer completing service at queue i will either move to some new queue j with probability Pij_ij or leave the system with probability 1−∑j=1mPij1-∑_j=1^mP_ij, which, for an open network, is non-zero for some subset of the queues,
+the utilization of all of the queues is less than one.
+Theorem[edit]
+In an open Jackson network of m M/M/1 queues where the utilization ρiρ_i is less than 1 at every queue, the equilibrium state probability distribution exists and for state (k1,k2,…,km)(k_1,k_2,…,k_m) is given by the product of the individual queue equilibrium distributions
+
+π(k1,k2,…,km)=∏i=1mπi(ki)=∏i=1m[ρiki(1−ρi)].π(k_1,k_2,…,k_m)=∏_i=1^mπ_i(k_i)=∏_i=1^m[ρ_i^k_i(1-ρ_i)].
+The result π(k1,k2,…,km)=∏i=1mπi(ki)π(k_1,k_2,…,k_m)=∏_i=1^mπ_i(k_i) also holds for M/M/c model stations with ci servers at the ith^th station, with utilization requirement ρi<ciρ_i<c_i.
+
+Definition[edit]
+In an open network, jobs arrive from outside following a Poisson process with rate α>0α>0. Each arrival is independently routed to node j with probability p0j≥0_0j≥0 and ∑j=1Jp0j=1∑_j=1^Jp_0j=1. Upon service completion at node i, a job may go to another node j with probability pij_ij or leave the network with probability pi0=1−∑j=1Jpij_i0=1-∑_j=1^Jp_ij.
+Hence we have the overall arrival rate to node i, λiλ_i, including both external arrivals and internal transitions:
+
+λi=αp0i+∑j=1Jλjpji,i=1,…,J.(1)λ_i=_0i+∑_j=1^Jλ_jp_ji,i=1,…,J.    (1)
+(Since the utilisation at each node is less than 1, and we are looking at the equilibrium distribution i.e. the long-run-average behaviour, the rate of jobs transitioning from j to i is bounded by a fraction of the arrival rate at j and we ignore the service rate μjμ_j in the above.)
+Define a=(αp0i)i=1J=(_0i)_i=1^J, then we can solve λ=(I−PT)−1aλ=(I-P^T)^-1a.
+All jobs leave each node also following Poisson process, and define μi(xi)μ_i(x_i) as the service rate of node i when there are xi_i jobs at node i.
+Let Xi(t)_i(t) denote the number of jobs at node i at time t, and X=(Xi)i=1J𝐗=(X_i)_i=1^J. Then the equilibrium distribution of X𝐗, π(x)=P(X=x)π(𝐱)=P(𝐗=𝐱) is determined by the following system of balance equations:
+
+π(x)∑i=1J[αp0i+μi(xi)(1−pii)]=∑i=1J[π(x−ei)αp0i+π(x+ei)μi(xi+1)pi0]+∑i=1J∑j≠iπ(x+ei−ej)μi(xi+1)pij.(2)   π(𝐱)∑_i=1^J[_0i+μ_i(x_i)(1-p_ii)]
+=   ∑_i=1^J[π(𝐱-𝐞_i)_0i+π(𝐱+𝐞_i)μ_i(x_i+1)p_i0]+∑_i=1^J∑_jπ(𝐱+𝐞_i-𝐞_j)μ_i(x_i+1)p_ij.    (2)
+where ei𝐞_i denote the ith^th unit vector.
+
+Theorem[edit]
+Suppose a vector of independent random variables (Y1,…,YJ)(Y_1,…,Y_J) with each Yi_i having a probability mass function as
+
+P(Yi=n)=p(Yi=0)⋅λinMi(n),(3)(Y_i=n)=p(Y_i=0)·λ_i^n/M_i(n),  (3)
+where Mi(n)=∏j=1nμi(j)_i(n)=∏_j=1^nμ_i(j). If ∑n=1∞λinMi(n)<∞∑_n=1^∞λ_i^n/M_i(n)<∞ i.e. P(Yi=0)=(1+∑n=1∞λinMi(n))−1(Y_i=0)=(1+∑_n=1^∞λ_i^n/M_i(n))^-1 is well defined, then the equilibrium distribution of the open Jackson network has the following product form:
+
+π(x)=∏i=1JP(Yi=xi).π(𝐱)=∏_i=1^JP(Y_i=x_i).
+for all x∈Z+J𝐱∈𝒵_+^J.⟩
+
+Proof
+It suffices to verify equation (2)(2) is satisfied. By the product form and formula (3), we have:
+
+π(x)=π(x+ei)μi(xi+1)/λi=π(x+ei−ej)μi(xi+1)λj/[λiμj(xj)]π(𝐱)=π(𝐱+𝐞_i)μ_i(x_i+1)/λ_i=π(𝐱+𝐞_i-𝐞_j)μ_i(x_i+1)λ_j/[λ_iμ_j(x_j)]
+Substituting these into the right side of (2)(2) we get:
+
+∑i=1J[αp0i+μi(xi)(1−pii)]=∑i=1J[αp0iλiμi(xi)+λipi0]+∑i=1J∑j≠iλiλjpijμj(xj).(4)∑_i=1^J[_0i+μ_i(x_i)(1-p_ii)]=∑_i=1^J[_0i/λ_iμ_i(x_i)+λ_ip_i0]+∑_i=1^J∑_jλ_i/λ_jp_ijμ_j(x_j).    (4)
+Then use (1)(1), we have:
+
+∑i=1J∑j≠iλiλjpijμj(xj)=∑j=1J[∑i≠jλiλjpij]μj(xj)=∑j=1J[1−pjj−αp0jλj]μj(xj).∑_i=1^J∑_jλ_i/λ_jp_ijμ_j(x_j)=∑_j=1^J[∑_iλ_i/λ_jp_ij]μ_j(x_j)=∑_j=1^J[1-p_jj-_0j/λ_j]μ_j(x_j).
+Substituting the above into (4)(4), we have:
+
+∑i=1Jαp0i=∑i=1Jλipi0∑_i=1^J_0i=∑_i=1^Jλ_ip_i0
+This can be verified by ∑i=1Jαp0i=∑i=1Jλi−∑i=1J∑j=1Jλjpji=∑i=1Jλi−∑j=1Jλj(1−pj0)=∑i=1Jλipi0∑_i=1^J_0i=∑_i=1^Jλ_i-∑_i=1^J∑_j=1^Jλ_jp_ji=∑_i=1^Jλ_i-∑_j=1^Jλ_j(1-p_j0)=∑_i=1^Jλ_ip_i0. Hence both side of (2)(2) are equal.⟨
+
+
+This theorem extends the one shown above by allowing state-dependent service rate of each node. It relates the distribution of X𝐗 by a vector of independent variable Y𝐘.
+
+Example[edit]
+A three-node open Jackson network
+Suppose we have a three-node Jackson network shown in the graph, the coefficients are: 
+
+α=5,p01=p02=0.5,p03=0,α=5,_01=p_02=0.5,_03=0,  
+P=[00.50.5000000],μ=[μ1(x1)μ2(x2)μ3(x3)]=[151210]forallxi>0=[   0 0.5 0.5;   0   0   0;   0   0   0 ],  μ=[ μ_1(x_1); μ_2(x_2); μ_3(x_3) ]=[ 15; 12; 10 ]forallx_i>0
+Then by the theorem, we can calculate:
+
+λ=(I−PT)−1a=[100−0.510−0.501]−1[0.5×50.5×50]=[1000.5100.501][2.52.50]=[2.53.751.25]λ=(I-P^T)^-1a=[    1    0    0; -0.5    1    0; -0.5    0    1 ]^-1[ 0.5×5; 0.5×5;     0 ]=[   1   0   0; 0.5   1   0; 0.5   0   1 ][ 2.5; 2.5;   0 ]=[  2.5; 3.75; 1.25 ]
+According to the definition of Y𝐘, we have:
+
+P(Y1=0)=(∑n=0∞(2.515)n)−1=56(Y_1=0)=(∑_n=0^∞(2.5/15)^n)^-1=5/6
+P(Y2=0)=(∑n=0∞(3.7512)n)−1=1116(Y_2=0)=(∑_n=0^∞(3.75/12)^n)^-1=11/16
+P(Y3=0)=(∑n=0∞(1.2510)n)−1=78(Y_3=0)=(∑_n=0^∞(1.25/10)^n)^-1=7/8
+Hence the probability that there is one job at each node is:
+
+π(1,1,1)=56⋅2.515⋅1116⋅3.7512⋅78⋅1.2510≈0.00326π(1,1,1)=5/6·2.5/15·11/16·3.75/12·7/8·1.25/10≈0.00326
+Since the service rate here does not depend on state, the Yi_is simply follow a geometric distribution.
+
+Generalized Jackson network[edit]
+A generalized Jackson network allows renewal arrival processes that need not be Poisson processes, and independent, identically distributed non-exponential service times. In general, this network does not have a product-form stationary distribution, so approximations are sought.[13]
+
+Brownian approximation[edit]
+Under some mild conditions the queue-length process[clarification needed] Q(t)(t) of an open generalized Jackson network can be approximated by a reflected Brownian motion defined as RBMQ(0)⁡(θ,Γ;R).RBM_Q(0)(θ,Γ;R)., where θθ is the drift of the process, ΓΓ is the covariance matrix, and R is the reflection matrix. This is a two-order approximation obtained by relation between general Jackson network with homogeneous fluid network and reflected Brownian motion.
+The parameters of the reflected Brownian process is specified as follows:
+
+θ=α−(I−PT)μθ=α-(I-P^T)μ
+Γ=(Γkℓ)withΓkℓ=∑j=1J(λj∧μj)[pjk(δkℓ−pjℓ)+cj2(pjk−δjk)(pjℓ−δjℓ)]+αkc0,k2δkℓΓ=(Γ_kℓ)withΓ_kℓ=∑_j=1^J(λ_j∧μ_j)[p_jk(δ_kℓ-p_jℓ)+c_j^2(p_jk-δ_jk)(p_jℓ-δ_jℓ)]+α_kc_0,k^2δ_kℓ
+R=I−PT=I-P^T
+where the symbols are defined as:
+
+
+Definitions of symbols in the approximation formula
+
+
+symbol
+Meaning
+
+
+α=(αj)j=1Jα=(α_j)_j=1^J
+a J-vector specifying the arrival rates to each node.
+
+
+μ=(μ)j=1Jμ=(μ)_j=1^J
+a J-vector specifying the service rates of each node.
+
+
+P
+routing matrix.
+
+
+λjλ_j
+effective arrival of jth^th node.
+
+
+cj_j
+variation of service time at jth^th node.
+
+
+c0,j_0,j
+variation of inter-arrival time at jth^th node.
+
+
+δijδ_ij
+coefficients to specify correlation between nodes.
+They are defined in this way: Let A(t)(t) be the arrival process of the system, then A(t)−αt≈A^(t)(t)-≈Â(t) in distribution, where A^(t)Â(t) is a driftless Brownian process with covariate matrix Γ0=(Γij0)Γ^0=(Γ_ij^0), with Γij0=αic0,i2δijΓ_ij^0=α_ic_0,i^2δ_ij, for any i,j∈1,…,J,j∈{1,…,J}
+
+
+
+See also[edit]
+Gordon–Newell network
+BCMP network
+G-network
+Little's law
+References[edit]
+
+
+^ Walrand, J.; Varaiya, P. (1980). "Sojourn Times and the Overtaking Condition in Jacksonian Networks". Advances in Applied Probability. 12 (4): 1000–1018. doi:10.2307/1426753. JSTOR 1426753.
+
+^ Kelly, F. P. (June 1976). "Networks of Queues". Advances in Applied Probability. 8 (2): 416–432. doi:10.2307/1425912. JSTOR 1425912.
+
+^ Jackson, James R. (December 2004). "Comments on "Jobshop-Like Queueing Systems": The Background". Management Science. 50 (12): 1796–1802. doi:10.1287/mnsc.1040.0268. JSTOR 30046150.
+
+^ Jackson, James R. (Oct 1963). "Jobshop-like Queueing Systems". Management Science. 10 (1): 131–142. doi:10.1287/mnsc.1040.0268. JSTOR 2627213. A version from January 1963 is available at http://www.dtic.mil/dtic/tr/fulltext/u2/296776.pdf Archived 2018-04-12 at the Wayback Machine
+
+^ Jackson, J. R. (1957). "Networks of Waiting Lines". Operations Research. 5 (4): 518–521. doi:10.1287/opre.5.4.518. JSTOR 167249.
+
+^ Jackson, James R. (December 2004). "Jobshop-Like Queueing Systems". Management Science. 50 (12): 1796–1802. doi:10.1287/mnsc.1040.0268. JSTOR 30046149.
+
+^ Reich, Edgar (September 1957). "Waiting Times When Queues are in Tandem". Annals of Mathematical Statistics. 28 (3): 768. doi:10.1214/aoms/1177706889. JSTOR 2237237.
+
+^ Walrand, Jean (November 1983). "A Probabilistic Look at Networks of Quasi-Reversible Queues". IEEE Transactions on Information Theory. 29 (6): 825. doi:10.1109/TIT.1983.1056762.
+
+^ Jackson, R. R. P. (1995). "Book review: Queueing networks and product forms: a systems approach". IMA Journal of Management Mathematics. 6 (4): 382–384. doi:10.1093/imaman/6.4.382.
+
+^ Gordon, W. J.; Newell, G. F. (1967). "Closed Queuing Systems with Exponential Servers". Operations Research. 15 (2): 254. doi:10.1287/opre.15.2.254. JSTOR 168557.
+
+^ Goodman, Jonathan B.; Massey, William A. (December 1984). "The Non-Ergodic Jackson Network". Journal of Applied Probability. 21 (4): 860–869. doi:10.2307/3213702.
+
+^ Walrand, J.; Varaiya, P. (December 1980). "Sojourn Times and the Overtaking Condition in Jacksonian Networks". Advances in Applied Probability. 12 (4): 1000–1018. doi:10.2307/1426753.
+
+^ Chen, Hong; Yao, David D. (2001). Fundamentals of Queueing Networks: Performance, Asymptotics, and Optimization. Springer. ISBN 0-387-95166-0.
+
+
+vteQueueing theorySingle queueing nodes
+D/M/1 queue
+M/D/1 queue
+M/D/c queue
+M/M/1 queue
+Burke's theorem
+M/M/c queue
+M/M/∞ queue
+M/G/1 queue
+Pollaczek–Khinchine formula
+Matrix analytic method
+M/G/k queue
+G/M/1 queue
+G/G/1 queue
+Kingman's formula
+Lindley equation
+Fork–join queue
+Bulk queue
+Arrival processes
+Poisson point process
+Markovian arrival process
+Rational arrival process
+Queueing networks
+Jackson network
+Traffic equations
+Gordon–Newell theorem
+Mean value analysis
+Buzen's algorithm
+Kelly network
+G-network
+BCMP network
+Service policies
+FIFO
+LIFO
+Processor sharing
+Round-robin
+Shortest job next
+Shortest remaining time
+Key concepts
+Continuous-time Markov chain
+Kendall's notation
+Little's law
+Product-form solution
+Balance equation
+Quasireversibility
+Flow-equivalent server method
+Arrival theorem
+Decomposition method
+Beneš method
+Limit theorems
+Fluid limit
+Mean-field theory
+Heavy traffic approximation
+Reflected Brownian motion
+Extensions
+Fluid queue
+Layered queueing network
+Polling system
+Adversarial queueing network
+Loss network
+Retrial queue
+Information systems
+Data buffer
+Erlang (unit)
+Erlang distribution
+Flow control (data)
+Message queue
+Network congestion
+Network scheduler
+Pipeline (software)
+Quality of service
+Scheduling (computing)
+Teletraffic engineering
+ Category
+
+
+

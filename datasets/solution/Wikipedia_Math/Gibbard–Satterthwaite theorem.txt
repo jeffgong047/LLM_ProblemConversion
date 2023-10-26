@@ -1,0 +1,170 @@
+Social choice theory regarding electoral systems
+
+In social choice theory, the Gibbard–Satterthwaite theorem is a result published independently by philosopher Allan Gibbard in 1973[1] and economist Mark Satterthwaite in 1975.[2] It deals with deterministic ordinal electoral systems that choose a single winner. It states that for every voting rule, one of the following three things must hold:
+
+The rule is dictatorial, i.e. there exists a distinguished voter who can choose the winner; or
+The rule limits the possible outcomes to two alternatives only; or
+The rule is susceptible to tactical voting: in certain conditions, a voter's sincere ballot may not best defend their opinion.
+While the scope of this theorem is limited to ordinal voting, Gibbard's theorem is more general, in that it deals with processes of collective decision that may not be ordinal: for example, voting systems where voters assign grades to candidates. Gibbard's 1978 theorem and Hylland's theorem are even more general and extend these results to non-deterministic processes, i.e. where the outcome may not only depend on the voters' actions but may also involve a part of chance.
+
+
+Informal description[edit]
+Consider three voters named Alice, Bob and Carol, who wish to select a winner among four candidates named a, b, c and d. Assume that they use the Borda count: each voter communicates his or her preference order over the candidates. For each ballot, 3 points are assigned to the top candidate, 2 points to the second candidate, 1 point to the third one and 0 points to the last one. Once all ballots have been counted, the candidate with the most points is declared the winner.
+Assume that their preferences are as follows.
+
+
+
+Voter
+Choice 1
+Choice 2
+Choice 3
+Choice 4
+
+
+Alice
+a
+b
+c
+d
+
+
+Bob
+c
+b
+d
+a
+
+
+Carol
+c
+b
+d
+a
+
+If the voters cast sincere ballots, then the scores are: (a:3,b:6,c:7,d:2)(a:3,b:6,c:7,d:2). Hence, candidate c will be elected, with 7 points.
+But Alice can vote strategically and change the result. Assume that she modifies her ballot, in order to produce the following situation.
+
+
+
+Voter
+Choice 1
+Choice 2
+Choice 3
+Choice 4
+
+
+Alice
+b
+a
+d
+c
+
+
+Bob
+c
+b
+d
+a
+
+
+Carol
+c
+b
+d
+a
+
+Alice has strategically upgraded candidate b and downgraded candidate c. Now, the scores are: (a:2,b:7,c:6,d:3)(a:2,b:7,c:6,d:3). Hence, b is elected. Alice is satisfied by her ballot modification, because she prefers the outcome b to c, which is the outcome she would obtain if she voted sincerely.
+We say that the Borda count is manipulable: there exists situations where a sincere ballot does not defend a voter's preferences best.
+The Gibbard–Satterthwaite theorem states that every voting rule is manipulable, except possibly in two cases: if there is a distinguished voter who has a dictatorial power, or if the rule limits the possible outcomes to two options only.
+
+Formal statement[edit]
+Let A𝒜 be the set of alternatives (which is assumed finite), also called candidates, even if they are not necessarily persons: they can also be several possible decisions about a given issue. We denote by N=1,…,n𝒩={1,…,n} the set of voters. Let P𝒫 be the set of strict weak orders over A𝒜: an element of this set can represent the preferences of a voter, where a voter may be indifferent regarding the ordering of some alternatives. A voting rule is a function f:Pn→A:𝒫^n→𝒜. Its input is a profile of preferences (P1,…,Pn)∈Pn(P_1,…,P_n)∈𝒫^n and it yields the identity of the winning candidate.
+We say that f is manipulable if and only if there exists a profile (P1,…,Pn)∈Pn(P_1,…,P_n)∈𝒫^n where some voter i, by replacing her ballot Pi_i with another ballot Pi′_i', can get an outcome that she prefers (in the sense of Pi_i).
+We denote by f(Pn)(𝒫^n) the image of f, i.e. the set of possible outcomes for the election. For example, we say that f has at least three possible outcomes if and only if the cardinality of f(Pn)(𝒫^n) is 3 or more.
+We say that f is dictatorial if and only if there exists a voter i who is a dictator, in the sense that the winning alternative is always her most-liked one among the possible outcomes regardless of the preferences of other voters. If the dictator has several equally most-liked alternatives among the possible outcomes, then the winning alternative is simply one of them.
+
+
+Gibbard–Satterthwaite theorem — If a voting rule has at least 3 possible outcomes and is non-dictatorial, then it is manipulable.
+
+
+Examples[edit]
+Serial dictatorship[edit]
+The serial dictatorship is defined as follows. If voter 1 has a unique most-liked candidate, then this candidate is elected. Otherwise, possible outcomes are restricted to the most-liked candidates, whereas the other candidates are eliminated. Then voter 2's ballot is examined: if there is a unique best-liked candidate among the non-eliminated ones, then this candidate is elected. Otherwise, the list of possible outcomes is reduced again, etc. If there are still several non-eliminated candidates after all ballots have been examined, then an arbitrary tie-breaking rule is used.
+This voting rule is not manipulable: a voter is always better off communicating his or her sincere preferences. It is also dictatorial, and its dictator is voter 1: the winning alternative is always that specific voter's most-liked one or, if there are several most-liked alternatives, it is chosen among them.
+
+Simple majority vote[edit]
+If there are only 2 possible outcomes, a voting rule may be non-manipulable without being dictatorial. For example, it is the case of the simple majority vote: each voter assigns 1 point to her top alternative and 0 to the other, and the alternative with most points is declared the winner. (If both alternatives reach the same number of points, the tie is broken in an arbitrary but deterministic manner, e.g. outcome  a wins.) This voting rule is not manipulable because a voter is always better off communicating her sincere preferences; and it is clearly not dictatorial. Many other rules are neither manipulable nor dictatorial: for example, assume that the alternative a wins if it gets two thirds of the votes, and b wins otherwise.
+
+A game form showing that the converse does not hold[edit]
+Consider the following rule. All candidates are eliminated, except the candidate or candidates that are placed in top position in voter 1's ballot. Then, among the non-eliminated candidates, one is elected using the Borda count. This whole process is dictatorial, by definition. However, it is manipulable, for the same reasons as the usual Borda count. Thus, the Gibbard–Satterthwaite theorem is an implication and not an equivalence.
+
+Corollary[edit]
+We now consider the case where by assumption, a voter cannot be indifferent between two candidates. We denote by Lℒ the set of strict total orders over A𝒜 and we define a strict voting rule as a function f:Ln→A:ℒ^n→𝒜. The definitions of possible outcomes, manipulable, dictatorial have natural adaptations to this framework.
+For a strict voting rule, the converse of the Gibbard–Satterthwaite theorem is true. Indeed, a strict voting rule is dictatorial if and only if it always selects the most-liked candidate of the dictator among the possible outcomes; in particular, it does not depend on the other voters' ballots. As a consequence, it is not manipulable: the dictator is perfectly defended by her sincere ballot, and the other voters have no impact on the outcome, hence they have no incentive to deviate from sincere voting. Thus, we obtain the following equivalence.
+
+
+Theorem — If a strict voting rule has at least 3 possible outcomes, it is non-manipulable if and only if it is dictatorial.
+
+
+In the theorem, as well as in the corollary, it is not needed to assume that any alternative can be elected. It is only assumed that at least three of them can win, i.e. are possible outcomes of the voting rule. It is possible that some other alternatives can be elected in no circumstances: the theorem and the corollary still apply. However, the corollary is sometimes presented under a less general form:[3] instead of assuming that the rule has at least three possible outcomes, it is sometimes assumed that A𝒜 contains at least three elements and that the voting rule is onto, i.e. every alternative is a possible outcome.[4] The assumption of being onto is sometimes even replaced with the assumption that the rule is unanimous, in the sense that if all voters prefer the same candidate, then she must be elected.[5][6]
+
+Sketch of proof[edit]
+The Gibbard–Satterthwaite theorem can be proved based on Arrow's impossibility theorem, which deals with social ranking functions, i.e. voting systems designed to yield a complete preference order of the candidates, rather than simply choosing a winner. We give a sketch of proof in the simplified case where the voting rule f is assumed to be unanimous. It is possible to build a social ranking function RankRank, as follows: in order to decide whether a≺b, the RankRank function creates new preferences in which a and b are moved to the top of all voters' preferences. Then, RankRank examines whether f chooses a or b. It is possible to prove that, if f is non-manipulable and non-dictatorial, then RankRank satisfies the properties: unanimity, independence of irrelevant alternatives, and it is not a dictatorship. Arrow's impossibility theorem says that, when there are three or more alternatives, such a RankRank function cannot exist. Hence, such a voting rule f also cannot exist.[7]: 214–215 
+
+History[edit]
+The strategic aspect of voting is already noticed in 1876 by Charles Dodgson, also known as Lewis Carroll, a pioneer in social choice theory. His quote (about a particular voting system) was made famous by Duncan Black:[8]This principle of voting makes an election more of a game of skill than a real test of the wishes of the electors.During the 1950s, Robin Farquharson published influential articles on voting theory.[9] In an article with Michael Dummett,[10] he conjectures that deterministic voting rules with at least three issues face endemic tactical voting.[11] This Farquarson-Dummett conjecture is proven independently by Allan Gibbard and Mark Satterthwaite. In a 1973 article, Gibbard exploits Arrow's impossibility theorem from 1951 to prove the result we now know as Gibbard's theorem, and he then deduces the present result, which is an immediate consequence of it.[1] Independently, Satterthwaite proves the same result in his PhD dissertation in 1973, then publishes it in a 1975 article.[2] His proof is also based on Arrow's impossibility theorem, but he doesn't expose the more general version given by Gibbard's theorem. Later, several authors develop variants of the proof, generally shorter, either for the theorem itself or for the corollary and weakened versions we mentioned above.[4][5][6][12][13][14][15][16][17]
+Related results[edit]
+Gibbard's theorem deals with processes of collective choice that may not be ordinal, i.e. where a voter's action may not consist in communicating a preference order over the candidates. Gibbard's 1978 theorem and Hylland's theorem extend these results to non-deterministic mechanisms, i.e. where the outcome may not only depend on the ballots but may also involve a part of chance.
+The Duggan–Schwartz theorem[18] extend this result in another direction, by dealing with deterministic voting rules that choose a nonempty subset of the candidates rather than a single winner.
+
+Posterity[edit]
+The Gibbard–Satterthwaite theorem is generally presented as a result belonging to the field of social choice theory, and applying to voting systems, but it can also be seen as the seminal result of mechanism design, which deals with conceiving rules to make collective decisions, possibly in processes that involve a monetary transfer. Noam Nisan describes this relation:[7]: 215 The GS theorem seems to quash any hope of designing incentive-compatible social-choice functions. The whole field of Mechanism Design attempts escaping from this impossibility result using various modifications in the model.The main idea of these "escape routes" is that they deal only with restricted classes of preferences, in contrast to the Gibbard–Satterthwaite theorem, which deals with arbitrary preferences. For example, in this discipline, it is frequently assumed that agents have quasi-linear preferences, which means that their utility function depends linearly on money. In that case, monetary transfers can be used to induce them to act truthfully. This is the idea behind the successful Vickrey–Clarke–Groves auction.
+See also[edit]
+
+Economy portal
+Gibbard's theorem
+Arrow's impossibility theorem
+Duggan–Schwartz theorem
+References[edit]
+
+
+^ a b Gibbard, Allan (1973). "Manipulation of voting schemes: A general result". Econometrica. 41 (4): 587–601. doi:10.2307/1914083. JSTOR 1914083.
+
+^ a b Satterthwaite, Mark Allen (April 1975). "Strategy-proofness and Arrow's conditions: Existence and correspondence theorems for voting procedures and social welfare functions". Journal of Economic Theory. 10 (2): 187–217. CiteSeerX 10.1.1.471.9842. doi:10.1016/0022-0531(75)90050-2.
+
+^ Weber, Tjark (2009). "Alternatives vs. Outcomes: A Note on the Gibbard-Satterthwaite Theorem". Technical Report (University Library of Munich).
+
+^ a b Reny, Philip J. (2001). "Arrow's Theorem and the Gibbard-Satterthwaite Theorem: A Unified Approach". Economics Letters. 70 (1): 99–105. CiteSeerX 10.1.1.130.1704. doi:10.1016/S0165-1765(00)00332-3.
+
+^ a b Benoît, Jean-Pierre (2000). "The Gibbard-Satterthwaite Theorem: A Simple Proof". Economics Letters. 69 (3): 319–322. doi:10.1016/S0165-1765(00)00312-8. ISSN 0165-1765.
+
+^ a b Sen, Arunava (2001). "Another Direct Proof of the Gibbard-Satterthwaite Theorem" (PDF). Economics Letters. 70 (3): 381–385. doi:10.1016/S0165-1765(00)00362-1. ISSN 0165-1765.
+
+^ a b Vazirani, Vijay V.; Nisan, Noam; Roughgarden, Tim; Tardos, Éva (2007). Algorithmic Game Theory (PDF). Cambridge, UK: Cambridge University Press. ISBN 0-521-87282-0.
+
+^ Black, Duncan (1958). The theory of committees and elections. Cambridge: University Press.
+
+^ Farquharson, Robin (February 1956). "Straightforwardness in voting procedures". Oxford Economic Papers. New Series. 8 (1): 80–89. doi:10.1093/oxfordjournals.oep.a042255. JSTOR 2662065.
+
+^ Dummett, Michael; Farquharson, Robin (January 1961). "Stability in voting". Econometrica. 29 (1): 33–43. doi:10.2307/1907685. JSTOR 1907685.
+
+^ Dummett, Michael (2005). "The work and life of Robin Farquharson". Social Choice and Welfare. 25 (2): 475–483. doi:10.1007/s00355-005-0014-x. JSTOR 41106711. S2CID 27639067.
+
+^ Gärdenfors, Peter (1977). "A Concise Proof of Theorem on Manipulation of Social Choice Functions". Public Choice. 32: 137–142. doi:10.1007/bf01718676. ISSN 0048-5829. JSTOR 30023000. S2CID 153421058.
+
+^ Barberá, Salvador (1983). "Strategy-Proofness and Pivotal Voters: A Direct Proof of the Gibbard-Satterthwaite Theorem". International Economic Review. 24 (2): 413–417. doi:10.2307/2648754. ISSN 0020-6598. JSTOR 2648754.
+
+^ Dummett, Michael (1984). Voting Procedures. Oxford University Press. ISBN 978-0198761884.
+
+^ Fara, Rudolf; Salles, Maurice (2006). "An interview with Michael Dummett: From analytical philosophy to voting analysis and beyond" (PDF). Social Choice and Welfare. 27 (2): 347–364. doi:10.1007/s00355-006-0128-9. JSTOR 41106783. S2CID 46164353.
+
+^ Moulin, Hervé (1991). Axioms of Cooperative Decision Making. Cambridge University Press. ISBN 9780521424585. Retrieved 10 January 2016.
+
+^ Taylor, Alan D. (April 2002). "The manipulability of voting systems". The American Mathematical Monthly. 109 (4): 321–337. doi:10.2307/2695497. JSTOR 2695497.
+
+^ Duggan, John; Schwartz, Thomas (2000). "Strategic manipulability without resoluteness or shared beliefs: Gibbard-Satterthwaite generalized". Social Choice and Welfare. 17 (1): 85–93. doi:10.1007/PL00007177. ISSN 0176-1714. JSTOR 41106341. S2CID 271833.
+
+
+
+
+

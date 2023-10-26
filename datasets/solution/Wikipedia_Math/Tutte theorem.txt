@@ -1,0 +1,57 @@
+Characterization of graphs with perfect matchings
+Not to be confused with Tutte homotopy theorem or Tutte's spring theorem.
+Example of a graph and one of its perfect matching (in red).
+In the mathematical discipline of graph theory the Tutte theorem, named after William Thomas Tutte, is a characterization of finite undirected graphs with perfect matchings. It is a generalization of Hall's marriage theorem from bipartite to arbitrary graphs.[clarification needed] It is a special case of the Tutte–Berge formula.
+
+
+Intuition[edit]
+An graph (or a component) with an odd number of vertices cannot have a perfect matching, since there will always be a vertex left alone.
+Our goal is to characterize all graphs that do not have a perfect matching. Let us start with the most obvious case of a graph without a perfect matching: a graph with an odd number of vertices. In such a graph, any matching leaves at least one unmatched vertex, so it cannot be perfect. 
+A slightly more general case is a disconnected graph in which one or more components have an odd number of vertices (even if the total number of vertices is even). Let us call such components odd components. In any matching, each vertex can only be matched to vertices in the same component. Therefore, any matching leaves at least one unmatched vertex in every odd component, so it cannot be perfect.
+Next, consider a graph G with a vertex u such that, if we remove from G the vertex u and its adjacent edges, the remaining graph (denoted G − u) has two or more odd components. As above, any matching leaves, in every odd component, at least one vertex that is unmatched to other vertices in the same component. Such a vertex can only be matched to u. But since there are two or more unmatched vertices, and only one of them can be matched to u, at least one other vertex remains unmatched, so the matching is not perfect.
+Finally, consider a graph G with a set of vertices U such that, if we remove from G the vertices in U and all edges adjacent to them, the remaining graph (denoted G − U) has more than |U| odd components. As explained above, any matching leaves at least one unmatched vertex in every odd component, and these can be matched only to vertices of U - but there are not enough vertices on U for all these unmatched vertices, so the matching is not perfect.
+We have arrived at a necessary condition: if G has a perfect matching, then for every vertex subset U in G, the graph G − U has at most |U| odd components. Tutte's theorem says that this condition is both necessary and sufficient for the existence of perfect matching.
+
+Tutte's theorem[edit]
+A graph, G = (V, E), has a perfect matching if and only if for every subset U of V, the subgraph G − U has at most |U| odd components (connected components having an odd number of vertices).[1]
+
+Proof[edit]
+First we write the condition:
+
+(∗)∀U⊆V,odd(G−U)≤|U|(*)    ,(G-U)≤|U|
+where odd(X)(X) denotes the number of odd components of the subgraph induced by X.
+Necessity of (∗): This direction was already discussed in the section Intuition below, but let us sum up here the proof. Consider a graph G, with a perfect matching. Let U be an arbitrary subset of V. Delete U. Let C be an arbitrary odd component in G − U. Since G had a perfect matching, at least one vertex in C must be matched to a vertex in U. Hence, each odd component has at least one vertex matched with a vertex in U. Since each vertex in U can be in this relation with at most one connected component (because of it being matched at most once in a perfect matching), odd(G − U) ≤ |U|.[2]
+Sufficiency of (∗): Let G be an arbitrary graph with no perfect matching. We will find a so-called Tutte violator, that is, a subset S of V such that |S| < odd(G − S). We can suppose that G is edge-maximal, i.e., G + e has a perfect matching for every edge e not present in G already. Indeed, if we find a Tutte violator S in edge-maximal graph G, then S is also a Tutte violator in every spanning subgraph of G, as every odd component of G − S will be split into possibly more components at least one of which will again be odd.
+We define S to be the set of vertices with degree |V| − 1. First we consider the case where all components of G − S are complete graphs. Then S has to be a Tutte violator, since if odd(G − S) ≤ |S|, then we could find a perfect matching by matching one vertex from every odd component with a vertex from S and pairing up all other vertices (this will work unless |V| is odd, but then ∅ is a Tutte violator).
+Now suppose that K is a component of G − S and x, y ∈ K are vertices such that xy ∉ E. Let x, a, b ∈ K be the first vertices on a shortest x,y-path in K. This ensures that xa, ab ∈ E and xb ∉ E. Since a ∉ S, there exists a vertex c such that ac ∉ E. From the edge-maximality of G, we define M1 as a perfect matching in G + xb and M2 as a perfect matching in G + ac. Observe that surely xb ∈ M1 and ac ∈ M2.
+Let P be the maximal path in G that starts from c with an edge from M1 and whose edges alternate between M1 and M2. How can P end? Unless we arrive at 'special' vertex such as x, a or b, we can always continue: c is M2-matched by ca, so the first edge of P is not in M2, therefore the second vertex is M2-matched by a different edge and we continue in this manner.
+Let v denote the last vertex of P. If the last edge of P is in M1, then v has to be a, since otherwise we could continue with an edge from M2 (even to arrive at x or b). In this case we define C:=P + ac. If the last edge of P is in M2, then surely v ∈ {x, b} for analogous reason and we define C:=P + va + ac.
+Now C is a cycle in G + ac of even length with every other edge in M2. We can now define M:=M2 Δ C (where Δ is symmetric difference) and we obtain a perfect matching in G, a contradiction.
+
+Equivalence to the Tutte-Berge formula[edit]
+The Tutte–Berge formula says that the size of a maximum matching of a graph G=(V,E)=(V,E) equals minU⊆V(|U|−odd⁡(G−U)+|V|)/2min_U(|U|-odd(G-U)+|V|)/2. Equivalently, the number of unmatched vertices in a maximum matching equals maxU⊆V(odd⁡(G−U)−|U|)max_U(odd(G-U)-|U|).
+This formula follows from Tutte's theorem, together with the observation that G has a matching of size k if and only if the graph G(k)^(k) obtained by adding |V|−2k|V|-2k new vertices, each joined to every original vertex of G, has a perfect matching. Since any set X which separates G(k)^(k) into more than |X||X| components must contain all the new vertices, (*) is satisfied for G(k)^(k) if and only if k≤minU⊆V(|U|−odd⁡(G−U)+|V|)/2≤min_U(|U|-odd(G-U)+|V|)/2.
+
+In infinite graphs[edit]
+For connected infinite graphs that are locally finite (every vertex has finite degree), a generalization of Tutte's condition holds: such graphs have perfect matchings if and only if there is no finite subset, the removal of which creates a number of finite odd components larger than the size of the subset.[3]
+
+See also[edit]
+Bipartite matching
+Hall's marriage theorem
+Petersen's theorem
+Notes[edit]
+
+
+^ Lovász & Plummer (1986), p.  84; Bondy & Murty (1976), Theorem 5.4, p. 76.
+
+^ Bondy & Murty (1976), pp. 76–78.
+
+^ Tutte, W. T. (1950). "The factorization of locally finite graphs". Canadian Journal of Mathematics. 2: 44–49. doi:10.4153/cjm-1950-005-2. MR 0032986. S2CID 124434131.
+
+
+References[edit]
+Bondy, J. A.; Murty, U. S. R. (1976). Graph theory with applications. New York: American Elsevier Pub. Co. ISBN 0-444-19451-7.
+Lovász, László; Plummer, M. D. (1986). Matching theory. Amsterdam: North-Holland. ISBN 0-444-87916-1.
+
+
+

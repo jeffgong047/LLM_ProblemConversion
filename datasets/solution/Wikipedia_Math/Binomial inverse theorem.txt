@@ -1,0 +1,214 @@
+
+
+Theorem of matrix ranks
+In mathematics (specifically linear algebra), the Woodbury matrix identity, named after Max A. Woodbury,[1][2] says that the inverse of a rank-k correction of some matrix can be computed by doing a rank-k correction to the inverse of the original matrix. Alternative names for this formula are the matrix inversion lemma, Sherman–Morrison–Woodbury formula or just Woodbury formula. However, the identity appeared in several papers before the Woodbury report.[3][4]
+The Woodbury matrix identity is[5]
+
+(A+UCV)−1=A−1−A−1U(C−1+VA−1U)−1VA−1,(A+UCV)^-1=A^-1-A^-1U(C^-1+VA^-1U)^-1VA^-1,
+where A, U, C and V are conformable matrices: A is n×n, C is k×k, U is n×k,  and V is k×n. This can be derived using blockwise matrix inversion.
+While the identity is primarily used on matrices, it holds in a general ring or in an Ab-category.
+The Woodbury matrix identity allows cheap computation of inverses and solutions to linear equations. However, little is known about the numerical stability of the formula. There are no published results concerning its error bounds. Anecdotal evidence [6] suggests that it may diverge even for seemingly benign examples (when both the original and modified matrices are well-conditioned).
+
+
+Discussion[edit]
+To prove this result, we will start by proving a simpler one.  Replacing A and C with the identity matrix I, we obtain another identity which  is a bit simpler:
+
+(I+UV)−1=I−U(I+VU)−1V.(I+UV)^-1=I-U(I+VU)^-1V.
+To recover the original equation from this reduced identity, set U=A−1X=A^-1X and V=CY=CY.
+This identity itself can be viewed as the combination of two simpler identities. We obtain the first identity from
+
+I=(I+P)−1(I+P)=(I+P)−1+(I+P)−1P=(I+P)^-1(I+P)=(I+P)^-1+(I+P)^-1P,
+thus,
+
+(I+P)−1=I−(I+P)−1P(I+P)^-1=I-(I+P)^-1P,
+and similarly
+
+(I+P)−1=I−P(I+P)−1.(I+P)^-1=I-P(I+P)^-1.
+The second identity is the so-called push-through identity[7]
+
+(I+UV)−1U=U(I+VU)−1(I+UV)^-1U=U(I+VU)^-1
+that we obtain from
+
+U(I+VU)=(I+UV)U(I+VU)=(I+UV)U
+after multiplying by (I+VU)−1(I+VU)^-1 on the right and by (I+UV)−1(I+UV)^-1 on the left.
+Putting all together,
+
+(I+UV)−1=I−UV(I+UV)−1=I−U(I+VU)−1V.(I+UV)^-1=I-UV(I+UV)^-1=I-U(I+VU)^-1V.
+where the first and second equality come from the first and second identity, respectively.
+
+Special cases[edit]
+When V,U,U are vectors, the identity reduces to the Sherman–Morrison formula.
+In the scalar case, the reduced version is simply
+
+11+uv=1−uv1+uv.1/1+uv=1-uv/1+uv.
+Inverse of a sum[edit]
+If n = k and U = V = In is the identity matrix, then
+
+(A+B)−1=A−1−A−1(B−1+A−1)−1A−1=A−1−A−1(AB−1+I)−1.(A+B)^-1   =A^-1-A^-1(B^-1+A^-1)^-1A^-1
+   =A^-1-A^-1(AB^-1+I)^-1.
+Continuing with the merging of the terms of the far right-hand side of the above equation results in Hua's identity
+
+(A+B)−1=A−1−(A+AB−1A)−1.(A+B)^-1=A^-1-(A+AB^-1A)^-1.
+Another useful form of the same identity is
+
+(A−B)−1=A−1+A−1B(A−B)−1,(A-B)^-1=A^-1+A^-1B(A-B)^-1,
+which, unlike those above, is valid even if B is singular, and has a recursive structure that yields
+
+(A−B)−1=∑k=0∞(A−1B)kA−1(A-B)^-1=∑_k=0^∞(A^-1B)^kA^-1
+if the spectral radius of A−1B^-1B is less than one.  That is, if the above sum converges then it is equal to (A−B)−1(A-B)^-1.
+This form can be used in perturbative expansions where B is a perturbation of A.
+
+Variations[edit]
+Binomial inverse theorem[edit]
+If A, B, U, V are matrices of sizes n×n, k×k, n×k, k×n, respectively, then
+
+(A+UBV)−1=A−1−A−1UB(B+BVA−1UB)−1BVA−1(A+UBV)^-1=A^-1-A^-1UB(B+BVA^-1UB)^-1BVA^-1
+provided A and B + BVA−1UB are nonsingular. Nonsingularity of the latter requires that B−1 exist since it equals B(I + VA−1UB) and the rank of the latter cannot exceed the rank of B.[7]
+Since B is invertible, the two B terms flanking the parenthetical quantity inverse in the right-hand side can be replaced with (B−1)−1, which results in the original Woodbury identity.
+A variation for when B is singular and possibly even non-square:[7]
+
+(A+UBV)−1=A−1−A−1U(I+BVA−1U)−1BVA−1.(A+UBV)^-1=A^-1-A^-1U(I+BVA^-1U)^-1BVA^-1.
+Formulas also exist for certain cases in which A is singular.[8]
+
+Pseudoinverse with positive semidefinite matrices[edit]
+In general Woodbury's identity is not valid if one or more inverses are replaced by (Moore–Penrose) pseudoinverses. However, if A and C are positive semidefinite, and V=UH=U^H (implying that A+UCV+UCV is itself positive semidefinite), then the following formula provides a generalization:[9][10]
+
+(XXH+YYH)+=(ZZH)++(I−YZ+)HX+HEX+(I−YZ+),Z=(I−XX+)Y,E=I−X+Y(I−Z+Z)F−1(X+Y)H,F=I+(I−Z+Z)YH(XXH)+Y(I−Z+Z),(XX^H+YY^H)^+   =(ZZ^H)^++(I-YZ^+)^HX^+HEX^+(I-YZ^+),
+Z   =(I-XX^+)Y,
+E   =I-X^+Y(I-Z^+Z)F^-1(X^+Y)^H,
+F   =I+(I-Z^+Z)Y^H(XX^H)^+Y(I-Z^+Z),
+where A+UCUH+UCU^H can be written as XXH+YYH^H+YY^H because any positive semidefinite matrix is equal to MMH^H for some M.
+
+Derivations[edit]
+Direct proof[edit]
+The formula can be proven by checking that (A+UCV)(A+UCV) times its alleged inverse on the right side of the Woodbury identity gives the identity matrix:
+
+(A+UCV)[A−1−A−1U(C−1+VA−1U)−1VA−1]=I−U(C−1+VA−1U)−1VA−1+UCVA−1−UCVA−1U(C−1+VA−1U)−1VA−1=I+UCVA−1−U(C−1+VA−1U)−1VA−1+UCVA−1U(C−1+VA−1U)−1VA−1=I+UCVA−1−(U+UCVA−1U)(C−1+VA−1U)−1VA−1=I+UCVA−1−UC(C−1+VA−1U)(C−1+VA−1U)−1VA−1=I+UCVA−1−UCVA−1=I.   (A+UCV)[A^-1-A^-1U(C^-1+VA^-1U)^-1VA^-1]
+=   {I-U(C^-1+VA^-1U)^-1VA^-1}+{UCVA^-1-UCVA^-1U(C^-1+VA^-1U)^-1VA^-1}
+=   {I+UCVA^-1}-{U(C^-1+VA^-1U)^-1VA^-1+UCVA^-1U(C^-1+VA^-1U)^-1VA^-1}
+=   I+UCVA^-1-(U+UCVA^-1U)(C^-1+VA^-1U)^-1VA^-1
+=   I+UCVA^-1-UC(C^-1+VA^-1U)(C^-1+VA^-1U)^-1VA^-1
+=   I+UCVA^-1-UCVA^-1
+=   I.
+Alternative proofs[edit]
+
+
+
+Algebraic proof
+
+
+
+First consider these useful identities,
+
+U+UCVA−1U=UC(C−1+VA−1U)=(A+UCV)A−1U(A+UCV)−1UC=A−1U(C−1+VA−1U)−1U+UCVA^-1U   =UC(C^-1+VA^-1U)=(A+UCV)A^-1U
+(A+UCV)^-1UC   =A^-1U(C^-1+VA^-1U)^-1
+Now, 
+
+A−1=(A+UCV)−1(A+UCV)A−1=(A+UCV)−1(I+UCVA−1)=(A+UCV)−1+(A+UCV)−1UCVA−1=(A+UCV)−1+A−1U(C−1+VA−1U)−1VA−1.A^-1   =(A+UCV)^-1(A+UCV)A^-1
+   =(A+UCV)^-1(I+UCVA^-1)
+   =(A+UCV)^-1+(A+UCV)^-1UCVA^-1
+   =(A+UCV)^-1+A^-1U(C^-1+VA^-1U)^-1VA^-1.
+
+
+
+
+Derivation via blockwise elimination
+
+
+
+Deriving the Woodbury matrix identity is easily done by solving the following block matrix inversion problem
+
+[AUV−C−1][XY]=[I0].[     A     U;     V -C^-1 ][ X; Y ]=[ I; 0 ].
+Expanding, we can see that the above reduces to
+
+AX+UY=IVX−C−1Y=0AX+UY=I
+VX-C^-1Y=0
+which is equivalent to (A+UCV)X=I(A+UCV)X=I. Eliminating the first equation, we find that X=A−1(I−UY)=A^-1(I-UY), which can be substituted into the second to find VA−1(I−UY)=C−1Y^-1(I-UY)=C^-1Y. Expanding and rearranging, we have VA−1=(C−1+VA−1U)Y^-1=(C^-1+VA^-1U)Y, or (C−1+VA−1U)−1VA−1=Y(C^-1+VA^-1U)^-1VA^-1=Y. Finally, we substitute into our AX+UY=I+UY=I, and we have AX+U(C−1+VA−1U)−1VA−1=I+U(C^-1+VA^-1U)^-1VA^-1=I. Thus,
+
+(A+UCV)−1=X=A−1−A−1U(C−1+VA−1U)−1VA−1.(A+UCV)^-1=X=A^-1-A^-1U(C^-1+VA^-1U)^-1VA^-1.
+We have derived the Woodbury matrix identity.
+
+
+
+
+
+Derivation from LDU decomposition
+
+
+
+We start by the matrix
+
+[AUVC][ A U; V C ]
+By eliminating the entry under the A (given that A is invertible) we get
+
+[I0−VA−1I][AUVC]=[AU0C−VA−1U][      I      0; -VA^-1      I ][ A U; V C ]=[        A        U;        0 C-VA^-1U ]
+Likewise, eliminating the entry above C gives
+
+[AUVC][I−A−1U0I]=[A0VC−VA−1U][ A U; V C ][      I -A^-1U;      0      I ]=[        A        0;        V C-VA^-1U ]
+Now combining the above two, we get
+
+[I0−VA−1I][AUVC][I−A−1U0I]=[A00C−VA−1U][      I      0; -VA^-1      I ][ A U; V C ][      I -A^-1U;      0      I ]=[        A        0;        0 C-VA^-1U ]
+Moving to the right side gives
+
+[AUVC]=[I0VA−1I][A00C−VA−1U][IA−1U0I][ A U; V C ]=[     I     0; VA^-1     I ][        A        0;        0 C-VA^-1U ][     I A^-1U;     0     I ]
+which is the LDU decomposition of the block matrix into an upper triangular, diagonal, and lower triangular matrices.
+Now inverting both sides gives
+
+[AUVC]−1=[IA−1U0I]−1[A00C−VA−1U]−1[I0VA−1I]−1=[I−A−1U0I][A−100(C−VA−1U)−1][I0−VA−1I]=[A−1+A−1U(C−VA−1U)−1VA−1−A−1U(C−VA−1U)−1−(C−VA−1U)−1VA−1(C−VA−1U)−1](1)[ A U; V C ]^-1   =[     I A^-1U;     0     I ]^-1[        A        0;        0 C-VA^-1U ]^-1[     I     0; VA^-1     I ]^-1
+   =[      I -A^-1U;      0      I ][          A^-1             0;             0 (C-VA^-1U)^-1 ][      I      0; -VA^-1      I ]
+   =[ A^-1+A^-1U(C-VA^-1U)^-1VA^-1          -A^-1U(C-VA^-1U)^-1;          -(C-VA^-1U)^-1VA^-1                (C-VA^-1U)^-1 ]    (1)
+We could equally well have done it the other way (provided that C is invertible) i.e.
+
+[AUVC]=[IUC−10I][A−UC−1V00C][I0C−1VI][ A U; V C ]=[     I UC^-1;     0     I ][ A-UC^-1V        0;        0        C ][     I     0; C^-1V     I ]
+Now again inverting both sides,
+
+[AUVC]−1=[I0C−1VI]−1[A−UC−1V00C]−1[IUC−10I]−1=[I0−C−1VI][(A−UC−1V)−100C−1][I−UC−10I]=[(A−UC−1V)−1−(A−UC−1V)−1UC−1−C−1V(A−UC−1V)−1C−1+C−1V(A−UC−1V)−1UC−1](2)[ A U; V C ]^-1   =[     I     0; C^-1V     I ]^-1[ A-UC^-1V        0;        0        C ]^-1[     I UC^-1;     0     I ]^-1
+   =[      I      0; -C^-1V      I ][ (A-UC^-1V)^-1             0;             0          C^-1 ][      I -UC^-1;      0      I ]
+   =[                (A-UC^-1V)^-1          -(A-UC^-1V)^-1UC^-1;          -C^-1V(A-UC^-1V)^-1 C^-1+C^-1V(A-UC^-1V)^-1UC^-1 ]    (2)
+Now comparing elements (1, 1) of the RHS of (1) and (2) above gives the Woodbury formula
+
+(A−UC−1V)−1=A−1+A−1U(C−VA−1U)−1VA−1.(A-UC^-1V)^-1=A^-1+A^-1U(C-VA^-1U)^-1VA^-1.
+
+Applications[edit]
+This identity is useful in certain numerical computations where A−1 has already been computed and it is desired to compute (A + UCV)−1.  With the inverse of A available, it is only necessary to find the inverse of C−1 + VA−1U in order to obtain the result using the right-hand side of the identity.  If C has a much smaller dimension than A, this is more efficient than inverting A + UCV directly. A common case is finding the inverse of a low-rank update A + UCV of A (where U only has a few columns and V only a few rows), or finding an approximation of the inverse of the matrix A + B where the matrix B can be approximated by a low-rank matrix UCV, for example using the singular value decomposition.
+This is applied, e.g., in the Kalman filter and recursive least squares methods, to replace the parametric solution, requiring inversion of a state vector sized matrix, with a condition equations based solution. In case of the Kalman filter this matrix has the dimensions of the vector of observations, i.e., as small as 1 in case only one new observation is processed at a time. This significantly speeds up the often real time calculations of the filter.
+In the case when C is the identity matrix I, the matrix I+VA−1U+VA^-1U is known in numerical linear algebra and numerical partial differential equations as the capacitance matrix.[4]
+
+See also[edit]
+Sherman–Morrison formula
+Schur complement
+Matrix determinant lemma, formula for a rank-k update to a determinant
+Invertible matrix
+Moore–Penrose pseudoinverse#Updating the pseudoinverse
+Notes[edit]
+
+
+^ Max A. Woodbury, Inverting modified matrices, Memorandum Rept. 42, Statistical Research Group, Princeton University, Princeton, NJ, 1950, 4pp MR38136
+
+^ Max A. Woodbury, The Stability of Out-Input Matrices. Chicago, Ill., 1949. 5 pp. MR32564
+
+^ Guttmann, Louis (1946). "Enlargement methods for computing the inverse matrix". Ann. Math. Statist. 17 (3): 336–343. doi:10.1214/aoms/1177730946.
+
+^ a b Hager, William W. (1989). "Updating the inverse of a matrix". SIAM Review. 31 (2): 221–239. doi:10.1137/1031049. JSTOR 2030425. MR 0997457.
+
+^ Higham, Nicholas (2002). Accuracy and Stability of Numerical Algorithms (2nd ed.). SIAM. p. 258. ISBN 978-0-89871-521-7. MR 1927606.
+
+^ 
+"MathOverflow discussion". MathOverflow.
+
+^ a b c Henderson, H. V.; Searle, S. R. (1981). "On deriving the inverse of a sum of matrices" (PDF). SIAM Review. 23 (1): 53–60. doi:10.1137/1023004. hdl:1813/32749. JSTOR 2029838.
+
+^ Kurt S. Riedel, "A Sherman–Morrison–Woodbury Identity for Rank Augmenting Matrices with Application to Centering", SIAM Journal on Matrix Analysis and Applications, 13 (1992)659-662, doi:10.1137/0613040 preprint MR1152773
+
+^ Bernstein, Dennis S. (2018). Scalar, Vector, and Matrix Mathematics: Theory, Facts, and Formulas (Revised and expanded ed.). Princeton: Princeton University Press. p. 638. ISBN 9780691151205.
+
+^ Schott, James R. (2017). Matrix analysis for statistics (Third ed.). Hoboken, New Jersey: John Wiley & Sons, Inc. p. 219. ISBN 9781119092483.
+
+
+Press, WH; Teukolsky, SA; Vetterling, WT; Flannery, BP (2007), "Section 2.7.3. Woodbury Formula", Numerical Recipes: The Art of Scientific Computing (3rd ed.), New York: Cambridge University Press, ISBN 978-0-521-88068-8
+External links[edit]
+Some matrix identities
+Weisstein, Eric W. "Woodbury formula". MathWorld.
+
+
+

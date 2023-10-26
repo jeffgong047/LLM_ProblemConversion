@@ -1,0 +1,342 @@
+Feed-forward neural network with a 1 hidden layer can approximate continuous functions
+This article may be too technical for most readers to understand. Please help improve it to make it understandable to non-experts, without removing the technical details. (July 2023) (Learn how and when to remove this template message)
+In the mathematical theory of artificial neural networks, universal approximation theorems are results[1][2] that put limits on what neural networks can theoretically learn, i.e. that establish the density of an algorithmically generated class of functions within a given function space of interest.  Typically, these results concern the approximation capabilities of the feedforward architecture on the space of continuous functions between two Euclidean spaces, and the approximation is with respect to the compact convergence topology. What must be stressed, is that while some functions can be arbitrarily well approximated in a region, the proofs do not apply outside of the region, i.e. the approximated functions do not extrapolate outside of the region. That applies for all non-periodic activation functions, i.e. what's in practice used and most proofs assume.
+However, there are also a variety of results between non-Euclidean spaces[3] and other commonly used architectures and, more generally, algorithmically generated sets of functions, such as the convolutional neural network (CNN) architecture,[4][5] radial basis functions,[6] or neural networks with specific properties.[7][8] Most universal approximation theorems can be parsed into two classes. The first quantifies the approximation capabilities of neural networks with an arbitrary number of artificial neurons ("arbitrary width" case) and the second focuses on the case with an arbitrary number of hidden layers, each containing a limited number of artificial neurons ("arbitrary depth" case). In addition to these two classes, there are also universal approximation theorems for neural networks with bounded number of hidden layers and a limited number of neurons in each layer ("bounded depth and bounded width" case).
+Universal approximation theorems imply that neural networks can represent a wide variety of interesting functions with appropriate weights. On the other hand, they typically do not provide a construction for the weights, but merely state that such a construction is possible. To construct the weight, neural networks are trained, and they may converge on the correct weights, or not (i.e. get stuck in a local optimum). If the network is too small (for the dimensions of input data) then the universal approximation theorems do not apply, i.e. the networks will not learn. What was once proven about the depth of a network, i.e. a single hidden layer enough, only applies for one dimension, in general such a network is too shallow. The width of a network is also an important hyperparameter. The choice of an activation function is also important, and some work, and proofs written about, assume e.g. ReLU (or sigmoid) used, while some, such as a linear are known to not work (nor any polynominal).
+Neural networks with an unbounded (non-polynomial) activation function have the universal approximation property.[9]
+The universal approximation property of width-bounded networks has been studied as a dual of classical universal approximation results on depth-bounded networks. For input dimension dx and output dimension dy  the minimum width required for the universal approximation of the Lp functions is exactly max{dx + 1, dy} (for a ReLU network).  More generally this also holds if both ReLU and a threshold activation function are used.[10]
+
+
+History[edit]
+One of the first versions of the arbitrary width case was proven by George Cybenko in 1989 for sigmoid activation functions.[11] Kurt Hornik [de], Maxwell Stinchcombe, and Halbert White showed in 1989 that multilayer feed-forward networks with as few as one hidden layer are universal approximators.[1] Hornik also showed in 1991[12] that it is not the specific choice of the activation function but rather the multilayer feed-forward architecture itself that gives neural networks the potential of being universal approximators. Moshe Leshno et al in 1993[13] and later Allan Pinkus in 1999[14] showed that the universal approximation property is equivalent to having a nonpolynomial activation function.  In 2022, Shen Zuowei, Haizhao Yang, and Shijun Zhang[15] obtained precise quantitative information on the depth and width required to approximate a target function by deep and wide ReLU neural networks.
+The arbitrary depth case was also studied by a number of authors such as Gustaf Gripenberg in 2003,[16] Dmitry Yarotsky,[17] Zhou Lu et al in 2017,[18] Boris Hanin and Mark Sellke in 2018[19] who focused on neural networks with ReLU activation function.  In 2020, Patrick Kidger and Terry Lyons[20] extended those results to neural networks with general activation functions such, e.g. tanh, GeLU, or Swish, and in 2022, their result was made quantitative by Leonie Papon and Anastasis Kratsios[21] who derived explicit depth estimates depending on the regularity of the target function and of the activation function.
+The question of minimal possible width for universality was first studied in 2021, Park et al obtained the minimum width required for the universal approximation of Lp functions using feed-forward neural networks with ReLU as activation functions.[10] Similar results that can be directly applied to residual neural networks were also obtained in the same year by Paulo Tabuada and Bahman Gharesifard using control-theoretic arguments.[22][23] In 2023, Cai[24] obtained the optimal minimum width bound for the universal approximation.
+The bounded depth and bounded width case was first studied by Maiorov and Pinkus in 1999.[25] They showed that there exists an analytic sigmoidal activation function such that two hidden layer neural networks with bounded number of units in hidden layers are universal approximators. 
+Using algorithmic and computer programming techniques, Guliyev and Ismailov constructed a smooth sigmoidal activation function providing universal approximation property for two hidden layer feedforward neural networks with less units in hidden layers.[26] It was constructively proved in 2018 paper[27] that single hidden layer networks with bounded width are still universal approximators for univariate functions, but this property is no longer true for multivariable functions.
+Several extensions of the theorem exist, such as to discontinuous activation functions,[13] noncompact domains,[20] certifiable networks,[28] 
+random neural networks,[29] and alternative network architectures and topologies.[20][30]
+
+Arbitrary-width case[edit]
+A spate of papers in the 1980s—1990s, from George Cybenko and Kurt Hornik [de] etc, established several universal approximation theorems for arbitrary width and bounded depth.[31][11][32][12] See[33][34][14] for reviews. The following is the most often quoted:
+Universal approximation theorem — Let C(X,Rm)(X,ℝ^m) denote the set of continuous functions from a subset X of a Euclidean Rnℝ^n space to a Euclidean space Rmℝ^m. Let σ∈C(R,R)σ(ℝ,ℝ). Note that (σ∘x)i=σ(xi)(σ)_i=σ(x_i), so σ∘xσ denotes σσ applied to each component of x.
+Then σσ is not polynomial if and only if for every n∈N∈ℕ, m∈N∈ℕ, compact K⊆Rn⊆ℝ^n, f∈C(K,Rm),ε>0(K,ℝ^m),ε>0 there exist k∈N∈ℕ, A∈Rk×n∈ℝ^k, b∈Rk∈ℝ^k, C∈Rm×k∈ℝ^m such that
+supx∈K‖f(x)−g(x)‖<εsup_xf(x)-g(x)<ε
+where
+g(x)=C⋅(σ∘(A⋅x+b))(x)=C·(σ∘(A+b))
+
+
+Such an f can also be approximated by a network of greater depth by using the same construction for the first layer and approximating the identity function with later layers.
+
+Proof sketch
+It suffices to prove the case where m=1=1, since uniform convergence in Rmℝ^m is just uniform convergence in each coordinate.
+Let Fσ_σ be the set of all one-hidden-layer neural networks constructed with σσ. Let C0(Rd,R)_0(ℝ^d,ℝ) be the set of all C(Rd,R)(ℝ^d,ℝ) with compact support.
+If the function is a polynomial of degree d, then Fσ_σ is contained in the closed subspace of all polynomials of degree d, so its closure is also contained in it, which is not all of C0(Rd,R)_0(ℝ^d,ℝ).
+Otherwise, we show that Fσ_σ's closure is all of C0(Rd,R)_0(ℝ^d,ℝ). Suppose we can construct arbitrarily good approximations of the ramp function 
+r(x)=−1ifx<−1xif|x|≤11ifx>1(x)=-1ifx<-1
+xif|x|≤1
+1ifx>1
+
+then it can be combined to construct arbitrary compactly-supported continuous function to arbitrary precision. It remains to approximate the ramp function.
+Any of the commonly used activation functions used in machine learning can obviously be used to approximate the ramp function, or first approximate the ReLU, then the ramp function.
+if σσ is "squashing", that is, it has limits σ(−∞)<σ(+∞)σ(-∞)<σ(+∞), then one can first affinely scale down its x-axis so that its graph looks like a step-function with two sharp "overshoots", then make a linear sum of enough of them to make a "staircase" approximation of the ramp function. With more steps of the staircase, the overshoots smooth out and we get arbitrarily good approximation of the ramp function.
+The case where σσ is a generic non-polynomial function is harder, and the reader is directed to.[14]
+
+
+The problem with polynomials may be removed by allowing the outputs of the hidden layers to be multiplied together (the "pi-sigma networks"), yielding the generalization:[32]
+
+
+Universal approximation theorem for pi-sigma networks — With any nonconstant activation function, a one-hidden-layer pi-sigma network is a universal approximator.
+
+
+Arbitrary-depth case[edit]
+The "dual" versions of the theorem consider networks of bounded width and arbitrary depth. A variant of the universal approximation theorem was proved for the arbitrary depth case by Zhou Lu et al. in 2017.[18]  They showed that networks of width n + 4 with ReLU activation functions can approximate any Lebesgue-integrable function on n-dimensional input space with respect to L1^1 distance if network depth is allowed to grow. It was also shown that if the width was less than or equal to n, this general expressive power to approximate any Lebesgue integrable function was lost. In the same paper[18] it was shown that ReLU networks with width n + 1 were sufficient to approximate any continuous function of n-dimensional input variables.[35]  The following refinement, specifies the optimal minimum width for which such an approximation is possible and is due to.[36]
+
+
+Universal approximation theorem (L1 distance, ReLU activation, arbitrary depth, minimal width). For any Bochner–Lebesgue p-integrable function f:Rn→Rm:ℝ^n→ℝ^m and any ϵ>0ϵ>0, there exists a fully connected ReLU network F of width exactly dm=maxn+1,m_m=max{n+1,m}, satisfying
+
+∫Rn‖f(x)−F(x)‖pdx<ϵ.∫_ℝ^nf(x)-F(x)^pdx<ϵ.
+Moreover, there exists a function f∈Lp(Rn,Rm)^p(ℝ^n,ℝ^m) and some ϵ>0ϵ>0, for which there is no fully connected ReLU network of width less than dm=maxn+1,m_m=max{n+1,m} satisfying the above approximation bound.
+Remark: If the activation is replaced by leaky-ReLU, and the input is restricted in a compact domain, then the exact minimum width is[24] dm=maxn,m,2_m=max{n,m,2}.
+Quantitative refinement: In the case where, when X=[0,1]d𝒳=[0,1]^d and D=1=1 and where σσ is the ReLU activation function, the exact depth and width for a ReLU network to achieve εε error is also known.[37]  If, moreover, the target function f is smooth, then the required number of layer and their width can be exponentially smaller.[38]  Even if f is not smooth, the curse of dimensionality can be broken if f admits additional "compositional structure".[39][40]
+
+
+Together, the central result of[20] yields the following universal approximation theorem for networks with bounded width (see also[16] for the first result of this kind).
+
+
+Universal approximation theorem (Uniform non-affine activation, arbitrary depth, constrained width). Let X𝒳 be a compact subset of Rdℝ^d.  Let σ:R→Rσ:ℝ→ℝ be any non-affine continuous function which is continuously differentiable at at least one point, with nonzero derivative at that point. Let Nd,D:d+D+2σ𝒩_d,D:d+D+2^σ denote the space of feed-forward neural networks with d input neurons, D output neurons, and an arbitrary number of hidden layers each with d+D+2+D+2 neurons, such that every hidden neuron has activation function σσ and every output neuron has the identity as its activation function, with input layer ϕϕ and output layer ρρ. Then given any ε>0ε>0 and any f∈C(X,RD)(𝒳,ℝ^D), there exists f^∈Nd,D:d+D+2σf̂∈𝒩_d,D:d+D+2^σ such that
+
+supx∈X‖f^(x)−f(x)‖<ε.sup_x∈𝒳f̂(x)-f(x)<ε.
+In other words, N𝒩 is dense in C(X;RD)(𝒳;ℝ^D) with respect to the topology of uniform convergence.
+Quantitative refinement: The number of layers and the width of each layer required to approximate f to εε precision known;[21] moreover, the result hold true when X𝒳 and RDℝ^D are replaced with any non-positively curved Riemannian manifold.
+
+
+Certain necessary conditions for the bounded width, arbitrary depth case have been established, but there is still a gap between the known sufficient and necessary conditions.[18][19][41]
+
+Bounded depth and bounded width case[edit]
+The first result on approximation capabilities of neural networks with bounded number of layers, each containing a limited number of artificial neurons was obtained by Maiorov and Pinkus.[25] Their remarkable result revealed that such networks can be universal approximators and for achieving this property two hidden layers are enough.
+
+
+Universal approximation theorem:[25] There exists an activation function σσ which is analytic, strictly increasing and
+sigmoidal and has the following property: For any f∈C[0,1]d[0,1]^d  and ε>0ε>0 there exist constants di,cij,θij,γi_i,c_ij,θ_ij,γ_i, and vectors wij∈Rd𝐰^ij∈ℝ^d  for which
+|f(x)−∑i=16d+3diσ(∑j=13dcijσ(wij⋅x−θij)−γi)|<ε(𝐱)-∑_i=1^6d+3d_iσ(∑_j=1^3dc_ijσ(𝐰^ij·𝐱-θ_ij)-γ_i)|<ε
+for all x=(x1,...,xd)∈[0,1]d𝐱=(x_1,...,x_d)∈[0,1]^d.
+
+
+This is an existence result. It says that activation functions providing universal approximation property for bounded depth bounded width networks exist. Using certain algorithmic and computer programming techniques, Guliyev and Ismailov efficiently constructed such activation functions depending on a numerical parameter.  The developed algorithm allows one to compute the activation functions at any point of the real axis instantly. For the algorithm and the corresponding computer code see.[26] The theoretical result can be formulated as follows.
+
+
+Universal approximation theorem:[26][27] Let  [a,b][a,b]  be a finite segment of the real line, s=b−a=b-a and λλ  be any positive number. Then one can algorithmically construct a computable sigmoidal activation function σ:R→Rσℝ→ℝ, which is infinitely differentiable, strictly increasing on (−∞,s)(-∞,s), λλ -strictly increasing on [s,+∞)[s,+∞), and satisfies the following properties:
+1) For any f∈C[a,b][a,b]  and ε>0ε>0  there exist numbers c1,c2,θ1_1,c_2,θ_1  and θ2θ_2  such that for all x∈[a,b]∈[a,b]
+|f(x)−c1σ(x−θ1)−c2σ(x−θ2)|<ε|f(x)-c_1σ(x-θ_1)-c_2σ(x-θ_2)|<ε
+2) For any continuous function F on the d-dimensional box [a,b]d[a,b]^d and ε>0ε>0, there exist constants ep_p, cpq_pq, θpqθ_pq and ζpζ_p such that the inequality
+|F(x)−∑p=12d+2epσ(∑q=1dcpqσ(wq⋅x−θpq)−ζp)|<ε|F(𝐱)-∑_p=1^2d+2e_pσ(∑_q=1^dc_pqσ(𝐰^q·𝐱-θ_pq)-ζ_p)|<ε
+holds for all x=(x1,…,xd)∈[a,b]d𝐱=(x_1,…,x_d)∈[a,b]^d. Here the weights wq𝐰^q, q=1,…,d=1,…,d, are fixed as follows:
+w1=(1,0,…,0),w2=(0,1,…,0),…,wd=(0,0,…,1).𝐰^1=(1,0,…,0),  𝐰^2=(0,1,…,0),  …,  𝐰^d=(0,0,…,1).
+In addition, all the coefficients ep_p, except one, are equal.
+
+
+Here “σ:R→Rσℝ→ℝ is λλ-strictly increasing on some set X” means that there exists a strictly increasing function u:X→R→ℝ such that |σ(x)−u(x)|≤λ|σ(x)-u(x)|≤λ for all x∈X. Clearly, a λλ-increasing function behaves like a usual increasing function as λλ gets small.
+In the "depth-width" terminology, the above theorem says that for certain activation functions depth-22 width-22 networks are universal approximators for univariate functions and depth-33 width-(2d+2)(2d+2) networks are universal approximators for d-variable functions (d>1>1).
+
+Graph input[edit]
+Achieving useful universal function approximation on graphs (or rather on graph isomorphism classes) has been a longstanding problem. The popular graph convolutional neural networks (GCNs or GNNs) can be made as discriminative as the Weisfeiler–Leman graph isomorphism test.[42] In 2020,[43] a universal approximation theorem result was established by Brüel-Gabrielsson, showing that graph representation with certain injective properties is sufficient for universal function approximation on bounded graphs and restricted universal function approximation on unbounded graphs, with an accompanying O((#edges××#nodes))-runtime method that performed at state of the art on a collection of benchmarks.
+
+See also[edit]
+Kolmogorov–Arnold representation theorem
+Representer theorem
+No free lunch theorem
+Stone–Weierstrass theorem
+Fourier series
+References[edit]
+
+
+^ a b Hornik, Kurt; Stinchcombe, Maxwell; White, Halbert (1989). Multilayer Feedforward Networks are Universal Approximators (PDF). Neural Networks. Vol. 2. Pergamon Press. pp. 359–366.
+
+^ Balázs Csanád Csáji (2001) Approximation with Artificial Neural Networks; Faculty of Sciences; Eötvös Loránd University, Hungary
+
+^ Kratsios, Anastasis; Bilokopytov, Eugene (2020). Non-Euclidean Universal Approximation (PDF). Advances in Neural Information Processing Systems. Vol. 33. Curran Associates.
+
+^ Zhou, Ding-Xuan (2020). "Universality of deep convolutional neural networks". Applied and Computational Harmonic Analysis. 48 (2): 787–794. arXiv:1805.10769. doi:10.1016/j.acha.2019.06.004. S2CID 44113176.
+
+^ Heinecke, Andreas; Ho, Jinn; Hwang, Wen-Liang (2020). "Refinement and Universal Approximation via Sparsely Connected ReLU Convolution Nets". IEEE Signal Processing Letters. 27: 1175–1179. Bibcode:2020ISPL...27.1175H. doi:10.1109/LSP.2020.3005051. S2CID 220669183.
+
+^ Park, J.; Sandberg, I. W. (1991). "Universal Approximation Using Radial-Basis-Function Networks". Neural Computation. 3 (2): 246–257. doi:10.1162/neco.1991.3.2.246. PMID 31167308. S2CID 34868087.
+
+^ Yarotsky, Dmitry (2021). "Universal Approximations of Invariant Maps by Neural Networks". Constructive Approximation. 55: 407–474. arXiv:1804.10306. doi:10.1007/s00365-021-09546-1. S2CID 13745401.
+
+^ Zakwan, Muhammad; d’Angelo, Massimiliano; Ferrari-Trecate, Giancarlo (2023). "Universal Approximation Property of Hamiltonian Deep Neural Networks". IEEE Control Systems Letters. 7: 2689–2694. arXiv:2303.12147. doi:10.1109/LCSYS.2023.3288350. ISSN 2475-1456. S2CID 257663609.
+
+^ Sonoda, Sho; Murata, Noboru (September 2017). "Neural Network with Unbounded Activation Functions is Universal Approximator". Applied and Computational Harmonic Analysis. 43 (2): 233–268. doi:10.1016/j.acha.2015.12.005.
+
+^ a b Park, Sejun; Yun, Chulhee; Lee, Jaeho; Shin, Jinwoo (2021). Minimum Width for Universal Approximation. International Conference on Learning Representations. arXiv:2006.08859.
+
+^ a b Cybenko, G. (1989). "Approximation by superpositions of a sigmoidal function". Mathematics of Control, Signals, and Systems. 2 (4): 303–314. CiteSeerX 10.1.1.441.7873. doi:10.1007/BF02551274. S2CID 3958369.
+
+^ a b Hornik, Kurt (1991). "Approximation capabilities of multilayer feedforward networks". Neural Networks. 4 (2): 251–257. doi:10.1016/0893-6080(91)90009-T. S2CID 7343126.
+
+^ a b Leshno, Moshe; Lin, Vladimir Ya.; Pinkus, Allan; Schocken, Shimon (January 1993). "Multilayer feedforward networks with a nonpolynomial activation function can approximate any function". Neural Networks. 6 (6): 861–867. doi:10.1016/S0893-6080(05)80131-5. S2CID 206089312.
+
+^ a b c Pinkus, Allan (January 1999). "Approximation theory of the MLP model in neural networks". Acta Numerica. 8: 143–195. Bibcode:1999AcNum...8..143P. doi:10.1017/S0962492900002919. S2CID 16800260.
+
+^ Shen, Zuowei; Yang, Haizhao; Zhang, Shijun (January 2022). "Optimal approximation rate of ReLU networks in terms of width and depth". Journal de Mathématiques Pures et Appliquées. 157: 101–135. arXiv:2103.00502. doi:10.1016/j.matpur.2021.07.009. S2CID 232075797.
+
+^ a b Gripenberg, Gustaf (June 2003). "Approximation by neural networks with a bounded number of nodes at each level". Journal of Approximation Theory. 122 (2): 260–266. doi:10.1016/S0021-9045(03)00078-9.
+
+^ Yarotsky, Dmitry (2016-10-03). Error bounds for approximations with deep ReLU networks. OCLC 1106247665.
+
+^ a b c d Lu, Zhou; Pu, Hongming; Wang, Feicheng; Hu, Zhiqiang; Wang, Liwei (2017). "The Expressive Power of Neural Networks: A View from the Width". Advances in Neural Information Processing Systems. Curran Associates. 30: 6231–6239. arXiv:1709.02540.
+
+^ a b Hanin, Boris; Sellke, Mark (2018). "Approximating Continuous Functions by ReLU Nets of Minimal Width". arXiv:1710.11278 [stat.ML].
+
+^ a b c d Kidger, Patrick; Lyons, Terry (July 2020). Universal Approximation with Deep Narrow Networks. Conference on Learning Theory. arXiv:1905.08539.
+
+^ a b Kratsios, Anastasis; Papon, Léonie (2022). "Universal Approximation Theorems for Differentiable Geometric Deep Learning". Journal of Machine Learning Research. 23 (196): 1–73. arXiv:2101.05390. ISSN 1533-7928.
+
+^ Tabuada, Paulo; Gharesifard, Bahman (2021). Universal approximation power of deep residual neural networks via nonlinear control theory. International Conference on Learning Representations. arXiv:2007.06007.
+
+^ Tabuada, Paulo; Gharesifard, Bahman (2023). "Universal Approximation Power of Deep Residual Neural Networks Through the Lens of Control". IEEE Transactions on Automatic Control. 68 (5): 2715–2728. doi:10.1109/TAC.2022.3190051. ISSN 1558-2523. S2CID 250512115.
+
+^ a b Cai, Yongqiang (2023-02-01). "Achieve the Minimum Width of Neural Networks for Universal Approximation". ICLR. arXiv:2209.11395.
+
+^ a b c Maiorov, Vitaly; Pinkus, Allan (April 1999). "Lower bounds for approximation by MLP neural networks". Neurocomputing. 25 (1–3): 81–91. doi:10.1016/S0925-2312(98)00111-8.
+
+^ a b c Guliyev, Namig; Ismailov, Vugar (November 2018). "Approximation capability of two hidden layer feedforward neural networks with fixed weights". Neurocomputing. 316: 262–269. arXiv:2101.09181. doi:10.1016/j.neucom.2018.07.075. S2CID 52285996.
+
+^ a b Guliyev, Namig; Ismailov, Vugar (February 2018). "On the approximation by single hidden layer feedforward neural networks with fixed weights". Neural Networks. 98: 296–304. arXiv:1708.06219. doi:10.1016/j.neunet.2017.12.007. PMID 29301110. S2CID 4932839.
+
+^ Baader, Maximilian; Mirman, Matthew; Vechev, Martin (2020). Universal Approximation with Certified Networks. ICLR.
+
+^ Gelenbe, Erol; Mao, Zhi Hong; Li, Yan D. (1999). "Function approximation with spiked random networks". IEEE Transactions on Neural Networks. 10 (1): 3–9. doi:10.1109/72.737488. PMID 18252498.
+
+^ Lin, Hongzhou; Jegelka, Stefanie (2018). ResNet with one-neuron hidden layers is a Universal Approximator. Advances in Neural Information Processing Systems. Vol. 30. Curran Associates. pp. 6169–6178.
+
+^ Funahashi, Ken-Ichi (1989-01-01). "On the approximate realization of continuous mappings by neural networks". Neural Networks. 2 (3): 183–192. doi:10.1016/0893-6080(89)90003-8. ISSN 0893-6080.
+
+^ a b Hornik, Kurt; Stinchcombe, Maxwell; White, Halbert (1989-01-01). "Multilayer feedforward networks are universal approximators". Neural Networks. 2 (5): 359–366. doi:10.1016/0893-6080(89)90020-8. ISSN 0893-6080. S2CID 2757547.
+
+^ Haykin, Simon (1998). Neural Networks: A Comprehensive Foundation, Volume 2, Prentice Hall. ISBN 0-13-273350-1.
+
+^ Hassoun, M. (1995) Fundamentals of Artificial Neural Networks MIT Press, p. 48
+
+^ Hanin, B. (2018). Approximating Continuous Functions by ReLU Nets of Minimal Width. arXiv preprint arXiv:1710.11278.
+
+^ Park, Yun, Lee, Shin, Sejun, Chulhee, Jaeho, Jinwoo (2020-09-28). "Minimum Width for Universal Approximation". ICLR. arXiv:2006.08859.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+
+^ Shen, Zuowei; Yang, Haizhao; Zhang, Shijun (2022-01-01). "Optimal approximation rate of ReLU networks in terms of width and depth". Journal de Mathématiques Pures et Appliquées. 157: 101–135. arXiv:2103.00502. doi:10.1016/j.matpur.2021.07.009. ISSN 0021-7824. S2CID 232075797.
+
+^ Lu, Jianfeng; Shen, Zuowei; Yang, Haizhao; Zhang, Shijun (2021-01-01). "Deep Network Approximation for Smooth Functions". SIAM Journal on Mathematical Analysis. 53 (5): 5465–5506. arXiv:2001.03040. doi:10.1137/20M134695X. ISSN 0036-1410. S2CID 210116459.
+
+^ Juditsky, Anatoli B.; Lepski, Oleg V.; Tsybakov, Alexandre B. (2009-06-01). "Nonparametric estimation of composite functions". The Annals of Statistics. 37 (3). doi:10.1214/08-aos611. ISSN 0090-5364. S2CID 2471890.
+
+^ Poggio, Tomaso; Mhaskar, Hrushikesh; Rosasco, Lorenzo; Miranda, Brando; Liao, Qianli (2017-03-14). "Why and when can deep-but not shallow-networks avoid the curse of dimensionality: A review". International Journal of Automation and Computing. 14 (5): 503–519. doi:10.1007/s11633-017-1054-2. ISSN 1476-8186. S2CID 15562587.
+
+^ Johnson, Jesse (2019). Deep, Skinny Neural Networks are not Universal Approximators. International Conference on Learning Representations.
+
+^ Xu, Keyulu; Hu, Weihua; Leskovec, Jure; Jegelka, Stefanie (2019). How Powerful are Graph Neural Networks?. International Conference on Learning Representations.
+
+^ Brüel-Gabrielsson, Rickard (2020). Universal Function Approximation on Graphs. Advances in Neural Information Processing Systems. Vol. 33. Curran Associates.
+
+
+vteDifferentiable computingGeneral
+Differentiable programming
+Information geometry
+Statistical manifold
+Automatic differentiation
+Neuromorphic engineering
+Pattern recognition
+Tensor calculus
+Computational learning theory
+Inductive bias
+Concepts
+Gradient descent
+SGD
+Clustering
+Regression
+Overfitting
+Hallucination
+Adversary
+Attention
+Convolution
+Loss functions
+Backpropagation
+Batchnorm
+Activation
+Softmax
+Sigmoid
+Rectifier
+Regularization
+Datasets
+Augmentation
+Diffusion
+Autoregression
+Applications
+Machine learning
+In-context learning
+Artificial neural network
+Deep learning
+Scientific computing
+Artificial Intelligence
+Language model
+Large language model
+Hardware
+IPU
+TPU
+VPU
+Memristor
+SpiNNaker
+Software libraries
+TensorFlow
+PyTorch
+Keras
+Theano
+JAX
+Flux.jl
+ImplementationsAudio–visual
+AlexNet
+WaveNet
+Human image synthesis
+HWR
+OCR
+Speech synthesis
+Speech recognition
+Facial recognition
+AlphaFold
+DALL-E
+Midjourney
+Stable Diffusion
+Verbal
+Word2vec
+Seq2seq
+BERT
+LaMDA
+Bard
+NMT
+Project Debater
+IBM Watson
+GPT-2
+GPT-3
+ChatGPT
+GPT-4
+GPT-J
+Chinchilla AI
+PaLM
+BLOOM
+LLaMA
+Decisional
+AlphaGo
+AlphaZero
+Q-learning
+SARSA
+OpenAI Five
+Self-driving car
+MuZero
+Action selection
+Auto-GPT
+Robot control
+People
+Yoshua Bengio
+Alex Graves
+Ian Goodfellow
+Stephen Grossberg
+Demis Hassabis
+Geoffrey Hinton
+Yann LeCun
+Fei-Fei Li
+Andrew Ng
+Jürgen Schmidhuber
+David Silver
+Organizations
+Anthropic
+EleutherAI
+Google DeepMind
+Hugging Face
+OpenAI
+Meta AI
+Mila
+MIT CSAIL
+Architectures
+Neural Turing machine
+Differentiable neural computer
+Transformer
+Recurrent neural network (RNN)
+Long short-term memory (LSTM)
+Gated recurrent unit (GRU)
+Echo state network
+Multilayer perceptron (MLP)
+Convolutional neural network
+Residual network
+Autoencoder
+Variational autoencoder (VAE)
+Generative adversarial network (GAN)
+Graph neural network
+
+ Portals
+Computer programming
+Technology
+ Categories
+Artificial neural networks
+Machine learning
+
+
+
+

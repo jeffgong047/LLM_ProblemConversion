@@ -1,0 +1,73 @@
+Theorem that any three objects in space can be simultaneously bisected by a plane
+Not to be confused with the squeeze theorem (sometimes called the "sandwich theorem").
+In mathematical measure theory, for every positive integer n the ham sandwich theorem states that given n measurable "objects" in n-dimensional Euclidean space, it is possible to divide each one of them in half (with respect to their measure, e.g. volume) with a single (n − 1)-dimensional hyperplane. This is even possible if the objects overlap.
+It was proposed by Hugo Steinhaus and proved by Stefan Banach (explicitly in dimension 3, without taking the trouble to state the theorem in the n-dimensional case), and also years later called the Stone–Tukey theorem after Arthur H. Stone and John Tukey.
+
+
+Naming[edit]
+A ham sandwich
+The ham sandwich theorem takes its name from the case when n = 3 and the three objects to be bisected are the ingredients of a ham sandwich. Sources differ on whether these three ingredients are two slices of bread and a piece of ham (Peters 1981), bread and cheese and ham (Cairns 1963), or bread and butter and ham (Dubins & Spanier 1961). In two dimensions, the theorem is known as the pancake theorem to refer to the flat nature of the two objects to be bisected by a line (Cairns 1963).
+
+History[edit]
+According to Beyer & Zardecki (2004), the earliest known paper about the ham sandwich theorem, specifically the n = 3 case of bisecting three solids with a plane, is a 1938 note in a Polish mathematics journal (Editors 1938).  Beyer and Zardecki's paper includes a translation of this note, which attributes the posing of the problem to Hugo Steinhaus, and credits Stefan Banach as the first to solve the problem, by a reduction to the Borsuk–Ulam theorem.  The note poses the problem in two ways: first, formally, as "Is it always possible to bisect three solids, arbitrarily located, with the aid of an appropriate plane?" and second, informally, as "Can we place a piece of ham under a meat cutter so that meat, bone, and fat are cut in halves?"  The note then offers a proof of the theorem.
+A more modern reference is Stone & Tukey (1942), which is the basis of the name "Stone–Tukey theorem".  This paper proves the n-dimensional version of the theorem in a more general setting involving measures.  The paper attributes the n = 3 case to Stanislaw Ulam, based on information from a referee; but Beyer & Zardecki (2004) claim that this is incorrect, given the note mentioned above, although "Ulam did make a fundamental contribution in proposing" the Borsuk–Ulam theorem.
+
+Two-dimensional variant: proof using a rotating-knife[edit]
+The two-dimensional variant of the theorem (also known as the pancake theorem) can be proved by an argument which appears in the fair cake-cutting literature (see e.g. Robertson–Webb rotating-knife procedure).
+For each angle α∈[0,180∘]α∈[0,180^∘], a straight line ("knife") of angle αα can bisect pancake #1.  To see this, translate [move parallelly] a straight line of angle αα from −∞-∞ to ∞∞; the fraction of pancake #1 covered by the line changes continuously from 0 to 1, so by the intermediate value theorem it must be equal to 1/2 somewhere along the way. It is possible that an entire range of translations of our line yield a fraction of 1/2; in this case, it is a canonical choice to pick the middle one of all such translations.
+When the knife is at angle 0, it also cuts pancake #2, but the pieces are probably unequal (if we are lucky and the pieces are equal, we are done). Define the 'positive' side of the knife as the side in which the fraction of pancake #2 is larger. We now turn the knife, and translate it as described above. When the angle is αα, define p(α)(α) as the fraction of pancake #2 at the positive side of the knife. Initially p(0)>1/2(0)>1/2. The function p is continuous, since small changes in the angle lead to small changes in the position of the knife.
+When the knife is at angle 180, the knife is upside-down, so  p(180)<1/2(180)<1/2. By the intermediate value theorem, there must be an angle in which p(α)=1/2(α)=1/2. Cutting at that angle bisects both pancakes simultaneously.
+
+n-dimensional variant: proof using the Borsuk–Ulam theorem[edit]
+The ham sandwich theorem can be proved as follows using the Borsuk–Ulam theorem.  This proof follows the one described by Steinhaus and others (1938), attributed there to Stefan Banach, for the n = 3 case. In the field of Equivariant topology, this proof would fall under the configuration-space/tests-map paradigm.
+Let A1, A2, …, An denote the n objects that we wish to simultaneously bisect.  Let S be the unit (n − 1)-sphere embedded in n-dimensional Euclidean space Rnℝ^n, centered at the origin.  For each point p on the surface of the sphere S, we can define a continuum of oriented affine hyperplanes (not necessarily centred at 0) perpendicular to the (normal) vector from the origin to p, with the "positive side" of each hyperplane defined as the side pointed to by that vector (i.e. it is a choice of orientation).  By the intermediate value theorem, every family of such hyperplanes contains at least one hyperplane that bisects the bounded object An: at one extreme translation, no volume of An is on the positive side, and at the other extreme translation, all of An's volume is on the positive side, so in between there must be a translation that has half of An's volume on the positive side.  If there is more than one such hyperplane in the family, we can pick one canonically by choosing the midpoint of the interval of translations for which An is bisected.  Thus we obtain, for each point p on the sphere S, a hyperplane π(p) that is perpendicular to the vector from the origin to p and that bisects An.
+Now we define a function f from the (n − 1)-sphere S to (n − 1)-dimensional Euclidean space Rn−1ℝ^n-1 as follows:
+
+f(p) = (vol of A1 on the positive side of π(p), vol of A2 on the positive side of π(p), …, vol of An−1 on the positive side of π(p)).
+This function f is continuous (which, in a formal proof, would need some justification).  By the Borsuk–Ulam theorem, there are antipodal points p and q on the sphere S such that f(p) = f(q).  Antipodal points p and q correspond to hyperplanes π(p) and π(q) that are equal except that they have opposite positive sides.  Thus, f(p) = f(q) means that the volume of Ai is the same on the positive and negative side of π(p) (or π(q)), for i = 1, 2, …, n−1.  Thus, π(p) (or π(q)) is the desired ham sandwich cut that simultaneously bisects the volumes of A1, A2, …, An.
+
+Measure theoretic versions[edit]
+In measure theory, Stone & Tukey (1942) proved two more general forms of the ham sandwich theorem.  Both versions concern the bisection of n subsets X1, X2, …, Xn of a common set X, where X has a Carathéodory outer measure and each Xi has finite outer measure.
+Their first general formulation is as follows: for any continuous real function f:Sn×X→R^n→ℝ, there is a point p of the n-sphere Sn and a real number s0 such that the surface f(p,x) = s0 divides X into f(p,x) < s0 and f(p,x) > s0 of equal measure and simultaneously bisects the outer measure of X1, X2, …, Xn.  The proof is again a reduction to the Borsuk-Ulam theorem.  This theorem generalizes the standard ham sandwich theorem by letting f(s,x) = s1x1 + … + snxn.
+Their second formulation is as follows: for any n + 1 measurable functions f0, f1, …, fn over X that are linearly independent over any subset of X of positive measure, there is a linear combination f = a0f0 + a1f1 + … + anfn such that the surface f(x) = 0, dividing X into f(x) < 0 and f(x) > 0, simultaneously bisects the outer measure of X1, X2, …, Xn.  This theorem generalizes the standard ham sandwich theorem by letting f0(x) = 1 and letting fi(x), for i > 0, be the i-th coordinate of x.
+
+Discrete and computational geometry versions[edit]
+A ham-sandwich cut of eight red points and seven blue points in the plane.
+In discrete geometry and computational geometry, the ham sandwich theorem usually refers to the special case in which each of the sets being divided is a finite set of points.  Here the relevant measure is the counting measure, which simply counts the number of points on either side of the hyperplane.  In two dimensions, the theorem can be stated as follows:
+
+For a finite set of points in the plane, each colored "red" or "blue", there is a line that simultaneously bisects the red points and bisects the blue points, that is, the number of red points on either side of the line is equal and the number of blue points on either side of the line is equal.
+There is an exceptional case when points lie on the line.  In this situation, we count each of these points as either being on one side, on the other, or on neither side of the line (possibly depending on the point), i.e. "bisecting" in fact means that each side contains less than half of the total number of points.  This exceptional case is actually required for the theorem to hold, of course when the number of red points or the number of blue is odd, but also in specific configurations with even numbers of points, for instance when all the points lie on the same line and the two colors are separated from each other (i.e. colors don't alternate along the line). A situation where the numbers of points on each side cannot match each other is provided by adding an extra point out of the line in the previous configuration.
+In computational geometry, this ham sandwich theorem leads to a computational problem, the ham sandwich problem.  In two dimensions, the problem is this: given a finite set of n points in the plane, each colored "red" or "blue", find a ham sandwich cut for them.  First, Megiddo (1985) described an algorithm for the special, separated case. Here all red points are on one side of some line and all blue points are on the other side, a situation where there is a unique ham sandwich cut, which Megiddo could find in linear time. Later, Edelsbrunner & Waupotitsch (1986) gave an algorithm for the general two-dimensional case; the running time of their algorithm is O(n log n), where the symbol O indicates the use of Big O notation. Finally, Lo & Steiger (1990) found an optimal O(n)-time algorithm. This algorithm was extended to higher dimensions by Lo, Matoušek & Steiger (1994) where the running time is o(nd−1)(n^d-1). Given d sets of points in general position in d-dimensional space, the algorithm computes a (d−1)-dimensional hyperplane that has an equal number of points of each of the sets in both of its half-spaces, i.e., a ham-sandwich cut for the given points. If d is a part of the input, then no polynomial time algorithm is expected to exist, as if the points are on a moment curve, the problem becomes equivalent to necklace splitting, which is PPA-complete.
+A linear-time algorithm that area-bisects two disjoint convex polygons
+is described by
+Stojmenovíc (1991).
+
+Generalizations[edit]
+The original theorem works for at most n collections, where n is the number of dimensions. To bisect a larger number of collections without going to higher dimensions, one can use, instead of a hyperplane, an algebraic surface of degree k, i.e., an (n−1)–dimensional surface defined by a polynomial function of degree k:
+Given (k+nn)−1k+nn-1 measures in an n–dimensional space, there exists an algebraic surface of degree k which bisects them all. (Smith & Wormald (1998)).
+This generalization is proved by mapping the n–dimensional plane into a (k+nn)−1k+nn-1 dimensional plane, and then applying the original theorem. For example, for n = 2 and k = 2, the 2–dimensional plane is mapped to a 5–dimensional plane via:
+
+(x, y) → (x, y, x2, y2, xy).
+See also[edit]
+Exact division
+References[edit]
+Beyer, W. A.; Zardecki, Andrew (2004), "The early history of the ham sandwich theorem", American Mathematical Monthly, 111 (1): 58–61, doi:10.2307/4145019, JSTOR 4145019, ProQuest 203746537.
+Cairns, Stewart S. (Spring 1963), "Networks, ham sandwiches, and putty", Pi Mu Epsilon Journal, 3 (8): 389–403, JSTOR 24338222.
+Dubins, L. E.; Spanier, E. H. (January 1961), "How to cut a cake fairly", American Mathematical Monthly, 68 (1P1): 1–17, doi:10.1080/00029890.1961.11989615
+Edelsbrunner, Herbert; Waupotitsch, R. (1986), "Computing a ham sandwich cut in two dimensions", Journal of Symbolic Computation, 2 (2): 171–178, doi:10.1016/S0747-7171(86)80020-7.
+Lo, Chi-Yuan; Steiger, W. L. (1990), "An optimal time algorithm for ham-sandwich cuts in the plane", Proceedings of the Second Canadian Conference on Computational Geometry, pp. 5–9.
+Lo, Chi-Yuan; Matoušek, Jiří; Steiger, William L. (1994), "Algorithms for Ham-Sandwich Cuts", Discrete & Computational Geometry, 11 (4): 433–452, doi:10.1007/BF02574017.
+Megiddo, Nimrod (1985), "Partitioning with two lines in the plane", Journal of Algorithms, 6 (3): 430–433, doi:10.1016/0196-6774(85)90011-2.
+Peters, James V. (Summer 1981), "The ham sandwich theorem and some related results", The Rocky Mountain Journal of Mathematics, 11 (3): 473–482, doi:10.1216/RMJ-1981-11-3-473, JSTOR 44236614.
+Smith, W. D.; Wormald, N. C. (1998), "Geometric separator theorems and applications", Proceedings 39th Annual Symposium on Foundations of Computer Science (Cat. No.98CB36280), p. 232, doi:10.1109/sfcs.1998.743449, ISBN 0-8186-9172-7, S2CID 17962961
+Editors (1938), "Notatki: Z topologii", Mathesis Polska (in Polish), 11 (1–2): 26–28.
+Stone, Arthur H.; Tukey, John W. (1942), "Generalized "sandwich" theorems", Duke Mathematical Journal, 9 (2): 356–359, doi:10.1215/S0012-7094-42-00925-6.
+Stojmenovíc, Ivan (1991), "Bisections and ham-sandwich cuts of convex polygons and polyhedra", Information Processing Letters, 38 (1): 15–21, doi:10.1016/0020-0190(91)90209-Z.
+External links[edit]
+Weisstein, Eric W., "Ham Sandwich Theorem", MathWorld
+ham sandwich theorem on the Earliest known uses of some of the words of mathematics
+Ham Sandwich Cuts by Danielle MacNevin
+An interactive 2D demonstration
+
+
+

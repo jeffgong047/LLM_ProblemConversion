@@ -1,0 +1,45 @@
+In mathematical analysis, the initial value theorem is a theorem used to relate frequency domain expressions to the time domain behavior as time approaches zero.[1]
+Let
+
+F(s)=∫0∞f(t)e−stdt(s)=∫_0^∞f(t)e^-st dt
+be the (one-sided) Laplace transform of ƒ(t).  If f is bounded on (0,∞)(0,∞) (or if just f(t)=O(ect)(t)=O(e^ct)) and limt→0+f(t)lim_t→0^+f(t) exists then the initial value theorem says[2]
+
+limt→0f(t)=lims→∞sF(s).lim_t → 0f(t)=lim_s→∞sF(s).
+
+Proofs[edit]
+Proof using dominated convergence theorem and assuming that function is bounded[edit]
+Suppose first that f is bounded, i.e. limt→0+f(t)=αlim_t→0^+f(t)=α. A change of variable in the integral
+∫0∞f(t)e−stdt∫_0^∞f(t)e^-st dt shows that 
+
+sF(s)=∫0∞f(ts)e−tdt(s)=∫_0^∞f(t/s)e^-t dt.
+Since f is bounded, the Dominated Convergence Theorem implies that
+
+lims→∞sF(s)=∫0∞αe−tdt=α.lim_s→∞sF(s)=∫_0^∞^-t dt=α.
+Proof using elementary calculus and assuming that function is bounded[edit]
+Of course we don't really need DCT here, one can give a very simple proof using only elementary calculus:
+Start by choosing A so that ∫A∞e−tdt<ϵ∫_A^∞e^-t dt<ϵ, and then
+note that lims→∞f(ts)=αlim_s→∞f(t/s)=α uniformly for t∈(0,A]∈(0,A].
+
+Generalizing to non-bounded functions that have exponential order[edit]
+The theorem assuming just that f(t)=O(ect)(t)=O(e^ct) follows from the theorem for bounded f:
+Define g(t)=e−ctf(t)(t)=e^-ctf(t). Then g is bounded, so we've shown that g(0+)=lims→∞sG(s)(0^+)=lim_s→∞sG(s).
+But f(0+)=g(0+)(0^+)=g(0^+) and G(s)=F(s+c)(s)=F(s+c), so
+
+lims→∞sF(s)=lims→∞(s−c)F(s)=lims→∞sF(s+c)=lims→∞sG(s),lim_s→∞sF(s)=lim_s→∞(s-c)F(s)=lim_s→∞sF(s+c)=lim_s→∞sG(s),
+since lims→∞F(s)=0lim_s→∞F(s)=0.
+
+See also[edit]
+Final value theorem
+Notes[edit]
+
+^ Fourier and Laplace transforms. R. J. Beerends. Cambridge: Cambridge University Press. 2003. ISBN 978-0-511-67510-2. OCLC 593333940.{{cite book}}:  CS1 maint: others (link)
+
+^ Robert H. Cannon, Dynamics of Physical Systems, Courier Dover Publications, 2003, page 567.
+
+
+
+
+This mathematical analysis–related article is a stub. You can help Wikipedia by expanding it.vte
+
+
+

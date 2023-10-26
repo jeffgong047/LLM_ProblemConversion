@@ -1,0 +1,44 @@
+This article is about Kleene's fixed-point theorem in lattice theory. For the fixed-point theorem in computability theory, see Kleene's recursion theorem.
+Computation of the least fixpoint of f(x) = 1/10x2+atan(x)+1 using Kleene's theorem in the real interval [0,7] with the usual order
+In the mathematical areas of order and lattice theory, the Kleene fixed-point theorem, named after American mathematician Stephen Cole Kleene, states the following:
+
+Kleene Fixed-Point Theorem. Suppose (L,⊑)(L,⊑) is a directed-complete partial order (dcpo) with a least element, and let f:L→L:L be a Scott-continuous (and therefore monotone) function. Then f has a least fixed point, which is the supremum of the ascending Kleene chain of f..
+The ascending Kleene chain of f is the chain
+
+⊥⊑f(⊥)⊑f(f(⊥))⊑⋯⊑fn(⊥)⊑⋯()(f())⊑⋯^n()⊑⋯
+obtained by iterating f on the least element ⊥ of L. Expressed in a formula, the theorem states that
+
+lfp(f)=sup(fn(⊥)∣n∈N)lfp(f)=sup({f^n()∈ℕ})
+where lfplfp denotes the least fixed point.
+Although Tarski's fixed point theorem 
+does not consider how fixed points can be computed by iterating f from some seed  (also, it pertains to monotone functions on complete lattices), this result is often attributed to Alfred Tarski who proves it for additive functions  [1] Moreover, Kleene Fixed-Point Theorem can be extended to monotone functions using transfinite iterations.[2]
+
+Proof[3][edit]
+We first have to show that the ascending Kleene chain of f exists in L. To show that, we prove the following:
+
+Lemma. If L is a dcpo with a least element, and f:L→L:L is Scott-continuous, then fn(⊥)⊑fn+1(⊥),n∈N0^n()^n+1(),n∈ℕ_0
+Proof. We use induction:
+Assume n = 0. Then f0(⊥)=⊥⊑f1(⊥),^0()=^1(), since ⊥ is the least element.
+Assume n > 0. Then we have to show that fn(⊥)⊑fn+1(⊥)^n()^n+1(). By rearranging we get f(fn−1(⊥))⊑f(fn(⊥))(f^n-1())(f^n()). By inductive assumption, we know that fn−1(⊥)⊑fn(⊥)^n-1()^n() holds, and because f is monotone (property of Scott-continuous functions), the result holds as well.
+As a corollary of the Lemma we have the following directed ω-chain:
+
+M=⊥,f(⊥),f(f(⊥)),….𝕄={,f(),f(f()),…}.
+From the definition of a dcpo it follows that M𝕄 has a supremum, call it m.. What remains now is to show that m is the least fixed-point.
+First, we show that m is a fixed point, i.e. that f(m)=m(m)=m. Because f is Scott-continuous, f(sup(M))=sup(f(M))(sup(𝕄))=sup(f(𝕄)), that is f(m)=sup(f(M))(m)=sup(f(𝕄)). Also, since M=f(M)∪⊥𝕄=f(𝕄)∪{} and because ⊥ has no influence in determining the supremum we have: sup(f(M))=sup(M)sup(f(𝕄))=sup(𝕄). It follows that f(m)=m(m)=m, making m a fixed-point of f.
+The proof that m is in fact the least fixed point can be done by showing that any element in M𝕄 is smaller than any fixed-point of f (because by property of supremum, if all elements of a set D⊆L are smaller than an element of L then also sup(D)sup(D) is smaller than that same element of L). This is done by induction: Assume k is some fixed-point of f. We now prove by induction over i that ∀i∈N:fi(⊥)⊑k∈ℕ:f^i(). The base of the induction (i=0)(i=0) obviously holds: f0(⊥)=⊥⊑k,^0()=, since ⊥ is the least element of L. As the induction hypothesis, we may assume that fi(⊥)⊑k^i(). We now do the induction step: From the induction hypothesis and the monotonicity of f (again, implied by the Scott-continuity of f), we may conclude the following: fi(⊥)⊑k⟹fi+1(⊥)⊑f(k).^i()  f^i+1()(k). Now, by the assumption that k is a fixed-point of f,, we know that f(k)=k,(k)=k, and from that we get fi+1(⊥)⊑k.^i+1().
+
+See also[edit]
+Other fixed-point theorems
+References[edit]
+
+
+^ Alfred Tarski (1955). "A lattice-theoretical fixpoint theorem and its applications". Pacific Journal of Mathematics. 5:2: 285–309., page 305.
+
+^ Patrick Cousot and Radhia Cousot (1979). "Constructive versions of Tarski's fixed point theorems". Pacific Journal of Mathematics. 82:1: 43–57.
+
+^ Stoltenberg-Hansen, V.; Lindstrom, I.; Griffor, E. R. (1994). Mathematical Theory of Domains by V. Stoltenberg-Hansen. Cambridge University Press. pp. 24. doi:10.1017/cbo9781139166386. ISBN 0521383447.
+
+
+
+
+

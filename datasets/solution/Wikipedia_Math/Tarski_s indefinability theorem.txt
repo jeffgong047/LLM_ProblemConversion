@@ -1,0 +1,373 @@
+Theorem that arithmetical truth cannot be defined in arithmetic
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (August 2023) (Learn how and when to remove this template message)
+Tarski's undefinability theorem, stated and proved by Alfred Tarski in 1933, is an important limitative result in mathematical logic, the foundations of mathematics, and in formal semantics. Informally, the theorem states that "arithmetical truth cannot be defined in arithmetic".[1]
+The theorem applies more generally to any sufficiently strong formal system, showing that truth in the standard model of the system cannot be defined within the system.
+
+
+History[edit]
+In 1931, Kurt Gödel published the incompleteness theorems, which he proved in part by showing how to represent the syntax of formal logic within first-order arithmetic. Each expression of the formal language of arithmetic is assigned a distinct number. This procedure is known variously as Gödel numbering, coding and, more generally, as arithmetization. In particular, various sets of expressions are coded as sets of numbers. For various syntactic properties (such as being a formula, being a sentence, etc.), these sets are computable. Moreover, any computable set of numbers can be defined by some arithmetical formula. For example, there are formulas in the language of arithmetic defining the set of codes for arithmetic sentences, and for provable arithmetic sentences.
+The undefinability theorem shows that this encoding cannot be done for semantic concepts such as truth. It shows that no sufficiently rich interpreted language can represent its own semantics. A corollary is that any metalanguage capable of expressing the semantics of some object language (e.g. a predicate is definable in Zermelo-Fraenkel set theory for whether formulae in the language of Peano arithmetic are true in the standard model of arithmetic[2]) must have expressive power exceeding that of the object language. The metalanguage includes primitive notions, axioms, and rules absent from the object language, so that there are theorems provable in the metalanguage not provable in the object language.
+The undefinability theorem is conventionally attributed to Alfred Tarski. Gödel also discovered the undefinability theorem in 1930, while proving his incompleteness theorems published in 1931, and well before the 1933 publication of Tarski's work (Murawski 1998). While Gödel never published anything bearing on his independent discovery of undefinability, he did describe it in a 1931 letter to John von Neumann. Tarski had obtained almost all results of his 1933 monograph "The Concept of Truth in the Languages of the Deductive Sciences" between 1929 and 1931, and spoke about them to Polish audiences.  However, as he emphasized in the paper, the undefinability theorem was the only result he did not obtain earlier. According to the footnote to the undefinability theorem (Twierdzenie I) of the 1933 monograph, the theorem and the sketch of the proof were added to the monograph only after the manuscript had been sent to the printer in 1931. Tarski reports there that, when he presented the content of his monograph to the Warsaw Academy of Science on March 21, 1931, he expressed at this place only some conjectures, based partly on his own investigations and partly on Gödel's short report on the incompleteness theorems "Einige metamathematische Resultate über Entscheidungsdefinitheit und Widerspruchsfreiheit" [Some metamathematical results on the definiteness of decision and consistency], Austrian Academy of Sciences, Vienna, 1930.
+
+Statement[edit]
+We will first state a simplified version of Tarski's theorem, then state and prove in the next section the theorem Tarski proved in 1933.
+Let L be the language of first-order arithmetic. This is the theory of the natural numbers, including their addition and multiplication, axiomatized by the first-order Peano axioms. This is a "first-order" theory: the quantifiers extend over natural numbers, but not over sets or functions of natural numbers. The theory is strong enough to describe recursively defined integer functions such as exponentiation, factorials or the Fibonacci sequence.
+Let N be the standard structure for L,, i.e. N consists of the ordinary set of natural numbers and their addition and multiplication. Each sentence in L can be interpreted in N and then becomes either true or false. Thus (L,N)(L,N) is the "interpreted first-order language of arithmetic".
+Each formula φφ in L has a Gödel number g(φ).(φ). This is a natural number that "encodes" φ.φ. In that way, the language L can talk about formulas in L,, not just about numbers. Let T denote the set of  L-sentences true in N,, and T∗^* the set of Gödel numbers of the sentences in T.. The following theorem answers the question: Can T∗^* be defined by a formula of first-order arithmetic?
+Tarski's undefinability theorem:  There is no L-formula True(n)(n) that defines T∗.^*.
+That is, there is no L-formula True(n)(n) such that for every L-sentence A,, True(g(A))⟺A(g(A)) holds in N..
+Informally, the theorem says that the concept of truth of first-order arithmetic statements cannot be defined by a formula in first-order arithmetic. This implies a major limitation on the scope of "self-representation". It is possible to define a formula True(n)(n) whose extension is T∗,^*, but only by drawing on a metalanguage whose expressive power goes beyond that of L.. For example, a truth predicate for first-order arithmetic can be defined in second-order arithmetic. However, this formula would only be able to define a truth predicate for formulas in the original language L.. To define a truth predicate for the metalanguage would require a still higher metametalanguage, and so on.
+To prove the theorem, we proceed by contradiction and assume that an L-formula True(n)(n) exists which is true for the natural number n in N if and only if n is the Gödel number of a sentence in L that is true in N.. We could then use True(n)(n) to define a new L-formula S(m)(m) which is true for the natural number m if and only if m is the Gödel number of a formula φ(x)φ(x) (with a free variable x) such that φ(m)φ(m) is false when interpreted in N (i.e. the formula φ(x),φ(x), when applied to its own Gödel number, yields a false statement). If we now consider the Gödel number g of the formula S(m),(m), and ask whether the sentence S(g)(g) is true in N,, we obtain a contradiction. (This is known as a diagonal argument.)
+The theorem is a corollary of Post's theorem about the arithmetical hierarchy, proved some years after Tarski (1933). A semantic proof of Tarski's theorem from Post's theorem is obtained by reductio ad absurdum as follows. Assuming  T∗^* is arithmetically definable, there is a natural number n such that T∗^* is definable by a formula at level Σn0Σ_n^0 of the arithmetical hierarchy. However, T∗^* is Σk0Σ_k^0-hard for all k.. Thus the arithmetical hierarchy collapses at level n,, contradicting Post's theorem.
+
+General form[edit]
+Tarski proved a stronger theorem than the one stated above, using an entirely syntactical method. The resulting theorem applies to any formal language with negation, and with sufficient capability for self-reference that the diagonal lemma holds. First-order arithmetic satisfies these preconditions, but the theorem applies to much more general formal systems, such as ZFC.
+Tarski's undefinability theorem (general form): Let (L,N)(L,N) be any interpreted formal language which includes negation and has a Gödel numbering g(φ)(φ) satisfying the diagonal lemma, i.e. for every L-formula B(x)(x) (with one free variable x) there is a sentence A such that A⟺B(g(A))(g(A)) holds in N.. Then there is no L-formula True(n)(n) with the following property: for every L-sentence A,, True(g(A))⟺A(g(A)) is true in N..
+The proof of Tarski's undefinability theorem in this form is again by reductio ad absurdum. Suppose that an L-formula True(n)(n) as above existed, i.e., if A is a sentence of arithmetic, then True(g(A))(g(A)) holds in N if and only if A holds in N.. Hence for all A,, the formula True(g(A))⟺A(g(A)) holds in N.. But the diagonal lemma yields a counterexample to this equivalence, by giving a "liar" formula S such that S⟺¬True(g(S))(g(S)) holds in N.. This is a contradiction. QED.
+
+Discussion[edit]
+The formal machinery of the proof given above is wholly elementary except for the diagonalization which the diagonal lemma requires. The proof of the diagonal lemma is likewise surprisingly simple; for example, it does not invoke recursive functions in any way. The proof does assume that every L-formula has a Gödel number, but the specifics of a coding method are not required. Hence Tarski's theorem is much easier to motivate and prove than the more celebrated theorems of Gödel about the metamathematical properties of first-order arithmetic.
+Smullyan (1991, 2001) has argued forcefully that Tarski's undefinability theorem deserves much of the attention garnered by Gödel's incompleteness theorems. That the latter theorems have much to say about all of mathematics and more controversially, about a range of philosophical issues (e.g., Lucas 1961) is less than evident. Tarski's theorem, on the other hand, is not directly about mathematics but about the inherent limitations of any formal language sufficiently expressive to be of real interest. Such languages are necessarily capable of enough self-reference for the diagonal lemma to apply to them. The broader philosophical import of Tarski's theorem is more strikingly evident.
+An interpreted language is strongly-semantically-self-representational exactly when the language contains predicates and function symbols defining all the semantic concepts specific to the language. Hence the required functions include the "semantic valuation function" mapping a formula A to its truth value ||A||,||A||, and the "semantic denotation function" mapping a term t to the object it denotes. Tarski's theorem then generalizes as follows: No sufficiently powerful language is strongly-semantically-self-representational.
+The undefinability theorem does not prevent truth in one theory from being defined in a stronger theory. For example, the set of (codes for) formulas of first-order Peano arithmetic that are true in N is definable by a formula in second order arithmetic. Similarly, the set of true formulas of the standard model of second order arithmetic (or n-th order arithmetic for any n) can be defined by a formula in first-order ZFC.
+
+See also[edit]
+Chaitin's incompleteness theorem – Measure of algorithmic complexityPages displaying short descriptions of redirect targets
+Gödel's completeness theorem – Fundamental theorem in mathematical logic
+Gödel's incompleteness theorems – Limitative results in mathematical logic
+References[edit]
+
+
+^ Cezary Cieśliński, "How Tarski Defined the Undefinable," European Review 23.1 (2015): 139–149.
+
+^ Joel David Hamkins; Yang, Ruizhi (2013). "Satisfaction is not absolute". arXiv:1312.0670 [math.LO].
+
+
+Primary sources[edit]
+Tarski, A. (1933). Pojęcie Prawdy w Językach Nauk Dedukcyjnych (in Polish). Nakładem Towarzystwa Naukowego Warszawskiego.
+Tarski, A. (1936). "Der Wahrheitsbegriff in den formalisierten Sprachen" (PDF). Studia Philosophica (in German). 1: 261–405. Archived from the original (PDF) on 9 January 2014. Retrieved 26 June 2013.
+Tarski, A. (1983). "The Concept of Truth in Formalized Languages" (PDF). In Corcoran, J. (ed.). Logic, Semantics, Metamathematics. Translated by J. H. Woodger. Hackett. English translation of Tarski's 1936 article.
+Further reading[edit]
+Bell, J. L.; Machover, M. (1977). A Course in Mathematical Logic. North-Holland.
+Boolos, G.; Burgess, J.; Jeffrey, R. (2002). Computability and Logic (4th ed.). Cambridge University Press.
+Lucas, J. R. (1961). "Mind, Machines, and Gödel". Philosophy. 36 (137): 112–27. doi:10.1017/S0031819100057983. S2CID 55408480. Archived from the original on 2007-08-19.
+Murawski, R. (1998). "Undefinability of truth. The problem of the priority: Tarski vs. Gödel". History and Philosophy of Logic. 19 (3): 153–160. doi:10.1080/01445349808837306. Archived from the original on 2011-06-08.
+Smullyan, R. (1991). Godel's Incompleteness Theorems. Oxford Univ. Press.
+Smullyan, R. (2001). "Gödel's Incompleteness Theorems". In Goble, L. (ed.). The Blackwell Guide to Philosophical Logic. Blackwell. pp. 72–89.
+vteMetalogic and metamathematics
+Cantor's theorem
+Entscheidungsproblem
+Church–Turing thesis
+Consistency
+Effective method
+Foundations of mathematics
+of geometry
+Gödel's completeness theorem
+Gödel's incompleteness theorems
+Soundness
+Completeness
+Decidability
+Interpretation
+Löwenheim–Skolem theorem
+Metatheorem
+Satisfiability
+Independence
+Type–token distinction
+Use–mention distinction
+
+vteTruthGeneral
+Statement
+Propositions
+Truth-bearer
+Truth-maker
+Theories
+Coherence
+Consensus
+Constructivist
+Correspondence
+Deflationary
+Epistemic
+Pluralist
+Pragmatic
+Redundancy
+Semantic
+
+vteMathematical logicGeneral
+Axiom
+list
+Cardinality
+First-order logic
+Formal proof
+Formal semantics
+Foundations of mathematics
+Information theory
+Lemma
+Logical consequence
+Model
+Theorem
+Theory
+Type theory
+Theorems (list) & Paradoxes
+Gödel's completeness and incompleteness theorems
+Tarski's undefinability
+Banach–Tarski paradox
+Cantor's theorem, paradox and diagonal argument
+Compactness
+Halting problem
+Lindström's
+Löwenheim–Skolem
+Russell's paradox
+LogicsTraditional
+Classical logic
+Logical truth
+Tautology
+Proposition
+Inference
+Logical equivalence
+Consistency
+Equiconsistency
+Argument
+Soundness
+Validity
+Syllogism
+Square of opposition
+Venn diagram
+Propositional
+Boolean algebra
+Boolean functions
+Logical connectives
+Propositional calculus
+Propositional formula
+Truth tables
+Many-valued logic
+3
+Finite
+∞
+Predicate
+First-order
+list
+Second-order
+Monadic
+Higher-order
+Free
+Quantifiers
+Predicate
+Monadic predicate calculus
+Set theory
+Set
+Hereditary
+Class
+(Ur-)Element
+Ordinal number
+Extensionality
+Forcing
+Relation
+Equivalence
+Partition
+Set operations:
+Intersection
+Union
+Complement
+Cartesian product
+Power set
+Identities
+Types of Sets
+Countable
+Uncountable
+Empty
+Inhabited
+Singleton
+Finite
+Infinite
+Transitive
+Ultrafilter
+Recursive
+Fuzzy
+Universal
+Universe
+Constructible
+Grothendieck
+Von Neumann
+Maps & Cardinality
+Function/Map
+Domain
+Codomain
+Image
+In/Sur/Bi-jection
+Schröder–Bernstein theorem
+Isomorphism
+Gödel numbering
+Enumeration
+Large cardinal
+Inaccessible
+Aleph number
+Operation
+Binary
+Set theories
+Zermelo–Fraenkel
+Axiom of choice
+Continuum hypothesis
+General
+Kripke–Platek
+Morse–Kelley
+Naive
+New Foundations
+Tarski–Grothendieck
+Von Neumann–Bernays–Gödel
+Ackermann
+Constructive
+Formal systems (list),Language & Syntax
+Alphabet
+Arity
+Automata
+Axiom schema
+Expression
+Ground
+Extension
+by definition
+Conservative
+Relation
+Formation rule
+Grammar
+Formula
+Atomic
+Closed
+Ground
+Open
+Free/bound variable
+Language
+Metalanguage
+Logical connective
+¬
+∨
+∧
+→
+↔
+=
+Predicate
+Functional
+Variable
+Propositional variable
+Proof
+Quantifier
+∃
+!
+∀
+rank
+Sentence
+Atomic
+Spectrum
+Signature
+String
+Substitution
+Symbol
+Function
+Logical/Constant
+Non-logical
+Variable
+Term
+Theory
+list
+Example axiomaticsystems (list)
+of arithmetic:
+Peano
+second-order
+elementary function
+primitive recursive
+Robinson
+Skolem
+of the real numbers
+Tarski's axiomatization
+of Boolean algebras
+canonical
+minimal axioms
+of geometry:
+Euclidean:
+Elements
+Hilbert's
+Tarski's
+non-Euclidean
+Principia Mathematica
+Proof theory
+Formal proof
+Natural deduction
+Logical consequence
+Rule of inference
+Sequent calculus
+Theorem
+Systems
+Axiomatic
+Deductive
+Hilbert
+list
+Complete theory
+Independence (from ZFC)
+Proof of impossibility
+Ordinal analysis
+Reverse mathematics
+Self-verifying theories
+Model theory
+Interpretation
+Function
+of models
+Model
+Equivalence
+Finite
+Saturated
+Spectrum
+Submodel
+Non-standard model
+of arithmetic
+Diagram
+Elementary
+Categorical theory
+Model complete theory
+Satisfiability
+Semantics of logic
+Strength
+Theories of truth
+Semantic
+Tarski's
+Kripke's
+T-schema
+Transfer principle
+Truth predicate
+Truth value
+Type
+Ultraproduct
+Validity
+Computability theory
+Church encoding
+Church–Turing thesis
+Computably enumerable
+Computable function
+Computable set
+Decision problem
+Decidable
+Undecidable
+P
+NP
+P versus NP problem
+Kolmogorov complexity
+Lambda calculus
+Primitive recursive function
+Recursion
+Recursive set
+Turing machine
+Type theory
+Related
+Abstract logic
+Category theory
+Concrete/Abstract Category
+Category of sets
+History of logic
+History of mathematical logic
+timeline
+Logicism
+Mathematical object
+Philosophy of mathematics
+Supertask
+ Mathematics portal
+
+
+

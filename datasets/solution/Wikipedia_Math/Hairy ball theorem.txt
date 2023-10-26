@@ -1,0 +1,77 @@
+Theorem in differential topology
+A failed attempt to comb a hairy 3-ball (2-sphere), leaving a tuft at each pole
+A hairy doughnut (2-torus), on the other hand, is quite easily combable.
+A continuous tangent vector field on a 2-sphere with only one pole, in this case a dipole field with index 2. See also an animated version of this graphic.
+A hair whorl
+The hairy ball theorem of algebraic topology (sometimes called the hedgehog theorem in Europe)[1] states that there is no nonvanishing continuous tangent vector field on even-dimensional n-spheres.[2][3] For the ordinary sphere, or 2‑sphere, if f is a continuous function that assigns a vector in R3 to every point p on a sphere such that f(p) is always tangent to the sphere at p, then there is at least one pole, a point where the field vanishes (a p such that f(p) = 0).
+The theorem was first proved by Henri Poincaré for the 2-sphere in 1885,[4] and extended to higher even dimensions in 1912 by Luitzen Egbertus Jan Brouwer.[5]
+The theorem has been expressed colloquially as "you can't comb a hairy ball flat without creating a cowlick" or "you can't comb the hair on a coconut".[6]
+
+
+Counting zeros[edit]
+Every zero of a vector field has a (non-zero) "index", and it can be shown that the sum of all of the indices at all of the zeros must be two, because the Euler characteristic of the 2-sphere is two. Therefore, there must be at least one zero. This is a consequence of the Poincaré–Hopf theorem. In the case of the torus, the Euler characteristic is 0; and it is possible to "comb a hairy doughnut flat". In this regard, it follows that for any compact regular 2-dimensional manifold with non-zero Euler characteristic, any continuous tangent vector field has at least one zero.
+
+Application to computer graphics[edit]
+A common problem in computer graphics is to generate a non-zero vector in R3 that is orthogonal to a given non-zero vector. There is no single continuous function that can do this for all non-zero vector inputs. This is a corollary of the hairy ball theorem. To see this, consider the given vector as the radius of a sphere and note that finding a non-zero vector orthogonal to the given one is equivalent to finding a non-zero vector that is tangent to the surface of that sphere where it touches the radius. However, the hairy ball theorem says there exists no continuous function that can do this for every point on the sphere (equivalently, for every given vector).
+
+Lefschetz connection[edit]
+There is a closely related argument from algebraic topology, using the Lefschetz fixed-point theorem. Since the Betti numbers of a 2-sphere are 1, 0, 1, 0, 0, ... the Lefschetz number (total trace on homology) of the identity mapping is 2. By integrating a vector field we get (at least a small part of) a one-parameter group of diffeomorphisms on the sphere; and all of the mappings in it are homotopic to the identity. Therefore, they all have Lefschetz number 2, also. Hence they have fixed points (since the Lefschetz number is nonzero). Some more work would be needed to show that this implies there must actually be a zero of the vector field. It does suggest the correct statement of the more general Poincaré-Hopf index theorem.
+
+Corollary[edit]
+A consequence of the hairy ball theorem is that any continuous function that maps an even-dimensional sphere into itself has either a fixed point or a point that maps onto its own antipodal point.  This can be seen by transforming the function into a tangential vector field as follows.
+Let s be the function mapping the sphere to itself, and let v be the tangential vector function to be constructed.  For each point p, construct the stereographic projection of s(p) with p as the point of tangency.  Then v(p) is the displacement vector of this projected point relative to p.  According to the hairy ball theorem, there is a p such that v(p) = 0, so that s(p) = p.
+This argument breaks down only if there exists a point p for which s(p) is the antipodal point of p, since such a point is the only one that cannot be stereographically projected onto the tangent plane of p.
+A further corollary is that any even-dimensional projective space has the fixed-point property. This follows from the previous result by lifting continuous functions of RP2nℝℙ^2n into itself to functions of S2n^2n into itself.
+
+Higher dimensions[edit]
+The connection with the Euler characteristic χ suggests the correct generalisation: the 2n-sphere has no non-vanishing vector field for n ≥ 1. The difference between even and odd dimensions is that, because the only nonzero Betti numbers of the m-sphere are b0 and bm, their alternating sum χ is 2 for m even, and 0 for m odd.
+Indeed it is easy to see that an odd-dimensional sphere admits a non-vanishing tangent vector field through a simple process of considering coordinates of the ambient even-dimensional Euclidean space R2nℝ^2n in pairs. Namely, one may define a tangent vector field to S2n−1^2n-1 by specifying a vector field v:R2n→R2n:ℝ^2n→ℝ^2n given by
+
+v(x1,…,x2n)=(x2,−x1,…,x2n,−x2n−1).(x_1,…,x_2n)=(x_2,-x_1,…,x_2n,-x_2n-1).
+In order for this vector field to restrict to a tangent vector field to the unit sphere S2n−1⊂R2n^2n-1⊂ℝ^2n it is enough to verify that the dot product with a unit vector of the form x=(x1,…,x2n)=(x_1,…,x_2n) satisfying ‖x‖=1x=1 vanishes. Due to the pairing of coordinates, one sees
+
+v(x1,…,x2n)∙(x1,…,x2n)=(x2x1−x1x2)+⋯+(x2nx2n−1−x2n−1x2n)=0.(x_1,…,x_2n)∙(x_1,…,x_2n)=(x_2x_1-x_1x_2)+⋯+(x_2nx_2n-1-x_2n-1x_2n)=0.
+For a 2n-sphere, the ambient Euclidean space is R2n+1ℝ^2n+1 which is odd-dimensional, and so this simple process of pairing coordinates is not possible. Whilst this does not preclude the possibility that there may still exist a tangent vector field to the even-dimensional sphere which does not vanish, the hairy ball theorem demonstrates that in fact there is no way of constructing such a vector field.
+
+Physical exemplifications[edit]
+The hairy ball theorem has numerous physical exemplifications. For example, rotation of a rigid ball around its fixed axis gives rise to a continuous tangential vector field of velocities of the points located on its surface. This field has two zero-velocity points, which disappear after drilling the ball completely through its  center, thereby converting the ball into the topological equivalent of a torus, a body to which the “hairy ball” theorem does not apply.[7] The hairy ball theorem may be successfully applied for the analysis of the propagation of electromagnetic waves, in the case when the wave-front forms a surface, topologically equivalent to a sphere (the surface possessing the Euler characteristic χ = 2). At least one point on the surface at which vectors of electric and magnetic fields equal zero will necessarily appear.[8] On certain 2-spheres of parameter space for electromagnetic waves in plasmas (or other complex media), these type of "cowlicks" or "bald points" also appear, which indicates that there exists topological excitation, i.e., robust waves that are immune to scattering and reflections, in the systems.[9]
+If one idealizes the wind in the Earth's atmosphere as a tangent-vector field, then the hairy ball theorem implies that given any wind at all on the surface of the Earth, there must at all times be a cyclone somewhere. Note, however, that wind can move vertically in the atmosphere, so the idealized case is not meteorologically sound. (What is true is that for every "shell" of atmosphere around the Earth, there must be a point on the shell where the wind is not moving horizontally.)[citation needed] The theorem also has implications in computer modeling (including video game design), in which a common problem is to compute a non-zero 3-D vector that is orthogonal (i.e., perpendicular) to a given one; the hairy ball theorem implies that there is no single continuous function that accomplishes this task.[10]
+
+See also[edit]
+Fixed-point theorem
+Intermediate value theorem
+Vector fields on spheres
+Notes[edit]
+
+
+^ Renteln, Paul (2013). Manifolds, Tensors, and Forms: An Introduction for Mathematicians and Physicists. Cambridge Univ. Press. p. 253. ISBN 978-1107659698.
+
+^ Burns, Keith; Gidea, Marian (2005). Differential Geometry and Topology: With a View to Dynamical Systems. CRC Press. p. 77. ISBN 1584882530.
+
+^ Schwartz, Richard Evan (2011). Mostly Surfaces. American Mathematical Society. pp. 113–114. ISBN 978-0821853689.
+
+^ Poincaré, H. (1885), "Sur les courbes définies par les équations différentielles", Journal de Mathématiques Pures et Appliquées, 4: 167–244
+
+^ Georg-August-Universität Göttingen Archived 2006-05-26 at the Wayback Machine - L.E.J. Brouwer. Über Abbildung von Mannigfaltigkeiten / Mathematische Annalen (1912) Volume: 71, page 97-115; ISSN: 0025-5831; 1432-1807/e, full text
+
+^ Richeson, David S. (23 July 2019). Euler's gem : the polyhedron formula and the birth of topology (New Princeton science library ed.). Princeton. p. 5. ISBN 978-0691191997.{{cite book}}:  CS1 maint: location missing publisher (link)
+
+^ Bormashenko, Edward; Kazachkov, Alexander (June 2017). "Rotating and rolling rigid bodies and the "hairy ball" theorem". American Journal of Physics. 85 (6): 447–453. Bibcode:2017AmJPh..85..447B. doi:10.1119/1.4979343. ISSN 0002-9505.
+
+^ Bormashenko, Edward (2016-05-23). "Obstructions imposed by the Poincaré–Brouwer ("hairy ball") theorem on the propagation of electromagnetic waves". Journal of Electromagnetic Waves and Applications. 30 (8): 1049–1053. Bibcode:2016JEWA...30.1049B. doi:10.1080/09205071.2016.1169226. ISSN 0920-5071. S2CID 124221302.
+
+^ Qin, Hong; Fu, Yichen (2023-03-31). "Topological Langmuir-cyclotron wave". Science Advances. 9 (13): eadd8041. doi:10.1126/sciadv.add8041. ISSN 2375-2548. PMC 10065437. PMID 37000869.
+
+^ Kohulák, Rudolf (2016-09-02). "Hairy balls, cyclones and computer graphics". Chalkdust. Retrieved 2023-08-14.
+
+
+References[edit]
+Eisenberg, Murray; Guy, Robert (1979), "A Proof of the Hairy Ball Theorem", The American Mathematical Monthly, 86 (7): 571–574, doi:10.2307/2320587, JSTOR 2320587
+Further reading[edit]
+Jarvis, Tyler; Tanton, James (2004), "The Hairy Ball Theorem via Sperner's Lemma", American Mathematical Monthly, 111 (7): 599–603, doi:10.1080/00029890.2004.11920120, JSTOR 4145162, S2CID 29784803
+Richeson, David S. (2008), "Combing the Hair on a Coconut", Euler's Gem: The Polyhedron Formula and the Birth of Topology, Princeton University Press, pp. 202–218, ISBN 978-0-691-12677-7
+External links[edit]
+Weisstein, Eric W. "Hairy Ball Theorem". MathWorld.
+
+
+

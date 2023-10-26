@@ -1,0 +1,28 @@
+Theorem of expressive equivalence between relational languages
+Codd's theorem states that relational algebra and the domain-independent relational calculus queries, two well-known foundational query languages for the relational model, are precisely equivalent in expressive power. That is, a database query can be formulated in one language if and only if it can be expressed in the other.
+The theorem is named after Edgar F. Codd, the father of the relational model for database management.
+The domain independent relational calculus queries are precisely those relational calculus queries that are invariant under choosing domains of values beyond those appearing in the database itself. That is, queries that may return different results for different domains are excluded. An example of such a forbidden query is the query "select all tuples other than those occurring in relation R", where R is a relation in the database. Assuming different domains, i.e., sets of atomic data items from which tuples can be constructed, this query returns different results and thus is clearly not domain independent.
+Codd's Theorem is notable since it establishes the equivalence of two syntactically quite dissimilar languages: relational algebra is a variable-free language, while relational calculus is a logical language with variables and quantification.
+Relational calculus is essentially equivalent to first-order logic,[1] and indeed, Codd's Theorem had been known to logicians since the late 1940s.[2][3]
+Query languages that are equivalent in expressive power to relational algebra were called relationally complete by Codd.  By Codd's Theorem, this includes relational calculus. Relational completeness clearly does not imply that any interesting database query can be expressed in relationally complete languages. Well-known examples of inexpressible queries include simple aggregations (counting tuples, or summing up values occurring in tuples, which are operations expressible in SQL but not in relational algebra) and computing the transitive closure of a graph given by its binary edge relation (see also expressive power). Codd's theorem also doesn't consider SQL nulls and the three-valued logic they entail; the logical treatment of nulls remains mired in controversy.[4] Additionally, SQL has multiset semantics and allows duplicate rows. Nevertheless, relational completeness constitutes an important yardstick by which the expressive power of query languages can be compared.
+
+Notes[edit]
+
+
+^ Abiteboul, Serge; Hull, Richard B.; Vianu, Victor (1995). Foundations of Databases. Addison-Wesley. ISBN 0-201-53771-0.
+
+^ Chin, L. H.; Tarski, A. (1948). "Remarks on Projective Algebras". Bulletin of the American Mathematical Society. 54 (1): 80–81. doi:10.1090/S0002-9904-1948-08948-0.
+
+^ Tarski, A.; Thompson, F. B. (1952). "Some General Properties of Cylindric Algebras". Bulletin of the American Mathematical Society. 58 (1): 65. doi:10.1090/S0002-9904-1952-09549-5.
+
+^ For recent work extending Codd's theorem in this direction see Franconi, Enrico; Tessaris, Sergio (2012). "On the Logic of SQL Nulls" (PDF). Proceedings of the 6th Alberto Mendelzon International Workshop on Foundations of Data Management, Ouro Preto, Brazil, June 27–30, 2012: 114–128.
+
+
+References[edit]
+Abiteboul, Serge; Hull, Richard B.; Vianu, Victor (1995). Foundations of Databases. Addison-Wesley. ISBN 0-201-53771-0.
+Codd, E. F. (1972). "Relational Completeness of Data Base Sublanguages". In Rustin, R. (ed.). Data Base Systems. Proceedings of 6th Courant Computer Science Symposium (May 24–25, 1971: New York, N.Y.). Prentice-Hall. pp. 65–98. ISBN 0-13-196741-X.
+External links[edit]
+Pichler, Reinhard (March 20, 2018). "Database Theory: 3. Codd's Theorem" (PDF). Institute of Logic and Computation, DBAI Group, TU Wien. Archived from the original (PDF) on August 22, 2020. Retrieved August 8, 2019.
+
+
+

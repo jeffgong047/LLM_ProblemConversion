@@ -1,0 +1,147 @@
+Need to sacrifice consistency or availability in the presence of network partitions
+In theoretical computer science, the CAP theorem, also named Brewer's theorem after computer scientist Eric Brewer, states that any distributed data store can provide only two of the following three guarantees:[1][2][3]
+
+Consistency
+Every read receives the most recent write or an error.
+Availability
+Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+Partition tolerance
+The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes.
+When a network partition failure happens, it must be decided whether to do one of the following:
+
+cancel the operation and thus decrease the availability but ensure consistency
+proceed with the operation and thus provide availability but risk inconsistency.
+CAP Theorem Venn Diagram
+Thus, if there is a network partition, one has to choose between consistency or availability. Note that consistency as defined in the CAP theorem is quite different from the consistency guaranteed in ACID database transactions.[4]
+
+
+Explanation[edit]
+No distributed system is safe from network failures, thus network partitioning generally has to be tolerated.[5][6] In the presence of a partition, one is then left with two options: consistency or availability. When choosing consistency over availability, the system will return an error or a time out if particular information cannot be guaranteed to be up to date due to network partitioning. When choosing availability over consistency, the system will always process the query and try to return the most recent available version of the information, even if it cannot guarantee it is up to date due to network partitioning.
+In the absence of a partition, both availability and consistency can be satisfied.[7]
+Database systems designed with traditional ACID guarantees in mind such as RDBMS choose consistency over availability, whereas systems designed around the BASE philosophy, common in the NoSQL movement for example, choose availability over consistency.[8]
+
+History[edit]
+According to University of California, Berkeley computer scientist Eric Brewer, the theorem first appeared in autumn 1998.[8] It was published as the CAP principle in 1999[9] and presented as a conjecture by Brewer at the 2000 Symposium on Principles of Distributed Computing (PODC).[10] In 2002, Seth Gilbert and Nancy Lynch of MIT published a formal proof of Brewer's conjecture, rendering it a theorem.[1]
+In 2012, Brewer clarified some of his positions, including why the often-used "two out of three" concept can be somewhat misleading because system designers only need to sacrifice consistency or availability in the presence of partitions; partition management and recovery techniques exist. Brewer also noted the different definition of consistency used in the CAP theorem relative to the definition used in ACID.[8][11]
+A similar theorem stating the trade-off between consistency and availability in distributed systems was published by Birman and Friedman in 1996.[12] Birman and Friedman's result restricted this lower bound to non-commuting operations.
+The PACELC theorem, introduced in 2010,[7] builds on CAP by stating that even in the absence of partitioning, there is another trade-off between latency and consistency. PACELC means, if partition (P) happens, the trade-off is between availability (A) and consistency (C); Else (E), the trade-off is between latency (L) and consistency (C).
+
+See also[edit]
+Fallacies of distributed computing
+PACELC theorem
+Paxos (computer science)
+Raft (computer science)
+Zooko's triangle
+Inconsistent triad
+References[edit]
+
+
+^ a b Gilbert, Seth; Lynch, Nancy (2002). "Brewer's conjecture and the feasibility of consistent, available, partition-tolerant web services". ACM SIGACT News. Association for Computing Machinery (ACM). 33 (2): 51–59. doi:10.1145/564585.564601. ISSN 0163-5700. S2CID 15892169.
+
+^ "Brewer's CAP Theorem". julianbrowne.com. 2009-01-11.
+
+^ "Brewers CAP Theorem on distributed systems". royans.net. 2010-02-14.
+
+^ Liochon, Nicolas. "The confusing CAP and ACID wording". This long run. Retrieved 1 February 2019.
+
+^ Kleppmann, Martin (2015-09-18). A Critique of the CAP Theorem (Report). Apollo - University of Cambridge Repository. arXiv:1509.05393. Bibcode:2015arXiv150905393K. doi:10.17863/CAM.13083. S2CID 1991487. Retrieved 24 November 2019.
+
+^ Martin, Kleppmann. "Please stop calling databases CP or AP". Martin Kleppmann's Blog. Retrieved 24 November 2019.
+
+^ a b Abadi, Daniel (2010-04-23). "DBMS Musings: Problems with CAP, and Yahoo's little known NoSQL system". DBMS Musings. Retrieved 2018-01-23.
+
+^ a b c Brewer, Eric (2012). "CAP twelve years later: How the "rules" have changed". Computer. Institute of Electrical and Electronics Engineers (IEEE). 45 (2): 23–29. doi:10.1109/mc.2012.37. ISSN 0018-9162. S2CID 890105.
+
+^ Armando Fox; Eric Brewer (1999). Harvest, Yield and Scalable Tolerant Systems. Proc. 7th Workshop Hot Topics in Operating Systems (HotOS 99). IEEE CS. pp. 174–178. doi:10.1109/HOTOS.1999.798396.
+
+^ Eric Brewer. "Towards Robust Distributed Systems" (PDF).
+
+^ Carpenter, Jeff; Hewitt, Eben (July 2016). Cassandra: The Definitive Guide (2nd ed.). Oreilly. ISBN 9781491933657. In February 2012, Eric Brewer provided an updated perspective on his CAP theorem [..] Brewer now describes the "2 out of 3" axiom as somewhat misleading. He notes that designers only need sacrifice consistency or availability in the presence of partitions, and that advances in partition recovery techniques have made it possible for designers to achieve high levels of both consistency and availability.
+
+^ Ken Birman; Roy Friedman (April 1996). "Trading Consistency for Availability in Distributed Systems". hdl:1813/7235.
+
+
+External links[edit]
+Spanner, TrueTime and the CAP Theorem
+Perspectives on the CAP theorem: An update from Gilbert and Lynch in 2012
+vteDatabase management systemsTypes
+Object-oriented
+comparison
+Relational
+list
+comparison
+Key–value
+Column-oriented
+list
+Document-oriented
+Wide-column store
+Graph
+NoSQL
+NewSQL
+In-memory
+list
+Multi-model
+comparison
+Cloud
+Blockchain-based database
+Concepts
+Database
+ACID
+Armstrong's axioms
+Codd's 12 rules
+CAP theorem
+CRUD
+Null
+Candidate key
+Foreign key
+Superkey
+Surrogate key
+Unique key
+Objects
+Relation
+table
+column
+row
+View
+Transaction
+Transaction log
+Trigger
+Index
+Stored procedure
+Cursor
+Partition
+Components
+Concurrency control
+Data dictionary
+JDBC
+XQJ
+ODBC
+Query language
+Query optimizer
+Query rewriting system
+Query plan
+Functions
+Administration
+Query optimization
+Replication
+Sharding
+Related topics
+Database models
+Database normalization
+Database storage
+Distributed database
+Federated database system
+Referential integrity
+Relational algebra
+Relational calculus
+Relational model
+Object–relational database
+Transaction processing
+
+ Category
+ Outline
+ WikiProject
+
+
+
+

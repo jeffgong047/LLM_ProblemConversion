@@ -1,0 +1,67 @@
+Consistent set of finite-dimensional distributions will define a stochastic process
+This article is about a theorem on stochastic processes. For a theorem on extension of pre-measure, see Hahn–Kolmogorov theorem.
+In mathematics, the Kolmogorov extension theorem (also known as Kolmogorov existence theorem, the Kolmogorov consistency theorem or the Daniell-Kolmogorov theorem) is a theorem that guarantees that a suitably "consistent" collection of finite-dimensional distributions will define a stochastic process. It is credited to the English mathematician Percy John Daniell and the Russian mathematician Andrey Nikolaevich Kolmogorov.[1]
+
+
+Statement of the theorem[edit]
+Let T denote some interval (thought of as "time"), and let n∈N∈ℕ. For each k∈N∈ℕ and finite sequence of distinct times t1,…,tk∈T_1,…,t_k, let νt1…tkν_t_1_k be a probability measure on (Rn)k.(ℝ^n)^k. Suppose that these measures satisfy two consistency conditions:
+1. for all permutations ππ of 1,…,k{1,…,k} and measurable sets Fi⊆Rn_i⊆ℝ^n,
+
+νtπ(1)…tπ(k)(Fπ(1)×⋯×Fπ(k))=νt1…tk(F1×⋯×Fk);ν_t_π(1)_π(k)(F_π(1)×…_π(k))=ν_t_1_k(F_1×…_k);
+2. for all measurable sets Fi⊆Rn_i⊆ℝ^n,m∈N∈ℕ
+
+νt1…tk(F1×⋯×Fk)=νt1…tk,tk+1,…,tk+m(F1×⋯×Fk×Rn×⋯×Rn⏟m).ν_t_1_k(F_1×…_k)=ν_t_1_k,t_k+1,…,t_k+m(F_1×…_k×ℝ^n×…×ℝ^n_m).
+Then there exists a probability space (Ω,F,P)(Ω,ℱ,ℙ) and a stochastic process X:T×Ω→Rn:T×Ω→ℝ^n such that
+
+νt1…tk(F1×⋯×Fk)=P(Xt1∈F1,…,Xtk∈Fk)ν_t_1_k(F_1×…_k)=ℙ(X_t_1_1,…,X_t_k_k)
+for all ti∈T_i, k∈N∈ℕ and measurable sets Fi⊆Rn_i⊆ℝ^n, i.e. X has νt1…tkν_t_1_k as its finite-dimensional distributions relative to times t1…tk_1_k.
+In fact, it is always possible to take as the underlying probability space Ω=(Rn)TΩ=(ℝ^n)^T and to take for X the canonical process X:(t,Y)↦Yt(t,Y)_t. Therefore, an alternative way of stating Kolmogorov's extension theorem is that, provided that the above consistency conditions hold, there exists a (unique) measure νν on (Rn)T(ℝ^n)^T with marginals νt1…tkν_t_1_k for any finite collection of times t1…tk_1_k. Kolmogorov's extension theorem applies when T is uncountable, but the price to pay
+for this level of generality is that the measure νν is only defined on the product σ-algebra of (Rn)T(ℝ^n)^T, which is not very rich.
+
+Explanation of the conditions[edit]
+The two conditions required by the theorem are trivially satisfied by any stochastic process. For example, consider a real-valued discrete-time stochastic process X. Then the probability P(X1>0,X2<0)ℙ(X_1>0,X_2<0) can be computed either as ν1,2(R+×R−)ν_1,2(ℝ_+×ℝ_-) or as  ν2,1(R−×R+)ν_2,1(ℝ_-×ℝ_+). Hence, for the finite-dimensional distributions to be consistent, it must hold that
+ν1,2(R+×R−)=ν2,1(R−×R+)ν_1,2(ℝ_+×ℝ_-)=ν_2,1(ℝ_-×ℝ_+).
+The first condition generalizes this statement to hold for any number of time points ti_i, and any control sets Fi_i.
+Continuing the example, the second condition implies that P(X1>0)=P(X1>0,X2∈R)ℙ(X_1>0)=ℙ(X_1>0,X_2∈ℝ). Also this is a trivial condition that will be satisfied by any consistent family of finite-dimensional distributions.
+
+Implications of the theorem[edit]
+Since the two conditions are trivially satisfied for any stochastic process, the power of the theorem is that no other conditions are required: For any reasonable (i.e., consistent) family of finite-dimensional distributions, there exists a stochastic process with these distributions.
+The measure-theoretic approach to stochastic processes starts with a probability space and defines a stochastic process as a family of functions on this probability space. However, in many applications the starting point is really the finite-dimensional distributions of the stochastic process. The theorem says that provided the finite-dimensional distributions satisfy the obvious consistency requirements, one can always identify a probability space to match the purpose. In many situations, this means that one does not have to be explicit about what the probability space is. Many texts on stochastic processes do, indeed, assume a probability space but never state explicitly what it is.
+The theorem is used in one of the standard proofs of existence of a Brownian motion, by specifying the finite dimensional distributions to be Gaussian random variables, satisfying the consistency conditions above. As in most of the definitions of Brownian motion it is required that the sample paths are continuous almost surely, and one then uses the Kolmogorov continuity theorem to construct a continuous modification of the process constructed by the Kolmogorov extension theorem.
+
+General form of the theorem[edit]
+The Kolmogorov extension theorem gives us conditions for a collection of measures on Euclidean spaces to be the finite-dimensional distributions of some Rnℝ^n-valued stochastic process, but the assumption that the state space be Rnℝ^n is unnecessary. In fact, any collection of measurable spaces together with a collection of inner regular measures defined on the finite products of these spaces would suffice, provided that these measures satisfy a certain compatibility relation. The formal statement of the general theorem is as follows.[2]
+Let T be any set. Let (Ωt,Ft)t∈T{(Ω_t,ℱ_t)}_t be some collection of measurable spaces, and for each t∈T, let τtτ_t be a Hausdorff topology on ΩtΩ_t. For each finite subset J⊂T, define
+
+ΩJ:=∏t∈JΩtΩ_J:=∏_tΩ_t.
+For subsets I⊂J⊂T, let πIJ:ΩJ→ΩIπ_I^J:Ω_J→Ω_I denote the canonical projection map ω↦ω|Iω↦ω|_I.
+For each finite subset F⊂T, suppose we have a probability measure μFμ_F on ΩFΩ_F which is inner regular with respect to the product topology (induced by the τtτ_t) on ΩFΩ_F. Suppose also that this collection μF{μ_F} of measures satisfies the following compatibility relation: for finite subsets F⊂G⊂T, we have that
+
+μF=(πFG)∗μGμ_F=(π_F^G)_*μ_G
+where (πFG)∗μG(π_F^G)_*μ_G denotes the pushforward measure of μGμ_G induced by the canonical projection map πFGπ_F^G.
+Then there exists a unique probability measure μμ on ΩTΩ_T such that μF=(πFT)∗μμ_F=(π_F^T)_*μ for every finite subset F⊂T.
+As a remark, all of the measures μF,μμ_F,μ are defined on the product sigma algebra on their respective spaces, which (as mentioned before) is rather coarse. The measure μμ may sometimes be extended appropriately to a larger sigma algebra, if there is additional structure involved.
+Note that the original statement of the theorem is just a special case of this theorem with Ωt=RnΩ_t=ℝ^n for all t∈T, and μt1,...,tk=νt1…tkμ_{t_1,...,t_k}=ν_t_1_k for t1,...,tk∈T_1,...,t_k. The stochastic process would simply be the canonical process (πt)t∈T(π_t)_t, defined on Ω=(Rn)TΩ=(ℝ^n)^T with probability measure P=μ=μ. The reason that the original statement of the theorem does not mention inner regularity of the measures νt1…tkν_t_1_k is that this would automatically follow, since Borel probability measures on Polish spaces are automatically Radon.
+This theorem has many far-reaching consequences; for example it can be used to prove the existence of the following, among others:
+
+Brownian motion, i.e., the Wiener process,
+a Markov chain taking values in a given state space with a given transition matrix,
+infinite products of (inner-regular) probability spaces.
+History[edit]
+According to John Aldrich, the theorem was independently discovered by British mathematician Percy John Daniell in the slightly different setting of integration theory.[3]
+
+References[edit]
+
+
+^ Øksendal, Bernt (2003). Stochastic Differential Equations: An Introduction with Applications (Sixth ed.). Berlin: Springer. p. 11. ISBN 3-540-04758-1.
+
+^ Tao, T. (2011). An Introduction to Measure Theory. Graduate Studies in Mathematics. Vol. 126. Providence: American Mathematical Society. p. 195. ISBN 978-0-8218-6919-2.
+
+^ J. Aldrich,  But you have to remember PJ Daniell of Sheffield, Electronic Journal for History of Probability and Statistics, Vol. 3, number 2, 2007
+
+
+External links[edit]
+Aldrich, J. (2007) "But you have to remember P.J.Daniell of Sheffield" Electronic Journ@l for History of Probability and Statistics December 2007.
+
+
+

@@ -1,0 +1,656 @@
+Theorem about the dual of a Hilbert space
+This article is about a theorem concerning the dual of a Hilbert space. For the theorems relating linear functionals to measures, see Riesz–Markov–Kakutani representation theorem. For other theorems, see Riesz theorem.
+The Riesz representation theorem, sometimes called the Riesz–Fréchet representation theorem after Frigyes Riesz and Maurice René Fréchet, establishes an important connection between a Hilbert space and its continuous dual space. If the underlying field is the real numbers, the two are isometrically isomorphic; if the underlying field is the complex numbers, the two are isometrically anti-isomorphic. The (anti-) isomorphism is a particular natural isomorphism.
+
+
+Preliminaries and notation[edit]
+Let H be a Hilbert space over a field F,𝔽, where F𝔽 is either the real numbers Rℝ or the complex numbers C.ℂ. If F=C𝔽=ℂ (resp. if F=R𝔽=ℝ) then H is called a complex Hilbert space (resp. a real Hilbert space). Every real Hilbert space can be extended to be a dense subset of a unique (up to bijective isometry) complex Hilbert space, called its complexification, which is why Hilbert spaces are often automatically assumed to be complex. Real and complex Hilbert spaces have in common many, but by no means all, properties and results/theorems. 
+This article is intended for both mathematicians and physicists and will describe the theorem for both. 
+In both mathematics and physics, if a Hilbert space is assumed to be real (that is, if F=R𝔽=ℝ) then this will usually be made clear. Often in mathematics, and especially in physics, unless indicated otherwise, "Hilbert space" is usually automatically assumed to mean "complex Hilbert space." Depending on the author, in mathematics, "Hilbert space" usually means either (1) a complex Hilbert space, or (2) a real or complex Hilbert space. 
+
+Linear and antilinear maps[edit]
+By definition, an antilinear map (also called a conjugate-linear map) f:H→Y:H is a map between vector spaces that is additive:
+f(x+y)=f(x)+f(y)forallx,y∈H,(x+y)=f(x)+f(y)  forallx,y,
+and antilinear (also called conjugate-linear or conjugate-homogeneous):
+f(cx)=c¯f(x)forallx∈Handallscalarc∈F.(cx)=cf(x)  forallxandallscalarc∈𝔽.
+In contrast, a map f:H→Y:H is linear if it is additive and homogeneous: 
+f(cx)=cf(x)forallx∈Handallscalarsc∈F.(cx)=cf(x)  forallx  andallscalarsc∈𝔽.
+Every constant 00 map is always both linear and antilinear. If F=R𝔽=ℝ then the definitions of linear maps and antilinear maps are completely identical. A linear map from a Hilbert space into a Banach space (or more generally, from any Banach space into any topological vector space) is continuous if and only if it is bounded; the same is true of antilinear maps. The inverse of any antilinear (resp. linear) bijection is again an antilinear (resp. linear) bijection. The composition of two antilinear maps is a linear map. 
+Continuous dual and anti-dual spaces
+A functional on H is a function H→F→𝔽 whose codomain is the underlying scalar field F.𝔽. 
+Denote by H∗^* (resp. by H¯∗)H^*) the set of all continuous linear (resp. continuous antilinear) functionals on H,, which is called the (continuous) dual space (resp. the (continuous) anti-dual space) of H..[1] 
+If F=R𝔽=ℝ then linear functionals on H are the same as antilinear functionals and consequently, the same is true for such continuous maps: that is, H∗=H¯∗.^*=H^*.
+One-to-one correspondence between linear and antilinear functionals
+Given any functional f:H→F, : H→𝔽, the conjugate of f is the functional 
+f¯:H→Fh↦f(h)¯.4f:    H      →       𝔽
+   h      ↦       f(h).
+
+This assignment is most useful when F=C𝔽=ℂ because if F=R𝔽=ℝ then f=f¯=f and the assignment f↦f¯↦f reduces down to the identity map. 
+The assignment f↦f¯↦f defines an antilinear bijective correspondence from the set of 
+
+all functionals (resp. all linear functionals, all continuous linear functionals H∗^*) on H,,
+onto the set of 
+
+all functionals (resp. all antilinear functionals, all continuous antilinear functionals H¯∗H^*) on H..
+Mathematics vs. physics notations and definitions of inner product[edit]
+The Hilbert space H has an associated inner product H×H→F→𝔽 valued in H's underlying scalar field F𝔽 that is linear in one coordinate and antilinear in the other (as described in detail below). 
+If H is a complex Hilbert space (meaning, if F=C𝔽=ℂ), which is very often the case, then which coordinate is antilinear and which is linear becomes a very important technicality. 
+However, if F=R𝔽=ℝ then the inner product is a symmetric map that is simultaneously linear in each coordinate (that is, bilinear) and antilinear in each coordinate. Consequently, the question of which coordinate is linear and which is antilinear is irrelevant for real Hilbert spaces. 
+Notation for the inner product
+In mathematics, the inner product on a Hilbert space H is often denoted by ⟨⋅,⋅⟩⟨·,·⟩ or ⟨⋅,⋅⟩H⟨·,·⟩_H while in physics, the bra–ket notation ⟨⋅∣⋅⟩⟨·|·⟩ or ⟨⋅∣⋅⟩H⟨·|·⟩_H is typically used instead. In this article, these two notations will be related by the equality:
+⟨x,y⟩:=⟨y∣x⟩forallx,y∈H.,y⟩:=⟩  forallx,y.
+Competing definitions of the inner product
+The maps ⟨⋅,⋅⟩⟨·,·⟩ and ⟨⋅∣⋅⟩⟨·|·⟩ are assumed to have the following two properties:
+
+
+The map ⟨⋅,⋅⟩⟨·,·⟩ is linear in its first coordinate; equivalently, the map ⟨⋅∣⋅⟩⟨·|·⟩ is linear in its second coordinate. Explicitly, this means that for every fixed y∈H,, the map that is denoted by 
+⟨y∣⋅⟩=⟨⋅,y⟩:H→F⟨ y|· ⟩=⟨ ·,y ⟩:H→𝔽 
+and defined by h↦⟨y∣h⟩=⟨h,y⟩forallh∈H↦⟨ y ⟩=⟨ h,y ⟩  forallh
+is a linear functional on H..
+In fact, this linear functional is continuous, so ⟨y∣⋅⟩=⟨⋅,y⟩∈H∗.⟨ y|· ⟩=⟨ ·,y ⟩^*.
+
+The map ⟨⋅,⋅⟩⟨·,·⟩ is antilinear in its second coordinate; equivalently, the map ⟨⋅∣⋅⟩⟨·|·⟩ is antilinear in its first coordinate. Explicitly, this means that for every fixed y∈H,, the map that is denoted by 
+⟨⋅∣y⟩=⟨y,⋅⟩:H→F⟨ · ⟩=⟨ y,· ⟩:H→𝔽 
+and defined by h↦⟨h∣y⟩=⟨y,h⟩forallh∈H↦⟨ h ⟩=⟨ y,h ⟩  forallh
+is an antilinear functional on H..
+In fact, this antilinear functional is continuous, so ⟨⋅∣y⟩=⟨y,⋅⟩∈H¯∗.⟨ · ⟩=⟨ y,· ⟩∈H^*.
+
+
+In mathematics, the prevailing convention (i.e. the definition of an inner product) is that the inner product is linear in the first coordinate and antilinear in the other coordinate. In physics, the convention/definition is unfortunately the opposite, meaning that the inner product is linear in the second coordinate and antilinear in the other coordinate. 
+This article will not choose one definition over the other. 
+Instead, the assumptions made above make it so that the mathematics notation ⟨⋅,⋅⟩⟨·,·⟩ satisfies the mathematical convention/definition for the inner product (that is, linear in the first coordinate and antilinear in the other), while the physics bra–ket notation ⟨⋅|⋅⟩⟨·|·⟩ satisfies the physics convention/definition for the inner product (that is, linear in the second coordinate and antilinear in the other). Consequently, the above two assumptions makes the notation used in each field consistent with that field's convention/definition for which coordinate is linear and which is antilinear.
+
+Canonical norm and inner product on the dual space and anti-dual space[edit]
+If x=y=y then ⟨x∣x⟩=⟨x,x⟩⟨ x ⟩=⟨ x,x ⟩ is a non-negative real number and the map
+‖x‖:=⟨x,x⟩=⟨x∣x⟩x:=√(,x⟩)=√(⟩)
+defines a canonical norm on H that makes H into a normed space.[1] 
+As with all normed spaces, the (continuous) dual space H∗^* carries a canonical norm, called the dual norm, that is defined by[1]
+‖f‖H∗:=sup‖x‖≤1,x∈H|f(x)|foreveryf∈H∗.f_H^* := sup_x≤1,x|f(x)|  foreveryf^*.
+The canonical norm on the (continuous) anti-dual space H¯∗,H^*, denoted by ‖f‖H¯∗,f_H^*, is defined by using this same equation:[1]
+‖f‖H¯∗:=sup‖x‖≤1,x∈H|f(x)|foreveryf∈H¯∗.f_H^* := sup_x≤1,x|f(x)|  foreveryf∈H^*.
+This canonical norm on H∗^* satisfies the parallelogram law, which means that the polarization identity can be used to define a canonical inner product on H∗,^*, which this article will denote by the notations 
+⟨f,g⟩H∗:=⟨g∣f⟩H∗,,g⟩_H^*:=⟩_H^*, 
+where this inner product turns H∗^* into a Hilbert space. There are now two ways of defining a norm on H∗:^*: the norm induced by this inner product (that is, the norm defined by f↦⟨f,f⟩H∗↦√(,f⟩_H^*)) and the usual dual norm (defined as the supremum over the closed unit ball). These norms are the same; explicitly, this means that the following holds for every f∈H∗:^*:
+sup‖x‖≤1,x∈H|f(x)|=‖f‖H∗=⟨f,f⟩H∗=⟨f∣f⟩H∗.sup_x≤1,x|f(x)|=f_H^* = √(,f⟩_H^*) = √(⟩_H^*).
+As will be described later, the Riesz representation theorem can be used to give an equivalent definition of the canonical norm and the canonical inner product on H∗.^*.
+The same equations that were used above can also be used to define a norm and inner product on H's anti-dual space H¯∗.H^*.[1]
+Canonical isometry between the dual and antidual
+The complex conjugate f¯f of a functional f,, which was defined above, satisfies 
+‖f‖H∗=‖f¯‖H¯∗and‖g¯‖H∗=‖g‖H¯∗f_H^* = f_H^*  and  g_H^* = g_H^*
+for every f∈H∗^* and every g∈H¯∗.∈H^*. 
+This says exactly that the canonical antilinear bijection defined by
+Cong:H∗→H¯∗f↦f¯4Cong:       H^*       →    H^*
+      f       ↦    f
+
+as well as its inverse Cong−1⁡:H¯∗→H∗Cong^-1 : H^*^* are antilinear isometries and consequently also homeomorphisms. 
+The inner products on the dual space H∗^* and the anti-dual space H¯∗,H^*, denoted respectively by ⟨⋅,⋅⟩H∗⟨ · , · ⟩_H^* and ⟨⋅,⋅⟩H¯∗,⟨ · , · ⟩_H^*, are related by
+⟨f¯|g¯⟩H¯∗=⟨f|g⟩H∗¯=⟨g|f⟩H∗forallf,g∈H∗⟨ f | g ⟩_H^*=⟨ f | g ⟩_H^*=⟨ g | f ⟩_H^*    forallf,g^*
+and
+⟨f¯|g¯⟩H∗=⟨f|g⟩H¯∗¯=⟨g|f⟩H¯∗forallf,g∈H¯∗.⟨ f | g ⟩_H^*=⟨ f | g ⟩_H^*=⟨ g | f ⟩_H^*    forallf,g∈H^*.
+If F=R𝔽=ℝ then H∗=H¯∗^*=H^* and this canonical map Cong:H∗→H¯∗Cong:H^*→H^* reduces down to the identity map.
+
+Riesz representation theorem[edit]
+Two vectors x and y are orthogonal if ⟨x,y⟩=0,,y⟩=0, which happens if and only if ‖y‖≤‖y+sx‖y≤y+sx for all scalars s..[2] The orthogonal complement of a subset C⊆H is 
+C⊥:=y∈H:⟨y,c⟩=0forallc∈C,^:={ y:,c⟩=0forallc },
+which is always a closed vector subspace of H.. 
+The Hilbert projection theorem guarantees that for any nonempty closed convex subset C of a Hilbert space there exists a unique vector m∈C such that ‖m‖=infc∈C‖c‖;m=inf_cc; that is, m∈C is the (unique) global minimum point of the function C→[0,∞)→[0,∞) defined by c↦‖c‖.↦c.
+
+Statement[edit]
+
+Riesz representation theorem — Let H be a Hilbert space whose inner product ⟨x,y⟩,y⟩ is linear in its first argument and antilinear in its second argument and let ⟨y∣x⟩:=⟨x,y⟩⟩:=,y⟩ be the corresponding physics notation. For every continuous linear functional φ∈H∗,φ^*, there exists a unique vector fφ∈H,_φ, called the Riesz representation of φ,φ, such that[3]
+φ(x)=⟨x,fφ⟩=⟨fφ∣x⟩forallx∈H.φ(x)=,f_φ⟩=_φ⟩  forallx.
+Importantly for complex Hilbert spaces, fφ_φ is always located in the antilinear coordinate of the inner product.[note 1]
+Furthermore, the length of the representation vector is equal to the norm of the functional:
+‖fφ‖H=‖φ‖H∗,f_φ_H=φ_H^*, and fφ_φ is the unique vector fφ∈(ker⁡φ)⊥_φ∈(φ)^ with φ(fφ)=‖φ‖2.φ(f_φ)=φ^2. 
+It is also the unique element of minimum norm in C:=φ−1(‖φ‖2):=φ^-1(φ^2); that is to say, fφ_φ is the unique element of C satisfying ‖fφ‖=infc∈C‖c‖.f_φ=inf_cc.
+Moreover, any non-zero q∈(ker⁡φ)⊥∈(φ)^ can be written as q=(‖q‖2/φ(q)¯)fφ.=(q^2/ φ(q))_φ.
+
+
+
+Corollary — The canonical map from H into its dual H∗^*[1] is the injective antilinear operator isometry[note 2][1]
+Φ:H→H∗y↦⟨⋅,y⟩=⟨y|⋅⟩4Φ:       H       →    H^*
+      y       ↦    ⟨ · ,y⟩=| · ⟩
+
+The Riesz representation theorem states that this map is surjective (and thus bijective) when H is complete and that its inverse is the bijective isometric antilinear isomorphism
+Φ−1:H∗→Hφ↦fφ.4Φ^-1:       H^*       →    H
+      φ       ↦    f_φ
+.
+Consequently, every continuous linear functional on the Hilbert space H can be written uniquely in the form ⟨y|⋅⟩ | · ⟩[1] where ‖⟨y|⋅⟩‖H∗=‖y‖H |·⟩_H^*=y_H for every y∈H.. 
+The assignment y↦⟨y,⋅⟩=⟨⋅|y⟩↦,·⟩=⟨· | y⟩ can also be viewed as a bijective linear isometry H→H¯∗→H^* into the anti-dual space of H,,[1] which is the complex conjugate vector space of the continuous dual space H∗.^*.
+The inner products on H and H∗^* are related by 
+⟨Φh,Φk⟩H∗=⟨h,k⟩¯H=⟨k,h⟩Hforallh,k∈H⟨,⟩_H^*=,k⟩_H=,h⟩_H  forallh,k
+and similarly, 
+⟨Φ−1φ,Φ−1ψ⟩H=⟨φ,ψ⟩¯H∗=⟨ψ,φ⟩H∗forallφ,ψ∈H∗.⟨Φ^-1φ,Φ^-1ψ⟩_H=⟨φ,ψ⟩_H^*=⟨ψ,φ⟩_H^*  forallφ,ψ^*.
+The set C:=φ−1(‖φ‖2):=φ^-1(φ^2) satisfies C=fφ+ker⁡φ=f_φ+φ and C−fφ=ker⁡φ-f_φ=φ so when fφ≠0_φ≠0 then C can be interpreted as being the affine hyperplane[note 3] that is parallel to the vector subspace ker⁡φφ and contains fφ._φ.
+For y∈H,, the physics notation for the functional Φ(y)∈H∗Φ(y)^* is the bra ⟨y|,|, where explicitly this means that ⟨y|:=Φ(y),|:=Φ(y), which complements the ket notation |y⟩|y⟩ defined by |y⟩:=y.|y⟩:=y. 
+In the mathematical treatment of quantum mechanics, the theorem can be seen as a justification for the popular bra–ket notation. The theorem says that, every bra ⟨ψ|⟨ψ | has a corresponding ket |ψ⟩,| ψ⟩, and the latter is unique.
+
+
+Historically, the theorem is often attributed simultaneously to Riesz and Fréchet in 1907 (see references). 
+
+
+
+
+Proof[4]
+
+
+
+Let F𝔽 denote the underlying scalar field of H..
+Proof of norm formula:
+Fix y∈H..  
+Define Λ:H→FΛ:H→𝔽 by Λ(z):=⟨y|z⟩,Λ(z):=⟨ y | z ⟩, which is a linear functional on H since z is in the linear argument. 
+By the Cauchy–Schwarz inequality, 
+|Λ(z)|=|⟨y|z⟩|≤‖y‖‖z‖|Λ(z)|=|⟨ y | z ⟩|≤yz
+which shows that ΛΛ is bounded (equivalently, continuous) and that ‖Λ‖≤‖y‖.Λ≤y. 
+It remains to show that ‖y‖≤‖Λ‖.y≤Λ. 
+By using y in place of z,, it follows that 
+‖y‖2=⟨y|y⟩=Λy=|Λ(y)|≤‖Λ‖‖y‖y^2=⟨ y | y ⟩==|Λ(y)|≤Λy
+(the equality Λy=|Λ(y)|=|Λ(y)| holds because Λy=‖y‖2≥0=y^2≥0 is real and non-negative). 
+Thus that ‖Λ‖=‖y‖.Λ=y.
+◼▪
+The proof above did not use the fact that H is complete, which shows that the formula for the norm ‖⟨y|⋅⟩‖H∗=‖y‖H⟨ y | · ⟩_H^*=y_H holds more generally for all inner product spaces. 
+
+
+Proof that a Riesz representation of φφ is unique:
+Suppose f,g∈H,g are such that φ(z)=⟨f|z⟩φ(z)=⟨ f | z ⟩ and φ(z)=⟨g|z⟩φ(z)=⟨ g | z ⟩ for all z∈H.. 
+Then 
+⟨f−g|z⟩=⟨f|z⟩−⟨g|z⟩=φ(z)−φ(z)=0forallz∈H⟨ f-g | z ⟩=⟨ f | z ⟩-⟨ g | z ⟩=φ(z)-φ(z)=0  forallz
+which shows that Λ:=⟨f−g|⋅⟩Λ:=⟨ f-g | · ⟩ is the constant 00 linear functional. 
+Consequently 0=‖⟨f−g|⋅⟩‖=‖f−g‖,0=⟨ f-g | · ⟩=f-g, which implies that f−g=0.-g=0.
+◼▪
+
+
+Proof that a vector fφ_φ representing φφ exists:
+Let K:=ker⁡φ:=m∈H:φ(m)=0.:=φ:={m:φ(m)=0}. 
+If K=H=H (or equivalently, if φ=0φ=0) then taking fφ:=0_φ:=0 completes the proof so assume that K≠H and φ≠0.φ≠0. 
+The continuity of φφ implies that K is a closed subspace of H (because K=φ−1(0)=φ^-1({0}) and 0{0} is a closed subset of F𝔽). 
+Let 
+K⊥:=v∈H:⟨v|k⟩=0forallk∈K^:={v : ⟨ v | k ⟩=0 forallk} 
+denote the orthogonal complement of K in H..
+Because K is closed and H is a Hilbert space,[note 4] H can be written as the direct sum H=K⊕K⊥=K^[note 5] (a proof of this is given in the article on the Hilbert projection theorem). 
+Because K≠H,, there exists some non-zero p∈K⊥.^. 
+For any h∈H,,
+φ[(φh)p−(φp)h]=φ[(φh)p]−φ[(φp)h]=(φh)φp−(φp)φh=0,φ[()p-()h] = φ[()p]-φ[()h] = ()-()=0,
+which shows that (φh)p−(φp)h∈ker⁡φ=K,()p-()h ∈ φ=K, where now p∈K⊥^ implies 
+0=⟨p|(φh)p−(φp)h⟩=⟨p|(φh)p⟩−⟨p|(φp)h⟩=(φh)⟨p|p⟩−(φp)⟨p|h⟩.0=⟨ p | ()p-()h ⟩ = ⟨ p | ()p ⟩-⟨ p | ()h ⟩ = ()⟨ p | p ⟩-()⟨ p | h ⟩. 
+Solving for φh shows that 
+φh=(φp)⟨p|h⟩‖p‖2=⟨φp¯‖p‖2p|h⟩foreveryh∈H,=()⟨ p | h ⟩/p^2=⟨ /p^2p | h ⟩  foreveryh,
+which proves that the vector fφ:=φp¯‖p‖2p_φ:=/p^2p satisfies 
+φh=⟨fφ|h⟩foreveryh∈H.=⟨ f_φ | h ⟩foreveryh.
+Applying the norm formula that was proved above with y:=fφ:=f_φ shows that ‖φ‖H∗=‖⟨fφ|⋅⟩‖H∗=‖fφ‖H.φ_H^*=⟨ f_φ | · ⟩_H^*=f_φ_H. 
+Also, the vector u:=p‖p‖:=p/p has norm ‖u‖=1u=1 and satisfies fφ:=φ(u)¯u._φ:=φ(u)u.
+◼▪
+
+
+It can now be deduced that K⊥^ is 11-dimensional when φ≠0.φ≠0. 
+Let q∈K⊥^ be any non-zero vector. Replacing p with q in the proof above shows that the vector g:=φq¯‖q‖2q:=/q^2q satisfies φ(h)=⟨g|h⟩φ(h)=⟨ g | h ⟩ for every h∈H.. The uniqueness of the (non-zero) vector fφ_φ representing φφ implies that fφ=g,_φ=g, which in turn implies that φq¯≠0≠0 and q=‖q‖2φq¯fφ.=q^2/f_φ. Thus every vector in K⊥^ is a scalar multiple of fφ._φ. ◼▪
+The formulas for the inner products follow from the polarization identity. 
+
+
+Observations[edit]
+If φ∈H∗φ^* then 
+φ(fφ)=⟨fφ,fφ⟩=‖fφ‖2=‖φ‖2.φ(f_φ)=_φ,f_φ⟩=f_φ^2=φ^2. 
+So in particular, φ(fφ)≥0φ(f_φ)≥0 is always real and furthermore, φ(fφ)=0φ(f_φ)=0 if and only if fφ=0_φ=0 if and only if φ=0.φ=0.
+Linear functionals as affine hyperplanes
+A non-trivial continuous linear functional φφ is often interpreted geometrically by identifying it with the affine hyperplane A:=φ−1(1):=φ^-1(1) (the kernel ker⁡φ=φ−1(0)φ=φ^-1(0) is also often visualized alongside A:=φ−1(1):=φ^-1(1) although knowing A is enough to reconstruct ker⁡φφ because if A=∅=∅ then ker⁡φ=Hφ=H and otherwise ker⁡φ=A−Aφ=A-A). In particular, the norm of φφ should somehow be interpretable as the "norm of the hyperplane A". When φ≠0φ≠0 then the Riesz representation theorem provides such an interpretation of ‖φ‖φ in terms of the affine hyperplane[note 3]
+A:=φ−1(1):=φ^-1(1) as follows: using the notation from the theorem's statement, from ‖φ‖2≠0φ^2≠0 it follows that C:=φ−1(‖φ‖2)=‖φ‖2φ−1(1)=‖φ‖2A:=φ^-1(φ^2)=φ^2φ^-1(1)=φ^2A and so ‖φ‖=‖fφ‖=infc∈C‖c‖φ=f_φ=inf_cc implies ‖φ‖=infa∈A‖φ‖2‖a‖φ=inf_aφ^2a and thus ‖φ‖=1infa∈A‖a‖.φ=1/inf_aa. 
+This can also be seen by applying the Hilbert projection theorem to A and concluding that the global minimum point of the map A→[0,∞)→[0,∞) defined by a↦‖a‖↦a is fφ‖φ‖2∈A.f_φ/φ^2. 
+The formulas 
+1infa∈A‖a‖=supa∈A1‖a‖1/inf_aa=sup_a1/a
+provide the promised interpretation of the linear functional's norm ‖φ‖φ entirely in terms of its associated affine hyperplane A=φ−1(1)=φ^-1(1) (because with this formula, knowing only the set A is enough to describe the norm of its associated linear functional). Defining 1∞:=0,1/∞:=0, the infimum formula 
+‖φ‖=1infa∈φ−1(1)‖a‖φ=1/inf_a∈φ^-1(1)a
+will also hold when φ=0.φ=0. 
+When the supremum is taken in Rℝ (as is typically assumed), then the supremum of the empty set is sup∅=−∞sup∅=-∞ but if the supremum is taken in the non-negative reals [0,∞)[0,∞) (which is the image/range of the norm ‖⋅‖ ·  when dim⁡H>0>0) then this supremum is instead sup∅=0,sup∅=0, in which case the supremum formula ‖φ‖=supa∈φ−1(1)1‖a‖φ=sup_a∈φ^-1(1)1/a will also hold when φ=0φ=0 (although the atypical equality sup∅=0sup∅=0 is usually unexpected and so risks causing confusion).
+
+Constructions of the representing vector[edit]
+Using the notation from the theorem above, several ways of constructing fφ_φ from φ∈H∗φ^* are now described. 
+If φ=0φ=0 then fφ:=0_φ:=0; in other words, 
+f0=0._0=0.
+This special case of φ=0φ=0 is henceforth assumed to be known, which is why some of the constructions given below start by assuming φ≠0.φ≠0.
+Orthogonal complement of kernel
+If φ≠0φ≠0 then for any 0≠u∈(ker⁡φ)⊥,0∈(φ)^,
+fφ:=φ(u)¯u‖u‖2._φ:=φ(u)u/u^2.
+If u∈(ker⁡φ)⊥∈(φ)^ is a unit vector (meaning ‖u‖=1u=1) then 
+fφ:=φ(u)¯u_φ:=φ(u)u
+(this is true even if φ=0φ=0 because in this case fφ=φ(u)¯u=0¯u=0_φ=φ(u)u=0u=0). 
+If u is a unit vector satisfying the above condition then the same is true of −u,-u, which is also a unit vector in (ker⁡φ)⊥.(φ)^. However, φ(−u)¯(−u)=φ(u)¯u=fφφ(-u)(-u)=φ(u)u=f_φ so both these vectors result in the same fφ._φ.
+Orthogonal projection onto kernel
+If x∈H is such that φ(x)≠0φ(x)≠0 and if xK_K is the orthogonal projection of x onto ker⁡φφ then[proof 1]
+fφ=‖φ‖2φ(x)(x−xK)._φ=φ^2/φ(x)(x-x_K).
+Orthonormal basis
+Given an orthonormal basis eii∈I{e_i}_i of H and a continuous linear functional φ∈H∗,φ^*, the vector fφ∈H_φ can be constructed uniquely by 
+fφ=∑i∈Iφ(ei)¯ei_φ=∑_iφ(e_i)e_i 
+where all but at most countably many φ(ei)φ(e_i) will be equal to 00 and where the value of fφ_φ does not actually depend on choice of orthonormal basis (that is, using any other orthonormal basis for H will result in the same vector). 
+If y∈H is written as y=∑i∈Iaiei=∑_ia_ie_i then 
+φ(y)=∑i∈Iφ(ei)ai=⟨fφ|y⟩φ(y)=∑_iφ(e_i)a_i=_φ|y⟩
+and
+‖fφ‖2=φ(fφ)=∑i∈Iφ(ei)φ(ei)¯=∑i∈I|φ(ei)|2=‖φ‖2.f_φ^2=φ(f_φ)=∑_iφ(e_i)φ(e_i)=∑_i|φ(e_i)|^2=φ^2.
+If the orthonormal basis eii∈I=eii=1∞{e_i}_i={e_i}_i=1^∞ is a sequence then this becomes 
+fφ=φ(e1)¯e1+φ(e2)¯e2+⋯_φ=φ(e_1)e_1+φ(e_2)e_2+⋯ 
+and if y∈H is written as y=∑i∈Iaiei=a1e1+a2e2+⋯=∑_ia_ie_i=a_1e_1+a_2e_2+⋯ then 
+φ(y)=φ(e1)a1+φ(e2)a2+⋯=⟨fφ|y⟩.φ(y)=φ(e_1)a_1+φ(e_2)a_2+⋯=_φ|y⟩.
+
+Example in finite dimensions using matrix transformations[edit]
+Consider the special case of H=Cn=ℂ^n (where n>0>0 is an integer) with the standard inner product 
+⟨z∣w⟩:=z→¯Tw→forallw,z∈H⟩:= z⃗  ^Tw⃗    forall w,z 
+where wandzandz are represented as column matrices w→:=[w1⋮wn]w⃗:=[ w_1;   ⋮; w_n ] and z→:=[z1⋮zn]z⃗:=[ z_1;   ⋮; z_n ] with respect to the standard orthonormal basis e1,…,en_1,…,e_n on H (here, ei_i is 11 at its ith coordinate and 00 everywhere else; as usual, H∗^* will now be associated with the dual basis) and where z→¯T:=[z1¯,…,zn¯] z⃗ ^T:=[z_1,…,z_n] denotes the conjugate transpose of z→.z⃗. 
+Let φ∈H∗φ^* be any linear functional and let φ1,…,φn∈Cφ_1,…,φ_n∈ℂ be the unique scalars such that 
+φ(w1,…,wn)=φ1w1+⋯+φnwnforallw:=(w1,…,wn)∈H,φ(w_1,…,w_n)=φ_1w_1+⋯+φ_nw_n    forall w:=(w_1,…,w_n), 
+where it can be shown that φi=φ(ei)φ_i=φ(e_i) for all i=1,…,n.=1,…,n. 
+Then the Riesz representation of φφ is the vector 
+fφ:=φ1¯e1+⋯+φn¯en=(φ1¯,…,φn¯)∈H._φ := φ_1e_1+⋯+φ_ne_n = (φ_1,…,φ_n).
+To see why, identify every vector w=(w1,…,wn)=(w_1,…,w_n) in H with the column matrix 
+w→:=[w1⋮wn]w⃗:=[ w_1;   ⋮; w_n ] 
+so that fφ_φ is identified with fφ→:=[φ1¯⋮φn¯]=[φ(e1)¯⋮φ(en)¯].f⃗_⃗φ⃗:=[ φ_1;   ⋮; φ_n ]=[ φ(e_1);      ⋮; φ(e_n) ]. 
+As usual, also identify the linear functional φφ with its transformation matrix, which is the row matrix φ→:=[φ1,…,φn]φ⃗:=[φ_1,…,φ_n] so that fφ→:=φ→¯Tf⃗_⃗φ⃗:= φ⃗  ^T and the function φφ is the assignment w→↦φ→w→,w⃗↦φ⃗ w⃗, where the right hand side is matrix multiplication. Then for all w=(w1,…,wn)∈H,=(w_1,…,w_n),
+φ(w)=φ1w1+⋯+φnwn=[φ1,…,φn][w1⋮wn]=[φ1¯⋮φn¯]¯Tw→=fφ→¯Tw→=⟨fφ∣w⟩,φ(w)=φ_1w_1+⋯+φ_nw_n=[φ_1,…,φ_n][ w_1;   ⋮; w_n ]=[ φ_1;   ⋮; φ_n ]^Tw⃗= f⃗_⃗φ⃗  ^Tw⃗=⟨  f_φ | w ⟩,
+which shows that fφ_φ satisfies the defining condition of the Riesz representation of φ.φ. 
+The bijective antilinear isometry Φ:H→H∗Φ:H^* defined in the corollary to the Riesz representation theorem is the assignment that sends z=(z1,…,zn)∈H=(z_1,…,z_n) to the linear functional Φ(z)∈H∗Φ(z)^* on H defined by 
+w=(w1,…,wn)↦⟨z∣w⟩=z1¯w1+⋯+zn¯wn,=(w_1,…,w_n) ↦ ⟨ z | w ⟩=z_1w_1+⋯+z_nw_n, 
+where under the identification of vectors in H with column matrices and vector in H∗^* with row matrices, ΦΦ is just the assignment 
+z→=[z1⋮zn]↦z→¯T=[z1¯,…,zn¯].z⃗=[ z_1;   ⋮; z_n ] ↦  z⃗ ^T=[z_1,…,z_n]. 
+As described in the corollary, ΦΦ's inverse Φ−1:H∗→HΦ^-1:H^* is the antilinear isometry φ↦fφ,φ_φ, which was just shown above to be: 
+φ↦fφ:=(φ(e1)¯,…,φ(en)¯);φ ↦ f_φ := (φ(e_1),…,φ(e_n)); 
+where in terms of matrices, Φ−1Φ^-1 is the assignment 
+φ→=[φ1,…,φn]↦φ→¯T=[φ1¯⋮φn¯].φ⃗=[φ_1,…,φ_n] ↦  φ⃗  ^T=[ φ_1;   ⋮; φ_n ]. 
+Thus in terms of matrices, each of Φ:H→H∗Φ:H^* and Φ−1:H∗→HΦ^-1:H^* is just the operation of conjugate transposition v→↦v→¯Tv⃗↦ v⃗ ^T (although between different spaces of matrices: if H is identified with the space of all column (respectively, row) matrices then H∗^* is identified with the space of all row (respectively, column matrices). 
+This example used the standard inner product, which is the map ⟨z∣w⟩:=z→¯Tw→,⟩:= z⃗  ^Tw⃗, but if a different inner product is used, such as ⟨z∣w⟩M:=z→¯TMw→⟩_M:= z⃗  ^T M w⃗  where M is any Hermitian positive-definite matrix, or if a different orthonormal basis is used then the transformation matrices, and thus also the above formulas, will be different.
+
+Relationship with the associated real Hilbert space[edit]
+See also: Complexification
+Assume that H is a complex Hilbert space with inner product ⟨⋅∣⋅⟩.⟨ ·|· ⟩. 
+When the Hilbert space H is reinterpreted as a real Hilbert space then it will be denoted by HR,_ℝ, where the (real) inner-product on HR_ℝ is the real part of H's inner product; that is: 
+⟨x,y⟩R:=re⁡⟨x,y⟩.,y⟩_ℝ:=re,y⟩.
+The norm on HR_ℝ induced by ⟨⋅,⋅⟩R⟨ · , · ⟩_ℝ is equal to the original norm on H and the continuous dual space of HR_ℝ is the set of all real-valued bounded Rℝ-linear functionals on HR_ℝ (see the article about the polarization identity for additional details about this relationship). 
+Let ψR:=re⁡ψψ_ℝ:=reψ and ψi:=im⁡ψψ_i:=imψ denote the real and imaginary parts of a linear functional ψ,ψ, so that ψ=re⁡ψ+iim⁡ψ=ψR+iψi.ψ=reψ+iimψ=ψ_ℝ+iψ_i. 
+The formula expressing a linear functional in terms of its real part is
+ψ(h)=ψR(h)−iψR(ih)forh∈H,ψ(h)=ψ_ℝ(h)-iψ_ℝ(ih)  forh,
+where ψi(h)=−iψR(ih)ψ_i(h)=-iψ_ℝ(ih) for all h∈H.. 
+It follows that ker⁡ψR=ψ−1(iR),ψ_ℝ=ψ^-1(iℝ), and that ψ=0ψ=0 if and only if ψR=0.ψ_ℝ=0. 
+It can also be shown that ‖ψ‖=‖ψR‖=‖ψi‖ψ=ψ_ℝ=ψ_i where ‖ψR‖:=sup‖h‖≤1|ψR(h)|ψ_ℝ:=sup_h≤1|ψ_ℝ(h)| and ‖ψi‖:=sup‖h‖≤1|ψi(h)|ψ_i:=sup_h≤1|ψ_i(h)| are the usual operator norms. 
+In particular, a linear functional ψψ is bounded if and only if its real part ψRψ_ℝ is bounded. 
+Representing a functional and its real part
+The Riesz representation of a continuous linear function φφ on a complex Hilbert space is equal to the Riesz representation of its real part re⁡φreφ on its associated real Hilbert space. 
+Explicitly, let φ∈H∗φ^* and as above, let fφ∈H_φ be the Riesz representation of φφ obtained in (H,⟨,⋅,⋅⟩),(H,⟨,·,·⟩), so it is the unique vector that satisfies φ(x)=⟨fφ∣x⟩φ(x)=_φ⟩ for all x∈H.. 
+The real part of φφ is a continuous real linear functional on HR_ℝ and so the Riesz representation theorem may be applied to φR:=re⁡φφ_ℝ:=reφ and the associated real Hilbert space (HR,⟨,⋅,⋅⟩R)(H_ℝ,⟨,·,·⟩_ℝ) to produce its Riesz representation, which will be denoted by fφR._φ_ℝ. 
+That is, fφR_φ_ℝ is the unique vector in HR_ℝ that satisfies φR(x)=⟨fφR∣x⟩Rφ_ℝ(x)=_φ_ℝ⟩_ℝ for all x∈H.. 
+The conclusion is fφR=fφ._φ_ℝ=f_φ. 
+This follows from the main theorem because ker⁡φR=φ−1(iR)φ_ℝ=φ^-1(iℝ) and if x∈H then 
+⟨fφ∣x⟩R=re⁡⟨fφ∣x⟩=re⁡φ(x)=φR(x)_φ⟩_ℝ=re_φ⟩=reφ(x)=φ_ℝ(x) 
+and consequently, if m∈ker⁡φR∈φ_ℝ then ⟨fφ∣m⟩R=0,_φ⟩_ℝ=0, which shows that fφ∈(ker⁡φR)⊥R._φ∈(φ_ℝ)^⊥_ℝ. 
+Moreover, φ(fφ)=‖φ‖2φ(f_φ)=φ^2 being a real number implies that φR(fφ)=re⁡φ(fφ)=‖φ‖2.φ_ℝ(f_φ)=reφ(f_φ)=φ^2.
+In other words, in the theorem and constructions above, if H is replaced with its real Hilbert space counterpart HR_ℝ and if φφ is replaced with re⁡φreφ then fφ=fre⁡φ._φ=f_reφ. This means that vector fφ_φ obtained by using (HR,⟨,⋅,⋅⟩R)(H_ℝ,⟨,·,·⟩_ℝ) and the real linear functional re⁡φreφ is the equal to the vector obtained by using the origin complex Hilbert space (H,⟨,⋅,⋅⟩)(H,⟨,·,·⟩) and original complex linear functional φφ (with identical norm values as well). 
+Furthermore, if φ≠0φ≠0 then fφ_φ is perpendicular to ker⁡φRφ_ℝ with respect to ⟨⋅,⋅⟩R⟨·,·⟩_ℝ where the kernel of φφ is be a proper subspace of the kernel of its real part φR.φ_ℝ. Assume now that φ≠0.φ≠0. 
+Then fφ∉ker⁡φR_φ∉φ_ℝ because φR(fφ)=φ(fφ)=‖φ‖2≠0φ_ℝ(f_φ)=φ(f_φ)=φ^2≠0 and ker⁡φφ is a proper subset of ker⁡φR.φ_ℝ. The vector subspace ker⁡φφ has real codimension 11 in ker⁡φR,φ_ℝ, while ker⁡φRφ_ℝ has real codimension 11 in HR,_ℝ, and ⟨fφ,ker⁡φR⟩R=0._φ,φ_ℝ⟩_ℝ=0. That is, fφ_φ is perpendicular to ker⁡φRφ_ℝ with respect to ⟨⋅,⋅⟩R.⟨·,·⟩_ℝ.
+
+Canonical injections into the dual and anti-dual[edit]
+Induced linear map into anti-dual
+The map defined by placing y into the linear coordinate of the inner product and letting the variable h∈H vary over the antilinear coordinate results in an antilinear functional:
+⟨⋅∣y⟩=⟨y,⋅⟩:H→Fdefinedbyh↦⟨h∣y⟩=⟨y,h⟩.⟨ · ⟩=⟨ y,· ⟩:H→𝔽  definedby↦⟨ h ⟩=⟨ y,h ⟩.
+This map is an element of H¯∗,H^*, which is the continuous anti-dual space of H.. 
+The canonical map from H into its anti-dual H¯∗H^*[1] is the linear operator
+InHH¯∗:H→H¯∗y↦⟨⋅∣y⟩=⟨y,⋅⟩4In_H^H^*:       H       →    H^*
+      y       ↦    ⟨ · ⟩=⟨ y,· ⟩
+
+which is also an injective isometry.[1] 
+The Fundamental theorem of Hilbert spaces, which is related to Riesz representation theorem, states that this map is surjective (and thus bijective). Consequently, every antilinear functional on H can be written (uniquely) in this form.[1]
+If Cong:H∗→H¯∗Cong:H^*→H^* is the canonical antilinear bijective isometry f↦f¯↦f that was defined above, then the following equality holds:
+Cong⁡∘InHH∗⁡=InHH¯∗.Cong ∘ In_H^H^* = In_H^H^*.
+
+Extending the bra–ket notation to bras and kets[edit]
+Main article: Bra–ket notation
+Let (H,⟨⋅,⋅⟩H)(H,⟨·,·⟩_H) be a Hilbert space and as before, let ⟨y|x⟩H:=⟨x,y⟩H. | x⟩_H:=,y⟩_H. 
+Let 
+Φ:H→H∗g↦⟨g∣⋅⟩H=⟨⋅,g⟩H4Φ:       H       →    H^*
+      g       ↦    ⟨ g|· ⟩_H=⟨ ·,g ⟩_H
+
+which is a bijective antilinear isometry that satisfies
+(Φh)g=⟨h∣g⟩H=⟨g,h⟩Hforallg,h∈H.()g=⟩_H=,h⟩_H  forallg,h.
+Bras
+Given a vector h∈H,, let ⟨h| | denote the continuous linear functional Φh; that is, 
+⟨h|:=Φh | :=  
+so that this functional ⟨h| | is defined by g↦⟨h∣g⟩H.↦⟨ h ⟩_H. This map was denoted by ⟨h∣⋅⟩|· ⟩ earlier in this article. 
+The assignment h↦⟨h|↦| is just the isometric antilinear isomorphism Φ:H→H∗,Φ : H^*, which is why ⟨cg+h|=c¯⟨g∣+⟨h| +h | = c| +  |  holds for all g,h∈H,h and all scalars c.. 
+The result of plugging some given g∈H into the functional ⟨h| | is the scalar ⟨h|g⟩H=⟨g,h⟩H, | g⟩_H=,h⟩_H, which may be denoted by ⟨h∣g⟩.⟩.[note 6]
+Bra of a linear functional
+Given a continuous linear functional ψ∈H∗,ψ^*, let ⟨ψ∣⟨ψ| denote the vector Φ−1ψ∈HΦ^-1ψ; that is, 
+⟨ψ∣:=Φ−1ψ.⟨ψ| := Φ^-1ψ.
+The assignment ψ↦⟨ψ∣ψ↦⟨ψ| is just the isometric antilinear isomorphism Φ−1:H∗→H,Φ^-1 : H^*, which is why ⟨cψ+ϕ∣=c¯⟨ψ∣+⟨ϕ∣ ψ+ϕ| = c⟨ψ| + ⟨ϕ|  holds for all ϕ,ψ∈H∗ϕ,ψ^* and all scalars c..
+The defining condition of the vector ⟨ψ|∈H⟨ψ| is the technically correct but unsightly equality
+⟨⟨ψ∣∣g⟩H=ψgforallg∈H,⟨ ⟨ψ| ⟩_H =   forallg,
+which is why the notation ⟨ψ∣g⟩⟨ψ⟩ is used in place of ⟨⟨ψ∣∣g⟩H=⟨g,⟨ψ∣⟩H.⟨ ⟨ψ| ⟩_H=, ⟨ψ|⟩_H. With this notation, the defining condition becomes
+⟨ψ∣g⟩=ψgforallg∈H.⟨ψ⟩ =   forallg.
+Kets
+For any given vector g∈H,, the notation |g⟩| g⟩ is used to denote g; that is, 
+∣g⟩:=g.⟩:=g.
+The assignment g↦|g⟩↦| g⟩ is just the identity map IdH:H→H,Id_H:H, which is why ∣cg+h⟩=c∣g⟩+∣h⟩ +h⟩ = c⟩ + ⟩  holds for all g,h∈H,h and all scalars c..
+The notation ⟨h∣g⟩⟩ and ⟨ψ∣g⟩⟨ψ⟩ is used in place of ⟨h∣∣g⟩⟩H=⟨∣g⟩,h⟩H| ⟩ ⟩_H = ⟨⟩,h⟩_H and ⟨ψ∣∣g⟩⟩H=⟨g,⟨ψ∣⟩H,⟨ψ| ⟩ ⟩_H = , ⟨ψ|⟩_H, respectively. As expected, ⟨ψ∣g⟩=ψg ⟨ψ⟩=  and ⟨h∣g⟩ ⟩  really is just the scalar ⟨h∣g⟩H=⟨g,h⟩H. ⟩_H = ,h⟩_H.
+
+Adjoints and transposes[edit]
+Let A:H→Z:H be a continuous linear operator between Hilbert spaces (H,⟨⋅,⋅⟩H)(H,⟨·,·⟩_H) and (Z,⟨⋅,⋅⟩Z).(Z,⟨·,·⟩_Z). As before, let ⟨y∣x⟩H:=⟨x,y⟩H⟩_H:=,y⟩_H and ⟨y∣x⟩Z:=⟨x,y⟩Z.⟩_Z:=,y⟩_Z.
+Denote by
+ΦH:H→H∗g↦⟨g∣⋅⟩HandΦZ:Z→Z∗y↦⟨y∣⋅⟩Z4Φ_H:       H       →    H^*
+      g       ↦    ⟨ g|· ⟩_H
+  and  4Φ_Z:       Z       →    Z^*
+      y       ↦    ⟨ y|· ⟩_Z
+
+the usual bijective antilinear isometries that satisfy:
+(ΦHg)h=⟨g∣h⟩Hforallg,h∈Hand(ΦZy)z=⟨y∣z⟩Zforally,z∈Z.(Φ_Hg)h=⟩_H  forallg,h    and    (Φ_Zy)z=⟩_Z  forally,z.
+
+Definition of the adjoint[edit]
+Main articles: Hermitian adjoint and Conjugate transpose
+For every z∈Z,, the scalar-valued map ⟨z∣A(⋅)⟩Z(·)⟩_Z[note 7] on H defined by 
+h↦⟨z∣Ah⟩Z=⟨Ah,z⟩Z↦⟩_Z=,z⟩_Z
+is a continuous linear functional on H and so by the Riesz representation theorem, there exists a unique vector in H,, denoted by A∗z,^*z, such that ⟨z∣A(⋅)⟩Z=⟨A∗z∣⋅⟩H,(·)⟩_Z=^*z|· ⟩_H, or equivalently, such that 
+⟨z∣Ah⟩Z=⟨A∗z∣h⟩Hforallh∈H.⟩_Z=^*z⟩_H  forallh.
+The assignment z↦A∗z^*z thus induces a function A∗:Z→H^*:Z called the adjoint of A:H→Z:H whose defining condition is 
+⟨z∣Ah⟩Z=⟨A∗z∣h⟩Hforallh∈Handallz∈Z.⟩_Z=^*z⟩_H  forallhandallz. 
+The adjoint A∗:Z→H^*:Z is necessarily a continuous (equivalently, a bounded) linear operator. 
+If H is finite dimensional with the standard inner product and if M is the transformation matrix of A with respect to the standard orthonormal basis then M's conjugate transpose MT¯M^T is the transformation matrix of the adjoint A∗.^*.
+
+Adjoints are transposes[edit]
+Main article: Transpose of a linear map
+See also: Transpose
+It is also possible to define the transpose or algebraic adjoint of A:H→Z,:H, which is the map tA:Z∗→H∗^tA:Z^*^* defined by sending a continuous linear functionals ψ∈Z∗ψ^* to 
+tA(ψ):=ψ∘A,^tA(ψ):=ψ, 
+where the composition ψ∘Aψ is always a continuous linear functional on H and it satisfies ‖A‖=‖tA‖A=^tA (this is true more generally, when H and Z are merely normed spaces).[5] 
+So for example, if z∈Z then tA^tA sends the continuous linear functional ⟨z∣⋅⟩Z∈Z∗|·⟩_Z^* (defined on Z by g↦⟨z∣g⟩Z↦⟩_Z) to the continuous linear functional ⟨z∣A(⋅)⟩Z∈H∗(·)⟩_Z^* (defined on H by h↦⟨z∣A(h)⟩Z↦(h)⟩_Z);[note 7] 
+using bra-ket notation, this can be written as tA⟨z∣=⟨z∣A^tA| =  where the juxtaposition of ⟨z∣| with A on the right hand side denotes function composition: H→AZ→⟨z∣C.Zℂ.
+The adjoint A∗:Z→H^*:Z is actually just to the transpose tA:Z∗→H∗^tA:Z^*^*[2] when the Riesz representation theorem is used to identify Z with Z∗^* and H with H∗.^*.
+Explicitly, the relationship between the adjoint and transpose is:
+
+
+
+
+tA∘ΦZ=ΦH∘A∗^tA ∘ Φ_Z = Φ_H ∘ A^*
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Adjoint-transpose)
+
+which can be rewritten as:
+A∗=ΦH−1∘tA∘ΦZandtA=ΦH∘A∗∘ΦZ−1.^* = Φ_H^-1 ∘ ^tA ∘ Φ_Z  and  ^tA = Φ_H ∘ A^* ∘ Φ_Z^-1.
+
+Proof
+To show that tA∘ΦZ=ΦH∘A∗,^tA ∘ Φ_Z = Φ_H ∘ A^*, fix z∈Z.. 
+The definition of tA^tA implies (tA∘ΦZ)z=tA(ΦZz)=(ΦZz)∘A(^tA∘Φ_Z)z=^tA(Φ_Zz)=(Φ_Zz) so it remains to show that (ΦZz)∘A=ΦH(A∗z).(Φ_Zz)=Φ_H(A^*z). If h∈H then ((ΦZz)∘A)h=(ΦZz)(Ah)=⟨z∣Ah⟩Z=⟨A∗z∣h⟩H=(ΦH(A∗z))h,((Φ_Zz))h=(Φ_Zz)(Ah)=⟩_Z=^*z⟩_H=(Φ_H(A^*z))h, as desired. ◼▪
+
+
+Alternatively, the value of the left and right hand sides of (Adjoint-transpose) at any given z∈Z can be rewritten in terms of the inner products as: 
+(tA∘ΦZ)z=⟨z∣A(⋅)⟩Zand(ΦH∘A∗)z=⟨A∗z∣⋅⟩H(^tA ∘ Φ_Z)z=(·)⟩_Z  and  (Φ_H ∘ A^*)z=^*z|· ⟩_H
+so that tA∘ΦZ=ΦH∘A∗^tA ∘ Φ_Z = Φ_H ∘ A^* holds if and only if ⟨z∣A(⋅)⟩Z=⟨A∗z∣⋅⟩H(·)⟩_Z=^*z|· ⟩_H holds; but the equality on the right holds by definition of A∗z.^*z. 
+The defining condition of A∗z^*z can also be written
+⟨z∣A=⟨A∗z∣ = ^*z| 
+if bra-ket notation is used.
+
+Descriptions of self-adjoint, normal, and unitary operators[edit]
+Assume Z=H=H and let Φ:=ΦH=ΦZ.Φ:=Φ_H=Φ_Z. 
+Let A:H→H:H be a continuous (that is, bounded) linear operator. 
+Whether or not A:H→H:H is self-adjoint, normal, or unitary depends entirely on whether or not A satisfies certain defining conditions related to its adjoint, which was shown by (Adjoint-transpose) to essentially be just the transpose tA:H∗→H∗.^tA:H^*^*. 
+Because the transpose of A is a map between continuous linear functionals, these defining conditions can consequently be re-expressed entirely in terms of linear functionals, as the remainder of subsection will now describe in detail. 
+The linear functionals that are involved are the simplest possible continuous linear functionals on H that can be defined entirely in terms of A,, the inner product ⟨⋅∣⋅⟩⟨ ·|· ⟩ on H,, and some given vector h∈H.. 
+Specifically, these are ⟨Ah∣⋅⟩|· ⟩ and ⟨h∣A(⋅)⟩(·)⟩[note 7] where 
+⟨Ah∣⋅⟩=Φ(Ah)=(Φ∘A)hand⟨h∣A(⋅)⟩=(tA∘Φ)h.|· ⟩=Φ(Ah)=(Φ)h  and  (·)⟩=(^tA∘Φ)h.
+Self-adjoint operators
+
+See also: Self-adjoint operator, Hermitian matrix, and Symmetric matrix
+A continuous linear operator A:H→H:H is called self-adjoint it is equal to its own adjoint; that is, if A=A∗.=A^*. Using (Adjoint-transpose), this happens if and only if:
+Φ∘A=tA∘ΦΦ=^tA∘Φ
+where this equality can be rewritten in the following two equivalent forms:
+A=Φ−1∘tA∘ΦortA=Φ∘A∘Φ−1.=Φ^-1∘^tA∘Φ  or  ^tA=Φ∘Φ^-1.
+Unraveling notation and definitions produces the following characterization of self-adjoint operators in terms of the aforementioned continuous linear functionals: A is self-adjoint if and only if for all z∈H,, the linear functional ⟨z∣A(⋅)⟩(·)⟩[note 7] is equal to the linear functional ⟨Az∣⋅⟩|· ⟩; that is, if and only if
+
+
+
+
+⟨z∣A(⋅)⟩=⟨Az∣⋅⟩forallz∈H(·)⟩=|· ⟩  forallz
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Self-adjointness functionals)
+
+where if bra-ket notation is used, this is
+⟨z∣A=⟨Az∣forallz∈H. = |  forallz.
+Normal operators
+
+See also: Normal operator and Normal matrix
+A continuous linear operator A:H→H:H is called normal if AA∗=A∗A,^*=A^*A, which happens if and only if for all z,h∈H,,h,
+⟨AA∗z∣h⟩=⟨A∗Az∣h⟩.^*z⟩=^*Az⟩.
+Using (Adjoint-transpose) and unraveling notation and definitions produces[proof 2] the following characterization of normal operators in terms of inner products of continuous linear functionals: A is a normal operator if and only if  
+
+
+
+
+⟨⟨Ah∣⋅⟩∣⟨Az∣⋅⟩⟩H∗=⟨⟨h|A(⋅)⟩∣⟨z∣A(⋅)⟩⟩H∗forallz,h∈H⟨ |· ⟩||· ⟩ ⟩_H^* = ⟨ |A(·)⟩|(·)⟩ ⟩_H^*  forallz,h
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Normality functionals)
+
+where the left hand side is also equal to ⟨Ah∣Az⟩¯H=⟨Az∣Ah⟩H.⟩_H=⟩_H. 
+The left hand side of this characterization involves only linear functionals of the form ⟨Ah∣⋅⟩|· ⟩ while the right hand side involves only linear functions of the form ⟨h∣A(⋅)⟩(·)⟩ (defined as above[note 7]). 
+So in plain English, characterization (Normality functionals) says that an operator is normal when the inner product of any two linear functions of the first form is equal to the inner product of their second form (using the same vectors z,h∈H,h for both forms).
+In other words, if it happens to be the case (and when A is injective or self-adjoint, it is) that the assignment of linear functionals ⟨Ah∣⋅⟩↦⟨h|A(⋅)⟩|· ⟩ ↦ |A(·)⟩ is well-defined (or alternatively, if ⟨h|A(⋅)⟩↦⟨Ah∣⋅⟩|A(·)⟩ ↦ |· ⟩ is well-defined) where h ranges over H,, then A is a normal operator if and only if this assignment preserves the inner product on H∗.^*.
+The fact that every self-adjoint bounded linear operator is normal follows readily by direct substitution of A∗=A^*=A into either side of A∗A=AA∗.^*A=AA^*. 
+This same fact also follows immediately from the direct substitution of the equalities (Self-adjointness functionals) into either side of (Normality functionals). 
+Alternatively, for a complex Hilbert space, the continuous linear operator A is a normal operator if and only if ‖Az‖=‖A∗z‖Az=A^*z for every z∈H,,[2] which happens if and only if 
+‖Az‖H=‖⟨z|A(⋅)⟩‖H∗foreveryz∈H.Az_H= | A(·)⟩_H^*  foreveryz.
+Unitary operators
+
+See also: Unitary transformation and Unitary matrix
+An invertible bounded linear operator A:H→H:H is said to be unitary if its inverse is its adjoint: A−1=A∗.^-1=A^*. 
+By using (Adjoint-transpose), this is seen to be equivalent to Φ∘A−1=tA∘Φ.Φ^-1=^tA∘Φ. 
+Unraveling notation and definitions, it follows that A is unitary if and only if  
+⟨A−1z∣⋅⟩=⟨z∣A(⋅)⟩forallz∈H.^-1z|· ⟩=(·)⟩  forallz.
+The fact that a bounded invertible linear operator A:H→H:H is unitary if and only if A∗A=IdH^*A=Id_H (or equivalently, tA∘Φ∘A=Φ^tA∘Φ=Φ) produces another (well-known) characterization: an invertible bounded linear map A is unitary if and only if
+⟨Az∣A(⋅)⟩=⟨z∣⋅⟩forallz∈H.(·) ⟩=|· ⟩  forallz.
+Because A:H→H:H is invertible (and so in particular a bijection), this is also true of the transpose tA:H∗→H∗.^tA:H^*^*. This fact also allows the vector z∈H in the above characterizations to be replaced with Az or A−1z,^-1z, thereby producing many more equalities. Similarly, ⋅ ·  can be replaced with A(⋅)(·) or A−1(⋅).^-1(·).
+
+See also[edit]
+Choquet theory – Area of functional analysis and convex analysis
+Covariance operator – Operator in probability theory
+Fundamental theorem of Hilbert spaces
+Matrix coefficient – Functions on special groups related to their matrix representations
+Citations[edit]
+
+
+^ a b c d e f g h i j k l Trèves 2006, pp. 112–123.
+
+^ a b c Rudin 1991, pp. 306–312.
+
+^ Roman 2008, p. 351 Theorem 13.32
+
+^ Rudin 1991, pp. 307−309.
+
+^ Rudin 1991, pp. 92–115.
+
+
+Notes[edit]
+
+
+^ If F=R𝔽=ℝ then the inner product will be symmetric so it does not matter which coordinate of the inner product the element y is placed into because the same map will result. 
+But if F=C𝔽=ℂ then except for the constant 00 map, antilinear functionals on H are completely distinct from linear functionals on H,, which makes the coordinate that y is placed into is very important. 
+For a non-zero y∈H to induce a linear functional (rather than an antilinear functional), y must be placed into the antilinear coordinate of the inner product. If it is incorrectly placed into the linear coordinate instead of the antilinear coordinate then the resulting map will be the antilinear map h↦⟨y,h⟩=⟨h∣y⟩,↦,h⟩=⟩, which is not a linear functional on H and so it will not be an element of the continuous dual space H∗.^*.
+
+^ This means that for all vectors y∈H:: (1) Φ:H→H∗Φ:H^* is injective. (2) The norms of y and Φ(y)Φ(y) are the same: ‖Φ(y)‖=‖y‖.Φ(y)=y. (3) ΦΦ is an additive map, meaning that Φ(x+y)=Φ(x)+Φ(y)Φ(x+y)=Φ(x)+Φ(y) for all x,y∈H.,y. (4) ΦΦ is conjugate homogeneous: Φ(sy)=s¯Φ(y)Φ(sy)=sΦ(y) for all scalars s.. (5) ΦΦ is real homogeneous: Φ(ry)=rΦ(y)Φ(ry)=rΦ(y) for all real numbers r∈R.∈ℝ.
+
+^ a b This footnote explains how to define - using only H's operations - addition and scalar multiplication of affine hyperplanes so that these operations correspond to addition and scalar multiplication of linear functionals. Let H be any vector space and let H#^# denote its algebraic dual space. Let A:=φ−1(1):φ∈H#𝒜:={φ^-1(1):φ^#} and let ⋅^ ·̂  and +^ +̂  denote the (unique) vector space operations on A𝒜 that make the bijection I:H#→A:H^#→𝒜 defined by φ↦φ−1(1)φ↦φ^-1(1) into a vector space isomorphism. Note that φ−1(1)=∅φ^-1(1)=∅ if and only if φ=0,φ=0, so ∅∅ is the additive identity of (A,+^,⋅^)(𝒜,+̂,·̂) (because this is true of I−1(∅)=0^-1(∅)=0 in H#^# and I is a vector space isomorphism). For every A∈A,∈𝒜, let ker⁡A=H=H if A=∅=∅ and let ker⁡A=A−A=A-A otherwise; if A=I(φ)=φ−1(1)=I(φ)=φ^-1(1) then ker⁡A=ker⁡φ=φ so this definition is consistent with the usual definition of the kernel of a linear functional. Say that A,B∈A,B∈𝒜 are parallel if ker⁡A=ker⁡B,=, where if A and B are not empty then this happens if and only if the linear functionals I−1(A)^-1(A) and I−1(B)^-1(B) are non-zero scalar multiples of each other. The vector space operations on the vector space of affine hyperplanes A𝒜 are now described in a way that involves only the vector space operations on H; this results in an interpretation of the vector space operations on the algebraic dual space H#^# that is entirely in terms of affine hyperplanes. Fix hyperplanes A,B∈A.,B∈𝒜. If s is a scalar then s⋅^A=h∈H:sh∈A.·̂A={h:sh}. Describing the operation A+^B+̂B in terms of only the sets A=φ−1(1)=φ^-1(1) and B=ψ−1(1)=ψ^-1(1) is more complicated because by definition, A+^B=I(φ)+^I(ψ):=I(φ+ψ)=(φ+ψ)−1(1).+̂B=I(φ)+̂I(ψ):=I(φ+ψ)=(φ+ψ)^-1(1). If A=∅=∅ (respectively, if B=∅=∅) then A+^B+̂B is equal to B (resp. is equal to A) so assume A≠∅≠∅ and B≠∅.≠∅. The hyperplanes A and B are parallel if and only if there exists some scalar r (necessarily non-0) such that A=rB,=rB, in which case A+^B=h∈H:(1+r)h∈B;+̂B={h:(1+r)h}; this can optionally be subdivided into two cases: if r=−1=-1 (which happens if and only if the linear functionals I−1(A)^-1(A) and I−1(B)^-1(B) are negatives of each) then A+^B=∅+̂B=∅ while if r≠−1≠-1 then A+^B=11+rB=r1+rA.+̂B=1/1+rB=r/1+rA. Finally, assume now that ker⁡A≠ker⁡B.≠. Then A+^B+̂B is the unique affine hyperplane containing both A∩ker⁡B∩ and B∩ker⁡A∩ as subsets; explicitly, ker⁡(A+^B)=span⁡(A∩ker⁡B−B∩ker⁡A)(A+̂B)=span(A∩-B∩) and A+^B=A∩ker⁡B+ker⁡(A+^B)=B∩ker⁡A+ker⁡(A+^B).+̂B=A∩+(A+̂B)=B∩+(A+̂B). To see why this formula for A+^B+̂B should hold, consider H:=R3,:=ℝ^3, A:=φ−1(1),:=φ^-1(1), and B:=ψ−1(1),:=ψ^-1(1), where φ(x,y,z):=xφ(x,y,z):=x and ψ(x,y,z):=x+yψ(x,y,z):=x+y (or alternatively, ψ(x,y,z):=yψ(x,y,z):=y). Then by definition, A+^B:=(φ+ψ)−1(1)+̂B:=(φ+ψ)^-1(1) and ker⁡(A+^B):=(φ+ψ)−1(0).(A+̂B):=(φ+ψ)^-1(0). Now A∩ker⁡B=φ−1(1)∩ψ−1(0)⊆(φ+ψ)−1(1)∩ = φ^-1(1)∩ψ^-1(0) ⊆ (φ+ψ)^-1(1) is an affine subspace of codimension 22 in H (it is equal to a translation of the z-axis (0,0)×R{(0,0)}×ℝ). The same is true of B∩ker⁡A.∩. Plotting an x-y-plane cross section (that is, setting z== constant) of the sets ker⁡A,ker⁡B,A,,A and B (each of which will be plotted as a line), the set (φ+ψ)−1(1)(φ+ψ)^-1(1) will then be plotted as the (unique) line passing through the A∩ker⁡B∩ and B∩ker⁡A∩ (which will be plotted as two distinct points) while (φ+ψ)−1(0)=ker⁡(A+^B)(φ+ψ)^-1(0)=(A+̂B) will be plotted the line through the origin that is parallel to A+^B=(φ+ψ)−1(1).+̂B=(φ+ψ)^-1(1). The above formulas for ker⁡(A+^B):=(φ+ψ)−1(0)(A+̂B):=(φ+ψ)^-1(0) and A+^B:=(φ+ψ)−1(1)+̂B:=(φ+ψ)^-1(1) follow naturally from the plot and they also hold in general.
+
+^ Showing that there is a non-zero vector v in K⊥^ relies on the continuity of ϕϕ and the Cauchy completeness of H.. This is the only place in the proof in which these properties are used.
+
+^ Technically, H=K⊕K⊥=K^ means that the addition map K×K⊥→H^ defined by (k,p)↦k+p(k,p)+p is a surjective linear isomorphism and homeomorphism. See the article on complemented subspaces for more details.
+
+^ The usual notation for plugging an element g into a linear map F is F(g)(g) and sometimes Fg.. Replacing F with ⟨h∣:=Φh|:=  produces ⟨h∣(g)|(g) or ⟨h∣g,, which is unsightly (despite being consistent with the usual notation used with functions). Consequently, the symbol ⟩ ⟩  is appended to the end, so that the notation ⟨h∣g⟩⟩ is used instead to denote this value (Φh)g.()g.
+
+^ a b c d e The notation ⟨z∣A(⋅)⟩Z(·)⟩_Z denotes the continuous linear functional defined by g↦⟨z∣Ag⟩Z.↦⟩_Z.
+
+
+Proofs
+
+
+
+^ This is because xK=x−⟨x,fφ⟩‖fφ‖2fφ._K=x-,f_φ⟩/f_φ^2f_φ. Now use ‖fφ‖2=‖φ‖2f_φ^2=φ^2 and ⟨x,fφ⟩=φ(x),f_φ⟩=φ(x) and solve for fφ._φ. ◼▪
+
+^ ⟨A∗Az∣h⟩=⟨Az∣Ah⟩H=⟨ΦAh∣ΦAz⟩H∗^*Az⟩=⟨ Az ⟩_H=⟨ | ⟩_H^* where ΦAh:=⟨Ah∣⋅⟩:=|· ⟩ and ΦAz:=⟨Az∣⋅⟩.:=|· ⟩. 
+By definition of the adjoint, ⟨A∗h∣A∗z⟩=⟨h∣AA∗z⟩^*h^*z ⟩=^*z ⟩ so taking the complex conjugate of both sides proves that ⟨AA∗z∣h⟩=⟨A∗z∣A∗h⟩.^*z⟩=^*z^*h⟩. 
+From A∗=Φ−1∘tA∘Φ,^*=Φ^-1∘^tA∘Φ, it follows that ⟨AA∗z|h⟩H=⟨A∗z∣A∗h⟩H=⟨Φ−1∘tA∘Φz∣Φ−1∘tA∘Φh⟩H=⟨tA∘Φh∣tA∘Φz⟩H∗^*z | h⟩_H=^*z^*h⟩_H=⟨Φ^-1∘^tA∘|Φ^-1∘^tA∘⟩_H=⟨ ^tA∘|^tA∘⟩_H^* where (tA∘Φ)h=⟨h|A(⋅)⟩(^tA∘Φ)h= | A(·)⟩ and (tA∘Φ)z=⟨z|A(⋅)⟩.(^tA∘Φ)z= | A(·)⟩. ◼▪
+
+
+Bibliography[edit]
+Bachman, George; Narici, Lawrence (2000). Functional Analysis (Second ed.). Mineola, New York: Dover Publications. ISBN 978-0486402512. OCLC 829157984.
+Fréchet, M. (1907). "Sur les ensembles de fonctions et les opérations linéaires". Les Comptes rendus de l'Académie des sciences (in French). 144: 1414–1416.
+P. Halmos Measure Theory, D. van Nostrand and Co., 1950.
+P. Halmos, A Hilbert Space Problem Book, Springer, New York 1982 (problem 3 contains version for vector spaces with coordinate systems).
+Riesz, F. (1907). "Sur une espèce de géométrie analytique des systèmes de fonctions sommables". Comptes rendus de l'Académie des Sciences (in French). 144: 1409–1411.
+Riesz, F. (1909). "Sur les opérations fonctionnelles linéaires". Comptes rendus de l'Académie des Sciences (in French). 149: 974–977.
+Roman, Stephen (2008), Advanced Linear Algebra, Graduate Texts in Mathematics (Third ed.), Springer, ISBN 978-0-387-72828-5
+Rudin, Walter (1991). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 8 (Second ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 978-0-07-054236-5. OCLC 21163277.
+Walter Rudin, Real and Complex Analysis, McGraw-Hill, 1966, ISBN 0-07-100276-6.
+Trèves, François (2006) [1967]. Topological Vector Spaces, Distributions and Kernels. Mineola, N.Y.: Dover Publications. ISBN 978-0-486-45352-1. OCLC 853623322.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteHilbert spacesBasic concepts
+Adjoint
+Inner product and L-semi-inner product
+Hilbert space and Prehilbert space
+Orthogonal complement
+Orthonormal basis
+Main results
+Bessel's inequality
+Cauchy–Schwarz inequality
+Riesz representation
+Other results
+Hilbert projection theorem
+Parseval's identity
+Polarization identity (Parallelogram law)
+Maps
+Compact operator on Hilbert space
+Densely defined
+Hermitian form
+Hilbert–Schmidt
+Normal
+Self-adjoint
+Sesquilinear form
+Trace class
+Unitary
+Examples
+Cn(K) with K compact & n<∞
+Segal–Bargmann F
+
+
+
+

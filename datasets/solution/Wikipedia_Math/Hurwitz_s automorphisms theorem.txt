@@ -1,0 +1,279 @@
+Bounds the order of the group of automorphisms of a compact Riemann surface of genus g > 1
+In mathematics, Hurwitz's automorphisms theorem bounds the order of the group of automorphisms, via orientation-preserving conformal mappings, of a compact Riemann surface of genus g > 1, stating that the number of such automorphisms cannot exceed 84(g − 1). A group for which the maximum is achieved is called a Hurwitz group, and the corresponding Riemann surface a Hurwitz surface. Because compact Riemann surfaces are synonymous with non-singular complex projective algebraic curves, a Hurwitz surface can also be called a Hurwitz curve.[1] The theorem is named after Adolf Hurwitz, who proved it in (Hurwitz 1893).
+Hurwitz's bound also holds for algebraic curves over a field of characteristic 0, and over fields of positive characteristic p>0 for groups whose order is coprime to p, but can fail over fields of positive characteristic p>0 when p divides the group order. For example,  the double cover of the projective line y2 = xp −x branched at all points defined over the prime field has genus g=(p−1)/2 but is acted on by the group SL2(p) of  order p3−p.
+
+
+Interpretation in terms of hyperbolicity[edit]
+One of the fundamental themes in differential geometry is a trichotomy between the Riemannian manifolds of positive, zero, and negative curvature K. It manifests itself in many diverse situations and on several levels. In the context of compact Riemann surfaces X, via the Riemann uniformization theorem, this can be seen as a distinction between the surfaces of different topologies:
+
+X a sphere, a compact Riemann surface of genus zero with K > 0;
+X a flat torus, or an elliptic curve, a Riemann surface of genus one with  K = 0;
+and X a hyperbolic surface, which has genus greater than one and K < 0.
+While in the first two cases the surface X admits infinitely many conformal automorphisms (in fact, the conformal automorphism group is a complex Lie group of dimension three for a sphere and of dimension one for a torus), a hyperbolic Riemann surface only admits a discrete set of automorphisms. Hurwitz's theorem claims that in fact more is true: it provides a uniform bound on the order of the automorphism group as a function of the genus and characterizes those Riemann surfaces for which the bound is sharp.
+
+Statement and proof[edit]
+Theorem: Let X be a smooth connected Riemann surface of genus g≥2≥2. Then its automorphism group Aut⁡(X)Aut(X) has size at most 84(g−1)84(g-1).
+Proof: Assume for now that G=Aut⁡(X)=Aut(X) is finite (this will be proved at the end).
+
+Consider the quotient map X→X/G/G. Since G acts by holomorphic functions, the quotient is locally of the form z→zn^n and the quotient X/G/G is a smooth Riemann surface. The quotient map X→X/G/G is a branched cover, and we will see below that the ramification points correspond to the orbits that have a non-trivial stabiliser. Let g0_0 be the genus of X/G/G.
+By the Riemann-Hurwitz formula, 2g−2=|G|⋅(2g0−2+∑i=1k(1−1ei))2g-2G|·(2g_0-2+∑_i=1^k(1-1/e_i)) where the sum is over the k ramification points pi∈X/G_i/G for the quotient map X→X/G/G. The ramification index ei_i at pi_i is just the order of the stabiliser group, since eifi=deg⁡(X/X/G)_if_i=(X/ X/G) where fi_i the number of pre-images of pi_i (the number of points in the orbit), and deg⁡(X/X/G)=|G|(X/ X/G)=|G|. By definition of ramification points, ei≥2_i≥2 for all k ramification indices.
+Now call the righthand side |G|R|G|R and since g≥2≥2 we must have R>0>0. Rearranging the equation we find:
+
+If g0≥2_0≥2 then R≥2≥2, and |G|≤(g−1)|G|≤(g-1)
+If g0=1_0=1, then k≥1≥1  and R≥0+1−1/2=1/2≥0+1-1/2=1/2 so that |G|≤4(g−1)|G|≤4(g-1),
+If g0=0_0=0, then k≥3≥3 and
+if k≥5≥5 then R≥−2+k(1−1/2)≥1/2≥-2+k(1-1/2)≥1/2, so that |G|≤4(g−1)|G|≤4(g-1)
+if k=4=4 then R≥−2+4−1/2−1/2−1/2−1/3=1/6≥-2+4-1/2-1/2-1/2-1/3=1/6, so that |G|≤12(g−1)|G|≤12(g-1),
+if k=3=3 then write e1=p,e2=q,e3=r_1=p, e_2=q, e_3=r. We may assume 2≤p≤q≤r2≦
+leqr.
+if p≥3≥3 then R≥−2+3−1/3−1/3−1/4=1/12≥-2+3-1/3-1/3-1/4=1/12 so that |G|≤24(g−1)|G|≤24(g-1),
+if p=2=2 then
+if q≥4≥4 then R≥−2+3−1/2−1/4−1/5=1/20≥-2+3-1/2-1/4-1/5=1/20 so that |G|≤40(g−1)|G|≤40(g-1),
+if q=3=3 then R≥−2+3−1/2−1/3−1/7=1/42≥-2+3-1/2-1/3-1/7=1/42 so that |G|≤84(g−1)|G|≤84(g-1).
+In conclusion, |G|≤84(g−1)|G|≤84(g-1).
+To show that G is finite, note that G acts on the cohomology H∗(X,C)^*(X,𝐂) preserving the Hodge decomposition and the lattice H1(X,Z)^1(X,𝐙).
+
+In particular, its action on V=H0,1(X,C)=H^0,1(X,𝐂) gives a homomorphism h:G→GL⁡(V):G→GL(V) with discrete image h(G)(G).
+In addition, the image h(G)(G) preserves the natural non-degenerate Hermitian inner product (ω,η)=i∫ω¯∧η(ω,η)=i∫ω̅∧η on V. In particular the image h(G)(G) is contained in the unitary group U⁡(V)⊂GL⁡(V)U(V)⊂GL(V) which is compact. Thus the image h(G)(G) is not just discrete, but finite.
+It remains to prove that h:G→GL⁡(V):G→GL(V) has finite kernel. In fact, we will prove h is injective. Assume φ∈Gφ acts as the identity on V. If fix⁡(φ)fix(φ) is finite, then by the Lefschetz fixed-point theorem, |fix⁡(φ)|=1−2tr⁡(h(φ))+1=2−2tr⁡(idV)=2−2g<0.|fix(φ)|=1-2tr(h(φ))+1=2-2tr(id_V)=2-2g<0.
+This is a contradiction, and so fix⁡(φ)fix(φ) is infinite. Since fix⁡(φ)fix(φ) is a closed complex sub variety of positive dimension and X is a smooth connected curve (i.e. dimC⁡(X)=1_𝐂(X)=1), we must have fix⁡(φ)=Xfix(φ)=X. Thus φφ is the identity, and we conclude that h is injective and G≅h(G)(G) is finite.
+Q.E.D.
+Corollary of the proof: A Riemann surface X of genus g≥2≥2 has 84(g−1)84(g-1) automorphisms if and only if X is a branched cover X→P1→𝐏^1 with three ramification points, of indices 2,3 and 7.
+
+The idea of another proof and construction of the Hurwitz surfaces[edit]
+By the uniformization theorem, any hyperbolic surface  X – i.e., the Gaussian curvature of X is equal to negative one at every point – is covered by the hyperbolic plane. The conformal mappings of the surface correspond to orientation-preserving automorphisms of the hyperbolic plane. By the Gauss–Bonnet theorem, the area of the surface is
+
+A(X) = − 2π χ(X) = 4π(g − 1).
+In order to make the automorphism group G of X as large as possible, we want the area of its fundamental domain D for this action to be as small as possible. If the fundamental domain is a triangle with the vertex angles π/p, π/q and π/r, defining a tiling of the hyperbolic plane, then p, q, and r are integers greater than one, and the area is 
+
+A(D) = π(1 − 1/p − 1/q − 1/r).
+Thus we are asking for integers which make the expression
+
+1 − 1/p − 1/q − 1/r
+strictly positive and as small as possible. This minimal value is 1/42, and
+
+1 − 1/2 − 1/3 − 1/7 = 1/42
+gives a unique triple of such integers. This would indicate that the order |G| of the automorphism group is bounded by
+
+A(X)/A(D)  ≤  168(g − 1).
+However, a more delicate reasoning shows that this is an overestimate by the factor of two, because the group G can contain orientation-reversing transformations. For the orientation-preserving conformal automorphisms the bound is  84(g − 1).
+
+Construction[edit]
+Hurwitz groups and surfaces are constructed based on the tiling of the hyperbolic plane by the (2,3,7) Schwarz triangle.
+To obtain an example of a Hurwitz group, let us start with a (2,3,7)-tiling of the hyperbolic plane. Its full symmetry group is the full (2,3,7) triangle group generated by the reflections across the sides of a single fundamental triangle with the angles π/2, π/3 and π/7. Since a reflection flips the triangle and changes the orientation, we can join the triangles in pairs and obtain an orientation-preserving tiling polygon.
+A Hurwitz surface is obtained by 'closing up' a part of this infinite tiling of the hyperbolic plane to a compact Riemann surface of genus g. This will necessarily involve exactly 84(g − 1) double triangle tiles.
+The following two regular tilings have the desired symmetry group; the rotational group corresponds to rotation about an edge, a vertex, and a face, while the full symmetry group would also include a reflection. The polygons in the tiling are not fundamental domains – the tiling by (2,3,7) triangles refines both of these and is not regular.
+
+
+
+order-3 heptagonal tiling
+
+order-7 triangular tiling
+
+Wythoff constructions yields further uniform tilings, yielding eight uniform tilings, including the two regular ones given here. These all descend to Hurwitz surfaces, yielding tilings of the surfaces (triangulation, tiling by heptagons, etc.).
+From the arguments above it can be inferred that a Hurwitz group G is characterized by the property that it is a finite quotient of the group with two generators a and b and three relations
+
+a2=b3=(ab)7=1,^2=b^3=(ab)^7=1,
+thus G is a finite group generated by two elements of orders two and three, whose product is of order seven. More precisely, any Hurwitz surface, that is, a hyperbolic surface that realizes the maximum order of the automorphism group for the surfaces of a given genus, can be obtained by the construction given. 
+This is the last part of the theorem of Hurwitz.
+
+Examples of Hurwitz groups and surfaces[edit]
+The small cubicuboctahedron is a polyhedral immersion of the tiling of the Klein quartic by 56 triangles, meeting at 24 vertices.[2]
+The smallest Hurwitz group is the projective special linear group PSL(2,7), of order 168, and the corresponding curve is the Klein quartic curve.  This group is also isomorphic to PSL(3,2).
+Next is the Macbeath curve, with automorphism group PSL(2,8) of order 504. Many more finite simple groups are Hurwitz groups; for instance all but 64 of the alternating groups are Hurwitz groups, the largest non-Hurwitz example being of degree 167. The smallest alternating group that is a Hurwitz group is A15.
+Most projective special linear groups of large rank are Hurwitz groups, (Lucchini, Tamburini & Wilson 2000). For lower ranks, fewer such groups are Hurwitz.  For np the order of p modulo 7, one has that PSL(2,q) is Hurwitz if and only if either q=7 or q = pnp.  Indeed, PSL(3,q) is Hurwitz if and only if q = 2, PSL(4,q) is never Hurwitz, and PSL(5,q) is Hurwitz if and only if q = 74 or q = pnp, (Tamburini & Vsemirnov 2006).
+Similarly, many groups of Lie type are Hurwitz.  The finite classical groups of large rank are Hurwitz, (Lucchini & Tamburini 1999).  The exceptional Lie groups of type G2 and the Ree groups of type 2G2 are nearly always Hurwitz, (Malle 1990).  Other families of exceptional and twisted Lie groups of low rank are shown to be Hurwitz in (Malle 1995).
+There are 12 sporadic groups that can be generated as Hurwitz groups: the Janko groups J1, J2 and J4, the Fischer groups Fi22 and Fi'24, the Rudvalis group, the Held group, the Thompson group, the Harada–Norton group, the third Conway group Co3, the Lyons group, and  the Monster, (Wilson 2001).
+
+Automorphism groups in low genus[edit]
+The largest |Aut(X)| can get for a Riemann surface X of genus g is shown below, for 2≤g≤10, along with a surface X0 with |Aut(X0)| maximal. 
+
+
+
+genus g
+Largest possible |Aut(X)|
+X0
+Aut(X0)
+
+
+2
+48
+Bolza curve
+GL2(3)
+
+
+3
+168 (Hurwitz bound)
+Klein quartic
+PSL2(7)
+
+
+4
+120
+Bring curve
+S5
+
+
+5
+192
+Modular curve X(8)
+PSL2(Z/8Z)
+
+
+6
+150
+Fermat curve F5
+(C5 x C5):S3
+
+
+7
+504 (Hurwitz bound)
+Macbeath curve
+PSL2(8)
+
+
+8
+336
+
+
+
+
+9
+320
+
+
+
+
+10
+432
+
+
+
+
+11
+240
+
+
+
+In this range, there only exists a Hurwitz curve in genus g=3 and g=7.
+
+Generalizations[edit]
+The concept of a Hurwitz surface can be generalized in several ways to a definition that has examples in all but a few genera. Perhaps the most natural is a "maximally symmetric" surface: One that cannot be continuously modified through equally symmetric surfaces to a surface whose symmetry properly contains that of the original surface. This is possible for all orientable compact genera (see above section "Automorphism groups in low genus").
+
+See also[edit]
+(2,3,7) triangle group
+Notes[edit]
+
+^ Technically speaking, there is an equivalence of categories between the category of compact Riemann surfaces with the orientation-preserving conformal maps and the category of non-singular complex projective algebraic curves with the algebraic morphisms.
+
+^ (Richter) Note each face in the polyhedron consist of multiple faces in the tiling – two triangular faces constitute a square face and so forth, as per this explanatory image.
+
+
+References[edit]
+
+Hurwitz, A. (1893), "Über algebraische Gebilde mit Eindeutigen Transformationen in sich", Mathematische Annalen, 41 (3): 403–442, doi:10.1007/BF01443420, JFM 24.0380.02.
+Lucchini, A.; Tamburini, M. C. (1999), "Classical groups of large rank as Hurwitz groups", Journal of Algebra, 219 (2): 531–546, doi:10.1006/jabr.1999.7911, ISSN 0021-8693, MR 1706821
+Lucchini, A.; Tamburini, M. C.; Wilson, J. S. (2000), "Hurwitz groups of large rank", Journal of the London Mathematical Society, Second Series, 61 (1): 81–92, doi:10.1112/S0024610799008467, ISSN 0024-6107, MR 1745399
+Malle, Gunter (1990), "Hurwitz groups and G2(q)", Canadian Mathematical Bulletin, 33 (3): 349–357, doi:10.4153/CMB-1990-059-8, ISSN 0008-4395, MR 1077110
+Malle, Gunter (1995), "Small rank exceptional Hurwitz groups", Groups of Lie type and their geometries (Como, 1993), London Math. Soc. Lecture Note Ser., vol. 207, Cambridge University Press, pp. 173–183, MR 1320522
+Tamburini, M. C.; Vsemirnov, M. (2006), "Irreducible (2,3,7)-subgroups of PGL(n,F) for n ≤ 7", Journal of Algebra, 300 (1): 339–362, doi:10.1016/j.jalgebra.2006.02.030, ISSN 0021-8693, MR 2228652
+Wilson, R. A. (2001), "The Monster is a Hurwitz group", Journal of Group Theory, 4 (4): 367–374, doi:10.1515/jgth.2001.027, MR 1859175, archived from the original on 2012-03-05, retrieved 2015-09-04
+Richter, David A., How to Make the Mathieu Group M24, retrieved 2010-04-15
+
+vteTopics in algebraic curvesRational curves
+Five points determine a conic
+Projective line
+Rational normal curve
+Riemann sphere
+Twisted cubic
+Elliptic curvesAnalytic theory
+Elliptic function
+Elliptic integral
+Fundamental pair of periods
+Modular form
+Arithmetic theory
+Counting points on elliptic curves
+Division polynomials
+Hasse's theorem on elliptic curves
+Mazur's torsion theorem
+Modular elliptic curve
+Modularity theorem
+Mordell–Weil theorem
+Nagell–Lutz theorem
+Supersingular elliptic curve
+Schoof's algorithm
+Schoof–Elkies–Atkin algorithm
+Applications
+Elliptic curve cryptography
+Elliptic curve primality
+Higher genus
+De Franchis theorem
+Faltings's theorem
+Hurwitz's automorphisms theorem
+Hurwitz surface
+Hyperelliptic curve
+Plane curves
+AF+BG theorem
+Bézout's theorem
+Bitangent
+Cayley–Bacharach theorem
+Conic section
+Cramer's paradox
+Cubic plane curve
+Fermat curve
+Genus–degree formula
+Hilbert's sixteenth problem
+Nagata's conjecture on curves
+Plücker formula
+Quartic plane curve
+Real plane curve
+Riemann surfaces
+Belyi's theorem
+Bring's curve
+Bolza surface
+Compact Riemann surface
+Dessin d'enfant
+Differential of the first kind
+Klein quartic
+Riemann's existence theorem
+Riemann–Roch theorem
+Teichmüller space
+Torelli theorem
+Constructions
+Dual curve
+Polar curve
+Smooth completion
+Structure of curvesDivisors on curves
+Abel–Jacobi map
+Brill–Noether theory
+Clifford's theorem on special divisors
+Gonality of an algebraic curve
+Jacobian variety
+Riemann–Roch theorem
+Weierstrass point
+Weil reciprocity law
+Moduli
+ELSV formula
+Gromov–Witten invariant
+Hodge bundle
+Moduli of algebraic curves
+Stable curve
+Morphisms
+Hasse–Witt matrix
+Riemann–Hurwitz formula
+Prym variety
+Weber's theorem (Algebraic curves)
+Singularities
+Acnode
+Crunode
+Cusp
+Delta invariant
+Tacnode
+Vector bundles
+Birkhoff–Grothendieck theorem
+Stable vector bundle
+Vector bundles on algebraic curves
+
+
+
+

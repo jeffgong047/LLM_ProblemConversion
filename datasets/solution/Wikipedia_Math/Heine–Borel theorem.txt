@@ -1,0 +1,86 @@
+Subset of Euclidean space is compact if and only if it is closed and bounded
+In real analysis the Heine–Borel theorem, named after Eduard Heine and Émile Borel, states:
+For a subset S of Euclidean space Rn, the following two statements are equivalent:
+
+S is closed and bounded
+S is compact, that is, every open cover of S has a finite subcover.
+
+History and motivation[edit]
+The history of what today is called the Heine–Borel theorem starts in the 19th century, with the search for solid foundations of real analysis. Central to the theory was the concept of uniform continuity and the theorem stating that every continuous function on a closed and bounded interval is uniformly continuous. Peter Gustav Lejeune Dirichlet was the first to prove this and implicitly he used the existence of a finite subcover of a given open cover of a closed interval in his proof.[1] He used this proof in his 1852 lectures, which were published only in 1904.[1] Later Eduard Heine, Karl Weierstrass and Salvatore Pincherle used similar techniques. Émile Borel in 1895 was the first to state and prove a form of what is now called the Heine–Borel theorem. His formulation was restricted to countable covers. Pierre Cousin (1895), Lebesgue (1898) and Schoenflies (1900) generalized it to arbitrary covers.[2]
+
+Proof[edit]
+If a set is compact, then it must be closed.
+Let S be a subset of Rn.  Observe first the following: if a is a limit point of S, then any finite collection C of open sets, such that each open set U ∈ C is disjoint from some neighborhood VU of a, fails to be a cover of S.  Indeed, the intersection of the finite family of sets VU is a neighborhood W of a in Rn. Since a is a limit point of S, W must contain a point x in S. This x ∈ S is not covered by the family C, because every U in C is disjoint from VU and hence disjoint from W, which contains x.
+If S is compact but not closed, then it has a limit point a not in S.  Consider a collection C ′ consisting of an open neighborhood N(x) for each x ∈ S, chosen small enough to not intersect some neighborhood Vx of a.  Then C ′ is an open cover of S, but any finite subcollection of C ′ has the form of C discussed previously, and thus cannot be an open subcover of S.  This contradicts the compactness of S.  Hence, every limit point of S is in S, so S is closed.
+The proof above applies with almost no change to showing that any compact subset S of a Hausdorff topological space X is closed in X.
+If a set is compact, then it is bounded.
+Let S be a compact set in Rn𝐑^n, and Ux_x  a ball of radius 1 centered at x∈Rn∈𝐑^n. Then the set of all such balls centered at x∈S is clearly an open cover of S, since ∪x∈SUx∪_xU_x contains all of S. Since S is compact, take a finite subcover of this cover. This subcover is the finite union of balls of radius 1. Consider all pairs of centers of these (finitely many) balls (of radius 1) and let M be the maximum of the distances between them. Then if Cp_p and Cq_q are the centers (respectively) of unit balls containing arbitrary p,q∈S,q, the triangle inequality says:
+
+d(p,q)≤d(p,Cp)+d(Cp,Cq)+d(Cq,q)≤1+M+1=M+2.(p,q)(p,C_p)+d(C_p,C_q)+d(C_q,q)≤1+M+1=M+2.
+So the diameter of S is bounded by M+2+2.
+Lemma: A closed subset of a compact set is compact.
+Let K be a closed subset of a compact set T in Rn and let CK be an open cover of K.  Then U = Rn \ K is an open set and
+
+CT=CK∪U_T=C_K∪{U}
+is an open cover of T.  Since T is compact, then CT has a finite subcover CT′,_T', that also covers the smaller set K.  Since U does not contain any point of K, the set K is already covered by CK′=CT′∖U,_K'=C_T'∖{U}, that is a finite subcollection of the original collection CK.  It is thus possible to extract from any open cover CK of K a finite subcover.
+If a set is closed and bounded, then it is compact.
+If a set S in Rn is bounded, then it can be enclosed within an n-box
+
+T0=[−a,a]n_0=[-a,a]^n
+where a > 0.  By the lemma above, it is enough to show that T0 is compact.
+Assume, by way of contradiction, that T0 is not compact.  Then there exists an infinite open cover C of T0 that does not admit any finite subcover.  Through bisection of each of the sides of T0, the box T0 can be broken up into 2n sub n-boxes, each of which has diameter equal to half the diameter of T0.  Then at least one of the 2n sections of T0 must require an infinite subcover of C, otherwise C itself would have a finite subcover, by uniting together the finite covers of the sections.  Call this section T1.
+Likewise, the sides of T1 can be bisected, yielding 2n sections of T1, at least one of which must require an infinite subcover of C.  Continuing in like manner yields a decreasing sequence of nested n-boxes:
+
+T0⊃T1⊃T2⊃…⊃Tk⊃…_0_1_2⊃…_k⊃…
+where the side length of Tk is (2 a) / 2k, which tends to 0 as k tends to infinity. Let us define a sequence (xk) such that each xk is in Tk. This sequence is  Cauchy, so it must converge to some limit L. Since each Tk is closed, and for each k the sequence  (xk) is eventually always inside Tk, we see that L ∈ Tk for each k.
+Since C covers T0, then it has some member U ∈ C such that L ∈ U.  Since U is open, there is an n-ball B(L) ⊆ U.  For large enough k, one has Tk ⊆ B(L) ⊆ U, but then the infinite number of members of C needed to cover Tk can be replaced by just one: U, a contradiction.
+Thus, T0 is compact.  Since S is closed and a subset of the compact set T0, then S is also compact (see the lemma above).
+
+Heine–Borel property[edit]
+The Heine–Borel theorem does not hold as stated for general metric and topological vector spaces, and this gives rise to the necessity to consider special classes of spaces where this proposition is true. They are called the spaces with the Heine–Borel property.
+
+In the theory of metric spaces[edit]
+A metric space (X,d)(X,d) is said to have the Heine–Borel property if each closed bounded[3] set in X is compact.
+Many metric spaces fail to have the Heine–Borel property, such as the metric space of rational numbers (or indeed any incomplete metric space). Complete metric spaces may also fail to have the property; for instance, no infinite-dimensional Banach spaces have the Heine–Borel property (as metric spaces). Even more trivially, if the real line is not endowed with the usual metric, it may fail to have the Heine–Borel property.
+A metric space (X,d)(X,d) has a Heine–Borel metric which is Cauchy locally identical to d if and only if it is complete, σσ-compact, and locally compact.[4]
+
+In the theory of topological vector spaces[edit]
+A topological vector space X is said to have the Heine–Borel property[5] (R.E. Edwards uses the term boundedly compact space[6]) if each closed bounded[7] set in X is compact.[8] No infinite-dimensional Banach spaces have the Heine–Borel property (as topological vector spaces). But some infinite-dimensional Fréchet spaces do have, for instance, the space C∞(Ω)^∞(Ω) of smooth functions on an open set Ω⊂RnΩ⊂ℝ^n[6] and the space H(Ω)(Ω) of holomorphic functions on an open set Ω⊂CnΩ⊂ℂ^n.[6]  More generally, any quasi-complete nuclear space has the Heine–Borel property. All Montel spaces have the Heine–Borel property as well.
+
+See also[edit]
+Bolzano–Weierstrass theorem
+Notes[edit]
+
+
+^ a b Raman-Sundström, Manya (August–September 2015). "A Pedagogical History of Compactness". American Mathematical Monthly. 122 (7): 619–635. arXiv:1006.4131. doi:10.4169/amer.math.monthly.122.7.619. JSTOR 10.4169/amer.math.monthly.122.7.619. S2CID 119936587.
+
+^ Sundström, Manya Raman (2010). "A pedagogical history of compactness". arXiv:1006.4131v1 [math.HO].
+
+^ A set B in a metric space (X,d)(X,d) is said to be bounded if it is contained in a ball of a finite radius, i.e. there exists a∈X and r>0>0 such that B⊆x∈X:d(x,a)≤r⊆{x:(̣x,a)}.
+
+^ Williamson & Janos 1987.
+
+^ Kirillov & Gvishiani 1982, Theorem 28.
+
+^ a b c Edwards 1965, 8.4.7.
+
+^ A set B in a topological vector space X is said to be bounded if for each neighborhood of zero U in X there exists a scalar λλ such that B⊆λ⋅U⊆λ.
+
+^ In the case when the topology of a topological vector space X is generated by some metric d this definition is not equivalent to the definition of the Heine–Borel property of X as a metric space, since the notion of bounded set in X as a metric space is different from the notion of bounded set in X as a topological vector space. For instance, the space C∞[0,1]𝒞^∞[0,1] of smooth functions on the interval [0,1][0,1] with the metric d(x,y)=∑k=0∞12k⋅maxt∈[0,1]|x(k)(t)−y(k)(t)|1+maxt∈[0,1]|x(k)(t)−y(k)(t)|(x,y)=∑_k=0^∞1/2^k·max_t∈[0,1]|x^(k)(t)-y^(k)(t)|/1+max_t∈[0,1]|x^(k)(t)-y^(k)(t)| (here x(k)^(k) is the k-th derivative of the function x∈C∞[0,1]∈𝒞^∞[0,1]) has the Heine–Borel property as a topological vector space but not as a metric space.
+
+
+References[edit]
+P. Dugac (1989). "Sur la correspondance de Borel et le théorème de Dirichlet–Heine–Weierstrass–Borel–Schoenflies–Lebesgue". Arch. Int. Hist. Sci. 39: 69–110.
+BookOfProofs: Heine-Borel Property
+Jeffreys, H.; Jeffreys, B.S. (1988). Methods of Mathematical Physics. Cambridge University Press. ISBN 978-0521097239.
+Williamson, R.; Janos, L. (1987). "Construction metrics with the Heine-Borel property". Proc. AMS. 100 (3): 567–573. doi:10.1090/S0002-9939-1987-0891165-X.
+Kirillov, A.A.; Gvishiani, A.D. (1982). Theorems and Problems in Functional Analysis. Springer-Verlag New York. ISBN 978-1-4613-8155-6.
+Edwards, R.E. (1965). Functional analysis. Holt, Rinehart and Winston. ISBN 0030505356.
+External links[edit]
+Ivan Kenig, Dr. Prof. Hans-Christian Graf v. Botthmer, Dmitrij Tiessen, Andreas Timm, Viktor Wittman (2004). The Heine–Borel Theorem. Hannover: Leibniz Universität. Archived from the original (avi • mp4 • mov • swf • streamed video) on 2011-07-19.
+"Borel-Lebesgue covering theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Mathworld "Heine-Borel Theorem"
+"An Analysis of the First Proofs of the Heine-Borel Theorem - Lebesgue's Proof"
+
+
+

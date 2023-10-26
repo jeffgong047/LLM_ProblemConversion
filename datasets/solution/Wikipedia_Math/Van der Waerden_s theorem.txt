@@ -1,0 +1,386 @@
+Theorem in Ramsey theory
+Van der Waerden's theorem is a theorem in the branch of mathematics called Ramsey theory.  Van der Waerden's theorem states that for any given positive integers r and k, there is some number N such that if the integers {1, 2, ..., N} are colored, each with one of r different colors, then there are at least k integers in arithmetic progression whose elements are of the same color. The least such N is the Van der Waerden number W(r, k), named after the Dutch mathematician B. L. van der Waerden.[1]
+
+
+Example[edit]
+For example, when r = 2, you have two colors, say red and blue. W(2, 3) is bigger than 8, because you can color the integers from {1, ..., 8} like this:
+
+
+
+ 1 
+
+ 2 
+
+ 3 
+
+ 4 
+
+ 5 
+
+ 6 
+
+ 7 
+
+ 8 
+
+
+ B 
+
+ R 
+
+ R 
+
+ B 
+
+ B 
+
+ R 
+
+ R 
+
+ B 
+
+and no three integers of the same color form an arithmetic progression.  But you can't add a ninth integer to the end without creating such a progression.  If you add a red 9, then the red 3, 6, and 9 are in arithmetic progression.  Alternatively, if you add a blue 9, then the blue 1, 5, and 9 are in arithmetic progression.
+In fact, there is no way of coloring 1 through 9 without creating such a progression (it can be proved by considering examples).  Therefore, W(2, 3) is 9.
+
+Open problem[edit]
+It is an open problem to determine the values of W(r, k) for most values of r and k. The proof of the theorem provides only an upper bound.  For the case of r = 2 and k = 3, for example, the argument given below shows that it is sufficient to color the integers {1, ..., 325} with two colors to guarantee there will be a single-colored arithmetic progression of length 3. But in fact, the bound of 325 is very loose; the minimum required number of integers is only 9.  Any coloring of the integers {1, ..., 9} will have three evenly spaced integers of one color.
+For r = 3 and k = 3, the bound given by the theorem is 7(2·37 + 1)(2·37·(2·37 + 1) + 1), or approximately 4.22·1014616. But actually, you don't need that many integers to guarantee a single-colored progression of length 3; you only need 27. (And it is possible to color {1, ..., 26} with three colors so that there is no single-colored arithmetic progression of length 3; for example:
+
+
+
+ 1 
+
+ 2 
+
+ 3 
+
+ 4 
+
+ 5 
+
+ 6 
+
+ 7 
+
+ 8 
+
+ 9 
+
+ 10 
+
+ 11 
+
+ 12 
+
+ 13 
+
+ 14 
+
+ 15 
+
+ 16 
+
+ 17 
+
+ 18 
+
+ 19 
+
+ 20 
+
+ 21 
+
+ 22 
+
+ 23 
+
+ 24 
+
+ 25 
+
+ 26 
+
+
+ R 
+
+ R 
+
+ G 
+
+ G 
+
+ R 
+
+ R 
+
+ G 
+
+ B 
+
+ G 
+
+ B 
+
+ B 
+
+ R 
+
+ B 
+
+ R 
+
+ R 
+
+ G 
+
+ R 
+
+ G 
+
+ G 
+
+ B 
+
+ R 
+
+ B 
+
+ B 
+
+ G 
+
+ B 
+
+ G 
+
+An open problem is the attempt to reduce the general upper bound to any 'reasonable' function. Ronald Graham offered a prize of US$1000 for showing W(2, k) < 2k2.[2] In addition, he offered a US$250 prize for a proof of his conjecture involving more general off-diagonal van der Waerden numbers, stating W(2; 3, k) ≤ kO(1), while mentioning numerical evidence suggests W(2; 3, k) = k2 + o(1). Ben Green disproved this latter conjecture and proved super-polynomial counterexamples to W(2; 3, k) < kr for any r.[3] The best upper bound currently known is due to Timothy Gowers,[4] who establishes
+
+W(r,k)≤22r22k+9,(r,k)≤2^2^r^2^2^k+9,
+by first establishing a similar result for Szemerédi's theorem, which is a stronger version of Van der Waerden's theorem.  The previously best-known bound was due to Saharon Shelah and proceeded via first proving a result for the Hales–Jewett theorem, which is another strengthening of Van der Waerden's theorem.
+The best lower bound currently known for W(2,k)(2,k) is that for all positive εε we have W(2,k)>2k/kε(2,k)>2^k/k^ε, for all sufficiently large k.[5]
+
+Proof of Van der Waerden's theorem (in a special case)[edit]
+The following proof is due to Ron Graham, B.L. Rothschild, and Joel Spencer.[6] Khinchin[7] gives a fairly simple proof of the theorem without estimating W(r, k).
+
+Proof in the case of W(2, 3)[edit]
+
+W(2, 3) table
+
+
+b
+c(n): color of integers
+
+
+0
+
+1
+2
+3
+4
+5
+
+
+ R 
+ R 
+ B 
+ R 
+ B 
+
+
+1
+
+6
+7
+8
+9
+10
+
+
+ B 
+ R 
+ R 
+ B 
+ R 
+
+
+…
+
+…
+
+
+64
+
+321
+322
+323
+324
+325
+
+
+ R 
+ B 
+ R 
+ B 
+ R 
+
+We will prove the special case mentioned above, that W(2, 3) ≤ 325. Let c(n) be a coloring of the integers {1, ..., 325}.  We will find three elements of {1, ..., 325} in arithmetic progression that are the same color.
+Divide {1, ..., 325} into the 65 blocks {1, ..., 5}, {6, ..., 10}, ... {321, ..., 325}, thus each block is of the form {5b + 1, ..., 5b + 5} for some b in {0, ..., 64}. Since each integer is colored either red or blue, each block is colored in one of 32 different ways.  By the pigeonhole principle, there are two blocks among the first 33 blocks that are colored identically. That is, there are two integers b1 and b2, both in {0,...,32}, such that
+
+c(5b1 + k) = c(5b2 + k)
+for all k in {1, ..., 5}.  Among the three integers 5b1 + 1, 5b1 + 2, 5b1 + 3, there must be at least two that are of the same color. (The pigeonhole principle again.)  Call these 5b1 + a1 and 5b1 + a2, where the ai are in {1,2,3} and a1 < a2.  Suppose (without loss of generality) that these two integers are both red.  (If they are both blue, just exchange 'red' and 'blue' in what follows.)
+Let a3 = 2a2 − a1. If 5b1 + a3 is red, then we have found our arithmetic progression: 5b1 + ai are all red.	
+Otherwise, 5b1 + a3 is blue. Since a3 ≤ 5,  5b1 + a3 is in the b1 block, and since the b2 block is colored identically, 5b2 + a3 is also blue.
+Now let b3 = 2b2 − b1. Then b3 ≤ 64. Consider the integer  5b3 + a3, which must be ≤ 325. What color is it?
+If it is red, then 5b1 + a1, 5b2 + a2, and 5b3 + a3 form a red arithmetic progression. But if it is blue, then 5b1 + a3, 5b2 + a3, and 5b3 + a3 form a blue arithmetic progression. Either way, we are done.
+
+Proof in the case of W(3, 3)[edit]
+
+W(3, 3) tableg=2·37·(2·37 + 1) ,m=7(2·37 + 1)
+
+
+b
+c(n): color of integers
+
+
+0
+
+1
+2
+3
+…
+m
+
+
+ G 
+ R 
+ R 
+…
+ B 
+
+
+1
+
+m + 1
+m + 2
+m + 3
+…
+2m
+
+
+ B 
+ R 
+ G 
+…
+ R 
+
+
+…
+
+…
+
+
+g
+
+gm + 1
+gm + 2
+gm + 3
+…
+(g + 1)m
+
+
+ B 
+ R 
+ B 
+…
+ G 
+
+A similar argument can be advanced to show that W(3, 3) ≤ 7(2·37+1)(2·37·(2·37+1)+1). One begins by dividing the integers into  2·37·(2·37 + 1) + 1 groups of 7(2·37 + 1) integers each; of the first 37·(2·37 + 1) + 1 groups, two must be colored identically.
+Divide each of these two groups into 2·37+1 subgroups of 7 integers each; of the first 37 + 1 subgroups in each group, two of the subgroups must be colored identically.  Within each of these identical subgroups, two of the first four integers must be the same color, say red; this implies either a red progression or an element of a different color, say blue, in the same subgroup.
+Since we have two identically-colored subgroups, there is a third subgroup, still in the same group that contains an element which, if either red or blue, would complete a red or blue progression, by a construction analogous to the one for W(2, 3). Suppose that this element is green. Since there is a group that is colored identically, it must contain copies of the red, blue, and green elements we have identified; we can now find a pair of red elements, a pair of blue elements, and a pair of green elements that 'focus' on the same integer, so that whatever color it is, it must complete a progression.
+
+Proof in general case[edit]
+The proof for W(2, 3) depends essentially on proving that W(32, 2) ≤ 33.  We divide the integers {1,...,325} into 65 'blocks', each of which can be colored in 32 different ways, and then show that two blocks of the first 33 must be the same color, and there is a block colored the opposite way.  Similarly, the proof for W(3, 3) depends on proving that
+
+W(37(2⋅37+1),2)≤37(2⋅37+1)+1.(3^7(2·3^7+1),2)≤3^7(2·3^7+1)+1.
+By a double induction on the number of colors and the length of the progression, the theorem is proved in general.
+
+Proof[edit]
+A D-dimensional arithmetic progression (AP) consists of
+numbers of the form:
+
+a+i1s1+i2s2+⋯+iDsD+i_1s_1+i_2s_2+⋯+i_Ds_D
+where a is the basepoint, the s's are positive step-sizes, and the i's range from 0 to L − 1. A d-dimensional AP is homogeneous for some coloring when it is all the same color.
+A D-dimensional arithmetic progression with benefits is all numbers of the form above, but where you add on some of the "boundary" of the arithmetic progression, i.e. some of the indices i's can be equal to L. The sides you tack on are ones where the first k i's are equal to L, and the remaining i's are less than L.
+The boundaries of a D-dimensional AP with benefits are these additional arithmetic progressions of dimension d−1,d−2,d−3,d−4-1,d-2,d-3,d-4, down to 0. The 0-dimensional arithmetic progression is the single point at index value (L,L,L,L,…,L)(L,L,L,L,…,L). A D-dimensional AP with benefits is homogeneous when each of the boundaries are individually homogeneous, but different boundaries do not have to necessarily have the same color.
+Next define the quantity MinN(L, D, N) to be the least integer so that any assignment of N colors to an interval of length MinN or more necessarily contains a homogeneous D-dimensional arithmetical progression with benefits.
+The goal is to bound the size of MinN. Note that MinN(L,1,N) is an upper bound for Van der Waerden's number. There are two inductions steps, as follows:
+
+
+Lemma 1 — Assume MinN is known for a given lengths L for all dimensions of arithmetic progressions with benefits up to D. This formula gives a bound on MinN when you increase the dimension to D + 1:
+let M=MinN⁡(L,D,n)=MinN(L,D,n), then
+
+MinN⁡(L,D+1,n)≤M⋅MinN⁡(L,1,nM)MinN(L,D+1,n)·MinN(L,1,n^M)
+
+Proof
+First, if you have an n-coloring of the interval 1...I, you can define a block coloring of k-size blocks. Just consider each sequence of k colors in each k block to define a unique color. Call this k-blocking an n-coloring. k-blocking an n coloring of length l produces an nk coloring of length l/k.
+So given a n-coloring of an interval I of size M⋅MinN⁡(L,1,nM))·MinN(L,1,n^M)) you can M-block it into an nM coloring of length MinN⁡(L,1,nM)MinN(L,1,n^M). But that means, by the definition of MinN, that you can find a 1-dimensional arithmetic sequence (with benefits) of length L in the block coloring, which is a sequence of blocks equally spaced, which are all the same block-color, i.e. you have a bunch of blocks of length M in the original sequence, which are equally spaced, which have exactly the same sequence of colors inside.
+Now, by the definition of M, you can find a d-dimensional arithmetic sequence with benefits in any one of these blocks, and since all of the blocks have the same sequence of colors, the same d-dimensional AP with benefits appears in all of the blocks, just by translating it from block to block. This is the definition of a d + 1 dimensional arithmetic progression, so you have a homogeneous d + 1 dimensional AP. The new stride parameter sD + 1 is defined to be the distance between the blocks.
+But you need benefits. The boundaries you get now are all old boundaries, plus their translations into identically colored blocks, because iD+1 is always less than L. The only boundary which is not like this is the 0-dimensional point when i1=i2=⋯=iD+1=L_1=i_2=⋯=i_D+1=L. This is a single point, and is automatically homogeneous.
+
+
+
+Lemma 2 — Assume MinN is known for one value of L and all possible dimensions D. Then you can bound MinN for length L + 1.
+
+MinN⁡(L+1,1,n)≤2MinN⁡(L,n,n)MinN(L+1,1,n)≤2MinN(L,n,n)
+
+Proof
+Given an n-coloring of an interval of size MinN(L,n,n), by definition, you can find an arithmetic sequence with benefits of dimension n of length L. But now, the number of "benefit" boundaries is equal to the number of colors, so one of the homogeneous boundaries, say of dimension k, has to have the same color as another one of the homogeneous benefit boundaries, say the one of dimension p < k. This allows a length L + 1 arithmetic sequence (of dimension 1) to be constructed, by going along a line inside the k-dimensional boundary which ends right on the p-dimensional boundary, and including the terminal point in the p-dimensional boundary. In formulas:
+if
+
+a+Ls1+Ls2+⋯+LsD−k+Ls_1+Ls_2+⋯+Ls_D-k has the same color as
+a+Ls1+Ls2+⋯+LsD−p+Ls_1+Ls_2+⋯+Ls_D-p
+then
+
+a+L⋅(s1+⋯+sD−k)+u⋅(sD−k+1+⋯+sp)+L·(s_1+⋯+s_D-k)+u·(s_D-k+1+⋯+s_p) have the same color
+u=0,1,2,⋯,L−1,L=0,1,2,⋯,L-1,L i.e. u makes a sequence of length L+1.
+This constructs a sequence of dimension 1, and the "benefits" are automatic, just add on another point of whatever color. To include this boundary point, one has to make the interval longer by the maximum possible value of the stride, which is certainly less than the interval size. So doubling the interval size will definitely work, and this is the reason for the factor of two. This completes the induction on L.
+
+
+Base case: MinN(1,d,n) = 1, i.e. if you want a length 1 homogeneous d-dimensional arithmetic sequence, with or without benefits, you have nothing to do. So this forms the base of the induction. The Van der Waerden theorem itself is the assertion that MinN(L,1,N) is finite, and it follows from the base case and the induction steps.[8]
+
+See also[edit]
+Van der Waerden numbers for all known values for W(n,r) and the best known bounds for unknown values.
+Van der Waerden game – a game where the player picks integers from the set 1, 2, ..., N, and tries to collect an arithmetic progression of length n.
+Hales–Jewett theorem
+Rado's theorem
+Szemerédi's theorem
+Bartel Leendert van der Waerden
+Notes[edit]
+
+
+^ van der Waerden, B. L. (1927). "Beweis einer Baudetschen Vermutung". Nieuw. Arch. Wisk. (in German). 15: 212–216.
+
+^ Graham, Ron (2007). "Some of My Favorite Problems in Ramsey Theory". INTEGERS: The Electronic Journal of Combinatorial Number Theory. 7 (2): #A15.
+
+^ Klarreich, Erica (2021). "Mathematician Hurls Structure and Disorder Into Century-Old Problem". Quanta Magazine.
+
+^ Gowers, Timothy (2001). "A new proof of Szemerédi's theorem". Geometric and Functional Analysis. 11 (3): 465–588. doi:10.1007/s00039-001-0332-9. S2CID 124324198.
+
+^ Szabó, Zoltán (1990). "An application of Lovász' local lemma-a new lower bound for the van der Waerden number". Random Structures & Algorithms. 1 (3): 343–360. doi:10.1002/rsa.3240010307.
+
+^ Graham, Ronald; Rothschild, Bruce; Spencer, Joel (1990). Ramsey theory. Wiley. ISBN 0471500461.
+
+^ Khinchin (1998, pp. 11–17, chapter 1)
+
+^ Graham, R. L.; Rothschild, B. L. (1974). "A short proof of van der Waerden's theorem on arithmetic progressions". Proceedings of the American Mathematical Society. 42 (2): 385–386. doi:10.1090/S0002-9939-1974-0329917-8.
+
+
+References[edit]
+Khinchin, A. Ya. (1998), Three Pearls of Number Theory, Mineola, NY: Dover, pp. 11–17, ISBN 978-0-486-40026-6 (second edition originally published in Russian in 1948)
+External links[edit]
+O'Bryant, Kevin. "van der Waerden's Theorem". MathWorld.
+O'Bryant, Kevin & Weisstein, Eric W. "Van der Waerden Number". MathWorld.
+
+
+

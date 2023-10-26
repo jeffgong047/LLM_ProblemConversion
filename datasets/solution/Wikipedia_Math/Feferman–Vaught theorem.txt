@@ -1,0 +1,434 @@
+Theorem about products in model theory
+Feferman–Vaught theorem[1]  in model theory is a theorem by Solomon Feferman and Robert Lawson Vaught that shows how to reduce, in an algorithmic way, the first-order theory of a product of first-order structures to the first-order theory of elements of the structure.
+The theorem is considered as one of the standard results in model theory.[2][3][4] The theorem extends the previous result of Andrzej Mostowski on direct products of theories.[5]
+It generalizes (to formulas with arbitrary quantifiers) the property in universal algebra that equalities (identities) carry over to direct products of algebraic structures (which is a consequence of one direction of Birkhoff's theorem).
+
+
+Direct product of structures[edit]
+Consider a first-order logic signature L.
+The definition of product structures takes a family of L-structures Ai𝐀_i for i∈I for some index set I and defines the product structure
+A=∏i∈IAi𝐀=∏_i𝐀_i, which is also an L-structure, with all functions and relations defined pointwise.
+The definition generalizes direct product in universal algebra to relational first-order structures, which contain not only function symbols but also relation symbols. 
+If r(a1,…,ap)(a_1,…,a_p) is a relation symbol with p arguments in L and a1,…,an∈Πi∈IAi_1,…,a_n∈Π_i𝐀_i are elements of the cartesian product, we define the interpretation of r in A𝐀 by
+
+A⊨r(a1,…,ap)⟺∀i∈I,Ai⊨r(a1(i),…,ap(i))𝐀(a_1,…,a_p),
+mathbfA_i(a_1(i),…,a_p(i))
+When r is a functional relation, this definition reduces to the definition of direct product in universal algebra.
+
+Statement of the theorem for direct products[edit]
+For a first-order logic formula ϕ(x¯)ϕ(x̅) in signature L with free variables, and for an interpretation a¯a̅ of the variables x¯x̅, we define the set of indices i for which ϕ(a¯)ϕ(a̅) holds in Ai𝐀_i
+
+||ϕ(a¯)||=i∣Ai⊨ϕ(a¯(i))||ϕ(a̅)||={i|𝐀_iϕ(a̅(i))}
+Given a first-order formula with free variables ϕ(x¯)ϕ(x̅), there is an algorithm to compute its equivalent game normal form, which is a finite disjunction ⋁i=0k−1θ(x¯)⋁_i=0^k-1θ(x̅) of mutually contradictory formulas.
+The Feferman-Vaught theorem gives an algorithm that takes a first-order formula ϕ(x¯)ϕ(x̅) and constructs a formula ϕ∗ϕ^* that reduces the condition that ϕ(a¯)ϕ(a̅) holds in the product to the condition that ϕ∗ϕ^* holds in the interpretation of k+1+1 sets of indices:
+
+I,||θ0(a¯)||,…,||θk−1(a¯)||,||θ_0(a̅)||,…,||θ_k-1(a̅)||
+Formula ϕ∗ϕ^* is thus a formula with k+1+1 free set variables, for example, in the first-order theory of Boolean algebra of sets.
+
+Proof idea[edit]
+Formula ϕ∗ϕ^* can be constructed following the structure of the starting formula ϕ∗ϕ^*. When ϕϕ is quantifier free then, by definition of direct product above it follows 
+
+A⊨ϕ(a¯)⟺∀i∈I.Ai⊨ϕ(a¯(i))⟺i∣Ai⊨ϕ(a¯(i))=I⟺||ϕ(a¯)||=I[            𝐀ϕ(a̅)                 .; mathbfA_iϕ(a̅(i)); {i|𝐀_iϕ(a̅(i))}=I;       ||ϕ(a̅)||=I ]
+Consequently, we can take ϕ∗(U,X1)ϕ^*(U,X_1) to be the equality U=X1=X_1 in the language of boolean algebra of sets (equivalently, the field of sets). 
+Extending the condition to quantified formulas can be viewed as a form of quantifier elimination, where quantification over product elements a¯a̅ in ϕϕ is reduced to quantification over subsets of I.
+
+Generalized products[edit]
+It is often of interest to consider substructure of the direct product structure. If the restriction that defines product elements that belong to the substructure can be expressed as a condition on the sets of index elements, then the results can be generalized. 
+An example is the substructure of product elements that are constant at all but finitely many indices. Assume that the language L contains a constant symbol c and consider the substructure containing only those product elements a for which the set
+
+i∣Ai⊨a(i)≠c{i|A_i(i)}
+is finite. The theorem then reduces the truth value in such substructure to a formula ϕ∗ϕ^* in the boolean algebra of sets, where certain sets are restricted to be finite.
+One way to define generalized products is to consider those
+substructures where the sets ||ϕ(a)||||ϕ(a)|| belong to some boolean algebra B of sets X⊆I of indices (a subset of the powerset set algebra 2I2^I), and where the product substructure admits gluing.[6] Here admitting gluing refers to the following closure condition: if a,b,b are two product elements and X∈B is the element of the boolean algebra, then so is the element c defined by "gluing" a and b according to X:
+
+c(i)=a(i),ifi∈Xb(i),ifi∈(I∖X)(i)={[ a(i),     i; b(i), i∈(I) ].
+Consequences[edit]
+Feferman-Vaught theorem implies the decidability of Skolem arithmetic by viewing, via fundamental theorem of arithmetic, the structure natural numbers with multiplication as a generalized product (power) of Presburger arithmetic structures.
+
+vteMajor mathematics areas
+History
+Timeline
+Future
+Outline
+Lists
+Glossary
+Foundations
+Category theory
+Information theory
+Mathematical logic
+Philosophy of mathematics
+Set theory
+Type theory
+Algebra
+Abstract
+Commutative
+Elementary
+Group theory
+Linear
+Multilinear
+Universal
+Homological
+Analysis
+Calculus
+Real analysis
+Complex analysis
+Hypercomplex analysis
+Differential equations
+Functional analysis
+Harmonic analysis
+Measure theory
+Discrete
+Combinatorics
+Graph theory
+Order theory
+Geometry
+Algebraic
+Analytic
+Arithmetic
+Differential
+Discrete
+Euclidean
+Finite
+Number theory
+Arithmetic
+Algebraic number theory
+Analytic number theory
+Diophantine geometry
+Topology
+General
+Algebraic
+Differential
+Geometric
+Homotopy theory
+Applied
+Engineering mathematics
+Mathematical biology
+Mathematical chemistry
+Mathematical economics
+Mathematical finance
+Mathematical physics
+Mathematical psychology
+Mathematical sociology
+Mathematical statistics
+Probability
+Statistics
+Systems science
+Control theory
+Game theory
+Operations research
+Computational
+Computer science
+Theory of computation
+Computational complexity theory
+Numerical analysis
+Optimization
+Computer algebra
+Related topics
+Mathematicians
+lists
+Informal mathematics
+Films about mathematicians
+Recreational mathematics
+Mathematics and art
+Mathematics education
+
+ Mathematics portal
+ Category
+ Commons
+ WikiProject
+
+vteMathematical logicGeneral
+Axiom
+list
+Cardinality
+First-order logic
+Formal proof
+Formal semantics
+Foundations of mathematics
+Information theory
+Lemma
+Logical consequence
+Model
+Theorem
+Theory
+Type theory
+Theorems (list) & Paradoxes
+Gödel's completeness and incompleteness theorems
+Tarski's undefinability
+Banach–Tarski paradox
+Cantor's theorem, paradox and diagonal argument
+Compactness
+Halting problem
+Lindström's
+Löwenheim–Skolem
+Russell's paradox
+LogicsTraditional
+Classical logic
+Logical truth
+Tautology
+Proposition
+Inference
+Logical equivalence
+Consistency
+Equiconsistency
+Argument
+Soundness
+Validity
+Syllogism
+Square of opposition
+Venn diagram
+Propositional
+Boolean algebra
+Boolean functions
+Logical connectives
+Propositional calculus
+Propositional formula
+Truth tables
+Many-valued logic
+3
+Finite
+∞
+Predicate
+First-order
+list
+Second-order
+Monadic
+Higher-order
+Free
+Quantifiers
+Predicate
+Monadic predicate calculus
+Set theory
+Set
+Hereditary
+Class
+(Ur-)Element
+Ordinal number
+Extensionality
+Forcing
+Relation
+Equivalence
+Partition
+Set operations:
+Intersection
+Union
+Complement
+Cartesian product
+Power set
+Identities
+Types of Sets
+Countable
+Uncountable
+Empty
+Inhabited
+Singleton
+Finite
+Infinite
+Transitive
+Ultrafilter
+Recursive
+Fuzzy
+Universal
+Universe
+Constructible
+Grothendieck
+Von Neumann
+Maps & Cardinality
+Function/Map
+Domain
+Codomain
+Image
+In/Sur/Bi-jection
+Schröder–Bernstein theorem
+Isomorphism
+Gödel numbering
+Enumeration
+Large cardinal
+Inaccessible
+Aleph number
+Operation
+Binary
+Set theories
+Zermelo–Fraenkel
+Axiom of choice
+Continuum hypothesis
+General
+Kripke–Platek
+Morse–Kelley
+Naive
+New Foundations
+Tarski–Grothendieck
+Von Neumann–Bernays–Gödel
+Ackermann
+Constructive
+Formal systems (list),Language & Syntax
+Alphabet
+Arity
+Automata
+Axiom schema
+Expression
+Ground
+Extension
+by definition
+Conservative
+Relation
+Formation rule
+Grammar
+Formula
+Atomic
+Closed
+Ground
+Open
+Free/bound variable
+Language
+Metalanguage
+Logical connective
+¬
+∨
+∧
+→
+↔
+=
+Predicate
+Functional
+Variable
+Propositional variable
+Proof
+Quantifier
+∃
+!
+∀
+rank
+Sentence
+Atomic
+Spectrum
+Signature
+String
+Substitution
+Symbol
+Function
+Logical/Constant
+Non-logical
+Variable
+Term
+Theory
+list
+Example axiomaticsystems (list)
+of arithmetic:
+Peano
+second-order
+elementary function
+primitive recursive
+Robinson
+Skolem
+of the real numbers
+Tarski's axiomatization
+of Boolean algebras
+canonical
+minimal axioms
+of geometry:
+Euclidean:
+Elements
+Hilbert's
+Tarski's
+non-Euclidean
+Principia Mathematica
+Proof theory
+Formal proof
+Natural deduction
+Logical consequence
+Rule of inference
+Sequent calculus
+Theorem
+Systems
+Axiomatic
+Deductive
+Hilbert
+list
+Complete theory
+Independence (from ZFC)
+Proof of impossibility
+Ordinal analysis
+Reverse mathematics
+Self-verifying theories
+Model theory
+Interpretation
+Function
+of models
+Model
+Equivalence
+Finite
+Saturated
+Spectrum
+Submodel
+Non-standard model
+of arithmetic
+Diagram
+Elementary
+Categorical theory
+Model complete theory
+Satisfiability
+Semantics of logic
+Strength
+Theories of truth
+Semantic
+Tarski's
+Kripke's
+T-schema
+Transfer principle
+Truth predicate
+Truth value
+Type
+Ultraproduct
+Validity
+Computability theory
+Church encoding
+Church–Turing thesis
+Computably enumerable
+Computable function
+Computable set
+Decision problem
+Decidable
+Undecidable
+P
+NP
+P versus NP problem
+Kolmogorov complexity
+Lambda calculus
+Primitive recursive function
+Recursion
+Recursive set
+Turing machine
+Type theory
+Related
+Abstract logic
+Category theory
+Concrete/Abstract Category
+Category of sets
+History of logic
+History of mathematical logic
+timeline
+Logicism
+Mathematical object
+Philosophy of mathematics
+Supertask
+ Mathematics portal
+References[edit]
+
+
+^ Feferman, S; Vaught, R (1959). "The first order properties of products of algebraic systems". Fundamenta Mathematicae. 47 (1): 57-103.
+
+^ Hodges, Wilfrid (1993). "Section 9.6: Feferman-Vaught theorem". Model theory. Cambridge University Press. ISBN 0521304423.
+
+^ Karp, Carol (August 1967). "S. Feferman and R. L. Vaught. The first order properties of products of algebraic systems. Fundamenta mathematicae, vol, 47 (1959), pp. 57–103. (Review)". Journal of Symbolic Logic. 32 (2): 276–276. doi:10.2307/2271704.
+
+^ Monk, J. Donald (1976). "23: Generalized Products". Mathematical Logic. Graduate Texts in Mathematics. Berlin, New York: Springer-Verlag. ISBN 978-0-387-90170-1.
+
+^ Mostowski, Andrzej (March 1952). "On direct products of theories". Journal of Symbolic Logic. 17 (1): 1–31. doi:10.2307/2267454.
+
+^ Hodges, Wilfrid (1993). "Section 9.6: Feferman-Vaught theorem". Model theory. Cambridge University Press. p. 459. ISBN 0521304423.
+
+
+
+
+

@@ -1,0 +1,119 @@
+Theorem in topology
+In mathematics, the Borsuk–Ulam theorem states that every continuous function from an n-sphere into Euclidean n-space maps some pair of antipodal points to the same point. Here, two points on a sphere are called antipodal if they are in exactly opposite directions from the sphere's center.
+Formally: if f:Sn→Rn:S^n→ℝ^n is continuous then there exists an x∈Sn^n such that:  f(−x)=f(x)(-x)=f(x).
+The case n=1=1 can be illustrated by saying that there always exist a pair of opposite points on the Earth's equator with the same temperature. The same is true for any circle. This assumes the temperature varies continuously in space, which is, however, not always the case.[1]
+The case n=2=2 is often illustrated by saying that at any moment, there is always a pair of antipodal points on the Earth's surface with equal temperatures and equal barometric pressures, assuming that both parameters vary continuously in space. Since temperature, pressure or other such physical variables do not necessarily vary continuously, the predictions of the theorem are unlikely to be true in some necessary sense (as following from a mathematical necessity).[1]
+The Borsuk–Ulam theorem has several equivalent statements in terms of odd functions. Recall that Sn^n is the n-sphere and Bn^n is the n-ball:
+
+If g:Sn→Rn:S^n→ℝ^n is a continuous odd function, then there exists an x∈Sn^n such that:  g(x)=0(x)=0.
+If g:Bn→Rn:B^n→ℝ^n is a continuous function which is odd on Sn−1^n-1 (the boundary of Bn^n), then there exists an x∈Bn^n such that:  g(x)=0(x)=0.
+
+History[edit]
+According to Matoušek (2003, p. 25), the first historical mention of the statement of the Borsuk–Ulam theorem appears in Lyusternik & Shnirel'man (1930).  The first proof was given by Karol Borsuk (1933), where the formulation of the problem was attributed to Stanislaw Ulam.  Since then, many alternative proofs have been found by various authors, as collected by Steinlein (1985).
+
+Equivalent statements[edit]
+The following statements are equivalent to the Borsuk–Ulam theorem.[2]
+
+With odd functions[edit]
+A function g is called odd (aka antipodal or antipode-preserving) if for every x: g(−x)=−g(x)(-x)=-g(x).
+The Borsuk–Ulam theorem is equivalent to the following statement: A continuous odd function from an n-sphere into Euclidean n-space has a zero. PROOF: 
+
+If the theorem is correct, then it is specifically correct for odd functions, and for an odd function, g(−x)=g(x)(-x)=g(x) iff g(x)=0(x)=0. Hence every odd continuous function has a zero.
+For every continuous function f, the following function is continuous and odd: g(x)=f(x)−f(−x)(x)=f(x)-f(-x). If every odd continuous function has a zero, then g has a zero, and therefore, f(x)=f(−x)(x)=f(-x). Hence the theorem is correct.
+With retractions[edit]
+Define a retraction as a function h:Sn→Sn−1.:S^n^n-1. The Borsuk–Ulam theorem is equivalent to the following claim: there is no continuous odd retraction.
+Proof: If the theorem is correct, then every continuous odd function from Sn^n must include 0 in its range. However,  0∉Sn−10^n-1 so there cannot be a continuous odd function whose range is Sn−1^n-1.
+Conversely, if it is incorrect, then there is a continuous odd function g:Sn→Rn:S^n→ℝ^n with no zeroes. Then we can construct another odd function h:Sn→Sn−1:S^n^n-1 by:
+
+h(x)=g(x)|g(x)|(x)=g(x)/|g(x)|
+since g has no zeroes, h is well-defined and continuous. Thus we have a continuous odd retraction.
+
+Proofs[edit]
+1-dimensional case[edit]
+The 1-dimensional case can easily be proved using the intermediate value theorem (IVT).
+Let g be the odd real-valued continuous function on a circle defined by g(x)=f(x)−f(−x)(x)=f(x)-f(-x). Pick an arbitrary x. If g(x)=0(x)=0 then we are done. Otherwise, without loss of generality, g(x)>0.(x)>0. But g(−x)<0.(-x)<0. Hence, by the IVT, there is a point y between x and −x-x at which g(y)=0(y)=0.
+
+General case[edit]
+Algebraic topological proof[edit]
+Assume that h:Sn→Sn−1:S^n^n-1 is an odd continuous function with n>2>2 (the case n=1=1 is treated above, the case n=2=2 can be handled using basic covering theory). By passing to orbits under the antipodal action, we then get an induced continuous function h′:RPn→RPn−1':ℝℙ^n→ℝℙ^n-1 between real projective spaces, which induces an isomorphism on fundamental groups. By the Hurewicz theorem, the induced ring homomorphism on cohomology with F2𝔽_2 coefficients [where F2𝔽_2 denotes the field with two elements], 
+
+F2[a]/an+1=H∗(RPn;F2)←H∗(RPn−1;F2)=F2[b]/bn,𝔽_2[a]/a^n+1=H^*(ℝℙ^n;𝔽_2)^*(ℝℙ^n-1;𝔽_2)=𝔽_2[b]/b^n,
+sends b to a. But then we get that bn=0^n=0 is sent to an≠0^n≠0, a contradiction.[3]
+One can also show the stronger statement that any odd map Sn−1→Sn−1^n-1^n-1 has odd degree and then deduce the theorem from this result.
+
+Combinatorial proof[edit]
+The Borsuk–Ulam theorem can be proved from Tucker's lemma.[2][4][5]
+Let g:Sn→Rn:S^n→ℝ^n be a continuous odd function. Because g is continuous on a compact domain, it is uniformly continuous. Therefore, for every ϵ>0ϵ>0, there is a δ>0δ>0 such that, for every two points of Sn_n which are within δδ of each other, their images under g are within ϵϵ of each other.
+Define a triangulation of Sn_n with edges of length at most δδ. Label each vertex v of the triangulation with a label l(v)∈±1,±2,…,±n(v)∈±1,±2,…, in the following way:
+
+The absolute value of the label is the index of the coordinate with the highest absolute value of g: |l(v)|=arg⁡maxk(|g(v)k|)|l(v)|=max_k(|g(v)_k|).
+The sign of the label is the sign of g, so that: l(v)=sgn⁡(g(v))|l(v)|(v)=sgn(g(v))|l(v)|.
+Because g is odd, the labeling is also odd: l(−v)=−l(v)(-v)=-l(v). Hence, by Tucker's lemma, there are two adjacent vertices u,v,v with opposite labels. Assume w.l.o.g. that the labels are l(u)=1,l(v)=−1(u)=1,l(v)=-1. By the definition of l, this means that in both g(u)(u) and g(v)(v), coordinate #1 is the largest coordinate: in g(u)(u) this coordinate is positive while in g(v)(v) it is negative. By the construction of the triangulation, the distance between g(u)(u) and g(v)(v) is at most ϵϵ, so in particular |g(u)1−g(v)1|=|g(u)1|+|g(v)1|≤ϵ|g(u)_1-g(v)_1|=|g(u)_1|+|g(v)_1|≤ϵ (since g(u)1(u)_1 and g(v)1(v)_1 have opposite signs) and so |g(u)1|≤ϵ|g(u)_1|≤ϵ. But since the largest coordinate of g(u)(u) is coordinate #1, this means that  |g(u)k|≤ϵ|g(u)_k|≤ϵ for each  1≤k≤n1. So |g(u)|≤cnϵ|g(u)|_nϵ, where cn_n is some constant depending on n and the norm |⋅||·| which you have chosen.
+The above is true for every ϵ>0ϵ>0; since  Sn_n is compact there must hence be a point u in which |g(u)|=0|g(u)|=0.
+
+Corollaries[edit]
+No subset of Rnℝ^n is homeomorphic to Sn^n
+The ham sandwich theorem: For any compact sets A1, ..., An in Rnℝ^n we can always find a hyperplane dividing each of them into two subsets of equal measure.
+Equivalent results[edit]
+Above we showed how to prove the Borsuk–Ulam theorem from Tucker's lemma. The converse is also true: it is possible to prove Tucker's lemma from the Borsuk–Ulam theorem. Therefore, these two theorems are equivalent.
+There are several fixed-point theorems which come in three equivalent variants: an algebraic topology variant, a combinatorial variant and a set-covering variant. Each variant can be proved separately using totally different arguments, but each variant can also be reduced to the other variants in its row. Additionally, each result in 
+the top row can be deduced from the one below it in the same column.[6]
+
+
+
+Algebraic topology
+Combinatorics
+Set covering
+
+
+Brouwer fixed-point theorem
+Sperner's lemma
+Knaster–Kuratowski–Mazurkiewicz lemma
+
+
+Borsuk–Ulam theorem
+Tucker's lemma
+Lusternik–Schnirelmann theorem
+
+Generalizations[edit]
+In the original theorem, the domain of the function f is the unit n-sphere (the boundary of the unit n-ball). In general, it is true also when the domain of f is the boundary of any open bounded symmetric subset of Rnℝ^n containing the origin (Here, symmetric means that if x is in the subset then -x is also in the subset).[7]
+Consider the function A which maps a point to its antipodal point: A(x)=−x.(x)=-x. Note that A(A(x))=x.(A(x))=x. The original theorem claims that there is a point x in which f(A(x))=f(x).(A(x))=f(x). In general, this is true also for every function A for which A(A(x))=x.(A(x))=x.[8] However, in general this is not true for other functions A.[9]
+See also[edit]
+Topological combinatorics
+Necklace splitting problem
+Ham sandwich theorem
+Kakutani's theorem (geometry)
+Imre Bárány
+Notes[edit]
+
+
+^ a b Jha, Aditya; Campbell, Douglas; Montelle, Clemency; Wilson, Phillip L. (2023-07-30). "On the Continuum Fallacy: Is Temperature a Continuous Function?". Foundations of Physics. 53 (4): 69. doi:10.1007/s10701-023-00713-x. ISSN 1572-9516.
+
+^ a b Prescott, Timothy (2002). Extensions of the Borsuk–Ulam Theorem (BS). Harvey Mudd College. CiteSeerX 10.1.1.124.4120.
+
+^ Joseph J. Rotman, An Introduction to Algebraic Topology (1988) Springer-Verlag ISBN 0-387-96678-1 (See Chapter 12 for a full exposition.)
+
+^ Freund, Robert M.; Todd, Michael J. (1982). "A constructive proof of Tucker's combinatorial lemma". Journal of Combinatorial Theory. Series A. 30 (3): 321–325. doi:10.1016/0097-3165(81)90027-3.
+
+^ Simmons, Forest W.; Su, Francis Edward (2003). "Consensus-halving via theorems of Borsuk–Ulam and Tucker". Mathematical Social Sciences. 45: 15–25. doi:10.1016/s0165-4896(02)00087-2. hdl:10419/94656.
+
+^ Nyman, Kathryn L.; Su, Francis Edward (2013), "A Borsuk–Ulam equivalent that directly implies Sperner's lemma", The American Mathematical Monthly, 120 (4): 346–354, doi:10.4169/amer.math.monthly.120.04.346, JSTOR 10.4169/amer.math.monthly.120.04.346, MR 3035127
+
+^ "Borsuk fixed-point theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+
+^ Yang, Chung-Tao (1954). "On Theorems of Borsuk-Ulam, Kakutani-Yamabe-Yujobo and Dyson, I". Annals of Mathematics. 60 (2): 262–282. doi:10.2307/1969632. JSTOR 1969632.
+
+^ Jens Reinhold, Faisal; Sergei Ivanov. "Generalization of Borsuk-Ulam". Math Overflow. Retrieved 18 May 2015.
+
+
+References[edit]
+Borsuk, Karol (1933). "Drei Sätze über die n-dimensionale euklidische Sphäre" (PDF). Fundamenta Mathematicae (in German). 20: 177–190. doi:10.4064/fm-20-1-177-190. Archived (PDF) from the original on 2022-10-09.
+Lyusternik, Lazar; Shnirel'man, Lev (1930). "Topological Methods in Variational Problems". Issledowatelskii Institut Matematiki I Mechaniki Pri O. M. G. U. Moscow.
+Matoušek, Jiří (2003). Using the Borsuk–Ulam theorem. Berlin: Springer Verlag. doi:10.1007/978-3-540-76649-0. ISBN 978-3-540-00362-5.
+Steinlein, H. (1985). "Borsuk's antipodal theorem and its generalizations and applications: a survey. Méthodes topologiques en analyse non linéaire". Sém. Math. Supér. Montréal, Sém. Sci. OTAN (NATO Adv. Study Inst.). 95: 166–235.
+Su, Francis Edward (Nov 1997). "Borsuk-Ulam Implies Brouwer: A Direct Construction" (PDF). The American Mathematical Monthly. 104 (9): 855–859. CiteSeerX 10.1.1.142.4935. doi:10.2307/2975293. JSTOR 2975293. Archived from the original (PDF) on 2008-10-13. Retrieved 2006-04-21.
+External links[edit]
+Who (else) cares about topology? Stolen necklaces and Borsuk-Ulam on YouTube
+
+
+

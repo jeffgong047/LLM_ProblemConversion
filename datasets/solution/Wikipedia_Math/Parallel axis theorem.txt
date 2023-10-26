@@ -1,0 +1,137 @@
+Theorem in planar dynamics
+"Steiner's theorem" redirects here. Not to be confused with Steiner's theorem (geometry).
+The parallel axis theorem, also known as Huygens–Steiner theorem, or just as Steiner's theorem,[1] named after Christiaan Huygens and Jakob Steiner, can be used to determine the moment of inertia or the second moment of area of a rigid body about any axis, given the body's moment of inertia about a parallel axis through the object's center of gravity and the perpendicular distance between the axes.
+
+
+Mass moment of inertia[edit]
+The mass moment of inertia of a body around an axis can be determined from the mass moment of inertia around a parallel axis through the center of mass.
+Suppose a body of mass m is rotated about an axis z passing through the body's center of mass. The body has a moment of inertia Icm with respect to this axis. 
+The parallel axis theorem states that if the body is made to rotate instead about a new axis z′, which is parallel to the first axis and displaced from it by a distance d, then the moment of inertia I with respect to the new axis is related to Icm by
+
+I=Icm+md2.=I_cm+md^2.
+Explicitly, d is the perpendicular distance between the axes z and z′.
+The parallel axis theorem can be applied with the stretch rule and perpendicular axis theorem to find moments of inertia for a variety of shapes.
+
+Parallel axes rule for area moment of inertia
+Derivation[edit]
+We may assume, without loss of generality, that in a Cartesian coordinate system the perpendicular distance between the axes lies along the x-axis and that the center of mass lies at the origin. The moment of inertia relative to the z-axis is then
+
+Icm=∫(x2+y2)dm._cm=∫(x^2+y^2) dm.
+The moment of inertia relative to the axis z′, which is at a distance D from the center of mass along the x-axis, is
+
+I=∫[(x−D)2+y2]dm.=∫[(x-D)^2+y^2] dm.
+Expanding the brackets yields
+
+I=∫(x2+y2)dm+D2∫dm−2D∫xdm.=∫(x^2+y^2) dm+D^2-2D dm.
+The first term is  Icm and the second term becomes MD2. The integral in the final term is a multiple of the x-coordinate of the center of mass – which is zero since the center of mass lies at the origin. So, the equation becomes:
+
+I=Icm+MD2.=I_cm+MD^2.
+Tensor generalization[edit]
+The parallel axis theorem can be generalized to calculations involving the inertia tensor.[2] Let Iij denote the inertia tensor of a body as calculated at the center of mass. Then the inertia tensor Jij as calculated relative to a new point is
+
+Jij=Iij+m(|R|2δij−RiRj),_ij=I_ij+m(|𝐑|^2δ_ij-R_iR_j),
+where R=R1x^+R2y^+R3z^𝐑=R_1𝐱̂+R_2ŷ+R_3ẑ is the displacement vector from the center of mass to the new point, and δij is the Kronecker delta.
+For diagonal elements (when i = j), displacements perpendicular to the axis of rotation results in the above simplified version of the parallel axis theorem.
+The generalized version of the parallel axis theorem can be expressed in the form of coordinate-free notation as
+
+J=I+m[(R⋅R)E3−R⊗R],𝐉=𝐈+m[(𝐑·𝐑)𝐄_3-𝐑⊗𝐑],
+where E3 is the 3 × 3 identity matrix and ⊗⊗ is the outer product.
+Further generalization of the parallel axis theorem gives the inertia tensor about any set of orthogonal axes parallel to the reference set of axes x, y and z, associated with the reference inertia tensor, whether or not they pass through the center of mass.[2]
+
+Second moment of area[edit]
+The parallel axes rule also applies to the second moment of area (area moment of inertia) for a plane region D:
+
+Iz=Ix+Ar2,_z=I_x+Ar^2,
+where Iz is the area moment of inertia of D relative to the parallel axis, Ix is the area moment of inertia of D relative to its centroid, A is the area of the plane region D, and r is the distance from the new axis z to the centroid of the plane region D. The centroid of D coincides with the centre of gravity of a physical plate with the same shape that has uniform density.
+
+Polar moment of inertia for planar dynamics[edit]
+Polar moment of inertia of a body around a point can be determined from its polar moment of inertia around the center of mass.
+The mass properties of a rigid body that is constrained to move parallel to a plane are defined by its center of mass R = (x, y) in this plane, and its polar moment of inertia IR around an axis through R that is perpendicular to the plane.  The parallel axis theorem provides a convenient relationship between the moment of inertia IS around an arbitrary point S and the moment of inertia  IR about the center of mass R.
+Recall that the center of mass R has the property
+
+∫Vρ(r)(r−R)dV=0,∫_Vρ(𝐫)(𝐫-𝐑) dV=0,
+where r is integrated over the volume V of the body.  The polar moment of inertia of a body undergoing planar movement can be computed relative to any reference point S,
+
+IS=∫Vρ(r)(r−S)⋅(r−S)dV,_S=∫_Vρ(𝐫)(𝐫-𝐒)·(𝐫-𝐒) dV,
+where S is constant and r is integrated over the volume V.
+In order to obtain the moment of inertia IS in terms of the moment of inertia IR, introduce the vector d from S to the center of mass R,
+
+IS=∫Vρ(r)(r−R+d)⋅(r−R+d)dV=∫Vρ(r)(r−R)⋅(r−R)dV+2d⋅(∫Vρ(r)(r−R)dV)+(∫Vρ(r)dV)d⋅d.I_S   =∫_Vρ(𝐫)(𝐫-𝐑+𝐝)·(𝐫-𝐑+𝐝) dV
+   =∫_Vρ(𝐫)(𝐫-𝐑)·(𝐫-𝐑)dV+2𝐝·(∫_Vρ(𝐫)(𝐫-𝐑) dV)+(∫_Vρ(𝐫) dV)𝐝·𝐝.
+The first term is the moment of inertia IR, the second term is zero by definition of the center of mass, and the last term is the total mass of the body times the square magnitude of the vector d.   Thus,
+
+IS=IR+Md2,_S=I_R+Md^2, 
+which is known as the parallel axis theorem.[3]
+
+Moment of inertia matrix[edit]
+The inertia matrix of a rigid system of particles depends on the choice of the reference point.[4]  There is a useful relationship between the inertia matrix relative to the center of mass R and the inertia matrix relative to another point S.  This relationship is called the parallel axis theorem.
+Consider the inertia matrix [IS] obtained for a rigid system of particles measured relative to a reference point S, given by
+
+[IS]=−∑i=1nmi[ri−S][ri−S],[I_S]=-∑_i=1^nm_i[r_i-S][r_i-S],
+where ri defines the position of particle Pi, i = 1, ..., n.  Recall that [ri − S] is the skew-symmetric matrix that performs the cross product,
+
+[ri−S]y=(ri−S)×y,[r_i-S]𝐲=(𝐫_i-𝐒)×𝐲,
+for an arbitrary vector y.
+Let R be the center of mass of the rigid system, then
+
+R=(R−S)+S=d+S,𝐑=(𝐑-𝐒)+𝐒=𝐝+𝐒,
+where d is the vector from the reference point S to the center of mass R.  Use this equation to compute the inertia matrix,
+
+[IS]=−∑i=1nmi[ri−R+d][ri−R+d].[I_S]=-∑_i=1^nm_i[r_i-R+d][r_i-R+d].
+Expand this equation to obtain
+
+[IS]=(−∑i=1nmi[ri−R][ri−R])+(−∑i=1nmi[ri−R])[d]+[d](−∑i=1nmi[ri−R])+(−∑i=1nmi)[d][d].[I_S]=(-∑_i=1^nm_i[r_i-R][r_i-R])+(-∑_i=1^nm_i[r_i-R])[d]+[d](-∑_i=1^nm_i[r_i-R])+(-∑_i=1^nm_i)[d][d].
+The first term is the inertia matrix [IR] relative to the center of mass.  The second and third terms are zero by definition of the center of mass R,
+
+∑i=1nmi(ri−R)=0.∑_i=1^nm_i(𝐫_i-𝐑)=0.
+And the last term is the total mass of the system multiplied by the square of the skew-symmetric matrix [d] constructed from d.
+The result is the parallel axis theorem,
+
+[IS]=[IR]−M[d]2,[I_S]=[I_R]-M[d]^2,
+where d is the vector from the reference point S to the center of mass R.[4]
+
+Identities for a skew-symmetric matrix[edit]
+In order to compare formulations of the parallel axis theorem using skew-symmetric matrices and the tensor formulation, the following identities are useful.
+Let [R] be the skew symmetric matrix associated with the position vector R = (x, y, z), then the product in the inertia matrix becomes
+
+−[R][R]=−[0−zyz0−x−yx0]2=[y2+z2−xy−xz−yxx2+z2−yz−zx−zyx2+y2].-[R][R]=-[  0 -z  y;  z  0 -x; -y  x  0 ]^2=[ y^2+z^2     -xy     -xz;     -yx x^2+z^2     -yz;     -zx     -zy x^2+y^2 ].
+This product can be computed using the matrix formed by the outer product [R RT] using the identify
+
+−[R]2=|R|2[E3]−[RRT]=[x2+y2+z2000x2+y2+z2000x2+y2+z2]−[x2xyxzyxy2yzzxzyz2],-[R]^2=|𝐑|^2[E_3]-[𝐑𝐑^T]=[ x^2+y^2+z^2           0           0;           0 x^2+y^2+z^2           0;           0           0 x^2+y^2+z^2 ]-[ x^2  xy  xz;  yx y^2  yz;  zx  zy z^2 ],
+where [E3] is the 3 × 3 identity matrix.
+Also notice, that
+
+|R|2=R⋅R=tr⁡[RRT],|𝐑|^2=𝐑·𝐑=tr[𝐑𝐑^T],
+where tr denotes the sum of the diagonal elements of the outer product matrix, known as its trace.
+
+See also[edit]
+Christiaan Huygens
+Jakob Steiner
+Moment of inertia
+Perpendicular axis theorem
+Rigid body dynamics
+Stretch rule
+References[edit]
+
+
+^ Arthur Erich Haas (1928), Introduction to theoretical physics
+
+^ a b Abdulghany, A. R. (October 2017), "Generalization of parallel axis theorem for rotational inertia", American Journal of Physics, 85 (10): 791–795, doi:10.1119/1.4994835
+
+^ Paul, Burton (1979), Kinematics and Dynamics of Planar Machinery, Prentice Hall, ISBN 978-0-13-516062-6
+
+^ a b Kane, T. R.; Levinson, D. A. (2005), Dynamics, Theory and Applications, McGraw-Hill, New York
+
+
+External links[edit]
+
+
+
+Wikimedia Commons has media related to Steiner's parallel axis theorem.
+
+Parallel axis theorem
+Moment of inertia tensor
+Video about the inertia tensor
+
+
+

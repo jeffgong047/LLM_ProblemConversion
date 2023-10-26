@@ -1,0 +1,176 @@
+Theorem about metric spaces
+In mathematics, the Banach fixed-point theorem (also known as the contraction mapping theorem or contractive mapping theorem or Banach-Caccioppoli theorem) is an important tool in the theory of metric spaces; it guarantees the existence and uniqueness of fixed points of certain self-maps of metric spaces, and provides a constructive method to find those fixed points. It can be understood as an abstract formulation of Picard's method of successive approximations.[1] The theorem is named after Stefan Banach (1892–1945) who first stated it in 1922.[2][3]
+
+
+Statement[edit]
+Definition. Let (X,d)(X,d) be a complete metric space. Then a map T:X→X:X is called a contraction mapping on X if there exists q∈[0,1)∈[0,1) such that
+
+d(T(x),T(y))≤qd(x,y)(T(x),T(y))(x,y)
+for all x,y∈X.,y.
+
+Banach Fixed Point Theorem. Let (X,d)(X,d) be a non-empty complete metric space with a contraction mapping T:X→X.:X. Then T admits a unique fixed-point x∗^* in X (i.e. T(x∗)=x∗(x^*)=x^*). Furthermore, x∗^* can be found as follows: start with an arbitrary element x0∈X_0 and define a sequence (xn)n∈N(x_n)_n∈ℕ by xn=T(xn−1)_n=T(x_n-1) for n≥1.≥1. Then limn→∞xn=x∗lim_n→∞x_n=x^*.
+Remark 1. The following inequalities are equivalent and describe the speed of convergence:
+
+d(x∗,xn)≤qn1−qd(x1,x0),d(x∗,xn+1)≤q1−qd(xn+1,xn),d(x∗,xn+1)≤qd(x∗,xn).d(x^*,x_n)   ≤q^n/1-qd(x_1,x_0),
+d(x^*,x_n+1)   ≤q/1-qd(x_n+1,x_n),
+d(x^*,x_n+1)   (x^*,x_n).
+Any such value of q is called a Lipschitz constant for T, and the smallest one is sometimes called "the best Lipschitz constant" of T.
+Remark 2. d(T(x),T(y))<d(x,y)(T(x),T(y))<d(x,y) for all x≠y is in general not enough to ensure the existence of a fixed point, as is shown by the map
+
+T:[1,∞)→[1,∞),T(x)=x+1x,:[1,∞)→[1,∞),  T(x)=x+1x ,
+which lacks a fixed point. However, if X is compact, then this weaker assumption does imply the existence and uniqueness of a fixed point, that can be easily found as a minimizer of d(x,T(x))(x,T(x)), indeed, a minimizer exists by compactness, and has to be a fixed point of T. It then easily follows that the fixed point is the limit of any sequence of iterations of T.
+Remark 3. When using the theorem in practice, the most difficult part is typically to define X properly so that T(X)⊆X.(X).
+
+Proof[edit]
+Let x0∈X_0 be arbitrary and define a sequence (xn)n∈N(x_n)_n∈ℕ by setting xn = T(xn−1). We first note that for all n∈N,∈ℕ, we have the inequality
+
+d(xn+1,xn)≤qnd(x1,x0).(x_n+1,x_n)≦^nd(x_1,x_0).
+This follows by induction on n, using the fact that T is a contraction mapping. Then we can show that (xn)n∈N(x_n)_n∈ℕ is a Cauchy sequence. In particular, let m,n∈N,n∈ℕ such that m > n:
+
+d(xm,xn)≤d(xm,xm−1)+d(xm−1,xm−2)+⋯+d(xn+1,xn)≤qm−1d(x1,x0)+qm−2d(x1,x0)+⋯+qnd(x1,x0)=qnd(x1,x0)∑k=0m−n−1qk≤qnd(x1,x0)∑k=0∞qk=qnd(x1,x0)(11−q).d(x_m,x_n)   (x_m,x_m-1)+d(x_m-1,x_m-2)+⋯+d(x_n+1,x_n)
+   ≦^m-1d(x_1,x_0)+q^m-2d(x_1,x_0)+⋯+q^nd(x_1,x_0)
+   =q^nd(x_1,x_0)∑_k=0^m-n-1q^k
+   ≦^nd(x_1,x_0)∑_k=0^∞q^k
+   =q^nd(x_1,x_0)(1/1-q).
+Let ε > 0 be arbitrary. Since q ∈ [0, 1), we can find a large N∈N∈ℕ so that
+
+qN<ε(1−q)d(x1,x0).^N<ε(1-q)/d(x_1,x_0).
+Therefore, by choosing m and n greater than N we may write:
+
+d(xm,xn)≤qnd(x1,x0)(11−q)<(ε(1−q)d(x1,x0))d(x1,x0)(11−q)=ε.(x_m,x_n)≦^nd(x_1,x_0)(1/1-q)<(ε(1-q)/d(x_1,x_0))d(x_1,x_0)(1/1-q)=ε.
+This proves that the sequence (xn)n∈N(x_n)_n∈ℕ is Cauchy. By completeness of (X,d), the sequence has a limit x∗∈X.^*. Furthermore, x∗^* must be a fixed point of T:
+
+x∗=limn→∞xn=limn→∞T(xn−1)=T(limn→∞xn−1)=T(x∗).^*=lim_n→∞x_n=lim_n→∞T(x_n-1)=T(lim_n→∞x_n-1)=T(x^*).
+As a contraction mapping, T is continuous, so bringing the limit inside T was justified. Lastly, T cannot have more than one fixed point in (X,d), since any pair of distinct fixed points p1 and p2 would contradict the contraction of T:
+
+d(T(p1),T(p2))=d(p1,p2)>qd(p1,p2).(T(p_1),T(p_2))=d(p_1,p_2)>qd(p_1,p_2).
+Applications[edit]
+A standard application is the proof of the Picard–Lindelöf theorem about the existence and uniqueness of solutions to certain ordinary differential equations. The sought solution of the differential equation is expressed as a fixed point of a suitable integral operator which changes continuous functions into continuous functions. The Banach fixed-point theorem is then used to show that this integral operator has a unique fixed point.
+One consequence of the Banach fixed-point theorem is that small Lipschitz perturbations of the identity are bi-lipschitz homeomorphisms. Let Ω be an open set of a Banach space E; let I : Ω → E denote the identity (inclusion) map and let g : Ω → E be a Lipschitz map of constant k < 1. Then
+Ω′ := (I+g)(Ω) is an open subset of E: precisely, for any x in Ω such that B(x, r) ⊂ Ω one has B((I+g)(x), r(1−k)) ⊂ Ω′;
+I+g : Ω → Ω′ is a bi-lipschitz homeomorphism;
+precisely, (I+g)−1 is still of the form I + h : Ω → Ω′ with h a Lipschitz map of constant k/(1−k). A direct consequence  of this result yields the proof of the inverse function theorem.
+It can be used to give sufficient conditions under which Newton's method of successive approximations is guaranteed to work, and similarly for Chebyshev's third order method.
+It can be used to prove existence and uniqueness of solutions to integral equations.
+It can be used to give a proof to the Nash embedding theorem.[4]
+It can be used to prove existence and uniqueness of solutions to value iteration, policy iteration, and policy evaluation of reinforcement learning.[5]
+It can be used to prove existence and uniqueness of an equilibrium in Cournot competition,[6] and other dynamic economic models.[7]
+Converses[edit]
+Several converses of the Banach contraction principle exist. The following is due to Czesław Bessaga, from 1959:
+Let f : X → X be a map of an abstract set such that each iterate fn has a unique fixed point. Let q∈(0,1),∈(0,1), then there exists a complete metric on X such that f is contractive, and q is the contraction constant.
+Indeed, very weak assumptions suffice to obtain such a kind of converse. For example if f:X→X:X is a map on a T1 topological space with a unique fixed point a, such that for each x∈X we have fn(x) → a, then there already exists a metric on X with respect to which f satisfies the conditions of the Banach contraction principle with contraction constant 1/2.[8] In this case the metric is in fact an ultrametric.
+
+Generalizations[edit]
+There are a number of generalizations (some of which are immediate corollaries).[9]
+Let T : X → X be a map on a complete non-empty metric space. Then, for example, some generalizations of the Banach fixed-point theorem are:
+
+Assume that some iterate Tn of T is a contraction. Then T has a unique fixed point.
+Assume that for each n, there exist cn such that d(Tn(x), Tn(y)) ≤ cnd(x, y) for all x and y, and that
+∑ncn<∞.∑_nc_n<∞.
+Then T has a unique fixed point.
+In applications, the existence and uniqueness of a fixed point often can be shown directly with the standard Banach fixed point theorem, by a suitable choice of the metric that makes the map T a contraction. Indeed, the above result by Bessaga strongly suggests to look for such a metric. See also the article on fixed point theorems in infinite-dimensional spaces for generalizations.
+A different class of generalizations arise from suitable generalizations of the notion of metric space, e.g. by weakening the defining axioms for the notion of metric.[10] Some of these have applications, e.g., in the theory of programming semantics in theoretical computer science.[11]
+
+See also[edit]
+
+Brouwer fixed-point theorem
+Caristi fixed-point theorem
+Contraction mapping
+Fichera's existence principle
+Fixed-point iteration
+Fixed-point theorems
+Infinite compositions of analytic functions
+Kantorovich theorem
+
+Notes[edit]
+
+^ Kinderlehrer, David; Stampacchia, Guido (1980). "Variational Inequalities in RN". An Introduction to Variational Inequalities and Their Applications. New York: Academic Press. pp. 7–22. ISBN 0-12-407350-6.
+
+^ Banach, Stefan (1922). "Sur les opérations dans les ensembles abstraits et leur application aux équations intégrales" (PDF). Fundamenta Mathematicae. 3: 133–181. doi:10.4064/fm-3-1-133-181. Archived (PDF) from the original on 2011-06-07.
+
+^ Ciesielski, Krzysztof (2007). "On Stefan Banach and some of his results" (PDF). Banach J. Math. Anal. 1 (1): 1–10. doi:10.15352/bjma/1240321550. Archived (PDF) from the original on 2009-05-30.
+
+^ Günther, Matthias (1989). "Zum Einbettungssatz von J. Nash" [On the embedding theorem of J. Nash]. Mathematische Nachrichten (in German). 144: 165–187. doi:10.1002/mana.19891440113. MR 1037168.
+
+^ Lewis, Frank L.; Vrabie, Draguna; Syrmos, Vassilis L. (2012). "Reinforcement Learning and Optimal Adaptive Control". Optimal Control. New York: John Wiley & Sons. pp. 461–517 [p. 474]. ISBN 978-1-118-12272-3.
+
+^ Long, Ngo Van; Soubeyran, Antoine (2000). "Existence and Uniqueness of Cournot Equilibrium: A Contraction Mapping Approach" (PDF). Economics Letters. 67 (3): 345–348. doi:10.1016/S0165-1765(00)00211-1. Archived (PDF) from the original on 2004-12-30.
+
+^ Stokey, Nancy L.; Lucas, Robert E. Jr. (1989). Recursive Methods in Economic Dynamics. Cambridge: Harvard University Press. pp. 508–516. ISBN 0-674-75096-9.
+
+^ Hitzler, Pascal; Seda, Anthony K. (2001). "A 'Converse' of the Banach Contraction Mapping Theorem". Journal of Electrical Engineering. 52 (10/s): 3–6.
+
+^ Latif, Abdul (2014). "Banach Contraction Principle and its Generalizations". Topics in Fixed Point Theory. Springer. pp. 33–64. doi:10.1007/978-3-319-01586-6_2. ISBN 978-3-319-01585-9.
+
+^ Hitzler, Pascal; Seda, Anthony (2010). Mathematical Aspects of Logic Programming Semantics. Chapman and Hall/CRC. ISBN 978-1-4398-2961-5.
+
+^ Seda, Anthony K.; Hitzler, Pascal (2010). "Generalized Distance Functions in the Theory of Computation". The Computer Journal. 53 (4): 443–464. doi:10.1093/comjnl/bxm108.
+
+
+References[edit]
+Agarwal, Praveen; Jleli, Mohamed; Samet, Bessem (2018). "Banach Contraction Principle and Applications". Fixed Point Theory in Metric Spaces. Singapore: Springer. pp. 1–23. doi:10.1007/978-981-13-2913-5_1. ISBN 978-981-13-2912-8.
+Chicone, Carmen (2006). "Contraction". Ordinary Differential Equations with Applications (2nd ed.). New York: Springer. pp. 121–135. ISBN 0-387-30769-9.
+Granas, Andrzej; Dugundji, James (2003). Fixed Point Theory. New York: Springer-Verlag. ISBN 0-387-00173-5.
+Istrăţescu, Vasile I. (1981). Fixed Point Theory: An Introduction. The Netherlands: D. Reidel. ISBN 90-277-1224-7. See chapter 7.
+Kirk, William A.; Khamsi, Mohamed A. (2001). An Introduction to Metric Spaces and Fixed Point Theory. New York: John Wiley. ISBN 0-471-41825-0.
+This article incorporates material from Banach fixed point theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+vteTopologyFields
+General (point-set)
+Algebraic
+Combinatorial
+Continuum
+Differential
+Geometric
+low-dimensional
+Homology
+cohomology
+Set-theoretic
+Digital
+Key concepts
+Open set / Closed set
+Interior
+Continuity
+Space
+compact
+Connected
+Hausdorff
+metric
+uniform
+Homotopy
+homotopy group
+fundamental group
+Simplicial complex
+CW complex
+Polyhedral complex
+Manifold
+Bundle (mathematics)
+Second-countable space
+Cobordism
+Metrics and properties
+Euler characteristic
+Betti number
+Winding number
+Chern number
+Orientability
+Key results
+Banach fixed-point theorem
+De Rham cohomology
+Invariance of domain
+Poincaré conjecture
+Tychonoff's theorem
+Urysohn's lemma
+
+ Category
+ Mathematics portal
+ Wikibook
+ Wikiversity
+ Topics
+general
+algebraic
+geometric
+ Publications
+
+
+
+

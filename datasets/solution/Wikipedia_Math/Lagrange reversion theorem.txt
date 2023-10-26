@@ -1,0 +1,61 @@
+For reversion of series, see Lagrange inversion theorem.
+In mathematics, the Lagrange reversion theorem gives series or formal power series expansions of certain implicitly defined functions; indeed, of compositions with such functions.
+Let v be a function of x and y in terms of another function f such that
+
+v=x+yf(v)=x+yf(v)
+Then for any function g, for small enough y:
+
+g(v)=g(x)+∑k=1∞ykk!(∂∂x)k−1(f(x)kg′(x)).(v)=g(x)+∑_k=1^∞y^k/k!(∂/)^k-1(f(x)^kg'(x)).
+If g is the identity, this becomes
+
+v=x+∑k=1∞ykk!(∂∂x)k−1(f(x)k)=x+∑_k=1^∞y^k/k!(∂/)^k-1(f(x)^k)
+In which case the equation can be derived using perturbation theory.
+In 1770, Joseph Louis Lagrange (1736–1813) published his power series solution of the implicit equation for v mentioned above. However, his solution used cumbersome series expansions of logarithms.[1][2] In 1780, Pierre-Simon Laplace (1749–1827) published a simpler proof of the theorem, which was based on relations between partial derivatives with respect to the variable x and the parameter y.[3][4][5] Charles Hermite (1822–1901) presented the most straightforward proof of the theorem by using contour integration.[6][7][8]
+Lagrange's reversion theorem is used to obtain numerical solutions to Kepler's equation.
+
+Simple proof[edit]
+We start by writing:
+
+g(v)=∫δ(yf(z)−z+x)g(z)(1−yf′(z))dz(v)=∫δ(yf(z)-z+x)g(z)(1-yf'(z)) dz
+Writing the delta-function as an integral we have:
+
+g(v)=∬exp⁡(ik[yf(z)−z+x])g(z)(1−yf′(z))dk2πdz=∑n=0∞∬(ikyf(z))nn!g(z)(1−yf′(z))eik(x−z)dk2πdz=∑n=0∞(∂∂x)n∬(yf(z))nn!g(z)(1−yf′(z))eik(x−z)dk2πdzg(v)   =∬exp(ik[yf(z)-z+x])g(z)(1-yf'(z)) dk/2π dz
+   =∑_n=0^∞∬(ikyf(z))^n/n!g(z)(1-yf'(z))e^ik(x-z) dk/2π dz
+   =∑_n=0^∞(∂/)^n∬(yf(z))^n/n!g(z)(1-yf'(z))e^ik(x-z) dk/2π dz
+The integral over k then gives δ(x−z)δ(x-z) and we have:
+
+g(v)=∑n=0∞(∂∂x)n[(yf(x))nn!g(x)(1−yf′(x))]=∑n=0∞(∂∂x)n[ynf(x)ng(x)n!−yn+1(n+1)!(g(x)f(x)n+1)′−g′(x)f(x)n+1]g(v)   =∑_n=0^∞(∂/)^n[(yf(x))^n/n!g(x)(1-yf'(x))]
+   =∑_n=0^∞(∂/)^n[y^nf(x)^ng(x)/n!-y^n+1/(n+1)!{(g(x)f(x)^n+1)'-g'(x)f(x)^n+1}]
+Rearranging the sum and cancelling then gives the result:
+
+g(v)=g(x)+∑k=1∞ykk!(∂∂x)k−1(f(x)kg′(x))(v)=g(x)+∑_k=1^∞y^k/k!(∂/)^k-1(f(x)^kg'(x))
+References[edit]
+
+
+^ Lagrange, Joseph Louis (1770) "Nouvelle méthode pour résoudre les équations littérales par le moyen des séries," Mémoires de l'Académie Royale des Sciences et Belles-Lettres de Berlin, vol. 24, pages 251–326. (Available on-line at: [1] .)
+
+^ Lagrange, Joseph Louis, Oeuvres, [Paris, 1869], Vol. 2, page 25; Vol. 3, pages 3–73.
+
+^ Laplace, Pierre Simon de (1777) "Mémoire sur l'usage du calcul aux différences partielles dans la théories des suites," Mémoires de l'Académie Royale des Sciences de Paris, vol. , pages 99–122.
+
+^ Laplace, Pierre Simon de, Oeuvres [Paris, 1843], Vol. 9, pages 313–335.
+
+^ Laplace's proof is presented in:
+Goursat, Édouard, A Course in Mathematical Analysis (translated by E.R. Hedrick and O. Dunkel) [N.Y., N.Y.: Dover, 1959], Vol. I, pages 404–405.
+
+^ Hermite, Charles (1865) "Sur quelques développements en série de fonctions de plusieurs variables," Comptes Rendus de l'Académie des Sciences des Paris, vol. 60, pages 1–26.
+
+^ Hermite, Charles, Oeuvres [Paris, 1908], Vol. 2, pages 319–346.
+
+^ Hermite's proof is presented in:
+Goursat, Édouard, A Course in Mathematical Analysis (translated by E. R. Hedrick and O. Dunkel) [N.Y., N.Y.: Dover, 1959], Vol. II, Part 1, pages 106–107.
+E. T. Whittaker and G. N. Watson, A Course of Modern Analysis, 4th ed. [Cambridge, England: Cambridge University Press, 1962] pages 132–133.
+
+
+External links[edit]
+Lagrange Inversion [Reversion] Theorem on MathWorld
+Cornish–Fisher expansion, an application of the theorem
+Article on equation of time contains an application to Kepler's equation.
+
+
+

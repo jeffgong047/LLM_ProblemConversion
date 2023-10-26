@@ -1,0 +1,157 @@
+Derivation of the laws of probability theory
+Part of a series onBayesian statistics
+Posterior = Likelihood × Prior ÷ Evidence
+
+Background
+Bayesian inference
+Bayesian probability
+Bayes' theorem
+Bernstein–von Mises theorem
+Coherence
+Cox's theorem
+Cromwell's rule
+Principle of indifference
+Principle of maximum entropy
+
+Model building
+Weak prior ... Strong prior
+Conjugate prior
+Linear regression
+Empirical Bayes
+Hierarchical model
+
+Posterior approximation
+Markov chain Monte Carlo
+Laplace's approximation
+Integrated nested Laplace approximations
+Variational inference
+Approximate Bayesian computation
+
+Estimators
+Bayesian estimator
+Credible interval
+Maximum a posteriori estimation
+
+Evidence approximation
+Evidence lower bound
+Nested sampling
+
+Model evaluation
+Bayes factor
+Model averaging
+Posterior predictive
+
+ Mathematics portalvte
+Cox's theorem, named after the physicist Richard Threlkeld Cox, is a derivation of the laws of probability theory from a certain set of postulates.[1][2] This derivation justifies the so-called "logical" interpretation of probability, as the laws of probability derived by Cox's theorem are applicable to any proposition. Logical (also known as objective Bayesian) probability is a type of Bayesian probability. Other forms of Bayesianism, such as the subjective interpretation, are given other justifications.
+
+
+Cox's assumptions[edit]
+Cox wanted his system to satisfy the following conditions:
+
+Divisibility and comparability – The plausibility of a proposition is a real number and is dependent on information we have related to the proposition.
+Common sense – Plausibilities should vary sensibly with the assessment of plausibilities in the model.
+Consistency – If the plausibility of a proposition can be derived in many ways, all the results must be equal.
+The postulates as stated here are taken from Arnborg and Sjödin.[3][4][5]
+"Common sense" includes consistency with Aristotelian logic in the sense that logically equivalent propositions shall have the same plausibility.
+The postulates as originally stated by Cox were not mathematically
+rigorous (although more so than the informal description above),
+as noted by Halpern.[6][7]  However it appears to be possible
+to augment them with various mathematical assumptions made either
+implicitly or explicitly by Cox to produce a valid proof.
+Cox's notation:
+
+The plausibility of a proposition A given some related information X is denoted by A∣X.
+Cox's postulates and functional equations are:
+
+The plausibility of the conjunction AB of two propositions A, B, given some related information X, is determined by the plausibility of A given X and that of B given AX.
+In form of a functional equation
+AB∣X=g(A∣X,B∣AX)=g(A,B)
+Because of the associative nature of the conjunction in propositional logic, the consistency with logic gives a functional equation saying that the function g is an associative binary operation.
+Additionally, Cox postulates the function g to be monotonic.
+All strictly increasing associative binary operations on the real numbers are isomorphic to multiplication of numbers in a subinterval of [0, +∞], which means that there is a monotonic function w mapping plausibilities to [0, +∞] such that
+w(AB∣X)=w(A∣X)w(B∣AX)(AB)=w(A)w(B)
+In case A given X is certain, we have AB∣X=B∣X=B and B∣AX=B∣X=B due to the requirement of consistency. The general equation then leads to
+w(B∣X)=w(A∣X)w(B∣X)(B)=w(A)w(B)
+This shall hold for any proposition B, which leads to
+w(A∣X)=1(A)=1
+In case A given X is impossible, we have AB∣X=A∣X=A and A∣BX=A∣X=A due to the requirement of consistency. The general equation (with the A and B factors switched) then leads to
+w(A∣X)=w(B∣X)w(A∣X)(A)=w(B)w(A)
+This shall hold for any proposition B, which, without loss of generality, leads to a solution
+w(A∣X)=0(A)=0
+Due to the requirement of monotonicity, this means that w maps plausibilities to interval [0, 1].
+The plausibility of a proposition determines the plausibility of the proposition's negation.
+This postulates the existence of a function f such that
+w(notA∣X)=f(w(A∣X))(notA)=f(w(A))
+Because "a double negative is an affirmative", consistency with logic gives a functional equation
+f(f(x))=x,(f(x))=x,
+saying that the function f is an involution, i.e., it is its own inverse.
+Furthermore, Cox postulates the function f to be monotonic.
+The above functional equations and consistency with logic imply that
+w(AB∣X)=w(A∣X)f(w(notB∣AX))=w(A∣X)f(w(AnotB∣X)w(A∣X))(AB)=w(A)f(w(notB))=w(A)f(w(AnotB)(A))
+Since AB is logically equivalent to BA, we also get
+w(A∣X)f(w(AnotB∣X)w(A∣X))=w(B∣X)f(w(BnotA∣X)w(B∣X))(A)f(w(AnotB)(A))=w(B)f(w(BnotA)(B))
+If, in particular, B=not(AD)=not(AD), then also AnotB=notBnotB=notB and BnotA=notAnotA=notA and we get
+w(AnotB∣X)=w(notB∣X)=f(w(B∣X))(AnotB)=w(notB)=f(w(B))
+and
+w(BnotA∣X)=w(notA∣X)=f(w(A∣X))(BnotA)=w(notA)=f(w(A))
+Abbreviating w(A∣X)=x(A)=x and w(B∣X)=y(B)=y we get the functional equation
+xf(f(y)x)=yf(f(x)y) f(f(y))=y f(f(x))
+Implications of Cox's postulates[edit]
+The laws of probability derivable from these postulates are the following.[8] Let A∣B be the plausibility of the proposition A given B satisfying Cox's postulates. Then there is a function w mapping plausibilities to interval [0,1] and a positive number m such that
+
+Certainty is represented by w(A∣B)=1.(A)=1.
+wm(A|B)+wm(notA∣B)=1.^m(A|B)+w^m(notA)=1.
+w(AB∣C)=w(A∣C)w(B∣AC)=w(B∣C)w(A∣BC).(AB)=w(A)w(B)=w(B)w(A).
+It is important to note that the postulates imply only these general properties. We may recover the usual laws of probability by setting a new function, conventionally denoted P or Pr, equal to wm^m. Then we obtain the laws of probability in a more familiar form:
+
+Certain truth is represented by Pr(A∣B)=1(A)=1, and certain falsehood by Pr(A∣B)=0.(A)=0.
+Pr(A∣B)+Pr(notA∣B)=1.(A)+(notA)=1.
+Pr(AB∣C)=Pr(A∣C)Pr(B∣AC)=Pr(B∣C)Pr(A∣BC).(AB)=(A)(B)=(B)(A).
+Rule 2 is a rule for negation, and rule 3 is a rule for conjunction. Given that any proposition containing conjunction, disjunction, and negation can be equivalently rephrased using conjunction and negation alone (the conjunctive normal form), we can now handle any compound proposition.
+The laws thus derived yield finite additivity of probability, but not countable additivity. The measure-theoretic formulation of Kolmogorov assumes that a probability measure is countably additive. This slightly stronger condition is necessary for the proof of certain theorems.[citation needed]
+
+Interpretation and further discussion[edit]
+Cox's theorem has come to be used as one of the justifications for the use of Bayesian probability theory.  For example, in Jaynes it is discussed in detail in chapters 1 and 2 and is a cornerstone for the rest of the book.[8]  Probability is interpreted as a formal system of logic, the natural extension of Aristotelian logic (in which every statement is either true or false) into the realm of reasoning in the presence of uncertainty.
+It has been debated to what degree the theorem excludes alternative models for reasoning about uncertainty.  For example, if certain "unintuitive" mathematical assumptions were dropped then alternatives could be devised, e.g., an example provided by Halpern.[6] However Arnborg and Sjödin[3][4][5] suggest additional
+"common sense" postulates, which would allow the assumptions to be relaxed in some cases while still ruling out the Halpern example. Other approaches were devised by Hardy[9] or Dupré and Tipler.[10]
+The original formulation of Cox's theorem is in Cox (1946), which is extended with additional results and more discussion in Cox (1961). Jaynes[8] cites Abel[11] for the first known use of the associativity functional equation. János Aczél[12] provides a long proof of the "associativity equation" (pages 256-267). Jaynes[8]: 27  reproduces the shorter proof by Cox in which differentiability is assumed. A guide to Cox's theorem by Van Horn aims at comprehensively introducing the reader to all these references.[13]
+
+See also[edit]
+Probability axioms
+Probability logic
+References[edit]
+
+
+^ Cox, R. T. (1946). "Probability, Frequency and Reasonable Expectation". American Journal of Physics. 14 (1): 1–10. Bibcode:1946AmJPh..14....1C. doi:10.1119/1.1990764.
+
+^ Cox, R. T. (1961). The Algebra of Probable Inference. Baltimore, MD: Johns Hopkins University Press.
+
+^ a b Stefan Arnborg and Gunnar Sjödin, On the foundations of Bayesianism, Preprint: Nada, KTH (1999) — ftp://ftp.nada.kth.se/pub/documents/Theory/Stefan-Arnborg/06arnborg.ps — ftp://ftp.nada.kth.se/pub/documents/Theory/Stefan-Arnborg/06arnborg.pdf
+
+^ a b Stefan Arnborg and Gunnar Sjödin, A note on the foundations of Bayesianism, Preprint: Nada, KTH (2000a) — ftp://ftp.nada.kth.se/pub/documents/Theory/Stefan-Arnborg/fobshle.ps — ftp://ftp.nada.kth.se/pub/documents/Theory/Stefan-Arnborg/fobshle.pdf
+
+^ a b Stefan Arnborg and Gunnar Sjödin, "Bayes rules in finite models," in European Conference on Artificial Intelligence, Berlin, (2000b) — ftp://ftp.nada.kth.se/pub/documents/Theory/Stefan-Arnborg/fobc1.ps — ftp://ftp.nada.kth.se/pub/documents/Theory/Stefan-Arnborg/fobc1.pdf
+
+^ a b Joseph Y. Halpern, "A counterexample to theorems of Cox and Fine," Journal of AI research, 10, 67–85 (1999) — http://www.jair.org/media/536/live-536-2054-jair.ps.Z Archived 2015-11-25 at the Wayback Machine
+
+^ Joseph Y. Halpern, "Technical Addendum, Cox's theorem Revisited," Journal of AI research, 11, 429–435 (1999) — http://www.jair.org/media/644/live-644-1840-jair.ps.Z Archived 2015-11-25 at the Wayback Machine
+
+^ a b c d Edwin Thompson Jaynes, Probability Theory: The Logic of Science, Cambridge University Press (2003). —  preprint version (1996) at "Archived copy". Archived from the original on 2016-01-19. Retrieved 2016-01-19.{{cite web}}:  CS1 maint: archived copy as title (link); Chapters 1 to 3 of published version at http://bayes.wustl.edu/etj/prob/book.pdf
+
+^ Michael Hardy, "Scaled Boolean algebras", Advances in Applied Mathematics, August 2002, pages 243–292 (or  preprint); Hardy has said, "I assert there that I think Cox's assumptions are too strong, although I don't really say why. I do say what I would replace them with." (The quote is from a Wikipedia discussion page, not from the article.)
+
+^ Dupré, Maurice J. & Tipler, Frank J. (2009). "New Axioms for Rigorous Bayesian Probability", Bayesian Analysis, 4(3): 599-606.
+
+^ Niels Henrik Abel "Untersuchung der Functionen zweier unabhängig veränderlichen Gröszen x und y, wie f(x, y), welche die Eigenschaft haben, dasz f[z, f(x,y)] eine symmetrische Function von z, x und y ist.", Jour. Reine u. angew. Math. (Crelle's Jour.), 1, 11–15, (1826).
+
+^ János Aczél, Lectures on Functional Equations and their Applications, Academic Press, New York, (1966).
+
+^ Van Horn, K. S. (2003). "Constructing a logic of plausible inference: A guide to Cox's theorem". International Journal of Approximate Reasoning. 34: 3–24. doi:10.1016/S0888-613X(03)00051-3.
+
+
+Further reading[edit]
+Fine, Terrence L. (1973). Theories of Probability : An examination of foundations. New York: Academic Press. ISBN 0-12-256450-2.
+Smith, C. Ray; Erickson, Gary (1989). "From Rationality and Consistency to Bayesian Probability". In Skilling, John (ed.). Maximum Entropy and Bayesian Methods. Dordrecht: Kluwer. pp. 29–44. doi:10.1007/978-94-015-7860-8_2. ISBN 0-7923-0224-9.
+
+
+

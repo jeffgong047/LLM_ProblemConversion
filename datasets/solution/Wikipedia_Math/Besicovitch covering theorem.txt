@@ -1,0 +1,40 @@
+In mathematical analysis, a Besicovitch cover, named after Abram Samoilovitch Besicovitch, is an open cover of a subset E of the Euclidean space RN by balls such that each point of E is the center of some ball in the cover.
+The Besicovitch covering theorem asserts that there exists a constant cN depending only on the dimension N with the following property:
+
+Given any Besicovitch cover F of a bounded set E, there are cN subcollections of balls A1 = {Bn1}, …, AcN = {BncN} contained in F such that each collection Ai consists of disjoint balls, and
+E⊆⋃i=1cN⋃B∈AiB.⊆⋃_i=1^c_N⋃_B_iB.
+Let G denote the subcollection of F consisting of all balls from the cN disjoint families A1,...,AcN.
+The less precise following statement is clearly true: every point x ∈ RN belongs to at most cN different balls from the subcollection G, and G remains a cover for E (every point y ∈ E belongs to at least one ball from the subcollection G). This property gives actually an equivalent form for the theorem (except for the value of the constant).
+
+There exists a constant bN depending only on the dimension N with the following property: Given any Besicovitch cover F of a bounded set E, there is a subcollection G of  F such that G is a cover of the set E and every point x ∈ E  belongs to at most bN different balls from the subcover G.
+In other words, the function SG equal to the sum of the indicator functions of the balls in G is larger than 1E and bounded on RN by the constant bN,
+
+1E≤SG:=∑B∈G1B≤bN.1_E_𝐆:=∑_B∈𝐆1_B_N.
+Application to maximal functions and maximal inequalities[edit]
+Let μ be a Borel non-negative measure on RN, finite on compact subsets and let f be a μμ-integrable function. Define the maximal function f∗^* by setting for every x (using the convention ∞×0=0∞×0=0)
+
+f∗(x)=supr>0(μ(B(x,r))−1∫B(x,r)|f(y)|dμ(y)).^*(x)=sup_r>0(μ(B(x,r))^-1∫_B(x,r)|f(y)| dμ(y)).
+This maximal function is lower semicontinuous, hence measurable. The following maximal inequality is satisfied for every λ > 0 :
+
+λμ(x:f∗(x)>λ)≤bN∫|f|dμ.λ μ({x:f^*(x)>λ})_N ∫|f| dμ.
+Proof.
+The set Eλ of the points x such that f∗(x)>λ^*(x)>λ clearly admits a Besicovitch cover Fλ by balls B such that
+
+∫1B|f|dμ=∫B|f(y)|dμ(y)>λμ(B).∫1_B |f|μ̣=∫_B|f(y)| dμ(y)>λ μ(B).
+For every bounded Borel subset E´ of Eλ, one can find a subcollection G extracted from Fλ that covers E´ and such that SG ≤ bN, hence
+
+λμ(E′)≤λ∑B∈Gμ(B)≤∑B∈G∫1B|f|dμ=∫SG|f|dμ≤bN∫|f|dμ,λ μ(E')   ≤λ ∑_B∈𝐆μ(B)
+   ≤∑_B∈𝐆∫1_B |f| dμ=_𝐆 |f| dμ_N ∫|f| dμ,
+which implies the inequality above.
+When dealing with the Lebesgue measure on RN, it is more customary to use the easier (and older) Vitali covering lemma in order to derive the previous maximal inequality (with a different constant).
+
+See also[edit]
+Vitali covering lemma
+References[edit]
+Besicovitch, A. S. (1945), "A general form of the covering principle and relative differentiation of additive functions, I", Proceedings of the Cambridge Philosophical Society, 41 (02): 103–110, doi:10.1017/S0305004100022453.
+"A general form of the covering principle and relative differentiation of additive functions, II", Proceedings of the Cambridge Philosophical Society, 42: 205–235, 1946, doi:10.1017/s0305004100022660.
+DiBenedetto, E (2002), Real analysis, Birkhäuser, ISBN 0-8176-4231-5.
+Füredi, Z; Loeb, P.A. (1994), "On the best constant for the Besicovitch covering theorem", Proceedings of the American Mathematical Society, 121 (4): 1063–1073, doi:10.2307/2161215, JSTOR 2161215.
+
+
+

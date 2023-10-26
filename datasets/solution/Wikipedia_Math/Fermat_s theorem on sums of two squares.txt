@@ -1,0 +1,233 @@
+Condition under which an odd prime is a sum of two squares
+For other theorems named after Pierre de Fermat, see Fermat's theorem.
+In additive number theory, Fermat's theorem on sums of two squares states that an odd prime p can be expressed as:
+
+p=x2+y2,=x^2+y^2,
+with x and y integers, if and only if
+
+p≡1(mod4).≡14.
+The prime numbers for which this is true are called Pythagorean primes.
+For example, the primes 5, 13, 17, 29, 37 and 41 are all congruent to 1 modulo 4, and they can be expressed as sums of two squares in the following ways:
+
+5=12+22,13=22+32,17=12+42,29=22+52,37=12+62,41=42+52.5=1^2+2^2,  13=2^2+3^2,  17=1^2+4^2,  29=2^2+5^2,  37=1^2+6^2,  41=4^2+5^2.
+On the other hand, the primes 3, 7, 11, 19, 23 and 31 are all congruent to 3 modulo 4, and none of them can be expressed as the sum of two squares. This is the easier part of the theorem, and follows immediately from the observation that all squares are congruent to 0 or 1 modulo 4.
+Since the Diophantus identity implies that the product of two integers each of which can be written as the sum of two squares is itself expressible as the sum of two squares, by applying Fermat's theorem to the prime factorization of any positive integer n, we see that if all  the prime factors of n congruent to 3 modulo 4 occur to an even exponent, then n is expressible as a sum of two squares. The converse also holds.[1] This generalization of Fermat's theorem is known as the sum of two squares theorem.
+
+
+History[edit]
+Albert Girard was the first to make the observation, characterizing the positive integers (not necessarily primes) that are expressible as the sum of two squares of positive integers; this was published in 1625.[2][3] The statement that every prime p of the form 4n+1 is the sum of two squares is sometimes called Girard's theorem.[4] For his part, Fermat wrote an elaborate version of the statement (in which he also gave the number of possible expressions of the powers of p as a sum of two squares)  in a letter to Marin Mersenne dated December 25, 1640: for this reason this version of the theorem is sometimes called Fermat's Christmas theorem.
+
+Gaussian primes[edit]
+Fermat's theorem on sums of two squares is strongly related with the theory of Gaussian primes.
+A Gaussian integer is a complex number a+ib+ib such that a and b are integers. The norm N(a+ib)=a2+b2(a+ib)=a^2+b^2 of a Gaussian integer is an integer equal to the square of the absolute value of the Gaussian integer. The norm of a product of Gaussian integers is the product of their norms. This is the Diophantus identity, which results immediately from the similar property of the absolute value.
+Gaussian integers form a principal ideal domain. This implies that Gaussian primes can be defined similarly as primes numbers, that is as those Gaussian integers that are not the product of two non-units (here the units are 1, −1, i and −i). 
+The multiplicative property of the norm implies that a prime number p is either a Gaussian prime or the norm of a Gaussian prime. Fermat's theorem asserts that the first case occurs when p=4k+3,=4k+3, and that the second case occurs when p=4k+1=4k+1 and p=2.=2. The last case is not considered in Fermat's statement, but is trivial, as 2=12+12=N(1+i).2=1^2+1^2=N(1+i).
+
+Related results[edit]
+Above point of view on Fermat's theorem is a special case of the theory of factorization of ideals in rings of quadratic integers. In summary, if Od𝒪_√(d) is the ring of algebraic integers in the quadratic field, then an odd prime number p, not dividing d, is either a prime element in Od,𝒪_√(d), or the ideal norm of an ideal of Od,𝒪_√(d), which is necessarily prime. Moreover, the law of quadratic reciprocity allows distinguishing the two cases in terms of congruences. If Od𝒪_√(d) is a principal ideal domain, then p is an ideal norm if and only 
+
+4p=a2−db2,4p=a^2-db^2,
+with a and b both integers.
+In a letter to Blaise Pascal dated September 25,  1654 Fermat announced the following two results that are essentially the special cases d=−2=-2 and d=−3.=-3. If p is an odd prime, then
+
+p=x2+2y2⟺p≡1orp≡3(mod8),=x^2+2y^2≡1p≡38,
+p=x2+3y2⟺p≡1(mod3).=x^2+3y^2≡13.
+Fermat wrote also:
+
+If two primes which end in 3 or 7 and surpass by 3 a multiple of 4 are multiplied, then their product will be composed of a square and the quintuple of another square.
+In other words, if p, q are of the form 20k + 3 or 20k + 7, then pq = x2 + 5y2. Euler later extended this to the conjecture that
+
+p=x2+5y2⟺p≡1orp≡9(mod20),=x^2+5y^2≡1p≡920,
+2p=x2+5y2⟺p≡3orp≡7(mod20).2p=x^2+5y^2≡3p≡720.
+Both Fermat's assertion and Euler's conjecture were established by Joseph-Louis Lagrange. This more complicated formulation relies on the fact that O−5𝒪_√(-5) is not a principal ideal domain, unlike O−2𝒪_√(-2) and O−3.𝒪_√(-3).
+
+Algorithm[edit]
+There is a trivial algorithm for decomposing a prime of the form p=4k+1=4k+1 into a sum of two squares: For all n such 1≤n<p1<√(p), test whether the square root of p−n2-n^2 is an integer. If this the case, one has got the decomposition.
+However the input size of the algorithm is log⁡p,, the number of digits of p (up to a constant factor that depends on the numeral base). The number of needed tests is of the order of p=exp⁡(log⁡p2),√(p)=exp(/2), and thus exponential in the input size. So the computational complexity of this algorithm is exponential.
+An algorithm with a polynomial complexity has been described by
+Stan Wagon in 1990, based on work by Serret and Hermite (1848), and Cornacchia (1908).[5]
+
+Description[edit]
+Given an odd prime p in the form 4k+14k+1, first find x such that x2≡−1(modp)^2≡-1p.
+This can be done by finding a Quadratic non-residue modulo p, say q, and letting
+x=qp−14(modp)=q^p-1/4p. 
+Such an x will satisfy the condition since quadratic non-residues satisfy qp−12≡−1(modp)^p-1/2≡-1p.
+Once x is determined, one can apply the Euclidean algorithm with p and x. Denote the first two remainders that are less than the square root of p as a and b. Then it will be the case that a2+b2=p^2+b^2=p.
+
+Example[edit]
+Take p=97=97. A possible quadratic non-residue for 97 is 13, since 1397−12≡−1(mod97)13^97-1/2≡-197. so we let x=1397−14=22(mod97)=13^97-1/4=2297.
+The Euclidean algorithm applied to 97 and 22 yields:
+97=22(4)+9,97=22(4)+9,
+22=9(2)+4,22=9(2)+4,
+9=4(2)+1,9=4(2)+1,
+4=1(4).4=1(4).
+The first two remainders smaller than the square root of 97 are 9 and 4; and indeed we have 97=92+4297=9^2+4^2, as expected.
+
+Proofs[edit]
+Fermat usually did not write down proofs of his claims, and he did not provide a proof of this statement. The first proof was found by Euler after much effort and is based on infinite descent.  He announced it in two letters to Goldbach, on May 6, 1747 and on April 12, 1749; he published the detailed proof in two articles (between 1752 and 1755).[6][7] Lagrange gave a proof in 1775 that was based on his study of quadratic forms. This proof was simplified by Gauss in his Disquisitiones Arithmeticae (art. 182). Dedekind gave at least two proofs based on the arithmetic of the Gaussian integers. There is an elegant proof using Minkowski's theorem about convex sets. Simplifying an earlier short proof due to Heath-Brown (who was inspired by Liouville's idea), Zagier presented a non-constructive one-sentence proof in 1990.[8]
+And more recently Christopher gave a  partition-theoretic proof.[9]
+
+Euler's proof by infinite descent[edit]
+Euler succeeded in proving Fermat's theorem on sums of two squares in 1749, when he was forty-two years old. He communicated this in a letter to Goldbach dated 12 April 1749.[10] The proof relies on infinite descent, and is only briefly sketched in the letter. The full proof consists in five steps and is published in two papers. The first four steps are Propositions 1 to 4 of the first paper[11] and do not correspond exactly to the four steps below. The fifth step below is from the second paper.[12][13]
+For the avoidance of ambiguity, zero will always be a valid possible constituent of "sums of two squares", so for example every square of an integer is trivially expressible as the sum of two squares by setting one of them to be zero.
+1. The product of two numbers, each of which is a sum of two squares, is itself a sum of two squares.
+
+This is a well-known property, based on the identity
+(a2+b2)(p2+q2)=(ap+bq)2+(aq−bp)2(a^2+b^2)(p^2+q^2)=(ap+bq)^2+(aq-bp)^2
+due to Diophantus.
+2. If a number which is a sum of two squares is divisible by a prime which is a sum of two squares, then the quotient is a sum of two squares.
+(This is Euler's first Proposition).
+
+Indeed, suppose for example that a2+b2^2+b^2 is divisible by p2+q2^2+q^2 and that this latter is a prime. Then p2+q2^2+q^2 divides
+(pb−aq)(pb+aq)=p2b2−a2q2=p2(a2+b2)−a2(p2+q2).(pb-aq)(pb+aq)=p^2b^2-a^2q^2=p^2(a^2+b^2)-a^2(p^2+q^2).
+Since p2+q2^2+q^2 is a prime, it divides one of the two factors. Suppose that it divides pb−aq-aq. Since
+(a2+b2)(p2+q2)=(ap+bq)2+(aq−bp)2(a^2+b^2)(p^2+q^2)=(ap+bq)^2+(aq-bp)^2
+(Diophantus's identity) it follows that p2+q2^2+q^2 must divide (ap+bq)2(ap+bq)^2. So the equation can be divided by the square of p2+q2^2+q^2. Dividing the expression by (p2+q2)2(p^2+q^2)^2 yields:
+a2+b2p2+q2=(ap+bqp2+q2)2+(aq−bpp2+q2)2a^2+b^2/p^2+q^2=(ap+bq/p^2+q^2)^2+(aq-bp/p^2+q^2)^2
+and thus expresses the quotient as a sum of two squares, as claimed.
+On the other hand if p2+q2^2+q^2 divides pb+aq+aq, a similar argument holds by using the following variant of Diophantus's identity:
+(a2+b2)(q2+p2)=(aq+bp)2+(ap−bq)2.(a^2+b^2)(q^2+p^2)=(aq+bp)^2+(ap-bq)^2.
+3. If a number which can be written as a sum of two squares is divisible by a number which is not a sum of two squares, then the quotient has a factor which is not a sum of two squares. (This is Euler's second Proposition).
+
+Suppose q is a number not expressible as a sum of two squares, which divides a2+b2^2+b^2. Write the quotient, factored into its (possibly repeated) prime factors, as p1p2⋯pn_1p_2_n so that a2+b2=qp1p2⋯pn^2+b^2=qp_1p_2_n. If all factors pi_i can be written as sums of two squares, then we can divide a2+b2^2+b^2 successively by p1_1, p2_2, etc., and applying step (2.) above we deduce that each successive, smaller, quotient is a sum of two squares. If we get all the way down to q then q itself would have to be equal to the sum of two squares, which is a contradiction. So at least one of the primes pi_i is not the sum of two squares.
+4. If a and b are relatively prime positive integers then every factor of a2+b2^2+b^2 is a sum of two squares.
+(This is the step that uses step (3.) to produce an 'infinite descent' and was Euler's Proposition 4. The proof sketched below also includes the proof of his Proposition 3).
+
+Let a,b,b be relatively prime positive integers: without loss of generality a2+b2^2+b^2 is not itself prime, otherwise there is nothing to prove. Let q therefore be a proper factor of a2+b2^2+b^2, not necessarily prime: we wish to show that q is a sum of two squares. Again, we lose nothing by assuming q>2>2 since the case q=2=12+12=2=1^2+1^2 is obvious.
+Let m,n,n be non-negative integers such that mq,nq,nq are the closest multiples of q (in absolute value) to a,b,b respectively. Notice that the differences c=a−mq=a-mq and d=b−nq=b-nq are integers of absolute value strictly less than q/2/2: indeed, when q>2>2 is even, gcd(a,q/2)=1(a,q/2)=1; otherwise since gcd(a,q/2)∣q/2∣q∣a2+b2(a,q/2)/2^2+b^2, we would also have gcd(a,q/2)∣b(a,q/2).
+Multiplying out we obtain
+a2+b2=m2q2+2mqc+c2+n2q2+2nqd+d2=Aq+(c2+d2)^2+b^2=m^2q^2+2mqc+c^2+n^2q^2+2nqd+d^2=Aq+(c^2+d^2)
+uniquely defining a non-negative integer A. Since q divides both ends of this equation sequence it follows that c2+d2^2+d^2 must also be divisible by q: say c2+d2=qr^2+d^2=qr. Let g be the gcd of c and d which by the co-primeness of a,b,b is relatively prime to q. Thus g2^2 divides r, so writing e=c/g=c/g, f=d/g=d/g and s=r/g2=r/g^2, we obtain the expression e2+f2=qs^2+f^2=qs for relatively prime e and f, and with s<q/2<q/2, since
+qs=e2+f2≤c2+d2<(q2)2+(q2)2=q2/2.=e^2+f^2^2+d^2<(q/2)^2+(q/2)^2=q^2/2.
+Now finally, the descent step: if q is not the sum of two squares, then by step (3.) there must be a factor q1_1 say of s which is not the sum of two squares. But q1≤s<q/2<q_1<q/2<q and so repeating these steps (initially with e,f;q1,f;q_1 in place of a,b;q,b;q, and so on ad infinitum) we shall be able to find a strictly decreasing infinite sequence q,q1,q2,…,q_1,q_2,… of positive integers which are not themselves the sums of two squares but which divide into a sum of two relatively prime squares. Since such an infinite descent is impossible, we conclude that q must be expressible as a sum of two squares, as claimed.
+5. Every prime of the form 4n+14n+1 is a sum of two squares.
+(This is the main result of Euler's second paper).
+
+If p=4n+1=4n+1, then by Fermat's Little Theorem each of the numbers 1,24n,34n,…,(4n)4n1,2^4n,3^4n,…,(4n)^4n is congruent to one modulo p. The differences 24n−1,34n−24n,…,(4n)4n−(4n−1)4n2^4n-1,3^4n-2^4n,…,(4n)^4n-(4n-1)^4n are therefore all divisible by p. Each of these differences can be factored as
+a4n−b4n=(a2n+b2n)(a2n−b2n).^4n-b^4n=(a^2n+b^2n)(a^2n-b^2n).
+Since p is prime, it must divide one of the two factors. If in any of the 4n−14n-1 cases it divides the first factor, then by the previous step we conclude that p is itself a sum of two squares (since a and b differ by 11, they are relatively prime). So it is enough to show that p cannot always divide the second factor. If it divides all 4n−14n-1 differences 22n−1,32n−22n,…,(4n)2n−(4n−1)2n2^2n-1,3^2n-2^2n,…,(4n)^2n-(4n-1)^2n, then it would divide all 4n−24n-2 differences of successive terms, all 4n−34n-3 differences of the differences, and so forth. Since the kth differences of the sequence 1k,2k,3k,…1^k,2^k,3^k,… are all equal to k!! (Finite difference), the 2n2nth differences would all be constant and equal to (2n)!(2n)!, which is certainly not divisible by p. Therefore, p cannot divide all the second factors which proves that p is indeed the sum of two squares.
+Lagrange's proof through quadratic forms[edit]
+Lagrange completed a proof in 1775[14] based on his general theory of integral quadratic forms. The following presentation incorporates a slight simplification of his argument, due to Gauss, which appears in article 182 of the Disquisitiones Arithmeticae.
+An (integral binary) quadratic form is an expression of the form ax2+bxy+cy2^2+bxy+cy^2 with a,b,c,b,c integers. A number n is said to be represented by the form if there exist integers x,y,y such that n=ax2+bxy+cy2=ax^2+bxy+cy^2. Fermat's theorem on sums of two squares is then equivalent to the statement that a prime p is represented by the form x2+y2^2+y^2 (i.e., a=c=1=c=1, b=0=0) exactly when p is congruent to 11 modulo 44.
+The discriminant of the quadratic form is defined to be b2−4ac^2-4ac. The discriminant of x2+y2^2+y^2 is then equal to −4-4.
+Two forms ax2+bxy+cy2^2+bxy+cy^2 and a′x′2+b′x′y′+c′y′2'x'^2+b'x'y'+c'y'^2 are equivalent if and only if there exist substitutions with integer coefficients
+
+x=αx′+βy′='+'
+y=γx′+δy′='+'
+with αδ−βγ=±1αδ-βγ=±1 such that, when substituted into the first form, yield the second. Equivalent forms are readily seen to have the same discriminant, and hence also the same parity for the middle coefficient b, which coincides with the parity of the discriminant. Moreover, it is clear that equivalent forms will represent exactly the same integers, because these kind of substitutions can be reversed by substitutions of the same kind.
+Lagrange proved that all positive definite forms of discriminant −4 are equivalent. Thus, to prove Fermat's theorem it is enough to find any positive definite form of discriminant −4 that represents p. For example, one can use a form
+
+px2+2mxy+(m2+1p)y2,^2+2mxy+(m^2+1/p)y^2,
+where the first coefficient a = p was chosen so that the form represents p by setting x = 1, and y = 0, the coefficient b = 2m is an arbitrary even number (as it must be, to get an even discriminant), and finally c=m2+1p=m^2+1/p is chosen so that the discriminant b2−4ac=4m2−4pc^2-4ac=4m^2-4pc is equal to −4, which guarantees that the form is indeed equivalent to x2+y2^2+y^2. Of course, the coefficient c=m2+1p=m^2+1/p must be an integer, so the problem is reduced to finding some integer m such that p divides m2+1^2+1: or in other words, a  'square root of -1 modulo p' .
+We claim such a square root of −1-1 is given by K=∏k=1p−12k=∏_k=1^p-1/2k. Firstly it follows from Euclid's Fundamental Theorem of Arithmetic that ab≡0(modp)⟺a≡0(modp)orb≡0(modp)≡0p≡0p
+or
+b≡0p. Consequently, a2≡1(modp)⟺a≡±1(modp)^2≡1p≡±1p: that is, ±1±1 are their own inverses modulo p and this property is unique to them. It then follows from the validity of Euclidean division in the integers, and the fact that p is prime, that for every 2≤a≤p−22-2 the gcd of a and p may be expressed via the Euclidean algorithm yielding a unique and distinct inverse a−1≠a^-1 of a modulo p. In particular therefore the product of all non-zero residues modulo p is −1-1. Let L=∏l=p+12p−1l=∏_l=p+1/2^p-1l: from what has just been observed, KL≡−1(modp)≡-1p. But by definition, since each term in K may be paired with its negative in L, L=(−1)p−12K=(-1)^p-1/2K, which since p is odd shows that K2≡−1(modp)⟺p≡1(mod4)^2≡-1p≡14, as required.
+
+Dedekind's two proofs using Gaussian integers[edit]
+Richard Dedekind gave at least two proofs of Fermat's theorem on sums of two squares, both using the arithmetical properties of the Gaussian integers, which are numbers of the form a + bi, where a and b are integers, and i is the square root of −1. One appears in section 27 of his exposition of ideals published in 1877; the second appeared in Supplement XI to Peter Gustav Lejeune Dirichlet's Vorlesungen über Zahlentheorie, and was published in 1894.
+1. First proof. If p is an odd prime number, then we have ip−1=(−1)p−12^p-1=(-1)^p-1/2 in the Gaussian integers. Consequently, writing a Gaussian integer ω = x + iy with x,y ∈ Z and applying the Frobenius automorphism in Z[i]/(p), one finds
+
+ωp=(x+yi)p≡xp+ypip≡x+(−1)p−12yi(modp),ω^p=(x+yi)^p^p+y^pi^p+(-1)^p-1/2yip,
+since the automorphism fixes the elements of Z/(p). In the current case, p=4n+1=4n+1 for some integer n, and so in the above expression for ωp, the exponent (p-1)/2 of -1 is even. Hence the right hand side equals ω, so in this case the Frobenius endomorphism of Z[i]/(p) is the identity.
+Kummer had already established that if f ∈ {1,2} is the order of the Frobenius automorphism of Z[i]/(p), then the ideal (p)(p) in Z[i] would be a product of 2/f distinct prime ideals. (In fact, Kummer had established a much more general result for any extension of Z obtained by adjoining a primitive m-th root of unity, where m was any positive integer; this is the case m = 4 of that result.) Therefore, the ideal (p) is the product of two different prime ideals in Z[i]. Since the Gaussian integers are a Euclidean domain for the norm function N(x+iy)=x2+y2(x+iy)=x^2+y^2, every ideal is principal and generated by a nonzero element of the ideal of minimal norm. Since the norm is multiplicative, the norm of a generator αα of one of the ideal factors of (p) must be a strict divisor of N(p)=p2(p)=p^2, so that we must have p=N(α)=N(a+bi)=a2+b2=N(α)=N(a+bi)=a^2+b^2, which gives Fermat's theorem.
+2. Second proof. This proof builds on Lagrange's result that if p=4n+1=4n+1 is a prime number, then there must be an integer m such that m2+1^2+1 is divisible by p (we can also see this by Euler's criterion); it also uses the fact that the Gaussian integers are a unique factorization domain (because they are a Euclidean domain). Since p ∈ Z does not divide either of the Gaussian integers m+i+i and m−i-i (as it does not divide their imaginary parts), but it does divide their product m2+1^2+1, it follows that p cannot be a prime element in the Gaussian integers. We must therefore have a nontrivial factorization of p in the Gaussian integers, which in view of the norm can have only two factors (since the norm is multiplicative, and p2=N(p)^2=N(p), there can only be up to two factors of p), so it must be of the form p=(x+yi)(x−yi)=(x+yi)(x-yi) for some integers x and y. This immediately yields that p=x2+y2=x^2+y^2.
+
+Proof by Minkowski's Theorem[edit]
+For p congruent to 11 mod 44 a prime, −1-1 is a quadratic residue mod p by Euler's criterion. Therefore, there exists an integer m such that p divides m2+1^2+1. Let i^,j^î,ĵ be the standard basis elements for the vector space R2ℝ^2 and set u→=i^+mj^u⃗=î+mĵ and v→=0i^+pj^v⃗=0î+pĵ. Consider the lattice S=au→+bv→∣a,b∈Z={au⃗+bv⃗,b∈ℤ}. If w→=au→+bv→=ai^+(am+bp)j^∈Sw⃗=au⃗+bv⃗=aî+(am+bp)ĵ then ‖w→‖2≡a2+(am+bp)2≡a2(1+m2)≡0(modp)w⃗^2^2+(am+bp)^2^2(1+m^2)≡0p. Thus p divides ‖w→‖2w⃗^2 for any w→∈Sw⃗.
+The area of the fundamental parallelogram of the lattice is p. The area of the open disk, D, of radius 2p√(2p) centered around the origin is 2πp>4p2>4p. Furthermore, D is convex and symmetrical about the origin. Therefore, by Minkowski's theorem there exists a nonzero vector w→∈Sw⃗ such that w→∈Dw⃗. Both ‖w→‖2<2pw⃗^2<2p and p∣‖w→‖2|w⃗^2 so p=‖w→‖2=w⃗^2. Hence p is the sum of the squares of the components of w→w⃗.
+
+Zagier's "one-sentence proof"[edit]
+Let p=4k+1=4k+1 be prime, let Nℕ denote the natural numbers (with or without zero), and consider the finite set S=(x,y,z)∈N3:x2+4yz=p={(x,y,z)∈ℕ^3:x^2+4yz=p} of triples of numbers.
+Then S has two involutions: an obvious one (x,y,z)↦(x,z,y)(x,y,z)↦(x,z,y) whose fixed points (x,y,y)(x,y,y) correspond to representations of p as a sum of two squares, and a more complicated one,
+
+(x,y,z)↦(x+2z,z,y−x−z),ifx<y−z(2y−x,y,x−y+z),ify−z<x<2y(x−2y,x−y+z,y),ifx>2y(x,y,z)↦(x+2z, z, y-x-z),  if   x<y-z
+(2y-x, y, x-y+z),  if   y-z<x<2y
+(x-2y, x-y+z, y),  if   x>2y
+which has exactly one fixed point (1,1,k)(1,1,k). This proves that the cardinality of S is odd. Hence, S has also a fixed point with respect to the obvious involution.
+This proof, due to Zagier, is a simplification of an earlier proof by Heath-Brown, which in turn was inspired by a proof of Liouville. The technique of the proof is a combinatorial analogue of the topological principle that the Euler characteristics of a topological space with an involution and of its fixed-point set have the same parity and is reminiscent of the use of sign-reversing involutions in the proofs of combinatorial bijections.
+This proof is equivalent to a geometric or "visual" proof using "windmill" figures, given by Alexander Spivak in 2006 and described in this MathOverflow post and this Mathologer YouTube video Why was this visual proof missed for 400 years? (Fermat's two square theorem) on YouTube.
+
+Proof with partition theory[edit]
+In 2016, A. David Christopher gave a partition-theoretic proof by considering partitions of the odd prime n having exactly two sizes ai(i=1,2)_i(i=1,2), each occurring exactly ai_i times, and by showing that at least one such partition exists if n is congruent to 1 modulo 4.[15]
+
+See also[edit]
+Legendre's three-square theorem
+Lagrange's four-square theorem
+Landau–Ramanujan constant
+Thue's lemma
+Friedlander–Iwaniec theorem
+References[edit]
+
+D. A. Cox (1989). Primes of the Form x2 + ny2. Wiley-Interscience. ISBN 0-471-50654-0.*Richard Dedekind, The theory of algebraic integers.
+L. E. Dickson. History of the Theory of Numbers Vol. 2. Chelsea Publishing Co., New York 1920
+Harold M. Edwards, Fermat's Last Theorem. A genetic introduction to algebraic number theory. Graduate Texts in Mathematics no. 50, Springer-Verlag, NY, 1977.
+C. F. Gauss, Disquisitiones Arithmeticae (English Edition). Transl. by Arthur A. Clarke. Springer-Verlag, 1986.
+Goldman, Jay R. (1998), The Queen of Mathematics: A historically motivated guide to Number Theory, A K Peters, ISBN 1-56881-006-7
+D. R. Heath-Brown, Fermat's two squares theorem. Invariant, 11 (1984) pp. 3–5.
+John Stillwell, Introduction to Theory of Algebraic Integers by Richard Dedekind. Cambridge Mathematical Library, Cambridge University Press, 1996.  ISBN 0-521-56518-9
+Don Zagier, A one-sentence proof that every prime p ≡ 1 mod 4 is a sum of two squares. Amer. Math. Monthly 97 (1990), no. 2, 144, doi:10.2307/2323918
+
+Notes[edit]
+
+
+^ For a proof of the converse see for instance 20.1, Theorems 367 and 368, in: G.H. Hardy and E.M. Wright. An introduction to the theory of numbers, Oxford 1938.
+
+^ Simon Stevin. l'Arithmétique de Simon Stevin de Bruges, annotated by Albert Girard, Leyde 1625, p. 622.
+
+^ L. E. Dickson, History of the Theory of Numbers, Vol. II,  Ch. VI, p. 227. "A. Girard ... had already made a determination of the numbers expressible as a sum of two integral squares: every square, every prime 4n+1, a product formed of such numbers, and the double of the foregoing"
+
+^ L. E. Dickson, History of the Theory of Numbers, Vol. II,  Ch. VI, p. 228.
+
+^ Wagon, Stan (1990), "Editor's Corner: The Euclidean Algorithm Strikes Again", American Mathematical Monthly, 97 (2): 125, doi:10.2307/2323912, MR 1041889.
+
+^ De numerus qui sunt aggregata quorum quadratorum. (Novi commentarii academiae scientiarum Petropolitanae 4 (1752/3), 1758, 3-40)
+
+^ Demonstratio theorematis FERMATIANI omnem numerum primum formae 4n+1 esse summam duorum quadratorum. (Novi commentarii academiae scientiarum Petropolitanae 5 (1754/5), 1760, 3-13)
+
+^ Zagier, D. (1990), "A one-sentence proof that every prime p ≡ 1 (mod 4) is a sum of two squares", American Mathematical Monthly, 97 (2): 144, doi:10.2307/2323918, MR 1041893.
+
+^ A. David Christopher. "A partition-theoretic proof of Fermat's Two Squares Theorem", Discrete Mathematics 339:4:1410–1411 (6 April 2016) doi:10.1016/j.disc.2015.12.002
+
+^ Euler à Goldbach, lettre CXXV
+
+^ De numerus qui sunt aggregata duorum quadratorum. (Novi commentarii academiae scientiarum Petropolitanae 4 (1752/3), 1758, 3-40) [1]
+
+^ Demonstratio theorematis FERMATIANI omnem numerum primum formae 4n+1 esse summam duorum quadratorum. (Novi commentarii academiae scientiarum Petropolitanae 5 (1754/5), 1760, 3-13) [2]
+
+^ The summary is based on Edwards book, pages 45-48.
+
+^ Nouv. Mém. Acad. Berlin, année 1771, 125; ibid. année 1773, 275; ibid année 1775, 351.
+
+^ A. David Christopher, A partition-theoretic proof of Fermat's Two Squares Theorem", Discrete Mathematics, 339 (2016) 1410–1411.
+
+
+External links[edit]
+Two more proofs at PlanetMath.org
+"A one-sentence proof of the theorem". Archived from the original on 5 February 2012.{{cite web}}:  CS1 maint: unfit URL (link)
+Fermat's two squares theorem, D. R. Heath-Brown, 1984.
+Polster, Burkard (2019) "Fermat's Christmas theorem: Visualising the hidden circle in π/4 = 1 − 1/3 + 1/5 − 1/7 + ..." (Video). Mathologer.
+
+
+vtePierre de FermatWork
+Fermat's Last Theorem
+Fermat number
+Fermat's principle
+Fermat's little theorem
+Fermat polygonal number theorem
+Fermat pseudoprime
+Fermat point
+Fermat's theorem (stationary points)
+Fermat's theorem on sums of two squares
+Fermat's spiral
+Fermat's right triangle theorem
+Related
+List of things named after Pierre de Fermat
+Wiles's proof of Fermat's Last Theorem
+Fermat's Last Theorem in fiction
+Fermat Prize
+Fermat's Last Tango (2000 musical)
+Fermat's Last Theorem (popular science book)
+
+
+
+
