@@ -151,6 +151,26 @@ class Solution:
 
     leetcode_call.submission(code, 1, titleSlug)
 
+    """
+    Retrieved Question detail
+{
+    'content': 'Given an array of integers `nums`\xa0and an integer `target`, return *indices of the two numbers such that they add up to `target`*.\nYou may assume that each input would have ***exactly* one solution**, and you may not use the *same* element twice.\nYou can return the answer in any order.\n\xa0\n**Example 1:**\n```\n**Input:** nums = [2,7,11,15], target = 9\n**Output:** [0,1]\n**Explanation:** Because nums[0] + nums[1] == 9, we return [0, 1].\n```\n**Example 2:**\n```\n**Input:** nums = [3,2,4], target = 6\n**Output:** [1,2]\n```\n**Example 3:**\n```\n**Input:** nums = [3,3], target = 6\n**Output:** [0,1]\n```\n\xa0\n**Constraints:**\n* `2 <= nums.length <= 104`\n* `-109 <= nums[i] <= 109`\n* `-109 <= target <= 109`\n* **Only one valid answer exists.**\n\xa0\n**Follow-up:**Can you come up with an algorithm that is less than `O(n2)`\xa0time complexity?', 
+    'difficulty': 'Easy', 
+    'hints': ["A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions for just for completeness. It is from these brute force solutions that you can come up with optimizations.", 'So, if we fix one of the numbers, say <code>x</code>, we have to scan the entire array to find the next number <code>y</code> which is <code>value - x</code> where value is the input parameter. Can we change our array somehow so that this search becomes faster?', 'The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?'], 
+    'question_frontend_id': '1', 
+    'question_id': '1', 
+    'title': 'Two Sum', 
+    'title_slug': None, 
+    'topic_tags': [{'name': 'Array',
+    'slug': 'array',
+    'translated_name': None,
+    'typename': 'TopicTagNode'}, {'name': 'Hash Table',
+    'slug': 'hash-table',
+    'translated_name': None,
+    'typename': 'TopicTagNode'}]
+ }
+    """
+
     """Sample Output
     {'code_output': '[1]',
     'compare_result': '000000000000000000000000000000000000000000000000000000000000',
