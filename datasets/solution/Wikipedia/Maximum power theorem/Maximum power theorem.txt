@@ -1,0 +1,110 @@
+Theorem in electrical engineering
+In electrical engineering, the maximum power transfer theorem states that, to obtain maximum external power from a power source with internal resistance, the resistance of the load must equal the resistance of the source as viewed from its output terminals. Moritz von Jacobi published the maximum power (transfer) theorem around 1840; it is also referred to as "Jacobi's law".[1]
+The theorem results in maximum power transfer from the power source to the load, and not maximum efficiency of useful power out of total power consumed. If the load resistance is made larger than the source resistance, then efficiency increases (since a higher percentage of the source power is transferred to the load), but the magnitude of the load power decreases (since the total circuit resistance increases).[2] If the load resistance is made smaller than the source resistance, then efficiency decreases (since most of the power ends up being dissipated in the source). Although the total power dissipated increases (due to a lower total resistance), the amount dissipated in the load decreases.
+The theorem states how to choose (so as to maximize power transfer) the load resistance, once the source resistance is given. It is a common misconception to apply the theorem in the opposite scenario.  It does not say how to choose the source resistance for a given load resistance. In fact, the source resistance that maximizes power transfer from a voltage source is always zero (the hypothetical ideal voltage source), regardless of the value of the load resistance.
+The theorem can be extended to alternating current circuits that include reactance, and states that maximum power transfer occurs when the load impedance is equal to the complex conjugate of the source impedance.
+The mathematics of the theorem also applies to other physical interactions, such as:[2][3]
+
+mechanical collisions between two objects,
+the sharing of charge between two capacitors,
+liquid flow between two cylinders,
+the transmission and reflection of light at the boundary between two media.
+
+Maximizing power transfer versus power efficiency[edit]
+Simplified model for powering a load with resistance RL by a source with voltage VS and resistance RS.
+The theorem was originally misunderstood (notably by Joule[4]) to imply that a system consisting of an electric motor driven by a battery could not be more than 50% efficient, since the power dissipated as heat in the battery would always be equal to the power delivered to the motor when the impedances were matched. 
+In 1880 this assumption was shown to be false by either Edison or his colleague Francis Robbins Upton, who realized that maximum efficiency was not the same as maximum power transfer.  
+
+To achieve maximum efficiency, the resistance of the source (whether a battery or a dynamo) could be (or should be) made as close to zero as possible. Using this new understanding, they obtained an efficiency of about 90%, and proved that the electric motor was a practical alternative to the heat engine.The red curve shows the power in the load, normalized relative to its maximum possible. The dark blue curve shows the efficiency η.
+The efficiency η is the ratio of the power dissipated by the load resistance RL to the total power dissipated by the circuit (which includes the voltage source's resistance of RS as well as RL):
+η=PLPTotal=I2⋅RLI2⋅(RL+RS)=RLRL+RS=11+RS/RL.η=P_L/P_Total=I^2_L/I^2·(R_L+R_S)=R_L/R_L+R_S=1/1+R_S/R_L .
+Consider three particular cases (note that voltage sources must have some resistance):
+
+If RL/RS→0_L/R_S→0, then η→0.η→0. Efficiency approaches 0% if the load resistance approaches zero (a short circuit), since all power is consumed in the source and no power is consumed in the short.
+If RL/RS=1_L/R_S=1, then η=12.η=12. Efficiency is only 50% if the load resistance equals the source resistance (which is the condition of maximum power transfer).
+If RL/RS→∞_L/R_S→∞, then η→1.η→1. Efficiency approaches 100% if the load resistance approaches infinity (though the total power level tends towards zero) or if the source resistance approaches zero. Using a large ratio is called impedance bridging.
+Impedance matching[edit]
+Main article: impedance matching
+A related concept is reflectionless impedance matching.  
+In radio frequency transmission lines, and other electronics, there is often a requirement to match the source impedance (at the transmitter) to the load impedance (such as an antenna) to avoid reflections in the transmission line.
+
+Calculus-based proof for purely resistive circuits[edit]
+In the simplified model of powering a load with resistance RL by a source with voltage VS and source resistance RS, then by Ohm's law the resulting current I is simply the source voltage divided by the total circuit resistance:
+I=VSRS+RL.=V_S/R_S+R_L.
+The power PL dissipated in the load is the square of the current multiplied by the resistance:
+PL=I2RL=(VSRS+RL)2RL=VS2RS2/RL+2RS+RL._L=I^2R_L=(V_S/R_S+R_L)^2R_L=V_S^2/R_S^2/R_L+2R_S+R_L.
+The value of RL for which this expression is a maximum could be calculated by differentiating it, but it is easier to calculate the value of RL for which the denominator:
+RS2/RL+2RS+RL_S^2/R_L+2R_S+R_L
+is a minimum.  The result will be the same in either case.  Differentiating the denominator with respect to RL:
+ddRL(RS2/RL+2RS+RL)=−RS2/RL2+1.d/dR_L(R_S^2/R_L+2R_S+R_L)=-R_S^2/R_L^2+1.
+For a maximum or minimum, the first derivative is zero, so
+RS2/RL2=1_S^2/R_L^2=1
+or
+RL=±RS._L=_S.
+In practical resistive circuits, RS and RL are both positive, so the positive sign in the above is the correct solution. 
+To find out whether this solution is a minimum or a maximum, the denominator expression is differentiated again:
+d2dRL2(RS2/RL+2RS+RL)=2RS2/RL3.d^2/dR_L^2(R_S^2/R_L+2R_S+R_L)=2R_S^2/R_L^3.
+This is always positive for positive values of RS_S and RL_L, showing that the denominator is a minimum, and the power is therefore a maximum, when:
+RS=RL._S=R_L.
+The above proof assumes fixed source resistance RS_S.  When the source resistance can be varied, power transferred to the load can be increased by reducing RS_S.  For example, a 100 Volt source with an RS_S of 10Ω10 Ω will deliver 250 watts of power to a 10Ω10 Ω load; reducing RS_S to 0Ω0 Ω increases the power delivered to 1000 watts.
+Note that this shows that maximum power transfer can also be interpreted as the load voltage being equal to one-half of the Thevenin voltage equivalent of the source.[5]
+
+In reactive circuits[edit]
+The power transfer theorem also applies when the source and/or load are not purely resistive. 
+A refinement of the maximum power theorem says that any reactive components of source and load should be of equal magnitude but opposite sign.  (See below for a derivation.)  
+
+This means that the source and load impedances should be complex conjugates of each other.
+In the case of purely resistive circuits, the two concepts are identical.
+Physically realizable sources and loads are not usually purely resistive, having some inductive or capacitive components, and so practical applications of this theorem, under the name of complex conjugate impedance matching, do, in fact, exist.
+If the source is totally inductive (capacitive), then a totally capacitive (inductive) load, in the absence of resistive losses, would receive 100% of the energy from the source but send it back after a quarter cycle.
+The resultant circuit is nothing other than a resonant LC circuit in which the energy continues to oscillate to and fro. This oscillation is called reactive power. 
+Power factor correction (where an inductive reactance is used to "balance out" a capacitive one), is essentially the same idea as complex conjugate impedance matching although it is done for entirely different reasons.
+For a fixed reactive source, the maximum power theorem maximizes the real power (P) delivered to the load by complex conjugate matching the load to the source.
+For a fixed reactive load, power factor correction minimizes the apparent power (S) (and unnecessary current) conducted by the transmission lines, while maintaining the same amount of real power transfer. 
+This is done by adding a reactance to the load to balance out the load's own reactance, changing the reactive load impedance into a resistive load impedance.
+
+Proof[edit]
+source and load impedance diagram
+In this diagram, AC power is being transferred from the source, with phasor magnitude of voltage |VS||V_S| (positive peak voltage) and fixed source impedance ZS_S (S for source), to a load with impedance ZL_L (L for load), resulting in a (positive) magnitude |I||I| of the current phasor I.  This magnitude |I||I| results from dividing the magnitude of the source voltage by the magnitude of the total circuit impedance:
+|I|=|VS||ZS+ZL|.|I|=|V_S||Z_S+Z_L|.
+The average power PL_L dissipated in the load is the square of the current multiplied by the resistive portion (the real part) RL_L of the load impedance ZL_L:
+PL=Irms2RL=12|I|2RL=12(|VS||ZS+ZL|)2RL=12|VS|2RL(RS+RL)2+(XS+XL)2,P_L   =I_rms^2R_L=12|I|^2R_L
+   =12(|V_S||Z_S+Z_L|)^2R_L=12|V_S|^2R_L(R_S+R_L)^2+(X_S+X_L)^2,
+where RS_S and RL_L denote the resistances, that is the real parts, and  XS_S and XL_L denote the reactances, that is the imaginary parts, of respectively the source and load impedances ZS_S and ZL_L.
+To determine, for a given source voltage VS_S and impedance ZS,_S, the value of the load impedance ZL,_L, for which this expression for the power yields a maximum, one first finds, for each fixed positive value of RL_L, the value of the reactive term XL_L for which the denominator:
+(RS+RL)2+(XS+XL)2(R_S+R_L)^2+(X_S+X_L)^2
+is a minimum. Since reactances can be negative, this is achieved by adapting the load reactance to:
+XL=−XS._L=-X_S.
+This reduces the above equation to:
+PL=12|VS|2RL(RS+RL)2_L=1/2|V_S|^2R_L/(R_S+R_L)^2
+and it remains to find the value of RL_L which maximizes this expression. This problem has the same form as in the purely resistive case, and the maximizing condition therefore is RL=RS._L=R_S.
+The two maximizing conditions:
+
+RL=RS_L=R_S
+XL=−XS_L=-X_S
+describe the complex conjugate of the source impedance, denoted by ∗,^*, and thus can be concisely combined to:
+ZL=ZS∗._L=Z_S^*.
+
+See also[edit]
+Maximum power point tracking
+Notes[edit]
+
+^ Thompson Phillips (2009-05-30), Dynamo-Electric Machinery; A Manual for Students of Electrotechnics, BiblioBazaar, LLC, ISBN 978-1-110-35104-6
+
+^ a b Harrison, Mark (2013-02-22). "Physical collisions and the maximum power theorem: an analogy between mechanical and electrical situations". Physics Education. 48 (2): 207–211. doi:10.1088/0031-9120/48/2/207. ISSN 0031-9120. S2CID 120330420.
+
+^ Atkin, Keith (2013-08-22). "Energy transfer and a recurring mathematical function". Physics Education. 48 (5): 616–620. doi:10.1088/0031-9120/48/5/616. ISSN 0031-9120. S2CID 122189586.
+
+^ Magnetics, Triad. "Understanding the Maximum Power Theorem". info.triadmagnetics.com. Retrieved 2022-06-08.
+
+^ "Basic Electronics Tutorials and Revision for Freshers to Advanced Learners".
+
+
+References[edit]
+H.W. Jackson (1959) Introduction to Electronic Circuits, Prentice-Hall.
+External links[edit]
+Conjugate matching versus reflectionless matching (PDF) taken from Electromagnetic Waves and Antennas
+The Spark Transmitter. 2. Maximising Power, part 1.
+
+
+

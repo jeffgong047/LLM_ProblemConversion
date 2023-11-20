@@ -1,0 +1,51 @@
+Closure of nondeterministic space under complementation
+In computational complexity theory, the Immerman–Szelepcsényi theorem states that nondeterministic space complexity classes are closed under complementation. It was proven independently by Neil Immerman and Róbert Szelepcsényi in 1987, for which they shared the 1995 Gödel Prize. In its general form the theorem states that NSPACE(s(n)) = co-NSPACE(s(n)) for any function s(n) ≥ log n. The result is equivalently stated as NL = co-NL; although this is the special case when s(n) = log n, it implies the general theorem by a standard padding argument.[1] The result solved the second LBA problem.
+In other words, if a nondeterministic machine can solve a problem, another machine with the same resource bounds can solve its complement problem (with the yes and no answers reversed) in the same asymptotic amount of space. No similar result is known for the time complexity classes, and indeed it is conjectured that NP is not equal to co-NP.
+The principle used to prove the theorem has become known as inductive counting. It has also been used to prove other theorems in computational complexity, including the closure of LOGCFL under complementation and the existence of error-free randomized logspace algorithms for USTCON.[2]
+
+
+Proof sketch[edit]
+The theorem can be proven by showing how to translate any nondeterministic Turing machine M into another nondeterministic Turing machine that solves the complementary decision problem under the same (asymptotic) space complexity, plus a constant number of pointers and counters, which needs only a logarithmic amount of space.
+The idea is to simulate all the configurations of M on input w, and to check if any configuration is accepting. This can be done within the same space plus a constant number of pointers and counters to keep track of the configurations. If no configuration is accepting, the simulating Turing machine accepts the input w. This idea is elaborated below for logarithmic NSPACE class (NL), which generalizes to larger NSPACE classes via a padding argument.
+The configuration of M consists of the state, the position of the head on the tape, and the logarithmically-sized contents of the tape. A configuration can be thought of as the vertex of a directed graph, and the transitions of M can be thought of as edges in this graph. M accepts an input string whenever there exists a path in this graph from the vertex s, which represents the starting configuration, to a special vertex t that represents any accepting configuration. Checking whether an input w is accepted by M then reduces to st-connectivity problem for the implicit graph represented by the input Turing machine M. Likewise, if we wish to compute the complement of L(M) (the language recognized by M), we accept only when there does not exist a path from s to t in the input graph.
+An algorithm that solves this non-reachability problem can be based on the principle of counting, for each number i from 1 to n (the order of the implicit graph), the number r of vertices reachable from s by paths of length at most i. If, at any stage of the algorithm, the correct value of r is known for some value of i, then it is possible to test whether a given vertex v is reachable from s by paths of length at most i + 1,
+using the following subroutine:
+
+If v = s, return true
+Initialize a counter c to 0
+For each vertex u in the implicit graph, repeat the following steps:
+Nondeterministically search for a path of length at most i from s to u
+If a path to u is found, increment c and test whether there exists an edge from u to v
+If c ≠ r, halt the algorithm and reject the input. Otherwise, return true if an edge from u to v was found, and false otherwise.
+When used within a larger nondeterministic algorithm, the only accepting computations of the algorithm can be ones in which the subroutine finds paths to all the reachable vertices and
+computes the correct answer, so this subroutine can be used as if it were deterministic. With it in hand, the algorithm for testing non-reachability of t from s can be expressed by the following steps. (As above, r is the number of vertices reachable from s by paths of length at most i.)
+
+Initialize i to 0 and r to 1
+Repeat the following steps n − 2 times:
+Initialize a counter d to 0
+For each vertex v test whether v is reachable from s within i + 1 steps, and if so increment d
+Increment i and set r to d
+Test whether t is reachable from s within i + 1 steps, and reject the input if it is; otherwise, accept the input.
+The algorithm only needs to maintain representations of a constant number of counters and vertices in its memory, so it uses logarithmic space. By applying this algorithm to the implicit graph constructed from a given nondeterministic machine M, one obtains a nondeterministic machine for the complementary language to the one accepted by M.
+
+Logspace hierarchy[edit]
+As a corollary, in the same article, Immerman proved that, using descriptive complexity's equality between NL and FO(Transitive Closure), the logarithmic hierarchy, i.e. the languages decided by an alternating Turing machine in logarithmic space with a bounded number of alternation, is the same class as NL.
+
+See also[edit]
+Savitch's theorem – Relation between deterministic and nondeterministic space complexity
+Notes[edit]
+
+
+^ The standard reference for padding in space complexity (which predates this theorem) is Savitch, Walter J. (1970), "Relationships between nondeterministic and deterministic tape complexities", Journal of Computer and System Sciences, 4 (2): 177–192, doi:10.1016/s0022-0000(70)80006-x, hdl:10338.dmlcz/120475, MR 0266702. For a stronger padding argument that applies even to sublogarithmic space complexity classes, see Szepietowski, Andrzej (1994), Turing machines with sublogarithmic space, Lecture Notes in Computer Science, vol. 843, Springer-Verlag, Berlin, doi:10.1007/3-540-58355-6, ISBN 3-540-58355-6, MR 1314820, S2CID 44312772.
+
+^ Borodin, Allan; Cook, Stephen A.; Dymond, Patrick W.; Ruzzo, Walter L.; Tompa, Martin (1989), "Two applications of inductive counting for complementation problems", SIAM Journal on Computing, 18 (3): 559–578, CiteSeerX 10.1.1.394.1662, doi:10.1137/0218038.
+
+
+References[edit]
+Immerman, Neil (1988), "Nondeterministic space is closed under complementation" (PDF), SIAM Journal on Computing, 17 (5): 935–938, doi:10.1137/0217058, MR 0961049
+Szelepcsényi, Róbert (1987), "The method of forcing for nondeterministic automata", Bulletin of the EATCS, 33: 96–100
+External links[edit]
+Lance Fortnow, Foundations of Complexity, Lesson 19: The Immerman–Szelepcsenyi Theorem. Accessed 09/09/09.
+
+
+

@@ -1,0 +1,72 @@
+For the quantum physics theorem, see Bloch's theorem.
+In complex analysis, a branch of mathematics, Bloch's theorem describes the behaviour of holomorphic functions defined on the unit disk. It gives a lower bound on the size of a disk in which an inverse to a holomorphic function exists. It is named after André Bloch.
+
+
+Statement[edit]
+Let f be a holomorphic function in the unit disk |z| ≤ 1 for which
+
+|f′(0)|=1|f'(0)|=1
+Bloch's Theorem states that there is a disk S ⊂ D on which f is biholomorphic and f(S) contains a disk with radius 1/72.
+
+Landau's theorem[edit]
+If f is a holomorphic function in the unit disk with the property |f′(0)| = 1, then let Lf be the radius of the largest disk contained in the image of f.
+Landau's theorem states that there is a constant L defined as the infimum of Lf over all such functions f, and that L is greater than Bloch's constant L ≥ B.
+This theorem is named after Edmund Landau.
+
+Valiron's theorem[edit]
+Bloch's theorem was inspired by the following theorem of Georges Valiron:
+Theorem. If f is a non-constant entire function then there exist disks D of arbitrarily large radius and analytic functions φ in D such that f(φ(z)) = z for z in D.
+Bloch's theorem corresponds to Valiron's theorem via the so-called Bloch's Principle.
+
+Proof[edit]
+Landau's theorem[edit]
+We first prove the case when f(0) = 0, f′(0) = 1, and |f′(z)| ≤ 2 in the unit disk. 
+By Cauchy's integral formula, we have a bound
+
+|f″(z)|=|12πi∮γf′(w)(w−z)2dw|≤12π⋅2πrsupw=γ(t)|f′(w)||w−z|2≤2r,|f”(z)|=|1/2∮_γf'(w)/(w-z)^2 dw|≤1/2π·2sup_w=γ(t)|f'(w)|/|w-z|^2≤2/r,
+where γ is the counterclockwise circle of radius r around z, and 0 < r < 1 − |z|.
+By Taylor's theorem, for each z in the unit disk, there exists 0 ≤ t ≤ 1 such that f(z) = z + z2f″(tz) / 2. 
+Thus, if |z| = 1/3 and |w| < 1/6, we have
+
+|(f(z)−w)−(z−w)|=12|z|2|f″(tz)|≤|z|21−t|z|≤|z|21−|z|=16<|z|−|w|≤|z−w|.|(f(z)-w)-(z-w)|=1/2|z|^2|f”(tz)|≤|z|^2/1-t|z|≤|z|^2/1-|z|=1/6<|z|-|w|≤|z-w|.
+By Rouché's theorem, the range of f contains the disk of radius 1/6 around 0.
+Let D(z0, r) denote the open disk of radius r around z0. For an analytic function g : D(z0, r) → C such that g(z0) ≠ 0, the case above applied to (g(z0 + rz) − g(z0)) / (rg′(0)) implies that the range of g contains D(g(z0), |g′(0)|r / 6).  
+For the general case, let f be an analytic function in the unit disk such that |f′(0)| = 1, and z0 = 0. 
+
+If |f′(z)| ≤ 2|f′(z0)| for |z − z0| < 1/4, then by the first case, the range of f contains a disk of radius |f′(z0)| / 24 = 1/24.
+Otherwise, there exists z1 such that |z1 − z0| < 1/4 and |f′(z1)| > 2|f′(z0)|.
+If |f′(z)| ≤ 2|f′(z1)| for |z − z1| < 1/8, then by the first case, the range of f contains a disk of radius |f′(z1)| / 48 > |f′(z0)| / 24 = 1/24.
+Otherwise, there exists z2 such that |z2 − z1| < 1/8 and |f′(z2)| > 2|f′(z1)|.
+Repeating this argument, we either find a disk of radius at least 1/24 in the range of f, proving the theorem, or find an infinite sequence (zn) such that |zn − zn−1| < 1/2n+1 and |f′(zn)| > 2|f′(zn−1)|.
+In the latter case the sequence is in D(0, 1/2), so f′ is unbounded in D(0, 1/2), a contradiction. 
+
+Bloch's Theorem[edit]
+In the proof of Landau's Theorem above, Rouché's theorem implies that not only can we find a disk D of radius at least 1/24 in the range of f, but there is also a small disk D0 inside the unit disk such that for every w ∈ D there is a unique z ∈ D0 with f(z) = w. Thus, f is a bijective analytic function from D0 ∩ f−1(D) to D, so its inverse φ is also analytic by the inverse function theorem.
+
+Bloch's and Landau's constants[edit]
+The number B is called the Bloch's constant.  The lower bound 1/72 in Bloch's theorem is not the best possible. Bloch's theorem tells us B ≥ 1/72, but the exact value of B is still unknown. 
+The best known bounds for B at present are
+
+0.4332≈34+2×10−4≤B≤3−12⋅Γ(13)Γ(1112)Γ(14)≈0.47186,0.4332≈√(3)/4+2×10^-4≤√(√(3)-1/2)·Γ(1/3)Γ(11/12)/Γ(1/4)≈0.47186,
+where Γ is the Gamma function.  The lower bound was proved by Chen and Gauthier, and the upper bound dates back to Ahlfors and Grunsky.
+The similarly defined optimal constant L in Landau's theorem is called the Landau's constant. Its exact value is also unknown, but it is known that
+
+0.5<L≤Γ(13)Γ(56)Γ(16)=0.543258965342...0.5<L≤Γ(1/3)Γ(5/6)/Γ(1/6)=0.543258965342...  (sequence A081760 in the OEIS)
+In their paper, Ahlfors and Grunsky conjectured that their upper bounds are actually the true values of B and L.
+For injective holomorphic functions on the unit disk, a constant A can similarly be defined. It is known that
+
+0.5<A≤0.78530.5<A≤0.7853
+See also[edit]
+Table of selected mathematical constants
+References[edit]
+Ahlfors, Lars Valerian; Grunsky, Helmut (1937). "Über die Blochsche Konstante". Mathematische Zeitschrift. 42 (1): 671–673. doi:10.1007/BF01160101. S2CID 122925005.
+Baernstein, Albert II; Vinson, Jade P. (1998). "Local minimality results related to the Bloch and Landau constants". Quasiconformal mappings and analysis. Ann Arbor: Springer, New York. pp. 55–89.
+Bloch, André (1925). "Les théorèmes de M.Valiron sur les fonctions entières et la théorie de l'uniformisation" (PDF). Annales de la Faculté des Sciences de Toulouse. 17 (3): 1–22. doi:10.5802/afst.335. ISSN 0240-2963.
+Chen, Huaihui; Gauthier, Paul M. (1996). "On Bloch's constant". Journal d'Analyse Mathématique. 69 (1): 275–291. doi:10.1007/BF02787110. S2CID 123739239.
+Landau, Edmund (1929), "Über die Blochsche Konstante und zwei verwandte Weltkonstanten", Mathematische Zeitschrift, 30 (1): 608–634, doi:10.1007/BF01187791, S2CID 120877278
+External links[edit]
+Weisstein, Eric W. "Bloch Constant". MathWorld.
+Weisstein, Eric W. "Landau Constant". MathWorld.
+
+
+

@@ -1,0 +1,463 @@
+A theorem stating that pointwise boundedness implies uniform boundedness
+For the definition of uniformly bounded functions, see Uniform boundedness. For the conjectures in number theory and algebraic geometry, see Uniform boundedness conjecture (disambiguation).
+In mathematics, the uniform boundedness principle or Banach–Steinhaus theorem is one of the fundamental results in functional analysis. 
+Together with the Hahn–Banach theorem and the open mapping theorem, it is considered one of the cornerstones of the field. 
+In its basic form, it asserts that for a family of continuous linear operators (and thus bounded operators) whose domain is a Banach space, pointwise boundedness is equivalent to uniform boundedness in operator norm.
+The theorem was first published in 1927 by Stefan Banach and Hugo Steinhaus, but it was also proven independently by Hans Hahn.
+
+
+Theorem[edit]
+
+Uniform Boundedness Principle — Let X be a Banach space, Y a normed vector space and B(X,Y)(X,Y) the space of all continuous linear operators from X into Y. Suppose that F is a collection of continuous linear operators from X to Y.. If
+supT∈F‖T(x)‖Y<∞forallx∈X,sup_TT(x)_Y<∞  forallx,
+then
+sup‖x‖≤1T∈F,‖T(x)‖Y=supT∈F‖T‖B(X,Y)<∞.sup_T,x≤1T(x)_Y=sup_TT_B(X,Y)<∞.
+In the case that X is not the trivial vector space, then the semi-inequality used in the supremum of the first term in this last chain of equalities (which has x range over the closed unit ball) may be replaced by a proper equality (which has x range over the closed unit sphere).
+
+
+The completeness of X enables the following short proof, using the Baire category theorem.
+
+Proof
+Let X be a Banach space. 
+Suppose that for every x∈X,,
+supT∈F‖T(x)‖Y<∞.sup_TT(x)_Y<∞.
+For every integer n∈N,∈ℕ, let
+Xn=x∈X:supT∈F‖T(x)‖Y≤n._n={x 
+sup_TT(x)_Y}.
+Each set Xn_n is a closed set and by the assumption,
+⋃n∈NXn=X≠∅.⋃_n∈ℕX_n=X≠∅.
+By the Baire category theorem for the non-empty complete metric space X,, there exists some m∈N∈ℕ such that 
+Xm_m has non-empty interior; that is, there exist x0∈Xm_0_m and ε>0ε>0 such that
+Bε(x0)¯:=x∈X:‖x−x0‖≤ε⊆Xm.B_ε(x_0) := {x : x-x_0≤ε} ⊆ X_m.
+Let u∈X with ‖u‖≤1u≤1 and T∈F..
+Then:
+‖T(u)‖Y=ε−1‖T(x0+εu)−T(x0)‖Y[bylinearityofT]≤ε−1(‖T(x0+εu)‖Y+‖T(x0)‖Y)≤ε−1(m+m).[sincex0+εu,x0∈Xm]T(u)_Y   =ε^-1T(x_0+)-T(x_0)_Y   [bylinearityofT]
+   ≤ε^-1(T(x_0+)_Y+T(x_0)_Y)
+   ≤ε^-1(m+m).   [since_0+,_0_m]
+
+Taking the supremum over u in the unit ball of X and over T∈F it follows that
+supT∈F‖T‖B(X,Y)≤2ε−1m<∞.sup_TT_B(X,Y) ≤ 2ε^-1m < ∞.
+
+
+There are also simple proofs not using the Baire theorem (Sokal 2011).
+
+Corollaries[edit]
+
+Corollary — If a sequence of bounded operators (Tn)(T_n) converges pointwise, that is, the limit of (Tn(x))(T_n(x)) exists for all x∈X,, then these pointwise limits define a bounded linear operator T..
+
+
+The above corollary does not claim that Tn_n converges to T in operator norm, that is, uniformly on bounded sets.  However, since Tn{T_n} is bounded in operator norm, and the limit operator T is continuous, a standard "3ε3ε" estimate shows that Tn_n converges to T uniformly on compact sets. 
+
+Proof
+Essentially the same as that of the proof that a pointwise convergent sequence of uniformly continuous functions on a compact set converges to a continuous function.
+By uniform boundedness principle, let M=maxsupn‖Tn‖,T=max{sup_nT_n,T} be a uniform upper bound on the operator norms. 
+Fix any compact K⊂X. Then for any ϵ>0ϵ>0, finitely cover (use compactness) K by a finite set of open balls B(xi,r)i=1,...,N{B(x_i,r)}_i=1,...,N of radius r=ϵM=ϵ/M
+Since Tn→T_n pointwise on each of x1,...,xN_1,...,x_N, for all large n, ‖Tn(xi)−T(xi)‖≤ϵT_n(x_i)-T(x_i)≤ϵ for all i=1,...,N=1,...,N.
+Then by triangle inequality, we find for all large n, ∀x∈K,‖Tn(x)−T(x)‖≤3ϵ,T_n(x)-T(x)≤3ϵ.
+
+
+
+Corollary — Any weakly bounded subset S⊆Y in a normed space Y is bounded.
+
+
+Indeed, the elements of S define a pointwise bounded family of continuous linear forms on the Banach space X:=Y′,:=Y', which is the continuous dual space of Y.. 
+By the uniform boundedness principle, the norms of elements of S,, as functionals on X,, that is, norms in the second dual Y″,”, are bounded. 
+But for every s∈S,, the norm in the second dual coincides with the norm in Y,, by a consequence of the Hahn–Banach theorem.
+Let L(X,Y)(X,Y) denote the continuous operators from X to Y,, endowed with the operator norm. 
+If the collection F is unbounded in L(X,Y),(X,Y), then the uniform boundedness principle implies:
+R=x∈X:supT∈F‖Tx‖Y=∞≠∅.={x 
+sup_TTx_Y=∞}≠∅.
+In fact, R is dense in X.. The complement of R in X is the countable union of closed sets ⋃Xn._n.
+By the argument used in proving the theorem, each Xn_n is nowhere dense, i.e. the subset ⋃Xn_n is of first category. 
+Therefore R is the complement of a subset of first category in a  Baire space. By definition of a Baire space, such sets (called comeagre or residual sets) are dense. 
+Such reasoning leads to the principle of condensation of singularities, which can be formulated as follows:
+
+
+Theorem — Let X be a Banach space, (Yn)(Y_n) a sequence of normed vector spaces, and for every n,, let Fn_n an unbounded family in L(X,Yn).(X,Y_n). Then the set
+R:=x∈X:foralln∈N,supT∈Fn‖Tx‖Yn=∞:={x {foralln∈ℕ,sup_T_nTx_Y_n=∞}
+is a residual set, and thus dense in X..
+
+
+Proof
+The complement of R is the countable union
+⋃n,mx∈X:supT∈Fn‖Tx‖Yn≤m⋃_n,m{x 
+sup_T_nTx_Y_n}
+of sets of first category. Therefore, its residual set R is dense.
+
+
+Example: pointwise convergence of Fourier series[edit]
+Let T𝕋 be the circle, and let C(T)(𝕋) be the Banach space of continuous functions on T,𝕋, with the uniform norm. Using the uniform boundedness principle, one can show that there exists an element in C(T)(𝕋) for which the Fourier series does not converge pointwise.
+For f∈C(T),(𝕋), its Fourier series is defined by
+∑k∈Zf^(k)eikx=∑k∈Z12π(∫02πf(t)e−iktdt)eikx,∑_k∈ℤf̂(k)e^ikx=∑_k∈ℤ1/2π(∫_0^2πf(t)e^-iktdt)e^ikx,
+and the N-th symmetric partial sum is
+SN(f)(x)=∑k=−NNf^(k)eikx=12π∫02πf(t)DN(x−t)dt,_N(f)(x)=∑_k=-N^Nf̂(k)e^ikx=1/2π∫_0^2πf(t)D_N(x-t) dt,
+where DN_N is the N-th Dirichlet kernel. Fix x∈T∈𝕋 and consider the convergence of SN(f)(x).{S_N(f)(x)}. 
+The functional φN,x:C(T)→Cφ_N,x:C(𝕋)→ℂ defined by
+φN,x(f)=SN(f)(x),f∈C(T),φ_N,x(f)=S_N(f)(x),(𝕋),
+is bounded. 
+The norm of φN,x,φ_N,x, in the dual of C(T),(𝕋), is the norm of the signed measure (2(2π)−1DN(x−t)dt,(2(2π)^-1D_N(x-t)dt, namely
+‖φN,x‖=12π∫02π|DN(x−t)|dt=12π∫02π|DN(s)|ds=‖DN‖L1(T).φ_N,x=1/2π∫_0^2π|D_N(x-t)| dt=1/2π∫_0^2π|D_N(s)| ds=D_N_L^1(𝕋).
+It can be verified that
+12π∫02π|DN(t)|dt≥12π∫02π|sin⁡((N+12)t)|t/2dt→∞.1/2π∫_0^2π|D_N(t)| dt≥1/2π∫_0^2π|sin((N+12)t)|/t/2 dt→∞.
+So the collection (φN,x)(φ_N,x) is unbounded in C(T)∗,(𝕋)^∗, the dual of C(T).(𝕋). 
+Therefore, by the uniform boundedness principle, for any x∈T,∈𝕋, the set of continuous functions whose Fourier series diverges at x is dense in C(T).(𝕋).
+More can be concluded by applying the principle of condensation of singularities. 
+Let (xm)(x_m) be a dense sequence in T.𝕋. 
+Define φN,xmφ_N,x_m in the similar way as above. The principle of condensation of singularities then says that the set of continuous functions whose Fourier series diverges at each xm_m  is dense in C(T)(𝕋) (however, the Fourier series of a continuous function f converges to f(x)(x) for almost every x∈T,∈𝕋, by Carleson's theorem).
+
+Generalizations[edit]
+In a topological vector space (TVS) X,, "bounded subset" refers specifically to the notion of a von Neumann bounded subset. If X happens to also be a normed or seminormed space, say with (semi)norm ‖⋅‖,·, then a subset B is (von Neumann) bounded if and only if it is norm bounded, which by definition means supb∈B‖b‖<∞.sup_bb<∞.
+
+Barrelled spaces[edit]
+Main article: Barrelled space
+Attempts to find classes of locally convex topological vector spaces on which the uniform boundedness principle holds eventually led to barrelled spaces. 
+That is, the least restrictive setting for the uniform boundedness principle is a barrelled space, where the following generalized version of the theorem holds (Bourbaki 1987, Theorem III.2.1):
+
+
+Theorem — Given a barrelled space X and a locally convex space Y,, then any family of pointwise bounded continuous linear mappings from X to Y is equicontinuous (and even uniformly equicontinuous).
+Alternatively, the statement also holds whenever X is a Baire space and Y is a locally convex space.[1]
+
+
+Uniform boundedness in topological vector spaces[edit]
+Main article: Uniformly bounded sets (topological vector space)
+A family Bℬ of subsets of a topological vector space Y is said to be uniformly bounded in Y,, if there exists some bounded subset D of Y such that 
+B⊆DforeveryB∈B,  foreveryB∈ℬ,
+which happens if and only if 
+⋃B∈BB⋃_B∈ℬB 
+is a bounded subset of Y; 
+if Y is a normed space then this happens if and only if there exists some real M≥0≥0 such that supB∈Bb∈B‖b‖≤M.sup_bB∈ℬb. 
+In particular, if H is a family of maps from X to Y and if C⊆X then the family h(C):h∈H{h(C):h} is uniformly bounded in Y if and only if there exists some bounded subset D of Y such that h(C)⊆Dforallh∈H,(C)forallh, which happens if and only if H(C):=⋃h∈Hh(C)(C):=⋃_hh(C) is a bounded subset of Y..
+
+
+Proposition[2] — Let H⊆L(X,Y)(X,Y) be a set of continuous linear operators between two topological vector spaces X and Y and let C⊆X be any bounded subset of X.. 
+Then the family of sets h(C):h∈H{h(C):h} is uniformly bounded in Y if any of the following conditions are satisfied:
+
+H is equicontinuous.
+C is a convex compact Hausdorff subspace of X and for every c∈C,, the orbit H(c):=h(c):h∈H(c):={h(c):h} is a bounded subset of Y..
+
+Generalizations involving nonmeager subsets[edit]
+Although the notion of a nonmeager set is used in the following version of the uniform bounded principle, the domain X is not assumed to be a Baire space.
+
+
+Theorem[2] — Let H⊆L(X,Y)(X,Y) be a set of continuous linear operators between two  topological vector spaces X and Y (not necessarily Hausdorff or locally convex). 
+For every x∈X,, denote the orbit of x by 
+H(x):=h(x):h∈H(x):={h(x):h} 
+and let B denote the set of all x∈X whose orbit H(x)(x) is a bounded subset of Y.. 
+If B is of the second category (that is, nonmeager) in X then B=X=X and H is equicontinuous.
+
+
+Every proper vector subspace of a TVS X has an empty interior in X..[3] So in particular, every proper vector subspace that is closed is nowhere dense in X and thus of the first category (meager) in X (and the same is thus also true of all its subsets). 
+Consequently, any vector subspace of a TVS X that is of the second category (nonmeager) in X must be a dense subset of X (since otherwise its closure in X would a closed proper vector subspace of X and thus of the first category).[3]
+
+Proof[2]
+Proof that H is equicontinuous:
+Let W,V⊆Y,V be balanced neighborhoods of the origin in Y satisfying V¯+V¯⊆W.V+V. It must be shown that there exists a neighborhood N⊆X of the origin in X such that h(N)⊆W(N) for every h∈H.. 
+Let 
+C:=⋂h∈Hh−1(V¯), := ⋂_hh^-1(V),
+which is a closed subset of X (because it is an intersection of closed subsets) that for every h∈H,, also satisfies h(C)⊆V¯(C)⊆V and 
+h(C−C)=h(C)−h(C)⊆V¯−V¯=V¯+V¯⊆W(C-C) = h(C)-h(C) ⊆ V-V = V+V ⊆ W 
+(as will be shown, the set C−C-C is in fact a neighborhood of the origin in X because the topological interior of C in X is not empty). 
+If b∈B then H(b)(b) being bounded in Y implies that there exists some integer n∈N∈ℕ such that H(b)⊆nV(b) so if h∈H,, then b∈h−1(nV)=nh−1(V). ∈ h^-1(nV) = nh^-1(V). 
+Since h∈H was arbitrary, 
+b∈⋂h∈Hnh−1(V)=n⋂h∈Hh−1(V)⊆nC. ∈ ⋂_hnh^-1(V) = n⋂_hh^-1(V) ⊆ nC. 
+This proves that
+B⊆⋃n∈NnC. ⊆ ⋃_n∈ℕnC.
+Because B is of the second category in X,, the same must be true of at least one of the sets nC for some n∈N.∈ℕ. 
+The map X→X defined by x↦1nx↦1/nx is a (surjective) homeomorphism, so the set 1n(nC)=C1/n(nC)=C is necessarily of the second category in X.. 
+Because C is closed and of the second category in X,, its topological interior in X is not empty. 
+Pick c∈IntX⁡C.∈Int_XC. 
+Because the map X→X defined by x↦c−x-x is a homeomorphism, the set 
+N:=c−IntX⁡C=IntX⁡(c−C) := c-Int_XC = Int_X(c-C) 
+is a neighborhood of 0=c−c0=c-c in X,, which implies that the same is true of its superset C−C.-C. 
+And so for every h∈H,,
+h(N)⊆h(c−C)=h(c)−h(C)⊆V¯−V¯⊆W.(N) ⊆ h(c-C) = h(c)-h(C) ⊆ V-V ⊆ W. 
+This proves that H is equicontinuous. 
+Q.E.D.
+
+
+Proof that B=X=X:
+Because H is equicontinuous, if S⊆X is bounded in X then H(S)(S) is uniformly bounded in Y.. 
+In particular, for any x∈X,, because S:=x:={x} is a bounded subset of X,, H(x)=H(x)({x})=H(x) is a uniformly bounded subset of Y.. Thus B=X.=X. 
+Q.E.D.
+
+
+Sequences of continuous linear maps[edit]
+The following theorem establishes conditions for the pointwise limit of a sequence of continuous linear maps to be itself continuous. 
+
+
+Theorem[4] — Suppose that h1,h2,…_1,h_2,… is a sequence of continuous linear maps between two topological vector spaces X and Y..
+
+If the set C of all x∈X for which h1(x),h2(x),…_1(x),h_2(x),… is a Cauchy sequence in Y is of the second category in X,, then C=X.=X.
+If the set L of all x∈X at which the limit h(x):=limn→∞hn(x)(x):=lim_n→∞h_n(x) exists in Y is of the second category in X and if Y is a complete metrizable topological vector space (such as a Fréchet space or an F-space), then L=X=X and h:X→Y:X is a continuous linear map.
+
+
+Theorem[3] — If h1,h2,…_1,h_2,… is a sequence of continuous linear maps from an F-space X into a Hausdorff topological vector space Y such that for every x∈X,, the limit
+h(x):=limn→∞hn(x)(x) := lim_n→∞h_n(x) 
+exists in Y,, then h:X→Y:X is a continuous linear map and the maps h,h1,h2,…,h_1,h_2,… are equicontinuous.
+
+
+If in addition the domain is a Banach space and the codomain is a normed space then ‖h‖≤liminfn→∞‖hn‖<∞.h≤lim inf_n→∞h_n<∞.
+
+Complete metrizable domain[edit]
+Dieudonné (1970) proves a weaker form of this theorem with Fréchet spaces rather than the usual Banach spaces.
+
+
+Theorem[2] — Let H⊆L(X,Y)(X,Y) be a set of continuous linear operators from a complete metrizable topological vector space X (such as a Fréchet space or an F-space) into a Hausdorff topological vector space Y.. 
+If for every x∈X,, the orbit
+H(x):=h(x):h∈H(x):={h(x):h}
+is a bounded subset of Y then H is equicontinuous.
+So in particular, if Y is also a normed space and if
+suph∈H‖h(x)‖<∞foreveryx∈X,sup_hh(x)<∞  foreveryx, 
+then H is equicontinuous.
+
+
+See also[edit]
+Barrelled space – Type of topological vector space
+Ursescu theorem – Generalization of closed graph, open mapping, and uniform boundedness theorem
+Notes[edit]
+
+
+
+
+Citations[edit]
+
+
+^ Shtern 2001.
+
+^ a b c d Rudin 1991, pp. 42−47.
+
+^ a b c Rudin 1991, p. 46.
+
+^ Rudin 1991, pp. 45−46.
+
+
+Bibliography[edit]
+Banach, Stefan; Steinhaus, Hugo (1927), "Sur le principe de la condensation de singularités" (PDF), Fundamenta Mathematicae, 9: 50–61, doi:10.4064/fm-9-1-50-61. (in French)
+Banach, Stefan (1932). Théorie des Opérations Linéaires [Theory of Linear Operations] (PDF). Monografie Matematyczne (in French). Vol. 1. Warszawa: Subwencji Funduszu Kultury Narodowej. Zbl 0005.20901. Archived from the original (PDF) on 2014-01-11. Retrieved 2020-07-11.
+Bourbaki, Nicolas (1987) [1981]. Topological Vector Spaces: Chapters 1–5. Éléments de mathématique. Translated by Eggleston, H.G.; Madan, S. Berlin New York: Springer-Verlag. ISBN 3-540-13627-4. OCLC 17499190.
+Dieudonné, Jean (1970), Treatise on analysis, Volume 2, Academic Press.
+Husain, Taqdir; Khaleelulla, S. M. (1978). Barrelledness in Topological and Ordered Vector Spaces. Lecture Notes in Mathematics. Vol. 692. Berlin, New York, Heidelberg: Springer-Verlag. ISBN 978-3-540-09096-0. OCLC 4493665.
+Khaleelulla, S. M. (1982). Counterexamples in Topological Vector Spaces. Lecture Notes in Mathematics. Vol. 936. Berlin, Heidelberg, New York: Springer-Verlag. ISBN 978-3-540-11565-6. OCLC 8588370.
+Narici, Lawrence; Beckenstein, Edward (2011). Topological Vector Spaces. Pure and applied mathematics (Second ed.). Boca Raton, FL: CRC Press. ISBN 978-1584888666. OCLC 144216834.
+Rudin, Walter (1966), Real and complex analysis, McGraw-Hill.
+Rudin, Walter (1991). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 8 (Second ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 978-0-07-054236-5. OCLC 21163277.
+Schaefer, Helmut H.; Wolff, Manfred P. (1999). Topological Vector Spaces. GTM. Vol. 8 (Second ed.). New York, NY: Springer New York Imprint Springer. ISBN 978-1-4612-7155-0. OCLC 840278135.
+Schechter, Eric (1996). Handbook of Analysis and Its Foundations. San Diego, CA: Academic Press. ISBN 978-0-12-622760-4. OCLC 175294365.
+Shtern, A.I. (2001) [1994], "Uniform boundedness principle", Encyclopedia of Mathematics, EMS Press.
+Sokal, Alan (2011), "A really simple elementary proof of the uniform boundedness theorem", Amer. Math. Monthly, 118 (5): 450–452, arXiv:1005.1585, doi:10.4169/amer.math.monthly.118.05.450, S2CID 41853641.
+Trèves, François (2006) [1967]. Topological Vector Spaces, Distributions and Kernels. Mineola, N.Y.: Dover Publications. ISBN 978-0-486-45352-1. OCLC 853623322.
+Wilansky, Albert (2013). Modern Methods in Topological Vector Spaces. Mineola, New York: Dover Publications, Inc. ISBN 978-0-486-49353-4. OCLC 849801114.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteTopological vector spaces (TVSs)Basic concepts
+Banach space
+Completeness
+Continuous linear operator
+Linear functional
+Fréchet space
+Linear map
+Locally convex space
+Metrizability
+Operator topologies
+Topological vector space
+Vector space
+Main results
+Anderson–Kadec
+Banach–Alaoglu
+Closed graph theorem
+F. Riesz's
+Hahn–Banach (hyperplane separation
+Vector-valued Hahn–Banach)
+Open mapping (Banach–Schauder)
+Bounded inverse
+Uniform boundedness (Banach–Steinhaus)
+Maps
+Bilinear operator
+form
+Linear map
+Almost open
+Bounded
+Continuous
+Closed
+Compact
+Densely defined
+Discontinuous
+Topological homomorphism
+Functional
+Linear
+Bilinear
+Sesquilinear
+Norm
+Seminorm
+Sublinear function
+Transpose
+Types of sets
+Absolutely convex/disk
+Absorbing/Radial
+Affine
+Balanced/Circled
+Banach disks
+Bounding points
+Bounded
+Complemented subspace
+Convex
+Convex cone (subset)
+Linear cone (subset)
+Extreme point
+Pre-compact/Totally bounded
+Prevalent/Shy
+Radial
+Radially convex/Star-shaped
+Symmetric
+Set operations
+Affine hull
+(Relative) Algebraic interior (core)
+Convex hull
+Linear span
+Minkowski addition
+Polar
+(Quasi) Relative interior
+Types of TVSs
+Asplund
+B-complete/Ptak
+Banach
+(Countably) Barrelled
+BK-space
+(Ultra-) Bornological
+Brauner
+Complete
+Convenient
+(DF)-space
+Distinguished
+F-space
+FK-AK space
+FK-space
+Fréchet
+tame Fréchet
+Grothendieck
+Hilbert
+Infrabarreled
+Interpolation space
+K-space
+LB-space
+LF-space
+Locally convex space
+Mackey
+(Pseudo)Metrizable
+Montel
+Quasibarrelled
+Quasi-complete
+Quasinormed
+(Polynomially
+Semi-) Reflexive
+Riesz
+Schwartz
+Semi-complete
+Smith
+Stereotype
+(B
+Strictly
+Uniformly) convex
+(Quasi-) Ultrabarrelled
+Uniformly smooth
+Webbed
+With the approximation property
+
+ Mathematics portal
+ Category
+Commons
+
+vteBoundedness and bornologyBasic concepts
+Barrelled space
+Bounded set
+Bornological space
+(Vector) Bornology
+Operators
+(Un)Bounded operator
+Uniform boundedness principle
+Subsets
+Barrelled set
+Bornivorous set
+Saturated family
+Related spaces
+(Countably) Barrelled space
+(Countably) Quasi-barrelled space
+Infrabarrelled space
+(Quasi-) Ultrabarrelled space
+Ultrabornological space
+
+
+
+

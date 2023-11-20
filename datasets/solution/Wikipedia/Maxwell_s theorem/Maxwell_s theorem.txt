@@ -1,0 +1,43 @@
+Concept in probability theorySee Maxwell's theorem (geometry) for the result on triangles.
+In probability theory, Maxwell's theorem (known also as Herschel-Maxwell's theorem and Herschel-Maxwell's derivation) states that if the probability distribution of a random vector in Rnℝ^n is unchanged by rotations, and if the components are independent, then the components are identically distributed and normally distributed.
+
+
+Equivalent statements[edit]
+If the probability distribution of a vector-valued random variable X = ( X1, ..., Xn )T is the same as the distribution of GX for every n×n orthogonal matrix G and the components are independent, then the components X1, ..., Xn are normally distributed with expected value 0 and all have the same variance.  This theorem is one of many characterizations of the normal distribution.
+The only rotationally invariant probability distributions on Rn that have independent components are multivariate normal distributions with expected value 0 and variance σ2In, (where In = the n×n identity matrix), for some positive number σ2.
+
+History[edit]
+James Clerk Maxwell proved the theorem in Proposition IV of his 1860 paper.[1]
+Ten years earlier, John Herschel also proved the theorem.[2]
+The logical and historical details of the theorem may be found in.[3]
+
+Proof[edit]
+We only need to prove the theorem for the 2-dimensional case, since we can then generalize it to n-dimensions by applying the theorem sequentially to each pair of coordinates.
+Since rotating by 90 degrees preserves the joint distribution, both X1,X2_1,X_2 has the same probability measure. Let it be μμ. If μμ is a Dirac delta distribution at zero, then it's a gaussian distribution, just degenerate. Now assume that it is not.
+By Lebesgue's decomposition theorem, we decompose it to a sum of regular measure and an atomic measure: μ=μr+μsμ=μ_r+μ_s. We need to show that μs=0μ_s=0, with a proof by contradiction.
+Suppose μsμ_s contains an atomic part, then there exists some x∈R∈ℝ such that μs(x)>0μ_s({x})>0. By independence of X1,X2_1,X_2, the conditional variable X2|X1=x_2|{X_1=x} is distributed the same way as X2_2. Suppose x=0=0, then since we assumed μμ is not concentrated at zero, Pr(X2≠0)>0(X_2≠0)>0, and so the double ray (x1,x2):x1=0,x2≠0{(x_1,x_2):x_1=0,x_2≠0} has nonzero probability. Now by rotational symmetry of μ×μμ×μ, any rotation of the double ray also has the same nonzero probability, and since any two rotations are disjoint, their union has infinite probability, contradiction.
+(As far as we can find, there is no literature about the case where μsμ_s is singularly continuous, so we will let that case go.)
+So now let μμ have probability density function ρρ, and the problem reduces to solving the functional equation
+ρ(x)ρ(y)=ρ(xcos⁡θ+ysin⁡θ)ρ(xsin⁡θ−ycos⁡θ)ρ(x)ρ(y)=ρ(xcosθ+ysinθ)ρ(xsinθ-ycosθ)
+
+References[edit]
+
+
+^ See:
+
+Maxwell, J.C. (1860) "Illustrations of the dynamical theory of gases. Part I. On the motions and collisions of perfectly elastic spheres," Philosophical Magazine, 4th series, 19 : 19–32.
+Maxwell, J.C. (1860) "Illustrations of the dynamical theory of gases. Part II. On the process of diffusion of two or more kinds of moving particles among one another," Philosophical Magazine, 4th series, 20 : 21–37.
+
+^ Herschel, J. F. W. (1850). Quetelet on probabilities. Edinburgh Rev., 92 , 1–57.
+
+^ Gyenis, Balázs (February 2017). "Maxwell and the normal distribution: A colored story of probability, independence, and tendency toward equilibrium". Studies in History and Philosophy of Science Part B: Studies in History and Philosophy of Modern Physics. 57: 53–65. arXiv:1702.01411. Bibcode:2017SHPMP..57...53G. doi:10.1016/j.shpsb.2017.01.001. ISSN 1355-2198. S2CID 38272381.
+
+
+Sources[edit]
+Feller, William (1966). An Introduction to Probability Theory and its Applications. Vol. II (1st ed.). Wiley. p. 187.
+Maxwell, James Clerk (1860). "Illustrations of the dynamical theory of gases". Philosophical Magazine. 4th Series. 19: 390–393.
+External Links[edit]
+Maxwell's theorem in a video by 3blue1brown
+
+
+

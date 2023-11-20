@@ -1,0 +1,255 @@
+In mathematics and in theoretical physics, the Stone–von Neumann theorem refers to any one of a number of different formulations of the uniqueness of the canonical commutation relations between position and momentum operators. It is named after Marshall Stone and John von Neumann.[1][2][3][4]
+
+
+Representation issues of the commutation relations[edit]
+In quantum mechanics, physical observables are represented mathematically by linear operators on Hilbert spaces.
+For a single particle moving on the real line Rℝ, there are two important observables: position and momentum.  In the  Schrödinger representation quantum description of such a particle, the position operator x and momentum operator p are respectively given by
+[xψ](x0)=x0ψ(x0)[pψ](x0)=−iℏ∂ψ∂x(x0)[][xψ](x_0)   =x_0ψ(x_0)
+[pψ](x_0)   =-iħ∂ψ/(x_0)
+on the domain V of infinitely differentiable functions of compact support on Rℝ.  Assume ℏħ to be a fixed non-zero real number—in quantum theory ℏħ is the reduced Planck's constant, which carries units of action (energy times time).
+The operators x, p satisfy the canonical commutation relation Lie algebra,
+[x,p]=xp−px=iℏ.[x,p]=xp-px=iħ.
+Already in his classic book,[5] Hermann Weyl observed that this commutation law was impossible to satisfy for linear operators p, x acting on finite-dimensional spaces unless ℏ vanishes. This is apparent from taking the trace over both sides of the latter equation and using the relation Trace(AB) = Trace(BA); the left-hand side is zero, the right-hand side is non-zero. Further analysis shows that any two self-adjoint operators satisfying the above commutation relation cannot be both bounded (in fact, a theorem of  Wielandt shows the relation cannot be satisfied by elements of any normed algebra[note 1]). For notational convenience, the nonvanishing square root of ℏ may be absorbed into the normalization of p and x, so that, effectively, it is replaced by 1. We assume this normalization in what follows.
+The idea of the Stone–von Neumann theorem is that any two irreducible representations of the canonical commutation relations are unitarily equivalent. Since, however, the operators involved are necessarily unbounded (as noted above), there are tricky domain issues that allow for counter-examples.[6]: Example 14.5  To obtain a rigorous result, one must require that the operators satisfy the exponentiated form of the canonical commutation relations, known as the Weyl relations. The exponentiated operators are bounded and unitary.  Although, as noted below, these relations are formally equivalent to the standard canonical commutation relations, this equivalence is not rigorous, because (again) of the unbounded nature of the operators. (There is also a discrete analog of the Weyl relations, which can hold in a finite-dimensional space,[6]: Chapter 14, Exercise 5  namely Sylvester's clock and shift matrices in the finite Heisenberg group, discussed below.)
+
+Uniqueness of representation[edit]
+One would like to classify representations of the canonical commutation relation by two self-adjoint operators acting on separable Hilbert spaces, up to unitary equivalence. By Stone's theorem, there is a one-to-one correspondence between self-adjoint operators and (strongly continuous) one-parameter unitary groups.
+Let Q and P be two self-adjoint operators satisfying the canonical commutation relation, [Q, P] = i, and s and t two real parameters. Introduce eitQ and eisP, the corresponding unitary groups given by functional calculus. (For the explicit operators x and p defined above, these are multiplication by eitx and pullback by translation x → x + s.)   A formal computation[6]: Section 14.2  (using a special case of the Baker–Campbell–Hausdorff formula) readily yields
+eitQeisP=e−isteisPeitQ.^itQe^isP=e^-iste^isPe^itQ.
+Conversely, given two one-parameter unitary groups U(t) and V(s) satisfying the braiding relation
+
+
+U(t)V(s)=e−istV(s)U(t)∀s,t,(t)V(s)=e^-istV(s)U(t)    ,t,   (E1)
+
+
+formally differentiating at 0 shows that the two infinitesimal generators satisfy the above canonical commutation relation. This braiding formulation of the canonical commutation relations (CCR) for one-parameter unitary groups is called the Weyl form of the CCR.
+It is important to note that the preceding derivation is purely formal. Since the operators involved are unbounded, technical issues prevent application of the Baker–Campbell–Hausdorff formula without additional domain assumptions. Indeed, there exist operators satisfying the canonical commutation relation but not the Weyl relations (E1).[6]: Example 14.5  Nevertheless, in "good" cases, we expect that operators satisfying the canonical commutation relation will also satisfy the Weyl relations.
+The problem thus becomes classifying two jointly irreducible one-parameter unitary groups U(t) and V(s) which satisfy the Weyl relation on separable Hilbert spaces. The answer is the content of the Stone–von Neumann theorem: all such pairs of one-parameter unitary groups are unitarily equivalent.[6]: Theorem 14.8  In other words, for any two such U(t) and V(s) acting jointly irreducibly on a Hilbert space H, there is a unitary operator W : L2(R) → H so that
+W∗U(t)W=eitxandW∗V(s)W=eisp,^*U(t)W=e^itx  and^*V(s)W=e^isp,
+where p and x are the explicit position and momentum operators from earlier. When W is U in this equation, so, then, in the x-representation,  it is evident that P is unitarily equivalent to e−itQ P eitQ = P + t, and the spectrum of P must range along the entire real line. The analog argument holds for Q.
+There is also a straightforward extension of the Stone–von Neumann theorem to n degrees of freedom.[6]: Theorem 14.8 
+Historically, this result was significant, because it was a key step in proving that Heisenberg's matrix mechanics, which presents quantum mechanical observables and dynamics in terms of infinite matrices, is unitarily equivalent to Schrödinger's wave mechanical formulation (see Schrödinger picture),
+[U(t)ψ](x)=eitxψ(x),[V(s)ψ](x)=ψ(x+s).[U(t)ψ](x)=e^itxψ(x),    [V(s)ψ](x)=ψ(x+s).
+
+See also: Generalizations of Pauli matrices § Construction: The clock and shift matrices
+Representation theory formulation[edit]
+In terms of representation theory, the Stone–von Neumann theorem classifies certain unitary representations of the Heisenberg group. This is discussed in more detail in the Heisenberg group section, below.
+Informally stated, with certain technical assumptions, every representation of the Heisenberg group H2n + 1 is equivalent to the position operators and momentum operators on Rn. Alternatively, that they are all equivalent to the Weyl algebra (or CCR algebra) on a symplectic space of dimension 2n.
+More formally, there is a unique (up to scale) non-trivial central strongly continuous unitary representation.
+This was later generalized by Mackey theory – and was the motivation for the introduction of the Heisenberg group in quantum physics.
+In detail:
+
+The continuous Heisenberg group is a central extension of the abelian Lie group R2n by a copy of R,
+the corresponding Heisenberg algebra is a central extension of the abelian Lie algebra R2n (with trivial bracket) by a copy of R,
+the discrete Heisenberg group is a central extension of the free abelian group Z2n by a copy of Z, and
+the discrete Heisenberg group modulo p is a central extension of the free abelian p-group (Z/pZ)2n by a copy of Z/pZ.
+In all cases, if one has a representation H2n + 1 → A, where A is an algebra[clarification needed] and the center maps to zero, then one simply has a representation of the corresponding abelian group or algebra, which is Fourier theory.[clarification needed]
+If the center does not map to zero, one has a more interesting theory, particularly if one restricts oneself to central representations.
+Concretely, by a central representation one means a representation such that the center of the Heisenberg group maps into the center of the algebra: for example, if one is studying matrix representations or representations by operators on a Hilbert space, then the center of the matrix algebra or the operator algebra is the scalar matrices. Thus the representation of the center of the Heisenberg group is determined by a scale value, called the quantization value (in physics terms, Planck's constant), and if this goes to zero, one gets a representation of the abelian group (in physics terms, this is the classical limit).
+More formally, the group algebra of the Heisenberg group over its field of scalars K, written K[H], has center K[R], so rather than simply thinking of the group algebra as an algebra over the field K, one may think of it as an algebra over the commutative algebra K[R]. As the center of a matrix algebra or operator algebra is the scalar matrices, a K[R]-structure on the matrix algebra is a choice of scalar matrix – a choice of scale. Given such a choice of scale, a central representation of the Heisenberg group is a map of K[R]-algebras K[H] → A, which is the formal way of saying that it sends the center to a chosen scale.
+Then the Stone–von Neumann theorem is that, given the standard quantum mechanical scale (effectively, the value of ħ), every strongly continuous unitary representation is unitarily equivalent to the standard representation with position and momentum.
+
+Reformulation via Fourier transform[edit]
+Let G be a locally compact abelian group and G^ be the Pontryagin dual of G. The Fourier–Plancherel transform defined by
+f↦f^(γ)=∫Gγ(t)¯f(t)dμ(t)↦f̂(γ)=∫_Gγ(t)f(t)dμ(t)
+extends to a C*-isomorphism from the group C*-algebra C*(G) of G and C0(G^), i.e. the spectrum of C*(G) is precisely G^. When G is the real line R, this is Stone's theorem characterizing one-parameter unitary groups. The theorem of Stone–von Neumann can also be restated using similar language.
+The group G acts on the C*-algebra C0(G) by right translation ρ: for s in G and f in C0(G),
+(s⋅f)(t)=f(t+s).(s)(t)=f(t+s).
+Under the isomorphism given above, this action becomes the natural action of G on C*(G^):
+(s⋅f)^(γ)=γ(s)f^(γ).(s)(γ)=γ(s)f̂(γ).
+So a covariant representation corresponding to the C*-crossed product
+C∗(G^)⋊ρ^G^*(Ĝ)⋊_ρ̂G
+is a unitary representation U(s) of G and V(γ) of G^ such that
+U(s)V(γ)U∗(s)=γ(s)V(γ).(s)V(γ)U^*(s)=γ(s)V(γ).
+It is a general fact that covariant representations are in one-to-one correspondence with *-representation of the corresponding crossed product. On the other hand, all irreducible representations of
+C0(G)⋊ρG_0(G)⋊_ρG
+are unitarily equivalent to the K(L2(G))𝒦(L^2(G)), the compact operators on L2(G)). Therefore, all pairs {U(s), V(γ)}  are unitarily equivalent. Specializing to the case where G = R yields the Stone–von Neumann theorem.
+
+The Heisenberg group[edit]
+The above canonical commutation relations for P, Q are identical to the commutation relations that specify the Lie algebra of the general Heisenberg group H2n+1 for n a positive integer. This is the Lie group of (n + 2) × (n + 2) square matrices of the form
+M(a,b,c)=[1ac01nb001].M(a,b,c)=[   1   a   c;   0 1_n   b;   0   0   1 ].
+In fact, using the Heisenberg group, one can reformulate the Stone von Neumann theorem in the language of representation theory. 
+Note that the center of H2n+1 consists of matrices M(0, 0, c). However, this center is not the identity operator in Heisenberg's original CCRs. The Heisenberg group Lie algebra generators, e.g. for n = 1, are
+P=[010000000],Q=[000001000],z=[001000000],P   =[ 0 1 0; 0 0 0; 0 0 0 ],   Q   =[ 0 0 0; 0 0 1; 0 0 0 ],   z   =[ 0 0 1; 0 0 0; 0 0 0 ],
+and the central generator z = log M(0, 0, 1) = exp(z) − 1 is not the identity.
+
+
+Theorem —  For each non-zero real number h there is an irreducible representation Uh acting on the Hilbert space L2(Rn) by
+[Uh(M(a,b,c))]ψ(x)=ei(b⋅x+hc)ψ(x+ha).[U_h(M(a,b,c))]ψ(x)=e^i(b+hc)ψ(x+ha).
+
+
+All these representations are unitarily inequivalent; and any irreducible representation which is not trivial on the center of Hn is unitarily equivalent to exactly one of these.
+Note that Uh is a unitary operator because it is the composition of two operators which are easily seen to be unitary: the translation to the left by ha and multiplication by a function of absolute value 1.  To show Uh is multiplicative is a straightforward calculation.  The hard part of the theorem is showing the uniqueness; this claim, nevertheless, follows easily from the Stone–von Neumann theorem as stated above.  We will sketch below a proof of the corresponding Stone–von Neumann theorem for certain finite Heisenberg groups.
+In particular, irreducible representations π, π′ of the Heisenberg group Hn which are non-trivial on the center of Hn are unitarily equivalent if and only if π(z) = π′(z) for any z in the center of Hn.
+One representation of the Heisenberg group which is important in number theory and the theory of modular forms is the theta representation, so named because the Jacobi theta function is invariant under the action of the discrete subgroup of the Heisenberg group.
+
+Relation to the Fourier transform[edit]
+For any non-zero h, the mapping
+αh:M(a,b,c)→M(−h−1b,ha,c−a⋅b)α_h:M(a,b,c)→M(-h^-1b,ha,c-a)
+is an automorphism of Hn which is the identity on the center of Hn.  In particular, the representations Uh and Uhα are unitarily equivalent.  This means that there is a unitary operator W on L2(Rn) such that, for any g in Hn,
+WUh(g)W∗=Uhα(g)._h(g)W^*=U_hα(g).
+Moreover, by irreducibility of the representations Uh, it follows that up to a scalar, such an operator W is unique (cf. Schur's lemma).  Since W is unitary, this scalar multiple is uniquely determined and hence such an operator W is unique.
+
+
+Theorem —  The operator W is the Fourier transform on L2(Rn).
+
+
+This means that, ignoring the factor of (2π)n/2 in the definition of the Fourier transform,
+∫Rne−ix⋅pei(b⋅x+hc)ψ(x+ha)dx=ei(ha⋅p+h(c−b⋅a))∫Rne−iy⋅(p−b)ψ(y)dy.∫_𝐑^ne^-ixe^i(b+hc)ψ(x+ha)=e^i(ha+h(c-b))∫_𝐑^ne^-iy·(p-b)ψ(y).
+This  theorem has the immediate implication that the Fourier transform is unitary, also known as the Plancherel theorem.  Moreover,  
+(αh)2M(a,b,c)=M(−a,−b,c).(α_h)^2M(a,b,c)=M(-a,-b,c).
+
+
+Theorem —  The operator W1 such that
+W1UhW1∗=Uhα2(g)_1U_hW_1^*=U_hα^2(g)
+is the reflection operator
+[W1ψ](x)=ψ(−x).[W_1ψ](x)=ψ(-x).
+
+
+From this fact the Fourier inversion formula easily follows.
+
+Example: The Segal–Bargmann space[edit]
+The Segal–Bargmann space is the space of holomorphic functions on Cn that are square-integrable with respect to a Gaussian measure. Fock observed in 1920s that the operators
+aj=∂∂zj,aj∗=zj,_j=∂/_j,_j^*=z_j,
+acting on holomorphic functions, satisfy the same commutation relations as the usual annihilation and creation operators, namely,
+[aj,ak∗]=δj,k.[a_j,a_k^*]=δ_j,k.
+In 1961, Bargmann showed that a∗j is actually the adjoint of aj with respect to the inner product coming from the Gaussian measure. By taking appropriate linear combinations of aj and a∗j, one can then obtain "position" and "momentum" operators satisfying the canonical commutation relations. It is not hard to show that the exponentials of these operators satisfy the Weyl relations and that the exponentiated operators act irreducibly.[6]: Section 14.4  The Stone–von Neumann theorem therefore applies and implies the existence of a unitary map from L2(Rn) to the Segal–Bargmann space that intertwines the usual annihilation and creation operators with the operators aj and a∗j. This unitary map is the Segal–Bargmann transform.
+
+Representations of finite Heisenberg groups[edit]
+The Heisenberg group Hn(K) is defined for any commutative ring K.  In this section let us specialize to the field K = Z/pZ for p a prime.  This field has the property that there is an embedding ω of K as an additive group into the circle group T.  Note that Hn(K) is finite with cardinality |K|2n + 1.  For finite Heisenberg group Hn(K) one can give a simple proof of the Stone–von Neumann theorem using simple properties of character functions of representations.  These properties follow from the orthogonality relations for characters of representations of finite groups.
+For any non-zero h in K define the representation Uh on the finite-dimensional inner product space ℓ2(Kn) by
+[UhM(a,b,c)ψ](x)=ω(b⋅x+hc)ψ(x+ha).[U_hM(a,b,c)ψ](x)=ω(b+hc)ψ(x+ha).
+
+
+Theorem —  For a fixed non-zero h, the character function χ of Uh is given by:
+χ(M(a,b,c))=|K|nω(hc)ifa=b=00otherwiseχ(M(a,b,c))=|K|^n ω(hc)   ifa=b=0
+0   otherwise
+
+
+It follows that
+1|Hn(K)|∑g∈Hn(K)|χ(g)|2=1|K|2n+1|K|2n|K|=1.1/|H_n(𝐊)|∑_g_n(K)|χ(g)|^2=1/|K|^2n+1|K|^2n|K|=1.
+By the orthogonality relations for characters of representations of finite groups this fact implies the corresponding Stone–von Neumann theorem for Heisenberg groups Hn(Z/pZ), particularly:
+
+Irreducibility of Uh
+Pairwise inequivalence of all the representations Uh.
+Actually, all irreducible representations of Hn(K) on which the center acts nontrivially arise in this way.[6]: Chapter 14, Exercise 5 
+
+Generalizations[edit]
+The Stone–von Neumann theorem admits numerous generalizations.  Much of the early work of George Mackey was directed at obtaining a formulation[7] of the theory of induced representations developed originally by Frobenius for finite groups to the context of unitary representations of locally compact topological groups.
+
+See also[edit]
+
+Oscillator representation
+Wigner–Weyl transform
+CCR and CAR algebras (for bosons and fermions respectively)
+Segal–Bargmann space
+Moyal product
+Weyl algebra
+Stone's theorem on one-parameter unitary groups
+Hille–Yosida theorem
+C0-semigroup
+
+Notes[edit]
+
+
+^ [xn, p] = i ℏ nxn − 1, hence 2‖p‖ ‖x‖n ≥ n ℏ ‖x‖n − 1, so that, ∀n: 2‖p‖ ‖x‖ ≥ n ℏ.
+
+
+References[edit]
+
+
+^ von Neumann, J. (1931), "Die Eindeutigkeit der Schrödingerschen Operatoren", Mathematische Annalen, Springer Berlin / Heidelberg, 104: 570–578, doi:10.1007/BF01457956, ISSN 0025-5831, S2CID 120528257
+
+^ von Neumann, J. (1932), "Ueber Einen Satz Von Herrn M. H. Stone", Annals of Mathematics, Second Series (in German), Annals of Mathematics, 33 (3): 567–573, doi:10.2307/1968535, ISSN 0003-486X, JSTOR 1968535
+
+^ Stone, M. H. (1930), "Linear Transformations in Hilbert Space. III. Operational Methods and Group Theory", Proceedings of the National Academy of Sciences of the United States of America, National Academy of Sciences, 16 (2): 172–175, Bibcode:1930PNAS...16..172S, doi:10.1073/pnas.16.2.172, ISSN 0027-8424, JSTOR 85485, PMC 1075964, PMID 16587545
+
+^ Stone, M. H. (1932), "On one-parameter unitary groups in Hilbert Space", Annals of Mathematics, 33 (3): 643–648, doi:10.2307/1968538, JSTOR 1968538
+
+^ Weyl, H. (1927), "Quantenmechanik und Gruppentheorie", Zeitschrift für Physik, 46 (1927) pp. 1–46, doi:10.1007/BF02055756; Weyl, H., The Theory of Groups and Quantum Mechanics,  Dover Publications, 1950, ISBN 978-1-163-18343-4.
+
+^ a b c d e f g h Hall, B.C. (2013), Quantum Theory for Mathematicians, Graduate Texts in Mathematics, vol. 267, Springer, ISBN 978-1461471158
+
+^ Mackey, G. W.  (1976). The Theory of Unitary Group Representations, The University of Chicago Press, 1976.
+
+
+Kirillov, A. A. (1976), Elements of the theory of representations, Grundlehren der Mathematischen Wissenschaften, vol. 220, Berlin, New York: Springer-Verlag, ISBN 978-0-387-07476-4, MR 0407202
+Rosenberg,  Jonathan  (2004) "A Selective History of the Stone–von Neumann Theorem"   Contemporary Mathematics 365.  American Mathematical Society.
+Summers, Stephen J. (2001). "On the Stone–von Neumann Uniqueness Theorem and Its Ramifications." In John von Neumann and the foundations of quantum physics, pp. 135-152. Springer, Dordrecht, 2001, online.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

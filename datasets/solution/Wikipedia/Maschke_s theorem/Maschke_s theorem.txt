@@ -1,0 +1,105 @@
+Concerns the decomposition of representations of a finite group into irreducible pieces
+In mathematics, Maschke's theorem,[1][2] named after Heinrich Maschke,[3] is a theorem in group representation theory that concerns the decomposition of representations of a finite group into irreducible pieces. Maschke's theorem allows one to make general conclusions about representations of a finite group G without actually computing them. It reduces the task of classifying all representations to a more manageable task of classifying irreducible representations, since when the theorem applies, any representation is a direct sum of irreducible pieces (constituents). Moreover, it follows from the Jordan–Hölder theorem that, while the decomposition into a direct sum of irreducible subrepresentations may not be unique, the irreducible pieces have well-defined multiplicities. In particular, a representation of a finite group over a field of characteristic zero is determined up to isomorphism by its character.
+
+
+Formulations[edit]
+Maschke's theorem addresses the question: when is a general (finite-dimensional) representation built from irreducible subrepresentations using the direct sum operation? This question (and its answer) are formulated differently for different perspectives on group representation theory.
+
+Group-theoretic[edit]
+Maschke's theorem is commonly formulated as a corollary to the following result:
+
+
+Theorem — V is a representation of a finite group G over a field F𝔽 with characteristic not dividing the order of G. If V has a subrepresentation W, then it has another subrepresentation U such that V=W⊕U=W.[4][5]
+
+
+Then the corollary is
+
+
+Corollary (Maschke's theorem) — Every representation of a finite group G over a field F𝔽 with characteristic not dividing the order of G is a direct sum of irreducible representations.[6][7]
+
+
+The vector space of complex-valued class functions of a group G has a natural G-invariant inner product structure, described in the article Schur orthogonality relations. Maschke's theorem was originally proved for the case of representations over Cℂ by constructing U as the orthogonal complement of W under this inner product.
+
+Module-theoretic[edit]
+One of the approaches to representations of finite groups is through module theory. Representations of a group G are replaced by modules over its group algebra K[G][G] (to be precise, there is an isomorphism of categories between K[G]-Mod[G]-Mod and RepGRep_G, the category of representations of G).  Irreducible representations correspond to simple modules. In the module-theoretic language, Maschke's theorem asks: is an arbitrary module semisimple? In this context, the theorem can be reformulated as follows:
+
+
+Maschke's Theorem — Let G be a finite group and K a field whose characteristic does not divide the order of G. Then K[G][G], the group algebra of G, is semisimple.[8][9]
+
+
+The importance of this result stems from the well developed theory of semisimple rings, in particular, their classification as given by the Wedderburn–Artin theorem. When K is the field of complex numbers, this shows that the algebra K[G][G] is a product of several copies of complex matrix algebras, one for each irreducible representation.[10] If the field K has characteristic zero, but is not algebraically closed, for example if K is the field of real or rational numbers, then a somewhat more complicated statement holds: the group algebra K[G][G] is a product of matrix algebras over division rings over K. The summands correspond to irreducible representations of G over K.[11]
+
+Category-theoretic[edit]
+Reformulated in the language of semi-simple categories, Maschke's theorem states
+
+
+Maschke's theorem — If G is a group and F is a field with characteristic not dividing the order of G, then the category of representations of G over F is semi-simple.
+
+
+Proofs[edit]
+Group-theoretic[edit]
+Let U be a subspace of V complement of W. Let p0:V→W_0:V be the projection function, i.e., p0(w+u)=w_0(w+u)=w for any u∈U,w∈W,w. 
+Define p(x)=1#G∑g∈Gg⋅p0⋅g−1(x)(x)=1/#G∑_gg_0^-1(x), where g⋅p0⋅g−1_0^-1 is an abbreviation of ρWg⋅p0⋅ρVg−1ρ_Wg_0·ρ_Vg^-1, with ρWg,ρVg−1ρ_Wg,ρ_Vg^-1 being the  representation of G on W and V.  Then, ker⁡p is preserved by G under representation ρVρ_V: for any w′∈ker⁡p,h∈G'∈,h, 
+p(hw′)=h⋅h−11#G∑g∈Gg⋅p0⋅g−1(hw′)=h⋅1#G∑g∈G(h−1⋅g)⋅p0⋅(g−1h)w′=h⋅1#G∑g∈Gg⋅p0⋅g−1w′=h⋅p(w′)=0p(hw')   =h^-11/#G∑_gg_0^-1(hw')
+   =h·1/#G∑_g(h^-1)_0·(g^-1h)w'
+   =h·1/#G∑_gg_0^-1w'
+   =h(w')
+   =0
+so w′∈ker⁡p'∈ implies that hw′∈ker⁡p'∈. So the restriction of ρVρ_V on ker⁡p is also a representation. 
+By the definition of p, for any w∈W, p(w)=w(w)=w, so W∩ker⁡p=0∩={0}, and for any v∈V, p(p(v))=p(v)(p(v))=p(v). Thus, p(v−p(v))=0(v-p(v))=0, and v−p(v)∈ker⁡p-p(v)∈. Therefore, V=W⊕ker⁡p=W⊕. 
+
+Module-theoretic[edit]
+Let V be a K[G]-submodule. We will prove that V is a direct summand. Let π be any K-linear projection of K[G] onto V. Consider the map 
+φ:K[G]→Vφ:x↦1#G∑s∈Gs⋅π(s−1⋅x)φ:K[G]
+φ:x↦1/#G∑_ss·π(s^-1)
+Then φ is again a projection: it is clearly K-linear, maps K[G] to V, and induces the identity on V (therefore, maps K[G] onto V). Moreover we have
+φ(t⋅x)=1#G∑s∈Gs⋅π(s−1⋅t⋅x)=1#G∑u∈Gt⋅u⋅π(u−1⋅x)=t⋅φ(x),φ(t)   =1/#G∑_ss·π(s^-1)
+   =1/#G∑_ut·π(u^-1)
+   =t·φ(x),
+so φ is in fact K[G]-linear. By the splitting lemma, K[G]=V⊕ker⁡φ[G]=V⊕φ. This proves that every submodule is a direct summand, that is, K[G] is semisimple.
+
+Converse statement[edit]
+The above proof depends on the fact that #G is invertible in K. This might lead one to ask if the converse of Maschke's theorem also holds: if the characteristic of K divides the order of G, does it follow that K[G] is not semisimple? The answer is yes.[12]
+Proof. For x=∑λgg∈K[G]=∑λ_gg[G] define ϵ(x)=∑λgϵ(x)=∑λ_g. Let I=ker⁡ϵ=ϵ. Then I is a K[G]-submodule. We will prove that for every nontrivial submodule V of K[G], I∩V≠0≠0. Let V be given, and let v=∑μgg=∑μ_gg be any nonzero element of V. If ϵ(v)=0ϵ(v)=0, the claim is immediate. Otherwise, let s=∑1g=∑1g. Then ϵ(s)=#G⋅1=0ϵ(s)=#G·1=0 so s∈I and 
+sv=(∑1g)(∑μgg)=∑ϵ(v)g=ϵ(v)s=(∑1g)(∑μ_gg)=∑ϵ(v)g=ϵ(v)s
+so that sv is a nonzero element of both I and V. This proves V is not a direct complement of I for all V, so K[G] is not semisimple.
+
+Non-examples[edit]
+The theorem can not apply to the case where G is infinite, or when the field K has characteristics dividing #G. For example, 
+
+Consider the infinite group Zℤ and the representation ρ:Z→GL2(C)ρ:ℤ→GL_2(ℂ) defined by ρ(n)=[1101]n=[1n01]ρ(n)=[ 1 1; 0 1 ]^n=[ 1 n; 0 1 ]. Let W=C⋅[10]=ℂ·[ 1; 0 ], a 1-dimensional subspace of C2ℂ^2 spanned by [10][ 1; 0 ]. Then the restriction of ρρ on W is a trivial subrepresentation of Zℤ. However, there's no U such that both W, U are subrepresentations of Zℤ and C2=W⊕Uℂ^2=W: any such U needs to be 1-dimensional, but any 1-dimensional subspace preserved by ρρ has to be spanned by an eigenvector for [1101][ 1 1; 0 1 ], and the only eigenvector for that is [10][ 1; 0 ].
+Consider a prime p, and the group Z/pZℤ/pℤ, field K=Fp=𝔽_p, and the representation ρ:Z/pZ→GL2(Fp)ρ:ℤ/pℤ→GL_2(𝔽_p) defined by ρ(n)=[1n01]ρ(n)=[ 1 n; 0 1 ]. Simple calculations show that there is only one eigenvector for [1101][ 1 1; 0 1 ] here, so by the same argument, the 1-dimensional subrepresentation of Z/pZℤ/pℤ is unique, and Z/pZℤ/pℤ cannot be decomposed into the direct sum of two 1-dimensional subrepresentations.
+Notes[edit]
+
+^ Maschke, Heinrich (1898-07-22). "Ueber den arithmetischen Charakter der Coefficienten der Substitutionen endlicher linearer Substitutionsgruppen" [On the arithmetical character of the coefficients of the substitutions of finite linear substitution groups]. Math. Ann. (in German). 50 (4): 492–498. doi:10.1007/BF01444297. JFM 29.0114.03. MR 1511011.
+
+^ Maschke, Heinrich (1899-07-27). "Beweis des Satzes, dass diejenigen endlichen linearen Substitutionsgruppen, in welchen einige durchgehends verschwindende Coefficienten auftreten, intransitiv sind" [Proof of the theorem that those finite linear substitution groups, in which some everywhere vanishing coefficients appear, are intransitive]. Math. Ann. (in German). 52 (2–3): 363–368. doi:10.1007/BF01476165. JFM 30.0131.01. MR 1511061.
+
+^ O'Connor, John J.; Robertson, Edmund F., "Heinrich Maschke", MacTutor History of Mathematics Archive, University of St Andrews
+
+^ Fulton & Harris 1991, Proposition 1.5.
+
+^ Serre 1977, Theorem 1.
+
+^ Fulton & Harris 1991, Corollary 1.6.
+
+^ Serre 1977, Theorem 2.
+
+^ It follows that every module over K[G][G] is a semisimple module.
+
+^ The converse statement also holds: if the characteristic of the field divides the order of the group (the modular case), then the group algebra is not semisimple.
+
+^ The number of the summands can be computed, and turns out to be equal to the number of the conjugacy classes of the group.
+
+^ One must be careful, since a representation may decompose differently over different fields: a representation may be irreducible over the real numbers but not over the complex numbers.
+
+^ Serre 1977, Exercise 6.1.
+
+
+References[edit]
+Lang, Serge (2002-01-08). Algebra. Graduate Texts in Mathematics, 211 (Revised 3rd ed.). New York: Springer-Verlag. ISBN 978-0-387-95385-4. MR 1878556. Zbl 0984.00001.
+Serre, Jean-Pierre (1977-09-01). Linear Representations of Finite Groups. Graduate Texts in Mathematics, 42. New York–Heidelberg: Springer-Verlag. ISBN 978-0-387-90190-9. MR 0450380. Zbl 0355.20006.
+Fulton, William; Harris, Joe (1991). Representation theory. A first course. Graduate Texts in Mathematics, Readings in Mathematics. Vol. 129. New York: Springer-Verlag. doi:10.1007/978-1-4612-0979-9. ISBN 978-0-387-97495-8. MR 1153249. OCLC 246650103.
+
+
+

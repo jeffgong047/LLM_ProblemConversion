@@ -1,0 +1,760 @@
+"Robin's theorem" redirects here. For Robbins' theorem in graph theory, see Robbins' theorem.
+Arithmetic function related to the divisors of an integer
+Divisor function σ0(n) up to n = 250
+Sigma function σ1(n) up to n = 250
+Sum of the squares of divisors, σ2(n), up to n = 250
+Sum of cubes of divisors, σ3(n) up to n = 250
+In mathematics, and specifically in number theory, a divisor function is an arithmetic function related to the divisors of an integer. When referred to as the divisor function, it counts the number of divisors of an integer (including 1 and the number itself). It appears in a number of remarkable identities, including relationships on the Riemann zeta function and the Eisenstein series of modular forms. Divisor functions were studied by Ramanujan, who gave a number of important congruences and identities; these are treated separately in the article Ramanujan's sum.
+A related function is the divisor summatory function, which, as the name implies, is a sum over the divisor function.
+
+
+Definition[edit]
+The sum of positive divisors function σz(n), for a real or complex number z, is defined as the sum of the zth powers of the positive divisors of n.  It can be expressed in sigma notation as
+
+σz(n)=∑d∣ndz,σ_z(n)=∑_dd^z ,
+where d∣nd is shorthand for "d divides n".
+The notations d(n), ν(n) and τ(n) (for the German Teiler = divisors) are also used to denote σ0(n), or the number-of-divisors function[1][2] (OEIS: A000005). When z is 1, the function is called the sigma function or sum-of-divisors function,[1][3] and the subscript is often omitted, so σ(n) is the same as σ1(n) (OEIS: A000203).
+The aliquot sum s(n) of n is the sum of the proper divisors (that is, the divisors excluding n itself, OEIS: A001065), and equals σ1(n) − n; the aliquot sequence of n is formed by repeatedly applying the aliquot sum function.
+
+Example[edit]
+For example, σ0(12) is the number of the divisors of 12:
+
+σ0(12)=10+20+30+40+60+120=1+1+1+1+1+1=6,σ_0(12)   =1^0+2^0+3^0+4^0+6^0+12^0
+   =1+1+1+1+1+1=6,
+while σ1(12) is the sum of all the divisors:
+
+σ1(12)=11+21+31+41+61+121=1+2+3+4+6+12=28,σ_1(12)   =1^1+2^1+3^1+4^1+6^1+12^1
+   =1+2+3+4+6+12=28,
+and the aliquot sum s(12) of proper divisors is:
+
+s(12)=11+21+31+41+61=1+2+3+4+6=16.s(12)   =1^1+2^1+3^1+4^1+6^1
+   =1+2+3+4+6=16.
+σ-1(n) is sometimes called the abundancy index of n, and we have:
+
+σ−1(12)=1−1+2−1+3−1+4−1+6−1+12−1=11+12+13+14+16+112=1212+612+412+312+212+112=12+6+4+3+2+112=2812=73=σ1(12)12σ_-1(12)   =1^-1+2^-1+3^-1+4^-1+6^-1+12^-1
+   =11+12+13+14+16+112
+   =1212+612+412+312+212+112
+   =12+6+4+3+2+112=2812=73=σ_1(12)12
+Table of values[edit]
+The cases x = 2 to 5 are listed in OEIS: A001157 through OEIS: A001160, x = 6 to 24 are listed in OEIS: A013954 through OEIS: A013972.
+
+
+
+n
+factorization
+𝜎0(n)
+𝜎1(n)
+𝜎2(n)
+𝜎3(n)
+𝜎4(n)
+
+
+1
+1
+1
+1
+1
+1
+1
+
+
+2
+2
+2
+3
+5
+9
+17
+
+
+3
+3
+2
+4
+10
+28
+82
+
+
+4
+22
+3
+7
+21
+73
+273
+
+
+5
+5
+2
+6
+26
+126
+626
+
+
+6
+2×3
+4
+12
+50
+252
+1394
+
+
+7
+7
+2
+8
+50
+344
+2402
+
+
+8
+23
+4
+15
+85
+585
+4369
+
+
+9
+32
+3
+13
+91
+757
+6643
+
+
+10
+2×5
+4
+18
+130
+1134
+10642
+
+
+11
+11
+2
+12
+122
+1332
+14642
+
+
+12
+22×3
+6
+28
+210
+2044
+22386
+
+
+13
+13
+2
+14
+170
+2198
+28562
+
+
+14
+2×7
+4
+24
+250
+3096
+40834
+
+
+15
+3×5
+4
+24
+260
+3528
+51332
+
+
+16
+24
+5
+31
+341
+4681
+69905
+
+
+17
+17
+2
+18
+290
+4914
+83522
+
+
+18
+2×32
+6
+39
+455
+6813
+112931
+
+
+19
+19
+2
+20
+362
+6860
+130322
+
+
+20
+22×5
+6
+42
+546
+9198
+170898
+
+
+21
+3×7
+4
+32
+500
+9632
+196964
+
+
+22
+2×11
+4
+36
+610
+11988
+248914
+
+
+23
+23
+2
+24
+530
+12168
+279842
+
+
+24
+23×3
+8
+60
+850
+16380
+358258
+
+
+25
+52
+3
+31
+651
+15751
+391251
+
+
+26
+2×13
+4
+42
+850
+19782
+485554
+
+
+27
+33
+4
+40
+820
+20440
+538084
+
+
+28
+22×7
+6
+56
+1050
+25112
+655746
+
+
+29
+29
+2
+30
+842
+24390
+707282
+
+
+30
+2×3×5
+8
+72
+1300
+31752
+872644
+
+
+31
+31
+2
+32
+962
+29792
+923522
+
+
+32
+25
+6
+63
+1365
+37449
+1118481
+
+
+33
+3×11
+4
+48
+1220
+37296
+1200644
+
+
+34
+2×17
+4
+54
+1450
+44226
+1419874
+
+
+35
+5×7
+4
+48
+1300
+43344
+1503652
+
+
+36
+22×32
+9
+91
+1911
+55261
+1813539
+
+
+37
+37
+2
+38
+1370
+50654
+1874162
+
+
+38
+2×19
+4
+60
+1810
+61740
+2215474
+
+
+39
+3×13
+4
+56
+1700
+61544
+2342084
+
+
+40
+23×5
+8
+90
+2210
+73710
+2734994
+
+
+41
+41
+2
+42
+1682
+68922
+2825762
+
+
+42
+2×3×7
+8
+96
+2500
+86688
+3348388
+
+
+43
+43
+2
+44
+1850
+79508
+3418802
+
+
+44
+22×11
+6
+84
+2562
+97236
+3997266
+
+
+45
+32×5
+6
+78
+2366
+95382
+4158518
+
+
+46
+2×23
+4
+72
+2650
+109512
+4757314
+
+
+47
+47
+2
+48
+2210
+103824
+4879682
+
+
+48
+24×3
+10
+124
+3410
+131068
+5732210
+
+
+49
+72
+3
+57
+2451
+117993
+5767203
+
+
+50
+2×52
+6
+93
+3255
+141759
+6651267
+
+
+Properties[edit]
+Formulas at prime powers[edit]
+For a prime number p,
+
+σ0(p)=2σ0(pn)=n+1σ1(p)=p+1σ_0(p)   =2
+σ_0(p^n)   =n+1
+σ_1(p)   =p+1
+because by definition, the factors of a prime number are 1 and itself. Also, where pn# denotes the primorial,
+
+σ0(pn#)=2nσ_0(p_n#)=2^n
+since n prime factors allow a sequence of binary selection (pi_i or 1) from n terms for each proper divisor formed. However, these are not in general the smallest numbers whose number of divisors is a power of two; instead, the smallest such number may be obtained by multiplying together the first n Fermi–Dirac primes, prime powers whose exponent is a power of two.[4]
+Clearly, 1<σ0(n)<n1<σ_0(n)<n for all n>2>2, and σx(n)>nσ_x(n)>n for all n>1>1, x>0>0 .
+The divisor function is multiplicative (since each divisor c of the product mn with gcd(m,n)=1(m,n)=1 distinctively correspond to a divisor a of m and a divisor b of n), but not completely multiplicative:
+
+gcd(a,b)=1⟹σx(ab)=σx(a)σx(b).(a,b)=1⟹σ_x(ab)=σ_x(a)σ_x(b).
+The consequence of this is that, if we write
+
+n=∏i=1rpiai=∏_i=1^rp_i^a_i
+where r = ω(n) is the number of distinct prime factors of n, pi is the ith prime factor, and ai is the maximum power of pi by which n is divisible, then we have: [5]
+
+σx(n)=∏i=1r∑j=0aipijx=∏i=1r(1+pix+pi2x+⋯+piaix).σ_x(n)=∏_i=1^r∑_j=0^a_ip_i^jx=∏_i=1^r(1+p_i^x+p_i^2x+⋯+p_i^a_ix).
+which, when x ≠ 0, is equivalent to the useful formula: [5]
+
+σx(n)=∏i=1rpi(ai+1)x−1pix−1.σ_x(n)=∏_i=1^rp_i^(a_i+1)x-1/p_i^x-1.
+When x = 0, σ0(n)σ_0(n) is: [5]
+
+σ0(n)=∏i=1r(ai+1).σ_0(n)=∏_i=1^r(a_i+1).
+This result can be directly deduced from the fact that all divisors of n are uniquely determined by the distinct tuples (x1,x2,...,xi,...,xr)(x_1,x_2,...,x_i,...,x_r) of integers with 0≤xi≤ai0_i_i (i.e. ai+1_i+1 independent choices for each xi_i).
+For example, if n is 24, there are two prime factors (p1 is 2; p2 is 3); noting that 24 is the product of 23×31, a1 is 3 and a2 is 1. Thus we can calculate σ0(24)σ_0(24) as so:
+
+σ0(24)=∏i=12(ai+1)=(3+1)(1+1)=4⋅2=8.σ_0(24)=∏_i=1^2(a_i+1)=(3+1)(1+1)=4·2=8.
+The eight divisors counted by this formula are 1, 2, 4, 8, 3, 6, 12, and 24.
+
+Other properties and identities[edit]
+Euler proved the remarkable recurrence:[6][7][8]
+
+σ(n)=σ(n−1)+σ(n−2)−σ(n−5)−σ(n−7)+σ(n−12)+σ(n−15)+⋯=∑i∈N(−1)i+1(σ(n−12(3i2−i))+σ(n−12(3i2+i))),σ(n)   =σ(n-1)+σ(n-2)-σ(n-5)-σ(n-7)+σ(n-12)+σ(n-15)+⋯
+   =∑_i∈ℕ(-1)^i+1(σ(n-1/2(3i^2-i))+σ(n-1/2(3i^2+i))),
+where σ(0)=nσ(0)=n if it occurs and σ(x)=0σ(x)=0 for x<0<0, and 12(3i2∓i)12(3i^2) are consecutive pairs of generalized pentagonal numbers (OEIS: A001318, starting at offset 1). Indeed, Euler proved this by logarithmic differentiation of the identity in his pentagonal number theorem.
+For a non-square integer, n, every divisor, d, of n is paired with divisor n/d of n and σ0(n)σ_0(n) is even; for a square integer, one divisor (namely n√(n)) is not paired with a distinct divisor and σ0(n)σ_0(n) is odd. Similarly, the number σ1(n)σ_1(n) is odd if and only if n is a square or twice a square.[9]
+We also note s(n) = σ(n) − n. Here s(n) denotes the sum of the proper divisors of n, that is, the divisors of n excluding n itself. This function is used to recognize perfect numbers, which are the n such that s(n) = n. If s(n) > n, then n is an abundant number, and if s(n) < n, then n is a deficient number.
+If n is a power of 2, n=2k=2^k, then σ(n)=2⋅2k−1=2n−1σ(n)=2·2^k-1=2n-1 and s(n)=n−1(n)=n-1, which makes n almost-perfect.
+As an example, for two primes p,q:p<q,q:p<q, let
+
+n=pq=p q.
+Then
+
+σ(n)=(p+1)(q+1)=n+1+(p+q),σ(n)=(p+1)(q+1)=n+1+(p+q),
+φ(n)=(p−1)(q−1)=n+1−(p+q),φ(n)=(p-1)(q-1)=n+1-(p+q),
+and
+
+n+1=(σ(n)+φ(n))/2,+1=(σ(n)+φ(n))/2,
+p+q=(σ(n)−φ(n))/2,+q=(σ(n)-φ(n))/2,
+where φ(n)φ(n) is Euler's totient function.
+Then, the roots of
+
+(x−p)(x−q)=x2−(p+q)x+n=x2−[(σ(n)−φ(n))/2]x+[(σ(n)+φ(n))/2−1]=0(x-p)(x-q)=x^2-(p+q)x+n=x^2-[(σ(n)-φ(n))/2]x+[(σ(n)+φ(n))/2-1]=0
+express p and q in terms of σ(n) and φ(n) only, requiring no knowledge of n or p+q+q, as
+
+p=(σ(n)−φ(n))/4−[(σ(n)−φ(n))/4]2−[(σ(n)+φ(n))/2−1],=(σ(n)-φ(n))/4-√([(σ(n)-φ(n))/4]^2-[(σ(n)+φ(n))/2-1]),
+q=(σ(n)−φ(n))/4+[(σ(n)−φ(n))/4]2−[(σ(n)+φ(n))/2−1].=(σ(n)-φ(n))/4+√([(σ(n)-φ(n))/4]^2-[(σ(n)+φ(n))/2-1]).
+Also, knowing n and either σ(n)σ(n) or φ(n)φ(n), or, alternatively, p+q+q and either σ(n)σ(n) or φ(n)φ(n) allows an easy recovery of p and q.
+In 1984, Roger Heath-Brown proved that the equality
+
+σ0(n)=σ0(n+1)σ_0(n)=σ_0(n+1)
+is true for infinitely many values of n, see OEIS: A005237.
+
+Series relations[edit]
+Two Dirichlet series involving the divisor function are: [10]
+
+∑n=1∞σa(n)ns=ζ(s)ζ(s−a)fors>1,s>a+1,∑_n=1^∞σ_a(n)/n^s=ζ(s)ζ(s-a)  for>1,s>a+1,
+where ζζ is the Riemann zeta function. The series for d(n) = σ0(n) gives: [10]
+
+∑n=1∞d(n)ns=ζ2(s)fors>1,∑_n=1^∞d(n)/n^s=ζ^2(s)  for>1,
+and a Ramanujan identity[11]
+
+∑n=1∞σa(n)σb(n)ns=ζ(s)ζ(s−a)ζ(s−b)ζ(s−a−b)ζ(2s−a−b),∑_n=1^∞σ_a(n)σ_b(n)/n^s=ζ(s)ζ(s-a)ζ(s-b)ζ(s-a-b)/ζ(2s-a-b),
+which is a special case of the Rankin–Selberg convolution.
+A Lambert series involving the divisor function is: [12]
+
+∑n=1∞qnσa(n)=∑n=1∞∑j=1∞naqjn=∑n=1∞naqn1−qn∑_n=1^∞q^nσ_a(n)=∑_n=1^∞∑_j=1^∞n^aq^j n=∑_n=1^∞n^aq^n/1-q^n
+for arbitrary complex |q| ≤ 1 and a.  This summation also appears as the Fourier series of the Eisenstein series and the invariants of the Weierstrass elliptic functions.
+For k>0>0, there is an explicit series representation with Ramanujan sums cm(n)_m(n) as :[13]
+
+σk(n)=ζ(k+1)nk∑m=1∞cm(n)mk+1.σ_k(n)=ζ(k+1)n^k∑_m=1^∞c_m(n)/m^k+1.
+The computation of the first terms of cm(n)_m(n) shows its oscillations around the "average value" ζ(k+1)nkζ(k+1)n^k:
+
+σk(n)=ζ(k+1)nk[1+(−1)n2k+1+2cos⁡2πn33k+1+2cos⁡πn24k+1+⋯]σ_k(n)=ζ(k+1)n^k[1+(-1)^n/2^k+1+2cos2/3/3^k+1+2cos/2/4^k+1+⋯]
+Growth rate[edit]
+In little-o notation, the divisor function satisfies the inequality:[14][15]
+
+forallε>0,d(n)=o(nε).ε>0,(n)=o(n^ε).
+More precisely, Severin Wigert showed that:[15]
+
+limsupn→∞log⁡d(n)log⁡n/log⁡log⁡n=log⁡2.lim sup_n→∞(n)//log=log2.
+On the other hand, since there are infinitely many prime numbers,[15]
+
+liminfn→∞d(n)=2.lim inf_n→∞d(n)=2.
+In Big-O notation, Peter Gustav Lejeune Dirichlet showed that the average order of the divisor function satisfies the following inequality:[16][17]
+
+forallx≥1,∑n≤xd(n)=xlog⁡x+(2γ−1)x+O(x),x≥1,∑_nd(n)=x+(2γ-1)x+O(√(x)),
+where γγ is Euler's gamma constant. Improving the bound O(x)(√(x)) in this formula is known as Dirichlet's divisor problem.
+
+The behaviour of the sigma function is irregular. The asymptotic growth rate of the sigma function can be expressed by: [18]
+
+limsupn→∞σ(n)nlog⁡log⁡n=eγ,lim sup_n→∞σ(n)/n log=e^γ,
+where lim sup is the limit superior.  This result is Grönwall's theorem, published in 1913 (Grönwall 1913). His proof uses Mertens' third theorem, which says that:
+
+limn→∞1log⁡n∏p≤npp−1=eγ,lim_n→∞1/∏_pp/p-1=e^γ,
+where p denotes a prime.
+In 1915, Ramanujan proved that under the assumption of the Riemann hypothesis, Robin's inequality
+
+σ(n)<eγnlog⁡log⁡n
+sigma(n)<e^γnlog (where γ is the Euler–Mascheroni constant)
+holds for all sufficiently large n (Ramanujan 1997).  The largest known value that violates the inequality is n=5040. In 1984, Guy Robin proved that the inequality is true for all n > 5040 if and only if the Riemann hypothesis is true (Robin 1984).  This is Robin's theorem and the inequality became known after him.  Robin furthermore showed that if the Riemann hypothesis is false then there are an infinite number of values of n that violate the inequality, and it is known that the smallest such n > 5040 must be superabundant (Akbary & Friggstad 2009). It has been shown that the inequality holds for large odd and square-free integers, and that the Riemann hypothesis is equivalent to the inequality just for n divisible by the fifth power of a prime (Choie et al. 2007).
+Robin also proved, unconditionally, that the inequality:
+
+σ(n)<eγnlog⁡log⁡n+0.6483nlog⁡log⁡n
+sigma(n)<e^γnlog+0.6483/log
+holds for all n ≥ 3.
+A related bound was given by Jeffrey Lagarias in 2002, who proved that the Riemann hypothesis is equivalent to the statement that:
+
+σ(n)<Hn+eHnlog⁡(Hn)σ(n)<H_n+e^H_nlog(H_n)
+for every natural number n > 1, where Hn_n is the nth harmonic number, (Lagarias 2002).
+
+See also[edit]
+Divisor sum convolutions, lists a few identities involving the divisor functions
+Euler's totient function, Euler's phi function
+Refactorable number
+Table of divisors
+Unitary divisor
+Notes[edit]
+
+
+^ a b Long (1972, p. 46)
+
+^ Pettofrezzo & Byrkit (1970, p. 63)
+
+^ Pettofrezzo & Byrkit (1970, p. 58)
+
+^ Ramanujan, S. (1915), "Highly Composite Numbers", Proceedings of the London Mathematical Society, s2-14 (1): 347–409, doi:10.1112/plms/s2_14.1.347; see section 47, pp. 405–406, reproduced in Collected Papers of Srinivasa Ramanujan, Cambridge Univ. Press, 2015, pp. 124–125
+
+^ a b c Hardy & Wright (2008), pp. 310 f, §16.7.
+
+^ Euler, Leonhard; Bell, Jordan (2004). "An observation on the sums of divisors". arXiv:math/0411587.
+
+^ https://scholarlycommons.pacific.edu/euler-works/175/, Découverte d'une loi tout extraordinaire des nombres par rapport à la somme de leurs diviseurs
+
+^ https://scholarlycommons.pacific.edu/euler-works/542/, De mirabilis proprietatibus numerorum pentagonalium
+
+^ Gioia & Vaidya (1967).
+
+^ a b Hardy & Wright (2008), pp. 326–328, §17.5.
+
+^ Hardy & Wright (2008), pp. 334–337, §17.8.
+
+^ Hardy & Wright (2008), pp. 338–341, §17.10.
+
+^ E. Krätzel (1981). Zahlentheorie. Berlin: VEB Deutscher Verlag der Wissenschaften. p. 130. (German)
+
+^ Apostol (1976), p. 296.
+
+^ a b c Hardy & Wright (2008), pp. 342–347, §18.1.
+
+^ Apostol (1976), Theorem 3.3.
+
+^ Hardy & Wright (2008), pp. 347–350, §18.2.
+
+^ Hardy & Wright (2008), pp. 469–471, §22.9.
+
+
+References[edit]
+Akbary, Amir; Friggstad, Zachary (2009), "Superabundant numbers and the Riemann hypothesis" (PDF), American Mathematical Monthly, 116 (3): 273–275, doi:10.4169/193009709X470128, archived from the original (PDF) on 2014-04-11.
+Apostol, Tom M. (1976), Introduction to analytic number theory, Undergraduate Texts in Mathematics, New York-Heidelberg: Springer-Verlag, ISBN 978-0-387-90163-3, MR 0434929, Zbl 0335.10001
+Bach, Eric; Shallit, Jeffrey, Algorithmic Number Theory, volume 1, 1996, MIT Press.  ISBN 0-262-02405-5, see page 234 in section 8.8.
+Caveney, Geoffrey; Nicolas, Jean-Louis; Sondow, Jonathan (2011), "Robin's theorem, primes, and a new elementary reformulation of the Riemann Hypothesis" (PDF), INTEGERS: The Electronic Journal of Combinatorial Number Theory, 11: A33, arXiv:1110.5078, Bibcode:2011arXiv1110.5078C
+Choie, YoungJu; Lichiardopol, Nicolas; Moree, Pieter; Solé, Patrick (2007), "On Robin's criterion for the Riemann hypothesis", Journal de théorie des nombres de Bordeaux, 19 (2): 357–372, arXiv:math.NT/0604314, doi:10.5802/jtnb.591, ISSN 1246-7405, MR 2394891, S2CID 3207238, Zbl 1163.11059
+Gioia, A. A.; Vaidya, A. M. (1967), "Amicable numbers with opposite parity", The American Mathematical Monthly, 74 (8): 969–973, doi:10.2307/2315280, JSTOR 2315280, MR 0220659
+Grönwall, Thomas Hakon (1913), "Some asymptotic expressions in the theory of numbers", Transactions of the American Mathematical Society, 14: 113–122, doi:10.1090/S0002-9947-1913-1500940-6
+Hardy, G. H.; Wright, E. M. (2008) [1938], An Introduction to the Theory of Numbers, Revised by D. R. Heath-Brown and J. H. Silverman. Foreword by Andrew Wiles. (6th ed.), Oxford: Oxford University Press, ISBN 978-0-19-921986-5, MR 2445243, Zbl 1159.11001
+Ivić, Aleksandar (1985), The Riemann zeta-function. The theory of the Riemann zeta-function with applications, A Wiley-Interscience Publication, New York etc.: John Wiley & Sons, pp. 385–440, ISBN 0-471-80634-X, Zbl 0556.10026
+Lagarias, Jeffrey C. (2002), "An elementary problem equivalent to the Riemann hypothesis", The American Mathematical Monthly, 109 (6): 534–543, arXiv:math/0008177, doi:10.2307/2695443, ISSN 0002-9890, JSTOR 2695443, MR 1908008, S2CID 15884740
+Long, Calvin T. (1972), Elementary Introduction to Number Theory (2nd ed.), Lexington: D. C. Heath and Company, LCCN 77171950
+Pettofrezzo, Anthony J.; Byrkit, Donald R. (1970), Elements of Number Theory, Englewood Cliffs: Prentice Hall, LCCN 77081766
+Ramanujan, Srinivasa (1997), "Highly composite numbers, annotated by Jean-Louis Nicolas and Guy Robin", The Ramanujan Journal, 1 (2): 119–153, doi:10.1023/A:1009764017495, ISSN 1382-4090, MR 1606180, S2CID 115619659
+Robin, Guy (1984), "Grandes valeurs de la fonction somme des diviseurs et hypothèse de Riemann", Journal de Mathématiques Pures et Appliquées, Neuvième Série, 63 (2): 187–213, ISSN 0021-7824, MR 0774171
+Williams, Kenneth S. (2011), Number theory in the spirit of Liouville, London Mathematical Society Student Texts, vol. 76, Cambridge: Cambridge University Press, ISBN 978-0-521-17562-3, Zbl 1227.11002
+External links[edit]
+Weisstein, Eric W. "Divisor Function". MathWorld.
+Weisstein, Eric W. "Robin's Theorem". MathWorld.
+Elementary Evaluation of Certain Convolution Sums Involving Divisor Functions PDF of a paper by Huard, Ou, Spearman, and Williams. Contains elementary (i.e. not relying on the theory of modular forms) proofs of divisor sum convolutions, formulas for the number of ways of representing a number as a sum of triangular numbers, and related results.
+vteDivisibility-based sets of integersOverview
+Integer factorization
+Divisor
+Unitary divisor
+Divisor function
+Prime factor
+Fundamental theorem of arithmetic
+Factorization forms
+Prime
+Composite
+Semiprime
+Pronic
+Sphenic
+Square-free
+Powerful
+Perfect power
+Achilles
+Smooth
+Regular
+Rough
+Unusual
+Constrained divisor sums
+Perfect
+Almost perfect
+Quasiperfect
+Multiply perfect
+Hemiperfect
+Hyperperfect
+Superperfect
+Unitary perfect
+Semiperfect
+Practical
+Erdős–Nicolas
+With many divisors
+Abundant
+Primitive abundant
+Highly abundant
+Superabundant
+Colossally abundant
+Highly composite
+Superior highly composite
+Weird
+Aliquot sequence-related
+Untouchable
+Amicable (Triple)
+Sociable
+Betrothed
+Base-dependent
+Equidigital
+Extravagant
+Frugal
+Harshad
+Polydivisible
+Smith
+Other sets
+Arithmetic
+Deficient
+Friendly
+Solitary
+Sublime
+Harmonic divisor
+Descartes
+Refactorable
+Superperfect
+
+
+
+

@@ -1,0 +1,93 @@
+Theorem on changes in stochastic processes
+Visualisation of the Girsanov theorem. The left side shows a Wiener process with negative drift under a canonical measure P; on the right side each path of the process is colored according to its likelihood under the martingale measure Q. The density transformation from P  to Q is given by the Girsanov theorem.
+In probability theory, the Girsanov theorem tells how stochastic processes change under changes in measure. The theorem is especially important in the theory of financial mathematics as it tells how to convert from the physical measure, which describes the probability that an underlying instrument (such as a share price or interest rate) will take a particular value or values, to the risk-neutral measure which is a very useful tool for evaluating the value of derivatives on the underlying.
+
+
+History[edit]
+Results of this type were first proved by Cameron-Martin in the 1940s and by Igor Girsanov in 1960.  They have been subsequently extended to more general classes of process culminating in the general form of Lenglart (1977).
+
+Significance[edit]
+Girsanov's theorem is important in the general theory of stochastic processes since it enables the key result that if Q is a measure that is absolutely continuous with respect to P then every P-semimartingale is a Q-semimartingale.
+
+Statement of theorem[edit]
+We state the theorem first for the special case when the underlying stochastic process is a Wiener process. This special case is sufficient for risk-neutral pricing in the Black–Scholes model.
+Let Wt{W_t} be a Wiener process on the Wiener probability space Ω,F,P{Ω,ℱ,P}. Let Xt_t be a measurable process adapted to the natural filtration of the Wiener process FtW{ℱ_t^W}; we assume that the usual conditions have been satisfied. 
+Given an adapted process Xt_t define
+
+Zt=E(X)t,_t=ℰ(X)_t, 
+where E(X)ℰ(X) is the stochastic exponential of X with respect to W, i.e. 
+
+E(X)t=exp⁡(Xt−12[X]t),ℰ(X)_t=exp(X_t-1/2[X]_t),
+and [X]t[X]_t denotes the quadratic variation of the process X.
+If Zt_t is a martingale then a probability 
+measure Q can be defined on Ω,F{Ω,ℱ} such that Radon–Nikodym derivative
+
+dQdP|Ft=Zt=E(X)t.dQ/dP|_ℱ_t=Z_t=ℰ(X)_t
+Then for each t the measure Q restricted to the unaugmented sigma fields Ftoℱ_t^o is equivalent to P restricted to
+
+Fto.ℱ_t^o. 
+Furthermore if Yt_t is a local martingale under P then the process
+
+Y t=Yt−[Y,X]tỸ_t=Y_t-[Y,X]_t
+is a Q local martingale on the filtered probability space Ω,F,Q,FtW{Ω,F,Q,{ℱ_t^W}}.
+
+Corollary[edit]
+If X is a continuous process and W is Brownian motion under measure P then
+
+W t=Wt−[W,X]tW̃_t=W_t-[W,X]_t
+is Brownian motion under Q.
+The fact that W tW̃_t is continuous is trivial; by Girsanov's theorem it is a Q local martingale, and by computing 
+
+[W ]t=[W]t=t[W̃]_t=[W]_t=t
+it follows by Levy's characterization of Brownian motion that this is a Q Brownian
+motion.
+
+Comments[edit]
+In many common applications, the process X is defined by
+
+Xt=∫0tYsdWs._t=∫_0^tY_s dW_s.
+For X of this form then a necessary and sufficient condition for X to be a martingale is Novikov's condition which requires that
+
+EP[exp⁡(12∫0TYs2ds)]<∞._P[exp(1/2∫_0^TY_s^2 ds)]<∞.
+The stochastic exponential E(X)ℰ(X) is the process Z which solves the stochastic differential equation
+
+Zt=1+∫0tZsdXs._t=1+∫_0^tZ_s dX_s. 
+The measure Q constructed above is not equivalent to P on F∞ℱ_∞ as this would only be the case if the Radon–Nikodym derivative were a uniformly integrable martingale, which the exponential martingale described above is not. On the other hand as long as Novikov's condition is satisfied the measures are equivalent on FTℱ_T. 
+Additionally, then combining this above observation in this case, we see that the process
+W t=Wt−∫0tYsdsW̃_t=W_t-∫_0^tY_sds
+for t∈[0,T]∈[0,T] is a Q Brownian motion. This was Igor Girsanov's original formulation of the above theorem.
+
+Application to finance[edit]
+This theorem can be used to show in the Black–Scholes model the unique risk-neutral measure, i.e. the measure in which the fair value of a derivative is the discounted expected value, Q, is specified by
+
+dQdP=E(∫0trs−μsσsdWs).dQ/dP=ℰ(∫_0^tr_s-μ_s/σ_s dW_s).
+Application to Langevin equations[edit]
+Another application of this theorem, also given in the original paper of Igor Girsanov, is for stochastic differential equations. Specifically, let us consider the equation
+dXt=μ(t,Xt)dt+dWt,_t=μ(t,X_t)dt+dW_t,
+where Wt_t denotes a Brownian motion. Here μμ and σσ are fixed deterministic functions. We assume that this equation has a unique strong solution on [0,T][0,T]. In this case Girsanov's theorem may be used to compute functionals of Xt_t directly in terms a related functional for Brownian motion. More specifically, we have for any bounded functional ΦΦ on continuous functions C([0,T])([0,T]) that
+EΦ(X)=E[Φ(W)exp⁡(∫0Tμ(s,Ws)dWs−12∫0Tμ(s,Ws)2ds)].Φ(X)=E[Φ(W)exp(∫_0^Tμ(s,W_s)dW_s-1/2∫_0^Tμ(s,W_s)^2ds)].
+This follows by applying Girsanov's theorem, and the above observation, to the martingale process
+Yt=∫0tμ(s,Ws)dWs._t=∫_0^tμ(s,W_s)dW_s.
+In particular, we note that with the notation above, the process
+W t=Wt−∫0tμ(s,Ws)dsW̃_t=W_t-∫_0^tμ(s,W_s)ds
+is a Q Brownian motion. Rewriting this in differential form as
+dWt=dW t+μ(t,Wt)dt,_t=dW̃_t+μ(t,W_t)dt,
+we see that the law of Wt_t under Q solves the equation defining Xt_t, as W tW̃_t is a Q Brownian motion. In particular, we see that the right-hand side may be written as EQ[Φ(X)]_Q[Φ(X)], where Q is the measure taken with respect to the process Y, so the result now is just the statement of Girsanov's theorem.
+A more general form of this application is that if both
+dXt=μ(Xt,t)dt+σ(Xt,t)dWt,_t=μ(X_t,t)dt+σ(X_t,t)dW_t, dYt=(μ(Yt,t)+ν(Yt,t))dt+σ(Yt,t)dWt,_t=(μ(Y_t,t)+ν(Y_t,t))dt+σ(Y_t,t)dW_t,
+admit unique strong solutions on [0,T][0,T], then for any bounded functional on  C([0,T])([0,T]), we have that
+EΦ(X)=E[Φ(Y)exp⁡(−∫0Tν(Ys,s)σ(Ys,s)dWs−12∫0Tν(Ys,s)2σ(Ys,s)2ds)].Φ(X)=E[Φ(Y)exp(-∫_0^Tν(Y_s,s)/σ(Y_s,s)dW_s-1/2∫_0^Tν(Y_s,s)^2/σ(Y_s,s)^2ds)].
+
+See also[edit]
+Cameron–Martin theorem – Theorem of measure theory
+References[edit]
+
+
+Liptser, Robert S.; Shiriaev, A. N. (2001). Statistics of Random Processes (2nd, rev. and exp. ed.). Springer. ISBN 3-540-63929-2.
+Dellacherie, C.; Meyer, P.-A. (1982). "Decomposition of Supermartingales, Applications". Probabilities and Potential. Vol. B. Translated by Wilson, J. P. North-Holland. pp. 183–308. ISBN 0-444-86526-8.
+Lenglart, E. (1977). "Transformation de martingales locales par changement absolue continu de probabilités". Zeitschrift für Wahrscheinlichkeit (in French). 39: 65–70. doi:10.1007/BF01844873.
+External links[edit]
+Notes on Stochastic Calculus which contain a simple outline proof of Girsanov's theorem.
+
+
+

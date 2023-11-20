@@ -1,0 +1,599 @@
+Theorem in calculus relating line and double integrals
+This article is about the theorem in the plane relating double integrals and line integrals. For Green's theorems relating volume integrals involving the Laplacian to surface integrals, see Green's identities.
+Not to be confused with Green's law for waves approaching a shoreline.
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vte
+In vector calculus, Green's theorem relates a line integral around a simple closed curve C to a double integral over the plane region D bounded by C. It is the two-dimensional special case of Stokes' theorem.
+
+
+Theorem[edit]
+Let C be a positively oriented, piecewise smooth, simple closed curve in a plane, and let D be the region bounded by C. If L and M are functions of (x, y) defined on an open region containing D and have continuous partial derivatives there, then
+∮C(Ldx+Mdy)=∬D(∂M∂x−∂L∂y)dxdy∮_C(L dx+M dy)=∬_D(/-/)dx dy
+where the path of integration along C is anticlockwise.[1][2]
+In physics, Green's theorem finds many applications. One is solving two-dimensional flow integrals, stating that the sum of fluid outflowing from a volume is equal to the total outflow summed about an enclosing area. In plane geometry, and in particular, area surveying, Green's theorem can be used to determine the area and centroid of plane figures solely by integrating over the perimeter.
+
+Proof when D is a simple region[edit]
+If D is a simple type of region with its boundary consisting of the curves C1, C2, C3, C4, half of Green's theorem can be demonstrated.
+The following is a proof of half of the theorem for the simplified area D, a type I region where C1 and C3 are curves connected by vertical lines (possibly of zero length). A similar proof exists for the other half of the theorem when D is a type II region where C2 and C4 are curves connected by horizontal lines (again, possibly of zero length). Putting these two parts together, the theorem is thus proven for regions of type III (defined as regions which are both type I and type II). The general case can then be deduced from this special case by decomposing D into a set of type III regions.
+If it can be shown that
+
+
+
+
+∮CLdx=∬D(−∂L∂y)dA∮_CL dx=∬_D(-/)dA
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+and
+
+
+
+
+∮CMdy=∬D(∂M∂x)dA∮_C dy=∬_D(/)dA
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+are true, then Green's theorem follows immediately for the region D. We can prove (1) easily for regions of type I, and (2) for regions of type II. Green's theorem then follows for regions of type III.
+Assume region D is a type I region and can thus be characterized, as pictured on the right, by
+D=(x,y)∣a≤x≤b,g1(x)≤y≤g2(x)={(x,y),g_1(x)_2(x)}
+where g1 and g2 are continuous functions on [a, b]. Compute the double integral in (1):
+
+
+
+
+∬D∂L∂ydA=∫ab∫g1(x)g2(x)∂L∂y(x,y)dydx=∫ab[L(x,g2(x))−L(x,g1(x))]dx.∬_D/ dA   =∫_a^b ∫_g_1(x)^g_2(x)/(x,y) dy dx
+   =∫_a^b[L(x,g_2(x))-L(x,g_1(x))] dx.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(3)
+
+Now compute the line integral in (1). C can be rewritten as the union of four curves: C1, C2, C3, C4.
+With C1, use the parametric equations: x = x, y = g1(x), a ≤ x ≤ b. Then
+∫C1L(x,y)dx=∫abL(x,g1(x))dx.∫_C_1L(x,y) dx=∫_a^bL(x,g_1(x)) dx.
+With C3, use the parametric equations: x = x, y = g2(x), a ≤ x ≤ b. Then
+∫C3L(x,y)dx=−∫−C3L(x,y)dx=−∫abL(x,g2(x))dx.∫_C_3L(x,y) dx=-∫_-C_3L(x,y) dx=-∫_a^bL(x,g_2(x)) dx.
+The integral over C3 is negated because it goes in the negative direction from b to a, as C is oriented positively (anticlockwise). On C2 and C4, x remains constant, meaning
+∫C4L(x,y)dx=∫C2L(x,y)dx=0.∫_C_4L(x,y) dx=∫_C_2L(x,y) dx=0.
+Therefore,
+
+
+
+
+∫CLdx=∫C1L(x,y)dx+∫C2L(x,y)dx+∫C3L(x,y)dx+∫C4L(x,y)dx=∫abL(x,g1(x))dx−∫abL(x,g2(x))dx.∫_CL dx   =∫_C_1L(x,y) dx+∫_C_2L(x,y) dx+∫_C_3L(x,y) dx+∫_C_4L(x,y) dx
+   =∫_a^bL(x,g_1(x)) dx-∫_a^bL(x,g_2(x)) dx.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(4)
+
+Combining (3) with (4), we get (1) for regions of type I. A similar treatment yields (2) for regions of type II. Putting the two together, we get the result for regions of type III.
+
+Proof for rectifiable Jordan curves[edit]
+We are going to prove the following
+
+
+Theorem — Let ΓΓ be a rectifiable, positively oriented Jordan curve in R2ℝ^2 and let R denote its inner region. Suppose that A,B:R¯→R,B:R→ℝ are continuous functions with the property that A has second partial derivative at every point of R, B has first partial derivative at every point of R and that the functions D1B,D2A:R→R_1B,D_2A:R→ℝ are Riemann-integrable over R. Then
+∫Γ(Adx+Bdy)=∫R(D1B(x,y)−D2A(x,y))d(x,y).∫_Γ(A dx+B dy)=∫_R(D_1B(x,y)-D_2A(x,y)) d(x,y).
+
+
+We need the following lemmas whose proofs can be found in:[3]
+
+
+Lemma 1 (Decomposition Lemma) — Assume ΓΓ is a rectifiable, positively oriented Jordan curve in the plane and let R be its inner region. For every positive real δδ, let F(δ)ℱ(δ) denote the collection of squares in the plane bounded by the lines x=mδ,y=mδ=mδ,y=mδ, where m runs through the set of integers. Then, for this δδ, there exists a decomposition of R¯R into a finite number of non-overlapping subregions in such a manner that
+
+
+Each one of the subregions contained in R, say R1,R2,…,Rk_1,R_2,…,R_k, is a square from F(δ)ℱ(δ).
+Each one of the remaining subregions, say Rk+1,…,Rs_k+1,…,R_s, has as boundary a rectifiable Jordan curve formed by a finite number of arcs of ΓΓ and parts of the sides of some square from F(δ)ℱ(δ).
+Each one of the border regions Rk+1,…,Rs_k+1,…,R_s can be enclosed in a square of edge-length 2δ2δ.
+If ΓiΓ_i is the positively oriented boundary curve of Ri_i, then Γ=Γ1+Γ2+⋯+Γs.Γ=Γ_1+Γ_2+⋯+Γ_s.
+The number s−k-k of border regions is no greater than 4(Λδ+1)4(Λ/δ+1), where ΛΛ is the length of ΓΓ.
+
+
+
+Lemma 2 — Let ΓΓ be a rectifiable curve in the plane and let ΔΓ(h)Δ_Γ(h) be the set of points in the plane whose distance from (the range of) ΓΓ is at most h. The outer Jordan content of this set satisfies c¯ΔΓ(h)≤2hΛ+πh2c  Δ_Γ(h)≤2hΛ+^2.
+
+
+
+Lemma 3 — Let ΓΓ be a rectifiable curve in R2ℝ^2 and let f:rangeofΓ→R:rangeofΓ→ℝ be a continuous function. Then
+|∫Γf(x,y)dy|≤12ΛΩf,|∫_Γf(x,y) dy|≤1/2ΛΩ_f, and
+|∫Γf(x,y)dx|≤12ΛΩf,|∫_Γf(x,y) dx|≤1/2ΛΩ_f,
+where ΩfΩ_f is the oscillation of f on the range of ΓΓ.
+
+
+Now we are in position to prove the theorem:
+Proof of Theorem. Let εε be an arbitrary positive real number. By continuity of A, B and compactness of R¯R, given ε>0ε>0, there exists 0<δ<10<δ<1 such that whenever two points of R¯R are less than 22δ2√(2) δ apart, their images under A,B,B are less than εε apart. For this δδ, consider the decomposition given by the previous Lemma. We have
+∫ΓAdx+Bdy=∑i=1k∫ΓiAdx+Bdy+∑i=k+1s∫ΓiAdx+Bdy.∫_ΓA dx+B dy=∑_i=1^k∫_Γ_iA dx+B dy  +∑_i=k+1^s∫_Γ_iA dx+B dy.
+Put φ:=D1B−D2Aφ:=D_1B-D_2A.
+For each i∈1,…,k∈{1,…,k}, the curve ΓiΓ_i is a positively oriented square, for which Green's formula holds. Hence
+∑i=1k∫ΓiAdx+Bdy=∑i=1k∫Riφ=∫⋃i=1kRiφ.∑_i=1^k∫_Γ_iA dx+B dy=∑_i=1^k∫_R_iφ=∫_⋃_i=1^kR_i φ.
+Every point of a border region is at a distance no greater than 22δ2√(2) δ from ΓΓ. Thus, if K is the union of all border regions, then K⊂ΔΓ(22δ)⊂Δ_Γ(2√(2) δ); hence c(K)≤c¯ΔΓ(22δ)≤42δ+8πδ2(K)≤c Δ_Γ(2√(2) δ)≤4√(2) δ+8πδ^2, by Lemma 2. Notice that
+∫Rφ−∫⋃i=1kRiφ=∫Kφ.∫_Rφ  -∫_⋃_i=1^kR_iφ=∫_Kφ.
+This yields
+|∑i=1k∫ΓiAdx+Bdy−∫Rφ|≤Mδ(1+π2δ)forsomeM>0.|∑_i=1^k∫_Γ_iA dx+B dy  -∫_Rφ|δ(1+π√(2) δ)forsomeM>0.
+We may as well choose δδ so that the RHS of the last inequality is <ε.<ε.
+The remark in the beginning of this proof implies that the oscillations of A and B on every border region is at most εε. We have
+|∑i=k+1s∫ΓiAdx+Bdy|≤12ε∑i=k+1sΛi.|∑_i=k+1^s∫_Γ_iA dx+B dy|≤1/2ε∑_i=k+1^sΛ_i.
+By Lemma 1(iii),
+∑i=k+1sΛi≤Λ+(4δ)4(Λδ+1)≤17Λ+16.∑_i=k+1^sΛ_i≤Λ+(4δ) 4(Λ/δ+1)≤17Λ+16.
+Combining these, we finally get
+|∫ΓAdx+Bdy−∫Rφ|<Cε,|∫_ΓA dx+B dy  -∫_Rφ|<Cε,
+for some C>0>0. Since this is true for every ε>0ε>0, we are done.
+
+Validity under different hypotheses[edit]
+The hypothesis of the last theorem are not the only ones under which Green's formula is true. Another common set of conditions is the following:
+The functions A,B:R¯→R,B:R→ℝ are still assumed to be continuous. However, we now require them to be Fréchet-differentiable at every point of R. This implies the existence of all directional derivatives, in particular DeiA=:DiA,DeiB=:DiB,i=1,2_e_iA=:D_iA,D_e_iB=:D_iB, i=1,2, where, as usual, (e1,e2)(e_1,e_2) is the canonical ordered basis of R2ℝ^2. In addition, we require the function D1B−D2A_1B-D_2A to be Riemann-integrable over R.
+As a corollary of this, we get the Cauchy Integral Theorem for rectifiable Jordan curves:
+
+
+Theorem (Cauchy) — If ΓΓ is a rectifiable Jordan curve in Cℂ and if f:closureofinnerregionofΓ→C:closureofinnerregionofΓ→ℂ is a continuous mapping holomorphic throughout the inner region of ΓΓ, then ∫Γf=0,∫_Γf=0, the integral being a complex contour integral.
+
+
+Proof
+We regard the complex plane as R2ℝ^2. Now, define u,v:R¯→R,v:R→ℝ to be such that f(x+iy)=u(x,y)+iv(x,y).(x+iy)=u(x,y)+iv(x,y). These functions are clearly continuous. It is well known that u and v are Fréchet-differentiable and that they satisfy the Cauchy-Riemann equations: D1v+D2u=D1u−D2v=zerofunction_1v+D_2u=D_1u-D_2v=zerofunction.
+Now, analyzing the sums used to define the complex contour integral in question, it is easy to realize that
+∫Γf=∫Γudx−vdy+i∫Γvdx+udy,∫_Γf=∫_Γu dx-v dy  +i∫_Γv dx+u dy,
+the integrals on the RHS being usual line integrals. These remarks allow us to apply Green's Theorem to each one of these line integrals, finishing the proof.
+
+
+Multiply-connected regions[edit]
+Theorem. Let Γ0,Γ1,…,ΓnΓ_0,Γ_1,…,Γ_n be positively oriented rectifiable Jordan curves in R2ℝ^2 satisfying
+Γi⊂R0,if1≤i≤nΓi⊂R2∖R¯j,if1≤i,j≤nandi≠j,Γ_i_0,      if1
+Γ_i⊂ℝ^2∖R_j,      if1,jandi,
+where Ri_i is the inner region of ΓiΓ_i. Let
+D=R0∖(R¯1∪R¯2∪⋯∪R¯n).=R_0∖(R_1∪R_2∪⋯∪R_n).
+Suppose p:D¯→R:D→ℝ and q:D¯→R:D→ℝ are continuous functions whose restriction to D is Fréchet-differentiable. If the function
+(x,y)⟼∂q∂e1(x,y)−∂p∂e2(x,y)(x,y)⟼/_1(x,y)-/_2(x,y)
+is Riemann-integrable over D, then
+∫Γ0p(x,y)dx+q(x,y)dy−∑i=1n∫Γip(x,y)dx+q(x,y)dy=∫D∂q∂e1(x,y)−∂p∂e2(x,y)d(x,y).   ∫_Γ_0p(x,y) dx+q(x,y) dy-∑_i=1^n∫_Γ_ip(x,y) dx+q(x,y) dy
+=   ∫_D{/_1(x,y)-/_2(x,y)} d(x,y).
+
+Relationship to Stokes' theorem[edit]
+Green's theorem is a special case of the Kelvin–Stokes theorem, when applied to a region in the xy-plane.
+We can augment the two-dimensional field into a three-dimensional field with a z component that is always 0. Write F for the vector-valued function F=(L,M,0)𝐅=(L,M,0). Start with the left side of Green's theorem:
+∮C(Ldx+Mdy)=∮C(L,M,0)⋅(dx,dy,dz)=∮CF⋅dr.∮_C(L dx+M dy)=∮_C(L,M,0)·(dx,dy,dz)=∮_C𝐅𝐫.
+The Kelvin–Stokes theorem:
+∮CF⋅dr=∬S∇×F⋅n^dS.∮_C𝐅𝐫=∬_S∇×𝐅·𝐧̂ dS.
+The surface S is just the region in the plane D, with the unit normal n^𝐧̂ defined (by convention) to have a positive z component in order to match the "positive orientation" definitions for both theorems.
+The expression inside the integral becomes
+∇×F⋅n^=[(∂0∂y−∂M∂z)i+(∂L∂z−∂0∂x)j+(∂M∂x−∂L∂y)k]⋅k=(∂M∂x−∂L∂y).∇×𝐅·𝐧̂=[(∂0/-/)𝐢+(/-∂0/)𝐣+(/-/)𝐤]·𝐤=(/-/).
+Thus we get the right side of Green's theorem
+∬S∇×F⋅n^dS=∬D(∂M∂x−∂L∂y)dA.∬_S∇×𝐅·𝐧̂ dS=∬_D(/-/) dA.
+Green's theorem is also a straightforward result of the general Stokes' theorem using differential forms and exterior derivatives:
+∮CLdx+Mdy=∮∂Dω=∫Ddω=∫D∂L∂ydy∧dx+∂M∂xdx∧dy=∬D(∂M∂x−∂L∂y)dxdy.∮_CL dx+M dy=∮_ω=∫_Ddω=∫_D/ dy∧ dx+/ dx∧ dy=∬_D(/-/) dx dy.
+
+Relationship to the divergence theorem[edit]
+Considering only two-dimensional vector fields, Green's theorem is equivalent to the two-dimensional version of the divergence theorem:
+
+∬D(∇⋅F)dA=∮CF⋅n^ds,∬_D(∇·𝐅)dA=∮_C𝐅·𝐧̂ ds,
+where ∇⋅F∇·𝐅 is the divergence on the two-dimensional vector field F𝐅, and n^𝐧̂ is the outward-pointing unit normal vector on the boundary.
+To see this, consider the unit normal n^𝐧̂ in the right side of the equation. Since in Green's theorem dr=(dx,dy)𝐫=(dx,dy) is a vector pointing tangential along the curve, and the curve C is the positively oriented (i.e. anticlockwise) curve along the boundary, an outward normal would be a vector which points 90° to the right of this; one choice would be (dy,−dx)(dy,-dx). The length of this vector is dx2+dy2=ds.√(dx^2+dy^2)=ds. So (dy,−dx)=n^ds.(dy,-dx)=𝐧̂ ds.
+Start with the left side of Green's theorem:
+∮C(Ldx+Mdy)=∮C(M,−L)⋅(dy,−dx)=∮C(M,−L)⋅n^ds.∮_C(L dx+M dy)=∮_C(M,-L)·(dy,-dx)=∮_C(M,-L)·𝐧̂ ds.
+Applying the two-dimensional divergence theorem with F=(M,−L)𝐅=(M,-L), we get the right side of Green's theorem:
+∮C(M,−L)⋅n^ds=∬D(∇⋅(M,−L))dA=∬D(∂M∂x−∂L∂y)dA.∮_C(M,-L)·𝐧̂ ds=∬_D(∇·(M,-L)) dA=∬_D(/-/) dA.
+
+Area calculation[edit]
+Green's theorem can be used to compute area by line integral.[4] The area of a planar region D is given by
+A=∬DdA.=∬_DdA.
+Choose L and M such that ∂M∂x−∂L∂y=1/-/=1, the area is given by
+A=∮C(Ldx+Mdy).=∮_C(L dx+M dy).
+Possible formulas for the area of D include[4]
+A=∮Cxdy=−∮Cydx=12∮C(−ydx+xdy).=∮_Cx dy=-∮_Cy dx=12∮_C(-y dx+x dy).
+
+History[edit]
+It is named after George Green, who stated a similar result in an 1828 paper titled An Essay on the Application of Mathematical Analysis to the Theories of Electricity and Magnetism. In 1846, Augustin-Louis Cauchy published a paper stating Green's theorem as the penultimate sentence. This is in fact the first printed version of Green's theorem in the form appearing in modern textbooks. Bernhard Riemann gave the first proof of Green's theorem in his doctoral dissertation on the theory of functions of a complex variable.[5][6]
+
+See also[edit]
+
+Mathematics portal
+Planimeter – Tool for measuring area.
+Method of image charges – A method used in electrostatics that takes advantage of the uniqueness theorem (derived from Green's theorem)
+Shoelace formula – A special case of Green's theorem for simple polygons
+References[edit]
+
+
+^ Riley, K. F.; Hobson, M. P.; Bence, S. J. (2010). Mathematical Methods for Physics and Engineering. Cambridge University Press. ISBN 978-0-521-86153-3.
+
+^ Spiegel, M. R.; Lipschutz, S.; Spellman, D. (2009). Vector Analysis. Schaum’s Outlines (2nd ed.). McGraw Hill. ISBN 978-0-07-161545-7.
+
+^ Apostol, Tom (1960). Mathematical Analysis (1 ed.). Reading, Massachusetts, U.S.A.: Addison-Wesley Publishing Company, INC.
+
+^ a b Stewart, James (1999). Calculus (6th ed.). Thomson, Brooks/Cole. ISBN 9780534359492.
+
+^ George Green, An Essay on the Application of Mathematical Analysis to the Theories of Electricity and Magnetism (Nottingham, England: T. Wheelhouse, 1828). Green did not actually derive the form of "Green's theorem" which appears in this article; rather, he derived a form of the "divergence theorem", which appears on pages 10–12 of his Essay.
+In 1846, the form of "Green's theorem" which appears in this article was first published, without proof, in an article by Augustin Cauchy: A. Cauchy (1846) "Sur les intégrales qui s'étendent à tous les points d'une courbe fermée" (On integrals that extend over all of the points of a closed curve), Comptes rendus, 23: 251–255. (The equation appears at the bottom of page 254, where (S) denotes the line integral of a function k along the curve s that encloses the area S.)
+A proof of the theorem was finally provided in 1851 by Bernhard Riemann in his inaugural dissertation: Bernhard Riemann (1851) Grundlagen für eine allgemeine Theorie der Functionen einer veränderlichen complexen Grösse (Basis for a general theory of functions of a variable complex quantity), (Göttingen, (Germany): Adalbert Rente, 1867); see pages 8–9.
+
+^ Katz, Victor (2009). "22.3.3: Complex Functions and Line Integrals". A History of Mathematics: An Introduction. Addison-Wesley. pp. 801–5. ISBN 978-0-321-38700-4.
+
+
+Further reading[edit]
+Marsden, Jerrold E.; Tromba, Anthony J. (2003). "The Integral Theorems of Vector Analysis". Vector Calculus (Fifth ed.). New York: Freeman. pp. 518–608. ISBN 0-7167-4992-0.
+External links[edit]
+Green's Theorem on MathWorld
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+Authority control databases: National 
+Israel
+
+
+
+

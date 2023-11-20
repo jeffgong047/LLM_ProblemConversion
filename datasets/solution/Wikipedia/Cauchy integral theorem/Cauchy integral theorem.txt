@@ -1,0 +1,121 @@
+Theorem in complex analysis
+Not to be confused with Cauchy's integral formula or Cauchy formula for repeated integration.
+Mathematical analysis → Complex analysisComplex analysis
+Complex numbers
+Real number
+Imaginary number
+Complex plane
+Complex conjugate
+Unit complex number
+
+Complex functions
+Complex-valued function
+Analytic function
+Holomorphic function
+Cauchy–Riemann equations
+Formal power series
+
+Basic theory
+Zeros and poles
+Cauchy's integral theorem
+Local primitive
+Cauchy's integral formula
+Winding number
+Laurent series
+Isolated singularity
+Residue theorem
+Conformal map
+Schwarz lemma
+Harmonic function
+Laplace's equation
+
+Geometric function theory
+People
+Augustin-Louis Cauchy
+Leonhard Euler
+Carl Friedrich Gauss
+Jacques Hadamard
+Kiyoshi Oka
+Bernhard Riemann
+Karl Weierstrass
+
+ Mathematics portalvte
+In mathematics, the Cauchy integral theorem (also known as the Cauchy–Goursat theorem) in complex analysis, named after Augustin-Louis Cauchy (and Édouard Goursat), is an important statement about line integrals for holomorphic functions in the complex plane. Essentially, it says that if f(z)(z) is holomorphic in a simply connected domain Ω, then for any simply closed contour C in Ω, that contour integral is zero. 
+∫Cf(z)dz=0.∫_Cf(z) dz=0.
+
+
+Statement[edit]
+Fundamental theorem for complex line integrals[edit]
+If f(z) is a holomorphic function on an open region U, and γγ is a curve in U from z0_0 to z1_1 then,
+∫γf′(z)dz=f(z1)−f(z0).∫_γf'(z) dz=f(z_1)-f(z_0).
+Also, when f(z) has a single-valued antiderivative in an open region U, then the path integral ∫γf′(z)dz∫_γf'(z) dz is path independent for all paths in U.
+
+Formulation on simply connected regions[edit]
+Let U⊆C⊆ℂ be a simply connected open set, and let f:U→C:U→ℂ be a holomorphic function. Let γ:[a,b]→Uγ:[a,b] be a smooth closed curve. Then:
+∫γf(z)dz=0.∫_γf(z) dz=0.
+(The condition that U be simply connected means that U has no "holes", or in other words, that the fundamental group of U is trivial.)
+
+General formulation[edit]
+Let U⊆C⊆ℂ be an open set, and let f:U→C:U→ℂ be a holomorphic function. Let γ:[a,b]→Uγ:[a,b] be a smooth closed curve. If  γγ is homotopic to a constant curve, then:
+∫γf(z)dz=0.∫_γf(z) dz=0.
+(Recall that a curve is homotopic to a constant curve if there exists a smooth homotopy (within U) from the curve to the constant curve. Intuitively, this means that one can shrink the curve into a point without exiting the space.) The first version is a special case of this because on a simply connected set, every closed curve is homotopic to a constant curve.
+
+Main example[edit]
+In both cases, it is important to remember that the curve γγ does not surround any "holes" in the domain, or else the theorem does not apply. A famous example is the following curve: 
+γ(t)=eitt∈[0,2π],γ(t)=e^it∈[0,2π],
+which traces out the unit circle. Here the following integral:
+∫γ1zdz=2πi≠0,∫_γ1/z dz=2≠0,
+is nonzero. The Cauchy integral theorem does not apply here since f(z)=1/z(z)=1/z is not defined at z=0=0. Intuitively, γγ surrounds a "hole" in the domain of f, so γγ cannot be shrunk to a point without exiting the space. Thus, the theorem does not apply.
+
+Discussion[edit]
+As Édouard Goursat showed, Cauchy's integral theorem can be proven assuming only that the complex derivative f′(z)'(z) exists everywhere in U. This is significant because one can then prove Cauchy's integral formula for these functions, and from that deduce these functions are infinitely differentiable.
+The condition that U be simply connected means that U has no "holes" or, in homotopy terms, that the fundamental group of U is trivial; for instance, every open disk Uz0=z:|z−z0|<r_z_0={z:|z-z_0|<r}, for z0∈C_0∈ℂ, qualifies. The condition is crucial; consider
+γ(t)=eitt∈[0,2π]γ(t)=e^it∈[0,2π]
+which traces out the unit circle, and then the path integral
+∮γ1zdz=∫02π1eit(ieitdt)=∫02πidt=2πi∮_γ1/z dz=∫_0^2π1/e^it(ie^it dt)=∫_0^2πi dt=2
+is nonzero; the Cauchy integral theorem does not apply here since f(z)=1/z(z)=1/z is not defined (and is certainly not holomorphic) at z=0=0.
+One important consequence of the theorem is that path integrals of holomorphic functions on simply connected domains can be computed in a manner familiar from the fundamental theorem of calculus: let U be a simply connected open subset of Cℂ, let f:U→C:U→ℂ be a holomorphic function, and let γγ be a piecewise continuously differentiable path in U with start point a and end point b. If F is a complex antiderivative of f, then
+∫γf(z)dz=F(b)−F(a).∫_γf(z) dz=F(b)-F(a).
+The Cauchy integral theorem is valid with a weaker hypothesis than given above, e.g. given U, a simply connected open subset of Cℂ, we can weaken the assumptions to f being holomorphic on U and continuous on U¯U and γγ a rectifiable simple loop in U¯U.[1]
+The Cauchy integral theorem leads to Cauchy's integral formula and the residue theorem.
+
+Proof[edit]
+If one assumes that the partial derivatives of a holomorphic function are continuous, the Cauchy integral theorem can be proven as a direct consequence of Green's theorem and the fact that the real and imaginary parts of f=u+iv=u+iv must satisfy the Cauchy–Riemann equations in the region bounded by γγ, and moreover in the open neighborhood U of this region. Cauchy provided this proof, but it was later proven by Goursat without requiring techniques from vector calculus, or the continuity of partial derivatives.
+We can break the integrand f, as well as the differential dz into their real and imaginary components:
+f=u+iv=u+iv
+dz=dx+idy=dx+i dy
+In this case we have
+∮γf(z)dz=∮γ(u+iv)(dx+idy)=∮γ(udx−vdy)+i∮γ(vdx+udy)∮_γf(z) dz=∮_γ(u+iv)(dx+i dy)=∮_γ(u dx-v dy)+i∮_γ(v dx+u dy)
+By Green's theorem, we may then replace the integrals around the closed contour γγ with an area integral throughout the domain D that is enclosed by γγ as follows:
+∮γ(udx−vdy)=∬D(−∂v∂x−∂u∂y)dxdy∮_γ(u dx-v dy)=∬_D(-/-/) dx dy
+∮γ(vdx+udy)=∬D(∂u∂x−∂v∂y)dxdy∮_γ(v dx+u dy)=∬_D(/-/) dx dy
+But as the real and imaginary parts of a function holomorphic in the domain D, u and v must satisfy the Cauchy–Riemann equations there:
+∂u∂x=∂v∂y/=/
+∂u∂y=−∂v∂x/=-/
+We therefore find that both integrands (and hence their integrals) are zero
+∬D(−∂v∂x−∂u∂y)dxdy=∬D(∂u∂y−∂u∂y)dxdy=0∬_D(-/-/) dx dy=∬_D(/-/) dx dy=0
+∬D(∂u∂x−∂v∂y)dxdy=∬D(∂u∂x−∂u∂x)dxdy=0∬_D(/-/) dx dy=∬_D(/-/) dx dy=0
+This gives the desired result
+∮γf(z)dz=0∮_γf(z) dz=0
+
+See also[edit]
+Morera's theorem
+Methods of contour integration
+Star domain
+References[edit]
+
+
+^ Walsh, J. L. (1933-05-01). "The Cauchy-Goursat Theorem for Rectifiable Jordan Curves". Proceedings of the National Academy of Sciences. 19 (5): 540–541. doi:10.1073/pnas.19.5.540. ISSN 0027-8424. PMC 1086062. PMID 16587781.
+
+
+Kodaira, Kunihiko (2007), Complex Analysis, Cambridge Stud. Adv. Math., 107, CUP, ISBN 978-0-521-80937-5
+Ahlfors, Lars (2000), Complex Analysis, McGraw-Hill series in Mathematics, McGraw-Hill, ISBN 0-07-000657-1
+Lang, Serge (2003), Complex Analysis, Springer Verlag GTM, Springer Verlag
+Rudin, Walter (2000), Real and Complex Analysis, McGraw-Hill series in mathematics, McGraw-Hill
+External links[edit]
+"Cauchy integral theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Weisstein, Eric W. "Cauchy Integral Theorem". MathWorld.
+Jeremy Orloff, 18.04 Complex Variables with Applications Spring 2018 Massachusetts Institute of Technology: MIT OpenCourseWare Creative Commons.
+
+
+

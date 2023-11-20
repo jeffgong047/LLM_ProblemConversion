@@ -1,0 +1,139 @@
+In complex analysis, the Phragmén–Lindelöf principle (or method), first formulated by Lars Edvard Phragmén (1863–1937) and Ernst Leonard Lindelöf (1870–1946) in 1908, is a technique which employs an auxiliary, parameterized function to prove the boundedness of a holomorphic function f (i.e, |f(z)|<M(z∈Ω)|f(z)|<M
+(z∈Ω)) on an unbounded domain ΩΩ when an additional (usually mild) condition constraining the growth of |f||f| on ΩΩ is given.  It is a generalization of the maximum modulus principle, which is only applicable to bounded domains.
+
+
+Background[edit]
+In the theory of complex functions, it is known that the modulus (absolute value) of a holomorphic (complex differentiable) function in the interior of a bounded region is bounded by its modulus on the boundary of the region.  More precisely, if a non-constant function f:C→C:ℂ→ℂ is holomorphic in a bounded region[1] ΩΩ and continuous on its closure Ω¯=Ω∪∂ΩΩ=Ω∪∂Ω, then |f(z0)|<supz∈∂Ω|f(z)||f(z_0)|<sup_z∈∂Ω|f(z)| for all z0∈Ω_0∈Ω. This is known as the maximum modulus principle. (In fact, since Ω¯Ω is compact and |f||f| is continuous, there actually exists some w0∈∂Ω_0∈∂Ω such that |f(w0)|=supz∈Ω|f(z)||f(w_0)|=sup_z∈Ω|f(z)|.)  The maximum modulus principle is generally used to conclude that a holomorphic function is bounded in a region after showing that it is bounded on its boundary.
+However, the maximum modulus principle cannot be applied to an unbounded region of the complex plane.  As a concrete example, let us examine the behavior of the holomorphic function f(z)=exp⁡(exp⁡(z))(z)=exp(exp(z)) in the unbounded strip
+
+S=z:ℑ(z)∈(−π2,π2)={z:(z)∈(-π/2,π/2)}.
+Although |f(x±πi/2)|=1|f(x±/2)|=1, so that |f||f| is bounded on boundary ∂S, |f||f| grows rapidly without bound when |z|→∞|z|→∞ along the positive real axis.  The difficulty here stems from the extremely fast growth of |f||f| along the positive real axis.  If the growth rate of |f||f| is guaranteed to not be "too fast," as specified by an appropriate growth condition, the Phragmén–Lindelöf principle can be applied to show that boundedness of f on the region's boundary implies that f is in fact bounded in the whole region, effectively extending the maximum modulus principle to unbounded regions.
+
+Outline of the technique[edit]
+Suppose we are given a holomorphic function f and an unbounded region S, and we want to show that |f|≤M|f| on S.  In a typical Phragmén–Lindelöf argument, we introduce a certain multiplicative factor hϵ_ϵ satisfying limϵ→0hϵ=1lim_ϵ→0h_ϵ=1 to "subdue" the growth of f.  In particular, hϵ_ϵ is chosen such that (i): fhϵ_ϵ is holomorphic for all ϵ>0ϵ>0 and |fhϵ|≤M|fh_ϵ| on the boundary ∂Sbdd_bdd of an appropriate bounded subregion Sbdd⊂S_bdd; and (ii): the asymptotic behavior of fhϵ_ϵ allows us to establish that |fhϵ|≤M|fh_ϵ| for z∈S∖Sbdd¯∖S_bdd (i.e., the unbounded part of S outside the closure of the bounded subregion).  This allows us to apply the maximum modulus principle to first conclude that |fhϵ|≤M|fh_ϵ| on Sbdd¯S_bdd and then extend the conclusion to all z∈S.  Finally, we let ϵ→0ϵ→0 so that f(z)hϵ(z)→f(z)(z)h_ϵ(z)(z) for every z∈S in order to conclude that |f|≤M|f| on S. 
+In the literature of complex analysis, there are many examples of the Phragmén–Lindelöf principle applied to unbounded regions of differing types, and also a version of this principle may be applied in a similar fashion to subharmonic and superharmonic functions.
+
+Example of application[edit]
+To continue the example above, we can impose a growth condition on a holomorphic function f that prevents it from "blowing up" and allows the Phragmén–Lindelöf principle to be applied.   To this end, we now include the condition that 
+
+|f(z)|<exp⁡(Aexp⁡(c⋅|ℜ(z)|))|f(z)|<exp(Aexp(c·|(z)|))
+for some real constants c<1<1 and A<∞<∞, for all z∈S.  It can then be shown that |f(z)|≤1|f(z)|≤1 for all z∈∂S∈ implies that |f(z)|≤1|f(z)|≤1 in fact holds for all z∈S.  Thus, we have the following proposition:
+Proposition. Let
+
+S=z:ℑ(z)∈(−π2,π2),S¯=z:ℑ(z)∈[−π2,π2].={z:(z)∈(-π/2,π/2)},  S={z:(z)∈[-π/2,π/2]}.
+Let f be holomorphic on S and continuous on S¯S, and suppose there exist real constants  c<1,A<∞<1,<∞ such that
+
+|f(z)|<exp⁡(Aexp⁡(c⋅|ℜ(z)|))|f(z)|<exp(Aexp(c·|(z)|))
+for all z∈S and |f(z)|≤1|f(z)|≤1 for all z∈S¯∖S=∂S∈S=.  Then |f(z)|≤1|f(z)|≤1 for all z∈S.
+Note that this conclusion fails when c=1=1, precisely as the motivating counterexample in the previous section demonstrates.  The proof of this statement employs a typical Phragmén–Lindelöf argument:[2]
+Proof: (Sketch) We fix b∈(c,1)∈(c,1) and define for each ϵ>0ϵ>0 the auxiliary function hϵ_ϵ by hϵ(z)=e−ϵ(ebz+e−bz)_ϵ(z)=e^-ϵ(e^bz+e^-bz).  Moreover, for a given a>0>0, we define Sa_a to be the open rectangle in the complex plane enclosed within the vertices a±iπ/2,−a±iπ/2{aπ/2,-aπ/2}.  Now, fix ϵ>0ϵ>0 and consider the function fhϵ_ϵ.  It can be shown that |f(z)hϵ(z)|→0|f(z)h_ϵ(z)|→0 as |ℜ(z)|→∞|(z)|→∞.  This allows us to find an x0_0 such that |f(z)hϵ(z)|≤1|f(z)h_ϵ(z)|≤1 whenever z∈S¯∈S and |ℜ(z)|≥x0|(z)|_0. Because Sx0_x_0 is a bounded region, and |f(z)hϵ(z)|≤1|f(z)h_ϵ(z)|≤1 for all z∈∂Sx0∈_x_0, the maximum modulus principle implies that |f(z)hϵ(z)|≤1|f(z)h_ϵ(z)|≤1 for all z∈Sx0¯∈S_x_0.  Since |f(z)hϵ(z)|≤1|f(z)h_ϵ(z)|≤1 whenever z∈S and |ℜ(z)|>x0|(z)|>x_0, |f(z)hϵ(z)|≤1|f(z)h_ϵ(z)|≤1 in fact holds for all z∈S.  Finally, because fhϵ→f_ϵ as ϵ→0ϵ→0, we conclude that |f(z)|≤1|f(z)|≤1 for all z∈S.  Q.E.D.
+
+Phragmén–Lindelöf principle for a sector in the complex plane[edit]
+A particularly useful statement proved using the Phragmén–Lindelöf principle bounds holomorphic functions on a sector of the complex plane if it is bounded on its boundary.  This statement can be used to give a complex analytic proof of the Hardy's uncertainty principle, which states that a function and its Fourier transform cannot both decay faster than exponentially.[3]
+Proposition. Let F be a function that is holomorphic in a sector
+
+S=z|α<arg⁡z<β={z | α<<β}
+of central angle β−α=π/λβ-α=π/λ, and continuous on its boundary. If
+
+
+
+
+|F(z)|≤1|F(z)|≤1
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+for z∈∂S∈, and
+
+
+
+
+|F(z)|≤eC|z|ρ|F(z)|^C|z|^ρ
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+for all z∈S, where ρ∈[0,λ)ρ∈[0,λ) and C>0>0, then |F(z)|≤1|F(z)|≤1 holds also for all z∈S.
+
+Remarks[edit]
+The condition (2) can be relaxed to
+
+
+
+
+liminfr→∞supα<θ<βlog⁡|F(reiθ)|rρ=0forsome0≤ρ<λ,lim inf_r→∞sup_α<θ<βlog|F(re^iθ)|/r^ρ=0  forsome  0≤ρ<λ ,
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(3)
+
+with the same conclusion.
+
+Special cases[edit]
+In practice the point 0 is often transformed into the point ∞ of the Riemann sphere. This gives a version of the principle that applies to strips, for example bounded by two lines of constant real part in the complex plane. This special case is sometimes known as Lindelöf's theorem.
+Carlson's theorem is an application of the principle to functions bounded on the imaginary axis.
+
+See also[edit]
+Hadamard three-lines theorem
+References[edit]
+
+
+^ The term region is not uniformly employed in the literature; here, a region is taken to mean a nonempty connected open subset of the complex plane.
+
+^ Rudin, Walter (1987). Real and Complex Analysis. New York: McGraw-Hill. pp. 257–259. ISBN 0070542341.
+
+^ Tao, Terence (2009-02-18). "Hardy's Uncertainty Principle". Updates on my research and expository papers, discussion of open problems, and other maths-related topics. By Terence Tao.
+
+
+Phragmén, Lars Edvard; Lindelöf, Ernst (1908). "Sur une extension d'un principe classique de l'analyse et sur quelques propriétés des fonctions monogènes dans le voisinage d'un point singulier". Acta Math. 31 (1): 381–406. doi:10.1007/BF02415450. ISSN 0001-5962.
+Riesz, Marcel (1920). "Sur le principe de Phragmén-Lindelöf". Proceedings of the Cambridge Philosophical Society. 20. (Corr. "Sur le principe de Phragmén-Lindelöf". 21. 1921. {{cite journal}}: Cite journal requires |journal= (help))
+Titchmarsh, Edward Charles (1976). The Theory of Functions (Second ed.). Oxford University Press. ISBN 0-19-853349-7. (See chapter 5)
+E.D. Solomentsev (2001) [1994], "Phragmén–Lindelöf theorem", Encyclopedia of Mathematics, EMS Press
+Stein, Elias M. and Shakarchi, Rami (2003). Complex analysis. Princeton Lectures in Analysis, II. Princeton, NJ: Princeton University Press. ISBN 0-691-11385-8.{{cite book}}:  CS1 maint: multiple names: authors list (link)
+
+
+

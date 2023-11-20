@@ -1,0 +1,187 @@
+Representation of groups by permutations
+For the number of labeled trees in graph theory, see Cayley's formula.
+In group theory, Cayley's theorem, named in honour of Arthur Cayley, states that every group G is isomorphic to a subgroup of a symmetric group.[1] 
+More specifically, G is isomorphic to a subgroup of the symmetric group Sym⁡(G)Sym(G) whose elements are the permutations of the underlying set of G.
+Explicitly,
+
+for each g∈G, the left-multiplication-by-g map ℓg:G→Gℓ_g sending each element x to gx is a permutation of G, and
+the map G→Sym⁡(G)→Sym(G) sending each element g to ℓgℓ_g is an injective homomorphism, so it defines an isomorphism from G onto a subgroup of Sym⁡(G)Sym(G).
+The homomorphism G→Sym⁡(G)→Sym(G) can also be understood as arising from the left translation action of G on the underlying set G.[2]
+When G is finite, Sym⁡(G)Sym(G) is finite too.  The proof of Cayley's theorem in this case shows that if G is a finite group of order n, then G is isomorphic to a subgroup of the standard symmetric group Sn_n.  But G might also be isomorphic to a subgroup of a smaller symmetric group, Sm_m for some m<n<n; for instance, the order 6 group G=S3=S_3 is not only isomorphic to a subgroup of S6_6, but also (trivially) isomorphic to a subgroup of S3_3.[3]  The problem of finding the minimal-order symmetric group into which a given group G embeds is rather difficult.[4][5]
+Alperin and Bell note that "in general the fact that finite groups are imbedded in symmetric groups has not influenced the methods used to study finite groups".[6]
+When G is infinite, Sym⁡(G)Sym(G) is infinite, but Cayley's theorem still applies.
+
+
+History[edit]
+While it seems elementary enough, at the time the modern definitions did not exist, and when Cayley introduced what are now called groups it was not immediately clear that this was equivalent to the previously known groups, which are now called permutation groups. Cayley's theorem unifies the two.
+Although Burnside[7] 
+attributes the theorem 
+to Jordan,[8] 
+Eric Nummela[9] 
+nonetheless argues that the standard name—"Cayley's Theorem"—is in fact appropriate.  Cayley, in his original 1854 paper,[10] 
+showed that the correspondence in the theorem is one-to-one, but he failed to explicitly show it was a homomorphism (and thus an embedding).  However, Nummela notes that Cayley made this result known to the mathematical community at the time, thus predating Jordan by 16 years or so.
+The theorem was later published by Walther Dyck in 1882[11] and is attributed to Dyck in the first edition of Burnside's book.[12]
+
+Background[edit]
+A permutation of a set A is a bijective function from A to A. The set of all permutations of A forms a group under function composition, called the symmetric group on A, and written as Sym⁡(A)Sym(A).[13]
+In particular, taking A to be the underlying set of a group G produces a symmetric group denoted Sym⁡(G)Sym(G).
+
+Proof of the theorem[edit]
+If g is any element of a group G with operation ∗, consider the function fg : G → G, defined by fg(x) = g ∗ x. By the existence of inverses, this function has also an inverse, fg−1_g^-1. So multiplication by g acts as a bijective function. Thus, fg is a permutation of G, and so is a member of Sym(G).
+The set K = {fg : g ∈ G} is a subgroup of Sym(G) that is isomorphic to G. The fastest way to establish this is to consider the function T : G → Sym(G) with T(g) = fg for every g in G. T is a group homomorphism because (using · to denote composition in Sym(G)):
+
+(fg⋅fh)(x)=fg(fh(x))=fg(h∗x)=g∗(h∗x)=(g∗h)∗x=fg∗h(x),(f_g_h)(x)=f_g(f_h(x))=f_g(h*x)=g*(h*x)=(g*h)*x=f_g*h(x),
+for all x in G, and hence:
+
+T(g)⋅T(h)=fg⋅fh=fg∗h=T(g∗h).(g)(h)=f_g_h=f_g*h=T(g*h).
+The homomorphism T is injective since T(g) = idG (the identity element of Sym(G)) implies that g ∗ x = x for all x in G, and taking x to be the identity element e of G yields g = g ∗ e = e, i.e. the kernel is trivial. Alternatively, T is also injective since g ∗ x = g′ ∗ x implies that g = g′ (because every group is cancellative).
+Thus G is isomorphic to the image of T, which is the subgroup K.
+T is sometimes called the regular representation of G.
+
+Alternative setting of proof[edit]
+An alternative setting uses the language of group actions. We consider the group G as acting on itself by left multiplication, i.e. g⋅x=gx=gx, which has a permutation representation, say ϕ:G→Sym(G)ϕ:G→Sym(G).
+The representation is faithful if ϕϕ is injective, that is, if the kernel of ϕϕ is trivial. Suppose g∈ker⁡ϕ∈ϕ. Then, g=ge=g⋅e=e=ge=g=e. Thus, ker⁡ϕϕ is trivial. The result follows by use of the first isomorphism theorem, from which we get Imϕ≅GIm ϕ.
+
+Remarks on the regular group representation[edit]
+The identity element of the group corresponds to the identity permutation. All other group elements correspond to derangements: permutations that do not leave any element unchanged. Since this also applies for powers of a group element, lower than the order of that element, each element corresponds to a permutation that consists of cycles all of the same length: this length is the order of that element. The elements in each cycle form a right coset of the subgroup generated by the element.
+
+Examples of the regular group representation[edit]
+Z2 = {0,1} with addition modulo 2; group element 0 corresponds to the identity permutation e, group element 1 to permutation (12) (see cycle notation). E.g. 0 +1 = 1 and 1+1 = 0, so 1↦01↦0 and 0↦1,0↦1, as they would under a permutation.
+Z3=0,1,2ℤ_3={0,1,2} with addition modulo 3; group element 0 corresponds to the identity permutation e, group element 1 to permutation (123), and group element 2 to permutation (132). E.g. 1 + 1 = 2 corresponds to (123)(123) = (132).
+Z4 = {0,1,2,3} with addition modulo 4; the elements correspond to e, (1234), (13)(24), (1432).
+The elements of Klein four-group {e, a, b, c} correspond to e, (12)(34), (13)(24), and (14)(23).
+S3 (dihedral group of order 6) is the group of all permutations of 3 objects, but also a permutation group of the 6 group elements, and the latter is how it is realized by its regular representation.
+
+
+
+*
+
+e
+
+a
+
+b
+
+c
+
+d
+
+f
+
+permutation
+
+
+e
+
+e
+a
+b
+c
+d
+f
+e
+
+
+a
+
+a
+e
+d
+f
+b
+c
+(12)(35)(46)
+
+
+b
+
+b
+f
+e
+d
+c
+a
+(13)(26)(45)
+
+
+c
+
+c
+d
+f
+e
+a
+b
+(14)(25)(36)
+
+
+d
+
+d
+c
+a
+b
+f
+e
+(156)(243)
+
+
+f
+
+f
+b
+c
+a
+e
+d
+(165)(234)
+
+More general statement[edit]
+Theorem: 
+Let G be a group, and let H be a subgroup.
+Let G/H/H be the set of left cosets of H in G.
+Let N be the normal core of H in G, defined to be the intersection of the conjugates of H in G. 
+Then the quotient group G/N/N is isomorphic to a subgroup of Sym⁡(G/H)Sym(G/H).
+The special case H=1=1 is Cayley's original theorem.
+
+See also[edit]
+Wagner–Preston theorem is the analogue for inverse semigroups.
+Birkhoff's representation theorem, a similar result in order theory
+Frucht's theorem, every finite group is the automorphism group of a graph
+Yoneda lemma, a generalization of Cayley's theorem in category theory
+Representation theorem
+Notes[edit]
+
+
+^ Jacobson (2009, p. 38)
+
+^ Jacobson (2009, p. 72, ex. 1)
+
+^ Peter J. Cameron (2008). Introduction to Algebra, Second Edition. Oxford University Press. p. 134. ISBN 978-0-19-852793-0.
+
+^ Johnson, D. L. (1971). "Minimal Permutation Representations of Finite Groups". American Journal of Mathematics. 93 (4): 857–866. doi:10.2307/2373739. JSTOR 2373739.
+
+^ Grechkoseeva, M. A. (2003). "On Minimal Permutation Representations of Classical Simple Groups". Siberian Mathematical Journal. 44 (3): 443–462. doi:10.1023/A:1023860730624. S2CID 126892470.
+
+^ J. L. Alperin; Rowen B. Bell (1995). Groups and representations. Springer. p. 29. ISBN 978-0-387-94525-5.
+
+^ Burnside, William (1911), Theory of Groups of Finite Order (2 ed.), Cambridge, p. 22, ISBN 0-486-49575-2{{citation}}:  CS1 maint: location missing publisher (link)
+
+^ Jordan, Camille (1870), Traite des substitutions et des equations algebriques, Paris: Gauther-Villars
+
+^ Nummela, Eric (1980), "Cayley's Theorem for Topological Groups", American Mathematical Monthly, Mathematical Association of America, 87 (3): 202–203, doi:10.2307/2321608, JSTOR 2321608
+
+^ Cayley, Arthur (1854), "On the theory of groups as depending on the symbolic equation θn=1", Philosophical Magazine, 7 (42): 40–47
+
+^ von Dyck, Walther (1882), "Gruppentheoretische Studien" [Group-theoretical Studies], Mathematische Annalen, 20 (1): 30, doi:10.1007/BF01443322, hdl:2027/njp.32101075301422, ISSN 0025-5831, S2CID 179178038. (in German)
+
+^ Burnside, William (1897), Theory of Groups of Finite Order (1 ed.), Cambridge, p. 22{{citation}}:  CS1 maint: location missing publisher (link)
+
+^ Jacobson (2009, p. 31)
+
+
+References[edit]
+Jacobson, Nathan (2009), Basic algebra (2nd ed.), Dover, ISBN 978-0-486-47189-1.
+
+
+

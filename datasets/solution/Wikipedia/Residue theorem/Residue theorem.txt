@@ -1,0 +1,146 @@
+Concept of complex analysis
+Mathematical analysis → Complex analysisComplex analysis
+Complex numbers
+Real number
+Imaginary number
+Complex plane
+Complex conjugate
+Unit complex number
+
+Complex functions
+Complex-valued function
+Analytic function
+Holomorphic function
+Cauchy–Riemann equations
+Formal power series
+
+Basic theory
+Zeros and poles
+Cauchy's integral theorem
+Local primitive
+Cauchy's integral formula
+Winding number
+Laurent series
+Isolated singularity
+Residue theorem
+Conformal map
+Schwarz lemma
+Harmonic function
+Laplace's equation
+
+Geometric function theory
+People
+Augustin-Louis Cauchy
+Leonhard Euler
+Carl Friedrich Gauss
+Jacques Hadamard
+Kiyoshi Oka
+Bernhard Riemann
+Karl Weierstrass
+
+ Mathematics portalvte
+In complex analysis, the residue theorem, sometimes called Cauchy's residue theorem, is a powerful tool to evaluate line integrals of analytic functions over closed curves; it can often be used to compute real integrals and infinite series as well. It generalizes the Cauchy integral theorem and Cauchy's integral formula.  The residue theorem should not be confused with special cases of the generalized Stokes' theorem; however, the latter can be used as an ingredient of its proof.
+
+
+Statement[edit]
+The statement is as follows:
+
+Illustration of the setting
+Let U be a simply connected open subset of the complex plane containing a finite list of points a1,…,an,_1,…,a_n, U0=U∖a1,…,an,_0=U∖{a_1,…,a_n}, and a function f holomorphic on U0._0. Letting γγ be a closed rectifiable curve in U0,_0, and denoting the residue of f at each point ak_k by Res⁡(f,ak)Res(f,a_k) and the winding number of γγ around ak_k by I⁡(γ,ak),I(γ,a_k), the line integral of f around γγ is equal to 2πi2 times the sum of residues, each counted as many times as γγ winds around the respective point:
+∮γf(z)dz=2πi∑k=1nI⁡(γ,ak)Res⁡(f,ak).∮_γf(z) dz=2∑_k=1^nI(γ,a_k)Res(f,a_k).
+If γγ is a positively oriented simple closed curve, I⁡(γ,ak)I(γ,a_k) is 11 if ak_k is in the interior of γγ and 00 if not, therefore
+∮γf(z)dz=2πi∑Res⁡(f,ak)∮_γf(z) dz=2∑Res(f,a_k)
+with the sum over those ak_k inside γ.γ.[1]
+The relationship of the residue theorem to Stokes' theorem is given by the Jordan curve theorem.  The general plane curve γ must first be reduced to a set of simple closed curves γi{γ_i} whose total is equivalent to γγ for integration purposes; this reduces the problem to finding the integral of fdz dz along a Jordan curve γiγ_i with interior V.. The requirement that f be holomorphic on U0=U∖ak_0=U∖{a_k} is equivalent to the statement that the exterior derivative d(fdz)=0(f dz)=0 on U0._0.  Thus if two planar regions V and W of U enclose the same subset aj{a_j} of ak,{a_k}, the regions V∖W and W∖V lie entirely in U0,_0, hence
+∫V∖Wd(fdz)−∫W∖Vd(fdz)∫_Vd(f dz)-∫_Wd(f dz)
+is well-defined and equal to zero. Consequently, the contour integral of fdz dz along γj=∂Vγ_j= is equal to the sum of a set of integrals along paths γj,γ_j, each enclosing an arbitrarily small region around a single aj_j — the residues of f (up to the conventional factor 2πi2 at aj.{a_j}. Summing over γj,{γ_j}, we recover the final expression of the contour integral in terms of the winding numbers I⁡(γ,ak).{I(γ,a_k).
+In order to evaluate real integrals, the residue theorem is used in the following manner: the integrand is extended to the complex plane and its residues are computed (which is usually easy), and a part of the real axis is extended to a closed curve by attaching a half-circle in the upper or lower half-plane, forming a semicircle. The integral over this curve can then be computed using the residue theorem. Often, the half-circle part of the integral will tend towards zero as the radius of the half-circle grows, leaving only the real-axis part of the integral, the one we were originally interested in.
+
+Examples[edit]
+An integral along the real axis[edit]
+The integral
+∫−∞∞eitxx2+1dx∫_-∞^∞e^itx/x^2+1 dx
+
+The contour C.
+arises in probability theory when calculating the characteristic function of the Cauchy distribution. It resists the techniques of elementary calculus but can be evaluated by expressing it as a limit of contour integrals.
+Suppose t > 0 and define the contour C that goes along the real line from −a to a and then counterclockwise along a semicircle centered at 0 from a to −a. Take a to be greater than 1, so that the imaginary unit i is enclosed within the curve.  Now consider the contour integral
+∫Cf(z)dz=∫Ceitzz2+1dz.∫_Cf(z) dz=∫_Ce^itz/z^2+1 dz.
+Since eitz is an entire function (having no singularities at any point in the complex plane), this function has singularities only where the denominator z2 + 1 is zero. Since z2 + 1 = (z + i)(z − i), that happens only where z = i or z = −i. Only one of those points is in the region bounded by this contour. Because f(z) is
+eitzz2+1=eitz2i(1z−i−1z+i)=eitz2i(z−i)−eitz2i(z+i),e^itz/z^2+1   =e^itz/2i(1/z-i-1/z+i)
+   =e^itz/2i(z-i)-e^itz/2i(z+i),
+the residue of f(z) at z = i is
+Resz=i⁡f(z)=e−t2i.Res_z=if(z)=e^-t/2i.
+According to the residue theorem, then, we have
+∫Cf(z)dz=2πi⋅Resz=i⁡f(z)=2πie−t2i=πe−t.∫_Cf(z) dz=2·Res_z=if(z)=2e^-t/2i=^-t.
+The contour C may be split into a straight part and a curved arc, so that
+∫straightf(z)dz+∫arcf(z)dz=πe−t∫_straightf(z) dz+∫_arcf(z) dz=^-t
+and thus
+∫−aaf(z)dz=πe−t−∫arcf(z)dz.∫_-a^af(z) dz=^-t-∫_arcf(z) dz.
+Using some estimations, we have
+|∫arceitzz2+1dz|≤πa⋅suparc|eitzz2+1|≤πa⋅suparc1|z2+1|≤πaa2−1,|∫_arce^itz/z^2+1 dz|≤·sup_arc|e^itz/z^2+1|≤·sup_arc1/|z^2+1|≤/a^2-1,
+and
+lima→∞πaa2−1=0.lim_a→∞/a^2-1=0.
+The estimate on the numerator follows since t > 0, and for complex numbers z along the arc (which lies in the upper half-plane), the argument φ of z lies between 0 and π.  So,
+|eitz|=|eit|z|(cos⁡φ+isin⁡φ)|=|e−t|z|sin⁡φ+it|z|cos⁡φ|=e−t|z|sin⁡φ≤1.|e^itz|=|e^it|z|(cosφ+isinφ)|=|e^-t|z|sinφ+it|z|cosφ|=e^-t|z|sinφ≤1.
+Therefore,
+∫−∞∞eitzz2+1dz=πe−t.∫_-∞^∞e^itz/z^2+1 dz=^-t.
+If t < 0 then a similar argument with an arc C′ that winds around −i rather than i shows that
+
+The contour C′.
+∫−∞∞eitzz2+1dz=πet,∫_-∞^∞e^itz/z^2+1 dz=^t,
+and finally we have
+∫−∞∞eitzz2+1dz=πe−|t|.∫_-∞^∞e^itz/z^2+1 dz=^-|t|.
+(If t = 0 then the integral yields immediately to elementary calculus methods and its value is π.)
+
+Evaluating zeta functions[edit]
+The fact that π cot(πz) has simple poles with residue 1 at each integer can be used to compute the sum
+∑n=−∞∞f(n).∑_n=-∞^∞f(n).
+Consider, for example, f(z) = z−2. Let ΓN be the rectangle that is the boundary of [−N − 1/2, N + 1/2]2 with positive orientation, with an integer N. By the residue formula,
+12πi∫ΓNf(z)πcot⁡(πz)dz=Resz=0+∑n=−Nn≠0Nn−2.1/2∫_Γ_Nf(z)π() dz=Res_z=0+∑_n=-N≠0^Nn^-2.
+The left-hand side goes to zero as N → ∞ since |cot⁡(πz)||()| is uniformly bounded on the contour, thanks to using x=±(12+N)=±(1/2+N) on the left and right side of the contour, and so the integrand has order O(N−2)(N^-2) over the entire contour. On the other hand,[2]
+z2cot⁡(z2)=1−B2z22!+⋯z/2(z/2)=1-B_2z^2/2!+⋯ where the Bernoulli number B2=16._2=1/6.
+(In fact, z/2 cot(z/2) = iz/1 − e−iz − iz/2.) Thus, the residue Resz=0 is −π2/3. We conclude:
+∑n=1∞1n2=π26∑_n=1^∞1/n^2=π^2/6
+which is a proof of the Basel problem.
+The same argument works for all f(x)=x−2n(x)=x^-2n where n is a positive integer, giving usζ(2n)=(−1)n+1B2n(2π)2n2(2n)!.ζ(2n)=(-1)^n+1B_2n(2π)^2n/2(2n)!.The trick does not work when f(x)=x−2n−1(x)=x^-2n-1, since in this case, the residue at zero vanishes, and we obtain the useless identity 0+ζ(2n+1)−ζ(2n+1)=00+ζ(2n+1)-ζ(2n+1)=0.
+
+Evaluating Eisenstein series[edit]
+The same trick can be used to establish the sum of the Eisenstein series:πcot⁡(πz)=limN→∞∑n=−NN(z−n)−1.π()=lim_N→∞∑_n=-N^N(z-n)^-1.
+
+Proof
+Pick an arbitrary w∈C∖Z∈ℂ∖ℤ. As above, define
+g(z):=1w−zπcot⁡(πz)(z):=1/w-zπ()
+By the Cauchy residue theorem, for all N large enough such that ΓNΓ_N encircles w,
+∮ΓNg(z)dz=−πcot⁡(πz)+∑n=−NN1z−n∮_Γ_Ng(z)dz=-π()+∑_n=-N^N1/z-n
+It remains to prove the integral converges to zero. Since πcot⁡(πz)/zπ()/z is an even function, and ΓNΓ_N is symmetric about the origin, we have ∮ΓNπcot⁡(πz)/zdz=0∮_Γ_Nπ()/zdz=0, and so
+∮ΓNg(z)dz=∮ΓN(1z+1w−z)πcot⁡(πz)dz=−w∮ΓN1z(z−w)πcot⁡(πz)dz=O(1/N)∮_Γ_Ng(z)dz=∮_Γ_N(1/z+1/w-z)π()dz=-w∮_Γ_N1/z(z-w)π()dz=O(1/N)
+
+
+See also[edit]
+Cauchy's integral formula
+Glasser's master theorem
+Jordan's lemma
+Methods of contour integration
+Morera's theorem
+Nachbin's theorem
+Residue at infinity
+Logarithmic form
+Notes[edit]
+
+
+^ Whittaker & Watson 1920, p. 112, §6.1.
+
+^ Whittaker & Watson 1920, p. 125, §7.2. Note that the Bernoulli number B2n_2n is denoted by Bn_n in Whittaker & Watson's book.
+
+
+References[edit]
+Ahlfors, Lars (1979). Complex Analysis. McGraw Hill. ISBN 0-07-085008-9.
+Lindelöf, Ernst L. (1905). Le calcul des résidus et ses applications à la théorie des fonctions (in French). Editions Jacques Gabay (published 1989). ISBN 2-87647-060-8.
+Mitrinović, Dragoslav; Kečkić, Jovan (1984). The Cauchy method of residues: Theory and applications. D. Reidel Publishing Company. ISBN 90-277-1623-4.
+Whittaker, E. T.; Watson, G. N. (1920). A Course of Modern Analysis (3rd ed.). Cambridge University Press.
+External links[edit]
+"Cauchy integral theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Residue theorem in MathWorld
+
+
+

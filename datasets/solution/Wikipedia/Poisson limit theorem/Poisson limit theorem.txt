@@ -1,0 +1,61 @@
+Probability Theory
+"Poisson theorem" redirects here. For the "Poisson's theorem" in Hamiltonian mechanics, see Poisson bracket § Constants of motion.
+
+In probability theory, the law of rare events or Poisson limit theorem states that the Poisson distribution may be used as an approximation to the binomial distribution, under certain conditions.[1] The theorem was named after Siméon Denis Poisson (1781–1840). A generalization of this theorem is Le Cam's theorem.
+
+For broader coverage of this topic, see Poisson distribution § Law of rare events.
+
+Theorem[edit]
+Let pn_n be a sequence of real numbers in [0,1][0,1] such that the sequence npn_n converges to a finite limit λλ. Then:
+
+limn→∞(nk)pnk(1−pn)n−k=e−λλkk!lim_n→∞np_n^k(1-p_n)^n-k=e^-λλ^k/k!
+Proofs[edit]
+limn→∞(nk)pnk(1−pn)n−k≃limn→∞n(n−1)(n−2)…(n−k+1)k!(λn)k(1−λn)n−k=limn→∞nk+O(nk−1)k!λknk(1−λn)n−k=limn→∞λkk!(1−λn)n−k.lim_n→∞np_n^k(1-p_n)^n-k   ≃lim_n→∞n(n-1)(n-2)…(n-k+1)/k!(λ/n)^k(1-λ/n)^n-k
+   =lim_n→∞n^k+O(n^k-1)/k!λ^k/n^k(1-λ/n)^n-k
+   =lim_n→∞λ^k/k!(1-λ/n)^n-k.
+Since
+
+limn→∞(1−λn)n=e−λlim_n→∞(1-λ/n)^n=e^-λ
+and
+
+limn→∞(1−λn)−k=1,lim_n→∞(1-λ/n)^-k=1,
+this leaves
+
+(nk)pk(1−p)n−k≃λke−λk!.np^k(1-p)^n-k≃λ^ke^-λ/k!.
+Alternative proof[edit]
+Using Stirling's approximation, it can be written:
+
+(nk)pk(1−p)n−k=n!(n−k)!k!pk(1−p)n−k≃2πn(ne)n2π(n−k)(n−ke)n−kk!pk(1−p)n−k=nn−knne−k(n−k)n−kk!pk(1−p)n−k.np^k(1-p)^n-k   =n!/(n-k)!k!p^k(1-p)^n-k
+   ≃√(2)(n/e)^n/√(2π(n-k))(n-k/e)^n-kk!p^k(1-p)^n-k
+   =√(n/n-k)n^ne^-k/(n-k)^n-kk!p^k(1-p)^n-k.
+Letting n→∞→∞ and np=λ=λ:
+
+(nk)pk(1−p)n−k≃nnpk(1−p)n−ke−k(n−k)n−kk!=nn(λn)k(1−λn)n−ke−knn−k(1−kn)n−kk!=λk(1−λn)n−ke−k(1−kn)n−kk!≃λk(1−λn)ne−k(1−kn)nk!.np^k(1-p)^n-k   ≃n^n p^k(1-p)^n-ke^-k/(n-k)^n-kk!
+   =n^n(λ/n)^k(1-λ/n)^n-ke^-k/n^n-k(1-k/n)^n-kk!
+   =λ^k(1-λ/n)^n-ke^-k/(1-k/n)^n-kk!
+   ≃λ^k(1-λ/n)^ne^-k/(1-k/n)^nk!.
+As n→∞→∞, (1−xn)n→e−x(1-x/n)^n^-x so:
+
+(nk)pk(1−p)n−k≃λke−λe−ke−kk!=λke−λk!np^k(1-p)^n-k   ≃λ^ke^-λe^-k/e^-kk!
+   =λ^ke^-λ/k!
+Ordinary generating functions[edit]
+It is also possible to demonstrate the theorem through the use of ordinary generating functions of the binomial distribution:
+
+Gbin(x;p,N)≡∑k=0N[(Nk)pk(1−p)N−k]xk=[1+(x−1)p]N_bin(x;p,N)≡∑_k=0^N[Nkp^k(1-p)^N-k]x^k=[1+(x-1)p]^N
+by virtue of the binomial theorem. Taking the limit N→∞→∞ while keeping the product pN≡λ≡λ constant, it can be seen:
+
+limN→∞Gbin(x;p,N)=limN→∞[1+λ(x−1)N]N=eλ(x−1)=∑k=0∞[e−λλkk!]xklim_N→∞G_bin(x;p,N)=lim_N→∞[1+λ(x-1)/N]^N=e^λ(x-1)=∑_k=0^∞[e^-λλ^k/k!]x^k
+which is the OGF for the Poisson distribution. (The second equality holds due to the definition of the exponential function.)
+
+See also[edit]
+De Moivre–Laplace theorem
+Le Cam's theorem
+References[edit]
+
+
+^ Papoulis, Athanasios; Pillai, S. Unnikrishna. Probability, Random Variables, and Stochastic Processes (4th ed.).
+
+
+
+
+

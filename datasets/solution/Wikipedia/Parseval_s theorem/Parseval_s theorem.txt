@@ -1,0 +1,143 @@
+Theorem in mathematics
+In mathematics, Parseval's theorem[1] usually refers to the result that the Fourier transform is unitary; loosely, that the sum (or integral) of the square of a function is equal to the sum (or integral) of the square of its transform.  It originates from a 1799 theorem about series by Marc-Antoine Parseval, which was later applied to the Fourier series.  It is also known as Rayleigh's energy theorem, or Rayleigh's identity, after John William Strutt, Lord Rayleigh.[2]
+Although the term "Parseval's theorem" is often used to describe the unitarity of any Fourier transform, especially in physics, the most general form of this property is more properly called the Plancherel theorem.[3]
+
+
+Statement of Parseval's theorem[edit]
+Suppose that A(x)(x) and B(x)(x) are two complex-valued functions on Rℝ of period 2π2π that are square integrable (with respect to the Lebesgue measure) over intervals of period length, with Fourier series
+
+A(x)=∑n=−∞∞aneinx(x)=∑_n=-∞^∞a_ne^inx
+and
+
+B(x)=∑n=−∞∞bneinx(x)=∑_n=-∞^∞b_ne^inx
+respectively. Then
+
+
+
+
+
+∑n=−∞∞anbn¯=12π∫−ππA(x)B(x)¯dx,∑_n=-∞^∞a_nb_n=1/2π∫_-π^πA(x)B(x) dx,
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.1)
+
+
+where i is the imaginary unit and horizontal bars indicate complex conjugation. Substituting A(x)(x) and B(x)¯B(x):
+
+∑n=−∞∞anbn¯=12π∫−ππ(∑n=−∞∞aneinx)(∑n=−∞∞bn¯e−inx)dx=12π∫−ππ(a1ei1x+a2ei2x+⋯)(b1¯e−i1x+b2¯e−i2x+⋯)dx=12π∫−ππ(a1ei1xb1¯e−i1x+a1ei1xb2¯e−i2x+a2ei2xb1¯e−i1x+a2ei2xb2¯e−i2x+⋯)dx=12π∫−ππ(a1b1¯+a1b2¯e−ix+a2b1¯eix+a2b2¯+⋯)dx∑_n=-∞^∞a_nb_n   =1/2π∫_-π^π(∑_n=-∞^∞a_ne^inx)(∑_n=-∞^∞b_ne^-inx) dx
+   =1/2π∫_-π^π(a_1e^i1x+a_2e^i2x+⋯)(b_1e^-i1x+b_2e^-i2x+⋯)dx
+   =1/2π∫_-π^π(a_1e^i1xb_1e^-i1x+a_1e^i1xb_2e^-i2x+a_2e^i2xb_1e^-i1x+a_2e^i2xb_2e^-i2x+⋯)dx
+   =1/2π∫_-π^π(a_1b_1+a_1b_2e^-ix+a_2b_1e^ix+a_2b_2+⋯)dx
+As is the case with the middle terms in this example, many terms will integrate to 00 over a full period of length 2π2π (see harmonics):
+
+∑n=−∞∞anbn¯=12π[a1b1¯x+ia1b2¯e−ix−ia2b1¯eix+a2b2¯x+⋯]−π+π=12π(2πa1b1¯+0+0+2πa2b2¯+⋯)=a1b1¯+a2b2¯+⋯∑_n=-∞^∞a_nb_n   =1/2π[a_1b_1x+ia_1b_2e^-ix-ia_2b_1e^ix+a_2b_2x+⋯]_-π^+π
+   =1/2π(2_1b_1+0+0+2_2b_2+⋯)
+   =a_1b_1+a_2b_2+⋯
+
+More generally, if A(x)(x) and B(x)(x) are instead two complex-valued functions on Rℝ of period P that are square integrable (with respect to the Lebesgue measure) over intervals of period length, with Fourier series
+
+A(x)=∑n=−∞∞ane2πni(xP)(x)=∑_n=-∞^∞a_ne^2(x/P)
+and
+
+B(x)=∑n=−∞∞bne2πni(xP)(x)=∑_n=-∞^∞b_ne^2(x/P)
+respectively. Then
+
+
+
+
+
+∑n=−∞∞anbn¯=1P∫−P/2P/2A(x)B(x)¯dx,∑_n=-∞^∞a_nb_n=1/P∫_-P/2^P/2A(x)B(x) dx,
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.2)
+
+
+Even more generally, given an abelian locally compact group G with Pontryagin dual G^, Parseval's theorem says the Pontryagin–Fourier transform is a unitary operator between Hilbert spaces L2(G) and L2(G^) (with integration being against the appropriately scaled Haar measures on the two groups.) When G is the unit circle T, G^ is the integers and this is the case discussed above. When G is the real line Rℝ, G^ is also Rℝ and the unitary transform is the Fourier transform on the real line. When G is the cyclic group Zn, again it is self-dual and the Pontryagin–Fourier transform is what is called discrete Fourier transform in applied contexts.
+Parseval's theorem can also be expressed as follows:
+Suppose f(x)(x) is a square-integrable function over [−π,π][-π,π] (i.e., f(x)(x) and f2(x)^2(x) are integrable on that interval), with the Fourier series
+
+f(x)≃a02+∑n=1∞(ancos⁡(nx)+bnsin⁡(nx)).(x)≃a_0/2+∑_n=1^∞(a_ncos(nx)+b_nsin(nx)).
+Then[4][5][6]
+
+1π∫−ππf2(x)dx=a022+∑n=1∞(an2+bn2).1/π∫_-π^πf^2(x) dx=a_0^2/2+∑_n=1^∞(a_n^2+b_n^2).
+
+
+Notation used in engineering[edit]
+In electrical engineering, Parseval's theorem is often written as:
+
+∫−∞∞|x(t)|2dt=12π∫−∞∞|X(ω)|2dω=∫−∞∞|X(2πf)|2df∫_-∞^∞|x(t)|^2 dt=1/2π∫_-∞^∞|X(ω)|^2 dω=∫_-∞^∞|X(2)|^2 df
+where X(ω)=Fωx(t)(ω)=ℱ_ω{x(t)} represents the continuous Fourier transform (in normalized, unitary form) of x(t)(t), and ω=2πfω=2 is frequency in radians per second.
+The interpretation of this form of the theorem is that the total energy of a signal can be calculated by summing power-per-sample across time or spectral power across frequency.  
+For discrete time signals, the theorem becomes:
+
+∑n=−∞∞|x[n]|2=12π∫−ππ|X2π(ϕ)|2dϕ∑_n=-∞^∞|x[n]|^2=1/2π∫_-π^π|X_2π(ϕ)|^2dϕ
+where X2π_2π is the discrete-time Fourier transform (DTFT) of x and ϕϕ represents the angular frequency (in radians per sample) of x.
+Alternatively, for the discrete Fourier transform (DFT), the relation becomes:
+
+∑n=0N−1|x[n]|2=1N∑k=0N−1|X[k]|2∑_n=0^N-1|x[n]|^2=1/N∑_k=0^N-1|X[k]|^2
+where X[k][k] is the DFT of x[n][n], both of length N.
+We show the DFT case below. For the other cases, the proof is similar. By using the definition of inverse DFT of X[k][k], we can derive
+
+1N∑k=0N−1|X[k]|2=1N∑k=0N−1X[k]⋅X∗[k]=1N∑k=0N−1[∑n=0N−1x[n]exp⁡(−j2πNkn)]X∗[k]=1N∑n=0N−1x[n][∑k=0N−1X∗[k]exp⁡(−j2πNkn)]=1N∑n=0N−1x[n](N⋅x∗[n])=∑n=0N−1|x[n]|2,1/N∑_k=0^N-1|X[k]|^2   =1/N∑_k=0^N-1X[k]^*[k]=1/N∑_k=0^N-1[∑_n=0^N-1x[n] exp(-j2π/Nk n)] X^*[k]
+   =1/N∑_n=0^N-1x[n][∑_k=0^N-1X^*[k] exp(-j2π/Nk n)]=1/N∑_n=0^N-1x[n](N^*[n])
+   =∑_n=0^N-1|x[n]|^2,
+where ∗* represents complex conjugate.
+
+See also[edit]
+Parseval's theorem is closely related to other mathematical results involving unitary transformations:
+
+Parseval's identity
+Plancherel's theorem
+Wiener–Khinchin theorem
+Bessel's inequality
+Notes[edit]
+
+
+^ Parseval des Chênes, Marc-Antoine Mémoire sur les séries et sur l'intégration complète d'une équation aux différences partielles linéaire du second ordre, à coefficients constants" presented before the Académie des Sciences (Paris) on 5 April 1799. This article was published in Mémoires présentés à l’Institut des Sciences, Lettres et Arts, par divers savants, et lus dans ses assemblées. Sciences, mathématiques et physiques. (Savants étrangers.), vol. 1, pages 638–648 (1806).
+
+^ Rayleigh, J.W.S. (1889) "On the character of the complete radiation at a given temperature," Philosophical Magazine, vol. 27, pages 460–469.  Available on-line here.
+
+^ Plancherel, Michel (1910) "Contribution à l'etude de la representation d'une fonction arbitraire par les integrales définies," Rendiconti del Circolo Matematico di Palermo, vol. 30, pages 298–335.
+
+^ Arthur E. Danese (1965). Advanced Calculus. Vol. 1. Boston, MA: Allyn and Bacon, Inc. p. 439.
+
+^ Wilfred Kaplan (1991). Advanced Calculus (4th ed.). Reading, MA: Addison Wesley. p. 519. ISBN 0-201-57888-3.
+
+^ Georgi P. Tolstov (1962). Fourier Series. Translated by Silverman, Richard. Englewood Cliffs, NJ: Prentice-Hall, Inc. p. 119.
+
+
+External links[edit]
+Parseval's Theorem on Mathworld
+
+
+

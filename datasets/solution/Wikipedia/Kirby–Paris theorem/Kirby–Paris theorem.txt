@@ -1,0 +1,447 @@
+Theorem about natural numbers
+In mathematical logic, Goodstein's theorem is a statement about the natural numbers, proved by Reuben Goodstein in 1944, which states that every Goodstein sequence eventually terminates at 0. Laurence Kirby and Jeff Paris[1] showed that it is unprovable in Peano arithmetic (but it can be proven in stronger systems, such as second-order arithmetic). This was the third example of a true statement that is unprovable in Peano arithmetic, after the examples provided by Gödel's incompleteness theorem and Gerhard Gentzen's 1943 direct proof of the unprovability of ε0-induction in Peano arithmetic. The Paris–Harrington theorem gave another example.
+Kirby and Paris introduced a graph-theoretic hydra game with behavior similar to that of Goodstein sequences: the "Hydra" (named for the mythological multi-headed Hydra of Lerna) is a rooted tree, and a move consists of cutting off one of its "heads" (a branch of the tree), to which the hydra responds by growing a finite number of new heads according to certain rules.  Kirby and Paris proved that the Hydra will eventually be killed, regardless of the strategy that Hercules uses to chop off its heads, though this may take a very long time. Just like for Goodstein sequences, Kirby and Paris showed that it cannot be proven in Peano arithmetic alone.[1]
+
+
+Hereditary base-n notation[edit]
+Goodstein sequences are defined in terms of a concept called "hereditary base-n notation". This notation is very similar to usual base-n positional notation, but the usual notation does not suffice for the purposes of Goodstein's theorem.
+In ordinary base-n notation, where n is a natural number greater than 1, an arbitrary natural number m is written as a sum of multiples of powers of n:
+
+m=aknk+ak−1nk−1+⋯+a0,=a_kn^k+a_k-1n^k-1+⋯+a_0,
+where each coefficient ai satisfies 0 ≤ ai < n, and ak ≠ 0. For example, in base 2,
+
+35=32+2+1=25+21+20.35=32+2+1=2^5+2^1+2^0.
+Thus the base-2 representation of 35 is 100011, which means 25 + 2 + 1.  Similarly, 100 represented in base-3 is 10201:
+
+100=81+18+1=34+2⋅32+30.100=81+18+1=3^4+2·3^2+3^0.
+Note that the exponents themselves are not written in base-n notation. For example, the expressions above include 25 and 34, and 5 > 2, 4 > 3.
+To convert a base-n representation to hereditary base-n notation, first rewrite all of the exponents in base-n notation. Then rewrite any exponents inside the exponents, and continue in this way until every number appearing in the expression (except the bases themselves) has been converted to base-n notation.
+For example, while 35 in ordinary base-2 notation is 25 + 2 + 1, it is written in hereditary base-2 notation as
+
+35=2221+1+21+1,35=2^2^2^1+1+2^1+1,
+using the fact that 5 = 221 + 1. Similarly, 100 in hereditary base-3 notation is
+
+100=331+1+2⋅32+1.100=3^3^1+1+2·3^2+1.
+Goodstein sequences[edit]
+The Goodstein sequence G(m) of a number m is a sequence of natural numbers. The first element in the sequence G(m) is m itself. To get the second, G(m)(2), write m in hereditary base-2 notation, change all the 2s to 3s, and then subtract 1 from the result. In general, the (n + 1)-st term, G(m)(n + 1), of the Goodstein sequence of m is as follows:
+
+Take the hereditary base-n + 1 representation of G(m)(n).
+Replace each occurrence of the base-n + 1 with n + 2.
+Subtract one. (Note that the next term depends both on the previous term and on the index n.)
+Continue until the result is zero, at which point the sequence terminates.
+Early Goodstein sequences terminate quickly. For example, G(3) terminates at the 6th step:
+
+
+
+Base
+Hereditary notation
+Value
+Notes
+
+
+2
+21+12^1+1
+3
+Write 3 in base-2 notation
+
+
+3
+31+1−1=313^1+1-1=3^1
+3
+Switch the 2 to a 3, then subtract 1
+
+
+4
+41−1=34^1-1=3
+3
+Switch the 3 to a 4, then subtract 1. Now there are no more 4's left
+
+
+5
+3−1=23-1=2
+2
+No 4's left to switch to 5's. Just subtract 1
+
+
+6
+2−1=12-1=1
+1
+No 5's left to switch to 6's. Just subtract 1
+
+
+7
+1−1=01-1=0
+0
+No 6's left to switch to 7's. Just subtract 1
+
+Later Goodstein sequences increase for a very large number of steps. For example, G(4) OEIS: A056193 starts as follows:
+
+
+
+Base
+Hereditary notation
+Value
+
+
+2
+2212^2^1
+4
+
+
+3
+331−1=2⋅32+2⋅3+23^3^1-1=2·3^2+2·3+2
+26
+
+
+4
+2⋅42+2⋅4+12·4^2+2·4+1
+41
+
+
+5
+2⋅52+2⋅52·5^2+2·5
+60
+
+
+6
+2⋅62+2⋅6−1=2⋅62+6+52·6^2+2·6-1=2·6^2+6+5
+83
+
+
+7
+2⋅72+7+42·7^2+7+4
+109
+
+
+⋮⋮
+⋮⋮
+⋮⋮
+
+
+11
+2⋅112+112·11^2+11
+253
+
+
+12
+2⋅122+12−1=2⋅122+112·12^2+12-1=2·12^2+11
+299
+
+
+⋮⋮
+⋮⋮
+⋮⋮
+
+
+24
+2⋅242−1=242+23⋅24+232·24^2-1=24^2+23·24+23
+1151
+
+
+⋮⋮
+⋮⋮
+⋮⋮
+
+
+B=3⋅2402653209−1=3·2^402 653 209-1
+2⋅B12^1
+3⋅2402653210−23·2^402 653 210-2
+
+
+B=3⋅2402653209=3·2^402 653 209
+2⋅B1−1=B1+(B−1)2^1-1=B^1+(B-1)
+3⋅2402653210−13·2^402 653 210-1
+
+
+⋮⋮
+⋮⋮
+⋮⋮
+
+Elements of G(4) continue to increase for a while, but at base 3⋅24026532093·2^402 653 209,
+they reach the maximum of 3⋅2402653210−13·2^402 653 210-1, stay there for the next 3⋅24026532093·2^402 653 209 steps, and then begin their descent.
+However, even G(4) doesn't give a good idea of just how quickly the elements of a Goodstein sequence can increase.
+G(19) increases much more rapidly and starts as follows:
+
+
+
+Hereditary notation
+Value
+
+
+222+2+12^2^2+2+1
+19
+
+
+333+33^3^3+3
+7625597484990
+
+
+444+34^4^4+3
+≈1.3×10154≈1.3×10^154
+
+
+555+25^5^5+2
+≈1.8×102184≈1.8×10^2 184
+
+
+666+16^6^6+1
+≈2.6×1036305≈2.6×10^36 305
+
+
+7777^7^7
+≈3.8×10695974≈3.8×10^695 974
+
+
+
+888−1=7⋅87⋅87+7⋅86+7⋅85+7⋅84+7⋅83+7⋅82+7⋅8+78^8^8-1=7·8^7·8^7+7·8^6+7·8^5+7·8^4+7·8^3+7·8^2+7·8+7
++7⋅87⋅87+7⋅86+7⋅85+7⋅84+7⋅83+7⋅82+7⋅8+6+⋯+7·8^7·8^7+7·8^6+7·8^5+7·8^4+7·8^3+7·8^2+7·8+6+⋯
++7⋅88+2+7⋅88+1+7⋅88+7·8^8+2+7·8^8+1+7·8^8
++7⋅87+7⋅86+7⋅85+7⋅84+7·8^7+7·8^6+7·8^5+7·8^4
++7⋅83+7⋅82+7⋅8+7+7·8^3+7·8^2+7·8+7
+
+
+≈6.0×1015151335≈6.0×10^15 151 335
+
+
+
+7⋅97⋅97+7⋅96+7⋅95+7⋅94+7⋅93+7⋅92+7⋅9+77·9^7·9^7+7·9^6+7·9^5+7·9^4+7·9^3+7·9^2+7·9+7
++7⋅97⋅97+7⋅96+7⋅95+7⋅94+7⋅93+7⋅92+7⋅9+6+⋯+7·9^7·9^7+7·9^6+7·9^5+7·9^4+7·9^3+7·9^2+7·9+6+⋯
++7⋅99+2+7⋅99+1+7⋅99+7·9^9+2+7·9^9+1+7·9^9
++7⋅97+7⋅96+7⋅95+7⋅94+7·9^7+7·9^6+7·9^5+7·9^4
++7⋅93+7⋅92+7⋅9+6+7·9^3+7·9^2+7·9+6
+
+
+≈5.6×1035942384≈5.6×10^35 942 384
+
+
+⋮⋮
+⋮⋮
+
+In spite of this rapid growth, Goodstein's theorem states that every Goodstein sequence eventually terminates at 0, no matter what the starting value is.
+
+Proof of Goodstein's theorem[edit]
+Goodstein's theorem can be proved (using techniques outside Peano arithmetic, see below) as follows: Given a Goodstein sequence G(m), we construct a parallel sequence P(m) of ordinal numbers in Cantor normal form which is strictly decreasing and terminates. A common misunderstanding of this proof is to believe that G(m) goes to 0 because it is dominated by P(m). Actually, the fact that P(m) dominates G(m) plays no role at all. The important point is: G(m)(k) exists if and only if P(m)(k) exists (parallelism), and comparison between two members of G(m) is preserved when comparing corresponding entries of P(m).[2] Then if P(m) terminates, so does G(m). By infinite regress, G(m) must reach 0, which guarantees termination.
+We define a function f=f(u,k)=f(u,k) which computes the hereditary base k representation of u and then replaces each occurrence of the base k with the first infinite ordinal number ω. For example, f(100,3)=f(331+1+2⋅32+1,3)=ωω1+1+ω2⋅2+1=ωω+1+ω2⋅2+1(100,3)=f(3^3^1+1+2·3^2+1,3)=ω^ω^1+1+ω^2·2+1=ω^ω+1+ω^2·2+1.
+Each term P(m)(n) of the sequence P(m) is then defined as f(G(m)(n),n+1). For example, G(3)(1) = 3 = 21 + 20 and P(3)(1) = f(21 + 20,2) = ω1 + ω0 = ω + 1. Addition, multiplication and exponentiation of ordinal numbers are well defined.
+We claim that f(G(m)(n),n+1)>f(G(m)(n+1),n+2)(G(m)(n),n+1)>f(G(m)(n+1),n+2):
+Let G′(m)(n)'(m)(n) be  G(m)(n) after applying the first, 
+base-changing operation in generating the next element of the Goodstein sequence, 
+but before the second minus 1 operation in this generation. 
+Observe that G(m)(n+1)=G′(m)(n)−1(m)(n+1)=G'(m)(n)-1.
+Then f(G(m)(n),n+1)=f(G′(m)(n),n+2)(G(m)(n),n+1)=f(G'(m)(n),n+2). Now we apply the minus 1 operation, and f(G′(m)(n),n+2)>f(G(m)(n+1),n+2)(G'(m)(n),n+2)>f(G(m)(n+1),n+2), as G′(m)(n)=G(m)(n+1)+1'(m)(n)=G(m)(n+1)+1.
+For example, G(4)(1)=22(4)(1)=2^2 and G(4)(2)=2⋅32+2⋅3+2(4)(2)=2·3^2+2·3+2, so f(22,2)=ωω(2^2,2)=ω^ω and f(2⋅32+2⋅3+2,3)=ω2⋅2+ω⋅2+2(2·3^2+2·3+2,3)=ω^2·2+ω·2+2, which is strictly smaller. Note that in order to calculate f(G(m)(n),n+1), we first need to write G(m)(n) in hereditary base n+1 notation, as for instance the expression ωω−1ω^ω-1 is not an ordinal.
+Thus the sequence P(m) is strictly decreasing. As the standard order < on ordinals is well-founded, an infinite strictly decreasing sequence cannot exist, or equivalently, every strictly decreasing sequence of ordinals terminates (and cannot be infinite). But P(m)(n) is calculated directly from G(m)(n). Hence the sequence G(m) must terminate as well, meaning that it must reach 0.
+While this proof of Goodstein's theorem is fairly easy, the Kirby–Paris theorem,[1] which shows that Goodstein's theorem is not a theorem of Peano arithmetic, is technical and considerably more difficult. It makes use of countable nonstandard models of Peano arithmetic.
+
+Extended Goodstein's theorem[edit]
+Suppose the definition of the Goodstein sequence is changed so that instead of
+replacing each occurrence of the base b with b + 1
+it replaces it with b + 2. Would the sequence still terminate?
+More generally, let b1, b2, b3, … be any sequences of integers.
+Then let the (n + 1)-st
+term G(m)(n + 1) of the extended Goodstein sequence of m be as
+follows: take the hereditary base bn representation of
+G(m)(n) and replace each occurrence of the base bn
+with bn+1 and then subtract one.
+The claim is that this sequence still terminates.
+The extended proof defines P(m)(n) = f(G(m)(n), n) as
+follows: take the hereditary base bn representation of
+G(m)(n), and replace each occurrence of the base
+bn with the first infinite ordinal number ω.
+The base-changing operation of the Goodstein sequence when going
+from G(m)(n) to G(m)(n + 1) still does not change the value of f.
+For example, if bn = 4 and if bn+1 = 9,
+then
+f(3⋅444+4,4)=3ωωω+ω=f(3⋅999+9,9)(3·4^4^4+4,4)=3ω^ω^ω+ω=f(3·9^9^9+9,9), hence the ordinal f(3⋅444+4,4)(3·4^4^4+4,4) is strictly greater than the ordinal f((3⋅999+9)−1,9).((3·9^9^9+9)-1,9).
+
+Sequence length as a function of the starting value[edit]
+The Goodstein function, G:N→N𝒢:ℕ→ℕ, is defined such that G(n)𝒢(n) is the length of the Goodstein sequence that starts with n.  (This is a total function since every Goodstein sequence terminates.)  The extreme growth-rate of G𝒢 can be calibrated by relating it to various standard ordinal-indexed hierarchies of functions, such as the functions Hα_α in the Hardy hierarchy, and the functions fα_α in the fast-growing hierarchy of Löb and Wainer:
+
+Kirby and Paris (1982) proved that
+G𝒢 has approximately the same growth-rate as Hϵ0_ϵ_0 (which is the same as that of fϵ0_ϵ_0); more precisely, G𝒢 dominates Hα_α for every α<ϵ0α<ϵ_0, and Hϵ0_ϵ_0 dominates G.𝒢 .
+(For any two functions f,g:N→N,g:ℕ→ℕ, f is said to dominate g if f(n)>g(n)(n)>g(n) for all sufficiently large n.)
+Cichon (1983) showed that
+G(n)=HR2ω(n+1)(1)−1,𝒢(n)=H_R_2^ω(n+1)(1)-1,
+where R2ω(n)_2^ω(n) is the result of putting n in hereditary base-2 notation and then replacing all 2s with ω (as was done in the proof of Goodstein's theorem).
+Caicedo (2007) showed that if n=2m1+2m2+⋯+2mk=2^m_1+2^m_2+⋯+2^m_k with m1>m2>⋯>mk,_1>m_2>⋯>m_k, then
+G(n)=fR2ω(m1)(fR2ω(m2)(⋯(fR2ω(mk)(3))⋯))−2𝒢(n)=f_R_2^ω(m_1)(f_R_2^ω(m_2)(⋯(f_R_2^ω(m_k)(3))⋯))-2.
+Some examples:
+
+
+
+n
+
+G(n)𝒢(n)
+
+
+1
+
+202^0
+
+2−12-1
+
+Hω(1)−1_ω(1)-1
+
+f0(3)−2_0(3)-2
+
+2
+
+
+2
+
+212^1
+
+21+1−12^1+1-1
+
+Hω+1(1)−1_ω+1(1)-1
+
+f1(3)−2_1(3)-2
+
+4
+
+
+3
+
+21+202^1+2^0
+
+22−12^2-1
+
+Hωω(1)−1_ω^ω(1)-1
+
+f1(f0(3))−2_1(f_0(3))-2
+
+6
+
+
+4
+
+222^2
+
+22+1−12^2+1-1
+
+Hωω+1(1)−1_ω^ω+1(1)-1
+
+fω(3)−2_ω(3)-2
+
+3·2402653211 − 2 ≈ 6.895080803×10121210694
+
+
+5
+
+22+202^2+2^0
+
+22+2−12^2+2-1
+
+Hωω+ω(1)−1_ω^ω+ω(1)-1
+
+fω(f0(3))−2_ω(f_0(3))-2
+
+> A(4,4) > 10101019727
+
+
+6
+
+22+212^2+2^1
+
+22+2+1−12^2+2+1-1
+
+Hωω+ω+1(1)−1_ω^ω+ω+1(1)-1
+
+fω(f1(3))−2_ω(f_1(3))-2
+
+> A(6,6)
+
+
+7
+
+22+21+202^2+2^1+2^0
+
+22+1−12^2+1-1
+
+Hωω+1(1)−1_ω^ω+1(1)-1
+
+fω(f1(f0(3)))−2_ω(f_1(f_0(3)))-2
+
+> A(8,8)
+
+
+8
+
+22+12^2+1
+
+22+1+1−12^2+1+1-1
+
+Hωω+1+1(1)−1_ω^ω+1+1(1)-1
+
+fω+1(3)−2_ω+1(3)-2
+
+> A3(3,3) = A(A(61, 61), A(61, 61))
+
+
+⋮⋮
+
+
+12
+
+22+1+222^2+1+2^2
+
+22+1+22+1−12^2+1+2^2+1-1
+
+Hωω+1+ωω+1(1)−1_ω^ω+1+ω^ω+1(1)-1
+
+fω+1(fω(3))−2_ω+1(f_ω(3))-2
+
+>  fω+1(64) > Graham's number
+
+
+⋮⋮
+
+
+19
+
+222+21+202^2^2+2^1+2^0
+
+222+22−12^2^2+2^2-1
+
+Hωωω+ωω(1)−1_ω^ω^ω+ω^ω(1)-1
+
+fωω(f1(f0(3)))−2_ω^ω(f_1(f_0(3)))-2
+
+
+
+
+(For Ackermann function and Graham's number bounds see fast-growing hierarchy#Functions in fast-growing hierarchies.)
+
+Application to computable functions[edit]
+Goodstein's theorem can be used to construct a total computable function that Peano arithmetic cannot prove to be total.  The Goodstein sequence of a number can be effectively enumerated by a Turing machine; thus the function which maps n to the number of steps required for the Goodstein sequence of n to terminate is computable by a particular Turing machine.  This machine merely enumerates the Goodstein sequence of n and, when the sequence reaches 0, returns the length of the sequence.  Because every Goodstein sequence eventually terminates, this function is total.   But because Peano arithmetic does not prove that every Goodstein sequence terminates, Peano arithmetic does not prove that this Turing machine computes a total function.
+
+See also[edit]
+Non-standard model of arithmetic
+Fast-growing hierarchy
+Paris–Harrington theorem
+Kanamori–McAloon theorem
+Kruskal's tree theorem
+References[edit]
+
+
+^ a b c Kirby, L.; Paris, J. (1982). "Accessible Independence Results for Peano Arithmetic" (PDF). Bulletin of the London Mathematical Society. 14 (4): 285. CiteSeerX 10.1.1.107.3303. doi:10.1112/blms/14.4.285.
+
+^ M. Rathjen, Goodstein's theorem revisited (lemma 2.2). Accessed 14 August 2022.
+
+
+Bibliography[edit]
+Goodstein, R. (1944), "On the restricted ordinal theorem", Journal of Symbolic Logic, 9 (2): 33–41, doi:10.2307/2268019, JSTOR 2268019, S2CID 235597.
+Cichon, E. (1983), "A Short Proof of Two Recently Discovered Independence Results Using Recursive Theoretic Methods", Proceedings of the American Mathematical Society, 87 (4): 704–706, doi:10.2307/2043364, JSTOR 2043364.
+Caicedo, A. (2007), "Goodstein's function" (PDF), Revista Colombiana de Matemáticas, 41 (2): 381–391.
+External links[edit]
+Weisstein, Eric W. "Goodstein Sequence". MathWorld.
+Some elements of a proof that Goodstein's theorem is not a theorem of PA, from an undergraduate thesis by Justin T Miller
+A Classification of non standard models of Peano Arithmetic by Goodstein's theorem - Thesis by Dan Kaplan, Franklan and Marshall College Library
+Definition of Goodstein sequences in Haskell and the lambda calculus
+The Hydra game implemented as a Java applet
+Javascript implementation of a variant of the Hydra game
+Goodstein Sequences: The Power of a Detour via Infinity - good exposition with illustrations of Goodstein Sequences and the hydra game.
+Goodstein Calculator
+
+
+

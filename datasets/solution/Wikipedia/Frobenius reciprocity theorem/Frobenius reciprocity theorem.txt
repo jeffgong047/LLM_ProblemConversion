@@ -1,0 +1,91 @@
+Duality between the process of restricting and inducting in representation theory
+In mathematics, and in particular representation theory, Frobenius reciprocity is a theorem expressing a duality between the process of restricting and inducting. It can be used to leverage knowledge about representations of a subgroup to find and classify representations of "large" groups that contain them. It is named for Ferdinand Georg Frobenius, the inventor of the representation theory of finite groups.
+
+
+Statement[edit]
+Character theory[edit]
+The theorem was originally stated in terms of character theory. Let G be a finite group with a subgroup H, let ResHGRes_H^G denote the restriction of a character, or more generally, class function of G to H, and let IndHGInd_H^G denote the induced class function of a given class function on H. For any finite group A, there is an inner product ⟨−,−⟩A⟨-,-⟩_A on the vector space of class functions A→C→ℂ (described in detail in the article Schur orthogonality relations). Now, for any class functions ψ:H→Cψ:H→ℂ and φ:G→Cφ:G→ℂ, the following equality holds:[1][2]
+
+⟨IndHG⁡ψ,φ⟩G=⟨ψ,ResHG⁡φ⟩H.⟨Ind_H^Gψ,φ⟩_G=⟨ψ,Res_H^Gφ⟩_H.
+In other words, IndHGInd_H^G and ResHGRes_H^G are Hermitian adjoint.
+
+
+
+
+Proof of Frobenius reciprocity for class functions
+
+
+
+Let ψ:H→Cψ:H→ℂ and φ:G→Cφ:G→ℂ be class functions.
+Proof. Every class function can be written as a linear combination of irreducible characters. As ⟨⋅,⋅⟩⟨·,·⟩ is a bilinear form, we can, without loss of generality, assume ψψ and φφ to be characters of irreducible representations of H in W and of G in V,, respectively.
+We define ψ(s)=0ψ(s)=0 for all s∈G∖H.. Then we have
+
+⟨Ind(ψ),φ⟩G=1|G|∑t∈GInd(ψ)(t)φ(t−1)=1|G|∑t∈G1|H|∑s∈Gs−1ts∈Hψ(s−1ts)φ(t−1)=1|G|1|H|∑t∈G∑s∈Gψ(s−1ts)φ((s−1ts)−1)=1|G|1|H|∑t∈G∑s∈Gψ(t)φ(t−1)=1|H|∑t∈Gψ(t)φ(t−1)=1|H|∑t∈Hψ(t)φ(t−1)=1|H|∑t∈Hψ(t)Res(φ)(t−1)=⟨ψ,Res(φ)⟩H⟨Ind(ψ),φ⟩_G   =1/|G|∑_tInd(ψ)(t)φ(t^-1)
+   =1/|G|∑_t1/|H|∑_s^-1tsψ(s^-1ts)φ(t^-1)
+   =1/|G|1/|H|∑_t∑_sψ(s^-1ts)φ((s^-1ts)^-1)
+   =1/|G|1/|H|∑_t∑_sψ(t)φ(t^-1)
+   =1/|H|∑_tψ(t)φ(t^-1)
+   =1/|H|∑_tψ(t)φ(t^-1)
+   =1/|H|∑_tψ(t)Res(φ)(t^-1)
+   =⟨ψ,Res(φ)⟩_H
+In the course of this sequence of equations we used only the definition of induction on class functions and the properties of characters. ◻
+Alternative proof. In terms of the group algebra, i.e. by the alternative description of the induced representation, the Frobenius reciprocity is a special case of a general equation for a change of rings:
+
+HomC[H](W,U)=HomC[G](C[G]⊗C[H]W,U).Hom_ℂ[H](W,U)=Hom_ℂ[G](ℂ[G]⊗_ℂ[H]W,U).
+This equation is by definition equivalent to [how?]
+
+⟨W,Res(U)⟩H=⟨W,U⟩H=⟨Ind(W),U⟩G.,Res(U)⟩_H=,U⟩_H=⟨Ind(W),U⟩_G.
+As this bilinear form tallies the bilinear form on the corresponding characters, the theorem follows without calculation. ◻
+
+
+Module theory[edit]
+See also: Change of rings § Relation between the extension of scalars and the restriction of scalars
+As explained in the section Representation theory of finite groups#Representations, modules and the convolution algebra, the theory of the representations of a group G over a field K is, in a certain sense, equivalent to the theory of modules over the group algebra K[G].[3] Therefore, there is a corresponding Frobenius reciprocity theorem for K[G]-modules.
+Let G be a group with subgroup H, let M be an H-module, and let N be a G-module. In the language of module theory, the induced module K[G]⊗K[H]M[G]⊗_K[H]M corresponds to the induced representation IndHGInd_H^G, whereas the restriction of scalars K[H]N_K[H]N corresponds to the restriction ResHGRes_H^G. Accordingly, the statement is as follows: The following sets of module homomorphisms are in bijective correspondence:
+
+HomK[G]⁡(K[G]⊗K[H]M,N)≅HomK[H]⁡(M,K[H]N)Hom_K[G](K[G]⊗_K[H]M,N)≅Hom_K[H](M,_K[H]N).[4][5]
+As noted below in the section on category theory, this result applies to modules over all rings, not just modules over group algebras.
+
+Category theory[edit]
+Let G be a group with a subgroup H, and let ResHG,IndHGRes_H^G,Ind_H^G be defined as above. For any group A and field K let RepAKRep_A^K denote the category of linear representations of A over K. There is a forgetful functor
+
+ResHG:RepG⟶RepH(V,ρ)⟼ResHG⁡(V,ρ)Res_H^G:Rep_G   ⟶Rep_H
+(V,ρ)   ⟼Res_H^G(V,ρ)
+This functor acts as the identity on morphisms. There is a functor going in the opposite direction:
+
+IndHG:RepH⟶RepG(W,τ)⟼IndHG⁡(W,τ)Ind_H^G:Rep_H   ⟶Rep_G
+(W,τ)   ⟼Ind_H^G(W,τ)
+These functors form an adjoint pair IndHG⊣ResHGInd_H^G⊣Res_H^G.[6] In the case of finite groups, they are actually both left- and right-adjoint to one another. This adjunction gives rise to a universal property for the induced representation (for details, see Induced representation#Properties).
+In the language of module theory, the corresponding adjunction is an instance of the more general relationship between restriction and extension of scalars.
+
+See also[edit]
+
+Mathematics portal
+See Restricted representation and Induced representation for definitions of the processes to which this theorem applies.
+See Representation theory of finite groups for a broad overview of the subject of group representations.
+See Selberg trace formula and the Arthur-Selberg trace formula for generalizations to discrete cofinite subgroups of certain locally compact groups.
+Notes[edit]
+
+
+^ Serre 1977, p. 56.
+
+^ Sengupta 2012, p. 246.
+
+^ Specifically, there is an isomorphism of categories between K[G]-Mod and RepGK, as described on the pages Isomorphism of categories#Category of representations and Representation theory of finite groups#Representations, modules and the convolution algebra.
+
+^ James, Gordon Douglas (1945–2001). Representations and characters of groups. Liebeck, M. W. (Martin W.) (2nd ed.). Cambridge, UK: Cambridge University Press. ISBN 9780521003926. OCLC 52220683.
+
+^ Sengupta 2012, p. 245.
+
+^ "Frobenius reciprocity in nLab". ncatlab.org. Retrieved 2017-11-02.
+
+
+References[edit]
+
+Serre, Jean-Pierre (1977). Linear representations of finite groups. New York: Springer-Verlag. ISBN 0387901906. OCLC 2202385.
+Sengupta, Ambar (2012). "Induced Representations". Representing finite groups : a semisimple introduction. New York. pp. 235–248. doi:10.1007/978-1-4614-1231-1_8. ISBN 9781461412304. OCLC 769756134.{{cite book}}:  CS1 maint: location missing publisher (link)
+Weisstein, Eric. "Induced Representation". mathworld.wolfram.com. Retrieved 2017-11-02.
+
+
+
+

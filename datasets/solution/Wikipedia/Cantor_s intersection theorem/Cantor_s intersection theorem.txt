@@ -1,0 +1,66 @@
+On decreasing nested sequences of non-empty compact sets
+Cantor's intersection theorem refers to two closely related theorems in general topology and real analysis, named after Georg Cantor, about intersections of decreasing nested sequences of non-empty compact sets.
+
+
+Topological statement[edit]
+Theorem. Let S be a topological space. A decreasing nested sequence of non-empty compact, closed subsets of S has a non-empty intersection. In other words, supposing (Ck)k≥0(C_k)_k≥0 is a sequence of non-empty compact, closed subsets of S satisfying
+
+C0⊃C1⊃⋯⊃Cn⊃Cn+1⊃⋯,_0_1⊃⋯_n_n+1⊃⋯,
+it follows that
+
+⋂k=0∞Ck≠∅.⋂_k=0^∞C_k≠∅.
+The closedness condition may be omitted in situations where every compact subset of S is closed, for example when S is Hausdorff.
+Proof. Assume, by way of contradiction, that ⋂k=0∞Ck=∅⋂_k=0^∞C_k=∅. For each k, let Uk=C0∖Ck_k=C_0_k. Since ⋃k=0∞Uk=C0∖⋂k=0∞Ck⋃_k=0^∞U_k=C_0∖⋂_k=0^∞C_k and ⋂k=0∞Ck=∅⋂_k=0^∞C_k=∅, we have ⋃k=0∞Uk=C0⋃_k=0^∞U_k=C_0. Since the Ck_k are closed relative to S and therefore, also closed relative to C0_0, the Uk_k, their set complements in C0_0, are open relative to C0_0.
+Since C0⊂S_0 is compact and Uk|k≥0{U_k≥0} is an open cover (on C0_0) of C0_0, a finite cover Uk1,Uk2,…,Ukm{U_k_1,U_k_2,…,U_k_m} can be extracted. Let M=max1≤i≤mki=max_1k_i. Then ⋃i=1mUki=UM⋃_i=1^mU_k_i=U_M because U1⊂U2⊂⋯⊂Un⊂Un+1⋯_1_2⊂⋯_n_n+1⋯, by the nesting hypothesis for the collection (Ck)k≥0(C_k)_k≥0. Consequently, C0=⋃i=1mUki=UM_0=⋃_i=1^mU_k_i=U_M. But then CM=C0∖UM=∅_M=C_0_M=∅, a contradiction. ∎
+
+Statement for real numbers[edit]
+The theorem in real analysis draws the same conclusion for closed and bounded subsets of the set of real numbers Rℝ. It states that a decreasing nested sequence (Ck)k≥0(C_k)_k≥0 of non-empty, closed and bounded subsets of Rℝ has a non-empty intersection.
+This version follows from the general topological statement in light of the Heine–Borel theorem, which states that sets of real numbers are compact if and only if they are closed and bounded. However, it is typically used as a lemma in proving said theorem, and therefore warrants a separate proof.
+As an example, if Ck=[0,1/k]_k=[0,1/k], the intersection over (Ck)k≥0(C_k)_k≥0 is 0{0}. On the other hand, both the sequence of open bounded sets Ck=(0,1/k)_k=(0,1/k) and the sequence of unbounded closed sets Ck=[k,∞)_k=[k,∞) have empty intersection. All these sequences are properly nested. 
+This version of the theorem generalizes to Rn𝐑^n, the set of n-element vectors of real numbers, but does not generalize to arbitrary metric spaces. For example, in the space of rational numbers, the sets
+
+Ck=[2,2+1/k]=(2,2+1/k)_k=[√(2),√(2)+1/k]=(√(2),√(2)+1/k)
+are closed and bounded, but their intersection is empty.
+Note that this contradicts neither the topological statement, as the sets Ck_k are not compact, nor the variant below, as the rational numbers are not complete with respect to the usual metric.
+A simple corollary of the theorem is that the Cantor set is nonempty, since it is defined as the intersection of a decreasing nested sequence of sets, each of which is defined as the union of a finite number of closed intervals; hence each of these sets is non-empty, closed, and bounded. In fact, the Cantor set contains uncountably many points.
+Theorem. Let (Ck)k≥0(C_k)_k≥0 be a sequence of non-empty, closed, and bounded subsets of Rℝ satisfying
+
+C0⊃C1⊃⋯Cn⊃Cn+1⋯._0_1⊃_n_n+1⋯.
+Then,
+
+⋂k=0∞Ck≠∅.⋂_k=0^∞C_k≠∅.
+
+Proof. Each nonempty, closed, and bounded subset Ck⊂R_k⊂ℝ admits a minimal element xk_k. Since for each k, we have 
+
+xk+1∈Ck+1⊂Ck_k+1_k+1_k,
+it follows that
+
+xk≤xk+1_k_k+1,
+so (xk)k≥0(x_k)_k≥0 is an increasing sequence contained in the bounded set C0_0. The monotone convergence theorem for bounded sequences of real numbers now guarantees the existence of a limit point
+
+x=limk→∞xk.=lim_k→∞x_k.
+For fixed k, xj∈Ck_j_k for all j≥k, and since Ck_k is closed and x is a limit point, it follows that x∈Ck_k. Our choice of k is arbitrary, hence x belongs to ⋂k=0∞Ck⋂_k=0^∞C_k and the proof is complete. ∎
+
+Variant in complete metric spaces[edit]
+In a complete metric space, the following variant of Cantor's intersection theorem holds.
+Theorem. Suppose that X is a complete metric space, and (Ck)k≥1(C_k)_k≥1 is a sequence of non-empty closed nested subsets of X whose diameters tend to zero:
+
+limk→∞diam⁡(Ck)=0,lim_k→∞diam(C_k)=0,
+where diam⁡(Ck)diam(C_k) is defined by
+
+diam⁡(Ck)=supd(x,y)∣x,y∈Ck.diam(C_k)=sup{d(x,y),y_k}.
+Then the intersection of the Ck_k contains exactly one point:
+
+⋂k=1∞Ck=x⋂_k=1^∞C_k={x}
+for some x∈X.
+Proof (sketch). Since the diameters tend to zero, the diameter of the intersection of the Ck_k is zero, so it is either empty or consists of a single point. So it is sufficient to show that it is not empty. Pick an element xk∈Ck_k_k for each k. Since the diameter of Ck_k tends to zero and the Ck_k are nested, the xk_k form a Cauchy sequence. Since the metric space is complete this Cauchy sequence converges to some point x. Since each Ck_k is closed, and x is a limit of a sequence in Ck_k, x must lie in Ck_k. This is true for every k, and therefore the intersection of the Ck_k must contain x. ∎
+A converse to this theorem is also true: if X is a metric space with the property that the intersection of any nested family of non-empty closed subsets whose diameters tend to zero is non-empty, then X is a complete metric space. (To prove this, let (xk)k≥1(x_k)_k≥1 be a Cauchy sequence in X, and let Ck_k be the closure of the tail (xj)j≥k(x_j)_j of this sequence.)
+
+See also[edit]
+Kuratowski's intersection theorem
+References[edit]
+Weisstein, Eric W. "Cantor's Intersection Theorem". MathWorld.
+Jonathan Lewin. An interactive introduction to mathematical analysis. Cambridge University Press. ISBN 0-521-01718-1. Section 7.8.
+
+
+

@@ -1,0 +1,185 @@
+Quantum error correction schemes can suppress the logical error rate arbitrarily low
+In quantum computing, the threshold theorem (or quantum fault-tolerance theorem) states that a quantum computer with a physical error rate below a certain threshold can, through application of quantum error correction schemes, suppress the logical error rate to arbitrarily low levels. This shows that quantum computers can be made fault-tolerant, as an analogue to von Neumann's threshold theorem for classical computation.[1] This result was proven (for various error models) by the groups of Dorit Aharanov and Michael Ben-Or;[2] Emanuel Knill, Raymond Laflamme, and Wojciech Zurek;[3] and Alexei Kitaev[4] independently.[3] These results built off a paper of Peter Shor,[5] which proved a weaker version of the threshold theorem.
+
+
+Explanation[edit]
+The key question that the threshold theorem resolves is whether quantum computers in practice could perform long computations without succumbing to noise. Since a quantum computer will not be able to perform gate operations perfectly, some small constant error is inevitable; hypothetically, this could mean that quantum computers with imperfect gates can only apply a constant number of gates before the computation is destroyed by noise.
+Surprisingly, the quantum threshold theorem shows that if the error to perform each gate is a small enough constant, one can perform arbitrarily long quantum computations to arbitrarily good precision, with only some small added overhead in the number of gates. The formal statement of the threshold theorem depends on the types of error correction codes and error model being considered. Quantum Computation and Quantum Information, by Michael Nielsen and Isaac Chuang, gives the general framework for such a theorem:
+Threshold theorem for quantum computation[6]: 481 : A quantum circuit on n qubits and containing p(n) gates may be simulated with probability of error at most ε using
+O(logc⁡(p(n)/ε)p(n))(log^c(p(n)/ε)p(n))
+gates (for some constant c) on hardware whose components fail with probability at most p, provided p is below some constant threshold, p<pth<p_th, and given reasonable assumptions about the noise in the underlying hardware.
+
+Threshold theorems for classical computation have the same form as above, except for classical circuits instead of quantum. The proof strategy for quantum computation is similar to that of classical computation: for any particular error model (such as having each gate fail with independent probability p), use error correcting codes to build better gates out of existing gates. Though these "better gates" are larger, and so are more prone to errors within them, their error-correction properties mean that they have a lower chance of failing than the original gate (provided p is a small-enough constant). Then, one can use these better gates to recursively create even better gates, until one has gates with the desired failure probability, which can be used for the desired quantum circuit. According to quantum information theorist Scott Aaronson:"The entire content of the Threshold Theorem is that you're correcting errors faster than they're created. That's the whole point, and the whole non-trivial thing that the theorem shows. That's the problem it solves."[7]
+Threshold value in practice[edit]
+Current estimates put the threshold for the surface code on the order of 1%,[8] though estimates range widely and are difficult to calculate due to the exponential difficulty of simulating large quantum systems.[citation needed][a] At a 0.1% probability of a depolarizing error, the surface code would require approximately 1,000-10,000 physical qubits per logical data qubit,[9] though more pathological error types could change this figure drastically.[further explanation needed]
+
+See also[edit]
+Quantum error correction schemes
+Physical and logical qubits
+Fault tolerance
+Notes[edit]
+
+
+^ It is widely believed that it is exponentially difficult for classical computers to simulate quantum systems. This problem is known as the quantum many body problem. However, quantum computers can simulate many (though not all) Hamiltonians in polynomial time with bounded errors, which is one of the main appeals of quantum computing. This is applicable to chemical simulations, drug discovery, energy production, climate modeling and fertilizer production (e.g. FeMoco) as well. Because of this, quantum computers may be better than classical computers at aiding design of further quantum computers.
+
+
+References[edit]
+
+
+^ Neumann, J. von (1956-12-31), "Probabilistic Logics and the Synthesis of Reliable Organisms From Unreliable Components", Automata Studies. (AM-34), Princeton: Princeton University Press, pp. 43–98, doi:10.1515/9781400882618-003, ISBN 978-1-4008-8261-8, retrieved 2020-10-10
+
+^ Aharonov, Dorit; Ben-Or, Michael (2008-01-01). "Fault-Tolerant Quantum Computation with Constant Error Rate". SIAM Journal on Computing. 38 (4): 1207–1282. arXiv:quant-ph/9906129. doi:10.1137/S0097539799359385. ISSN 0097-5397. S2CID 8969800.
+
+^ a b Knill, E. (1998-01-16). "Resilient Quantum Computation". Science. 279 (5349): 342–345. arXiv:quant-ph/9702058. Bibcode:1998Sci...279..342K. doi:10.1126/science.279.5349.342.
+
+^ Kitaev, A. Yu. (2003-01-01). "Fault-tolerant quantum computation by anyons". Annals of Physics. 303 (1): 2–30. arXiv:quant-ph/9707021. Bibcode:2003AnPhy.303....2K. doi:10.1016/S0003-4916(02)00018-0. ISSN 0003-4916. S2CID 119087885.
+
+^ Shor, P.W. (1996). "Fault-tolerant quantum computation". Proceedings of 37th Conference on Foundations of Computer Science. Burlington, VT, USA: IEEE Comput. Soc. Press. pp. 56–65. doi:10.1109/SFCS.1996.548464. ISBN 978-0-8186-7594-2. S2CID 7508572.
+
+^ Nielsen, Michael A.; Chuang, Isaac L. (June 2012). Quantum Computation and Quantum Information (10th anniversary ed.). Cambridge: Cambridge University Press. ISBN 9780511992773. OCLC 700706156.
+
+^ Aaronson, Scott; Granade, Chris (Fall 2006). "Lecture 14: Skepticism of Quantum Computing". PHYS771: Quantum Computing Since Democritus. Shtetl Optimized. Retrieved 2018-12-27.
+
+^ Fowler, Austin G.; Stephens, Ashley M.; Groszkowski, Peter (2009-11-11). "High-threshold universal quantum computation on the surface code". Physical Review A. 80 (5): 052312. arXiv:0803.0272. Bibcode:2009PhRvA..80e2312F. doi:10.1103/physreva.80.052312. ISSN 1050-2947. S2CID 119228385.
+
+^ Campbell, Earl T.; Terhal, Barbara M.; Vuillot, Christophe (2017-09-13). "Roads towards fault-tolerant universal quantum computation". Nature. 549 (7671): 172–179. arXiv:1612.07330. Bibcode:2017Natur.549..172C. doi:10.1038/nature23460. ISSN 0028-0836. PMID 28905902. S2CID 4446310.
+
+
+External links[edit]
+Gil Kalai. "Perpetual Motion of The 21st Century?".
+Scott Aaronson. "PHYS771 Lecture 14: Skepticism of Quantum Computing": «The entire content of the Threshold Theorem is that you're correcting errors faster than they're created. That's the whole point, and the whole non-trivial thing that the theorem shows. That's the problem it solves.»
+vteQuantum information scienceGeneral
+DiVincenzo's criteria
+NISQ era
+Quantum computing
+timeline
+Quantum information
+Quantum programming
+Quantum simulation
+Qubit
+physical vs. logical
+Quantum processors
+cloud-based
+Theorems
+Bell's
+Eastin–Knill
+Gleason's
+Gottesman–Knill
+Holevo's
+Margolus–Levitin
+No-broadcasting
+No-cloning
+No-communication
+No-deleting
+No-hiding
+No-teleportation
+PBR
+Threshold
+Solovay–Kitaev
+Purification
+Quantumcommunication
+Classical capacity
+entanglement-assisted
+quantum capacity
+Entanglement distillation
+Monogamy of entanglement
+LOCC
+Quantum channel
+quantum network
+Quantum teleportation
+quantum gate teleportation
+Superdense coding
+Quantum cryptography
+Post-quantum cryptography
+Quantum coin flipping
+Quantum money
+Quantum key distribution
+BB84
+SARG04
+other protocols
+Quantum secret sharing
+
+Quantum algorithms
+Amplitude amplification
+Bernstein–Vazirani
+Boson sampling
+Deutsch–Jozsa
+Grover's
+HHL
+Hidden subgroup
+Quantum annealing
+Quantum counting
+Quantum Fourier transform
+Quantum optimization
+Quantum phase estimation
+Shor's
+Simon's
+VQE
+Quantumcomplexity theory
+BQP
+EQP
+QIP
+QMA
+PostBQP
+Quantum  processor benchmarks
+Quantum supremacy
+Quantum volume
+Randomized benchmarking
+XEB
+Relaxation times
+T1
+T2
+Quantumcomputing models
+Adiabatic quantum computation
+Continuous-variable quantum information
+One-way quantum computer
+cluster state
+Quantum circuit
+quantum logic gate
+Quantum machine learning
+quantum neural network
+Quantum Turing machine
+Topological quantum computer
+Quantumerror correction
+Codes
+CSS
+quantum convolutional
+stabilizer
+Shor
+Bacon–Shor
+Steane
+Toric
+gnu
+Entanglement-assisted
+PhysicalimplementationsQuantum optics
+Cavity QED
+Circuit QED
+Linear optical QC
+KLM protocol
+Ultracold atoms
+Optical lattice
+Trapped-ion QC
+Spin-based
+Kane QC
+Spin qubit QC
+NV center
+NMR QC
+Superconducting
+Charge qubit
+Flux qubit
+Phase qubit
+Transmon
+Quantumprogramming
+OpenQASM–Qiskit–IBM QX
+Quil–Forest/Rigetti QCS
+Cirq
+Q#
+libquantum
+many others...
+
+ Quantum information science
+ Quantum mechanics topics
+
+
+
+

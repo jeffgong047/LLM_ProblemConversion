@@ -1,0 +1,190 @@
+In mathematics, Stinespring's dilation theorem,  also called Stinespring's factorization theorem, named after W. Forrest Stinespring, is a result from operator theory that represents any completely positive map on a C*-algebra A as a composition of two completely positive maps each of which has a special form:
+
+A *-representation of A on some auxiliary Hilbert space K followed by
+An operator map of the form T ↦ V*TV.
+Moreover, Stinespring's theorem is a structure theorem from a C*-algebra into the algebra of bounded operators on a Hilbert space. Completely positive maps are shown to be simple modifications of *-representations, or sometimes called *-homomorphisms.
+
+
+Formulation[edit]
+In the case of a unital C*-algebra, the result is as follows:
+
+Theorem. Let A be a unital C*-algebra, H be a Hilbert space, and B(H) be the bounded operators on H. For every completely positive
+Φ:A→B(H),Φ:A(H),
+there exists a Hilbert space K and a unital *-homomorphism
+π:A→B(K)π:A(K)
+such that
+Φ(a)=V∗π(a)V,Φ(a)=V^∗π(a)V,
+where V:H→K:H is a bounded operator. Furthermore, we have
+‖Φ(1)‖=‖V‖2.Φ(1)=V^2.
+Informally, one can say that every completely positive map ΦΦ can be "lifted" up to a map of the form V∗(⋅)V^*(·)V.
+The converse of the theorem is true trivially. So Stinespring's result classifies completely positive maps.
+
+Sketch of proof[edit]
+We now briefly sketch the proof. Let K=A⊗H=A. For a⊗h,b⊗g∈K,, define
+
+⟨a⊗h,b⊗g⟩K:=⟨Φ(b∗a)h,g⟩H=⟨h,Φ(a∗b)g⟩H,b⟩_K:=⟨Φ(b^*a)h,g⟩_H=,Φ(a^*b)g⟩_H
+and extend by semi-linearity to all of K. This is a Hermitian sesquilinear form because ΦΦ is compatible with the * operation. Complete positivity of ΦΦ is then used to show that this sesquilinear form is in fact positive semidefinite. Since positive semidefinite Hermitian sesquilinear forms satisfy the Cauchy–Schwarz inequality, the subset
+
+K′=x∈K∣⟨x,x⟩K=0⊂K'={x|,x⟩_K=0}
+is a subspace. We can remove degeneracy by considering the quotient space K/K′/K'.  The completion of this quotient space is then a Hilbert space, also denoted by K. Next define π(a)(b⊗g)=ab⊗gπ(a)(b)=ab and Vh=1A⊗h=1_A. One can check that ππ and V have the desired properties. 
+Notice that V is just the natural algebraic embedding of H into K. One can verify that V∗(a⊗h)=Φ(a)h^∗(a)=Φ(a)h holds. In particular V∗V=Φ(1)^∗V=Φ(1) holds so that V is an isometry if and only if Φ(1)=1Φ(1)=1. In this case H can be embedded, in the Hilbert space sense, into K and V∗^∗, acting on K, becomes the projection onto H. Symbolically, we can write
+
+Φ(a)=PHπ(a)|H.Φ(a)=P_H π(a)|_H.
+In the language of dilation theory, this is to say that Φ(a)Φ(a) is a compression of π(a)π(a). It is therefore a corollary of Stinespring's theorem that every unital completely positive map is the compression of some *-homomorphism.
+
+Minimality[edit]
+The triple (π, V, K) is called a Stinespring representation of Φ. A natural question is now whether one can reduce a given Stinespring representation in some sense.
+Let K1 be the closed linear span of π(A) VH. By property of *-representations in general, K1 is an invariant subspace of π(a) for all a. Also, K1 contains VH. Define
+
+π1(a)=π(a)|K1.π_1(a)=π(a)|_K_1.
+We can compute directly
+
+π1(a)π1(b)=π(a)|K1π(b)|K1=π(a)π(b)|K1=π(ab)|K1=π1(ab)π_1(a)π_1(b)   =π(a)|_K_1π(b)|_K_1
+   =π(a)π(b)|_K_1
+   =π(ab)|_K_1
+   =π_1(ab)
+and if k and ℓ lie in K1
+
+⟨π1(a∗)k,ℓ⟩=⟨π(a∗)k,ℓ⟩=⟨π(a)∗k,ℓ⟩=⟨k,π(a)ℓ⟩=⟨k,π1(a)ℓ⟩=⟨π1(a)∗k,ℓ⟩.⟨π_1(a^*)k,ℓ⟩   =⟨π(a^*)k,ℓ⟩
+   =⟨π(a)^*k,ℓ⟩
+   =,π(a)ℓ⟩
+   =,π_1(a)ℓ⟩
+   =⟨π_1(a)^*k,ℓ⟩.
+So (π1, V, K1) is also a Stinespring representation of Φ and has the additional property that K1 is the closed linear span of π(A) V H. Such a representation is called a minimal Stinespring representation.
+
+Uniqueness[edit]
+Let (π1, V1, K1) and (π2, V2, K2) be two Stinespring representations of a given Φ. Define a partial isometry W : K1 → K2 by
+
+Wπ1(a)V1h=π2(a)V2h. Wπ_1(a)V_1h=π_2(a)V_2h.
+On V1H ⊂ K1, this gives the intertwining relation
+
+Wπ1=π2W. Wπ_1=π_2W.
+In particular, if both Stinespring representations are minimal, W is unitary. Thus minimal Stinespring representations are unique up to a unitary transformation.
+
+Some consequences[edit]
+We mention a few of the results which can be viewed as consequences of Stinespring's theorem. Historically, some of the results below preceded Stinespring's theorem.
+
+GNS construction[edit]
+The Gelfand–Naimark–Segal (GNS) construction is as follows. Let H in Stinespring's theorem be 1-dimensional, i.e. the complex numbers. So Φ now is a positive linear functional on A. If we assume Φ is a state, that is, Φ has norm 1, then the isometry V:H→K:H is determined by
+
+V1=ξ1=ξ
+for some ξ∈Kξ of unit norm. So
+
+Φ(a)=V∗π(a)V=⟨V∗π(a)V1,1⟩H=⟨π(a)V1,V1⟩K=⟨π(a)ξ,ξ⟩KΦ(a)=V^*π(a)V   =^*π(a)V1,1⟩_H
+   =⟨π(a)V1,V1⟩_K
+   =⟨π(a)ξ,ξ⟩_K
+and we have recovered the GNS representation of states. This is one way to see that completely positive maps, rather than merely positive ones, are the true generalizations of positive functionals.
+A linear positive functional on a C*-algebra is absolutely continuous with respect to another such functional (called a reference functional) if it is zero on any positive element on which the reference positive functional is zero. This leads to a noncommutative generalization of the Radon–Nikodym theorem. The usual density operator of states on the matrix algebras with respect to the standard trace is nothing but the Radon–Nikodym derivative when the reference functional is chosen to be trace. Belavkin introduced the notion of complete absolute continuity of one completely positive map with respect to another (reference) map and proved an operator variant of the noncommutative Radon–Nikodym theorem for completely positive maps. A particular case of this theorem corresponding to a tracial completely positive reference map on the matrix algebras leads to the Choi operator as a Radon–Nikodym derivative of a CP map with respect to the standard trace (see Choi's Theorem).
+
+Choi's theorem[edit]
+It was shown by Choi that if Φ:B(G)→B(H)Φ:B(G)(H) is completely positive, where G and H are finite-dimensional Hilbert spaces of dimensions n and m respectively, then Φ takes the form:
+
+Φ(a)=∑i=1nmVi∗aVi.Φ(a)=∑_i=1^nmV_i^*aV_i.
+This is called Choi's theorem on completely positive maps. Choi proved this using linear algebra techniques, but his result can also be viewed as a special case of Stinespring's theorem: Let (π, V, K) be a minimal Stinespring representation of Φ. By minimality, K has dimension less than that of Cn×n⊗Cm^n^m. So without loss of generality, K can be identified with
+
+K=⨁i=1nmCin.=⊕_i=1^nmC_i^n.
+Each Cin_i^n is a copy of the n-dimensional Hilbert space. From π(a)(b⊗g)=ab⊗gπ(a)(b)=ab, we see that the above identification of K can be arranged so Piπ(a)Pi=a P_iπ(a)P_i=a, where Pi is the projection from K to Cin_i^n. Let Vi=PiV_i=P_iV. We have
+
+Φ(a)=∑i=1nm(V∗Pi)(Piπ(a)Pi)(PiV)=∑i=1nmVi∗aViΦ(a)=∑_i=1^nm(V^*P_i)(P_iπ(a)P_i)(P_iV)=∑_i=1^nmV_i^*aV_i
+and Choi's result is proved.
+Choi's result is a particular case of noncommutative Radon–Nikodym theorem for completely positive (CP) maps corresponding to a tracial completely positive reference map on the matrix algebras. In strong operator form this general theorem was proven by Belavkin in 1985 who showed the existence of the positive density operator representing a CP map which is completely absolutely continuous with respect to a reference CP map. The uniqueness of this density operator in the reference Steinspring representation simply follows from the minimality of this representation. Thus, Choi's operator is the Radon–Nikodym derivative of a finite-dimensional CP map with respect to the standard trace.
+Notice that, in proving Choi's theorem, as well as Belavkin's theorem from Stinespring's formulation, the argument does not give the Kraus operators Vi explicitly, unless one makes the various identification of spaces explicit. On the other hand, Choi's original proof involves direct calculation of those operators.
+
+Naimark's dilation theorem[edit]
+Naimark's theorem says that every B(H)-valued, weakly countably-additive measure on some compact Hausdorff space X can be "lifted" so that the measure becomes a spectral measure. It can be proved by combining the fact that C(X) is a commutative C*-algebra and Stinespring's theorem.
+
+Sz.-Nagy's dilation theorem[edit]
+This result states that every contraction on a Hilbert space has a unitary dilation with the minimality property.
+
+Application[edit]
+In quantum information theory, quantum channels, or quantum operations, are defined to be completely positive maps between C*-algebras. Being a classification for all such maps, Stinespring's theorem is important in that context. For example, the uniqueness part of the theorem has been used to classify certain classes of quantum channels.
+For the comparison of different channels and computation of their mutual fidelities and information another representation of the channels by their "Radon–Nikodym" derivatives introduced by Belavkin is useful. In the finite-dimensional case, Choi's theorem as the tracial variant of the Belavkin's Radon–Nikodym theorem for completely positive maps is also relevant. The operators Vi{V_i} from the expression
+
+Φ(a)=∑i=1nmVi∗aVi.Φ(a)=∑_i=1^nmV_i^*aV_i.
+are called the Kraus operators of Φ. The expression
+
+∑i=1nmVi∗(⋅)Vi∑_i=1^nmV_i^*(·)V_i
+is sometimes called the operator sum representation of Φ.
+
+References[edit]
+M.-D. Choi, Completely Positive Linear Maps on Complex Matrices, Linear Algebra and its Applications, 10, 285–290 (1975).
+V. P. Belavkin, P. Staszewski, Radon–Nikodym Theorem for Completely Positive Maps, Reports on Mathematical Physics, v. 24, No 1, 49–55 (1986).
+V. Paulsen, Completely Bounded Maps and Operator Algebras, Cambridge University Press, 2003.
+W. F. Stinespring, Positive Functions on C*-algebras, Proceedings of the American Mathematical Society, 6, 211–216 (1955).
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

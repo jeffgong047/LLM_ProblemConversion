@@ -1,0 +1,111 @@
+Integral criterion for holomorphy
+Mathematical analysis → Complex analysisComplex analysis
+Complex numbers
+Real number
+Imaginary number
+Complex plane
+Complex conjugate
+Unit complex number
+
+Complex functions
+Complex-valued function
+Analytic function
+Holomorphic function
+Cauchy–Riemann equations
+Formal power series
+
+Basic theory
+Zeros and poles
+Cauchy's integral theorem
+Local primitive
+Cauchy's integral formula
+Winding number
+Laurent series
+Isolated singularity
+Residue theorem
+Conformal map
+Schwarz lemma
+Harmonic function
+Laplace's equation
+
+Geometric function theory
+People
+Augustin-Louis Cauchy
+Leonhard Euler
+Carl Friedrich Gauss
+Jacques Hadamard
+Kiyoshi Oka
+Bernhard Riemann
+Karl Weierstrass
+
+ Mathematics portalvte
+If the integral along every C is zero, then f is holomorphic on D.
+In complex analysis, a branch of mathematics, Morera's theorem, named after Giacinto Morera, gives an important criterion for proving that a function is holomorphic.
+Morera's theorem states that a continuous, complex-valued function f defined on an  open set D in the complex plane that satisfies
+∮γf(z)dz=0∮_γf(z) dz=0
+for every closed piecewise C1 curve γγ in D must be holomorphic on D.
+The assumption of Morera's theorem is equivalent to f locally having an antiderivative on D.
+The converse of the theorem is not true in general. A holomorphic function need not possess an antiderivative on its domain, unless one imposes additional assumptions. The converse does hold e.g. if the domain is simply connected; this is Cauchy's integral theorem, stating that the line integral of a holomorphic function along a closed curve is zero.  
+The standard counterexample is the function f(z) = 1/z, which is holomorphic on C − {0}.  On any simply connected neighborhood U in C − {0}, 1/z has an antiderivative defined by L(z) = ln(r) + iθ, where z = reiθ. Because of the ambiguity of θ up to the addition of any integer multiple of 2π, any continuous choice of θ on U will suffice to define an antiderivative of 1/z on U.  (It is the fact that θ cannot be defined continuously on a simple closed curve containing the origin in its interior that is the root of why 1/z has no antiderivative on its entire domain C − {0}.) And because the derivative of an additive constant is 0, any constant may be added to the antiderivative and the result will still be an antiderivative of 1/z.
+In a certain sense, the 1/z counterexample is universal: For every analytic function that has no antiderivative on its domain, the reason for this is that 1/z itself does not have an antiderivative on C − {0}.
+
+
+Proof[edit]
+The integrals along two paths from a to b are equal, since their difference is the integral along a closed loop.
+There is a relatively elementary proof of the theorem.  One constructs an anti-derivative for f explicitly.
+Without loss of generality, it can be assumed that D is connected. Fix a point z0 in D, and for any z∈D, let γ:[0,1]→Dγ:[0,1] be a piecewise C1 curve such that γ(0)=z0γ(0)=z_0 and γ(1)=zγ(1)=z. Then define the function F to be
+F(z)=∫γf(ζ)dζ.(z)=∫_γf(ζ) dζ.
+To see that the function is well-defined, suppose τ:[0,1]→Dτ:[0,1] is another piecewise C1 curve such that τ(0)=z0τ(0)=z_0 and τ(1)=zτ(1)=z. The curve γτ−1γτ^-1 (i.e. the curve combining γγ with ττ in reverse) is a closed piecewise C1 curve in D. Then,
+∫γf(ζ)dζ+∫τ−1f(ζ)dζ=∮γτ−1f(ζ)dζ=0.∫_γf(ζ) dζ+∫_τ^-1f(ζ) dζ=∮_γτ^-1f(ζ) dζ=0.
+And it follows that
+∫γf(ζ)dζ=∫τf(ζ)dζ.∫_γf(ζ) dζ=∫_τf(ζ) dζ.
+Then using the continuity of f to estimate difference quotients, we get that F′(z) = f(z).  Had we chosen a different z0 in D, F would change by a constant: namely, the result of integrating f along any piecewise regular curve between the new  z0 and the old, and this does not change the derivative.
+Since f is the derivative of the holomorphic function F, it is holomorphic. The fact that derivatives of holomorphic functions are holomorphic can be proved by using the fact that holomorphic functions are analytic, i.e. can be represented by a convergent power series, and the fact that power series may be differentiated term by term.  This completes the proof.
+
+Applications[edit]
+Morera's theorem is a standard tool in complex analysis.  It is used in almost any argument that involves a non-algebraic construction of a holomorphic function.
+
+Uniform limits[edit]
+For example, suppose that f1, f2, ... is a sequence of holomorphic functions, converging uniformly to a continuous function f on an open disc.  By Cauchy's theorem, we know that
+∮Cfn(z)dz=0∮_Cf_n(z) dz=0
+for every n, along any closed curve C in the disc.  Then the uniform convergence implies that
+∮Cf(z)dz=∮Climn→∞fn(z)dz=limn→∞∮Cfn(z)dz=0∮_Cf(z) dz=∮_Clim_n→∞f_n(z) dz=lim_n→∞∮_Cf_n(z) dz=0
+for every closed curve C, and therefore by Morera's theorem f must be holomorphic.  This fact can be used to show that, for any open set Ω ⊆ C, the set A(Ω) of all bounded, analytic functions u : Ω → C is a Banach space with respect to the supremum norm.
+
+Infinite sums and integrals[edit]
+Morera's theorem can also be used in conjunction with Fubini's theorem and the Weierstrass M-test to show the analyticity of functions defined by sums or integrals, such as the Riemann zeta function
+ζ(s)=∑n=1∞1nsζ(s)=∑_n=1^∞1/n^s
+or the Gamma function
+Γ(α)=∫0∞xα−1e−xdx.Γ(α)=∫_0^∞x^α-1e^-x dx.
+Specifically one shows that
+∮CΓ(α)dα=0∮_CΓ(α) dα=0
+for a suitable closed curve C, by writing
+∮CΓ(α)dα=∮C∫0∞xα−1e−xdxdα∮_CΓ(α) dα=∮_C∫_0^∞x^α-1e^-x dx dα
+and then using Fubini's theorem to justify changing the order of integration, getting
+∫0∞∮Cxα−1e−xdαdx=∫0∞e−x∮Cxα−1dαdx.∫_0^∞∮_Cx^α-1e^-x dα dx=∫_0^∞e^-x∮_Cx^α-1 dα dx.
+Then one uses the analyticity of α ↦ xα−1 to conclude that
+∮Cxα−1dα=0,∮_Cx^α-1 dα=0,
+and hence the double integral above is 0.  Similarly, in the case of the zeta function, the M-test justifies interchanging the integral along the closed curve and the sum.
+
+Weakening of hypotheses[edit]
+The hypotheses of Morera's theorem can be weakened considerably.  In particular, it suffices for the integral
+∮∂Tf(z)dz∮_f(z) dz
+to be zero for every closed (solid) triangle T contained in the region D. This in fact characterizes holomorphy, i.e. f is holomorphic on D if and only if the above conditions hold. It also implies the following generalisation of the aforementioned fact about uniform limits of holomorphic functions: if f1, f2, ... is a sequence of holomorphic functions defined on an open set Ω ⊆ C that converges to a function f uniformly on compact subsets of Ω, then f is holomorphic.
+
+See also[edit]
+Cauchy–Riemann equations
+Methods of contour integration
+Residue (complex analysis)
+Mittag-Leffler's theorem
+References[edit]
+Ahlfors, Lars (January 1, 1979), Complex Analysis, International Series in Pure and Applied Mathematics, McGraw-Hill, ISBN 978-0-07-000657-7, Zbl 0395.30001.
+Conway, John B. (1973), Functions of One Complex Variable I, Graduate Texts in Mathematics, vol. 11, Springer Verlag, ISBN 978-3-540-90328-4, Zbl 0277.30001.
+Greene, Robert E.; Krantz, Steven G. (2006), Function Theory of One Complex Variable, Graduate Studies in Mathematics, vol. 40, American Mathematical Society, ISBN 0-8218-3962-4
+Morera, Giacinto (1886), "Un teorema fondamentale nella teorica delle funzioni di una variabile complessa", Rendiconti del Reale Instituto Lombardo di Scienze e Lettere (in Italian), 19 (2): 304–307, JFM 18.0338.02.
+Rudin, Walter (1987) [1966], Real and Complex Analysis (3rd ed.), McGraw-Hill, pp. xiv+416, ISBN 978-0-07-054234-1, Zbl 0925.00005.
+External links[edit]
+"Morera theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Weisstein, Eric W. "Morera's Theorem". MathWorld.
+
+
+

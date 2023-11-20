@@ -1,0 +1,127 @@
+This article is about the extreme value theorem in statistics. For the result in calculus, see extreme value theorem.
+In statistics, the Fisher–Tippett–Gnedenko theorem (also the Fisher–Tippett theorem or the extreme value theorem) is a general result in extreme value theory regarding asymptotic distribution of extreme order statistics. The maximum of a sample of iid random variables after proper renormalization can only converge in distribution to one of 3 possible distributions: the Gumbel distribution, the Fréchet distribution, or the Weibull distribution. Credit for the extreme value theorem and its convergence details are given to Fréchet (1927),[1] Fisher and  Tippett (1928),[2] Mises (1936)[3][4] and Gnedenko (1943).[5]
+The role of the extremal types theorem for maxima is similar to that of central limit theorem for averages, except that the central limit theorem applies to the average of a sample from any distribution with finite variance, while the Fisher–Tippet–Gnedenko theorem only states that if the distribution of a normalized maximum converges, then the limit has to be one of a particular class of distributions. It does not state that the distribution of the normalized maximum does converge.
+
+
+Statement[edit]
+Let X1,X2,…,Xn_1,X_2,…,X_n be a sequence of independent and identically-distributed random variables with cumulative distribution function F. Suppose that there exist two sequences of real numbers an>0_n>0 and bn∈R_n∈ℝ such that the following limits converge to a non-degenerate distribution function:
+
+limn→∞P(maxX1,…,Xn−bnan≤x)=G(x)lim_n→∞P(max{X_1,…,X_n}-b_n/a_n)=G(x),
+or equivalently:
+
+limn→∞Fn(anx+bn)=G(x)lim_n→∞F^n(a_nx+b_n)=G(x).
+In such circumstances, the limit distribution G belongs to either the Gumbel, the Fréchet or the Weibull family.[6]
+In other words, if the limit above converges, then up to a linear change of coordinates G(x)(x) will assume the form:[7]
+
+Gγ(x)=exp⁡(−(1+γx)−1/γ),1+γx>0_γ(x)=exp(-(1+γ x)^-1/γ),  1+γ x>0
+or else
+
+G0(x)=exp⁡(−exp⁡(−x))_0(x)=exp(-exp(-x))
+for some parameter γ.γ. This is the cumulative distribution function of the generalized extreme value distribution (GEV) with extreme value index γγ. The GEV distribution groups the Gumbel, Fréchet and Weibull distributions into a single one. Note that the second formula (the Gumbel distribution) is the limit of the first as γγ goes to zero.
+
+Conditions of convergence[edit]
+The Fisher–Tippett–Gnedenko theorem is a statement about the convergence of the limiting distribution G(x)(x) above. The study of conditions for convergence of G to particular cases of the generalized extreme value distribution began with Mises (1936)[3][5][4] and was further developed by Gnedenko (1943).[5]
+Let F be the distribution function of X, and X1,…,Xn_1,…,X_n an i.i.d. sample thereof. Also let x∗^* be the populational maximum, i.e. x∗=supx∣F(x)<1^*=sup{x(x)<1}. The limiting distribution of the normalized sample maximum, given by G above, will then be:[7]
+
+A Fréchet distribution (γ>0γ>0) if and only if x∗=∞^*=∞ and limt→∞1−F(ut)1−F(t)=u−1/|γ|lim_t→∞1-F(ut)/1-F(t)=u^-1/|γ| for all u>0>0.
+This corresponds to what is called a heavy tail. In this case, possible sequences that will satisfy the theorem conditions are bn=0_n=0 and an=F−1(1−1n)_n=F^-1(1-1/n).
+A Gumbel distribution (γ=0γ=0), with x∗^* finite or infinite, if and only if limt→x∗1−F(t+uf(t))1−F(t)=e−ulim_t^*1-F(t+uf(t))/1-F(t)=e^-u for all u>0>0 with f(t):=∫tx∗1−F(s)ds1−F(t)(t):=∫_t^x^*1-F(s)ds/1-F(t).
+Possible sequences here are bn=F−1(1−1n)_n=F^-1(1-1/n) and an=f(F−1(1−1n))_n=f(F^-1(1-1/n)).
+A Weibull distribution (γ<0γ<0) if and only if x∗^* is finite and limt→0+1−F(x∗−ut)1−F(x∗−t)=u1/|γ|lim_t→0^+1-F(x^*-ut)/1-F(x^*-t)=u^1/|γ| for all u>0>0.
+Possible sequences here are bn=x∗_n=x^* and an=x∗−F−1(1−1n)_n=x^*-F^-1(1-1/n).
+Examples[edit]
+This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (April 2023) (Learn how and when to remove this template message)
+Fréchet distribution[edit]
+For the Cauchy distribution
+
+f(x)=(π2+x2)−1(x)=(π^2+x^2)^-1
+the cumulative distribution function is:
+
+F(x)=1/2+1πarctan⁡(x/π)(x)=1/2+1/πarctan(x/π)
+1−F(x)1-F(x) is asymptotic to 1/x,1/x, or
+
+ln⁡F(x)∼−1/x(x)∼-1/x
+and we have
+
+ln⁡F(x)n=nln⁡F(x)∼−n/x.(x)^n=n(x)∼-n/x.
+Thus we have
+
+F(x)n≈exp⁡(−n/x)(x)^n≈exp(-n/x)
+and letting u=x/n−1=x/n-1 (and skipping some explanation)
+
+limn→∞F(nu+n)n=exp⁡(−(1+u)−1)=G1(u)lim_n→∞F(nu+n)^n=exp(-(1+u)^-1)=G_1(u)
+for any u.. The expected maximum value therefore goes up linearly with n.
+
+Gumbel distribution[edit]
+Let us take the normal distribution with cumulative distribution function
+
+F(x)=12erfc(−x/2).(x)=1/2erfc(-x/√(2)).
+We have
+
+ln⁡F(x)∼−exp⁡(−x2/2)2πx(x)∼-exp(-x^2/2)/√(2π)x
+and
+
+ln⁡F(x)n=nln⁡F(x)∼−nexp⁡(−x2/2)2πx.(x)^n=n(x)∼-nexp(-x^2/2)/√(2π)x.
+Thus we have
+
+F(x)n≈exp⁡(−nexp⁡(−x2/2)2πx).(x)^n≈exp(-nexp(-x^2/2)/√(2π)x).
+If we define cn_n as the value that satisfies
+
+nexp⁡(−cn2/2)2πcn=1nexp(-c_n^2/2)/√(2π)c_n=1
+then around x=cn=c_n
+
+nexp⁡(−x2/2)2πx≈exp⁡(cn(cn−x)).nexp(-x^2/2)/√(2π)x≈exp(c_n(c_n-x)).
+As n increases, this becomes a good approximation for a wider and wider range of cn(cn−x)_n(c_n-x) so letting u=cn(cn−x)=c_n(c_n-x) we find that
+
+limn→∞F(u/cn+cn)n=exp⁡(−exp⁡(−u))=G0(u).lim_n→∞F(u/c_n+c_n)^n=exp(-exp(-u))=G_0(u).
+Equivalently, 
+
+limn→∞P(maxX1,…,Xn−cn1/cn≤u)=exp⁡(−exp⁡(−u))=G0(u).lim_n→∞P(max{X_1,…,X_n}-c_n/1/c_n)=exp(-exp(-u))=G_0(u).
+We can see that ln⁡cn∼(ln⁡ln⁡n)/2_n∼(ln)/2 and then
+
+cn∼2ln⁡n_n∼√(2)
+so the maximum is expected to climb ever more slowly toward infinity.
+
+Weibull distribution[edit]
+We may take the simplest example, a uniform distribution between 0 and 1, with cumulative distribution function
+
+F(x)=x(x)=x from 0 to 1.
+Approaching 1 we have
+
+ln⁡F(x)n=nln⁡F(x)∼−n(1−x).(x)^n=n(x)∼-n(1-x).
+Then
+
+F(x)n≈exp⁡(nx−n).(x)^n≈exp(nx-n).
+Letting u=1+n(1−x)=1+n(1-x) we have
+
+limn→∞F(u/n+1−1/n)n=exp⁡(−(1−u))=G−1(u).lim_n→∞F(u/n+1-1/n)^n=exp(-(1-u))=G_-1(u).
+The expected maximum approaches 1 inversely proportionally to n.
+
+See also[edit]
+Extreme value theory
+Gumbel distribution
+Generalized extreme value distribution
+Pickands–Balkema–de Haan theorem
+Generalized Pareto distribution
+Exponentiated generalized Pareto distribution
+Notes[edit]
+
+
+^ Fréchet, M. (1927), "Sur la loi de probabilité de l'écart maximum", Annales de la Société Polonaise de Mathématique, 6 (1): 93–116
+
+^ Fisher, R.A.; Tippett, L.H.C. (1928), "Limiting forms of the frequency distribution of the largest and smallest member of a sample", Proc. Camb. Phil. Soc., 24 (2): 180–190, Bibcode:1928PCPS...24..180F, doi:10.1017/s0305004100015681, S2CID 123125823
+
+^ a b Mises, R. von (1936). "La distribution de la plus grande de n valeurs". Rev. Math. Union Interbalcanique 1: 141–160.
+
+^ a b Falk, Michael; Marohn, Frank (1993). "Von Mises conditions revisited". The Annals of Probability: 1310–1328.
+
+^ a b c Gnedenko, B.V. (1943), "Sur la distribution limite du terme maximum d'une serie aleatoire", Annals of Mathematics, 44 (3): 423–453, doi:10.2307/1968974, JSTOR 1968974
+
+^ Mood, A.M. (1950). "5. Order Statistics". Introduction to the theory of statistics. New York, NY, US: McGraw-Hill. pp. 251–270.
+
+^ a b Haan, Laurens; Ferreira, Ana (2007). Extreme value theory: an introduction. Springer.
+
+
+
+
+

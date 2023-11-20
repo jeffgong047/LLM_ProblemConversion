@@ -1,0 +1,224 @@
+On when a family of real, continuous functions has a uniformly convergent subsequence
+The Arzelà–Ascoli theorem is a fundamental result of mathematical analysis giving necessary and sufficient conditions to decide whether every sequence of a given family of real-valued continuous functions defined on a closed and bounded interval has a uniformly convergent subsequence.  The main condition is the equicontinuity of the family of functions. The theorem is the basis of many proofs in mathematics, including that of the Peano existence theorem in the theory of ordinary differential equations, Montel's theorem in complex analysis, and the Peter–Weyl theorem in harmonic analysis and various results concerning compactness of integral operators.
+The notion of equicontinuity was introduced in the late 19th century by the Italian mathematicians Cesare Arzelà and Giulio Ascoli. A weak form of the theorem was proven by Ascoli (1883–1884), who established the sufficient condition for compactness, and by Arzelà (1895), who established the necessary condition and gave the first clear presentation of the result.  A further generalization of the theorem was proven by Fréchet (1906), to sets of real-valued continuous functions with domain a compact metric space (Dunford & Schwartz 1958, p. 382).  Modern formulations of the theorem allow for the domain to be compact Hausdorff and for the range to be an arbitrary metric space.  More general formulations of the theorem exist that give necessary and sufficient conditions for a family of functions from a compactly generated Hausdorff space into a uniform space to be compact in the compact-open topology; see Kelley (1991, page 234).
+
+
+Statement and first consequences[edit]
+By definition, a sequence fnn∈N{f_n}_n∈ℕ of continuous functions on an interval I = [a, b] is uniformly bounded if there is a number M such that
+
+|fn(x)|≤M|f_n(x)|
+for every function  fn  belonging to the sequence, and every x ∈ [a, b].  (Here, M  must be independent of n and x.)
+The sequence is said to be uniformly equicontinuous if, for every ε > 0, there exists a δ > 0 such that
+
+|fn(x)−fn(y)|<ε|f_n(x)-f_n(y)|<ε
+whenever |x − y| < δ  for all functions  fn  in the sequence. (Here, δ may depend on ε, but not x, y or n.)
+One version of the theorem can be stated as follows:
+
+Consider a sequence of real-valued continuous functions { fn }n ∈ N defined on a closed and bounded interval [a, b] of the real line. If this sequence is uniformly bounded and uniformly equicontinuous, then there exists a subsequence { fnk }k ∈ N that converges uniformly.
+The converse is also true, in the sense that if every subsequence of { fn } itself has a uniformly convergent subsequence, then { fn } is uniformly bounded and equicontinuous.
+Proof
+The proof is essentially based on a diagonalization argument.  The simplest case is of real-valued functions on a closed and bounded interval:
+
+Let I = [a, b] ⊂ R be a closed and bounded interval.  If F is an infinite set of functions  f  : I → R which is uniformly bounded and equicontinuous, then there is a sequence fn of elements of F such that fn converges uniformly on I.
+Fix an enumeration {xi}i ∈N of rational numbers in I.  Since F is uniformly bounded, the set of points {f(x1)}f∈F is bounded, and hence by the Bolzano–Weierstrass theorem, there is a sequence {fn1} of distinct functions in F such that {fn1(x1)} converges.  Repeating the same argument for the sequence of points {fn1(x2)}, there is a subsequence {fn2} of {fn1} such that {fn2(x2)} converges.
+By induction this process can be continued forever, and so there is a chain of subsequences
+
+fn1⊇fn2⊇⋯{f_n_1}⊇{f_n_2}⊇⋯
+such that, for each k = 1, 2, 3, ..., the subsequence {fnk} converges at x1, ..., xk.  Now form the diagonal subsequence {f} whose mth term fm is the mth term in the mth subsequence {fnm}. By construction, fm converges at every rational point of I.
+Therefore, given any ε > 0 and rational xk in I, there is an integer N = N(ε, xk) such that
+
+|fn(xk)−fm(xk)|<ε3,n,m≥N.|f_n(x_k)-f_m(x_k)|<ε3,,m.
+Since the family F is equicontinuous, for this fixed ε and for every x in I, there is an open interval Ux containing x such that
+
+|f(s)−f(t)|<ε3|f(s)-f(t)|<ε3
+for all f ∈ F and all s, t in I such that s, t ∈ Ux.
+The collection of intervals Ux, x ∈ I,  forms an open cover of I.  Since I  is closed and bounded, by the Heine–Borel theorem I is compact, implying that this covering admits a finite subcover U1, ..., UJ.  There exists an integer K such that each open interval Uj, 1 ≤ j ≤ J, contains a rational xk with 1 ≤ k ≤ K.  Finally, for any t ∈ I, there are j and k so that t and xk belong to the same interval Uj.  For this choice of k,
+
+|fn(t)−fm(t)|≤|fn(t)−fn(xk)|+|fn(xk)−fm(xk)|+|fm(xk)−fm(t)|<ε3+ε3+ε3|f_n(t)-f_m(t)|   ≤|f_n(t)-f_n(x_k)|+|f_n(x_k)-f_m(x_k)|+|f_m(x_k)-f_m(t)|
+   <ε3+ε3+ε3
+for all n, m > N = max{N(ε, x1), ..., N(ε, xK)}.  Consequently, the sequence {fn} is uniformly Cauchy, and therefore converges to a continuous function, as claimed.  This completes the proof.
+
+
+Immediate examples[edit]
+Differentiable functions[edit]
+The hypotheses of the theorem are satisfied by a uniformly bounded sequence { fn } of differentiable functions with uniformly bounded derivatives. Indeed, uniform boundedness of the derivatives implies by the mean value theorem that for all x and y,
+
+|fn(x)−fn(y)|≤K|x−y|,|f_n(x)-f_n(y)||x-y|,
+where K is the supremum of the derivatives of functions in the sequence and is independent of n.  So, given ε > 0, let δ = ε/2K to verify the definition of equicontinuity of the sequence.  This proves the following corollary:
+
+Let {fn} be a uniformly bounded sequence of real-valued differentiable functions on [a, b] such that the derivatives {fn′} are uniformly bounded. Then there exists a subsequence {fnk} that converges uniformly on [a, b].
+If, in addition, the sequence of second derivatives is also uniformly bounded, then the derivatives also converge uniformly (up to a subsequence), and so on. Another generalization holds for continuously differentiable functions.  Suppose that the functions  fn  are continuously differentiable with derivatives f′n. Suppose that fn′ are uniformly equicontinuous and uniformly bounded, and that the sequence { fn }, is pointwise bounded (or just bounded at a single point).  Then there is a subsequence of the { fn } converging uniformly to a continuously differentiable function.
+The diagonalization argument can also be used to show that a family of infinitely differentiable functions, whose derivatives of each order are uniformly bounded, has a uniformly convergent subsequence, all of whose derivatives are also uniformly convergent. This is particularly important in the theory of distributions.
+
+Lipschitz and Hölder continuous functions[edit]
+The argument given above proves slightly more, specifically
+
+If { fn } is a uniformly bounded sequence of real valued functions on [a, b] such that each f is Lipschitz continuous with the same Lipschitz constant K:
+|fn(x)−fn(y)|≤K|x−y||f_n(x)-f_n(y)||x-y|
+for all x, y ∈ [a, b] and all  fn , then there is a subsequence that converges uniformly on [a, b].
+The limit function is also Lipschitz continuous with the same value K for the Lipschitz constant. A slight refinement is
+
+A set F of functions  f  on [a, b] that is uniformly bounded and satisfies a Hölder condition of order  α, 0 < α ≤ 1, with a fixed constant M,
+|f(x)−f(y)|≤M|x−y|α,x,y∈[a,b]|f(x)-f(y)| |x-y|^α,,y∈[a,b]
+is relatively compact in C([a, b]).  In particular, the unit ball of the Hölder space C0,α([a, b]) is compact in C([a, b]).
+This holds more generally for scalar functions on a compact metric space X satisfying a Hölder condition with respect to the metric on X.
+
+Generalizations[edit]
+Euclidean spaces[edit]
+The Arzelà–Ascoli theorem holds, more generally, if the functions  fn  take values in d-dimensional Euclidean space Rd, and the proof is very simple: just apply the R-valued version of the Arzelà–Ascoli theorem d times to extract a subsequence that converges uniformly in the first coordinate, then a sub-subsequence that converges uniformly in the first two coordinates, and so on.  The above examples generalize easily to the case of functions with values in Euclidean space.
+
+Compact metric spaces and compact Hausdorff spaces[edit]
+The definitions of boundedness and equicontinuity can be generalized to the setting of arbitrary compact metric spaces and, more generally still, compact Hausdorff spaces.  Let X be a compact Hausdorff space, and let C(X) be the space of real-valued continuous functions on X. A subset F ⊂ C(X) is said to be equicontinuous if for every x ∈ X and every ε > 0, x has a neighborhood Ux such that
+
+∀y∈Ux,∀f∈F:|f(y)−f(x)|<ε._x,∈𝐅:    |f(y)-f(x)|<ε.
+A set F ⊂ C(X, R) is said to be pointwise bounded if for every x ∈ X,
+
+sup|f(x)|:f∈F<∞.sup{|f(x)|:f∈𝐅}<∞.
+A version of the Theorem holds also in the space C(X) of real-valued continuous functions on a compact Hausdorff space X (Dunford & Schwartz 1958, §IV.6.7):
+
+Let X be a compact Hausdorff space. Then a subset F of C(X) is relatively compact in the topology induced by the uniform norm if and only if it is equicontinuous and pointwise bounded.
+The Arzelà–Ascoli theorem is thus a fundamental result in the study of the algebra of continuous functions on a compact Hausdorff space.
+Various generalizations of the above quoted result are possible.  For instance, the functions can assume values in a metric space or (Hausdorff) topological vector space with only minimal changes to the statement (see, for instance, Kelley & Namioka (1982, §8), Kelley (1991, Chapter 7)):
+
+Let X be a compact Hausdorff space and Y a metric space. Then F ⊂ C(X, Y) is compact in the compact-open topology if and only if it is equicontinuous, pointwise relatively compact and closed.
+Here pointwise relatively compact means that for each x ∈ X, the set Fx = { f (x) :  f  ∈ F} is relatively compact in Y.
+In the case that Y is complete, the proof given above can be generalized in a way that does not rely on the separability of the domain.  On a compact Hausdorff space X, for instance, the equicontinuity is used to extract, for each ε = 1/n, a finite open covering of X such that the oscillation of any function in the family is less than ε on each open set in the cover.  The role of the rationals can then be played by a set of points drawn from each open set in each of the countably many covers obtained in this way, and the main part of the proof proceeds exactly as above. A similar argument is used as a part of the proof for the general version which does not assume completeness of Y.
+
+Functions on non-compact spaces[edit]
+The Arzela-Ascoli theorem generalises to functions X→Y where X is not compact. Particularly important are cases where X is a topological vector space. Recall that if X
+is a topological space and Y is a uniform space (such as any metric space or any topological group, metrisable or not), there is the topology of compact convergence on the set F(X,Y)𝔉(X,Y) of functions X→Y; it is set up so that a sequence (or more generally a 
+filter or net) of functions converges if and only if it converges uniformly on each compact subset of X. Let Cc(X,Y)𝒞_c(X,Y) be the subspace of
+F(X,Y)𝔉(X,Y) consisting of continuous functions, equipped with the topology of compact convergence.
+Then one form of the Arzèla-Ascoli theorem is the following:
+
+Let X be a topological space, Y a Hausdorff uniform space and H⊂Cc(X,Y)⊂𝒞_c(X,Y) an equicontinuous set of continuous functions such that H(x)(x) is relatively compact in Y for each x∈X. Then H is relatively compact in H⊂Cc(X,Y)⊂𝒞_c(X,Y).
+This theorem immediately gives the more specialised statements above in cases where X is compact
+and the uniform structure of Y is given by a metric. There are a few other variants in terms of
+the topology of precompact convergence or other related topologies on 
+F(X,Y)𝔉(X,Y). It is also possible to extend the statement to functions that are only continuous when restricted to the sets of a covering of X by compact subsets. For details one can consult Bourbaki (1998), Chapter X, § 2, nr 5.
+
+Non-continuous functions[edit]
+Solutions of numerical schemes for parabolic equations are usually piecewise constant, and therefore not continuous, in time. As their jumps nevertheless tend to become small as the time step goes to 00, it is possible to establish uniform-in-time convergence properties using a generalisation to non-continuous functions of the classical Arzelà–Ascoli theorem (see e.g. Droniou & Eymard (2016, Appendix)).
+Denote by S(X,Y)(X,Y) the space of functions from X to Y endowed with the uniform metric
+
+dS(v,w)=supt∈XdY(v(t),w(t))._S(v,w)=sup_td_Y(v(t),w(t)).
+Then we have the following:
+
+Let X be a compact metric space and Y a complete metric space. Let vnn∈N{v_n}_n∈ℕ be a sequence in S(X,Y)(X,Y) such that there exists a function ω:X×X→[0,∞]ω:X→[0,∞] and a sequence δnn∈N⊂[0,∞){δ_n}_n∈ℕ⊂[0,∞) satisfying
+limdX(t,t′)→0ω(t,t′)=0,limn→∞δn=0,lim_d_X(t,t')→0ω(t,t')=0,  lim_n→∞δ_n=0,
+∀(t,t′)∈X×X,∀n∈N,dY(vn(t),vn(t′))≤ω(t,t′)+δn.∀(t,t'),  ∈ℕ,_Y(v_n(t),v_n(t'))≤ω(t,t')+δ_n.
+Assume also that, for all t∈X, vn(t):n∈N{v_n(t):n∈ℕ} is relatively compact in Y. Then vnn∈N{v_n}_n∈ℕ is relatively compact in S(X,Y)(X,Y), and any limit of vnn∈N{v_n}_n∈ℕ in this space is in C(X,Y)(X,Y).
+Necessity[edit]
+Whereas most formulations of the Arzelà–Ascoli theorem assert sufficient conditions for a family of functions to be (relatively) compact in some topology, these conditions are typically also necessary.  For instance, if a set F is compact in C(X), the Banach space of real-valued continuous functions on a compact Hausdorff space with respect to its uniform norm, then it is bounded in the uniform norm on C(X) and in particular is pointwise bounded. Let N(ε, U) be the set of all functions in F whose oscillation over an open subset U ⊂ X is less than ε:
+
+N(ε,U)=f∣oscU⁡f<ε.(ε,U)={f|osc_Uf<ε}.
+For a fixed x∈X and ε, the sets N(ε, U) form an open covering of F as U varies over all open neighborhoods of x.  Choosing a finite subcover then gives equicontinuity.
+
+Further examples[edit]
+To every function g that is p-integrable on [0, 1], with 1 < p ≤ ∞, associate the function G defined on [0, 1] by
+G(x)=∫0xg(t)dt.(x)=∫_0^xg(t) dt.
+Let F be the set of functions G corresponding to functions g in the unit ball of the space Lp([0, 1]). If q is the Hölder conjugate of p, defined by 1/p + 1/q = 1, then Hölder's inequality implies that all functions in F satisfy a Hölder condition with α = 1/q and constant M = 1.
+It follows that F is compact in C([0, 1]). This means that the correspondence g → G defines a compact linear operator T between the Banach spaces Lp([0, 1]) and C([0, 1]).  Composing with the injection of C([0, 1]) into Lp([0, 1]), one sees that T acts compactly from Lp([0, 1]) to itself.  The case p = 2 can be seen as a simple instance of the fact that the injection from the Sobolev space H01(Ω)_0^1(Ω) into L2(Ω), for Ω a bounded open set in Rd, is compact.
+When T is a compact linear operator from a Banach space X to a Banach space Y, its transpose T ∗ is compact from the (continuous) dual Y ∗ to X ∗. This can be checked by the Arzelà–Ascoli theorem.
+Indeed, the image T(B) of the closed unit ball B of X is contained in a compact subset K of Y. The unit ball B∗ of Y ∗ defines, by restricting from Y to K, a set F of (linear) continuous functions on K that is bounded and equicontinuous. By Arzelà–Ascoli, for every sequence {y∗n}, in B∗, there is a subsequence that converges uniformly on K, and this implies that the image T∗(ynk∗)^*(y_n_k^*) of that subsequence is Cauchy in X ∗.
+When  f  is holomorphic in an open disk D1 = B(z0, r), with modulus bounded by M, then (for example by Cauchy's formula) its derivative  f ′ has modulus bounded by 2M/r in the smaller disk D2 = B(z0, r/2). If a family of holomorphic functions on D1 is bounded by M on D1, it follows that the family F of restrictions to D2 is equicontinuous on D2.  Therefore, a sequence converging uniformly on D2 can be extracted.  This is a first step in the direction of  Montel's theorem.
+Let C([0,T],L1(RN))([0,T],L^1(ℝ^N)) be endowed with the uniform metric supt∈[0,T]‖v(⋅,t)−w(⋅,t)‖L1(RN).sup_t∈[0,T]v(·,t)-w(·,t)_L^1(ℝ^N). Assume that un=un(x,t)⊂C([0,T];L1(RN))_n=u_n(x,t)([0,T];L^1(ℝ^N)) is a sequence of solutions of a certain partial differential equation (PDE), where the PDE ensures the following a priori estimates: x↦un(x,t)_n(x,t) is equicontinuous for all t, x↦un(x,t)_n(x,t) is equitight for all t, and, for all (t,t′)∈[0,T]×[0,T](t,t')∈[0,T]×[0,T] and all n∈N∈ℕ, ‖un(⋅,t)−un(⋅,t′)‖L1(RN)u_n(·,t)-u_n(·,t')_L^1(ℝ^N) is small enough when |t−t′||t-t'| is small enough. Then by the Fréchet–Kolmogorov theorem, we can conclude that x↦un(x,t):n∈N{x_n(x,t):n∈ℕ} is relatively compact in L1(RN)^1(ℝ^N). Hence, we can, by (a generalization of) the Arzelà–Ascoli theorem, conclude that un:n∈N{u_n:n∈ℕ} is relatively compact in C([0,T],L1(RN)).([0,T],L^1(ℝ^N)).
+See also[edit]
+Helly's selection theorem
+Fréchet–Kolmogorov theorem
+References[edit]
+
+
+
+
+Arzelà, Cesare (1895), "Sulle funzioni di linee", Mem. Accad. Sci. Ist. Bologna Cl. Sci. Fis. Mat., 5 (5): 55–74.
+Arzelà, Cesare (1882–1883), "Un'osservazione intorno alle serie di funzioni", Rend. Dell' Accad. R. Delle Sci. dell'Istituto di Bologna: 142–159.
+Ascoli, G. (1883–1884), "Le curve limite di una varietà data di curve", Atti della R. Accad. Dei Lincei Memorie della Cl. Sci. Fis. Mat. Nat., 18 (3): 521–586.
+Bourbaki, Nicolas (1998), General topology. Chapters 5–10, Elements of Mathematics, Berlin, New York: Springer-Verlag, ISBN 978-3-540-64563-4, MR 1726872.
+Dieudonné, Jean (1988), Foundations of modern analysis, Academic Press, ISBN 978-0-12-215507-9
+Droniou, Jérôme; Eymard, Robert (2016), "Uniform-in-time convergence of numerical methods for non-linear degenerate parabolic equations", Numer. Math., 132 (4): 721–766, arXiv:2003.09067, doi:10.1007/s00211-015-0733-6, S2CID 5287603.
+Dunford, Nelson; Schwartz, Jacob T. (1958), Linear operators, volume 1, Wiley-Interscience.
+Fréchet, Maurice (1906), "Sur quelques points du calcul fonctionnel", Rend. Circ. Mat. Palermo, 22: 1–74, doi:10.1007/BF03018603, hdl:10338.dmlcz/100655, S2CID 123251660.
+Arzelà-Ascoli theorem at Encyclopaedia of Mathematics
+Kelley, J. L. (1991), General topology, Springer-Verlag, ISBN 978-0-387-90125-1
+Kelley, J. L.; Namioka, I. (1982), Linear Topological Spaces, Springer-Verlag, ISBN 978-0-387-90169-5
+Rudin, Walter (1976), Principles of mathematical analysis, McGraw-Hill, ISBN 978-0-07-054235-8
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+This article incorporates material from Ascoli–Arzelà theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+
+
+

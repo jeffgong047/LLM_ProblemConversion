@@ -1,0 +1,460 @@
+Class of theorems about Nash equilibrium payoff profiles in repeated games
+For other uses, see Folk theorem (disambiguation).
+In game theory, folk theorems are a class of theorems describing an abundance of Nash equilibrium payoff profiles in repeated games (Friedman 1971).[1] The original Folk Theorem concerned the payoffs of all the Nash equilibria of an infinitely repeated game. This result was called the Folk Theorem because it was widely known among game theorists in the 1950s, even though no one had published it. Friedman's (1971) Theorem concerns the payoffs of certain subgame-perfect Nash equilibria (SPE) of an infinitely repeated game, and so strengthens the original Folk Theorem by using a stronger equilibrium concept: subgame-perfect Nash equilibria rather than Nash equilibria.[2]
+The Folk Theorem suggests that if the players are patient enough and far-sighted (i.e. if the discount factor δ→1δ→1), then repeated interaction can result in virtually any average payoff in an SPE equilibrium.[3] "Virtually any" is here technically defined as "feasible" and "individually rational".
+
+
+Setup and definitions[edit]
+We start with a basic game, also known as the stage game, which is an n-player game. In this game, each player has finitely many actions to choose from, and they make their choices simultaneously and without knowledge of the other player's choices. The collective choices of the players leads to a payoff profile, i.e. to a payoff for each of the players. The mapping from collective choices to payoff profiles is known to the players, and each player aims to maximize their payoff. If the collective choice is denoted by x, the payoff that player i receives, also known as player i's utility, will be denoted by ui(x)_i(x).
+We then consider a repetition of this stage game, finitely or infinitely many times. In each repetition, each player chooses one of their stage game options, and when making that choice, they may take into account the choices of the other players in the prior iterations. In this repeated game, a strategy for one of the players is a deterministic rule that specifies the player's choice in each iteration of the stage game, based on all other player's choices in the prior iterations. A choice of strategy for each of the players is a strategy profile, and it leads to a payout profile for the repeated game. There are a number of different ways such a strategy profile can be translated into a payout profile, outlined below.
+Any Nash equilibrium payoff profile of a repeated game must satisfy two properties:
+
+Individual rationality: the payoff must weakly dominate the minmax payoff profile of the constituent stage game. That is, the equilibrium payoff of each player must be at least as large as the minmax payoff of that player.  This is because a player achieving less than their minmax payoff always has incentive to deviate by simply playing their minmax strategy at every history.
+Feasibility: the payoff must be a convex combination of possible payoff profiles of the stage game. This is because the payoff in a repeated game is just a weighted average of payoffs in the basic games.
+Folk theorems are partially converse claims: they say that, under certain conditions (which are different in each folk theorem), every payoff profile that is both individually rational and feasible can be realized as a Nash equilibrium payoff profile of the repeated game.
+There are various folk theorems; some relate to finitely-repeated games while others relate to infinitely-repeated games.[4]
+
+Infinitely-repeated games without discounting[edit]
+In the undiscounted model, the players are patient. They don't differentiate between utilities in different time periods. Hence, their utility in the repeated game is represented by the sum of utilities in the basic games.
+When the game is infinite, a common model for the utility in the infinitely-repeated game is the limit inferior of mean utility: If the game results in a path of outcomes xt_t, where xt_t denotes the collective choices of the players at iteration t (t=0,1,2,...), player i's utility is defined as
+
+Ui=liminfT→∞1T∑t=0Tui(xt),_i=lim inf_T→∞1/T∑_t=0^Tu_i(x_t),
+where ui_i is the basic-game utility function of player i.
+An infinitely-repeated game without discounting is often called a "supergame".
+The folk theorem in this case is very simple and contains no pre-conditions: every individually rational and feasible payoff profile in the basic game is a Nash equilibrium payoff profile in the repeated game.
+The proof employs what is called a grim[5] or grim trigger[6] strategy. All players start by playing the prescribed action and continue to do so until someone deviates. If player i deviates, all other players switch to picking the action which minmaxes player i forever after. The one-stage gain from deviation contributes 0 to the total utility of player i. The utility of a deviating player cannot be higher than his minmax payoff. Hence all players stay on the intended path and this is indeed a Nash equilibrium.
+
+Subgame perfection[edit]
+The above Nash equilibrium is not always subgame perfect. If punishment is costly for the punishers, the threat of punishment is not credible.
+A subgame perfect equilibrium requires a slightly more complicated strategy.[5][7]: 146–149  The punishment should not last forever; it should last only a finite time which is sufficient to wipe out the gains from deviation. After that, the other players should return to the equilibrium path.
+The limit-of-means criterion ensures that any finite-time punishment has no effect on the final outcome. Hence, limited-time punishment is a subgame-perfect equilibrium.
+
+Coalition subgame-perfect equilibria:[8] An equilibrium is called a coalition Nash equilibrium if no coalition can gain from deviating. It is called a coalition subgame-perfect equilibrium if no coalition can gain from deviating after any history.[9] With the limit-of-means criterion, a payoff profile is attainable in coalition-Nash-equilibrium or in coalition-subgame-perfect-equilibrium, if-and-only-if it is Pareto efficient and weakly-coalition-individually-rational.[10]
+Overtaking[edit]
+Some authors claim that the limit-of-means criterion is unrealistic, because it implies that utilities in any finite time-span contribute 0 to the total utility. However, if the utilities in any finite time-span contribute a positive value, and the value is undiscounted, then it is impossible to attribute a finite numeric utility to an infinite outcome sequence. A possible solution to this problem is that, instead of defining a numeric utility for each infinite outcome sequence, we just define the preference relation between two infinite sequences. We say that agent i (strictly) prefers the sequence of outcomes yt_t over the sequence xt_t, if:[6][7]: 139 [8]
+
+liminfT→∞∑t=0T(ui(yt)−ui(xt))>0lim inf_T→∞∑_t=0^T(u_i(y_t)-u_i(x_t))>0
+For example, consider the sequences ui(x)=(0,0,0,0,…)_i(x)=(0,0,0,0,…) and ui(y)=(−1,2,0,0,…)_i(y)=(-1,2,0,0,…). According to the limit-of-means criterion, they provide the same utility to player i, but according to the overtaking criterion, y is better than x for player i. See overtaking criterion for more information.
+The folk theorems with the overtaking criterion are slightly weaker than with the limit-of-means criterion. Only outcomes that are strictly individually rational, can be attained in Nash equilibrium. This is because, if an agent deviates, he gains in the short run, and this gain can be wiped out only if the punishment gives the deviator strictly less utility than the agreement path. The following folk theorems are known for the overtaking criterion:
+
+Strict stationary equilibria:[6] A Nash equilibrium is called strict if each player strictly prefers the infinite sequence of outcomes attained in equilibrium, over any other sequence he can deviate to. A Nash equilibrium is called stationary if the outcome is the same in each time-period. An outcome is attainable in strict-stationary-equilibrium if-and-only-if for every player the outcome is strictly better than the player's minimax outcome.[11]
+Strict stationary subgame-perfect equilibria:[6] An outcome is attainable in strict-stationary-subgame-perfect-equilibrium, if for every player the outcome is strictly better than the player's minimax outcome (note that this is not an "if-and-only-if" result). To achieve subgame-perfect equilibrium with the overtaking criterion, it is required to punish not only the player that deviates from the agreement path, but also every player that does not cooperate in punishing the deviant.[7]: 149–150 
+The "stationary equilibrium" concept can be generalized to a "periodic equilibrium", in which a finite number of outcomes is repeated periodically, and the payoff in a period is the arithmetic mean of the payoffs in the outcomes. That mean payoff should be strictly above the minimax payoff.[6]
+Strict stationary coalition equilibria:[8] With the overtaking criterion, if an outcome is attainable in coalition-Nash-equilibrium, then it is Pareto efficient and weakly-coalition-individually-rational. On the other hand, if it is Pareto efficient and strongly-coalition-individually-rational[12] it can be attained in strict-stationary-coalition-equilibrium.
+Infinitely-repeated games with discounting[edit]
+Assume that the payoff of a player in an infinitely repeated game is given by the average discounted criterion with discount factor 0 < δ < 1:
+
+Ui=(1−δ)∑t≥0δtui(xt),_i=(1-δ)∑_t≥0δ^tu_i(x_t),
+The discount factor indicates how patient the players are. The factor (1−δ)(1-δ) is introduced so that the payoff remain bounded when δ→1δ→1.
+The folk theorem in this case requires that the payoff profile in the repeated game strictly dominates the minmax payoff profile (i.e., each player receives strictly more than the minmax payoff).
+Let a be a strategy profile of the stage game with payoff profile u which strictly dominates the minmax payoff profile. One can define a Nash equilibrium of the game with u as resulting payoff profile as follows:
+
+1. All players start by playing a and continue to play a if no deviation occurs.
+2. If any one player, say player i, deviated, play the strategy profile m which minmaxes i forever after.
+3. Ignore multilateral deviations.
+If player i gets ε more than his minmax payoff each stage by following 1, then the potential loss from punishment is
+
+11−δε.1/1-δε.
+If δ is close to 1, this outweighs any finite one-stage gain, making the strategy a Nash equilibrium.
+An alternative statement of this folk theorem[4] allows the equilibrium payoff profile u to be any individually rational feasible payoff profile; it only requires there exist an individually rational feasible payoff profile that strictly dominates the minmax payoff profile. Then, the folk theorem guarantees that it is possible to approach u in equilibrium to any desired precision (for every ε there exists a Nash equilibrium where the payoff profile is a distance ε away from u).
+
+Subgame perfection[edit]
+Attaining a subgame perfect equilibrium in discounted games is more difficult than in undiscounted games. The cost of punishment does not vanish (as with the limit-of-means criterion).
+It is not always possible to punish the non-punishers endlessly (as with the overtaking criterion) since the discount factor makes punishments far away in the future irrelevant for the present. Hence, a different approach is needed: the punishers should be rewarded.
+This requires an additional assumption, that the set of feasible payoff profiles is full dimensional and the min-max profile lies in its interior. The strategy is as follows.
+
+1. All players start by playing a and continue to play a if no deviation occurs.
+2. If any one player, say player i, deviated, play the strategy profile m which minmaxes i for N periods. (Choose N and δ large enough so that no player has incentive to deviate from phase 1.)
+3. If no players deviated from phase 2, all player j ≠ i gets rewarded ε above j's min-max forever after, while player i continues receiving his min-max. (Full-dimensionality and the interior assumption is needed here.)
+4. If player j deviated from phase 2, all players restart phase 2 with j as target.
+5. Ignore multilateral deviations.
+Player j ≠ i now has no incentive to deviate from the punishment phase 2. This proves the subgame perfect folk theorem.
+
+Finitely-repeated games without discount[edit]
+Assume that the payoff of player i in a game that is repeated T times is given by a simple arithmetic mean:
+
+Ui=1T∑t=0Tui(xt)_i=1/T∑_t=0^Tu_i(x_t)
+A folk theorem for this case has the following additional requirement:[4]
+
+In the basic game, for every player i, there is a Nash-equilibrium Ei_i that is strictly better, for i, than his minmax payoff.
+This requirement is stronger than the requirement for discounted infinite games, which is in turn stronger than the requirement for undiscounted infinite games.
+This requirement is needed because of the last step. In the last step, the only stable outcome is a Nash-equilibrium in the basic game. Suppose a player i gains nothing from the Nash equilibrium (since it gives him only his minmax payoff). Then, there is no way to punish that player.
+On the other hand, if for every player there is a basic equilibrium which is strictly better than minmax, a repeated-game equilibrium can be constructed in two phases:
+
+In the first phase, the players alternate strategies in the required frequencies to approximate the desired payoff profile.
+In the last phase, the players play the preferred equilibrium of each of the players in turn.
+In the last phase, no player deviates since the actions are already a basic-game equilibrium. If an agent deviates in the first phase, he can be punished by minmaxing him in the last phase. If the game is sufficiently long, the effect of the last phase is negligible, so the equilibrium payoff approaches the desired profile.
+
+Applications[edit]
+Folk theorems can be applied to a diverse number of fields. For example:
+
+Anthropology: in a community where all behavior is well known, and where members of the community know that they will continue to have to deal with each other, then any pattern of behavior (traditions, taboos, etc.) may be sustained by social norms so long as the individuals of the community are better off remaining in the community than they would be leaving the community (the minimax condition).
+International politics: agreements between countries cannot be effectively enforced. They are kept, however, because relations between countries are long-term and countries can use "minimax strategies" against each other. This possibility often depends on the discount factor of the relevant countries. If a country is very impatient (pays little attention to future outcomes), then it may be difficult to punish it (or punish it in a credible way).[5]
+On the other hand, MIT economist Franklin Fisher has noted that the folk theorem is not a positive theory.[13]  In considering, for instance, oligopoly behavior, the folk theorem does not tell the economist what firms will do, but rather that cost and demand functions are not sufficient for a general theory of oligopoly, and the economists must include the context within which oligopolies operate in their theory.[13]
+In 2007, Borgs et al. proved that, despite the folk theorem, in the general case computing the Nash equilibria for repeated games is not easier than computing the Nash equilibria for one-shot finite games, a problem which lies in the PPAD complexity class.[14] The practical consequence of this is that no efficient (polynomial-time) algorithm is known that computes the strategies required by folk theorems in the general case.
+
+Summary of folk theorems[edit]
+The following table compares various folk theorems in several aspects:
+
+Horizon – whether the stage game is repeated finitely or infinitely many times.
+Utilities – how the utility of a player in the repeated game is determined from the player's utilities in the stage game iterations.
+Conditions on G (the stage game) – whether there are any technical conditions that should hold in the one-shot game in order for the theorem to work.
+Conditions on x (the target payoff vector of the repeated game) – whether the theorem works for any individually rational and feasible payoff vector, or only on a subset of these vectors.
+Equilibrium type – if all conditions are met, what kind of equilibrium is guaranteed by the theorem – Nash or Subgame-perfect?
+Punishment type – what kind of punishment strategy is used to deter players from deviating?
+
+
+Published by
+Horizon
+Utilities
+Conditions on G
+Conditions on x
+Guarantee
+Equilibrium type
+Punishment type
+
+
+Benoit& Krishna[15]
+Finite (T)
+Arithmetic mean
+For every player there is an equilibrium payoff strictly better than minimax.
+None
+For all ε>0ε>0 there is T0∈N_0∈ℕ such that, if T≥T0_0, for every x there is equilibrium with payoff εε-close to x.
+Nash
+
+
+
+Aumann& Shapley[5]
+Infinite
+Limit of means
+None
+None
+Payoff exactly x.
+Nash
+Grim
+
+
+Aumann& Shapley[5] and Rubinstein[8][16]
+Infinite
+Limit of means
+None
+None
+Payoff exactly x.
+Subgame-perfect
+Limited-time punishment.[7]: 146–149 
+
+
+Rubinstein[6]
+Infinite
+Overtaking
+None
+Strictly above minimax.
+Single outcome or a periodic sequence.
+Subgame-perfect
+Punishing non-punishers.[7]: 149–150 
+
+
+Rubinstein[8]
+Infinite
+Limit of means
+None
+Pareto-efficient and weakly-coalition-individually-rational[10]
+None
+Coalition-subgame-perfect
+
+
+
+Rubinstein[8]
+Infinite
+Overtaking
+None
+Pareto-efficient and strongly-coalition-individually-rational[12]
+None
+Coalition-Nash
+
+
+
+Fudenberg& Maskin[17]
+Infinite
+Sum with discount δδ
+Correlated mixed strategies are allowed.
+Strictly above minimax.
+When δδ is sufficiently near 1, there is an equilibrium with payoff exactly x.
+Nash
+Grim
+
+
+Fudenberg& Maskin[17]
+Infinite
+Sum with discount δδ
+Only pure strategies are allowed.
+Strictly above minimax.
+For all ε>0ε>0 there is δ0<1δ_0<1 such that, if δ≥δ0δ≥δ_0, for every x there is an equilibrium with payoff εε-close to x.
+Nash
+Grim punishment.
+
+
+Friedman (1971, 1977)
+Infinite
+Sum with discount δδ
+Correlated mixed strategies are allowed.
+Strictly above a Nash-equilibrium in G.
+When δδ is sufficiently near 1, there is equilibrium with payoff exactly x.
+Subgame-perfect
+Grim punishment using the Nash-equilibrium.
+
+
+Fudenberg& Maskin[17]
+Infinite
+Sum with discount δδ
+Two players
+Strictly above minimax.
+For all x there is δ0<1δ_0<1 such that, if δ≥δ0δ≥δ_0, there is equilibrium with payoff exactly x.
+Subgame-perfect
+Limited-time punishment.
+
+
+Fudenberg& Maskin[17]
+Infinite
+Sum with discount δδ
+The IR feasible space is full-dimensional.[18]
+
+Strictly above minimax.
+For all x there is δ0<1δ_0<1 such that, if δ≥δ0δ≥δ_0, there is equilibrium with payoff exactly x.
+Subgame-perfect
+Rewarding the punishers.[7]: 150–153 
+
+Notes[edit]
+
+
+^ In mathematics, the term folk theorem refers generally to any theorem that is believed and discussed, but has not been published.  Roger Myerson has recommended the more descriptive term "general feasibility theorem" for the game theory theorems discussed here. See Myerson, Roger B. Game Theory, Analysis of conflict, Cambridge, Harvard University Press (1991)
+
+^ R. Gibbons (1992). A Primer in Game Theory. Harvester Wheatsheaf. p. 89. ISBN 0-7450-1160-8.
+
+^ Jonathan Levin (2002). "Bargaining and Repeated Games" (PDF).
+
+^ a b c Michael Maschler; Eilon Solan; Shmuel Zamir (2013). Game Theory. Cambridge University Press. pp. 176–180. ISBN 978-1-107-00548-8.
+
+^ a b c d e Aumann, Robert J.; Shapley, Lloyd S. (1994). "Long-Term Competition—A Game-Theoretic Analysis" (PDF). Essays in Game Theory. p. 1. doi:10.1007/978-1-4612-2648-2_1. ISBN 978-1-4612-7621-0.
+
+^ a b c d e f Rubinstein, Ariel (1979). "Equilibrium in supergames with the overtaking criterion". Journal of Economic Theory. 21: 1–9. doi:10.1016/0022-0531(79)90002-4.
+
+^ a b c d e f Osborne, Martin J.; Rubinstein, Ariel (12 July 1994). A Course in Game Theory. ISBN 0-262-15041-7. LCCN 94008308. OL 1084491M.
+
+^ a b c d e f Rubinstein, A. (1980). "Strong perfect equilibrium in supergames". International Journal of Game Theory. 9: 1–12. doi:10.1007/BF01784792. S2CID 122098115.
+
+^ The paper uses the term "strong equilibrium". Here, to prevent ambiguity, the term "coalition equilibrium" is used instead.
+
+^ a b For every nonempty coalition B, there is a strategy of the other players (N∖B) such that for any strategy played by B, the payoff when B plays cB^B is not [strictly better for all members of B].
+
+^ In the 1979 paper, Rubinstein claims that an outcome is attainable in strict-stationary-equilibrium if-and-only-if for every player, the outcome is EITHER strictly better than the player's minimax outcome OR the outcome is weakly better than any other outcome the player can unilaterally deviate to. It is not clear how the second option is attainable in a strict equilibrium. In the 1994 book, this claim does not appear.
+
+^ a b  for every nonempty coalition B, there is a strategy of the other players (N∖B) such that for any strategy played by B, the payoff is strictly worse for at least one member of B.
+
+^ a b Fisher, Franklin M. Games Economists Play: A Noncooperative View The RAND Journal of Economics, Vol. 20, No. 1. (Spring, 1989), pp. 113–124, this particular discussion is on page 118
+
+^ Christian Borgs; Jennifer Chayes; Nicole Immorlica; Adam Tauman Kalai; Vahab Mirrokni; Christos Papadimitriou (2007). "The Myth of the Folk Theorem" (PDF). pp. 365–372.
+
+^ Benoit, Jean-Pierre; Krishna, Vijay (1985). "Finitely Repeated Games". Econometrica. 53 (4): 905. doi:10.2307/1912660. JSTOR 1912660.
+
+^ Rubinstein, Ariel (1994). "Equilibrium in Supergames". Essays in Game Theory. pp. 17–27. doi:10.1007/978-1-4612-2648-2_2. ISBN 978-1-4612-7621-0.
+
+^ a b c d Fudenberg, Drew; Maskin, Eric (1986). "The Folk Theorem in Repeated Games with Discounting or with Incomplete Information". Econometrica. 54 (3): 533. CiteSeerX 10.1.1.308.5775. doi:10.2307/1911307. JSTOR 1911307.
+
+^ There is a collection of IR feasible outcomes y1,…,yn_1,…,y_n, one per player, such that for every players i,j,j, xi>yi,i_i>y_i,i and yj,i>yi,i_j,i>y_i,i.
+
+
+References[edit]
+Friedman, J. (1971). "A non-cooperative equilibrium for supergames". Review of Economic Studies. 38 (1): 1–12. doi:10.2307/2296617. JSTOR 2296617.
+Ichiishi, Tatsuro (1997). Microeconomic Theory. Oxford: Blackwell. pp. 263–269. ISBN 1-57718-037-2.
+Mas-Colell, A.; Whinston, M.; Green, J. (1995). Microeconomic Theory. New York: Oxford University Press. ISBN 0-19-507340-1.
+Ratliff, J. (1996). "A Folk Theorem Sampler" (PDF).  A set of introductory notes to the Folk Theorem.
+vteTopics in game theoryDefinitions
+Congestion game
+Cooperative game
+Determinacy
+Escalation of commitment
+Extensive-form game
+First-player and second-player win
+Game complexity
+Graphical game
+Hierarchy of beliefs
+Information set
+Normal-form game
+Preference
+Sequential game
+Simultaneous game
+Simultaneous action selection
+Solved game
+Succinct game
+Equilibriumconcepts
+Bayesian Nash equilibrium
+Berge equilibrium
+ Core
+Correlated equilibrium
+Epsilon-equilibrium
+Evolutionarily stable strategy
+Gibbs equilibrium
+Mertens-stable equilibrium
+Markov perfect equilibrium
+Nash equilibrium
+Pareto efficiency
+Perfect Bayesian equilibrium
+Proper equilibrium
+Quantal response equilibrium
+Quasi-perfect equilibrium
+Risk dominance
+Satisfaction equilibrium
+Self-confirming equilibrium
+Sequential equilibrium
+Shapley value
+Strong Nash equilibrium
+Subgame perfection
+Trembling hand
+Strategies
+Backward induction
+Bid shading
+Collusion
+Forward induction
+Grim trigger
+Markov strategy
+Dominant strategies
+Pure strategy
+Mixed strategy
+Strategy-stealing argument
+Tit for tat
+Classesof games
+Bargaining problem
+Cheap talk
+Global game
+Intransitive game
+Mean-field game
+Mechanism design
+n-player game
+Perfect information
+Large Poisson game
+Potential game
+Repeated game
+Screening game
+Signaling game
+Stackelberg competition
+Strictly determined game
+Stochastic game
+Symmetric game
+Zero-sum game
+Games
+Go
+Chess
+Infinite chess
+Checkers
+Tic-tac-toe
+Prisoner's dilemma
+Gift-exchange game
+Optional prisoner's dilemma
+Traveler's dilemma
+Coordination game
+Chicken
+Centipede game
+Lewis signaling game
+Volunteer's dilemma
+Dollar auction
+Battle of the sexes
+Stag hunt
+Matching pennies
+Ultimatum game
+Rock paper scissors
+Pirate game
+Dictator game
+Public goods game
+Blotto game
+War of attrition
+El Farol Bar problem
+Fair division
+Fair cake-cutting
+Cournot game
+Deadlock
+Diner's dilemma
+Guess 2/3 of the average
+Kuhn poker
+Nash bargaining game
+Induction puzzles
+Trust game
+Princess and monster game
+Rendezvous problem
+Theorems
+Arrow's impossibility theorem
+Aumann's agreement theorem
+Folk theorem
+Minimax theorem
+Nash's theorem
+Negamax theorem
+Purification theorem
+Revelation principle
+Sprague–Grundy theorem
+Zermelo's theorem
+Keyfigures
+Albert W. Tucker
+Amos Tversky
+Antoine Augustin Cournot
+Ariel Rubinstein
+Claude Shannon
+Daniel Kahneman
+David K. Levine
+David M. Kreps
+Donald B. Gillies
+Drew Fudenberg
+Eric Maskin
+Harold W. Kuhn
+Herbert Simon
+Hervé Moulin
+John Conway
+Jean Tirole
+Jean-François Mertens
+Jennifer Tour Chayes
+John Harsanyi
+John Maynard Smith
+John Nash
+John von Neumann
+Kenneth Arrow
+Kenneth Binmore
+Leonid Hurwicz
+Lloyd Shapley
+Melvin Dresher
+Merrill M. Flood
+Olga Bondareva
+Oskar Morgenstern
+Paul Milgrom
+Peyton Young
+Reinhard Selten
+Robert Axelrod
+Robert Aumann
+Robert B. Wilson
+Roger Myerson
+ Samuel Bowles
+Suzanne Scotchmer
+Thomas Schelling
+William Vickrey
+Miscellaneous
+All-pay auction
+Alpha–beta pruning
+Bertrand paradox
+Bounded rationality
+Combinatorial game theory
+Confrontation analysis
+Coopetition
+Evolutionary game theory
+First-move advantage in chess
+Game Description Language
+Game mechanics
+Glossary of game theory
+List of game theorists
+List of games in game theory
+No-win situation
+Solving chess
+Topological game
+Tragedy of the commons
+Tyranny of small decisions
+
+
+
+

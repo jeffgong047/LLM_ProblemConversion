@@ -1,0 +1,114 @@
+In queueing theory, a discipline within the mathematical theory of probability, the Gordon–Newell theorem is an extension of Jackson's theorem from open queueing networks to closed queueing networks of exponential servers where customers cannot leave the network.[1] Jackson's theorem cannot be applied to closed networks because the queue length at a node in the closed network is limited by the population of the network. The Gordon–Newell theorem calculates the open network solution and then eliminates the infeasible states by renormalizing the probabilities. Calculation of the normalizing constant makes the treatment more awkward as the whole state space must be enumerated. Buzen's algorithm or mean value analysis can be used to calculate the normalizing constant more efficiently.[2]
+
+
+Definition of a Gordon–Newell network[edit]
+A network of m interconnected queues is known as a Gordon–Newell network[3] or closed Jackson network[4] if it meets the following conditions:
+
+the network is closed (no customers can enter or leave the network),
+all service times are exponentially distributed and the service discipline at all queues is FCFS,
+a customer completing service at queue i will move to queue j with probability Pij_ij, with the Pij_ij such that ∑j=1mPij=1∑_j=1^mP_ij=1,
+the utilization of all of the queues is less than one.
+Theorem[edit]
+In a closed Gordon–Newell network of m queues, with a total population of K individuals, write (k1,k2,…,km)(k_1,k_2,…,k_m) (where ki is the length of queue i) for the state of the network and S(K, m) for the state space
+
+S(K,m)=k∈Nmsuchthat∑i=1mki=K.(K,m)={𝐤∈ℕ^msuchthat∑_i=1^mk_i=K}.
+Then the equilibrium state probability distribution exists and is given by
+
+π(k1,k2,…,km)=1G(K)∏i=1m(eiμi)kiπ(k_1,k_2,…,k_m)=1/G(K)∏_i=1^m(e_i/μ_i)^k_i
+where service times at queue i are exponentially distributed with parameter μi. The normalizing constant G(K) is given by
+
+G(K)=∑k∈S(K,m)∏i=1m(eiμi)ki,(K)=∑_𝐤(K,m)∏_i=1^m(e_i/μ_i)^k_i,
+and ei is the visit ratio, calculated by solving the simultaneous equations
+
+ei=∑j=1mejpjifor1≤i≤m._i=∑_j=1^me_jp_jifor1.
+See also[edit]
+BCMP network
+References[edit]
+
+
+^ Gordon, W. J.; Newell, G. F. (1967). "Closed Queuing Systems with Exponential Servers". Operations Research. 15 (2): 254. doi:10.1287/opre.15.2.254. JSTOR 168557.
+
+^ Buzen, J. P. (1973). "Computational algorithms for closed queueing networks with exponential servers" (PDF). Communications of the ACM. 16 (9): 527. doi:10.1145/362342.362345.
+
+^ Daduna, H. (1982). "Passage Times for Overtake-Free Paths in Gordon-Newell Networks". Advances in Applied Probability. 14 (3): 672–686. doi:10.2307/1426680.
+
+^ Gong, Q.; Lai, K. K.; Wang, S. (2008). "Supply chain networks: Closed Jackson network models and properties". International Journal of Production Economics. 113 (2): 567. doi:10.1016/j.ijpe.2007.10.013.
+
+
+vteQueueing theorySingle queueing nodes
+D/M/1 queue
+M/D/1 queue
+M/D/c queue
+M/M/1 queue
+Burke's theorem
+M/M/c queue
+M/M/∞ queue
+M/G/1 queue
+Pollaczek–Khinchine formula
+Matrix analytic method
+M/G/k queue
+G/M/1 queue
+G/G/1 queue
+Kingman's formula
+Lindley equation
+Fork–join queue
+Bulk queue
+Arrival processes
+Poisson point process
+Markovian arrival process
+Rational arrival process
+Queueing networks
+Jackson network
+Traffic equations
+Gordon–Newell theorem
+Mean value analysis
+Buzen's algorithm
+Kelly network
+G-network
+BCMP network
+Service policies
+FIFO
+LIFO
+Processor sharing
+Round-robin
+Shortest job next
+Shortest remaining time
+Key concepts
+Continuous-time Markov chain
+Kendall's notation
+Little's law
+Product-form solution
+Balance equation
+Quasireversibility
+Flow-equivalent server method
+Arrival theorem
+Decomposition method
+Beneš method
+Limit theorems
+Fluid limit
+Mean-field theory
+Heavy traffic approximation
+Reflected Brownian motion
+Extensions
+Fluid queue
+Layered queueing network
+Polling system
+Adversarial queueing network
+Loss network
+Retrial queue
+Information systems
+Data buffer
+Erlang (unit)
+Erlang distribution
+Flow control (data)
+Message queue
+Network congestion
+Network scheduler
+Pipeline (software)
+Quality of service
+Scheduling (computing)
+Teletraffic engineering
+ Category
+
+
+

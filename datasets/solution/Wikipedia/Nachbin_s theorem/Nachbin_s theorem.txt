@@ -1,0 +1,77 @@
+Theorem bounding the growth rate of analytic functions
+This article is about Nachbin's theorem on complex analysis. For Nachbin's theorem on approximation theory, see Stone–Weierstrass theorem § Nachbin's theorem.
+In mathematics, in the area of complex analysis, Nachbin's theorem (named after Leopoldo Nachbin) is commonly used to establish a bound on the growth rates for an analytic function. This article provides a brief review of growth rates, including the idea of a function of exponential type. Classification of growth rates based on type help provide a finer tool than big O or Landau notation, since a number of theorems about the analytic structure of the bounded function and its integral transforms can be stated. In particular, Nachbin's theorem may be used to give the domain of convergence of the generalized Borel transform, given below.
+
+
+Exponential type[edit]
+Main article: Exponential type
+A function f(z)(z) defined on the complex plane is said to be of exponential type if there exist constants M and αα such that
+
+|f(reiθ)|≤Meαr|f(re^iθ)|^
+in the limit of r→∞→∞. Here, the complex variable z was written as z=reiθ=re^iθ to emphasize that the limit must hold in all directions θθ.  Letting αα stand for the infimum of all such αα, one then says that the function f is of exponential type αα.
+For example, let f(z)=sin⁡(πz)(z)=sin(). Then one says that sin⁡(πz)sin() is of exponential type ππ, since ππ is the smallest number that bounds the growth of sin⁡(πz)sin() along the imaginary axis. So, for this example, Carlson's theorem cannot apply, as it requires functions of exponential type less than ππ.
+
+Ψ type[edit]
+Bounding may be defined for other functions besides the exponential function. In general, a function Ψ(t)Ψ(t) is a comparison function if it has a series
+
+Ψ(t)=∑n=0∞ΨntnΨ(t)=∑_n=0^∞Ψ_nt^n
+with Ψn>0Ψ_n>0 for all n, and
+
+limn→∞Ψn+1Ψn=0.lim_n→∞Ψ_n+1/Ψ_n=0.
+Comparison functions are necessarily entire, which follows from the ratio test. If Ψ(t)Ψ(t) is such a comparison function, one then says that f is of ΨΨ-type if there exist constants M and ττ such that
+
+|f(reiθ)|≤MΨ(τr)|f(re^iθ)|Ψ()
+as r→∞→∞. If ττ is the infimum of all such ττ one says that f is of ΨΨ-type ττ.
+Nachbin's theorem states that a function f(z)(z) with the series
+
+f(z)=∑n=0∞fnzn(z)=∑_n=0^∞f_nz^n
+is of ΨΨ-type ττ if and only if
+
+limsupn→∞|fnΨn|1/n=τ.lim sup_n→∞|f_n/Ψ_n|^1/n=τ.
+Borel transform[edit]
+Nachbin's theorem has immediate applications in Cauchy theorem-like situations, and for integral transforms.  For example, the generalized Borel transform is given by
+
+F(w)=∑n=0∞fnΨnwn+1.(w)=∑_n=0^∞f_n/Ψ_nw^n+1.
+If f is of ΨΨ-type ττ, then the exterior of the domain of convergence of F(w)(w), and all of its singular points, are contained within the disk
+
+|w|≤τ.|w|≤τ.
+Furthermore, one has
+
+f(z)=12πi∮γΨ(zw)F(w)dw(z)=1/2∮_γΨ(zw)F(w) dw
+where the contour of integration γ encircles the disk |w|≤τ|w|≤τ.  This generalizes the usual Borel transform for exponential type, where Ψ(t)=etΨ(t)=e^t.  The integral form for the generalized Borel transform follows as well. Let α(t)α(t) be a function whose first derivative is bounded on the interval [0,∞)[0,∞), so that
+
+1Ψn=∫0∞tndα(t)1/Ψ_n=∫_0^∞t^n dα(t)
+where dα(t)=α′(t)dtα(t)=α^'(t) dt. Then the integral form of the generalized Borel transform is
+
+F(w)=1w∫0∞f(tw)dα(t).(w)=1/w∫_0^∞f(t/w) dα(t).
+The ordinary Borel transform is regained by setting α(t)=e−tα(t)=e^-t. Note that the integral form of the Borel transform is just the Laplace transform.
+
+Nachbin resummation[edit]
+Nachbin resummation (generalized Borel transform) can be used to sum divergent series that escape to the usual Borel summation or even to solve (asymptotically) integral equations of the form:
+
+g(s)=s∫0∞K(st)f(t)dt(s)=s∫_0^∞K(st)f(t) dt
+where f(t)(t) may or may not be of exponential growth and the kernel K(u)(u) has a Mellin transform. The solution can be obtained as f(x)=∑n=0∞anM(n+1)xn(x)=∑_n=0^∞a_n/M(n+1)x^n  with g(s)=∑n=0∞ans−n(s)=∑_n=0^∞a_ns^-n and M(n)(n) is the Mellin transform of K(u)(u). An example of this is the Gram series  π(x)≈1+∑n=1∞logn⁡(x)n⋅n!ζ(n+1).π(x)≈1+∑_n=1^∞log^n(x)/n!ζ(n+1).
+in some cases as an extra condition we require ∫0∞K(t)tndt∫_0^∞K(t)t^n dt to be finite for n=0,1,2,3,...=0,1,2,3,... and different from 0.
+
+Fréchet space[edit]
+Collections of functions of exponential type ττ can form a complete uniform space, namely a Fréchet space, by the topology induced by the countable family of norms
+
+‖f‖n=supz∈Cexp⁡[−(τ+1n)|z|]|f(z)|.f_n=sup_z∈ℂexp[-(τ+1/n)|z|]|f(z)|.
+See also[edit]
+Divergent series
+Borel summation
+Euler summation
+Cesàro summation
+Lambert summation
+Mittag-Leffler summation
+Phragmén–Lindelöf principle
+Abelian and tauberian theorems
+Van Wijngaarden transformation
+References[edit]
+L. Nachbin, "An extension of the notion of integral functions of the finite exponential type", Anais Acad. Brasil. Ciencias. 16 (1944) 143–147.
+Ralph P. Boas, Jr. and R. Creighton Buck, Polynomial Expansions of Analytic Functions (Second Printing Corrected), (1964) Academic Press Inc., Publishers New York, Springer-Verlag, Berlin. Library of Congress Card Number 63-23263. (Provides a statement and proof of Nachbin's theorem, as well as a general review of this topic.)
+A.F. Leont'ev (2001) [1994], "Function of exponential type", Encyclopedia of Mathematics, EMS Press
+A.F. Leont'ev (2001) [1994], "Borel transform", Encyclopedia of Mathematics, EMS Press
+
+
+

@@ -1,0 +1,249 @@
+In mathematics, more specifically in mathematical analysis, the Cauchy product is the discrete convolution of two infinite series. It is named after the French mathematician Augustin-Louis Cauchy.
+
+
+Definitions[edit]
+The Cauchy product may apply to infinite series[1][2][3][4][5][6][7][8][9][10][11][excessive citations] or power series.[12][13] When people apply it to finite sequences[14] or finite series, that can be seen merely as a particular case of a product of series with a finite number of non-zero coefficients (see discrete convolution).
+Convergence issues are discussed in the next section.
+
+Cauchy product of two infinite series[edit]
+Let ∑i=0∞ai∑_i=0^∞a_i and ∑j=0∞bj∑_j=0^∞b_j be two infinite series with complex terms. The Cauchy product of these two infinite series is defined by a discrete convolution as follows:
+
+(∑i=0∞ai)⋅(∑j=0∞bj)=∑k=0∞ck(∑_i=0^∞a_i)·(∑_j=0^∞b_j)=∑_k=0^∞c_k     where     ck=∑l=0kalbk−l_k=∑_l=0^ka_lb_k-l.
+Cauchy product of two power series[edit]
+Consider the following two power series
+
+∑i=0∞aixi∑_i=0^∞a_ix^i     and     ∑j=0∞bjxj∑_j=0^∞b_jx^j
+with complex coefficients ai{a_i} and bj{b_j}. The Cauchy product of these two power series is defined by a discrete convolution as follows:
+
+(∑i=0∞aixi)⋅(∑j=0∞bjxj)=∑k=0∞ckxk(∑_i=0^∞a_ix^i)·(∑_j=0^∞b_jx^j)=∑_k=0^∞c_kx^k     where     ck=∑l=0kalbk−l_k=∑_l=0^ka_lb_k-l.
+Convergence and Mertens' theorem[edit]
+Not to be confused with Mertens' theorems concerning distribution of prime numbers.
+Let (an)n≥0 and (bn)n≥0 be real or complex sequences. It was proved by Franz Mertens that, if the series ∑n=0∞an∑_n=0^∞a_n converges to A and ∑n=0∞bn∑_n=0^∞b_n converges to B, and at least one of them converges absolutely, then their Cauchy product converges to AB.[15] The theorem is still valid in a Banach algebra (see first line of the following proof).
+It is not sufficient for both series to be convergent; if both sequences are conditionally convergent, the Cauchy product does not have to converge towards the product of the two series, as the following example shows:
+
+Example[edit]
+Consider the two alternating series with
+an=bn=(−1)nn+1,_n=b_n=(-1)^n/√(n+1) ,
+which are only conditionally convergent (the divergence of the series of the absolute values follows from the direct comparison test and the divergence of the harmonic series). The terms of their Cauchy product are given by
+cn=∑k=0n(−1)kk+1⋅(−1)n−kn−k+1=(−1)n∑k=0n1(k+1)(n−k+1)_n=∑_k=0^n(-1)^k/√(k+1)·(-1)^n-k/√(n-k+1)=(-1)^n∑_k=0^n1/√((k+1)(n-k+1))
+for every integer n ≥ 0. Since for every k ∈ {0, 1, ..., n} we have the inequalities k + 1 ≤ n + 1 and n – k + 1 ≤ n + 1, it follows for the square root in the denominator that √(k + 1)(n − k + 1) ≤ n +1, hence, because there are n + 1 summands,
+|cn|≥∑k=0n1n+1=1|c_n|≥∑_k=0^n1/n+1=1
+for every integer n ≥ 0. Therefore, cn does not converge to zero as n → ∞, hence the series of the (cn)n≥0 diverges by the term test.
+
+Proof of Mertens' theorem[edit]
+For simplicity, we will prove it for complex numbers. However, the proof we are about to give is formally identical for an arbitrary Banach algebra (not even commutativity or associativity is required).
+Assume without loss of generality that the series ∑n=0∞an∑_n=0^∞a_n converges absolutely.
+Define the partial sums
+An=∑i=0nai,Bn=∑i=0nbiandCn=∑i=0nci_n=∑_i=0^na_i,_n=∑_i=0^nb_i  and_n=∑_i=0^nc_i
+with
+ci=∑k=0iakbi−k._i=∑_k=0^ia_kb_i-k .
+Then
+Cn=∑i=0nan−iBi_n=∑_i=0^na_n-iB_i
+by rearrangement, hence
+
+
+
+
+Cn=∑i=0nan−i(Bi−B)+AnB._n=∑_i=0^na_n-i(B_i-B)+A_nB .
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+Fix ε > 0. Since ∑k∈N|ak|<∞∑_k∈ℕ|a_k|<∞ by absolute convergence, and since Bn converges to B as n → ∞, there exists an integer N such that, for all integers n ≥ N,
+
+
+
+
+|Bn−B|≤ε/3∑k∈N|ak|+1|B_n-B|≤ε/3/∑_k∈ℕ|a_k|+1
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+(this is the only place where the absolute convergence is used). Since the series of the (an)n≥0 converges, the individual an must converge to 0 by the term test. Hence there exists an integer M such that, for all integers n ≥ M,
+
+
+
+
+|an|≤ε3N(maxi∈0,…,N−1|Bi−B|+1).|a_n|≤ε/3N(max_i∈{0,…,N-1}|B_i-B|+1) .
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(3)
+
+Also, since An converges to A as n → ∞, there exists an integer L such that, for all integers n ≥ L,
+
+
+
+
+|An−A|≤ε/3|B|+1.|A_n-A|≤ε/3/|B|+1 .
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(4)
+
+Then, for all integers n ≥ max{L, M + N}, use the representation (1) for Cn, split the sum in two parts, use the triangle inequality for the absolute value, and finally use the three estimates (2), (3) and (4) to show that
+|Cn−AB|=|∑i=0nan−i(Bi−B)+(An−A)B|≤∑i=0N−1|an−i⏟≥M||Bi−B|⏟≤ε/(3N)by(3)+∑i=Nn|an−i||Bi−B|⏟≤ε/3by(2)+|An−A||B|⏟≤ε/3by(4)≤ε.|C_n-AB|   =|∑_i=0^na_n-i(B_i-B)+(A_n-A)B|
+   ≤∑_i=0^N-1|a_-i_| |B_i-B|_≤ ε/(3N)by(3)+∑_i=N^n|a_n-i| |B_i-B|_≤ ε/3by(2)+|A_n-A| |B|_≤ ε/3by(4)≤ε .
+By the definition of convergence of a series, Cn → AB as required.
+
+Cesàro's theorem[edit]
+This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (December 2017) (Learn how and when to remove this template message)
+In cases where the two sequences are convergent but not absolutely convergent, the Cauchy product is still Cesàro summable.  Specifically:
+If (an)n≥0(a_n)_n≥0, (bn)n≥0(b_n)_n≥0 are real sequences with ∑an→A_n and ∑bn→B_n then
+1N(∑n=1N∑i=1n∑k=0iakbi−k)→AB.1/N(∑_n=1^N∑_i=1^n∑_k=0^ia_kb_i-k).
+This can be generalised to the case where the two sequences are not convergent but just Cesàro summable:
+
+Theorem[edit]
+For r>−1>-1 and s>−1>-1, suppose the sequence (an)n≥0(a_n)_n≥0 is (C,r)(C, r) summable with sum A and (bn)n≥0(b_n)_n≥0 is (C,s)(C, s) summable with sum B. Then their Cauchy product is (C,r+s+1)(C, r+s+1) summable with sum AB.
+
+Examples[edit]
+For some x,y∈R,y∈ℝ, let an=xn/n!_n=x^n/n! and bn=yn/n!_n=y^n/n!.  Then cn=∑i=0nxii!yn−i(n−i)!=1n!∑i=0n(ni)xiyn−i=(x+y)nn!_n=∑_i=0^nx^i/i!y^n-i/(n-i)!=1/n!∑_i=0^nnix^iy^n-i=(x+y)^n/n! by definition and the binomial formula.  Since, formally, exp⁡(x)=∑anexp(x)=_n and exp⁡(y)=∑bnexp(y)=_n, we have shown that exp⁡(x+y)=∑cnexp(x+y)=_n.  Since the limit of the Cauchy product of two absolutely convergent series is equal to the product of the limits of those series, we have proven the formula exp⁡(x+y)=exp⁡(x)exp⁡(y)exp(x+y)=exp(x)exp(y) for all x,y∈R,y∈ℝ.
+As a second example, let an=bn=1_n=b_n=1 for all n∈N∈ℕ. Then cn=n+1_n=n+1 for all n∈N∈ℕ so the Cauchy product ∑cn=(1,1+2,1+2+3,1+2+3+4,…)_n=(1,1+2,1+2+3,1+2+3+4,…) does not converge.
+Generalizations[edit]
+All of the foregoing applies to sequences in Cℂ (complex numbers).  The Cauchy product can be defined for series in the Rnℝ^n spaces (Euclidean spaces) where multiplication is the inner product.  In this case, we have the result that if two series converge absolutely then their Cauchy product converges absolutely to the inner product of the limits.
+
+Products of finitely many infinite series[edit]
+Let n∈N∈ℕ such that n≥2≥2 (actually the following is also true for n=1=1 but the statement becomes trivial in that case) and let ∑k1=0∞a1,k1,…,∑kn=0∞an,kn∑_k_1=0^∞a_1,k_1,…,∑_k_n=0^∞a_n,k_n be infinite series with complex coefficients, from which all except the nth one converge absolutely, and the nth one converges. Then the limit
+limN→∞∑k1+…+kn≤Na1,k1⋯an,knlim_N→∞∑_k_1+…+k_na_1,k_1_n,k_n
+exists and we have:
+∏j=1n(∑kj=0∞aj,kj)=limN→∞∑k1+…+kn≤Na1,k1⋯an,kn∏_j=1^n(∑_k_j=0^∞a_j,k_j)=lim_N→∞∑_k_1+…+k_na_1,k_1_n,k_n
+
+Proof[edit]
+Because
+∀N∈N:∑k1+…+kn≤Na1,k1⋯an,kn=∑k1=0N∑k2=0k1⋯∑kn=0kn−1a1,kna2,kn−1−kn⋯an,k1−k2∈ℕ:∑_k_1+…+k_na_1,k_1_n,k_n=∑_k_1=0^N∑_k_2=0^k_1⋯∑_k_n=0^k_n-1a_1,k_na_2,k_n-1-k_n_n,k_1-k_2
+the statement can be proven by induction over n: The case for n=2=2 is identical to the claim about the Cauchy product. This is our induction base.
+The induction step goes as follows: Let the claim be true for an n∈N∈ℕ such that n≥2≥2, and let ∑k1=0∞a1,k1,…,∑kn+1=0∞an+1,kn+1∑_k_1=0^∞a_1,k_1,…,∑_k_n+1=0^∞a_n+1,k_n+1 be infinite series with complex coefficients, from which all except the n+1+1th one converge absolutely, and the n+1+1-th one converges. We first apply the induction hypothesis to the series ∑k1=0∞|a1,k1|,…,∑kn=0∞|an,kn|∑_k_1=0^∞|a_1,k_1|,…,∑_k_n=0^∞|a_n,k_n|. We obtain that the series
+∑k1=0∞∑k2=0k1⋯∑kn=0kn−1|a1,kna2,kn−1−kn⋯an,k1−k2|∑_k_1=0^∞∑_k_2=0^k_1⋯∑_k_n=0^k_n-1|a_1,k_na_2,k_n-1-k_n_n,k_1-k_2|
+converges, and hence, by the triangle inequality and the sandwich criterion, the series
+∑k1=0∞|∑k2=0k1⋯∑kn=0kn−1a1,kna2,kn−1−kn⋯an,k1−k2|∑_k_1=0^∞|∑_k_2=0^k_1⋯∑_k_n=0^k_n-1a_1,k_na_2,k_n-1-k_n_n,k_1-k_2|
+converges, and hence the series
+∑k1=0∞∑k2=0k1⋯∑kn=0kn−1a1,kna2,kn−1−kn⋯an,k1−k2∑_k_1=0^∞∑_k_2=0^k_1⋯∑_k_n=0^k_n-1a_1,k_na_2,k_n-1-k_n_n,k_1-k_2
+converges absolutely. Therefore, by the induction hypothesis, by what Mertens proved, and by renaming of variables, we have:
+∏j=1n+1(∑kj=0∞aj,kj)=(∑kn+1=0∞an+1,kn+1⏞=:akn+1)(∑k1=0∞∑k2=0k1⋯∑kn=0kn−1a1,kna2,kn−1−kn⋯an,k1−k2⏞=:bk1)=(∑k1=0∞∑k2=0k1∑k3=0k2⋯∑kn=0kn−1a1,kna2,kn−1−kn⋯an,k1−k2⏞=:ak1)(∑kn+1=0∞an+1,kn+1⏞=:bkn+1)=(∑k1=0∞∑k3=0k1∑k4=0k3⋯∑kn+1=0kna1,kn+1a2,kn−kn+1⋯an,k1−k3⏞=:ak1)(∑k2=0∞an+1,k2⏞=:bn+1,k2=:bk2)=(∑k1=0∞ak1)(∑k2=0∞bk2)=(∑k1=0∞∑k2=0k1ak2bk1−k2)=(∑k1=0∞∑k2=0k1(∑k3=0k2⋯∑kn+1=0kna1,kn+1a2,kn−kn+1⋯an,k2−k3⏞=:ak2)(an+1,k1−k2⏞=:bk1−k2))=(∑k1=0∞∑k2=0k1∑k3=0k2⋯∑kn+1=0kna1,kn+1a2,kn−kn+1⋯an,k2−k3⏞=:ak2an+1,k1−k2⏞=:bk1−k2)=∑k1=0∞∑k2=0k1an+1,k1−k2∑k3=0k2⋯∑kn+1=0kna1,kn+1a2,kn−kn+1⋯an,k2−k3∏_j=1^n+1(∑_k_j=0^∞a_j,k_j)   =(∑_k_n+1=0^∞a_n+1,k_n+1^=:a_k_n+1)(∑_k_1=0^∞∑_k_2=0^k_1⋯∑_k_n=0^k_n-1a_1,k_na_2,k_n-1-k_n_n,k_1-k_2^=:b_k_1)
+   =(∑_k_1=0^∞∑_k_2=0^k_1∑_k_3=0^k_2⋯∑_k_n=0^k_n-1a_1,k_na_2,k_n-1-k_n_n,k_1-k_2^=:a_k_1)(∑_k_n+1=0^∞a_n+1,k_n+1^=:b_k_n+1)
+   =(∑_k_1=0^∞∑_k_3=0^k_1∑_k_4=0^k_3⋯∑_k_n+1=0^k_na_1,k_n+1a_2,k_n-k_n+1_n,k_1-k_3^=:a_k_1)(∑_k_2=0^∞a_n+1,k_2^=:b_n+1,k_2=:b_k_2)
+   =(∑_k_1=0^∞a_k_1)(∑_k_2=0^∞b_k_2)
+   =(∑_k_1=0^∞∑_k_2=0^k_1a_k_2b_k_1-k_2)
+   =(∑_k_1=0^∞∑_k_2=0^k_1(∑_k_3=0^k_2⋯∑_k_n+1=0^k_na_1,k_n+1a_2,k_n-k_n+1_n,k_2-k_3^=:a_k_2)(a_n+1,k_1-k_2^=:b_k_1-k_2))
+   =(∑_k_1=0^∞∑_k_2=0^k_1∑_k_3=0^k_2⋯∑_k_n+1=0^k_na_1,k_n+1a_2,k_n-k_n+1_n,k_2-k_3^=:a_k_2a_n+1,k_1-k_2^=:b_k_1-k_2)
+   =∑_k_1=0^∞∑_k_2=0^k_1a_n+1,k_1-k_2∑_k_3=0^k_2⋯∑_k_n+1=0^k_na_1,k_n+1a_2,k_n-k_n+1_n,k_2-k_3
+Therefore, the formula also holds for n+1+1.
+
+Relation to convolution of functions[edit]
+A finite sequence can be viewed as an infinite sequence with only finitely many nonzero terms, or in other words as a function f:N→C:ℕ→ℂ with finite support. For any complex-valued functions f, g on Nℕ with finite support, one can take their convolution:
+(f∗g)(n)=∑i+j=nf(i)g(j).(f*g)(n)=∑_i+j=nf(i)g(j).
+Then ∑(f∗g)(n)∑(f*g)(n) is the same thing as the Cauchy product of ∑f(n)(n) and ∑g(n)(n).
+More generally, given a monoid S, one can form the semigroup algebra C[S]ℂ[S] of S, with the multiplication given by convolution. If one takes, for example, S=Nd=ℕ^d, then the multiplication on C[S]ℂ[S] is a generalization of the Cauchy product to higher dimension.
+
+Notes[edit]
+
+
+^ Canuto & Tabacco 2015, p. 20.
+
+^ Bloch 2011, p. 463.
+
+^ Friedman & Kandel 2011, p. 204.
+
+^ Ghorpade & Limaye 2006, p. 416.
+
+^ Hijab 2011, p. 43.
+
+^ Montesinos, Zizler & Zizler 2015, p. 98.
+
+^ Oberguggenberger & Ostermann 2011, p. 322.
+
+^ Pedersen 2015, p. 210.
+
+^ Ponnusamy 2012, p. 200.
+
+^ Pugh 2015, p. 210.
+
+^ Sohrab 2014, p. 73.
+
+^ Canuto & Tabacco 2015, p. 53.
+
+^ Mathonline, Cauchy Product of Power Series.
+
+^ Weisstein, Cauchy Product.
+
+^ Rudin, Walter (1976). Principles of Mathematical Analysis. McGraw-Hill. p. 74.
+
+
+References[edit]
+Apostol, Tom M. (1974), Mathematical Analysis (2nd ed.), Addison Wesley, p. 204, ISBN 978-0-201-00288-1.
+Bloch, Ethan D. (2011), The Real Numbers and Real Analysis, Springer, ISBN 9780387721767.
+Canuto, Claudio; Tabacco, Anita (2015), Mathematical Analysis II (2nd ed.), Springer.
+Friedman, Menahem; Kandel, Abraham (2011), Calculus Light, Springer, ISBN 9783642178481.
+Ghorpade, Sudhir R.; Limaye, Balmohan V. (2006), A Course in Calculus and Real Analysis, Springer.
+Hardy, G. H. (1949), Divergent Series, Oxford University Press, pp. 227–229.
+Hijab, Omar (2011), Introduction to Calculus and Classical Analysis (3rd ed.), Springer.
+Montesinos, Vicente; Zizler, Peter; Zizler, Václav (2015), An Introduction to Modern Analysis, Springer.
+Oberguggenberger, Michael; Ostermann, Alexander (2011), Analysis for Computer Scientists, Springer.
+Pedersen, Steen (2015), From Calculus to Analysis, Springer, doi:10.1007/978-3-319-13641-7, ISBN 978-3-319-13640-0.
+Ponnusamy, S. (2012), Foundations of Mathematical Analysis, Birkhäuser, ISBN 9780817682927.
+Pugh, Charles C. (2015), Real Mathematical Analysis (2nd ed.), Springer.
+Sohrab, Houshang H. (2014), Basic Real Analysis (2nd ed.), Birkhäuser.
+External links[edit]
+Mathonline. "Cauchy Product of Power Series"..
+Weisstein, Eric W., "Cauchy Product", From MathWorld – A Wolfram Web Resource.
+
+
+

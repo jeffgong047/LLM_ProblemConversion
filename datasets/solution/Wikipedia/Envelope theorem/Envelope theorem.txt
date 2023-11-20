@@ -1,0 +1,242 @@
+Theorem in mathematics and conomics
+In mathematics and economics, the envelope theorem is a major result about the differentiability properties of the value function of a parameterized optimization problem.[1] As we change parameters of the objective, the envelope theorem shows that, in a certain sense, changes in the optimizer of the objective do not contribute to the change in the objective function. The envelope theorem is an important tool for comparative statics of optimization models.[2]
+The term envelope derives from describing the graph of the value function as the "upper envelope" of the graphs of the parameterized family of functions f(x,⋅)x∈X{f(x,·)}_x  that are optimized.
+
+
+Statement[edit]
+Let f(x,α)(x,α) and gj(x,α),j=1,2,…,m_j(x,α),j=1,2,…,m be real-valued continuously differentiable functions on Rn+lℝ^n+l, where x∈Rn∈ℝ^n are choice variables and α∈Rlα∈ℝ^l are parameters, and consider the problem of choosing x, for a given αα, so as to:
+
+maxxf(x,α)max_xf(x,α) subject to gj(x,α)≥0,j=1,2,…,m_j(x,α)≥0,j=1,2,…,m and x≥0≥0.
+The Lagrangian expression of this problem is given by
+
+L(x,λ,α)=f(x,α)+λ⋅g(x,α)ℒ(x,λ,α)=f(x,α)+λ(x,α)
+where λ∈Rmλ∈ℝ^m are the Lagrange multipliers. Now let x∗(α)^∗(α) and λ∗(α)λ^∗(α) together be the solution that maximizes the objective function f subject to the constraints (and hence are saddle points of the Lagrangian),
+
+L∗(α)≡f(x∗(α),α)+λ∗(α)⋅g(x∗(α),α),ℒ^∗(α)(x^∗(α),α)+λ^∗(α)(x^∗(α),α),
+and define the value function
+
+V(α)≡f(x∗(α),α).(α)(x^∗(α),α).
+Then we have the following theorem.[3][4]
+Theorem: Assume that V and Lℒ are continuously differentiable. Then
+
+∂V(α)∂αk=∂L∗(α)∂αk=∂L(x∗(α),λ∗(α),α)∂αk,k=1,2,…,l(α)/∂α_k=∂ℒ^∗(α)/∂α_k=∂ℒ(x^∗(α),λ^∗(α),α)/∂α_k,k=1,2,…,l
+where ∂L/∂αk=∂f/∂αk+λ⋅∂g/∂αk∂ℒ/∂α_k=/∂α_k+λ·/∂α_k.
+
+For arbitrary choice sets[edit]
+Let X denote the choice set and let the relevant parameter be t∈[0,1]∈0,1]. Letting f:X×[0,1]→R:X×0,1] denote the parameterized objective function, the value function V and the optimal choice correspondence (set-valued function) X∗^∗ are given by:
+
+
+
+
+V(t)=supx∈Xf(x,t)(t)=sup_xf(x,t)
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+
+
+
+X∗(t)=x∈X:f(x,t)=V(t)^∗(t)={x:f(x,t)=V(t)}
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+"Envelope theorems" describe sufficient conditions for the value function V to be differentiable in the parameter t and describe its derivative as
+
+
+
+
+V′(t)=ft(x,t)foreachx∈X∗(t),^'(t)=f_t(x,t)foreachx^∗(t),
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(3)
+
+where ft_t denotes the partial derivative of f with respect to t. Namely, the derivative of the value function with respect to the parameter equals the partial derivative of the objective function with respect to t holding the maximizer fixed at its optimal level. 
+Traditional envelope theorem derivations use the first-order condition for (1), which requires that the choice set X have the convex and topological structure, and the objective function f be differentiable in the variable x. (The argument is that changes in the maximizer have only a "second-order effect" at the optimum and so can be ignored.) However, in many applications such as the analysis of incentive constraints in contract theory and game theory, nonconvex production problems, and "monotone" or "robust" comparative statics, the choice sets and objective functions generally lack the topological and convexity properties required by the traditional envelope theorems.
+Paul Milgrom and Segal (2002) observe that the traditional envelope formula holds for optimization problems with arbitrary choice sets at any differentiability point of the value function,[5] provided that the objective function is differentiable in the parameter:
+Theorem 1: Let t∈(0,1)∈(0,1) and x∈X∗(t)^∗(t). If both V′(t)^'(t) and ft(x,t)_t(x,t) exist, the envelope formula (3) holds.
+Proof: Equation (1) implies that for x∈X∗(t)^∗(t),
+
+maxs∈[0,1][f(x,s)−V(s)]=f(x,t)−V(t)=0.max_s∈[0,1][f(x,s)-V(s)]=f(x,t)-V(t)=0.
+Under the assumptions, the objective function of the displayed maximization problem is differentiable at s=t=t, and the first-order condition for this maximization is exactly  equation (3). Q.E.D.
+While differentiability of the value function in general requires strong assumptions, in many applications weaker conditions such as absolute continuity, differentiability almost everywhere, or left- and right-differentiability, suffice. In particular, Milgrom and Segal's (2002) Theorem 2 offers a sufficient condition for V to be absolutely continuous,[5] which means that it is differentiable almost everywhere and can be represented as an integral of its derivative:
+Theorem 2: Suppose that f(x,⋅)(x,·) is absolutely continuous for all x∈X. Suppose also that there exists an integrable function b:[0,1]:[0,1] →→ R+ℝ_+ such that |ft(x,t)|≤b(t)|f_t(x,t)|(t) for all x∈X and almost all t∈[0,1]∈0,1]. Then V is absolutely continuous. Suppose, in addition, that f(x,⋅)(x,·) is differentiable for all x∈X, and that X∗(t)≠∅^∗(t)≠∅ almost everywhere on [0,1][0,1]. Then for any selection x∗(t)∈X∗(t)^∗(t)^∗(t),
+
+
+
+
+V(t)=V(0)+∫0tft(x∗(s),s)ds.(t)=V(0)+∫_0^tf_t(x^∗(s),s)ds.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(4)
+
+Proof: Using  (1)(1), observe that for any t′,t′′∈[0,1]^',t^''∈0,1] with t′<t′′^'<t^'',
+
+|V(t′′)−V(t′)|≤supx∈X|f(x,t′′)−f(x,t′)|=supx∈X|∫t′t′′ft(x,t)dt|≤∫t′t′′supx∈X|ft(x,t)|dt≤∫t′t′′b(t)dt.|V(t^'')-V(t^')|≤sup_x|f(x,t^'')-f(x,t^')|=sup_x|∫_t^'^t^''f_t(x,t)dt|≤∫_t^'^t^''sup_x|f_t(x,t)|dt≤∫_t^'^t^''b(t)dt.
+This implies that V is absolutely continuous. Therefore, V is differentiable almost everywhere, and using  (3) yields (4). Q.E.D.
+This result dispels the common misconception that nice behavior of the value function requires correspondingly nice behavior of the maximizer. Theorem 2 ensures the absolute continuity of the value function even though the maximizer may be discontinuous. In a similar vein, Milgrom and Segal's (2002) Theorem 3 implies that the value function must be differentiable at t=t0=t_0 and hence satisfy the envelope formula (3) when the family f(x,⋅)x∈X{f(x,·)}_x is equi-differentiable at t0∈(0,1)_0∈(0,1) and ft(X∗(t),t0)_t(X^∗(t),t_0) is single-valued and continuous at t=t0=t_0, even if the maximizer is not differentiable at t0_0 (e.g., if X is described by a set of inequality constraints and the set of binding constraints changes at t0_0).[5]
+
+Applications[edit]
+Applications to producer theory[edit]
+Theorem 1 implies Hotelling's lemma at any differentiability point of the profit function, and Theorem 2 implies the producer surplus formula. Formally, let π(p)π(p) denote the indirect profit function of a price-taking firm with production set X⊆RL⊆ℝ^L facing prices p∈RL∈ℝ^L, and let x∗(p)^∗(p) denote the firm's supply function, i.e.,
+
+π(p)=maxx∈Xp⋅x=p⋅x∗(p).π(p)=max_xp=p^∗(p).
+Let t=pi=p_i (the price of good i) and fix the other goods' prices at p−i∈RL−1_-i∈ℝ^L-1. Applying Theorem 1 to f(x,t)=txi+p−i⋅x−i(x,t)=tx_i+p_-i_-i yields ∂π(p)∂pi=xi∗(p)∂π(p)/_i=x_i^∗(p) (the firm's optimal supply of good i). Applying Theorem 2 (whose assumptions are verified when pi_i is restricted to a bounded interval) yields
+
+π(t,p−i)−π(0,p−i)=∫0pixi∗(s,p−i)ds,π(t,p_-i)-π(0,p_-i)=∫_0^p_ix_i^∗(s,p_-i)ds,
+i.e. the producer surplus π(t,p−i)−π(0,p−i)π(t,p_-i)-π(0,p_-i) can be obtained by integrating under the firm's supply curve for good i.
+
+Applications to mechanism design and auction theory[edit]
+Consider an agent whose utility function f(x,t)(x,t) over outcomes x∈X¯∈X̅ depends on his type t∈[0,1]∈0,1]. Let X⊆X¯⊆X̅ represent the "menu" of possible outcomes the agent could obtain in the mechanism by sending different messages. The agent's equilibrium utility V(t)(t) in the mechanism is then given by (1), and the set X∗(t)^∗(t) of the mechanism's equilibrium outcomes is given by (2). Any selection x∗(t)∈X∗(t)^∗(t)^∗(t) is a choice rule implemented by the mechanism. Suppose that the agent's utility function f(x,t)(x,t) is differentiable and absolutely continuous in t for all x∈Y, and that supx∈X¯|ft(x,t)|sup_x∈X̅|f_t(x,t)| is integrable on [0,1][0,1]. Then Theorem 2 implies that the agent's equilibrium utility V in any mechanism implementing a given choice rule x∗^∗ must satisfy the integral condition (4).
+The integral condition (4) is a key step in the analysis of mechanism design problems with continuous type spaces. In particular, in Myerson's (1981) analysis of single-item auctions, the outcome from the viewpoint of one bidder can be described as x=(y,z)=(y,z), where y is the bidder's probability of receiving the object and z is his expected payment, and the bidder's expected utility takes the form f((y,z),t)=ty−z((y,z),t)=ty-z. In this case, letting t_t denote the bidder's lowest possible type, the integral condition (4) for the bidder's equilibrium expected utility V takes the form
+
+V(t)−V(t_)=∫0ty∗(s)ds.(t)-V(t)=∫_0^ty^∗(s)ds.
+(This equation can be interpreted as the producer surplus formula for the firm whose production technology for converting numeraire z into probability y of winning the object is defined by the auction and which resells the object at a fixed price t). This condition in turn yields Myerson's (1981) celebrated revenue equivalence theorem: the expected revenue generated in an auction in which bidders have independent private values is fully determined by the bidders' probabilities y∗(t)^∗(t) of getting the object for all types t as well as by the expected payoffs V(t_)(t) of the bidders' lowest types. Finally, this condition is a key step in Myerson's (1981) of optimal auctions.[6]
+For other applications of the envelope theorem to mechanism design see Mirrlees (1971),[7] Holmstrom (1979),[8] Laffont and Maskin (1980),[9] Riley and Samuelson (1981),[10] Fudenberg and Tirole (1991),[11] and Williams (1999).[12] While these authors derived and exploited the envelope theorem by restricting attention to (piecewise) continuously differentiable choice rules or even narrower classes, it may sometimes be optimal to implement a choice rule that is not piecewise continuously differentiable. (One example is the class of trading problems with linear utility described in chapter 6.5 of Myerson (1991).[13]) Note that the integral condition (3) still holds in this setting and implies such important results as Holmstrom's lemma (Holmstrom, 1979),[8] Myerson's lemma (Myerson, 1981),[6] the revenue equivalence theorem (for auctions), the Green–Laffont–Holmstrom theorem (Green and Laffont, 1979; Holmstrom, 1979),[14][8] the Myerson–Satterthwaite inefficiency theorem (Myerson and Satterthwaite, 1983),[15] the Jehiel–Moldovanu impossibility theorems (Jehiel and Moldovanu, 2001),[16] the McAfee–McMillan weak-cartels theorem (McAfee and McMillan, 1992),[17] and Weber's martingale theorem (Weber, 1983),[18] etc. The details of these applications are provided in Chapter 3 of Milgrom (2004),[19] who offers an elegant and unifying framework in auction and mechanism design analysis mainly based on the envelope theorem and other familiar techniques and concepts in demand theory.
+
+Applications to multidimensional parameter spaces[edit]
+For a multidimensional parameter space T⊆RK⊆ℝ^K, Theorem
+1 can be applied to partial and directional derivatives of the value
+function.[citation needed] If both the objective function f and the value function V are (totally) differentiable in t, Theorem 1 implies the envelope formula for their gradients:[citation needed] ∇V(t)=∇tf(x,t)(t)=∇_tf(x,t) for each x∈X∗(t)^∗(t). While total differentiability of the value function may not be easy to ensure, Theorem 2 can be still applied along any smooth path connecting two parameter values t0_0 and t.[citation needed] Namely, suppose that functions f(x,⋅)(x,·) are differentiable for all x∈X with |∇tf(x,t)|≤B|∇_tf(x,t)| for all x∈X,, t∈T. A smooth path from t0_0 to t is described by a differentiable mapping γ:[0,1]→Tγ:[0,1] with a bounded derivative, such that γ(0)=t0γ(0)=t_0 and γ(1)=tγ(1)=t.[citation needed] Theorem 2 implies that for any such smooth path, the change of the value function can be expressed as the path integral of the partial gradient ∇tf(x∗(t),t)∇_tf(x^∗(t),t) of the objective function along the path:[citation needed]
+
+V(t)−V(t0)=∫γ∇tf(x∗(s),s)⋅ds.(t)-V(t_0)=∫_γ∇_tf(x^∗(s),s).
+In particular, for t=t0=t_0, this establishes that cyclic path integrals along any smooth path γγ must be zero:[citation needed]
+
+∫∇tf(x∗(s),s)⋅ds=0.∫∇_tf(x^∗(s),s)=0.
+This "integrability condition" plays an important role in mechanism design with multidimensional types, constraining what kind of choice rules x∗^∗ can be sustained by mechanism-induced menus X⊆X¯⊆X̅.[citation needed] In application to producer theory, with x∈X⊆RL⊆ℝ^L being the firm's production vector and t∈RL∈ℝ^L being the price vector, f(x,t)=t⋅x(x,t)=t, and the integrability condition says that any rationalizable supply function x∗^∗ must satisfy
+
+∫x∗(s)⋅ds=0.^∗(s)=0.
+When x∗^∗ is continuously differentiable, this integrability condition is equivalent to the symmetry of the substitution matrix (∂xi∗(t)/∂tj)i,j=1L(_i^∗(t)/_j)_i,j=1^L. (In consumer theory, the same argument applied to the expenditure minimization problem yields symmetry of the Slutsky matrix.)
+
+Applications to parameterized constraints[edit]
+Suppose now that the feasible set X(t)(t) depends on the parameter, i.e.,
+
+V(t)=supx∈X(t)f(x,t)(t)=sup_x(t)f(x,t)
+X∗(t)=x∈X(t):f(x,t)=V(t),^∗(t)={x(t):f(x,t)=V(t)},
+where X(t)=x∈X:g(x,t)≥0(t)={x:g(x,t)≥0} for some g:X×[0,1]→RK.:X×[0,1]→ℝ^K.
+Suppose that X is a convex set, f and g are concave in x, and there exists x^∈Xx̂ such that g(x^,t)>0(x̂,t)>0 for all t∈[0,1]∈[0,1]. Under these assumptions, it is well known that the above constrained optimization program can be represented as a saddle-point problem for the Lagrangian L(x,λ,t)=f(x,t)+λ⋅g(x,t)(x,λ,t)=f(x,t)+λ(x,t), where λ∈R+Kλ∈ℝ_+^K is the vector of Lagrange multipliers chosen by the adversary to minimize the Lagrangian.[20][page needed][21][page needed] This allows the application of Milgrom and Segal's (2002, Theorem 4) envelope theorem for saddle-point problems,[5] under the additional assumptions that X is a compact set in a normed linear space, f and g are continuous in x, and ft_t and gt_t are continuous in (x,t)(x,t). In particular, letting (x∗(t),λ∗(t))(x^∗(t),λ^∗(t)) denote the Lagrangian's saddle point for parameter value t, the theorem implies that V is absolutely continuous and satisfies
+
+V(t)=V(0)+∫0tLt(x∗(s),λ∗(s),s)ds.(t)=V(0)+∫_0^tL_t(x^∗(s),λ^∗(s),s)ds.
+For the special case in which f(x,t)(x,t) is independent of t, K=1=1, and g(x,t)=h(x)+t(x,t)=h(x)+t, the formula implies that V′(t)=Lt(x∗(t),λ∗(t),t)=λ∗(t)^'(t)=L_t(x^∗(t),λ^∗(t),t)=λ^∗(t) for a.e. t. That is, the Lagrange multiplier λ∗(t)λ^∗(t) on the constraint is its "shadow price" in the optimization program.[21][page needed]
+
+Other applications[edit]
+Milgrom and Segal (2002) demonstrate that the generalized version of the envelope theorems can also be applied to convex programming, continuous optimization problems, saddle-point problems, and optimal stopping problems.[5]
+
+See also[edit]
+
+Maximum theorem
+Danskin's theorem
+Hotelling's lemma
+Le Chatelier's principle
+Roy's identity
+Value function
+
+References[edit]
+
+
+^ Border, Kim C. (2019). "Miscellaneous Notes on Optimization Theory and Related Topics". Lecture Notes. California Institute of Technology: 154.
+
+^ Carter, Michael (2001). Foundations of Mathematical Economics. Cambridge: MIT Press. pp. 603–609. ISBN 978-0-262-53192-4.
+
+^ Afriat, S. N. (1971). "Theory of Maxima and the Method of Lagrange". SIAM Journal on Applied Mathematics. 20 (3): 343–357. doi:10.1137/0120037.
+
+^ Takayama, Akira (1985). Mathematical Economics (Second ed.). New York: Cambridge University Press. pp. 137–138. ISBN 978-0-521-31498-5.
+
+^ a b c d e Milgrom, Paul; Ilya Segal (2002). "Envelope Theorems for Arbitrary Choice Sets". Econometrica. 70 (2): 583–601. CiteSeerX 10.1.1.217.4736. doi:10.1111/1468-0262.00296.
+
+^ a b Myerson, Roger (1981). "Optimal Auction Design". Mathematics of Operations Research. 6: 58–73. doi:10.1287/moor.6.1.58. S2CID 12282691.
+
+^ Mirrlees, James (2002). "An Exploration in the Theory of Optimal Taxation". Review of Economic Studies. 38 (2): 175–208. doi:10.2307/2296779. JSTOR 2296779.
+
+^ a b c Holmstrom, Bengt (1979). "Groves Schemes on Restricted Domains". Econometrica. 47 (5): 1137–1144. doi:10.2307/1911954. JSTOR 1911954. S2CID 55414969.
+
+^ Laffont, Jean-Jacques; Eric Maskin (1980). "A Differentiable Approach to Dominant Strategy Mechanisms". Econometrica. 48 (6): 1507–1520. doi:10.2307/1912821. JSTOR 1912821.
+
+^ Riley, John G.; Samuelson, William S. (1981). "Optimal Auctions". American Economic Review. 71 (3): 381–392. JSTOR 1802786.
+
+^ Fudenberg, Drew; Tirole, Jean (1991). Game Theory. Cambridge: MIT Press. ISBN 0-262-06141-4.
+
+^ Williams, Steven (1999). "A Characterization of Efficient, Bayesian Incentive Compatible Mechanism". Economic Theory. 14: 155–180. doi:10.1007/s001990050286. S2CID 154378924.
+
+^ Myerson, Roger (1991). Game Theory. Cambridge: Harvard University Press. ISBN 0-674-34115-5.
+
+^ Green, J.; Laffont, J. J. (1979). Incentives in Public Decision Making. Amsterdam: North-Holland. ISBN 0-444-85144-5.
+
+^ Myerson, R.; M. Satterthwaite (1983). "Efficient Mechanisms for Bilateral Trading" (PDF). Journal of Economic Theory. 29 (2): 265–281. doi:10.1016/0022-0531(83)90048-0. hdl:10419/220829.
+
+^ Jehiel, Philippe; Moldovanu, Benny (2001). "Efficient Design with Interdependent Valuations". Econometrica. 69 (5): 1237–1259. CiteSeerX 10.1.1.23.7639. doi:10.1111/1468-0262.00240.
+
+^ McAfee, R. Preston; John McMillan (1992). "Bidding Rings". American Economic Review. 82 (3): 579–599. JSTOR 2117323.
+
+^ Weber, Robert (1983). "Multiple-Object Auctions" (PDF). In Engelbrecht-Wiggans, R.; Shubik, M.; Stark, R. M. (eds.). Auctions, Bidding, and Contracting: Uses and Theory. New York: New York University Press. pp. 165–191. ISBN 0-8147-7827-5.
+
+^ Milgrom, Paul (2004). Putting Auction Theory to Work. Cambridge University Press. ISBN 9780521536721.
+
+^ Luenberger, D. G. (1969). Optimization by Vector Space Methods. New York: John Wiley & Sons. ISBN 9780471181170.
+
+^ a b Rockafellar, R. T. (1970). Convex Analysis. Princeton: Princeton University Press. ISBN 0691015864.
+
+
+
+
+

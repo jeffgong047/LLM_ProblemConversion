@@ -1,0 +1,53 @@
+Method in computer science
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (February 2013) (Learn how and when to remove this template message)
+In computer science, the Akra–Bazzi method, or Akra–Bazzi theorem, is used to analyze the asymptotic behavior of the mathematical recurrences that appear in the analysis of divide and conquer algorithms where the sub-problems have substantially different  sizes. It is a generalization of the master theorem for divide-and-conquer recurrences, which assumes that the sub-problems have equal size. It is named after mathematicians Mohamad Akra and Louay Bazzi.[1]
+
+
+Formulation[edit]
+The Akra–Bazzi method applies to recurrence formulas of the form:[1]
+
+T(x)=g(x)+∑i=1kaiT(bix+hi(x))forx≥x0.(x)=g(x)+∑_i=1^ka_iT(b_ix+h_i(x))    forx_0.
+The conditions for usage are:
+
+sufficient base cases are provided
+ai_i and bi_i are constants for all i
+ai>0_i>0 for all i
+0<bi<10<b_i<1 for all i
+|g′(x)|∈O(xc)|g'(x)|(x^c), where c is a constant and O notates Big O notation
+|hi(x)|∈O(x(log⁡x)2)|h_i(x)|(x/()^2) for all i
+x0_0 is a constant
+The asymptotic behavior of T(x)(x) is found by determining the value of p for which ∑i=1kaibip=1∑_i=1^ka_ib_i^p=1 and plugging that value into the equation:[2]
+
+T(x)∈Θ(xp(1+∫1xg(u)up+1du))(x)∈Θ(x^p(1+∫_1^xg(u)/u^p+1du))
+(see Θ). Intuitively, hi(x)_i(x) represents a small perturbation in the index of T.  By noting that ⌊bix⌋=bix+(⌊bix⌋−bix)_ix⌋=b_ix+(_ix⌋-b_ix) and that the absolute value of ⌊bix⌋−bix_ix⌋-b_ix is always between 0 and 1, hi(x)_i(x) can be used to ignore the floor function in the index.  Similarly, one can also ignore the ceiling function.  For example, T(n)=n+T(12n)(n)=n+T(1/2n) and T(n)=n+T(⌊12n⌋)(n)=n+T(⌊1/2n⌋) will, as per the Akra–Bazzi theorem, have the same asymptotic behavior.
+
+Example[edit]
+Suppose T(n)(n) is defined as 1 for integers 0≤n≤30≤3 and n2+74T(⌊12n⌋)+T(⌈34n⌉)^2+7/4T(⌊1/2n⌋)+T(⌈3/4n⌉) for integers n>3>3.  In applying the Akra–Bazzi method, the first step is to find the value of p for which 74(12)p+(34)p=17/4(1/2)^p+(3/4)^p=1.  In this example, p=2=2.  Then, using the formula, the asymptotic behavior can be determined as follows:[3]
+
+T(x)∈Θ(xp(1+∫1xg(u)up+1du))=Θ(x2(1+∫1xu2u3du))=Θ(x2(1+ln⁡x))=Θ(x2log⁡x).T(x)   ∈Θ(x^p(1+∫_1^xg(u)/u^p+1 du))
+   =Θ(x^2(1+∫_1^xu^2/u^3 du))
+   =Θ(x^2(1+))
+   =Θ(x^2).
+Significance[edit]
+The Akra–Bazzi method is more useful than most other techniques for determining asymptotic behavior because it covers such a wide variety of cases.  Its primary application is the approximation of the running time of many divide-and-conquer algorithms.  For example, in the merge sort, the number of comparisons required in the worst case, which is roughly proportional to its runtime, is given recursively as T(1)=0(1)=0 and
+
+T(n)=T(⌊12n⌋)+T(⌈12n⌉)+n−1(n)=T(⌊1/2n⌋)+T(⌈1/2n⌉)+n-1
+for integers n>0>0, and can thus be computed using the Akra–Bazzi method to be Θ(nlog⁡n)Θ(n).
+
+See also[edit]
+Master theorem (analysis of algorithms)
+Asymptotic complexity
+References[edit]
+
+^ a b Akra, Mohamad; Bazzi, Louay (May 1998). "On the solution of linear recurrence equations". Computational Optimization and Applications. 10 (2): 195–210. doi:10.1023/A:1018373005182. S2CID 7110614.
+
+^ "Proof and application on few examples" (PDF).
+
+^ Cormen, Thomas; Leiserson, Charles; Rivest, Ronald; Stein, Clifford (2009). Introduction to Algorithms. MIT Press. ISBN 978-0262033848.
+
+
+External links[edit]
+O Método de Akra-Bazzi na Resolução de Equações de Recorrência (in Portuguese)
+
+
+

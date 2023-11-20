@@ -1,0 +1,259 @@
+3D generalization of the Leibniz integral rule
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vteIn differential calculus, the Reynolds transport theorem (also known as the Leibniz–Reynolds transport theorem), or simply the Reynolds theorem, named after Osborne Reynolds (1842–1912), is a three-dimensional generalization of the Leibniz integral rule. It is used to recast time derivatives of integrated quantities and is useful in formulating the basic equations of continuum mechanics.
+Consider integrating f = f(x,t) over the time-dependent region Ω(t) that has boundary ∂Ω(t), then taking the derivative with respect to time:
+
+ddt∫Ω(t)fdV.d/dt∫_Ω(t)𝐟 dV.
+If we wish to move the derivative into the integral, there are two issues: the time dependence of f, and the introduction of and removal of space from Ω due to its dynamic boundary. Reynolds transport theorem provides the necessary framework.
+
+
+General form[edit]
+Reynolds transport theorem can be expressed as follows:[1][2][3]
+
+ddt∫Ω(t)fdV=∫Ω(t)∂f∂tdV+∫∂Ω(t)(vb⋅n)fdAd/dt∫_Ω(t)𝐟 dV=∫_Ω(t)∂𝐟/ dV+∫_∂Ω(t)(𝐯_b·𝐧)𝐟 dA
+in which n(x,t) is the outward-pointing unit normal vector, x is a point in the region and is the variable of integration, dV and dA are volume and surface elements at x, and vb(x,t) is the velocity of the area element (not the flow velocity). The function f may be tensor-, vector- or scalar-valued.[4] Note that the integral on the left hand side is a function solely of time, and so the total derivative has been used.
+
+Form for a material element[edit]
+In continuum mechanics, this theorem is often used for material elements.  These are parcels of fluids or solids which no material enters or leaves. If Ω(t) is a material element then there is a velocity function v = v(x,t), and the boundary elements obey
+
+vb⋅n=v⋅n.𝐯_b·𝐧=𝐯·𝐧.
+This condition may be substituted to obtain:[5]
+
+ddt(∫Ω(t)fdV)=∫Ω(t)∂f∂tdV+∫∂Ω(t)(v⋅n)fdA.d/dt(∫_Ω(t)𝐟 dV)=∫_Ω(t)∂𝐟/ dV+∫_∂Ω(t)(𝐯·𝐧)𝐟 dA.
+Proof for a material element
+Let Ω0 be reference configuration of the region Ω(t). Let
+the motion and the deformation gradient be given by
+
+x=φ(X,t),𝐱=φ(𝐗,t),
+F(X,t)=∇φ.F(𝐗,t)=∇φ.
+Let J(X,t) = det F(X,t). Define
+
+f^(X,t)=f(φ(X,t),t).𝐟̂(𝐗,t)=𝐟(φ(𝐗,t),t).
+Then the integrals in the current and the reference configurations are related by
+
+∫Ω(t)f(x,t)dV=∫Ω0f(φ(X,t),t)J(X,t)dV0=∫Ω0f^(X,t)J(X,t)dV0.∫_Ω(t)𝐟(𝐱,t) dV   =∫_Ω_0𝐟(φ(𝐗,t),t) J(𝐗,t) dV_0
+   =∫_Ω_0𝐟̂(𝐗,t) J(𝐗,t) dV_0.
+That this derivation is for a material element is implicit in the time constancy of the reference configuration: it is constant in material coordinates. The time derivative of an integral over a volume is defined as
+
+ddt(∫Ω(t)f(x,t)dV)=limΔt→01Δt(∫Ω(t+Δt)f(x,t+Δt)dV−∫Ω(t)f(x,t)dV).d/dt(∫_Ω(t)𝐟(𝐱,t) dV)=lim_→01/(∫_Ω(t+)𝐟(𝐱,t+) dV-∫_Ω(t)𝐟(𝐱,t) dV).
+Converting into integrals over the reference configuration, we get
+
+ddt(∫Ω(t)f(x,t)dV)=limΔt→01Δt(∫Ω0f^(X,t+Δt)J(X,t+Δt)dV0−∫Ω0f^(X,t)J(X,t)dV0).d/dt(∫_Ω(t)𝐟(𝐱,t) dV)=lim_→01/(∫_Ω_0𝐟̂(𝐗,t+) J(𝐗,t+) dV_0-∫_Ω_0𝐟̂(𝐗,t) J(𝐗,t) dV_0).
+Since Ω0 is independent of time, we have
+
+ddt(∫Ω(t)f(x,t)dV)=∫Ω0(limΔt→0f^(X,t+Δt)J(X,t+Δt)−f^(X,t)J(X,t)Δt)dV0=∫Ω0∂∂t(f^(X,t)J(X,t))dV0=∫Ω0(∂∂t(f^(X,t))J(X,t)+f^(X,t)∂∂t(J(X,t)))dV0.d/dt(∫_Ω(t)𝐟(𝐱,t) dV)   =∫_Ω_0(lim_→0𝐟̂(𝐗,t+) J(𝐗,t+)-𝐟̂(𝐗,t) J(𝐗,t)/) dV_0
+   =∫_Ω_0∂/(𝐟̂(𝐗,t) J(𝐗,t)) dV_0
+   =∫_Ω_0(∂/(𝐟̂(𝐗,t)) J(𝐗,t)+𝐟̂(𝐗,t) ∂/(J(𝐗,t))) dV_0.
+The time derivative of J is given by:[6]
+
+∂J(X,t)∂t=∂∂t(detF)=(detF)tr⁡(F−1∂F∂t)=(detF)tr⁡(∂X∂φ∂∂t(∂φ∂X))=(detF)tr⁡(∂X∂φ∂∂X(∂φ∂t))=(detF)tr⁡(∂∂x(∂φ∂t))=(detF)(∇⋅v)=J(X,t)∇⋅v(φ(X,t),t)=J(X,t)∇⋅v(x,t).(𝐗,t)/   =∂/(F)
+   =(F)tr(F^-1∂F/)
+   =(F)tr(∂X/∂φ∂/(∂φ/∂X))
+   =(F)tr(∂X/∂φ∂/∂X(∂φ/))
+   =(F)tr(∂/∂x(∂φ/))
+   =(F)(∇·𝐯)
+   =J(𝐗,t) ∇·𝐯(φ(𝐗,t),t)
+   =J(𝐗,t) ∇·𝐯(𝐱,t).
+Therefore,
+
+ddt(∫Ω(t)f(x,t)dV)=∫Ω0(∂∂t(f^(X,t))J(X,t)+f^(X,t)J(X,t)∇⋅v(x,t))dV0=∫Ω0(∂∂t(f^(X,t))+f^(X,t)∇⋅v(x,t))J(X,t)dV0=∫Ω(t)(f˙(x,t)+f(x,t)∇⋅v(x,t))dV.d/dt(∫_Ω(t)𝐟(𝐱,t) dV)   =∫_Ω_0(∂/(𝐟̂(𝐗,t)) J(𝐗,t)+𝐟̂(𝐗,t) J(𝐗,t) ∇·𝐯(𝐱,t)) dV_0
+   =∫_Ω_0(∂/(𝐟̂(𝐗,t))+𝐟̂(𝐗,t) ∇·𝐯(𝐱,t)) J(𝐗,t) dV_0
+   =∫_Ω(t)(𝐟̇(𝐱,t)+𝐟(𝐱,t) ∇·𝐯(𝐱,t)) dV.
+where f˙𝐟̇ is the material time derivative of f. The material derivative is given by
+
+f˙(x,t)=∂f(x,t)∂t+(∇f(x,t))⋅v(x,t).𝐟̇(𝐱,t)=∂𝐟(𝐱,t)/+(∇𝐟(𝐱,t))·𝐯(𝐱,t).
+Therefore,
+
+ddt(∫Ω(t)f(x,t)dV)=∫Ω(t)(∂f(x,t)∂t+(∇f(x,t))⋅v(x,t)+f(x,t)∇⋅v(x,t))dV,d/dt(∫_Ω(t)𝐟(𝐱,t) dV)=∫_Ω(t)(∂𝐟(𝐱,t)/+(∇𝐟(𝐱,t))·𝐯(𝐱,t)+𝐟(𝐱,t) ∇·𝐯(𝐱,t)) dV,
+or,
+
+ddt(∫Ω(t)fdV)=∫Ω(t)(∂f∂t+∇f⋅v+f∇⋅v)dV.d/dt(∫_Ω(t)𝐟 dV)=∫_Ω(t)(∂𝐟/+∇𝐟·𝐯+𝐟 ∇·𝐯) dV.
+Using the identity
+
+∇⋅(v⊗w)=v(∇⋅w)+∇v⋅w,∇·(𝐯⊗𝐰)=𝐯(∇·𝐰)+∇𝐯·𝐰,
+we then have
+
+ddt(∫Ω(t)fdV)=∫Ω(t)(∂f∂t+∇⋅(f⊗v))dV.d/dt(∫_Ω(t)𝐟 dV)=∫_Ω(t)(∂𝐟/+∇·(𝐟⊗𝐯)) dV.
+Using the divergence theorem and the identity (a ⊗ b) · n = (b · n)a, we have
+
+ddt(∫Ω(t)fdV)=∫Ω(t)∂f∂tdV+∫∂Ω(t)(f⊗v)⋅ndA=∫Ω(t)∂f∂tdV+∫∂Ω(t)(v⋅n)fdA.◻d/dt(∫_Ω(t)𝐟 dV)   =∫_Ω(t)∂𝐟/ dV+∫_∂Ω(t)(𝐟⊗𝐯)·𝐧 dA
+   =∫_Ω(t)∂𝐟/ dV+∫_∂Ω(t)(𝐯·𝐧)𝐟 dA.    □
+
+A special case[edit]
+If we take Ω to be constant with respect to time, then vb = 0 and the identity reduces to
+
+ddt∫ΩfdV=∫Ω∂f∂tdV.d/dt∫_Ωf dV=∫_Ω/ dV.
+as expected. (This simplification is not possible if the flow velocity is incorrectly used in place of the velocity of an area element.)
+
+Interpretation and reduction to one dimension[edit]
+The theorem is the higher-dimensional extension of differentiation under the integral sign and reduces to that expression in some cases. Suppose f is independent of y and z, and that Ω(t) is a unit square in the yz-plane and has x limits a(t) and b(t). Then Reynolds transport theorem reduces to
+
+ddt∫a(t)b(t)f(x,t)dx=∫a(t)b(t)∂f∂tdx+∂b(t)∂tf(b(t),t)−∂a(t)∂tf(a(t),t),d/dt∫_a(t)^b(t)f(x,t) dx=∫_a(t)^b(t)/ dx+(t)/f(b(t),t)-(t)/f(a(t),t) ,
+which, up to swapping x and t, is the standard expression for differentiation under the integral sign.
+
+See also[edit]
+
+Mathematics portal
+Leibniz integral rule – Differentiation under the integral sign formula
+
+References[edit]
+
+
+^ Leal, L. G. (2007). Advanced transport phenomena: fluid mechanics and convective transport processes. Cambridge University Press. p. 23. ISBN 978-0-521-84910-4.
+
+^ Reynolds, O. (1903). Papers on Mechanical and Physical Subjects. Vol. 3, The Sub-Mechanics of the Universe. Cambridge: Cambridge University Press. pp. 12–13.
+
+^ Marsden, J. E.; Tromba, A. (2003). Vector Calculus (5th ed.). New York: W. H. Freeman. ISBN 978-0-7167-4992-9.
+
+^ Yamaguchi, H. (2008). Engineering Fluid Mechanics. Dordrecht: Springer. p. 23. ISBN 978-1-4020-6741-9.
+
+^ Belytschko, T.; Liu, W. K.; Moran, B. (2000). Nonlinear Finite Elements for Continua and Structures. New York: John Wiley and Sons. ISBN 0-471-98773-5.
+
+^ Gurtin, M. E. (1981). An Introduction to Continuum Mechanics. New York: Academic Press. p. 77. ISBN 0-12-309750-9.
+
+
+External links[edit]
+Osborne Reynolds, Collected Papers on Mechanical and Physical Subjects, in three volumes, published circa 1903, now fully and freely available in digital format: Volume 1, Volume 2, Volume 3,
+"Module 6 - Reynolds Transport Theorem". ME6601: Introduction to Fluid Mechanics. Georgia Tech. Archived from the original on March 27, 2008.
+http://planetmath.org/reynoldstransporttheorem
+
+
+

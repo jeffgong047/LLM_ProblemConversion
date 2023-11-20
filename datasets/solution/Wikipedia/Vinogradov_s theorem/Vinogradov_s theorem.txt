@@ -1,0 +1,56 @@
+Theorem in number theory
+In number theory, Vinogradov's theorem is a result which implies that any sufficiently large odd integer can be written as a sum of three prime numbers. It is a weaker form of Goldbach's weak conjecture, which would imply the existence of such a representation for all odd integers greater than five. It is named after Ivan Matveyevich Vinogradov who proved it in the 1930s. Hardy and Littlewood had shown earlier that this result followed from the generalized Riemann hypothesis, and Vinogradov was able to remove this assumption. The full statement of Vinogradov's theorem gives asymptotic bounds on the number of representations of an odd integer as a sum of three primes. The notion of "sufficiently large" was ill-defined in Vinogradov's original work, but in 2002 it was shown that 101346 is sufficiently large.[1][2] Additionally numbers up to 1020 had been checked via brute force methods,[3] thus only a finite number of cases to check remained before the odd Goldbach conjecture would be proven or disproven. In 2013, Harald Helfgott proved Goldbach's weak conjecture for all cases.
+
+
+Statement of Vinogradov's theorem[edit]
+Let A be a positive real number. Then
+
+r(N)=12G(N)N2+O(N2log−A⁡N),(N)=12G(N)N^2+O(N^2log^-AN),
+where
+
+r(N)=∑k1+k2+k3=NΛ(k1)Λ(k2)Λ(k3),(N)=∑_k_1+k_2+k_3=NΛ(k_1)Λ(k_2)Λ(k_3),
+using the von Mangoldt function ΛΛ, and
+
+G(N)=(∏p∣N(1−1(p−1)2))(∏p∤N(1+1(p−1)3)).(N)=(∏_p(1-1(p-1)^2))(∏_p(1+1(p-1)^3)).
+A consequence[edit]
+If N is odd, then G(N) is roughly 1, hence N2≪r(N)^2(N) for all sufficiently large N. By showing that the contribution made to r(N) by proper prime powers is O(N32log2⁡N)(N^32log^2N), one sees that
+
+N2log−3⁡N≪(numberofwaysNcanbewrittenasasumofthreeprimes).^2log^-3N≪(numberofwaysNcanbewrittenasasumofthreeprimes).
+This means in particular that any sufficiently large odd integer can be written as a sum of three primes, thus showing Goldbach's weak conjecture for all but finitely many cases. 
+
+Strategy of proof[edit]
+The proof of the theorem follows the Hardy–Littlewood circle method. Define the exponential sum
+
+S(α)=∑n=1NΛ(n)e(αn)(α)=∑_n=1^NΛ(n)e().
+Then we have
+
+S(α)3=∑n1,n2,n3≤NΛ(n1)Λ(n2)Λ(n3)e(α(n1+n2+n3))=∑n≤3Nr (n)e(αn)(α)^3=∑_n_1,n_2,n_3Λ(n_1)Λ(n_2)Λ(n_3)e(α(n_1+n_2+n_3))=∑_n≤3Nr̃(n)e(),
+where r r̃ denotes the number of representations restricted to prime powers ≤N. Hence
+
+r(N)=∫01S(α)3e(−αN)dα(N)=∫_0^1S(α)^3e(-) dα.
+If αα is a rational number pqp/q, then S(α)(α) can be given by the distribution of prime  numbers in residue classes modulo q. Hence, using the Siegel–Walfisz theorem we can compute the contribution of the above integral in small neighbourhoods of rational points with small denominator. The set of real numbers close to such rational points is usually referred to as the major arcs, the complement forms the minor arcs. It turns out that these intervals dominate the integral, hence to prove the theorem one has to give an upper bound for S(α)(α) for αα contained in the minor arcs. This estimate is the most difficult part of the proof.
+If we assume the Generalized Riemann Hypothesis, the argument used for the major arcs can be extended to the minor arcs. This was done by Hardy and Littlewood in 1923. In 1937 Vinogradov gave an unconditional upper bound for |S(α)||S(α)|. His argument began with a simple sieve identity, the resulting terms were then rearranged in a complicated way to obtain some cancellation. In 1977 R. C. Vaughan found a much simpler argument, based on what later became known as Vaughan's identity. He proved that if |α−aq|<1q2|α-a/q|<1/q^2, then
+
+|S(α)|≪(Nq+N4/5+Nq)log4⁡N|S(α)|≪(N/√(q)+N^4/5+√(Nq))log^4N.
+Using the Siegel–Walfisz theorem we can deal with q up to arbitrary powers of log⁡N, using Dirichlet's approximation theorem we obtain |S(α)|≪NlogA⁡N|S(α)|≪N/log^AN on the minor arcs. Hence the integral over the minor arcs can be bounded above by
+
+CNlogA⁡N∫01|S(α)|2dα≪N2logA−1⁡NCN/log^AN∫_0^1|S(α)|^2 dα≪N^2/log^A-1N,
+which gives the error term in the theorem.
+
+References[edit]
+
+
+^ Archived at Ghostarchive and the Wayback Machine: Terrence Tao - Structure and Randomness in the prime numbers, UCLA. YouTube.
+
+^ Liu, M. C.; Wang, T. Z. (2002). "On the Vinogradov bound in the three primes Goldbach conjecture". Acta Arithmetica. 105 (2): 133–175. doi:10.4064/aa105-2-3.
+
+^ Saouter, Yannick (1998). "Checking the odd Goldbach conjecture up to 10²⁰". Mathematics of Computation. 67 (222): 863–866. doi:10.1090/S0025-5718-98-00928-4.
+
+
+Vinogradov, Ivan Matveevich (1954). The Method of Trigonometrical Sums in the Theory of Numbers. Translated, revised and annotated by K. F. Roth and Anne Davenport. London and New York: Interscience. MR 0062183.
+Nathanson, Melvyn B. (1996). Additive number theory. The classical bases. Graduate Texts in Mathematics. Vol. 164. New York: Springer-Verlag. doi:10.1007/978-1-4757-3845-2. ISBN 0-387-94656-X. MR 1395371.  Chapter 8.
+External links[edit]
+Weisstein, Eric W. "Vinogradov's Theorem". MathWorld.
+
+
+

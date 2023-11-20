@@ -1,0 +1,70 @@
+Result in enumerative combinatorics and linear algebra
+In mathematics, MacMahon's master theorem (MMT) is a result in enumerative combinatorics and linear algebra.  It was discovered by Percy MacMahon and proved in his monograph Combinatory analysis (1916).  It is often used to derive binomial identities, most notably Dixon's identity.
+
+
+Background[edit]
+In the monograph, MacMahon found so many applications of his result, he called it "a master theorem in the Theory of Permutations."  He explained the title as follows: "a Master Theorem from the masterly and rapid fashion in which it deals with various questions otherwise troublesome to solve."
+The result was re-derived (with attribution) a number of times, most notably by  I. J. Good who derived it from his multilinear generalization of the Lagrange inversion theorem.  MMT was also popularized by Carlitz who found an exponential power series  version.  In 1962, Good found a short proof of Dixon's identity from MMT.  In 1969, Cartier and Foata found a new proof of MMT by combining algebraic and bijective ideas (built on Foata's thesis) and further applications to combinatorics on words, introducing the concept of traces.  Since then, MMT has become a standard tool in enumerative combinatorics.
+Although various q-Dixon identities have been known for decades, except for a Krattenthaler–Schlosser extension (1999), the proper q-analog of MMT remained elusive.  After Garoufalidis–Lê–Zeilberger's quantum extension (2006), a number of noncommutative extensions were developed by Foata–Han, Konvalinka–Pak, and Etingof–Pak.  Further connections to Koszul algebra and quasideterminants were also found by Hai–Lorentz, Hai–Kriegk–Lorenz, Konvalinka–Pak, and others.
+Finally, according to J. D. Louck, the theoretical physicist Julian Schwinger re-discovered the MMT in the context of his generating function approach to the angular momentum theory of many-particle systems.  Louck writes:
+
+It is the MacMahon Master Theorem that unifies the angular momentum properties of composite systems in the binary build-up of such systems from more elementary constituents.[1]
+Precise statement[edit]
+Let A=(aij)m×m=(a_ij)_m be a complex matrix, and let x1,…,xm_1,…,x_m be formal variables.  Consider a coefficient
+
+G(k1,…,km)=[x1k1⋯xmkm]∏i=1m(ai1x1+⋯+aimxm)ki.(k_1,…,k_m) = [x_1^k_1_m^k_m] ∏_i=1^m(a_i1x_1+…+a_imx_m)^k_i.
+(Here the notation [f]g[f]g means "the coefficient of monomial f in g".)  Let t1,…,tm_1,…,t_m be another set of formal variables, and let T=(δijti)m×m=(δ_ijt_i)_m be a diagonal matrix.  Then
+
+∑(k1,…,km)G(k1,…,km)t1k1⋯tmkm=1det(Im−TA),∑_(k_1,…,k_m)G(k_1,…,k_m) t_1^k_1_m^k_m = 1/(I_m-TA),
+where the sum runs over all nonnegative integer vectors (k1,…,km)(k_1,…,k_m),
+and Im_m denotes the identity matrix of size m.
+
+Derivation of Dixon's identity[edit]
+Consider a matrix
+
+A=(01−1−1011−10).=[  0  1 -1; -1  0  1;  1 -1  0 ].
+Compute the coefficients G(2n, 2n, 2n) directly from the definition:
+
+G(2n,2n,2n)=[x12nx22nx32n](x2−x3)2n(x3−x1)2n(x1−x2)2n=∑k=02n(−1)k(2nk)3,G(2n,2n,2n)   =[x_1^2nx_2^2nx_3^2n](x_2-x_3)^2n(x_3-x_1)^2n(x_1-x_2)^2n
+   = ∑_k=0^2n(-1)^k2nk^3,
+where the last equality follows from the fact that on the right-hand side we have the product of the following coefficients:
+
+[x2kx32n−k](x2−x3)2n,[x3kx12n−k](x3−x1)2n,[x1kx22n−k](x1−x2)2n,[x_2^kx_3^2n-k](x_2-x_3)^2n,
+(x_3-x_1)^2n,
+(x_1-x_2)^2n,
+which are computed from the binomial theorem. On the other hand, we can compute the determinant explicitly:
+
+det(I−TA)=det(1−t1t1t21−t2−t3t31)=1+(t1t2+t1t3+t2t3).(I-TA) = [    1 -t_1  t_1;  t_2    1 -t_2; -t_3  t_3    1 ] = 1+(t_1t_2+t_1t_3+t_2t_3).
+Therefore, by the MMT, we have a new formula for the same coefficients:
+
+G(2n,2n,2n)=[t12nt22nt32n](−1)3n(t1t2+t1t3+t2t3)3n=(−1)n(3nn,n,n),G(2n,2n,2n)   =[t_1^2nt_2^2nt_3^2n](-1)^3n(t_1t_2+t_1t_3+t_2t_3)^3n
+   =(-1)^n3nn,n,n,
+where the last equality follows from the fact that we need to use an equal number of times all three terms in the power.  Now equating the two formulas for coefficients G(2n, 2n, 2n) we obtain an equivalent version of Dixon's identity:
+
+∑k=02n(−1)k(2nk)3=(−1)n(3nn,n,n).∑_k=0^2n(-1)^k2nk^3=(-1)^n3nn,n,n.
+See also[edit]
+Permanent
+References[edit]
+
+
+^ Louck, James D. (2008). Unitary symmetry and combinatorics. Singapore: World Scientific. pp. viii. ISBN 978-981-281-472-2.
+
+
+P.A. MacMahon, Combinatory analysis, vols 1 and 2, Cambridge University Press, 1915–16.
+Good, I.J. (1962). "A short proof of MacMahon's 'Master Theorem'". Proceedings of the Cambridge Philosophical Society. 58 (1): 160. Bibcode:1962PCPS...58..160G. doi:10.1017/S0305004100036318. S2CID 124876088. Zbl 0108.25104.
+Good, I.J. (1962). "Proofs of some 'binomial' identities by means of MacMahon's 'Master Theorem'". Proceedings of the Cambridge Philosophical Society. 58 (1): 161–162. Bibcode:1962PCPS...58..161G. doi:10.1017/S030500410003632X. S2CID 122896760. Zbl 0108.25105.
+P. Cartier and D. Foata, Problèmes combinatoires de commutation et réarrangements, Lecture Notes in Mathematics, no. 85, Springer, Berlin, 1969.
+L. Carlitz, An Application of MacMahon's Master Theorem, SIAM Journal on Applied Mathematics 26 (1974), 431–436.
+I.P. Goulden and D. M. Jackson, Combinatorial Enumeration, John Wiley, New York, 1983.
+C. Krattenthaler and M. Schlosser, A new multidimensional matrix inverse with applications to multiple q-series, Discrete Mathematics 204 (1999), 249–279.
+S. Garoufalidis, T. T. Q. Lê and D. Zeilberger, The Quantum MacMahon Master Theorem, Proceedings of the National Academy of Sciences of the United States of America 103  (2006),  no. 38, 13928–13931 (eprint).
+M. Konvalinka and I. Pak, Non-commutative extensions of the MacMahon Master Theorem, Advances in Mathematics 216 (2007), no. 1. (eprint).
+D. Foata and G.-N. Han, A new proof of the Garoufalidis-Lê-Zeilberger Quantum MacMahon Master Theorem,  Journal of Algebra 307  (2007),  no. 1, 424–431 (eprint).
+D. Foata and G.-N. Han, Specializations and extensions of the quantum MacMahon Master Theorem, Linear Algebra and its Applications 423 (2007), no. 2–3, 445–455 (eprint).
+P.H. Hai and M. Lorenz, Koszul algebras and the quantum MacMahon master theorem,  Bull. Lond. Math. Soc.  39  (2007),  no. 4, 667–676. (eprint).
+P. Etingof and I. Pak, An algebraic extension of the MacMahon master theorem,  Proceedings of the American Mathematical Society  136  (2008),  no. 7, 2279–2288 (eprint).
+P.H. Hai, B. Kriegk and M. Lorenz, N-homogeneous superalgebras, J. Noncommut. Geom. 2 (2008) 1–51 (eprint).
+J.D. Louck, Unitary symmetry and combinatorics, World Sci., Hackensack, NJ, 2008.
+
+
+

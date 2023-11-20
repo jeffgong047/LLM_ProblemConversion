@@ -1,0 +1,306 @@
+Theorem of measure theory
+In mathematics, the Cameron–Martin theorem or Cameron–Martin formula (named after Robert Horton Cameron and W. T. Martin) is a theorem of measure theory that describes how abstract Wiener measure changes under translation by certain elements of the Cameron–Martin Hilbert space.
+
+
+Motivation[edit]
+The standard Gaussian measure γnγ^n on n-dimensional Euclidean space Rn𝐑^n is not translation-invariant.  (In fact, there is a unique translation invariant Radon measure up to scale by Haar's theorem: the n-dimensional Lebesgue measure, denoted here dx.)  Instead, a measurable subset A has Gaussian measure
+
+γn(A)=1(2π)n/2∫Aexp⁡(−12⟨x,x⟩Rn)dx.γ_n(A)=1/(2π)^n/2∫_Aexp(-12,x⟩_𝐑^n) dx.
+Here ⟨x,x⟩Rn,x⟩_𝐑^n refers to the standard Euclidean dot product in Rn𝐑^n.  The Gaussian measure of the translation of A by a vector h∈Rn∈𝐑^n is
+
+γn(A−h)=1(2π)n/2∫Aexp⁡(−12⟨x−h,x−h⟩Rn)dx=1(2π)n/2∫Aexp⁡(2⟨x,h⟩Rn−⟨h,h⟩Rn2)exp⁡(−12⟨x,x⟩Rn)dx.γ_n(A-h)   =1/(2π)^n/2∫_Aexp(-12-h,x-h⟩_𝐑^n) dx
+   =1/(2π)^n/2∫_Aexp(2,h⟩_𝐑^n-,h⟩_𝐑^n/2)exp(-12,x⟩_𝐑^n) dx.
+So under translation through h, the Gaussian measure scales by the distribution function appearing in the last display:
+
+exp⁡(2⟨x,h⟩Rn−⟨h,h⟩Rn2)=exp⁡(⟨x,h⟩Rn−12‖h‖Rn2).exp(2,h⟩_𝐑^n-,h⟩_𝐑^n/2)=exp(,h⟩_𝐑^n-12h_𝐑^n^2).
+The measure that associates to the set A the number γn(A−h)γ_n(A-h) is the pushforward measure, denoted (Th)∗(γn)(T_h)_*(γ^n).  Here Th:Rn→Rn_h:𝐑^n→𝐑^n refers to the translation map: Th(x)=x+h_h(x)=x+h.  The above calculation shows that the Radon–Nikodym derivative of the pushforward measure with respect to the original Gaussian measure is given by
+
+d(Th)∗(γn)dγn(x)=exp⁡(⟨h,x⟩Rn−12‖h‖Rn2).d(T_h)_*(γ^n)/dγ^n(x)=exp(,x⟩_𝐑^n-12h_𝐑^n^2).
+The abstract Wiener measure γγ on a separable Banach space E, where i:H→E:H is an abstract Wiener space, is also a "Gaussian measure" in a suitable sense. How does it change under translation? It turns out that a similar formula to the one above holds if we consider only translations by elements of the dense subspace i(H)⊆E(H).
+
+Statement of the theorem[edit]
+Let i:H→E:H be an abstract Wiener space with abstract Wiener measure γ:Borel⁡(E)→[0,1]γ:Borel(E)→[0,1]. For h∈H, define Th:E→E_h:E by Th(x)=x+i(h)_h(x)=x+i(h). Then (Th)∗(γ)(T_h)_*(γ) is equivalent to γγ with Radon–Nikodym derivative
+
+d(Th)∗(γ)dγ(x)=exp⁡(⟨h,x⟩∼−12‖h‖H2),d(T_h)_*(γ)/dγ(x)=exp(,x⟩^∼-12h_H^2),
+where
+
+⟨h,x⟩∼=i(h)(x),x⟩^∼=i(h)(x)
+denotes the Paley–Wiener integral.
+The Cameron–Martin formula is valid only for translations by elements of the dense subspace i(H)⊆E(H), called Cameron–Martin space, and not by arbitrary elements of E. If the Cameron–Martin formula did hold for arbitrary translations, it would contradict the following result:
+
+If E is a separable Banach space and μμ is a locally finite Borel measure on E that is equivalent to its own push forward under any translation, then either E has finite dimension or μμ is the trivial (zero) measure. (See quasi-invariant measure.)
+In fact, γγ is quasi-invariant under translation by an element v if and only if v∈i(H)(H). Vectors in i(H)(H) are sometimes known as Cameron–Martin directions.
+
+Integration by parts[edit]
+The Cameron–Martin formula gives rise to an integration by parts formula on E: if F:E→R:E→𝐑  has bounded Fréchet derivative DF:E→Lin⁡(E;R)=E∗DF:E→Lin(E;𝐑)=E^*, integrating the Cameron–Martin formula with respect to Wiener measure on both sides gives
+
+∫EF(x+ti(h))dγ(x)=∫EF(x)exp⁡(t⟨h,x⟩∼−12t2‖h‖H2)dγ(x)∫_EF(x+ti(h)) dγ(x)=∫_EF(x)exp(t,x⟩^∼-12t^2h_H^2) dγ(x)
+for any t∈R∈𝐑. Formally differentiating with respect to t and evaluating at t=0=0 gives the integration by parts formula
+
+∫EDF(x)(i(h))dγ(x)=∫EF(x)⟨h,x⟩∼dγ(x).∫_EDF(x)(i(h)) dγ(x)=∫_EF(x),x⟩^∼ dγ(x).
+Comparison with the divergence theorem of vector calculus suggests
+
+div⁡[Vh](x)=−⟨h,x⟩∼,div[V_h](x)=-,x⟩^∼,
+where Vh:E→E_h:E is the constant "vector field" Vh(x)=i(h)_h(x)=i(h) for all x∈E. The wish to consider more general vector fields and to think of stochastic integrals as "divergences" leads to the study of stochastic processes and the Malliavin calculus, and, in particular, the Clark–Ocone theorem and its associated integration by parts formula.
+
+An application[edit]
+Using Cameron–Martin theorem one may establish (See Liptser and Shiryayev 1977, p. 280) that for a q×q symmetric non-negative definite matrix H(t)(t) whose elements Hj,k(t)_j,k(t) are continuous and satisfy the condition
+
+∫0T∑j,k=1q|Hj,k(t)|dt<∞,∫_0^T∑_j,k=1^q|H_j,k(t)| dt<∞,
+it holds for a q−dimensional Wiener process w(t)(t) that
+
+E[exp⁡(−∫0Tw(t)∗H(t)w(t)dt)]=exp⁡[12∫0Ttr⁡(G(t))dt],[exp(-∫_0^Tw(t)^*H(t)w(t) dt)]=exp[12∫_0^Ttr(G(t)) dt],
+where G(t)(t) is a q×q nonpositive definite matrix which is a unique solution of the matrix-valued Riccati differential equation
+
+dG(t)dt=2H(t)−G2(t)dG(t)/dt=2H(t)-G^2(t)
+with the boundary condition G(T)=0(T)=0.
+In the special case of a one-dimensional Brownian motion where H(t)=1/2(t)=1/2, the unique solution is G(t)=tanh⁡(t−T)(t)=tanh(t-T), and we have the original formula as established by Cameron and Martin:
+E[exp⁡(−12∫0Tw(t)2dt)]=1cosh⁡T.[exp(-12∫_0^Tw(t)^2 dt)]=1/√().
+
+See also[edit]
+Girsanov theorem – Theorem on changes in stochastic processes
+Sazonov's theorem
+References[edit]
+
+Cameron, R. H.; Martin, W. T. (1944). "Transformations of Wiener Integrals under Translations". Annals of Mathematics. 45 (2): 386–396. doi:10.2307/1969276. JSTOR 1969276.
+Liptser, R. S.; Shiryayev, A. N. (1977). Statistics of Random Processes I: General Theory. Springer-Verlag. ISBN 3-540-90226-0.
+
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+vteAnalysis in topological vector spacesBasic concepts
+Abstract Wiener space
+Classical Wiener space
+Bochner space
+Convex series
+Cylinder set measure
+Infinite-dimensional vector function
+Matrix calculus
+Vector calculus
+Derivatives
+Differentiable vector–valued functions from Euclidean space
+Differentiation in Fréchet spaces
+Fréchet derivative
+Total
+Functional derivative
+Gateaux derivative
+Directional
+Generalizations of the derivative
+Hadamard derivative
+Holomorphic
+Quasi-derivative
+Measurability
+Besov measure
+Cylinder set measure
+Canonical Gaussian
+Classical Wiener measure
+Measure like set functions
+infinite-dimensional Gaussian measure
+Projection-valued
+Vector
+Bochner / Weakly / Strongly measurable function
+Radonifying function
+Integrals
+Bochner
+Direct integral
+Dunford
+Gelfand–Pettis/Weak
+Regulated
+Paley–Wiener
+Results
+Cameron–Martin theorem
+Inverse function theorem
+Nash–Moser theorem
+Feldman–Hájek theorem
+No infinite-dimensional Lebesgue measure
+Sazonov's theorem
+Structure theorem for Gaussian measures
+Related
+Crinkled arc
+Covariance operator
+Functional calculus
+Borel functional calculus
+Continuous functional calculus
+Holomorphic functional calculus
+Applications
+Banach manifold (bundle)
+Convenient vector space
+Choquet theory
+Fréchet manifold
+Hilbert manifold
+
+vteHilbert spacesBasic concepts
+Adjoint
+Inner product and L-semi-inner product
+Hilbert space and Prehilbert space
+Orthogonal complement
+Orthonormal basis
+Main results
+Bessel's inequality
+Cauchy–Schwarz inequality
+Riesz representation
+Other results
+Hilbert projection theorem
+Parseval's identity
+Polarization identity (Parallelogram law)
+Maps
+Compact operator on Hilbert space
+Densely defined
+Hermitian form
+Hilbert–Schmidt
+Normal
+Self-adjoint
+Sesquilinear form
+Trace class
+Unitary
+Examples
+Cn(K) with K compact & n<∞
+Segal–Bargmann F
+
+
+
+

@@ -1,0 +1,118 @@
+Both deterministic and nondeterministic machines can solve more problems given more spaceIn computational complexity theory, the space hierarchy theorems are separation results that show that both deterministic and nondeterministic machines can solve more problems in (asymptotically) more space, subject to certain conditions. For example, a deterministic Turing machine can solve more decision problems in space n log n than in space n. The somewhat weaker analogous theorems for time are the time hierarchy theorems.
+The foundation for the hierarchy theorems lies in the intuition that
+with either more time or more space comes the ability to compute more
+functions (or decide more languages).  The hierarchy theorems are used
+to demonstrate that the time and space complexity classes form a
+hierarchy where classes with tighter bounds contain fewer languages
+than those with more relaxed bounds.  Here we define and prove the
+space hierarchy theorem.
+The space hierarchy theorems rely on the concept of space-constructible functions. The deterministic and nondeterministic space hierarchy theorems state that for all space-constructible functions f(n),
+
+SPACE(o(f(n)))⊊SPACE(f(n))𝖲𝖯𝖠𝖢𝖤(o(f(n)))⊊𝖲𝖯𝖠𝖢𝖤(f(n)),
+where SPACE stands for either DSPACE or NSPACE, and o refers to the little o notation.
+
+
+Statement[edit]
+Formally, a function f:N⟶N:ℕ⟶ℕ is space-constructible if f(n)≥log⁡n(n)≥log n and there exists a Turing machine
+which computes the function f(n)(n) in space O(f(n))(f(n)) when starting
+with an input 1n1^n, where 1n1^n represents a string of n consecutive 1s. Most of the common functions that we work with are space-constructible, including polynomials, exponents, and logarithms.
+For every space-constructible function f:N⟶N:ℕ⟶ℕ, there exists a language L that is decidable in space
+O(f(n))(f(n)) but not in space o(f(n))(f(n)).
+
+Proof[edit]
+The goal is to define a language that can be decided in space O(f(n))(f(n)) but not space o(f(n))(f(n)).  The language is defined as L:
+
+
+L=(⟨M⟩,10k):Musesspace≤f(|⟨M⟩,10k|)andtime≤2f(|⟨M⟩,10k|)andMdoesnotaccept(⟨M⟩,10k)={ (⟩,10^k):M(|⟩,10^k|)≤2^f(|⟩,10^k|)M(⟩,10^k) }
+
+
+For any machine M that decides a language in space o(f(n))(f(n)), L will differ in at least one spot from the language of M. Namely, for some large enough k, M will use space ≤f(|⟨M⟩,10k|)(|⟩,10^k|) on (⟨M⟩,10k)(⟩,10^k) and will therefore differ at its value.
+On the other hand, L is in SPACE(f(n))𝖲𝖯𝖠𝖢𝖤(f(n)). The algorithm for deciding the language L is as follows:
+
+On an input x, compute f(|x|)(|x|) using space-constructibility, and mark off f(|x|)(|x|) cells of tape. Whenever an attempt is made to use more than f(|x|)(|x|) cells, reject.
+If x is not of the form ⟨M⟩,10k⟩,10^k for some TM M, reject.
+Simulate M on input x for at most 2f(|x|)2^f(|x|) steps (using f(|x|)(|x|) space).  If the simulation tries to use more than f(|x|)(|x|) space or more than 2f(|x|)2^f(|x|) operations, then reject.
+If M accepted x during this simulation, then reject; otherwise, accept.
+Note on step 3: Execution is limited to 2f(|x|)2^f(|x|) steps in order to avoid the case where M does not halt on the input x.  That is, the case where M consumes space of only O(f(x))(f(x)) as required, but runs for infinite time.
+The above proof holds for the case of PSPACE, but some changes need to be made for the case of NPSPACE. The crucial point is that while on a deterministic TM, acceptance and rejection can be inverted (crucial for step 4), this is not possible on a non-deterministic machine.
+For the case of NPSPACE, L needs to be redefined first:
+
+
+L=(⟨M⟩,10k):Musesspace≤f(|⟨M⟩,10k|)andMaccepts(⟨M⟩,10k)={ (⟩,10^k):M(|⟩,10^k|)M(⟩,10^k) }
+
+
+Now, the algorithm needs to be changed to accept L by modifying step 4 to:
+
+If M accepted x during this simulation, then accept; otherwise, reject.
+L can not be decided by a TM using o(f(n))(f(n)) cells. Assuming L can be decided by some TM M using o(f(n))(f(n)) cells, and following from the Immerman–Szelepcsényi theorem, L¯L can also be determined by a TM (called M¯M) using o(f(n))(f(n)) cells. Here lies the contradiction, therefore the assumption must be false:
+
+If w=(⟨M¯⟩,10k)=(⟨M⟩,10^k) (for some large enough k) is not in L¯L then M will accept it, therefore M¯M rejects w, therefore w is in L¯L (contradiction).
+If w=(⟨M¯⟩,10k)=(⟨M⟩,10^k) (for some large enough k) is in L¯L then M will reject it, therefore M¯M accepts w, therefore w is not in L¯L (contradiction).
+Comparison and improvements[edit]
+The space hierarchy theorem is stronger than the analogous time hierarchy theorems in several ways:
+
+It only requires s(n) to be at least log n instead of at least n.
+It can separate classes with any asymptotic difference, whereas the time hierarchy theorem requires them to be separated by a logarithmic factor.
+It only requires the function to be space-constructible, not time-constructible.
+It seems to be easier to separate classes in space than in time. Indeed, whereas the time hierarchy theorem has seen little remarkable improvement since its inception, the nondeterministic space hierarchy theorem has seen at least one important improvement by Viliam Geffert in his 2003 paper "Space hierarchy theorem revised". This paper made several generalizations of the theorem:
+
+It relaxes the space-constructibility requirement. Instead of merely separating the union classes DSPACE(O(s(n))𝖣𝖲𝖯𝖠𝖢𝖤(O(s(n)) and DSPACE(o(s(n))𝖣𝖲𝖯𝖠𝖢𝖤(o(s(n)), it separates DSPACE(f(n))𝖣𝖲𝖯𝖠𝖢𝖤(f(n)) from DSPACE(g(n))𝖣𝖲𝖯𝖠𝖢𝖤(g(n)) where f(n)(n) is an arbitrary O(s(n))(s(n)) function and g(n) is a computable o(s(n))(s(n)) function. These functions need not be space-constructible or even monotone increasing.
+It identifies a unary language, or tally language, which is in one class but not the other. In the original theorem, the separating language was arbitrary.
+It does not require s(n)(n) to be at least log n; it can be any nondeterministically fully space-constructible function.
+Refinement of space hierarchy[edit]
+If space is measured as the number of cells used regardless of alphabet size, then SPACE(f(n))=SPACE(O(f(n)))𝖲𝖯𝖠𝖢𝖤(f(n))=𝖲𝖯𝖠𝖢𝖤(O(f(n))) because one can achieve any linear compression by switching to a larger alphabet.  However, by measuring space in bits, a much sharper separation is achievable for deterministic space.  Instead of being defined up to a multiplicative constant, space is now defined up to an additive constant.  However, because any constant amount of external space can be saved by storing the contents into the internal state, we still have SPACE(f(n))=SPACE(f(n)+O(1))𝖲𝖯𝖠𝖢𝖤(f(n))=𝖲𝖯𝖠𝖢𝖤(f(n)+O(1)).
+Assume that f is space-constructible.  SPACE is deterministic.
+
+For a wide variety of sequential computational models, including for Turing machines, SPACE(f(n)-ω(log(f(n)+n))) ⊊ SPACE(f(n)).  This holds even if SPACE(f(n)-ω(log(f(n)+n))) is defined using a different computational model than SPACE(f(n))𝖲𝖯𝖠𝖢𝖤(f(n)) because the different models can simulate each other with O(log⁡(f(n)+n))(log(f(n)+n)) space overhead.
+For certain computational models, we even have SPACE(f(n)-ω(1)) ⊊ SPACE(f(n)).  In particular, this holds for Turing machines if we fix the alphabet, the number of heads on the input tape, the number of heads on the worktape (using a single worktape), and add delimiters for the visited portion of the worktape (that can be checked without increasing space usage).  SPACE(f(n)) does not depend on whether the worktape is infinite or semi-infinite.  We can also have a fixed number of worktapes if f(n) is either a SPACE constructible tuple giving the per-tape space usage, or a SPACE(f(n)-ω(log(f(n)))-constructible number giving the total space usage (not counting the overhead for storing the length of each tape).
+The proof is similar to the proof of the space hierarchy theorem, but with two complications: The universal Turing machine has to be space-efficient, and the reversal has to be space-efficient. One can generally construct universal Turing machines with O(log⁡(space))(log(space)) space overhead, and under appropriate assumptions, just O(1)(1) space overhead (which may depend on the machine being simulated). For the reversal, the key issue is how to detect if the simulated machine rejects by entering an infinite (space-constrained) loop.  Simply counting the number of steps taken would increase space consumption by about f(n)(n).  At the cost of a potentially exponential time increase, loops can be detected space-efficiently as follows:[1]
+Modify the machine to erase everything and go to a specific configuration A on success. Use depth-first search to determine whether A is reachable in the space bound from the starting configuration. The search starts at A and goes over configurations that lead to A. Because of determinism, this can be done in place and without going into a loop.
+It can also be determined whether the machine exceeds a space bound (as opposed to looping within the space bound) by iterating over all configurations about to exceed the space bound and checking (again using depth-first search) whether the initial configuration leads to any of them.
+
+Corollaries[edit]
+Corollary 1[edit]
+For any two functions f1_1, f2:N⟶N_2:ℕ⟶ℕ, where f1(n)_1(n) is o(f2(n))(f_2(n)) and f2_2 is space-constructible, SPACE(f1(n))⊊SPACE(f2(n))𝖲𝖯𝖠𝖢𝖤(f_1(n))⊊𝖲𝖯𝖠𝖢𝖤(f_2(n)).
+This corollary lets us separate various space complexity classes.
+For any function nk^k is space-constructible for any natural
+number k. Therefore for any two natural numbers k1<k2_1<k_2 we can
+prove SPACE(nk1)⊊SPACE(nk2)𝖲𝖯𝖠𝖢𝖤(n^k_1)⊊𝖲𝖯𝖠𝖢𝖤(n^k_2). This idea can be extended for real numbers in the following corollary. This demonstrates the detailed hierarchy within the PSPACE class.
+
+Corollary 2[edit]
+For any two nonnegative real numbers a1<a2,SPACE(na1)⊊SPACE(na2)_1<a_2,𝖲𝖯𝖠𝖢𝖤(n^a_1)⊊𝖲𝖯𝖠𝖢𝖤(n^a_2).
+
+Corollary 3[edit]
+NL ⊊ PSPACE.
+Proof[edit]
+Savitch's theorem shows that NL⊆SPACE(log2⁡n)𝖭𝖫⊆𝖲𝖯𝖠𝖢𝖤(log^2n), while the space hierarchy theorem shows that SPACE(log2⁡n)⊊SPACE(n)𝖲𝖯𝖠𝖢𝖤(log^2n)⊊𝖲𝖯𝖠𝖢𝖤(n). The result is this corollary along with the fact that TQBF ∉ NL
+since TQBF is PSPACE-complete.
+This could also be proven using the non-deterministic space hierarchy theorem to show that NL ⊊ NPSPACE, and using Savitch's theorem to show that PSPACE = NPSPACE.
+
+Corollary 4[edit]
+PSPACE ⊊ EXPSPACE.
+This last corollary shows the existence of decidable problems that are intractable. In other words, their decision procedures must use more than polynomial space.
+
+Corollary 5[edit]
+There are problems in PSPACE requiring an arbitrarily large exponent to solve; therefore PSPACE does not collapse to DSPACE(nk) for some constant k.
+
+Corollary 6[edit]
+SPACE(n) ≠ PTIME.
+To see it, assume the contrary, thus any problem decided in space O(n)(n) is decided in time O(nc)(n^c), and any problem L decided in space  O(nb)(n^b) is decided in time O((nb)c)=O(nbc)((n^b)^c)=O(n^bc). Now P:=⋃k∈NDTIME(nk)𝖯:=⋃_k∈ℕ𝖣𝖳𝖨𝖬𝖤(n^k), thus P is closed under such a change of bound, that is ⋃k∈NDTIME(nbk)⊆P⋃_k∈ℕ𝖣𝖳𝖨𝖬𝖤(n^bk)⊆𝖯, so L∈P∈𝖯. This implies that for all b,SPACE(nb)⊆P⊆SPACE(n),𝖲𝖯𝖠𝖢𝖤(n^b)⊆𝖯⊆𝖲𝖯𝖠𝖢𝖤(n), but the space hierarchy theorem implies that SPACE(n2)⊈SPACE(n)𝖲𝖯𝖠𝖢𝖤(n^2)⊈𝖲𝖯𝖠𝖢𝖤(n), and Corollary 6 follows. Note that this argument neither proves that P⊈SPACE(n)𝖯⊈𝖲𝖯𝖠𝖢𝖤(n) nor that SPACE(n)⊈P𝖲𝖯𝖠𝖢𝖤(n)⊈𝖯, as to reach a contradiction we used the negation of both sentences, that is we used both inclusions, and can only deduce that at least one fails. It is currently unknown which fail(s) but conjectured that both do, that is that SPACE(n)𝖲𝖯𝖠𝖢𝖤(n) and P𝖯 are incomparable -at least for deterministic space.[2] This question is related to that of the time complexity of (nondeterministic) linear bounded automata which accept the complexity class NSPACE(n)𝖭𝖲𝖯𝖠𝖢𝖤(n) (aka as context-sensitive languages, CSL); so by the above CSL is not known to be decidable in polynomial time -see also Kuroda's two problems on LBA.
+
+See also[edit]
+Time hierarchy theorem
+References[edit]
+
+
+^ Sipser, Michael (1978). "Halting Space-Bounded Computations". Proceedings of the 19th Annual Symposium on Foundations of Computer Science.
+
+^ "How do we know that P != LINSPACE without knowing if one is a subset of the other?".
+
+
+Arora, Sanjeev; Barak, Boaz (2009). Computational complexity. A modern approach. Cambridge University Press. ISBN 978-0-521-42426-4. Zbl 1193.68112.
+Luca Trevisan. Notes on Hierarchy Theorems. Handout 7. CS172: Automata, Computability and Complexity. U.C. Berkeley. April 26, 2004.
+Viliam Geffert. Space hierarchy theorem revised. Theoretical Computer Science, volume 295, number 1–3, p. 171-187. February 24, 2003.
+Sipser, Michael (1997). Introduction to the Theory of Computation. PWS Publishing. ISBN 0-534-94728-X. Pages 306–310 of section 9.1: Hierarchy theorems.
+Papadimitriou, Christos (1993). Computational Complexity (1st ed.). Addison Wesley. ISBN 0-201-53082-1. Section 7.2: The Hierarchy Theorem, pp. 143–146.
+
+
+

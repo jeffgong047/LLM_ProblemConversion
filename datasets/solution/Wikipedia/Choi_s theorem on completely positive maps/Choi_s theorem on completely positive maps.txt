@@ -1,0 +1,165 @@
+Classification of completely positive maps
+In mathematics, Choi's theorem on completely positive maps is a result that classifies completely positive maps between finite-dimensional (matrix) C*-algebras. An infinite-dimensional algebraic generalization of Choi's theorem is known as Belavkin's "Radon–Nikodym" theorem for completely positive maps.
+
+
+Statement[edit]
+Choi's theorem. Let Φ:Cn×n→Cm×mΦ:ℂ^n→ℂ^m be a linear map. The following are equivalent:
+
+(i) Φ is n-positive (i.e. (idn⊗Φ)(A)∈Cn×n⊗Cm×m(id_n⊗Φ)(A)∈ℂ^n⊗ℂ^m is positive whenever A∈Cn×n⊗Cn×n∈ℂ^n⊗ℂ^n is positive).
+(ii) The matrix with operator entries
+CΦ=(idn⊗Φ)(∑ijEij⊗Eij)=∑ijEij⊗Φ(Eij)∈Cnm×nm_Φ=(id_n⊗Φ)(∑_ijE_ij_ij)=∑_ijE_ij⊗Φ(E_ij)∈ℂ^nm
+is positive, where Eij∈Cn×n_ij∈ℂ^n is the matrix with 1 in the ij-th entry and 0s elsewhere. (The matrix CΦ is sometimes called the Choi matrix of Φ.)
+(iii) Φ is completely positive.
+Proof[edit]
+(i) implies (ii)[edit]
+We observe that if
+
+E=∑ijEij⊗Eij,=∑_ijE_ij_ij,
+then E=E* and E2=nE, so E=n−1EE* which is positive. Therefore CΦ =(In ⊗ Φ)(E) is positive by the n-positivity of Φ.
+
+(iii) implies (i)[edit]
+This holds trivially.
+
+(ii) implies (iii)[edit]
+This mainly involves chasing the different ways of looking at Cnm×nm:
+
+Cnm×nm≅Cnm⊗(Cnm)∗≅Cn⊗Cm⊗(Cn⊗Cm)∗≅Cn⊗(Cn)∗⊗Cm⊗(Cm)∗≅Cn×n⊗Cm×m.ℂ^nm≅ℂ^nm⊗(ℂ^nm)^*≅ℂ^n⊗ℂ^m⊗(ℂ^n⊗ℂ^m)^*≅ℂ^n⊗(ℂ^n)^*⊗ℂ^m⊗(ℂ^m)^*≅ℂ^n⊗ℂ^m.
+Let the eigenvector decomposition of CΦ be
+
+CΦ=∑i=1nmλivivi∗,_Φ=∑_i=1^nmλ_iv_iv_i^*,
+where the vectors vi_i lie in Cnm . By assumption, each eigenvalue λiλ_i is non-negative so we can absorb the eigenvalues in the eigenvectors and redefine vi_i so that
+
+CΦ=∑i=1nmvivi∗. C_Φ=∑_i=1^nmv_iv_i^*.
+The vector space Cnm can be viewed as the direct sum ⊕i=1nCm⊕_i=1^nℂ^m compatibly with the above identification Cnm≅Cn⊗Cmℂ^nm≅ℂ^n⊗ℂ^m
+and the standard basis of Cn.
+If Pk ∈ Cm × nm is projection onto the k-th copy of Cm, then Pk* ∈ Cnm×m is the inclusion of Cm as the k-th summand of the direct sum and
+
+Φ(Ekl)=Pk⋅CΦ⋅Pl∗=∑i=1nmPkvi(Plvi)∗. Φ(E_kl)=P_k_Φ_l^*=∑_i=1^nmP_kv_i(P_lv_i)^*.
+Now if the operators Vi ∈ Cm×n are defined on the k-th standard
+basis vector ek of Cn by
+
+Viek=Pkvi, V_ie_k=P_kv_i,
+then
+
+Φ(Ekl)=∑i=1nmPkvi(Plvi)∗=∑i=1nmViekel∗Vi∗=∑i=1nmViEklVi∗.Φ(E_kl)=∑_i=1^nmP_kv_i(P_lv_i)^*=∑_i=1^nmV_ie_ke_l^*V_i^*=∑_i=1^nmV_iE_klV_i^*.
+Extending by linearity gives us
+
+Φ(A)=∑i=1nmViAVi∗Φ(A)=∑_i=1^nmV_iAV_i^*
+for any A ∈ Cn×n. Any map of this form is manifestly completely positive: the map A→ViAVi∗_iAV_i^* is completely positive, and the sum (across i) of completely positive operators is again completely positive. Thus ΦΦ is completely positive, the desired result.
+The above is essentially Choi's original proof. Alternative proofs have also been known.
+
+Consequences[edit]
+Kraus operators[edit]
+In the context of quantum information theory, the operators {Vi} are called the Kraus operators (after Karl Kraus) of Φ. Notice, given a completely positive Φ, its Kraus operators need not be unique. For example, any "square root" factorization of the Choi matrix CΦ = B∗B gives a set of Kraus operators.
+Let
+
+B∗=[b1,…,bnm],^*=[b_1,…,b_nm],
+where bi*'s are the row vectors of B, then
+
+CΦ=∑i=1nmbibi∗._Φ=∑_i=1^nmb_ib_i^*.
+The corresponding Kraus operators can be obtained by exactly the same argument from the proof.
+When the Kraus operators are obtained from the eigenvector decomposition of the Choi matrix, because the eigenvectors form an orthogonal set, the corresponding Kraus operators are also orthogonal in the Hilbert–Schmidt inner product. This is not true in general for Kraus operators obtained from square root factorizations. (Positive semidefinite matrices do not generally have a unique square-root factorizations.)
+If two sets of Kraus operators {Ai}1nm and {Bi}1nm represent the same completely positive map Φ, then there exists a unitary operator matrix
+
+Uijij∈Cnm2×nm2suchthatAi=∑j=1UijBj.{U_ij}_ij∈ℂ^nm^2^2  suchthat_i=∑_j=1U_ijB_j.
+This can be viewed as a special case of the result relating two minimal Stinespring representations.
+Alternatively, there is an isometry scalar matrix {uij}ij ∈ Cnm × nm such that
+
+Ai=∑j=1uijBj._i=∑_j=1u_ijB_j.
+This follows from the fact that for two square matrices M and N, M M* = N N* if and only if M = N U for some unitary U.
+
+Completely copositive maps[edit]
+It follows immediately from Choi's theorem that Φ is completely copositive if and only if it is of the form
+
+Φ(A)=∑iViATVi∗.Φ(A)=∑_iV_iA^TV_i^*.
+Hermitian-preserving maps[edit]
+Choi's technique can be used to obtain a similar result for a more general class of maps. Φ is said to be Hermitian-preserving if A is Hermitian implies Φ(A) is also Hermitian. One can show Φ is Hermitian-preserving if and only if it is of the form
+
+Φ(A)=∑i=1nmλiViAVi∗Φ(A)=∑_i=1^nmλ_iV_iAV_i^*
+where λi are real numbers, the eigenvalues of CΦ, and each Vi corresponds to an eigenvector of CΦ. Unlike the completely positive case, CΦ may fail to be positive. Since Hermitian matrices do not admit factorizations of the form B*B in general, the Kraus representation is no longer possible for a given Φ.
+
+See also[edit]
+Stinespring factorization theorem
+Quantum operation
+Holevo's theorem
+References[edit]
+M.-D. Choi, Completely Positive Linear Maps on Complex Matrices, Linear Algebra and its Applications, 10, 285–290 (1975).
+V. P. Belavkin, P. Staszewski, Radon-Nikodym Theorem for Completely Positive Maps, Reports on Mathematical Physics, v.24, No 1, 49–55 (1986).
+J. de Pillis, Linear Transformations Which Preserve Hermitian and Positive Semidefinite Operators, Pacific Journal of Mathematics, 23, 129–137 (1967).
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

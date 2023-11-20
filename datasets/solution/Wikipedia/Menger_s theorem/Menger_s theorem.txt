@@ -1,0 +1,97 @@
+Theorem in graph theory
+In the mathematical discipline of graph theory, Menger's theorem says that in a finite graph, the size of a minimum cut set is equal to the maximum number of disjoint paths that can be found between any pair of vertices.
+Proved by Karl Menger in 1927, it characterizes the connectivity of a graph.
+It is generalized by the max-flow min-cut theorem, which is a weighted, edge version, and which in turn is a special case of the strong duality theorem for linear programs.
+
+
+Edge connectivity[edit]
+The edge-connectivity version of Menger's theorem is as follows:
+
+Let G be a finite undirected graph and x and y two distinct vertices. Then the size of the minimum edge cut for x and y (the minimum number of edges whose removal disconnects x and y) is equal to the maximum number of pairwise edge-independent paths from x to y.
+Extended to all pairs: a graph is k-edge-connected (it remains connected after removing fewer than k edges) if and only if every pair of vertices has k edge-disjoint paths in between.
+Vertex connectivity[edit]
+The vertex-connectivity statement of Menger's theorem is as follows:
+
+Let G be a finite undirected graph and x and y two nonadjacent vertices. Then the size of the minimum vertex cut for x and y (the minimum number of vertices, distinct from x and y, whose removal disconnects x and y) is equal to the maximum number of pairwise internally vertex-disjoint paths from x to y.
+Extended to all pairs: a graph is k-vertex-connected (it has more than k vertices and it remains connected after removing fewer than k vertices) if and only if every pair of vertices has at least k internally vertex-disjoint paths in between.
+All these statements (in both edge and vertex versions) remain true in directed graphs (when considering directed paths).
+
+Short proof[edit]
+Most direct proofs consider a more general statement to allow proving it by induction. It is also convenient to use definitions that include some degenerate cases.
+The following proof for undirected graphs works without change for directed graphs or multi-graphs, provided we take path to mean directed path.
+For sets of vertices A,B ⊂ G (not necessarily disjoint), an AB-path is a path in G with a starting vertex in A, a final vertex in B, and no internal vertices in A or B. We allow a path with a single vertex in A ∩ B and zero edges.
+An AB-separator of size k is a set S of k vertices (which may intersect A and B) such that G−S contains no AB-path.
+An AB-connector of size k is a union of k vertex-disjoint AB-paths.
+
+Theorem: The minimum size of an AB-separator is equal to the maximum size of an AB-connector.
+In other words, if no k−1 vertices disconnect A from B, then there exist k disjoint paths from A to B.
+This variant implies the above vertex-connectivity statement: for x,y ∈ G in the previous section, apply the current theorem to G−{x,y} with A = N(x), B = N(y), the neighboring vertices of x,y.  Then a set of vertices disconnecting x and y is the same thing as an
+AB-separator, and removing the end vertices in a set of independent xy-paths gives an AB-connector.
+Proof of the Theorem:[1]
+Induction on the number of edges in G.
+For G with no edges, the minimum AB-separator is A ∩ B,
+which is itself an AB-connector consisting of single-vertex paths.
+For G having an edge e, we may assume by induction that the Theorem holds for G−e. If G−e has a minimal AB-separator of size k, then there is an AB-connector of size k in G−e, and hence in G.
+
+An illustration for the proof.
+Otherwise, let S be a AB-separator of G−e of size less than k,
+so that every AB-path in G contains a vertex of S or the edge e.
+The size of S must be k-1, since if it was less, S together with either endpoint of e would be a better AB-separator of G.
+In G−S there is an AB-path through e, since S alone is too small to be an AB-separator of G.
+Let v1 be the earlier and v2 be the later vertex of e on such a path.
+Then v1 is reachable from A but not from B in G−S−e, while v2 is reachable from B but not from A.
+Now, let S1 = S ∪ {v1}, and consider a minimum AS1-separator T in G−e.
+Since v2 is not reachable from A in G−S1, T is also an AS1-separator in G.
+Then T is also an AB-separator in G (because every AB-path intersects S1).
+Hence it has size at least k.
+By induction, G−e contains an AS1-connector C1 of size k.
+Because of its size, the endpoints of the paths in it must be exactly S1.
+Similarly, letting S2 = S  ∪ {v2}, a minimum S2B-separator has size k, and there is 
+an S2B-connector C2 of size k, with paths whose starting points are exactly S2.
+Furthermore, since S1 disconnects G, every path in C1 is internally disjoint from 
+every path in C2, and we can define an AB-connector of size k in G by concatenating paths (k−1 paths through S and one path going through e=v1v2). Q.E.D.
+
+Other proofs[edit]
+The directed edge version of the theorem easily implies the other versions.
+To infer the directed graph vertex version, it suffices to split each vertex v into two vertices v1, v2, with all ingoing edges going to v1, all outgoing edges going from v2, and an additional edge from v1 to v2.
+The directed versions of the theorem immediately imply undirected versions: it suffices to replace each edge of an undirected graph with a pair of directed edges (a digon).
+The directed edge version in turn follows from its weighted variant, the max-flow min-cut theorem.
+Its proofs are often correctness proofs for max flow algorithms.
+It is also a special case of the still more general (strong) duality theorem for linear programs.
+A formulation that for finite digraphs is equivalent to the above formulation is:
+
+Let A and B be sets of vertices in a finite digraph G. Then there exists a family P of disjoint AB-paths and an AB-separating set that consists of exactly one vertex from each path in P.
+In this version the theorem follows in fairly easily from Kőnig's theorem: in a bipartite graph, the minimal size of a cover is equal to the maximal size of a matching.
+This is done as follows: replace every vertex v in the original digraph D by two vertices v' , v'', and every edge uv by the edge u'v''; additionally, include the edges v'v'' for every vertex v that is neither in A nor B. This results in a bipartite graph, whose one side consists of the vertices v' , and the other of the vertices v''.
+Applying Kőnig's theorem we obtain a matching M and a cover C of the same size. In particular, exactly one endpoint of each edge of M is in C. Add to C all vertices a'', for a in A, and all vertices b' , for b in B. Let P be the set of all AB-paths composed of edges uv in D such that u'v'' belongs to M. Let Q in the original graph consist of all vertices v such that both v'  and v'' belong to C. It is straightforward to check that Q is an AB-separating set, that every path in the family P contains precisely one vertex from Q, and every vertex in Q lies on a path from P, as desired.[2]
+
+Infinite graphs[edit]
+Menger's theorem holds for infinite graphs, and in that context it applies to the minimum cut between any two elements that are either vertices or ends of the graph (Halin 1974). The following result of Ron Aharoni and Eli Berger was originally a conjecture proposed by Paul Erdős, and before being proved was known as the Erdős–Menger conjecture.
+It is equivalent to Menger's theorem when the graph is finite.
+
+Let A and B be sets of vertices in a (possibly infinite) digraph G. Then there exists a family P of disjoint A-B-paths and a separating set which consists of exactly one vertex from each path in P.
+See also[edit]
+Gammoid
+k-vertex-connected graph
+k-edge-connected graph
+Vertex separator
+References[edit]
+
+
+^ Göring, Frank (2000). "Short proof of Menger's theorem". Discrete Mathematics. 219 (1–3): 295–296. doi:10.1016/S0012-365X(00)00088-1.
+
+^ Aharoni, Ron (1983). "Menger's theorem for graphs containing no infinite paths". European Journal of Combinatorics. 4 (3): 201–4. doi:10.1016/S0195-6698(83)80012-2.
+
+
+Further reading[edit]
+Menger, Karl (1927). "Zur allgemeinen Kurventheorie". Fund. Math. 10: 96–115. doi:10.4064/fm-10-1-96-115.
+Aharoni, Ron; Berger, Eli (2008). "Menger's theorem for infinite graphs". Inventiones Mathematicae. 176 (1): 1–62. arXiv:math/0509397. Bibcode:2009InMat.176....1A. doi:10.1007/s00222-008-0157-3. S2CID 15355399.
+Halin, R. (1974). "A note on Menger's theorem for infinite locally finite graphs". Abhandlungen aus dem Mathematischen Seminar der Universität Hamburg. 40: 111–114. doi:10.1007/BF02993589. S2CID 120915644.
+External links[edit]
+A Proof of Menger's Theorem
+Menger's Theorems and Max-Flow-Min-Cut
+Network flow[permanent dead link]
+Max-Flow-Min-Cut[permanent dead link]
+
+
+

@@ -1,0 +1,107 @@
+Graph where all long cycles have a chord
+A cycle (black) with two chords (green). As for this part, the graph is chordal. However, removing one green edge would result in a non-chordal graph. Indeed, the other green edge with three black edges would form a cycle of length four with no chords.
+In the mathematical area of graph theory, a chordal graph is one in which all cycles of four or more vertices have a chord, which is an edge that is not part of the cycle but connects two vertices of the cycle. Equivalently, every induced cycle in the graph should have exactly three vertices. The chordal graphs may also be characterized as the graphs that have perfect elimination orderings, as the graphs in which each minimal separator is a clique, and as the intersection graphs of subtrees of a tree.  They are sometimes also called rigid circuit graphs[1] or  triangulated graphs.[2]
+Chordal graphs are a subset of the perfect graphs. They may be recognized in linear time, and several problems that are hard on other classes of graphs such as graph coloring may be solved in polynomial time when the input is chordal. The treewidth of an arbitrary graph may be characterized by the size of the cliques in the chordal graphs that contain it.
+
+
+Perfect elimination and efficient recognition[edit]
+A perfect elimination ordering in a graph is an ordering of the vertices of the graph such that, for each vertex v, v and the neighbors of v that occur after v in the order form a clique. A graph is chordal if and only if it has a perfect elimination ordering.[3]
+Rose, Lueker & Tarjan (1976) (see also Habib et al. 2000) show that a perfect elimination ordering of a chordal graph may be found efficiently using an algorithm known as lexicographic breadth-first search. This algorithm maintains a partition of the vertices of the graph into a sequence of sets; initially this sequence consists of a single set with all vertices. The algorithm repeatedly chooses a vertex v from the earliest set in the sequence that contains previously unchosen vertices, and splits each set S of the sequence into two smaller subsets, the first consisting of the neighbors of v in S and the second consisting of the non-neighbors. When this splitting process has been performed for all vertices, the sequence of sets has one vertex per set, in the reverse of a perfect elimination ordering.
+Since both this lexicographic breadth first search process and the process of testing whether an ordering is a perfect elimination ordering can be performed in linear time, it is possible to recognize chordal graphs in linear time.  The graph sandwich problem on chordal graphs is NP-complete[4] whereas the probe graph problem on chordal graphs has polynomial-time complexity.[5]
+The set of all perfect elimination orderings of a chordal graph can be modeled as the basic words of an antimatroid; Chandran et al. (2003) use this connection to antimatroids as part of an algorithm for efficiently listing all perfect elimination orderings of a given chordal graph.
+
+Maximal cliques and graph coloring[edit]
+Another application of perfect elimination orderings is finding a maximum clique of a chordal graph in polynomial-time, while the same problem for general graphs is NP-complete. More generally, a chordal graph can have only linearly many maximal cliques, while non-chordal graphs may have exponentially many. This implies that the class of chordal graphs has few cliques. To list all maximal cliques of a chordal graph, simply find a perfect elimination ordering, form a clique for each vertex v together with the neighbors of v that are later than v in the perfect elimination ordering, and test whether each of the resulting cliques is maximal.
+The clique graphs of chordal graphs are the dually chordal graphs.[6]
+The largest maximal clique is a maximum clique, and, as chordal graphs are perfect, the size of this clique equals the chromatic number of the chordal graph. Chordal graphs are perfectly orderable: an optimal coloring may be obtained by applying a greedy coloring algorithm to the vertices in the reverse of a perfect elimination ordering.[7]
+The chromatic polynomial of a chordal graph is easy to compute.  Find a perfect elimination ordering v1, v2, …, vn.  Let Ni equal the number of neighbors of vi that come after vi in that ordering.  For instance, Nn = 0.  The chromatic polynomial equals (x−N1)(x−N2)⋯(x−Nn).(x-N_1)(x-N_2)⋯(x-N_n).  (The last factor is simply x, so x divides the polynomial, as it should.)  Clearly, this computation depends on chordality.[8]
+
+Minimal separators[edit]
+In any graph, a vertex separator is a set of vertices the removal of which leaves the remaining graph disconnected; a separator is minimal if it has no proper subset that is also a separator. According to a theorem of Dirac (1961), chordal graphs are graphs in which each minimal separator is a clique; Dirac used this characterization to prove that chordal graphs are perfect.
+The family of chordal graphs may be defined inductively as the graphs whose vertices can be divided into three nonempty subsets A, S, and B, such that A∪S and S∪B both form chordal induced subgraphs, S is a clique, and there are no edges from A to B. That is, they are the graphs that have a recursive decomposition by clique separators into smaller subgraphs. For this reason, chordal graphs have also sometimes been called decomposable graphs.[9]
+
+Intersection graphs of subtrees[edit]
+A chordal graph with eight vertices, represented as the intersection graph of eight subtrees of a six-node tree.
+An alternative characterization of chordal graphs, due to Gavril (1974), involves trees and their subtrees.
+From a collection of subtrees of a tree, one can define a subtree graph, which is an intersection graph that has one vertex per subtree and an edge connecting any two subtrees that overlap in one or more nodes of the tree. Gavril showed that the subtree graphs are exactly the chordal graphs.
+A representation of a chordal graph as an intersection of subtrees forms a tree decomposition of the graph, with treewidth equal to one less than the size of the largest clique in the graph; the tree decomposition of any graph G can be viewed in this way as a representation of G as a subgraph of a chordal graph. The tree decomposition of a graph is also the junction tree of the junction tree algorithm.
+
+Relation to other graph classes[edit]
+Subclasses[edit]
+Interval graphs are the intersection graphs of subtrees of path graphs, a special case of trees. Therefore, they are a subfamily of chordal graphs.
+Split graphs are graphs that are both chordal and the complements of chordal graphs. Bender, Richmond & Wormald (1985) showed that, in the limit as n goes to infinity, the fraction of n-vertex chordal graphs that are split approaches one.
+Ptolemaic graphs are graphs that are both chordal and distance hereditary.
+Quasi-threshold graphs are a subclass of Ptolemaic graphs that are both chordal and cographs. Block graphs are another subclass of Ptolemaic graphs in which every two maximal cliques have at most one vertex in common. A special type is windmill graphs, where the common vertex is the same for every pair of cliques.
+Strongly chordal graphs are graphs that are chordal and contain no n-sun (for n ≥ 3) as an induced subgraph. Here an n-sun is an n-vertex chordal graph G together with a collection of n degree-two vertices, adjacent to the edges of a Hamiltonian cycle in G.
+K-trees are chordal graphs in which all maximal cliques and all maximal clique separators have the same size.[10] Apollonian networks are chordal maximal planar graphs, or equivalently planar 3-trees.[10] Maximal outerplanar graphs are a subclass of 2-trees, and therefore are also chordal.
+
+Superclasses[edit]
+Chordal graphs are a subclass of the well known perfect graphs. 
+Other superclasses of chordal graphs include weakly chordal graphs, cop-win graphs, odd-hole-free graphs, even-hole-free graphs, and Meyniel graphs. Chordal graphs are precisely the graphs that are both odd-hole-free and even-hole-free (see holes in graph theory).
+Every chordal graph is a strangulated graph, a graph in which every peripheral cycle is a triangle, because peripheral cycles are a special case of induced cycles. Strangulated graphs are graphs that can be formed by clique-sums of chordal graphs and maximal planar graphs. Therefore, strangulated graphs include maximal planar graphs.[11]
+
+Chordal completions and treewidth[edit]
+Main article: Chordal completion
+If G is an arbitrary graph, a chordal completion of G (or minimum fill-in) is a chordal graph that contains G as a subgraph. The parameterized version of minimum fill-in is fixed parameter tractable, and moreover, is solvable in parameterized subexponential time.[12][13]  
+The treewidth of G is one less than the number of vertices in a maximum clique of a chordal completion chosen to minimize this clique size.
+The k-trees are the graphs to which no additional edges can be added without increasing their treewidth to a number larger than k.
+Therefore, the k-trees are their own chordal completions, and form a subclass of the chordal graphs. Chordal completions can also be used to characterize several other related classes of graphs.[14]
+
+Notes[edit]
+
+
+^ Dirac (1961).
+
+^ Berge (1967).
+
+^ Fulkerson & Gross (1965).
+
+^ Bodlaender, Fellows & Warnow (1992).
+
+^ Berry, Golumbic & Lipshteyn (2007).
+
+^ Szwarcfiter & Bornstein (1994).
+
+^ Maffray (2003).
+
+^ For instance, Agnarsson (2003), Remark 2.5, calls this method well known.
+
+^ Peter Bartlett. "Undirected Graphical Models: Chordal Graphs, Decomposable Graphs, Junction Trees, and Factorizations" (PDF).
+
+^ a b Patil (1986).
+
+^ Seymour & Weaver (1984).
+
+^ Kaplan, Shamir & Tarjan (1999).
+
+^ Fomin & Villanger (2013).
+
+^ Parra & Scheffler (1997).
+
+
+References[edit]
+Agnarsson, Geir (2003), "On chordal graphs and their chromatic polynomials", Mathematica Scandinavica, 93 (2): 240–246, doi:10.7146/math.scand.a-14421, MR 2009583.
+Bender, E. A.; Richmond, L. B.; Wormald, N. C. (1985), "Almost all chordal graphs split", J. Austral. Math. Soc., A, 38 (2): 214–221, doi:10.1017/S1446788700023077, MR 0770128.
+Berge, Claude (1967), "Some Classes of Perfect Graphs", in Harary, Frank (ed.), Graph Theory and Theoretical Physics, Academic Press, pp. 155–165, MR 0232694.
+Berry, Anne; Golumbic, Martin Charles; Lipshteyn, Marina (2007), "Recognizing chordal probe graphs and cycle-bicolorable graphs", SIAM Journal on Discrete Mathematics, 21 (3): 573–591, doi:10.1137/050637091.
+Bodlaender, H. L.; Fellows, M. R.; Warnow, T. J. (1992), "Two strikes against perfect phylogeny" (PDF), Proc. of 19th International Colloquium on Automata Languages and Programming, Lecture Notes in Computer Science, vol. 623, pp. 273–283, doi:10.1007/3-540-55719-9_80, hdl:1874/16653.
+Chandran, L. S.; Ibarra, L.; Ruskey, F.; Sawada, J. (2003), "Enumerating and characterizing the perfect elimination orderings of a chordal graph" (PDF), Theoretical Computer Science, 307 (2): 303–317, doi:10.1016/S0304-3975(03)00221-4.
+Dirac, G. A. (1961), "On rigid circuit graphs" (PDF), Abhandlungen aus dem Mathematischen Seminar der Universität Hamburg, 25 (1–2): 71–76, doi:10.1007/BF02992776, MR 0130190, S2CID 120608513.
+Fomin, Fedor V.; Villanger, Yngve (2013), "Subexponential Parameterized Algorithm for Minimum Fill-In", SIAM J. Comput., 42 (6): 2197–2216, arXiv:1104.2230, doi:10.1137/11085390X, S2CID 934546.
+Fulkerson, D. R.; Gross, O. A. (1965), "Incidence matrices and interval graphs", Pacific J. Math., 15 (3): 835–855, doi:10.2140/pjm.1965.15.835.
+Gavril, Fănică (1974), "The intersection graphs of subtrees in trees are exactly the chordal graphs", Journal of Combinatorial Theory, Series B, 16: 47–56, doi:10.1016/0095-8956(74)90094-X.
+Golumbic, Martin Charles (1980), Algorithmic Graph Theory and Perfect Graphs, Academic Press.
+Habib, Michel; McConnell, Ross; Paul, Christophe; Viennot, Laurent (2000), "Lex-BFS and partition refinement, with applications to transitive orientation, interval graph recognition, and consecutive ones testing", Theoretical Computer Science, 234 (1–2): 59–84, doi:10.1016/S0304-3975(97)00241-7.
+Kaplan, Haim; Shamir, Ron; Tarjan, Robert (1999), "Tractability of Parameterized Completion Problems on Chordal, Strongly Chordal, and Proper Interval Graphs", SIAM J. Comput., 28 (5): 1906–1922, doi:10.1137/S0097539796303044.
+Maffray, Frédéric (2003), "On the coloration of perfect graphs", in Reed, Bruce A.; Sales, Cláudia L. (eds.), Recent Advances in Algorithms and Combinatorics, CMS Books in Mathematics, vol. 11, Springer-Verlag, pp. 65–84, doi:10.1007/0-387-22444-0_3, ISBN 0-387-95434-1.
+Parra, Andreas; Scheffler, Petra (1997), "Characterizations and algorithmic applications of chordal graph embeddings", Discrete Applied Mathematics, 79 (1–3): 171–188, doi:10.1016/S0166-218X(97)00041-3, MR 1478250.
+Patil, H. P. (1986), "On the structure of k-trees", Journal of Combinatorics, Information and System Sciences, 11 (2–4): 57–64, MR 0966069.
+Rose, D.; Lueker, George; Tarjan, Robert E. (1976), "Algorithmic aspects of vertex elimination on graphs", SIAM Journal on Computing, 5 (2): 266–283, doi:10.1137/0205021, MR 0408312.
+Seymour, P. D.; Weaver, R. W. (1984), "A generalization of chordal graphs", Journal of Graph Theory, 8 (2): 241–251, doi:10.1002/jgt.3190080206, MR 0742878.
+Szwarcfiter, J.L.; Bornstein, C.F. (1994), "Clique graphs of chordal and path graphs", SIAM Journal on Discrete Mathematics, 7 (2): 331–336, doi:10.1137/s0895480191223191, hdl:11422/1497.
+External links[edit]
+Information System on Graph Class Inclusions: chordal graph
+Weisstein, Eric W. "Chordal Graph". MathWorld.
+
+
+

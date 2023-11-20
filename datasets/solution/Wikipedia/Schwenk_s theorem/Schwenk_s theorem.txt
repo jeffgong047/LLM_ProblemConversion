@@ -1,0 +1,403 @@
+Mathematical problem set on a chessboard
+An open knight's tour of a chessboard
+An animation of an open knight's tour on a 5 × 5 board
+A knight's tour is a sequence of moves of a knight on a chessboard such that the knight visits every square exactly once. If the knight ends on a square that is one knight's move from the beginning square (so that it could tour the board again immediately, following the same path), the tour is closed (or re-entrant); otherwise, it is open.[1][2]
+The knight's tour problem is the mathematical problem of finding a knight's tour. Creating a program to find a knight's tour is a common problem given to computer science students.[3] Variations of the knight's tour problem involve chessboards of different sizes than the usual 8 × 8, as well as irregular (non-rectangular) boards.
+
+
+Theory[edit]
+Knight's graph showing all possible paths for a knight's tour on a standard 8 × 8 chessboard. The numbers on each node indicate the number of possible moves that can be made from that position.
+The knight's tour problem is an instance of the more general Hamiltonian path problem in graph theory. The problem of finding a closed knight's tour is similarly an instance of the Hamiltonian cycle problem. Unlike the general Hamiltonian path problem, the knight's tour problem can be solved in linear time.[4]
+
+
+History[edit]
+The knight's tour as solved by the Turk, a chess-playing machine hoax. This particular solution is closed (circular), and can thus be completed from any point on the board.
+The earliest known reference to the knight's tour problem dates back to the 9th century AD. In Rudrata's Kavyalankara[5] (5.15), a Sanskrit work on Poetics, the pattern of a knight's tour on a half-board has been presented as an elaborate poetic figure (citra-alaṅkāra) called the turagapadabandha or 'arrangement in the steps of a horse'. The same verse in four lines of eight syllables each can be read from left to right or by following the path of the knight on tour. Since the Indic writing systems used for Sanskrit are syllabic, each syllable can be thought of as representing a square on a chessboard. Rudrata's example is as follows:
+
+
+
+से
+ना
+ली
+ली
+ली
+ना
+ना
+ली
+
+
+ली
+ना
+ना
+ना
+ना
+ली
+ली
+ली
+
+
+न
+ली
+ना
+ली
+ले
+ना
+ली
+ना
+
+
+ली
+ली
+ली
+ना
+ना
+ना
+ना
+ली
+
+transliterated:
+
+
+
+se
+nā
+lī
+lī
+lī
+nā
+nā
+lī
+
+
+lī
+nā
+nā
+nā
+nā
+lī
+lī
+lī
+
+
+na
+lī
+nā
+lī
+le
+nā
+lī
+nā
+
+
+lī
+lī
+lī
+nā
+nā
+nā
+nā
+lī
+
+For example, the first line can be read from left to right or by moving from the first square to the second line, third syllable (2.3) and then to 1.5 to 2.7 to 4.8 to 3.6 to 4.4 to 3.2.
+The Sri Vaishnava poet and philosopher Vedanta Desika, during the 14th century, in his 1,008-verse magnum opus praising the deity Ranganatha's divine sandals of Srirangam, Paduka Sahasram (in chapter 30: Chitra Paddhati) has composed two consecutive Sanskrit verses containing 32 letters each (in Anushtubh meter) where the second verse can be derived from the first verse by performing a Knight's tour on a 4 × 8 board, starting from the top-left corner.[6] The transliterated 19th verse is as follows:
+
+
+
+sThi
+(1)
+
+
+rA
+(30)
+
+
+ga
+(9)
+
+
+sAm
+(20)
+
+
+sa
+(3)
+
+
+dhA
+(24)
+
+
+rA
+(11)
+
+
+dhyA
+(26)
+
+
+
+vi
+(16)
+
+
+ha
+(19)
+
+
+thA
+(2)
+
+
+ka
+(29)
+
+
+tha
+(10)
+
+
+thA
+(27)
+
+
+ma
+(4)
+
+
+thA
+(23)
+
+
+
+sa
+(31)
+
+
+thpA
+(8)
+
+
+dhu
+(17)
+
+
+kE
+(14)
+
+
+sa
+(21)
+
+
+rA
+(6)
+
+
+sA
+(25)
+
+
+mA
+(12)
+
+
+
+ran
+(18)
+
+
+ga
+(15)
+
+
+rA
+(32)
+
+
+ja
+(7)
+
+
+pa
+(28)
+
+
+dha
+(13)
+
+
+nna
+(22)
+
+
+ya
+(5)
+
+
+The 20th verse that can be obtained by performing Knight's tour on the above verse is as follows:
+sThi thA sa ma ya rA ja thpA
+ga tha rA mA dha kE ga vi |
+dhu ran ha sAm sa nna thA dhA
+sA dhyA thA pa ka rA sa rA ||
+It is believed that Desika composed all 1,008 verses (including the special Chaturanga Turanga Padabandham mentioned above) in a single night as a challenge.[7]
+A tour reported in the fifth book of Bhagavantabaskaraby by Bhat Nilakantha, a cyclopedic work in Sanskrit on ritual, law and politics, written either about 1600 or about 1700 describes three knight's tours. The tours are not only reentrant but also symmetrical, and the verses are based on the same tour, starting from different squares.[8] Nilakantha's work is an extraordinary achievement being a fully symmetric closed tour, predating the work of Euler (1759) by at least 60 years.
+
+A semimagic square (its diagonals do not sum to its magic constant, 260) also forming a knight's tour – no fully magic tours exist[9]
+After Nilakantha, one of the first mathematicians to investigate the knight's tour was Leonhard Euler. The first procedure for completing the knight's tour was Warnsdorf's rule, first described in 1823 by H. C. von Warnsdorf.
+In the 20th century, the Oulipo group of writers used it, among many others. The most notable example is the 10 × 10 knight's tour which sets the order of the chapters in Georges Perec's novel Life a User's Manual.
+The sixth game of the World Chess Championship 2010 between Viswanathan Anand and Veselin Topalov saw Anand making 13 consecutive knight moves (albeit using both knights); online commentators jested that Anand was trying to solve the knight's tour problem during the game.
+
+Existence[edit]
+A radially symmetric closed knight's tour
+Schwenk[10] proved that for any m × n board with m ≤ n, a closed knight's tour is always possible unless one or more of these three conditions are met:
+
+m and n are both odd
+m = 1, 2, or 4
+m = 3 and n = 4, 6, or 8.
+Cull et al. and Conrad et al. proved that on any rectangular board whose smaller dimension is at least 5, there is a (possibly open) knight's tour.[4][11] For any m × n board with m ≤ n, a knight's tour is always possible unless one or more of these three conditions are met: 
+
+m = 1 or 2
+m = 3 and n = 3, 5, or 6[12]
+m = 4 and n = 4.[13]
+Number of tours[edit]
+On an 8 × 8 board, there are exactly 26,534,728,821,064 directed closed tours (i.e. two tours along the same path that travel in opposite directions are counted separately, as are rotations and reflections).[14][15][16] The number of undirected closed tours is half this number, since every tour can be traced in reverse. There are 9,862 undirected closed tours on a 6 × 6 board.[17]
+
+
+
+n
+Number of directed tours (open and closed)on an n × n board(sequence A165134 in the OEIS)
+
+
+1
+1
+
+
+2
+0
+
+
+3
+0
+
+
+4
+0
+
+
+5
+1,728
+
+
+6
+6,637,920
+
+
+7
+165,575,218,320
+
+
+8
+19,591,828,170,979,904
+
+Finding tours with computers[edit]
+There are several ways to find a knight's tour on a given board with a computer. Some of these methods are algorithms, while others are heuristics.
+
+Brute-force algorithms[edit]
+A brute-force search for a knight's tour is impractical on all but the smallest boards.[18] For example, there are approximately 4×1051 possible move sequences on an 8 × 8 board,[19] and it is well beyond the capacity of modern computers (or networks of computers) to perform operations on such a large set. However, the size of this number is not indicative of the difficulty of the problem, which can be solved "by using human insight and ingenuity ... without much difficulty."[18]
+
+Divide-and-conquer algorithms[edit]
+By dividing the board into smaller pieces, constructing tours on each piece, and patching the pieces together, one can construct tours on most rectangular boards in linear time – that is, in a time proportional to the number of squares on the board.[11][20]
+
+Warnsdorff's rule[edit]
+
+abcdefgh8877665544332211abcdefghA graphical representation of Warnsdorff's Rule. Each square contains an integer giving the number of moves that the knight could make from that square. In this case, the rule tells us to move to the square with the smallest integer in it, namely 2.
+
+A very large (130 × 130) square open knight's tour created using Warnsdorff's Rule
+Warnsdorff's rule is a heuristic for finding a single knight's tour. The knight is moved so that it always proceeds to the square from which the knight will have the fewest onward moves. When calculating the number of onward moves for each candidate square, we do not count moves that revisit any square already visited. It is possible to have two or more choices for which the number of onward moves is equal; there are various methods for breaking such ties, including one devised by Pohl[21] and another by Squirrel and Cull.[22]
+This rule may also more generally be applied to any graph. In graph-theoretic terms, each move is made to the adjacent vertex with the least degree.[23] Although the Hamiltonian path problem is NP-hard in general, on many graphs that occur in practice this heuristic is able to successfully locate a solution in linear time.[21] The knight's tour is such a special case.[24]
+The heuristic was first described in "Des Rösselsprungs einfachste und allgemeinste Lösung" by H. C. von Warnsdorff in 1823.[24]
+A computer program that finds a knight's tour for any starting position using Warnsdorff's rule was written by Gordon Horsington and published in 1984 in the book Century/Acorn User Book of Computer Puzzles.[25]
+
+Neural network solutions[edit]
+Closed knight's tour on a 24 × 24 board solved by a neural network
+The knight's tour problem also lends itself to being solved by a neural network implementation.[26] The network is set up such that every legal knight's move is represented by a neuron, and each neuron is initialized randomly to be either "active" or "inactive" (output of 1 or 0), with 1 implying that the neuron is part of the solution. Each neuron also has a state function (described below) which is initialized to 0. 
+When the network is allowed to run, each neuron can change its state and output based on the states and outputs of its neighbors (those exactly one knight's move away) according to the following transition rules:
+
+Ut+1(Ni,j)=Ut(Ni,j)+2−∑N∈G(Ni,j)Vt(N)_t+1(N_i,j)=U_t(N_i,j)+2-∑_N(N_i,j)V_t(N)
+Vt+1(Ni,j)=1ifUt+1(Ni,j)>30ifUt+1(Ni,j)<0Vt(Ni,j)otherwise,_t+1(N_i,j)={[              1 U_t+1(N_i,j)>3;              0 U_t+1(N_i,j)<0;     V_t(N_i,j)              , ].
+where t represents discrete intervals of time, U(Ni,j)(N_i,j) is the state of the neuron connecting square i to square j, V(Ni,j)(N_i,j) is the output of the neuron from i to j, and G(Ni,j)(N_i,j) is the set of neighbors of the neuron.
+Although divergent cases are possible, the network should eventually converge, which occurs when no neuron changes its state from time t to t+1+1. When the network converges, either the network encodes a knight's tour or a series of two or more independent circuits within the same board.
+
+See also[edit]
+Abu Bakr bin Yahya al-Suli
+Eight queens puzzle
+George Koltanowski
+Longest uncrossed knight's path
+Self-avoiding walk
+Notes[edit]
+
+
+^ Brown, Alfred James (2017). Knight's Tours and Zeta Functions (MS thesis). San José State University. p. 3. doi:10.31979/etd.e7ra-46ny.
+
+^ Hooper, David; Whyld, Kenneth (1996) [First pub. 1992]. "knight's tour". The Oxford Companion to Chess (2nd ed.). Oxford University Press. p. 204. ISBN 0-19-280049-3.
+
+^ Deitel, H. M.; Deitel, P. J. (2003). Java How To Program Fifth Edition (5th ed.). Prentice Hall. pp. 326–328. ISBN 978-0131016217.
+
+^ a b Conrad, A.; Hindrichs, T.; Morsy, H. & Wegener, I. (1994). "Solution of the Knight's Hamiltonian Path Problem on Chessboards". Discrete Applied Mathematics. 50 (2): 125–134. doi:10.1016/0166-218X(92)00170-Q.
+
+^ 
+Satyadev, Chaudhary. Kavyalankara of Rudrata (Sanskrit text, with Hindi translation);. Delhitraversal: Parimal Sanskrit Series No. 30.
+
+^ "Indian Institute of Information Technology, Bangalore". www.iiitb.ac.in. Retrieved 2019-10-11.
+
+^ Bridge-india (2011-08-05). "Bridge-India: Paduka Sahasram by Vedanta Desika". Bridge-India. Retrieved 2019-10-16.
+
+^ A History of Chess by Murray
+
+^ "MathWorld News: There Are No Magic Knight's Tours on the Chessboard".
+
+^ Allen J. Schwenk (1991). "Which Rectangular Chessboards Have a Knight's Tour?" (PDF). Mathematics Magazine. 64 (5): 325–332. doi:10.1080/0025570X.1991.11977627. S2CID 28726833. Archived from the original (PDF) on 2019-05-26.
+
+^ a b Cull, P.; De Curtins, J. (1978). "Knight's Tour Revisited" (PDF). Fibonacci Quarterly. 16: 276–285. Archived (PDF) from the original on 2022-10-09.
+
+^ "Knight's Tours on 3 by N Boards".
+
+^ "Knight's Tours on 4 by N Boards".
+
+^ Martin Loebbing; Ingo Wegener (1996). "The Number of Knight's Tours Equals 33,439,123,484,294 — Counting with Binary Decision Diagrams". The Electronic Journal of Combinatorics. 3 (1): R5. doi:10.37236/1229. Remark: The authors later admitted that the announced number is incorrect. According to McKay's report, the correct number is 13,267,364,410,532 and this number is repeated in Wegener's 2000 book.
+
+^ Brendan McKay (1997). "Knight's Tours on an 8 × 8 Chessboard". Technical Report TR-CS-97-03. Department of Computer Science, Australian National University. Archived from the original on 2013-09-28. Retrieved 2013-09-22.
+
+^ Wegener, I. (2000). Branching Programs and Binary Decision Diagrams. Society for Industrial & Applied Mathematics. ISBN 978-0-89871-458-6.
+
+^ Weisstein, Eric W. "Knight Graph". MathWorld.
+
+^ a b Simon, Dan (2013), Evolutionary Optimization Algorithms, John Wiley & Sons, pp. 449–450, ISBN 9781118659502, The knight's tour problem is a classic combinatorial optimization problem. ... The cardinality Nx of x (the size of the search space) is over 3.3×1013 (Löbbing and Wegener, 1995). We would not want to try to solve this problem using brute force, but by using human insight and ingenuity we can solve the knight's tour without much difficulty. We see that the cardinality of a combinatorial optimization problem is not necessarily indicative of its difficulty.
+
+^ "Enumerating the Knight's Tour".[dead link]
+
+^ Parberry, Ian (1997). "An Efficient Algorithm for the Knight's Tour Problem" (PDF). Discrete Applied Mathematics. 73 (3): 251–260. doi:10.1016/S0166-218X(96)00010-8. Archived (PDF) from the original on 2022-10-09.
+
+^ a b Pohl, Ira (July 1967). "A method for finding Hamilton paths and Knight's tours". Communications of the ACM. 10 (7): 446–449. CiteSeerX 10.1.1.412.8410. doi:10.1145/363427.363463. S2CID 14100648.
+
+^ Squirrel, Douglas; Cull, P. (1996). "A Warnsdorff-Rule Algorithm for Knight's Tours on Square Boards" (PDF). GitHub. Retrieved 2011-08-21.
+
+^ Van Horn, Gijs; Olij, Richard; Sleegers, Joeri; Van den Berg, Daan (2018). A Predictive Data Analytic for the Hardness of Hamiltonian Cycle Problem Instances (PDF). DATA ANALYTICS 2018: The Seventh International Conference on Data Analytics. Athens, greece: XPS. pp. 91–96. ISBN 978-1-61208-681-1. Archived (PDF) from the original on 2022-10-09. Retrieved 2018-11-27.[permanent dead link]
+
+^ a b Alwan, Karla; Waters, K. (1992). Finding Re-entrant Knight's Tours on N-by-M Boards. ACM Southeast Regional Conference. New York, New York: ACM. pp. 377–382. doi:10.1145/503720.503806.
+
+^ Dally, Simon, ed. (1984). Century/Acorn User Book of Computer Puzzles. ISBN 978-0712605410.
+
+^ Y. Takefuji, K. C. Lee. "Neural network computing for knight's tour problems." Neurocomputing, 4(5):249–254, 1992.
+
+
+External links[edit]
+ Media related to Knight's Tours at Wikimedia Commons
+OEIS sequence A001230 (Number of undirected closed knight's tours on a 2n X 2n chessboard)
+H. C. von Warnsdorf 1823 in Google Books
+Introduction to Knight's tours by George Jelliss
+Knight's tours complete notes by George Jelliss
+Philip, Anish (2013). "A Generalized Pseudo-Knight?s Tour Algorithm for Encryption of an Image". IEEE Potentials. 32 (6): 10–16. doi:10.1109/MPOT.2012.2219651. S2CID 39213422.
+
+
+

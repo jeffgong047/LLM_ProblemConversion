@@ -1,0 +1,245 @@
+Generalization of the inverse function theorem
+In the mathematical field of analysis, the Nash–Moser theorem, discovered by mathematician John Forbes Nash and named for him and Jürgen Moser, is a generalization of the inverse function theorem on Banach spaces to settings when the required solution mapping for the linearized problem is not bounded.
+
+
+Introduction[edit]
+In contrast to the Banach space case, in which the invertibility of the derivative at a point is sufficient for a map to be locally invertible, the Nash–Moser theorem requires the derivative to be invertible in a neighborhood. The theorem is widely used to prove local existence for non-linear partial differential equations in spaces of smooth functions. It is particularly useful when the inverse to the derivative "loses" derivatives, and therefore the Banach space implicit function theorem cannot be used.
+
+History[edit]
+The Nash–Moser theorem traces back to Nash (1956), who proved the theorem in the special case of the isometric embedding problem. It is clear from his paper that his method can be generalized. Moser (1966a, 1966b), for instance, showed that Nash's methods could be successfully applied to solve problems on periodic orbits in celestial mechanics in the KAM theory. However, it has proven quite difficult to find a suitable general formulation; there is, to date, no all-encompassing version; various versions due to Gromov, Hamilton, Hörmander, Saint-Raymond, Schwartz, and Sergeraert are given in the references below. That of Hamilton's, quoted below, is particularly widely cited.
+
+The problem of loss of derivatives[edit]
+This will be introduced in the original setting of the Nash–Moser theorem, that of the isometric embedding problem. Let ΩΩ be an open subset of Rnℝ^n. Consider the map
+P:C1(Ω;RN)→C0(Ω;Symn×n(R)):C^1(Ω;ℝ^N)^0(Ω;Sym_n(ℝ))
+given by
+P(f)ij=∑α=1N∂fα∂ui∂fα∂uj.(f)_ij=∑_α=1^N^α/^i^α/^j.
+In Nash's solution of the isometric embedding problem (as would be expected in the solutions of nonlinear partial differential equations) a major step is a statement of the schematic form "If f is such that P(f) is positive-definite, then for any matrix-valued function g which is close to P(f), there exists fg with P(fg) = g."
+Following standard practice, one would expect to apply the Banach space inverse function theorem. So, for instance, one might expect to restrict P to C5(Ω;ℝN) and, for an immersion f in this domain, to study the linearization C5(Ω;RN) → C4(Ω;Symn×n(R)) given by
+f ↦∑α=1N∂fα∂ui∂f β∂uj+∑α=1N∂f α∂ui∂fβ∂uj.f↦∑_α=1^N^α/^i∂f^β/^j+∑_α=1^N∂f^α/^i^β/^j.
+If one could show that this were invertible, with bounded inverse, then the Banach space inverse function theorem directly applies.
+However, there is a deep reason that such a formulation cannot work. The issue is that there is a second-order differential operator of P(f) which coincides with a second-order differential operator applied to f. To be precise: if f is an immersion then
+RP(f)=|H(f)|2−|h(f)|P(f)2,^P(f)=|H(f)|^2-|h(f)|_P(f)^2,
+where RP(f) is the scalar curvature of the Riemannian metric P(f), H(f) denotes the mean curvature of the immersion f, and h(f) denotes its second fundamental form; the above equation is the Gauss equation from surface theory. So, if P(f) is C4, then RP(f) is generally only C2. Then, according to the above equation, f can generally be only C4; if it were C5 then |H|2−|h|2 would have to be at least C3. The source of the problem can be quite succinctly phrased in the following way: the Gauss equation shows that there is a differential operator Q such that the order of the composition of Q with P is less than the sum of the orders of P and Q.
+In context, the upshot is that the inverse to the linearization of P, even if it exists as a map C∞(Ω;Symn×n(R)) → C∞(Ω;RN), cannot be bounded between appropriate Banach spaces, and hence the Banach space implicit function theorem cannot be applied.
+By exactly the same reasoning, one cannot directly apply the Banach space implicit function theorem even if one uses the Hölder spaces, the Sobolev spaces, or any of the Ck spaces. In any of these settings, an inverse to the linearization of P will fail to be bounded.
+This is the problem of loss of derivatives. A very naive expectation is that, generally, if P is an order k differential operator, then if P(f) is in Cm then f must be in Cm+k. However, this is somewhat rare. In the case of uniformly elliptic differential operators, the famous Schauder estimates show that this naive expectation is borne out, with the caveat that one must replace the Ck spaces with the Hölder spaces Ck,α; this causes no extra difficulty whatsoever for the application of the Banach space implicit function theorem. However, the above analysis shows that this naive expectation is not borne out for the map which sends an immersion to its induced Riemannian metric; given that this map is of order 1, one does not gain the "expected" one derivative upon inverting the operator. The same failure is common in geometric problems, where the action of the diffeomorphism group is the root cause, and in problems of hyperbolic differential equations, where even in the very simplest problems one does not have the naively expected smoothness of a solution. All of these difficulties provide common contexts for applications of the Nash–Moser theorem.
+
+The schematic form of Nash's solution[edit]
+This section only aims to describe an idea, and as such it is intentionally imprecise. For concreteness, suppose that P is an order-one differential operator on some function spaces, so that it defines a map P: Ck+1 → Ck for each k. Suppose that, at some Ck+1 function f, the linearization DPf: Ck+1 → Ck has a right inverse S: Ck → Ck; in the above language this reflects a "loss of one derivative". One can concretely see the failure of trying to use Newton's method to prove the Banach space implicit function theorem in this context: if g∞ is close to P(f) in Ck and one defines the iteration
+fn+1=fn+S(g∞−P(fn)),_n+1=f_n+S(g_∞-P(f_n)),
+then f1∈Ck+1 implies that g∞−P(fn) is in Ck, and then f2 is in Ck. By the same reasoning, f3 is in Ck-1, and f4 is in Ck-2, and so on. In finitely many steps the iteration must end, since it will lose all regularity and the next step will not even be defined.
+Nash's solution is quite striking in its simplicity. Suppose that for each n>0 one has a smoothing operator θn which takes a Ck function, returns a smooth function, and approximates the identity when n is large. Then the "smoothed" Newton iteration
+fn+1=fn+S(θn(g∞−P(fn)))_n+1=f_n+S(θ_n(g_∞-P(f_n)))
+transparently does not encounter the same difficulty as the previous "unsmoothed" version, since it is an iteration in the space of smooth functions which never loses regularity. So one has a well-defined sequence of functions; the major surprise of Nash's approach is that this sequence actually converges to a function f∞ with P(f∞) = g∞. For many mathematicians, this is rather surprising, since the "fix" of throwing in a smoothing operator seems too superficial to overcome the deep problem in the standard Newton method. For instance, on this point Mikhael Gromov says
+
+You must be a novice in analysis or a genius like Nash to believe anything like that can be ever true. [...] [This] may strike you as realistic as a successful performance of perpetuum mobile with a mechanical implementation of Maxwell’s demon... unless you start following Nash’s computation and realize to your immense surprise that the smoothing does work.
+Remark. The true "smoothed Newton iteration" is a little more complicated than the above form, although there are a few inequivalent forms, depending on where one chooses to insert the smoothing operators. The primary difference is that one requires invertibility of DPf for an entire open neighborhood of choices of f, and then one uses the "true" Newton iteration, corresponding to (using single-variable notation)
+xn+1=xn−f(xn)f′(xn)_n+1=x_n-f(x_n)/f'(x_n)
+as opposed to
+xn+1=xn−f(xn)f′(x0),_n+1=x_n-f(x_n)/f'(x_0),
+the latter of which reflects the forms given above. This is rather important, since the improved quadratic convergence of the "true" Newton iteration is significantly used to combat the error of "smoothing," in order to obtain convergence. Certain approaches, in particular Nash's and Hamilton's, follow the solution of an ordinary differential equation in function space rather than an iteration in function space; the relation of the latter to the former is essentially that of the solution of Euler's method to that of a differential equation.
+
+Hamilton's formulation of the theorem[edit]
+See also: Differentiation in Fréchet spaces § Tame Fréchet spaces
+The following statement appears in Hamilton (1982):
+
+Let F and G be tame Fréchet spaces, let U⊆F be an open subset, and let P:U→G:U be a smooth tame map. Suppose that for each f∈U the linearization dPf:F→G_f:F is invertible, and the family of inverses, as a map U×G→F,, is smooth tame. Then P is locally invertible, and each local inverse P−1^-1 is a smooth tame map.
+Similarly, if each linearization is only injective, and a family of left inverses is smooth tame, then P is locally injective. And if each linearization is only surjective, and a family of right inverses is smooth tame, then P is locally surjective with a smooth tame right inverse.
+
+Tame Fréchet spaces[edit]
+A graded Fréchet space consists of the following data:
+
+a vector space F
+a countable collection of seminorms ‖⋅‖n:F→R · _n:F→ℝ such that ‖f‖0≤‖f‖1≤‖f‖2≤⋯f_0≤f_1≤f_2≤⋯ for all f∈F.. One requires these to satisfy the following conditions:
+if f∈F is such that ‖f‖n=0f_n=0 for all n=0,1,2,…=0,1,2,… then f=0=0
+if fj∈F_j is a sequence such that, for each n=0,1,2,…=0,1,2,… and every ε>0ε>0 there exists Nn,ε_n,ε such that j,k>Nn,ε,k>N_n,ε implies ‖fj−fk‖n<ε,f_j-f_k_n<ε, then there exists f∈F such that, for each n,, one has limj→∞‖fj−f‖n=0.lim_j→∞f_j-f_n=0.
+Such a graded Fréchet space is called a tame Fréchet space if it satisfies the following condition:
+
+there exists a Banach space B and linear maps L:F→Σ(B):F→Σ(B) and M:Σ(B)→F:Σ(B) such that M is a right inverse of L,, and such that:
+there exists r and b such that for each n>b>b there is a number Cn_n such that supk∈Nenk‖L(f)k‖B≤Cn‖f‖r+nsup_k∈ℕe^nkL(f)_k_B_nf_r+n for every f∈F,, and ‖M(xi)‖n≤Cnsupk∈Ne(r+n)k‖xk‖BM({x_i})_n_nsup_k∈ℕe^(r+n)kx_k_B for every xi∈Σ(B).{x_i}∈Σ(B).
+Here Σ(B)Σ(B) denotes the vector space of exponentially decreasing sequences in B,, that is,
+Σ(B)=mapsx:N→Bs.t.supk∈Nenk‖xk‖B<∞foralln∈N.Σ(B)={mapsx:ℕs.t.sup_k∈ℕe^nkx_k_B<∞foralln∈ℕ}.
+The laboriousness of the definition is justified by the primary examples of tamely graded Fréchet spaces:
+
+If M is a compact smooth manifold (with or without boundary) then C∞(M)^∞(M) is a tamely graded Fréchet space, when given any of the following graded structures:
+take ‖f‖nf_n to be the Cn^n-norm of f
+take ‖f‖nf_n to be the Cn,α^n,α-norm of f for fixed αα
+take ‖f‖nf_n to be the Wn,p^n,p-norm of f for fixed p
+If M is a compact smooth manifold-with-boundary then C0∞(M),_0^∞(M), the space of smooth functions whose derivatives all vanish on the boundary, is a tamely graded Fréchet space, with any of the above graded structures.
+If M is a compact smooth manifold and V→M is a smooth vector bundle, then the space of smooth sections is tame, with any of the above graded structures.
+To recognize the tame structure of these examples, one topologically embeds M in a Euclidean space, B is taken to be the space of L1^1 functions on this Euclidean space, and the map L is defined by dyadic restriction of the Fourier transform. The details are in pages 133-140 of Hamilton (1982).
+Presented directly as above, the meaning and naturality of the "tame" condition is rather obscure. The situation is clarified if one re-considers the basic examples given above, in which the relevant "exponentially decreasing" sequences in Banach spaces arise from restriction of a Fourier transform. Recall that smoothness of a function on Euclidean space is directly related to the rate of decay of its Fourier transform. "Tameness" is thus seen as a condition which allows an abstraction of the idea of a "smoothing operator" on a function space. Given a Banach space B and the corresponding space Σ(B)Σ(B) of exponentially decreasing sequences in B,, the precise analogue of a smoothing operator can be defined in the following way. Let s:R→R:ℝ→ℝ be a smooth function which vanishes on (−∞,0),(-∞,0), is identically equal to one on (1,∞),(1,∞), and takes values only in the interval [0,1].[0,1]. Then for each real number t define θt:Σ(B)→Σ(B)θ_t:Σ(B)→Σ(B) by
+(θtx)i=s(t−i)xi.(θ_tx)_i=s(t-i)x_i.
+If one accepts the schematic idea of the proof devised by Nash, and in particular his use of smoothing operators, the "tame" condition then becomes rather reasonable.
+
+Smooth tame maps[edit]
+Let F and G be graded Fréchet spaces. Let U be an open subset of F, meaning that for each f∈U there are n∈N∈ℕ and ε>0ε>0 such that ‖f−f1‖<εf-f_1<ε implies that f1_1 is also contained in U.
+A smooth map P:U→G:U is called a tame smooth map if for all k∈N∈ℕ the derivative DkP:U×F×⋯×F→G^kP:U×⋯ satisfies the following:
+
+there exist r and b such that n>b>b implies
+‖DkP(f,h1,…,hk)‖n≤Cn(‖f‖n+r+‖h1‖n+r+⋯+‖hk‖n+r+1)D^kP(f,h_1,…,h_k)_n_n(f_n+r+h_1_n+r+⋯+h_k_n+r+1)
+
+for all (f,h1,…,hk)∈U×F×⋯×F(f,h_1,…,h_k)×⋯.
+The fundamental example says that, on a compact smooth manifold, a nonlinear partial differential operator (possibly between sections of vector bundles over the manifold) is a smooth tame map; in this case, r can be taken to be the order of the operator.
+
+Proof of the theorem[edit]
+Let S denote the family of inverse mappings U×G→F.. Consider the special case that F and G are spaces of exponentially decreasing sequences in Banach spaces, i.e. F=Σ(B) and G=Σ(C). (It is not too difficult to see that this is sufficient to prove the general case.) For a positive number c, consider the ordinary differential equation in Σ(B) given by
+f′=cS(θt(f),θt(g∞−P(f))).'=cS(θ_t(f),θ_t(g_∞-P(f))).
+Hamilton shows that if P(0)=0(0)=0 and g∞_∞ is sufficiently small in Σ(C), then the solution of this differential equation with initial condition f(0)=0(0)=0 exists as a mapping [0,∞) → Σ(B), and that f(t) converges as t→∞ to a solution of P(f)=g∞.(f)=g_∞.
+
+References[edit]
+
+
+
+Gromov, M. L. (1972), "Smoothing and inversion of differential operators", Mat. Sb., New Series, 88 (130): 382–441, MR 0310924
+Gromov, Mikhael (1986). Partial Differential Relations. Ergebnisse der Mathematik und ihrer Grenzgebiete (3). Springer-Verlag, Berlin. ISBN 3-540-12177-3. MR 0864505.
+Hamilton, Richard S. (1982), "The inverse function theorem of Nash and Moser" (PDF-12MB), Bulletin of the American Mathematical Society, New Series, 7 (1): 65–222, doi:10.1090/S0273-0979-1982-15004-2, MR 0656198
+Hörmander, Lars (1976), "The boundary problems of physical geodesy", Arch. Rational Mech. Anal., 62 (1): 1–52, doi:10.1007/BF00251855, MR 0602181, S2CID 117923577
+Hörmander, L. (1977), "Correction to: "The boundary problems of physical geodesy"", Arch. Rational Mech. Anal., 65 (44): 395, doi:10.1007/BF00250435, MR 0602188
+Moser, Jürgen (1966a), "A rapidly convergent iteration method and non-linear partial differential equations. I", Ann. Scuola Norm. Sup. Pisa (3), 20: 265–315, MR 0199523
+Moser, Jürgen (1966b), "A rapidly convergent iteration method and non-linear partial differential equations. II", Ann. Scuola Norm. Sup. Pisa (3), 20: 499–535, MR 0206461
+Nash, John (1956), "The imbedding problem for Riemannian manifolds", Annals of Mathematics, 63 (1): 20–63, doi:10.2307/1969989, JSTOR 1969989, MR 0075639.
+Saint-Raymond, Xavier (1989), "A simple Nash-Moser implicit function theorem", Enseign. Math. (2), 35 (3–4): 217–226, MR 1039945
+Schwartz, J. (1960), "On Nash's implicit functional theorem", Comm. Pure Appl. Math., 13 (3): 509–530, doi:10.1002/cpa.3160130311, MR 0114144
+Sergeraert, Francis (1972), "Un théorème de fonctions implicites sur certains espaces de Fréchet et quelques applications", Ann. Sci. École Norm. Sup. (4), 5 (4): 599–660, doi:10.24033/asens.1239, MR 0418140
+Zehnder, E. (1975), "Generalized implicit function theorems with applications to some small divisor problems. I", Comm. Pure Appl. Math., 28: 91–140, doi:10.1002/cpa.3160280104, MR 0380867
+Zehnder, E. (1976), "Generalized implicit function theorems with applications to some small divisor problems. II", Comm. Pure Appl. Math., 29 (1): 49–111, doi:10.1002/cpa.3160290104, MR 0426055
+
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteAnalysis in topological vector spacesBasic concepts
+Abstract Wiener space
+Classical Wiener space
+Bochner space
+Convex series
+Cylinder set measure
+Infinite-dimensional vector function
+Matrix calculus
+Vector calculus
+Derivatives
+Differentiable vector–valued functions from Euclidean space
+Differentiation in Fréchet spaces
+Fréchet derivative
+Total
+Functional derivative
+Gateaux derivative
+Directional
+Generalizations of the derivative
+Hadamard derivative
+Holomorphic
+Quasi-derivative
+Measurability
+Besov measure
+Cylinder set measure
+Canonical Gaussian
+Classical Wiener measure
+Measure like set functions
+infinite-dimensional Gaussian measure
+Projection-valued
+Vector
+Bochner / Weakly / Strongly measurable function
+Radonifying function
+Integrals
+Bochner
+Direct integral
+Dunford
+Gelfand–Pettis/Weak
+Regulated
+Paley–Wiener
+Results
+Cameron–Martin theorem
+Inverse function theorem
+Nash–Moser theorem
+Feldman–Hájek theorem
+No infinite-dimensional Lebesgue measure
+Sazonov's theorem
+Structure theorem for Gaussian measures
+Related
+Crinkled arc
+Covariance operator
+Functional calculus
+Borel functional calculus
+Continuous functional calculus
+Holomorphic functional calculus
+Applications
+Banach manifold (bundle)
+Convenient vector space
+Choquet theory
+Fréchet manifold
+Hilbert manifold
+
+
+
+

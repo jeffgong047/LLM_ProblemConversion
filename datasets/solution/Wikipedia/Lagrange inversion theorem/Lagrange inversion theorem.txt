@@ -1,0 +1,146 @@
+Formula for the Taylor series expansion of the inverse function of an analytic function
+In mathematical analysis, the Lagrange inversion theorem, also known as the Lagrange–Bürmann formula, gives the Taylor series expansion of the inverse function of an analytic function.
+
+
+Statement[edit]
+Suppose z is defined as a function of w by an equation of the form
+
+z=f(w)=f(w)
+where f is analytic at a point a and f′(a)≠0.'(a)≠0. Then it is possible to invert or solve the equation for w, expressing it in the form w=g(z)=g(z) given by a power series[1]
+
+g(z)=a+∑n=1∞gn(z−f(a))nn!,(z)=a+∑_n=1^∞g_n(z-f(a))^n/n!,
+where
+
+gn=limw→adn−1dwn−1[(w−af(w)−f(a))n]._n=lim_wd^n-1/dw^n-1[(w-a/f(w)-f(a))^n].
+The theorem further states that this series has a non-zero radius of convergence, i.e., g(z)(z) represents an analytic function of z in a neighbourhood of z=f(a).=f(a). This is also called reversion of series.
+If the assertions about analyticity are omitted, the formula is also valid for formal power series and can be generalized in various ways: It can be formulated for functions of several variables; it can be extended to provide a ready formula for F(g(z)) for any analytic function F; and it can be generalized to the case f′(a)=0,'(a)=0, where the inverse g is a multivalued function.
+The theorem was proved by Lagrange[2] and generalized by Hans Heinrich Bürmann,[3][4][5] both in the late 18th century. There is a straightforward derivation using complex analysis and contour integration;[6] the complex formal power series version is a consequence of knowing the formula for polynomials, so the theory of analytic functions may be applied. Actually, the machinery from analytic function theory enters only in a formal way in this proof, in that what is really needed is some property of the formal residue, and a more direct formal proof is available.
+
+If f is a formal power series, then the above formula does not give the coefficients of the compositional inverse series g directly in terms for the coefficients of the series f. If one can express the functions f and g in formal power series as
+
+f(w)=∑k=0∞fkwkk!andg(z)=∑k=0∞gkzkk!(w)=∑_k=0^∞f_kw^k/k!    and(z)=∑_k=0^∞g_kz^k/k!
+with f0 = 0 and f1 ≠ 0, then an explicit form of inverse coefficients can be given in term of Bell polynomials:[7]
+
+gn=1f1n∑k=1n−1(−1)kn(k)Bn−1,k(f^1,f^2,…,f^n−k),n≥2,_n=1/f_1^n∑_k=1^n-1(-1)^kn^(k)B_n-1,k(f̂_1,f̂_2,…,f̂_n-k),≥2,
+where
+
+f^k=fk+1(k+1)f1,g1=1f1,andn(k)=n(n+1)⋯(n+k−1)f̂_k   =f_k+1/(k+1)f_1,
+g_1   =1/f_1,and
+n^(k)   =n(n+1)⋯(n+k-1)
+is the rising factorial. 
+When f1 = 1, the last formula can be interpreted in terms of the faces of associahedra [8]
+
+gn=∑FfaceofKn(−1)n−dim⁡FfF,n≥2,_n=∑_FfaceofK_n(-1)^n-f_F,≥2,
+where fF=fi1⋯fim_F=f_i_1_i_m for each face F=Ki1×⋯×Kim=K_i_1×⋯_i_m of the associahedron Kn._n.
+
+Example[edit]
+For instance, the algebraic equation of degree p
+
+xp−x+z=0^p-x+z=0
+can be solved for x by means of the Lagrange inversion formula for the function f(x) = x − xp,  resulting in a formal series solution
+
+x=∑k=0∞(pkk)z(p−1)k+1(p−1)k+1.=∑_k=0^∞pkkz^(p-1)k+1/(p-1)k+1.
+By convergence tests, this series is in fact convergent for |z|≤(p−1)p−p/(p−1),|z|≤(p-1)p^-p/(p-1), which is also the largest disk in which a local inverse to f can be defined.
+
+Sketch of the proof[edit]
+For simplicity suppose z=0=f(w=0)=0=f(w=0). We can then compute
+
+∮w=0dw2πi1f(w)−z=∮w=0dw2πi1f′(g(z))w+O(w2)=1f′(g(z))=g′(f(w))=g′(z).∮_w=0dw/21/f(w)-z=∮_w=0dw/21/f'(g(z))w+O(w^2)=1/f'(g(z))=g'(f(w))=g'(z).
+If we expand the integrand using the geometric series we get
+
+∮w=0dw2πi1f(w)−z=∑n=0∞zn∮w=0dw2πi1(f(w))n+1=∑n=0∞zn∮w=0dw2πi1wn+1(wf(w))n+1=∑n=0∞znn!dndwn(wf(w))n+1|w=0,∮_w=0dw/21/f(w)-z=∑_n=0^∞z^n∮_w=0dw/21/(f(w))^n+1=∑_n=0^∞z^n∮_w=0dw/21/w^n+1(w/f(w))^n+1=∑_n=0^∞z^n/n!.d^n/dw^n(w/f(w))^n+1|_w=0,
+where in the last step we used the fact that f(w)(w) has one simple zero.
+Finally we can integrate over z taking into account g(0)=0(0)=0
+
+g′(z)=∑n=0∞znn!dndwn(wf(w))n+1|w=0⟹g(z)=∑n=0∞zn+1(n+1)!dndwn(wf(w))n+1|w=0.'(z)=∑_n=0^∞z^n/n!.d^n/dw^n(w/f(w))^n+1|_w=0  ⟹  g(z)=∑_n=0^∞z^n+1/(n+1)!.d^n/dw^n(w/f(w))^n+1|_w=0.
+Upon a redefiniton of the summation index we get the stated formula.
+
+Applications[edit]
+Lagrange–Bürmann formula[edit]
+There is a special case of Lagrange inversion theorem that is used in combinatorics and applies when f(w)=w/ϕ(w)(w)=w/ϕ(w) for some analytic ϕ(w)ϕ(w) with ϕ(0)≠0.ϕ(0)≠0. Take a=0=0 to obtain f(a)=f(0)=0.(a)=f(0)=0. Then for the inverse g(z)(z) (satisfying f(g(z))≡z(g(z))), we have
+
+g(z)=∑n=1∞[limw→0dn−1dwn−1((ww/ϕ(w))n)]znn!=∑n=1∞1n[1(n−1)!limw→0dn−1dwn−1(ϕ(w)n)]zn,g(z)   =∑_n=1^∞[lim_w→0d^n-1/dw^n-1((w/w/ϕ(w))^n)]z^n/n!
+   =∑_n=1^∞1/n[1/(n-1)!lim_w→0d^n-1/dw^n-1(ϕ(w)^n)]z^n,
+which can be written alternatively as
+
+[zn]g(z)=1n[wn−1]ϕ(w)n,[z^n]g(z)=1/n[w^n-1]ϕ(w)^n,
+where [wr][w^r] is an operator which extracts the coefficient of wr^r in the Taylor series of a function of w.
+A generalization of the formula is known as the Lagrange–Bürmann formula:
+
+[zn]H(g(z))=1n[wn−1](H′(w)ϕ(w)n)[z^n]H(g(z))=1/n[w^n-1](H'(w)ϕ(w)^n)
+where H is an arbitrary analytic function.
+Sometimes, the derivative H′(w) can be quite complicated. A simpler version of the formula replaces H′(w) with H(w)(1 − φ′(w)/φ(w)) to get 
+
+[zn]H(g(z))=[wn]H(w)ϕ(w)n−1(ϕ(w)−wϕ′(w)),[z^n]H(g(z))=[w^n]H(w)ϕ(w)^n-1(ϕ(w)-wϕ'(w)),
+which involves φ′(w) instead of H′(w).
+
+Lambert W function[edit]
+Main article: Lambert W function
+The Lambert W function is the function W(z)(z) that is implicitly defined by the equation
+
+W(z)eW(z)=z.(z)e^W(z)=z.
+We may use the theorem to compute the Taylor series of W(z)(z) at z=0.=0. We take f(w)=wew(w)=we^w and a=0.=0. Recognizing that
+
+dndxneαx=αneαx,d^n/dx^ne^=α^ne^,
+this gives
+
+W(z)=∑n=1∞[limw→0dn−1dwn−1e−nw]znn!=∑n=1∞(−n)n−1znn!=z−z2+32z3−83z4+O(z5).W(z)   =∑_n=1^∞[lim_w→0d^n-1/dw^n-1e^-nw]z^n/n!
+   =∑_n=1^∞(-n)^n-1z^n/n!
+   =z-z^2+3/2z^3-8/3z^4+O(z^5).
+The radius of convergence of this series is e−1^-1 (giving the principal branch of the Lambert function).
+A series that converges for |ln(z)−1|<4+π2|ln(z)-1|<4+π^2 (approximately 2.58…⋅10−6<z<2.869…⋅1062.58…·10^-6<z<2.869…·10^6) can also be derived by series inversion.  The function f(z)=W(ez)−1(z)=W(e^z)-1 satisfies the equation
+
+1+f(z)+ln⁡(1+f(z))=z.1+f(z)+ln(1+f(z))=z.
+Then z+ln⁡(1+z)+ln(1+z) can be expanded into a power series and inverted.[9]  This gives a series for f(z+1)=W(ez+1)−1:(z+1)=W(e^z+1)-1:
+
+W(e1+z)=1+z2+z216−z3192−z43072+13z561440−O(z6).(e^1+z)=1+z/2+z^2/16-z^3/192-z^4/3072+13z^5/61440-O(z^6).
+W(x)(x) can be computed by substituting ln⁡x−1-1 for z in the above series. For example, substituting −1 for z gives the value of W(1)≈0.567143.(1)≈0.567143.
+
+Binary trees[edit]
+Consider[10] the set Bℬ of unlabelled binary trees. An element of Bℬ is either a leaf of size zero, or a root node with two subtrees.  Denote by Bn_n the number of binary trees on n nodes.
+Removing the root splits a binary tree into two trees of smaller size.  This yields the functional equation on the generating function B(z)=∑n=0∞Bnzn:(z)=∑_n=0^∞B_nz^n:
+
+B(z)=1+zB(z)2.(z)=1+zB(z)^2.
+Letting C(z)=B(z)−1(z)=B(z)-1, one has thus C(z)=z(C(z)+1)2.(z)=z(C(z)+1)^2. Applying the theorem with ϕ(w)=(w+1)2ϕ(w)=(w+1)^2 yields
+
+Bn=[zn]C(z)=1n[wn−1](w+1)2n=1n(2nn−1)=1n+1(2nn)._n=[z^n]C(z)=1/n[w^n-1](w+1)^2n=1/n2nn-1=1/n+12nn.
+This shows that Bn_n is the nth Catalan number.
+
+Asymptotic approximation of integrals[edit]
+In the Laplace-Erdelyi theorem that gives the asymptotic approximation for Laplace-type integrals, the function inversion is taken as a crucial step.
+
+See also[edit]
+Faà di Bruno's formula gives coefficients of the composition of two formal power series in terms of the coefficients of those two series.  Equivalently, it is a formula for the nth derivative of a composite function.
+Lagrange reversion theorem for another theorem sometimes called the inversion theorem
+Formal power series#The Lagrange inversion formula
+References[edit]
+
+
+^ M. Abramowitz; I. A. Stegun, eds. (1972). "3.6.6. Lagrange's Expansion". Handbook of Mathematical Functions with Formulas, Graphs, and Mathematical Tables. New York: Dover. p. 14.
+
+^ Lagrange, Joseph-Louis (1770). "Nouvelle méthode pour résoudre les équations littérales par le moyen des séries". Histoire de l'Académie Royale des Sciences et Belles-Lettres de Berlin: 251–326. https://archive.org/details/uvresdelagrange18natigoog/page/n13 (Note:  Although Lagrange submitted this article in 1768, it was not published until 1770.)
+
+^ Bürmann, Hans Heinrich, "Essai de calcul fonctionnaire aux constantes ad-libitum," submitted in 1796 to the Institut National de France. For a summary of this article, see: Hindenburg, Carl Friedrich, ed. (1798). "Versuch einer vereinfachten Analysis; ein Auszug eines Auszuges von Herrn Bürmann" [Attempt at a simplified analysis; an extract of an abridgement by Mr. Bürmann]. Archiv der reinen und angewandten Mathematik [Archive of pure and applied mathematics]. Vol. 2. Leipzig, Germany: Schäferischen Buchhandlung. pp. 495–499.
+
+^ Bürmann, Hans Heinrich, "Formules du développement, de retour et d'integration," submitted to the Institut National de France. Bürmann's manuscript survives in the archives of the École Nationale des Ponts et Chaussées [National School of Bridges and Roads] in Paris. (See ms. 1715.)
+
+^ A report on Bürmann's theorem by Joseph-Louis Lagrange and Adrien-Marie Legendre appears in:  "Rapport sur deux mémoires d'analyse du professeur Burmann," Mémoires de l'Institut National des Sciences et Arts: Sciences Mathématiques et Physiques, vol. 2, pages 13–17 (1799).
+
+^ E. T. Whittaker and G. N. Watson. A Course of Modern Analysis. Cambridge University Press; 4th edition (January 2, 1927), pp. 129–130
+
+^ Eqn (11.43), p. 437, C.A. Charalambides, Enumerative Combinatorics, Chapman & Hall / CRC, 2002
+
+^ Aguiar, Marcelo; Ardila, Federico (2017). "Hopf monoids and generalized permutahedra". arXiv:1709.07504 [math.CO].
+
+^ Corless, Robert M.; Jeffrey, David J.; Knuth, Donald E. (July 1997). "A sequence of series for the Lambert W function". Proceedings of the 1997 international symposium on Symbolic and algebraic computation. pp. 197–204.
+
+^ Harris, John; Hirst, Jeffry L.; Mossinghoff, Michael (2008). Combinatorics and Graph Theory. Springer. p. 185-189. ISBN 978-0387797113.
+
+
+External links[edit]
+Weisstein, Eric W. "Bürmann's Theorem". MathWorld.
+Weisstein, Eric W. "Series Reversion". MathWorld.
+Bürmann–Lagrange series at Springer EOM
+
+
+

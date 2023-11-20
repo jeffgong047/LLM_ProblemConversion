@@ -1,0 +1,381 @@
+Truncated Puiseux expansions for the cubic curve y2=x3+x2^2=x^3+x^2 at the double point x=y=0=y=0. Darker colors indicate more terms.
+Power series with rational exponents
+In mathematics, Puiseux series are a generalization of power series that allow for negative and fractional exponents of the indeterminate. For example, the series
+
+x−2+2x−1/2+x1/3+2x11/6+x8/3+x5+⋯=x−12/6+2x−3/6+x2/6+2x11/6+x16/6+x30/6+⋯x^-2   +2x^-1/2+x^1/3+2x^11/6+x^8/3+x^5+⋯
+   =x^-12/6+2x^-3/6+x^2/6+2x^11/6+x^16/6+x^30/6+⋯
+is a Puiseux series in the indeterminate x.  Puiseux series were first introduced by Isaac Newton in 1676[1] and rediscovered by Victor Puiseux in 1850.[2]
+The definition of a Puiseux series includes that the denominators of the exponents must be bounded. So, by reducing exponents to a common denominator n, a Puiseux series becomes a Laurent series in an nth root of the indeterminate. For example, the example above is a Laurent series in x1/6.^1/6. Because a complex number has n nth roots, a convergent Puiseux series typically defines n functions in a neighborhood of 0.
+Puiseux's theorem, sometimes also called the Newton–Puiseux theorem, asserts that, given a polynomial equation P(x,y)=0(x,y)=0 with complex coefficients, its solutions in y, viewed as functions of x, may be expanded as Puiseux series in x that are convergent in some neighbourhood of 0. In other words, every branch of an algebraic curve may be locally described by a Puiseux series in x (or in x − x0 when considering branches above a neighborhood of x0 ≠ 0).
+Using modern terminology, Puiseux's theorem asserts that the set of Puiseux series over an algebraically closed field of characteristic 0 is itself an algebraically closed field, called the field of Puiseux series. It is the algebraic closure of the field of formal Laurent series, which itself is the field of fractions of the  ring of formal power series.
+
+
+Definition[edit]
+If K is a field (such as the complex numbers), a Puiseux series with coefficients in K is an expression of the form
+
+f=∑k=k0+∞ckTk/n=∑_k=k_0^+∞c_kT^k/n
+where n is a positive integer and k0_0 is an integer. In other words, Puiseux series differ from Laurent series in that they allow for fractional exponents of the indeterminate, as long as these fractional exponents have bounded denominator (here n). Just as with Laurent series, Puiseux series allow for negative exponents of the indeterminate as long as these negative exponents are bounded below (here by k0_0). Addition and multiplication are as expected: for example,
+
+(T−1+2T−1/2+T1/3+⋯)+(T−5/4−T−1/2+2+⋯)=T−5/4+T−1+T−1/2+2+⋯(T^-1+2T^-1/2+T^1/3+⋯)+(T^-5/4-T^-1/2+2+⋯)=T^-5/4+T^-1+T^-1/2+2+⋯
+and
+
+(T−1+2T−1/2+T1/3+⋯)⋅(T−5/4−T−1/2+2+⋯)=T−9/4+2T−7/4−T−3/2+T−11/12+4T−1/2+⋯.(T^-1+2T^-1/2+T^1/3+⋯)·(T^-5/4-T^-1/2+2+⋯)=T^-9/4+2T^-7/4-T^-3/2+T^-11/12+4T^-1/2+⋯.
+One might define them by first "upgrading" the denominator of the exponents to some common denominator N and then performing the operation in the corresponding field of formal Laurent series of T1/N^1/N.
+The Puiseux series with coefficients in K form a field, which is the union
+
+⋃n>0K((T1/n))⋃_n>0K((T^1/n))
+of fields of formal Laurent series in T1/n^1/n (considered as an indeterminate).
+This yields an alternative definition of the field of Puiseux series in terms of a direct limit. For every positive integer n, let Tn_n be an indeterminate (meant to represent T1/n^1/n), and K((Tn))((T_n)) be the field of formal Laurent series in Tn._n. If m divides n, the mapping Tm↦(Tn)n/m_m↦(T_n)^n/m induces a field homomorphism K((Tm))→K((Tn)),((T_m))((T_n)), and these homomorphisms form a direct system that has the field of Puiseux series as a direct limit. The fact that every field homomorphism is injective shows that this direct limit can be identified with the above union, and that the two definitions are equivalent (up to an isomorphism).
+
+Valuation[edit]
+A nonzero Puiseux series f can be uniquely written as
+
+f=∑k=k0+∞ckTk/n=∑_k=k_0^+∞c_kT^k/n
+with ck0≠0._k_0≠0. The valuation
+
+v(f)=k0n(f)=k_0/n
+of f is the smallest exponent for the natural order of the rational numbers, and the corresponding coefficient ck0_k_0 is called the initial coefficient or valuation coefficient of f. The valuation of the zero series is +∞.+∞.
+The function v is a valuation and makes the Puiseux series a valued field, with the additive group Qℚ of the rational numbers as its valuation group.
+As for every valued fields, the valuation defines a ultrametric distance by the formula d(f,g)=exp⁡(−v(f−g)).(f,g)=exp(-v(f-g)). For this distance, the field of Puiseux series is a metric space. The notation
+
+f=∑k=k0+∞ckTk/n=∑_k=k_0^+∞c_kT^k/n
+expresses that a Puiseux is the limit of its partial sums. However, the field of Puiseux series is not complete; see below § Levi–Civita field.
+
+Convergent Puiseux series[edit]
+Puiseux series provided by Newton–Puiseux theorem are convergent in the sense that there is a neighborhood of zero in which they are convergent (0 excluded if the valuation is negative).
+More precisely, let
+
+f=∑k=k0+∞ckTk/n=∑_k=k_0^+∞c_kT^k/n
+be a Puiseux series with complex coefficients. There is a real number r, called the radius of convergence such that the series converges if T is substituted for a nonzero complex number t of absolute value less than r, and r is the largest number with this property. A Puiseux series is convergent if it has a nonzero radius of convergence.
+Because a nonzero complex number has n nth roots, some care must be taken for the substitution: a specific nth root of t, say x, must be chosen. Then the substitution consists of replacing Tk/n^k/n by xk^k for every k.
+The existence of the radius of convergence results from the similar existence for a power series, applied to T−k0/nf,^-k_0/nf, considered as a power series in T1/n.^1/n.
+It is a part of Newton–Puiseux theorem that the provided Puiseux series have a positive radius  of convergence, and thus define a (multivalued) analytic function in some neighborhood of zero (zero itself possibly excluded).
+
+Valuation and order on coefficients[edit]
+If the base field K is ordered, then the field of Puiseux series over K is also naturally (“lexicographically”) ordered as follows: a non-zero Puiseux series f with 0 is declared positive whenever its valuation coefficient is so. Essentially, this means that any positive rational power of the indeterminate T is made positive, but smaller than any positive element in the base field K.
+If the base field K is endowed with a valuation w, then we can construct a different valuation on the field of Puiseux series over K by letting the valuation w^(f)ŵ(f) be ω⋅v+w(ck),ω+w(c_k), where v=k/n=k/n is the previously defined valuation (ck_k is the first non-zero coefficient) and ωω is infinitely large (in other words, the value group of w^ŵ is Q×Γℚ×Γ ordered lexicographically, where ΓΓ is the value group of w). Essentially, this means that the previously defined valuation v is corrected by an infinitesimal amount to take into account the valuation w given on the base field.
+
+Newton–Puiseux theorem[edit]
+As early as 1671,[3] Isaac Newton implicitly used Puiseux series and proved the following theorem for approximating with series the roots of algebraic equations whose coefficients are functions that are themselves approximated with series or polynomials. For this purpose, he introduced the Newton polygon, which remains a fundamental tool in this context. Newton worked with truncated series, and it is only in 1850 that Victor Puiseux[2] introduced the concept of (non-truncated) Puiseux series and proved the theorem that is now known as Puiseux's theorem or Newton–Puiseux theorem.[4] The theorem asserts that, given an algebraic equation whose coefficients are polynomials or, more generally, Puiseux series over a field of characteristic zero, every solution of the equation can be expressed as a Puiseux series. Moreover, the proof provides an algorithm for computing these Puiseux series, and, when working over the complex numbers, the resulting series are convergent.
+In modern terminology, the theorem can be restated as: the field of Puiseux series over an algebraically closed field of characteristic zero, and the field of convergent Puiseux series over the complex numbers, are both algebraically closed.
+
+Newton polygon[edit]
+See also: Newton polygon
+Let
+
+P(y)=∑ai≠0ai(x)yi(y)=∑_a_i≠0a_i(x)y^i
+be a polynomial whose nonzero coefficients ai(x)_i(x) are polynomials, power series, or even Puiseux series in x. In this section, the valuation v(ai)(a_i) of ai_i is the lowest exponent of x in ai._i. (Most of what follows applies more generally to coefficients in any valued ring.)
+For computing the Puiseux series that are roots of P (that is solutions of the functional equation P(y)=0(y)=0), the first thing to do is to compute the valuation of the roots. This is the role of the Newton polygon.
+Let consider, in a Cartesian plane, the points of coordinates (i,v(ai)).(i,v(a_i)). The Newton polygon of P is the lower convex hull of these points. That is, the edges of the Newton polygon are the line segments joigning two of these points, such that all these points are not below the line supporting the segment (below is, as usually, relative to the value of the second coordinate).
+Given a Puiseux series y0_0 of valuation v0_0, the valuation of P(y0)(y_0) is at least the minimum of the numbers iv0+v(ai),_0+v(a_i), and is equal to this minimum if this minimum is reached for only one i. So, for y0_0 being a root of P, the minimum must be reached at least twice. That is, there must be two values i1_1 and i2_2 of i such that i1v0+v(ai1)=i2v0+v(ai2),_1v_0+v(a_i_1)=i_2v_0+v(a_i_2), and iv0+v(ai)≥i1v0+v(ai1)_0+v(a_i)_1v_0+v(a_i_1) for every i.
+That is, (i1,v(ai1))(i_1,v(a_i_1)) and (i2,v(ai2))(i_2,v(a_i_2)) must belong to an edge of the Newton polygon, and
+v0=−v(ai1)−v(ai2)i1−i2_0=-v(a_i_1)-v(a_i_2)/i_1-i_2
+must be the opposite of the slope of this edge. This is a rational number as soon as all valuations v(ai)(a_i) are rational numbers, and this is the reason for introducing rational exponents in Puiseux series.
+In summary, the valuation of a root of P must be the opposite of a slope of an edge of the Newton polynomial.
+The initial coefficient of a Puiseux series solution of P(y)=0(y)=0 can easily be deduced. Let ci_i be the initial coefficient of ai(x),_i(x), that is, the coefficient of xv(ai)^v(a_i) in ai(x)._i(x). Let −v0-v_0 be a slope of the Newton polygon, and γx0v0_0^v_0 be the initial term of a corresponding Puiseux series solution of P(y)=0.(y)=0. If no cancellation would occur, then the initial coefficient of P(y)(y) would be ∑i∈Iciγi,∑_ic_iγ^i,
+where I is the set of the indices i such that (i,v(ai))(i,v(a_i)) belongs to the edge of slope v0_0 of the Newton polygon. So, for having a root, the initial coefficient γγ must be a nonzero root of the polynomial
+χ(x)=∑i∈Icixiχ(x)=∑_ic_ix^i
+(this notation will be used in the next section).
+In summary, the Newton polynomial allows an easy computation of all possible initial terms of Puiseux series that are solutions of P(y)=0.(y)=0.
+The proof of Newton–Puiseux theorem will consist of starting from these initial terms for computing recursively the next terms of the Puiseux series solutions.
+
+Constructive proof[edit]
+Let suppose that the first term γxv0^v_0 of a Puiseux series solution of P(y)=0(y)=0 has been be computed by the method of the preceding section. It remains to compute z=y−γxv0.=y-^v_0. For this, we set y0=γxv0,_0=^v_0, and write the Taylor expansion of P at z=y−y0:=y-y_0:
+
+Q(z)=P(y0+z)=P(y0)+zP′(y0)+⋯+zjP(j)(y0)j!+⋯(z)=P(y_0+z)=P(y_0)+zP'(y_0)+⋯+z^jP^(j)(y_0)/j!+⋯
+This is a polynomial in z whose coefficients are Puiseux series in x. One may apply to it the method of the Newton polygon, and iterate for getting the terms of the Puiseux series, one after the other. But some care is required for insuring that v(z)>v0,(z)>v_0, and showing that one get a Puiseux series, that is, that the denominators of the exponents of x remain bounded.
+The derivation with respect to y does not change the valuation in x of the coefficients; that is,
+
+v(P(j)(y0)zj)≥mini(v(ai)+iv0)+j(v(z)−v0),(P^(j)(y_0)z^j)≥min_i(v(a_i)+iv_0)+j(v(z)-v_0),
+and the equality occurs if and only if  χ(j)(γ)≠0,χ^(j)(γ)≠0, where χ(x)χ(x) is the polynomial of the preceding section. If m is the multiplicity of γγ as a root of χ,χ, it results that the inequality is an equality for j=m.=m. The terms such that j>m>m can be forgotten as far as one is concerned by valuations, as v(z)>v0(z)>v_0 and j>m>m imply
+
+v(P(j)(y0)zj)≥mini(v(ai)+iv0)+j(v(z)−v0)>v(P(m)(y0)zm).(P^(j)(y_0)z^j)≥min_i(v(a_i)+iv_0)+j(v(z)-v_0)>v(P^(m)(y_0)z^m).
+This means that, for iterating the method of Newton polygon, one can and one must consider only the part of the Newton polygon whose first coordinates belongs to the interval [0,m].[0,m]. Two cases have to be considered separately and will be the subject of next subsections, the so-called ramified case, where m > 1, and the regular case where m = 1.
+
+Regular case[edit]
+This section is empty.  You can help by adding to it.  (October 2021)
+Ramified case[edit]
+The way of applying recursively the method of the Newton polygon has been described precedingly. As each application of the method may increase, in the ramified case, the denominators of exponents (valuations), it remains to prove that one reaches the regular case after a finite number of iterations (otherwise the denominators of the exponents of the resulting series would not be bounded, and this series would not be a Puiseux series. By the way, it will also be proved that one gets exactly as many Puiseux series solutions as expected, that is the degree of P(y)(y) in y.
+Without loss of generality, one can suppose that P(0)≠0,(0)≠0, that is, a0≠0._0≠0. Indeed, each factor y of P(y)(y) provides a solution that is the zero Puiseux series, and such factors can be factored out.
+As the characteristic is supposed to be zero, one can also suppose that P(y)(y) is a square-free polynomial, that is that the solutions of P(y)=0(y)=0 are all different. Indeed, the square-free factorization uses only the operations of the field of coefficients for factoring P(y)(y) into square-free factors than can be solved separately. (The hypothesis of characteristic zero is needed, since, in characteristic p, the square-free decomposition can provide irreducible factors, such as yp−x,^p-x, that have multiple roots over an algebraic extension.)
+In this context, one defines the length of an edge of a Newton polygon as the difference of the abscissas of its end points. The length of a polygon is the sum of the lengths of its edges. With the hypothesis P(0)≠0,(0)≠0, the length of the Newton polygon of P is its degree in y, that is the number of its roots. The length of an edge of the Newton polygon is the number of roots of a given valuation. This number equals the degree of the previously defined polynomial χ(x).χ(x).
+The ramified case corresponds thus to two (or more) solutions that have the same initial term(s). As these solutions must be distinct (square-free hypothesis), they must be distinguished after a finite number of iterations. That is, one gets eventually a polynomial χ(x)χ(x) that is square free, and the computation can continue as in the regular case for each root of χ(x).χ(x).
+As the iteration of the regular case does not increase the denominators of the exponents, This shows that the method provides all solutions as Puiseux series, that is, that the field of Puiseux series over the complex numbersis an algebraically closed field that contains the univariate polynomial ring with complex coefficients.
+
+Failure in positive characteristic[edit]
+The Newton–Puiseux theorem is not valid over fields of positive characteristic.  For example, the equation X2−X=T−1^2-X=T^-1 has solutions
+
+X=T−1/2+12+18T1/2−1128T3/2+⋯=T^-1/2+1/2+1/8T^1/2-1/128T^3/2+⋯
+and
+
+X=−T−1/2+12−18T1/2+1128T3/2+⋯=-T^-1/2+1/2-1/8T^1/2+1/128T^3/2+⋯
+(one readily checks on the first few terms that the sum and product of these two series are 1 and −T−1-T^-1 respectively; this is valid whenever the base field K has characteristic different from 2).
+As the powers of 2 in the denominators of the coefficients of the previous example might lead one to believe, the statement of the theorem is not true in positive characteristic. The example of the Artin–Schreier equation Xp−X=T−1^p-X=T^-1 shows this: reasoning with valuations shows that X should have valuation −1p-1/p, and if we rewrite it as X=T−1/p+X1=T^-1/p+X_1 then
+
+Xp=T−1+X1p,soX1p−X1=T−1/p^p=T^-1+X_1^p,soX_1^p-X_1=T^-1/p
+and one shows similarly that X1_1 should have valuation −1p2-1/p^2, and proceeding in that way one obtains the series
+
+T−1/p+T−1/p2+T−1/p3+⋯;^-1/p+T^-1/p^2+T^-1/p^3+⋯;
+since this series makes no sense as a Puiseux series—because the exponents have unbounded denominators—the original equation has no solution. However, such Eisenstein equations are essentially the only ones not to have a solution, because, if K is algebraically closed of characteristic p>0>0, then the field of Puiseux series over K is the perfect closure of the maximal tamely ramified extension of K((T))((T)).[4]
+Similarly to the case of algebraic closure, there is an analogous theorem for real closure: if K is a real closed field, then the field of Puiseux series over K is the real closure of the field of formal Laurent series over K.[5] (This implies the former theorem since any algebraically closed field of characteristic zero is the unique quadratic extension of some real-closed field.)
+There is also an analogous result for p-adic closure: if K is a p-adically closed field with respect to a valuation w, then the field of Puiseux series over K is also p-adically closed.[6]
+
+Puiseux expansion of algebraic curves and functions[edit]
+Algebraic curves[edit]
+Let X be an algebraic curve[7] given by an affine equation F(x,y)=0(x,y)=0 over an algebraically closed field K of characteristic zero, and consider a point p on X which we can assume to be (0,0)(0,0). We also assume that X is not the coordinate axis x=0=0. Then a Puiseux expansion of (the y coordinate of) X at p is a Puiseux series f having positive valuation such that F(x,f(x))=0(x,f(x))=0.
+More precisely, let us define the branches of X at p to be the points q of the normalization Y of X which map to p. For each such q, there is a local coordinate t of Y at q (which is a smooth point) such that the coordinates x and y can be expressed as formal power series of t, say x=tn+⋯=t^n+⋯ (since K is algebraically closed, we can assume the valuation coefficient to be 1) and y=ctk+⋯=ct^k+⋯: then there is a unique Puiseux series of the form f=cTk/n+⋯=cT^k/n+⋯ (a power series in T1/n^1/n), such that y(t)=f(x(t))(t)=f(x(t)) (the latter expression is meaningful since x(t)1/n=t+⋯(t)^1/n=t+⋯ is a well-defined power series in t). This is a Puiseux expansion of X at p which is said to be associated to the branch given by q (or simply, the Puiseux expansion of that branch of X), and each Puiseux expansion of X at p is given in this manner for a unique branch of X at p.[8][9]
+This existence of a formal parametrization of the branches of an algebraic curve or function is also referred to as Puiseux's theorem: it has arguably the same mathematical content as the fact that the field of Puiseux series is algebraically closed and is a historically more accurate description of the original author's statement.[10]
+For example, the curve y2=x3+x2^2=x^3+x^2 (whose normalization is a line with coordinate t and map t↦(t2−1,t3−t)↦(t^2-1,t^3-t)) has two branches at the double point (0,0), corresponding to the points t=+1=+1 and t=−1=-1 on the normalization, whose Puiseux expansions are y=x+12x2−18x3+⋯=x+1/2x^2-1/8x^3+⋯ and y=−x−12x2+18x3+⋯=-x-1/2x^2+1/8x^3+⋯ respectively (here, both are power series because the x coordinate is étale at the corresponding points in the normalization). At the smooth point (−1,0)(-1,0) (which is t=0=0 in the normalization), it has a single branch, given by the Puiseux expansion y=−(x+1)1/2+(x+1)3/2=-(x+1)^1/2+(x+1)^3/2 (the x coordinate ramifies at this point, so it is not a power series).
+The curve y2=x3^2=x^3 (whose normalization is again a line with coordinate t and map t↦(t2,t3)↦(t^2,t^3)), on the other hand, has a single branch at the cusp point (0,0)(0,0), whose Puiseux expansion is y=x3/2=x^3/2.
+
+Analytic convergence[edit]
+When K=C=ℂ is the field of complex numbers, the Puiseux expansion of an algebraic curve (as defined above) is convergent in the sense that for a given choice of n-th root of x, they converge for small enough |x||x|, hence define an analytic parametrization of each branch of X in the neighborhood of p (more precisely, the parametrization is by the n-th root of x).
+
+Generalizations[edit]
+Levi-Civita field[edit]
+Main article: Levi-Civita field
+The field of Puiseux series is not complete as a metric space. Its completion, called the Levi-Civita field, can be described as follows: it is the field of formal expressions of the form f=∑eceTe,=∑_ec_eT^e, where the support of the coefficients (that is, the set of e such that ce≠0_e≠0) is the range of an increasing sequence of rational numbers that either is finite or tends to +∞+∞. In other words, such series admit exponents of unbounded denominators, provided there are finitely many terms of exponent less than A for any given bound A. For example, ∑k=1+∞Tk+1k∑_k=1^+∞T^k+1/k is not a Puiseux series, but it is the limit of a Cauchy sequence of Puiseux series; in particular, it is the limit of ∑k=1NTk+1k∑_k=1^NT^k+1/k as N→+∞→+∞. However, even this completion is still not "maximally complete" in the sense that it admits non-trivial extensions which are valued fields having the same value group and residue field,[11][12] hence the opportunity of completing it even more.
+
+Hahn series[edit]
+Main article: Hahn series
+Hahn series are a further (larger) generalization of Puiseux series, introduced by Hans Hahn in the course of the proof of his embedding theorem in 1907 and then studied by him in his approach to Hilbert's seventeenth problem. In a Hahn series, instead of requiring the exponents to have bounded denominator they are required to form a well-ordered subset of the value group (usually Qℚ or Rℝ). These were later further generalized by Anatoly Maltsev and Bernhard Neumann to a non-commutative setting (they are therefore sometimes known as Hahn–Mal'cev–Neumann series). Using Hahn series, it is possible to give a description of the algebraic closure of the field of power series in positive characteristic which is somewhat analogous to the field of Puiseux series.[13]
+
+Notes[edit]
+
+^ Newton (1960)
+
+^ a b Puiseux (1850, 1851)
+
+^ Newton (1736)
+
+^ a b cf. Kedlaya (2001), introduction
+
+^ Basu &al (2006), chapter 2 ("Real Closed Fields"), theorem 2.91 (p. 75)
+
+^ Cherlin (1976), chapter 2 ("The Ax–Kochen–Ershof Transfer Principle"), §7 ("Puiseux series fields")
+
+^ We assume that X is irreducible or, at least, that it is reduced and that it does not contain the y coordinate axis.
+
+^ Shafarevich (1994), II.5, pp. 133–135
+
+^ Cutkosky (2004), chapter 2, pp. 3–11
+
+^ Puiseux (1850), p. 397
+
+^ Poonen, Bjorn (1993). "Maximally complete fields". Enseign. Math. 39: 87–106.
+
+^ Kaplansky, Irving (1942). "Maximal Fields with Valuations". Duke Math. J. 9 (2): 303–321. doi:10.1215/s0012-7094-42-00922-0.
+
+^ Kedlaya (2001)
+
+
+See also[edit]
+Laurent series
+Madhava series
+Newton's divided difference interpolation
+Padé approximant
+References[edit]
+Basu, Saugata; Pollack, Richard; Roy, Marie-Françoise (2006). Algorithms in Real Algebraic Geometry. Algorithms and Computations in Mathematics 10 (2nd ed.). Springer-Verlag. doi:10.1007/3-540-33099-2. ISBN 978-3-540-33098-1.
+Cherlin, Greg (1976). Model Theoretic Algebra Selected Topics. Lecture Notes in Mathematics 521. Springer-Verlag. ISBN 978-3-540-07696-4.[dead link]
+Cutkosky, Steven Dale (2004). Resolution of Singularities. Graduate Studies in Mathematics 63. American Mathematical Society. ISBN 0-8218-3555-6.
+Eisenbud, David (1995). Commutative Algebra with a View Toward Algebraic Geometry. Graduate Texts in Mathematics 150. Springer-Verlag. ISBN 3-540-94269-6.
+Kedlaya, Kiran Sridhara (2001). "The algebraic closure of the power series field in positive characteristic". Proc. Amer. Math. Soc. 129 (12): 3461–3470. doi:10.1090/S0002-9939-01-06001-4.
+Newton, Isaac (1736) [1671], The method of fluxions and infinite series; with its application to the geometry of curve-lines, translated by Colson, John, London: Henry Woodfall, p. 378 (Translated from Latin)
+Newton, Isaac (1960). "letter to Oldenburg dated 1676 Oct 24". The correspondence of Isaac Newton. Vol. II. Cambridge University press. pp. 126–127. ISBN 0-521-08722-8.
+Puiseux, Victor Alexandre (1850). "Recherches sur les fonctions algébriques" (PDF). J. Math. Pures Appl. 15: 365–480.
+Puiseux, Victor Alexandre (1851). "Nouvelles recherches sur les fonctions algébriques" (PDF). J. Math. Pures Appl. 16: 228–240.
+Shafarevich, Igor Rostislavovich (1994). Basic Algebraic Geometry (2nd ed.). Springer-Verlag. ISBN 3-540-54812-2.
+Walker, R.J. (1978). Algebraic Curves (PDF) (Reprint ed.). Springer-Verlag. ISBN 0-387-90361-5.
+External links[edit]
+"Branch point", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Puiseux series at MathWorld
+Puiseux's Theorem at MathWorld
+Puiseux series at PlanetMath
+vteSir Isaac NewtonPublications
+Fluxions (1671)
+De Motu (1684)
+Principia (1687)
+Opticks (1704)
+Queries (1704)
+Arithmetica (1707)
+De Analysi (1711)
+Other writings
+Quaestiones (1661–1665)
+"standing on the shoulders of giants" (1675)
+Notes on the Jewish Temple (c. 1680)
+"General Scholium" (1713; "hypotheses non fingo" )
+Ancient Kingdoms Amended (1728)
+Corruptions of Scripture (1754)
+Contributions
+Calculus
+fluxion
+Impact depth
+Inertia
+Newton disc
+Newton polygon
+Newton–Okounkov body
+Newton's reflector
+Newtonian telescope
+Newton scale
+Newton's metal
+Spectrum
+Structural coloration
+Newtonianism
+Bucket argument
+Newton's inequalities
+Newton's law of cooling
+Newton's law of universal gravitation
+post-Newtonian expansion
+parameterized
+gravitational constant
+Newton–Cartan theory
+Schrödinger–Newton equation
+Newton's laws of motion
+Kepler's laws
+Newtonian dynamics
+Newton's method in optimization
+Apollonius's problem
+truncated Newton method
+Gauss–Newton algorithm
+Newton's rings
+Newton's theorem about ovals
+Newton–Pepys problem
+Newtonian potential
+Newtonian fluid
+Classical mechanics
+Corpuscular theory of light
+Leibniz–Newton calculus controversy
+Newton's notation
+Rotating spheres
+Newton's cannonball
+Newton–Cotes formulas
+Newton's method
+generalized Gauss–Newton method
+Newton fractal
+Newton's identities
+Newton polynomial
+Newton's theorem of revolving orbits
+Newton–Euler equations
+Newton number
+kissing number problem
+Newton's quotient
+Parallelogram of force
+Newton–Puiseux theorem
+Absolute space and time
+Luminiferous aether
+Newtonian series
+table
+Personal life
+Woolsthorpe Manor (birthplace)
+Cranbury Park (home)
+Early life
+Later life
+Apple tree
+Religious views
+Occult studies
+Scientific Revolution
+Copernican Revolution
+Relations
+Catherine Barton (niece)
+John Conduitt (nephew-in-law)
+Isaac Barrow (professor)
+William Clarke (mentor)
+Benjamin Pulleyn (tutor)
+John Keill (disciple)
+William Stukeley (friend)
+William Jones (friend)
+Abraham de Moivre (friend)
+Depictions
+Newton by Blake (monotype)
+Newton by Paolozzi (sculpture)
+Isaac Newton Gargoyle
+Astronomers Monument
+Namesake
+Newton (unit)
+Newton's cradle
+Isaac Newton Institute
+Isaac Newton Medal
+Isaac Newton Telescope
+Isaac Newton Group of Telescopes
+XMM-Newton
+Sir Isaac Newton Sixth Form
+Statal Institute of Higher Education Isaac Newton
+Newton International Fellowship
+Categories
+  Isaac Newton
+
+vteSequences and seriesInteger sequencesBasic
+Arithmetic progression
+Geometric progression
+Harmonic progression
+Square number
+Cubic number
+Factorial
+Powers of two
+Powers of three
+Powers of 10
+Advanced (list)
+Complete sequence
+Fibonacci sequence
+Figurate number
+Heptagonal number
+Hexagonal number
+Lucas number
+Pell number
+Pentagonal number
+Polygonal number
+Triangular number
+array
+Properties of sequences
+Cauchy sequence
+Monotonic function
+Periodic sequence
+Properties of seriesSeries
+Alternating
+Convergent
+Divergent
+Telescoping
+Convergence
+Absolute
+Conditional
+Uniform
+Explicit seriesConvergent
+1/2 − 1/4 + 1/8 − 1/16 + ⋯
+1/2 + 1/4 + 1/8 + 1/16 + ⋯
+1/4 + 1/16 + 1/64 + 1/256 + ⋯
+1 + 1/2s + 1/3s + ... (Riemann zeta function)
+Divergent
+1 + 1 + 1 + 1 + ⋯
+1 − 1 + 1 − 1 + ⋯ (Grandi's series)
+1 + 2 + 3 + 4 + ⋯
+1 − 2 + 3 − 4 + ⋯
+1 + 2 + 4 + 8 + ⋯
+1 − 2 + 4 − 8 + ⋯
+Infinite arithmetic series
+1 − 1 + 2 − 6 + 24 − 120 + ⋯ (alternating factorials)
+1 + 1/2 + 1/3 + 1/4 + ⋯ (harmonic series)
+1/2 + 1/3 + 1/5 + 1/7 + 1/11 + ⋯ (inverses of primes)
+Kinds of series
+Taylor series
+Power series
+Formal power series
+Madhava series
+Laurent series
+Puiseux series
+Dirichlet series
+Trigonometric series
+Fourier series
+Generating series
+Hypergeometric series
+Generalized hypergeometric series
+Hypergeometric function of a matrix argument
+Lauricella hypergeometric series
+Modular hypergeometric series
+Riemann's differential equation
+Theta hypergeometric series
+
+ Category
+
+
+
+

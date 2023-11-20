@@ -1,0 +1,104 @@
+Provability logic
+In mathematical logic, Löb's theorem states that in Peano arithmetic (PA) (or any formal system including PA), for any formula P, if it is provable in PA that "if P is provable in PA then P is true", then P is provable in PA. If Prov(P) means that the formula P is provable, we may express this more formally as
+
+If
+PA⊢Prov(P)→P𝑃𝐴⊢Prov(P)
+then
+PA⊢P𝑃𝐴.
+An immediate corollary (the contrapositive) of Löb's theorem is that, if P is not provable in PA, then "if P is provable in PA, then P is true" is not provable in PA. For example, "If 1+1=31+1=3 is provable in PA, then 1+1=31+1=3" is not provable in PA.[note 1]
+Löb's theorem is named for Martin Hugo Löb, who formulated it in 1955. It is related to 
+Curry's paradox.
+
+
+Löb's theorem in provability logic[edit]
+Provability logic abstracts away from the details of encodings used in Gödel's incompleteness theorems by expressing the provability of ϕϕ in the given system in the language of modal logic, by means of the modality ◻ϕϕ.
+Then we can formalize Löb's theorem by the axiom
+
+◻(◻P→P)→◻P,()→,
+known as axiom GL, for Gödel–Löb. This is sometimes formalized by means of the inference rule:
+
+If
+⊢◻P→P⊢
+then
+⊢P.
+The provability logic GL that results from taking the modal logic K4 (or K, since the axiom schema 4, ◻A→◻◻A→, then becomes redundant) and adding the above axiom GL is the most intensely investigated system in provability logic.
+
+Modal proof of Löb's theorem[edit]
+Löb's theorem can be proved within modal logic using only some basic rules about the provability operator (the K4 system) plus the existence of modal fixed points.
+
+Modal formulas[edit]
+We will assume the following grammar for formulas:
+
+If X is a propositional variable, then X is a formula.
+If K is a propositional constant, then K is a formula.
+If A is a formula, then ◻A is a formula.
+If A and B are formulas, then so are ¬A, A→B, A∧B, A∨B, and A↔B
+A modal sentence is a modal formula that contains no propositional variables. We use ⊢A to mean A is a theorem.
+
+Modal fixed points[edit]
+If F(X)(X) is a modal formula with only one propositional variable X, then a modal fixed point of F(X)(X) is a sentence ΨΨ such that
+
+⊢Ψ↔F(◻Ψ)⊢Ψ(Ψ)
+We will assume the existence of such fixed points for every modal formula with one free variable. This is of course not an obvious thing to assume, but if we interpret ◻ as provability in Peano Arithmetic, then the existence of modal fixed points follows from the diagonal lemma.
+
+Modal rules of inference[edit]
+In addition to the existence of modal fixed points, we assume the following rules of inference for the provability operator ◻, known as Hilbert–Bernays provability conditions:
+
+(necessitation) From ⊢A conclude ⊢◻A⊢: Informally, this says that if A is a theorem, then it is provable.
+(internal necessitation) ⊢◻A→◻◻A⊢→: If A is provable, then it is provable that it is provable.
+(box distributivity) ⊢◻(A→B)→(◻A→◻B)⊢(A)→(→):  This rule allows you to do modus ponens inside the provability operator. If it is provable that A implies B, and A is provable, then B is provable.
+Proof of Löb's theorem[edit]
+Much of the proof does not make use of the assumption ◻P→P, so for ease of understanding, the proof below is subdivided to leave the parts depending on ◻P→P until the end.  
+Let P be any modal sentence.
+
+Apply the existence of modal fixed points to the formula F(X)=X→P(X)=X. It then follows that there exists a sentence ΨΨ such that ⊢Ψ↔(◻Ψ→P)⊢Ψ↔(Ψ).
+⊢Ψ→(◻Ψ→P)⊢Ψ→(Ψ), from 1.
+⊢◻(Ψ→(◻Ψ→P))⊢(Ψ→(Ψ)), from 2 by the necessitation rule.
+⊢◻Ψ→◻(◻Ψ→P)⊢Ψ→(Ψ), from 3 and the box distributivity rule.
+⊢◻(◻Ψ→P)→(◻◻Ψ→◻P)⊢(Ψ)→(Ψ→), by applying the box distributivity rule with A=◻Ψ=Ψ and B=P=P.
+⊢◻Ψ→(◻◻Ψ→◻P)⊢Ψ→(Ψ→), from 4 and 5.
+⊢◻Ψ→◻◻Ψ⊢Ψ→Ψ, from 6 by the internal necessitation rule.
+⊢◻Ψ→◻P⊢Ψ→, from 6 and 7.Now comes the part of the proof where the hypothesis is used.
+Assume that ⊢◻P→P⊢.  Roughly speaking, it is a theorem that if P is provable, then it is, in fact true.  This is a claim of soundness.
+⊢◻Ψ→P⊢Ψ, from 8 and 9.
+⊢(◻Ψ→P)→Ψ⊢(Ψ)→Ψ, from 1.
+⊢Ψ⊢Ψ, from 10 and 11.
+⊢◻Ψ⊢Ψ, from 12 by the necessitation rule.
+⊢P, from 13 and 10.
+Examples[edit]
+An immediate corollary of Löb's theorem is that, if P is not provable in PA, then "if P is provable in PA, then P is true" is not provable in PA. Given we know PA is consistent (but PA does not know PA is consistent), here are some simple examples:
+
+"If 1+1=31+1=3 is provable in PA, then 1+1=31+1=3" is not provable in PA, as 1+1=31+1=3 is not provable in PA (as it is false).
+"If 1+1=21+1=2 is provable in PA, then 1+1=21+1=2" is provable in PA, as is any statement of the form "If X, then 1+1=21+1=2".
+"If the strengthened finite Ramsey theorem is provable in PA, then the strengthened finite Ramsey theorem is true" is not provable in PA, as "The strengthened finite Ramsey theorem is true" is not provable in PA (despite being true).
+In Doxastic logic, Löb's theorem shows that any system classified as a reflexive "type 4" reasoner must also be "modest": such a reasoner can never believe "my belief in P would imply that P is true", without also believing that P is true.[1]
+Gödel's second incompleteness theorem follows from Löb's theorem by substituting the false statement ⊥ for P.
+
+Converse: Löb's theorem implies the existence of modal fixed points[edit]
+Not only does the existence of modal fixed points imply Löb's theorem, but the converse is valid, too.  When Löb's theorem is given as an axiom (schema), the existence of a fixed point (up to provable equivalence) p↔A(p)(p) for any formula A(p) modalized in p can be derived.[2]  Thus in normal modal logic, Löb's axiom is equivalent to the conjunction of the axiom schema 4, (◻A→◻◻A)(→), and the existence of modal fixed points.
+
+Notes[edit]
+
+
+^ Unless PA is inconsistent (in which case every statement is provable, including 1+1=31+1=3).
+
+
+Citations[edit]
+
+
+^ Smullyan, Raymond M. (1986). "Logicians who reason about themselves". Proceedings of the 1986 conference on Theoretical aspects of reasoning about knowledge, Monterey (CA). San Francisco (CA): Morgan Kaufmann Publishers Inc. pp. 341–352. doi:10.1016/B978-0-934613-04-0.50028-4. ISBN 9780934613040.
+
+^ Per Lindström (June 2006). "Note on Some Fixed Point Constructions in Provability Logic". Journal of Philosophical Logic. 35 (3): 225–230. doi:10.1007/s10992-005-9013-8. S2CID 11038803.
+
+
+References[edit]
+Boolos, George S. (1995). The Logic of Provability. Cambridge University Press. ISBN 978-0-521-48325-4.
+Löb, Martin (1955), "Solution of a Problem of Leon Henkin", Journal of Symbolic Logic, 20 (2): 115–118, doi:10.2307/2266895, JSTOR 2266895, S2CID 250348262
+Hinman, P. (2005). Fundamentals of Mathematical Logic. A K Peters. ISBN 978-1-56881-262-5.
+Verbrugge, Rineke (L.C.) (1 January 2016). "Provability Logic". The Stanford Encyclopedia of Philosophy. Retrieved 6 April 2016.
+External links[edit]
+Löb's theorem at PlanetMath
+The Cartoon Guide to Löb’s Theorem by Eliezer Yudkowsky
+
+
+

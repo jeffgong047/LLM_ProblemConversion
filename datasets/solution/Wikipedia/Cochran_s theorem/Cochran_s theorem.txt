@@ -1,0 +1,200 @@
+In statistics, Cochran's theorem, devised by William G. Cochran,[1] is a theorem used to justify results relating to the probability distributions of statistics that are used in the analysis of variance.[2]
+
+
+Statement[edit]
+Let U1, ..., UN be i.i.d. standard normally distributed random variables, and U=[U1,...,UN]T=[U_1,...,U_N]^T. Let B(1),B(2),…,B(k)^(1),B^(2),…,B^(k)be symmetric matrices. Define ri to be the rank of B(i)^(i).  Define Qi=UTB(i)U_i=U^TB^(i)U, so that the Qi are quadratic forms. Further assume ∑iQi=UTU∑_iQ_i=U^TU. 
+Cochran's theorem states that the following are equivalent: 
+
+r1+⋯+rk=N_1+⋯+r_k=N,
+the Qi are independent
+each Qi has a chi-squared distribution with ri degrees of freedom.[1][3]
+Often it's stated as ∑iAi=A∑_iA_i=A, where A is idempotent, and ∑iri=N∑_ir_i=N is replaced by ∑iri=rank(A)∑_ir_i=rank(A). But after an orthogonal transform, A=diag(IM,0)=diag(I_M,0), and so we reduce to the above theorem.
+
+Proof[edit]
+Claim: Let X be a standard Gaussian in Rnℝ^n, then for any symmetric matrices Q,Q′,Q', if XTQX^TQX and XTQ′X^TQ'X have the same distribution, then Q,Q′,Q' have the same eigenvalues (up to multiplicity).
+
+Proof
+Let the eigenvalues of Q be λ1,...,λnλ_1,...,λ_n, then calculate the characteristic function of XTQX^TQX. It comes out to be 
+ϕ(t)=(∏j(1−2iλjt))−1/2ϕ(t)=(∏_j(1-2iλ_jt))^-1/2
+(To calculate it, first diagonalize Q, change into that frame, then use the fact that the characteristic function of the sum of independent variables is the product of their characteristic functions.)
+For XTQX^TQX and XTQ′X^TQ'X to be equal, their characteristic functions must be equal, so Q,Q′,Q' have the same eigenvalues (up to multiplicity).
+
+
+Claim: I=∑iBi=∑_iB_i.
+
+Proof
+UT(I−∑iBi)U=0^T(I-∑_iB_i)U=0. Since (I−∑iBi)(I-∑_iB_i) is symmetric, and UT(I−∑iBi)U=dUT0U^T(I-∑_iB_i)U=^dU^T0U, by the previous claim, (I−∑iBi)(I-∑_iB_i) has the same eigenvalues as 0.
+
+
+Lemma: If ∑iMi=I∑_iM_i=I, all Mi_i symmetric, and have eigenvalues 0, 1, then they are simultaneously diagonalizable.
+
+Proof
+Fix i, and consider the eigenvectors v of Mi_i such that Miv=v_iv=v. Then we have vTv=vTIv=vTv+∑j≠ivTMjv^Tv=v^TIv=v^Tv+∑_jv^TM_jv, so all vTMjv=0^TM_jv=0. Thus we obtain a split of RNℝ^N into V⊕V⊥^⊥, such that V is the 1-eigenspace of Mi_i, and in the 0-eigenspaces of all other Mj_j. Now induct by moving into V⊥^⊥.
+
+
+Now we prove the original theorem. We prove that the three cases are equivalent by proving that each case implies the next one in a cycle (1→2→3→11→2→3→1).
+
+Proof
+Case: All Qi_i are independent
+Fix some i, define Ci=I−Bi=∑j≠iBj_i=I-B_i=∑_jB_j, and diagonalize Bi_i by an orthogonal transform O. Then consider OCiOT=I−OBiOT_iO^T=I-OB_iO^T. It is diagonalized as well.
+Let W=OU=OU, then it is also standard Gaussian. Then we have 
+Qi=WT(OBiOT)W;∑j≠iQj=WT(I−OBiOT)W_i=W^T(OB_iO^T)W;  ∑_jQ_j=W^T(I-OB_iO^T)W
+Inspect their diagonal entries, to see that Qi⊥∑j≠iQj_i⊥∑_jQ_j implies that their nonzero diagonal entries are disjoint.
+Thus all eigenvalues of Bi_i are 0, 1, so Qi_i is a χ2χ^2 dist with ri_i degrees of freedom.
+Case: Each Qi_i is a χ2(ri)χ^2(r_i) distribution.
+Fix any i, diagonalize it by orthogonal transform O, and reindex, so that OBiOT=diag(λ1,...,λri,0,...,0)_iO^T=diag(λ_1,...,λ_r_i,0,...,0). Then Qi=∑jλjU′j2_i=∑_jλ_jU'_j^2 for some Uj′'_j, a spherical rotation of Ui_i.
+Since Qi∼χ2(ri)_i∼χ^2(r_i), we get all λj=1λ_j=1. So all Bi⪰0_i≽0, and have eigenvalues 0,10,1.
+So diagonalize them simultaneously, add them up, to find ∑iri=N∑_ir_i=N.
+Case: r1+⋯+rk=N_1+⋯+r_k=N.
+We first show that the matrices B(i) can be simultaneously diagonalized by an orthogonal matrix and that their non-zero eigenvalues are all equal to +1. Once that's shown, take this orthogonal transform to this simultaneous eigenbasis, in which the random vector [U1,...,UN]T[U_1,...,U_N]^T becomes [U1′,...,UN′]T[U'_1,...,U'_N]^T, but all Ui′_i' are still independent and standard Gaussian. Then the result follows.
+Each of the matrices B(i) has rank ri and thus ri non-zero eigenvalues. For each i, the sum C(i)≡∑j≠iB(j)^(i)≡∑_jB^(j) has at most rank ∑j≠irj=N−ri∑_jr_j=N-r_i. Since B(i)+C(i)=IN×N^(i)+C^(i)=I_N, it follows that C(i) has exactly rank N − ri.
+Therefore B(i) and C(i) can be simultaneously diagonalized. This can be shown by first diagonalizing B(i), by the spectral theorem. In this basis, it is of the form:
+
+[λ100⋯⋯00λ20⋯⋯000⋱⋮⋮⋮λri⋮⋮00⋮⋱00…0].[   λ_1     0     0     ⋯     ⋯     0;     0   λ_2     0     ⋯     ⋯     0;     0     0     ⋱     ⋮;     ⋮     ⋮ λ_r_i;     ⋮     ⋮     0;     0     ⋮     ⋱;     0     0     …     0 ].
+Thus the lower (N−ri)(N-r_i) rows are zero. Since C(i)=I−B(i)^(i)=I-B^(i), it follows that these rows in C(i) in this basis contain a right block which is a (N−ri)×(N−ri)(N-r_i)×(N-r_i) unit matrix, with zeros in the rest of these rows. But since C(i) has rank N − ri, it must be zero elsewhere. Thus it is diagonal in this basis as well. It follows that all the non-zero eigenvalues of both B(i) and C(i) are +1. This argument applies for all i, thus all B(i) are positive semidefinite.
+Moreover, the above analysis can be repeated in the diagonal basis for C(1)=B(2)+∑j>2B(j)^(1)=B^(2)+∑_j>2B^(j). In this basis C(1)^(1) is the identity of an (N−r1)×(N−r1)(N-r_1)×(N-r_1) vector space, so it follows that both B(2) and ∑j>2B(j)∑_j>2B^(j) are simultaneously diagonalizable in this vector space (and hence also together with B(1)). By iteration it follows that all B-s are simultaneously diagonalizable.
+Thus there exists an orthogonal matrix S such that for all i, STB(i)S≡B(i)′^TB^(i)S^(i)' is diagonal, where any entry Bx,y(i)′_x,y^(i)' with indices x=y=y, ∑j=1i−1rj<x=y≤∑j=1irj∑_j=1^i-1r_j<x=y≤∑_j=1^ir_j, is equal to 1, while any entry with other indices is equal to 0.
+
+
+
+
+Examples[edit]
+Sample mean and sample variance[edit]
+If X1, ..., Xn are independent normally distributed random variables with mean μ and standard deviation σ then
+
+Ui=Xi−μσ_i=X_i-μ/σ
+is standard normal for each i. Note that the total Q is equal to sum of squared Us as shown here:
+
+∑iQi=∑jikUjBjk(i)Uk=∑jkUjUk∑iBjk(i)=∑jkUjUkδjk=∑jUj2∑_iQ_i=∑_jikU_jB_jk^(i)U_k=∑_jkU_jU_k∑_iB_jk^(i)=∑_jkU_jU_kδ_jk=∑_jU_j^2
+which stems from the original assumption that B1+B2…=I_1+B_2…=I.
+So instead we will calculate this quantity and later separate it into Qi's. It is possible to write
+
+∑i=1nUi2=∑i=1n(Xi−X¯σ)2+n(X¯−μσ)2∑_i=1^nU_i^2=∑_i=1^n(X_i-X/σ)^2+n(X-μ/σ)^2
+(here X¯X is the sample mean). To see this identity, multiply throughout by σ2σ^2 and note that
+
+∑(Xi−μ)2=∑(Xi−X¯+X¯−μ)2∑(X_i-μ)^2=∑(X_i-X+X-μ)^2
+and expand to give
+
+∑(Xi−μ)2=∑(Xi−X¯)2+∑(X¯−μ)2+2∑(Xi−X¯)(X¯−μ).∑(X_i-μ)^2=∑(X_i-X)^2+∑(X-μ)^2+2∑(X_i-X)(X-μ).
+The third term is zero because it is equal to a constant times
+
+∑(X¯−Xi)=0,∑(X-X_i)=0,
+and the second term has just n identical terms added together. Thus
+
+∑(Xi−μ)2=∑(Xi−X¯)2+n(X¯−μ)2,∑(X_i-μ)^2=∑(X_i-X)^2+n(X-μ)^2,
+and hence
+
+∑(Xi−μσ)2=∑(Xi−X¯σ)2+n(X¯−μσ)2=∑i(Ui−1n∑jUj)2⏞Q1+1n(∑jUj)2⏞Q2=Q1+Q2.∑(X_i-μ/σ)^2=∑(X_i-X/σ)^2+n(X-μ/σ)^2=∑_i(U_i-1/n∑_jU_j)^2^Q_1+1/n(∑_jU_j)^2^Q_2=Q_1+Q_2.
+Now B(2)=Jnn^(2)=J_n/n with Jn_n the matrix of ones which has rank 1. In turn     B(1)=In−Jnn^(1)=I_n-J_n/n given that In=B(1)+B(2)_n=B^(1)+B^(2). This expression can be also obtained by expanding Q1_1 in matrix notation. It can be shown that the rank of B(1)^(1) is n−1-1 as the addition of all its rows is equal to zero. Thus the conditions for Cochran's theorem are met.
+Cochran's theorem then states that Q1 and Q2 are independent, with chi-squared distributions with n − 1 and 1 degree of freedom respectively. This shows that the sample mean and sample variance are independent.  This can also be shown by Basu's theorem, and in fact this property characterizes the normal distribution – for no other distribution are the sample mean and sample variance independent.[4]
+
+Distributions[edit]
+The result for the distributions is written symbolically as
+
+∑(Xi−X¯)2∼σ2χn−12.∑(X_i-X)^2∼σ^2χ_n-1^2.
+n(X¯−μ)2∼σ2χ12,(X-μ)^2∼σ^2χ_1^2,
+Both these random variables are proportional to the true but unknown variance σ2. Thus their ratio does not depend on σ2 and, because they are statistically independent. The distribution of their ratio is given by
+
+n(X¯−μ)21n−1∑(Xi−X¯)2∼χ121n−1χn−12∼F1,n−1n(X-μ)^2/1/n-1∑(X_i-X)^2∼χ_1^2/1/n-1χ_n-1^2_1,n-1
+where F1,n − 1 is the F-distribution with 1 and n − 1 degrees of freedom (see also Student's t-distribution). The final step here is effectively the definition of a random variable having the F-distribution.
+
+Estimation of variance[edit]
+To estimate the variance σ2, one estimator that is sometimes used is the maximum likelihood estimator of the variance of a normal distribution
+
+σ^2=1n∑(Xi−X¯)2.σ^2=1/n∑(X_i-X)^2.
+Cochran's theorem shows that
+
+nσ^2σ2∼χn−12nσ^2/σ^2∼χ_n-1^2
+and the properties of the chi-squared distribution show that
+
+E(nσ^2σ2)=E(χn−12)nσ2E(σ^2)=(n−1)E(σ^2)=σ2(n−1)nE(nσ^2/σ^2)   =E(χ_n-1^2)
+n/σ^2E(σ^2)   =(n-1)
+E(σ^2)   =σ^2(n-1)/n
+Alternative formulation[edit]
+The following version is often seen when considering linear regression.[5] Suppose that Y∼Nn(0,σ2In)_n(0,σ^2I_n) is a standard multivariate normal random vector (here In_n denotes the n-by-n identity matrix), and if A1,…,Ak_1,…,A_k are all n-by-n symmetric matrices with ∑i=1kAi=In∑_i=1^kA_i=I_n.  Then, on defining ri=Rank⁡(Ai)_i=Rank(A_i), any one of the following conditions implies the other two:
+
+∑i=1kri=n,∑_i=1^kr_i=n,
+YTAiY∼σ2χri2^TA_iY∼σ^2χ_r_i^2  (thus the Ai_i are positive semidefinite)
+YTAiY^TA_iY is independent of YTAjY^TA_jY for i≠j..
+See also[edit]
+Cramér's theorem, on decomposing normal distribution
+Infinite divisibility (probability)
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Cochran's theorem" – news · newspapers · books · scholar · JSTOR (July 2011) (Learn how and when to remove this template message)
+References[edit]
+
+^ a b Cochran, W. G. (April 1934). "The distribution of quadratic forms in a normal system, with applications to the analysis of covariance". Mathematical Proceedings of the Cambridge Philosophical Society. 30 (2): 178–191. doi:10.1017/S0305004100016595.
+
+^ Bapat, R. B. (2000). Linear Algebra and Linear Models (Second ed.). Springer. ISBN 978-0-387-98871-9.
+
+^ "Cochran's theorem", A Dictionary of Statistics, Oxford University Press, 2008-01-01, doi:10.1093/acref/9780199541454.001.0001/acref-9780199541454-e-294, ISBN 978-0-19-954145-4, retrieved 2022-05-18
+
+^ Geary, R.C. (1936). "The Distribution of "Student's" Ratio for Non-Normal Samples". Supplement to the Journal of the Royal Statistical Society. 3 (2): 178–184. doi:10.2307/2983669. JFM 63.1090.03. JSTOR 2983669.
+
+^ "Cochran's Theorem (A quick tutorial)" (PDF).
+
+
+vteDesign of experimentsScientificmethod
+Scientific experiment
+Statistical design
+Control
+Internal and external validity
+Experimental unit
+Blinding
+Optimal design: Bayesian
+Random assignment
+Randomization
+Restricted randomization
+Replication versus subsampling
+Sample size
+Treatment and blocking
+Treatment
+Effect size
+Contrast
+Interaction
+Confounding
+Orthogonality
+Blocking
+Covariate
+Nuisance variable
+Models  and inference
+Linear regression
+Ordinary least squares
+Bayesian
+Random effect
+Mixed model
+Hierarchical model: Bayesian
+Analysis of variance (Anova)
+Cochran's theorem
+Manova (multivariate)
+Ancova (covariance)
+Compare means
+Multiple comparison
+Designs  Completelyrandomized
+Factorial
+Fractional factorial
+Plackett-Burman
+Taguchi
+Response surface methodology
+Polynomial and rational modeling
+Box-Behnken
+Central composite
+Block
+Generalized randomized block design (GRBD)
+Latin square
+Graeco-Latin square
+Orthogonal array
+Latin hypercube  Repeated measures design
+Crossover study
+Randomized controlled trial
+Sequential analysis
+Sequential probability ratio test
+
+Glossary
+Category
+ Mathematics portal
+Statistical outline
+Statistical topics
+
+
+
+

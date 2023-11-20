@@ -1,0 +1,63 @@
+On the number of partitions of an integer into parts not divisible by another integer
+In number theory, Glaisher's theorem is an identity useful to the study of integer partitions.  Proved in 1883[1] by James Whitbread Lee Glaisher, it states that the number of partitions of an integer n into parts not divisible by d is equal to the number of partitions in which no part is repeated d or more times. This generalizes a result established in 1748 by Leonhard Euler for the case d=2=2.
+
+
+Statement[edit]
+It states that the number of partitions of an integer n into parts not divisible by d is equal to the number of partitions in which no part is repeated d or more times, which can be written formally as partitions of the form n=λ1+⋯+λk=λ_1+⋯+λ_k where λi≥λi+1λ_i≥λ_i+1 and λi≥λi+d−1+1λ_i≥λ_i+d-1+1.
+When d=2=2 this becomes the special case known as Euler's theorem, that the number of partitions of n into distinct parts is equal to the number of partitions of n into odd parts.
+In the following examples, we use the multiplicity notation of partitions. For example, 1421321^42^13^2 is a notation for the partition 1 + 1 + 1 + 1 + 2 + 3 + 3.
+
+Example for d=2 (Euler's theorem case)[edit]
+Among the 15 partitions of the number 7, there are 5, shown in bold below, that contain only odd parts (i.e. only odd numbers):
+7,6111,5121,5112,4131,412111,4113,3211,3122,312112,3114,2311,2213,2115,177,6^11^1,5^12^1,5^11^2,4^13^1,4^12^11^1,4^11^3,3^21^1,3^12^2,3^12^11^2,3^11^4,2^31^1,2^21^3,2^11^5,1^7
+If we count now the partitions of 7 with distinct parts (i.e. where no number is repeated), we also obtain 5:
+7,6111,5121,5112,4131,412111,4113,3211,3122,312112,3114,2311,2213,2115,177,6^11^1,5^12^1,5^11^2,4^13^1,4^12^11^1,4^11^3,3^21^1,3^12^2,3^12^11^2,3^11^4,2^31^1,2^21^3,2^11^5,1^7
+The partitions in bold in the first and second case are not the same, and it is not obvious why their number is the same.
+
+Example for d=3[edit]
+Among the 11 partitions of the number 6, there are 7, shown in bold below, that contain only parts not divisible by 3:
+6,5111,4121,4112,32,312111,3113,23,2212,2114,166,5^11^1,4^12^1,4^11^2,3^2,3^12^11^1,3^11^3,2^3,2^21^2,2^11^4,1^6
+And if we count the partitions of 6 with no part that repeats more than 2 times, we also obtain 7:
+6,5111,4121,4112,32,312111,3113,23,2212,2114,166,5^11^1,4^12^1,4^11^2,3^2,3^12^11^1,3^11^3,2^3,2^21^2,2^11^4,1^6
+
+Proof[edit]
+A proof of the theorem can be obtained with generating functions. If we note pd(n)_d(n) the number of partitions with no parts divisible by d and qd(n)_d(n) the number of partitions with no parts repeated more than d-1 times, then the theorem means that for all n pd(n)=qd(n)_d(n)=q_d(n). The uniqueness of ordinary generating functions implies that instead of proving that pd(n)=qd(n)_d(n)=q_d(n) for all n, it suffices to prove that the generating functions of pd(n)_d(n) and qd(n)_d(n) are equal, i.e. that ∑n=0∞pd(n)xn=∑n=0∞qd(n)xn∑_n=0^∞p_d(n)x^n=∑_n=0^∞q_d(n)x^n.
+Each generating function can be rewritten as infinite products (with a method similar to the infinite product of the partition function) :
+
+∑n=0∞pd(n)xn=∏n=1,d∤n∞11−xn∑_n=0^∞p_d(n)x^n=∏_n=1,d^∞1/1-x^n (i.e. the product of terms where n is not divisible by d).
+∑n=0∞qd(n)xn=∏n=1∞1−xdn1−xn∑_n=0^∞q_d(n)x^n=∏_n=1^∞1-x^dn/1-x^n
+If we expand the infinite product for qd(n)_d(n):
+
+∏n=1∞1−xdn1−xn=1−xd1−x1−x2d1−x2…1−xkd1−xk…∏_n=1^∞1-x^dn/1-x^n=1-x^d/1-x1-x^2d/1-x^2…1-x^kd/1-x^k…
+we see that each term in the numerator cancels with the corresponding multiple of d in the denominator. What remains after canceling all the numerator terms is exactly the infinite product for pd(n)_d(n).
+Hence the generating functions for pd(n)_d(n) and qd(n)_d(n) are equal.
+
+Rogers-Ramanujan identities[edit]
+Main article: Rogers-Ramanujan identities
+If instead of counting the number of partitions with distinct parts we count the number of partitions with parts differing by at least 2, a further generalization is possible. It was first discovered by Leonard James Rogers in 1894, and then independently by Ramanujan in 1913 and Schur in 1917, in what are now known as the Rogers-Ramanujan identities. It states that:
+
+1) The number of partitions whose parts differ by at least 2 is equal to the number of partitions involving only numbers congruent to 1 or 4 (mod 5).
+2) The number of partitions whose parts differ by at least 2 and with the smallest part at least 2 is equal to the number of partitions involving only numbers congruent to 2 or 3 (mod 5).
+Example 1[edit]
+For example, there are only 3 partitions of 7, shown in bold below, into parts differing by at least 2 (note: if a number is repeated in a partition, it means a difference of 0 between two parts, hence the partition is not counted):
+7,6111,5121,5112,4131,412111,4113,3211,3122,312112,3114,2311,2213,2115,177,6^11^1,5^12^1,5^11^2,4^13^1,4^12^11^1,4^11^3,3^21^1,3^12^2,3^12^11^2,3^11^4,2^31^1,2^21^3,2^11^5,1^7
+And there are also only 3 partitions of 7 involving only the parts 1, 4, 6:
+7,6111,5121,5112,4131,412111,4113,3211,3122,312112,3114,2311,2213,2115,177,6^11^1,5^12^1,5^11^2,4^13^1,4^12^11^1,4^11^3,3^21^1,3^12^2,3^12^11^2,3^11^4,2^31^1,2^21^3,2^11^5,1^7
+
+Example 2[edit]
+For an example of the second statement of the Rogers-Ramanujan identities, we consider partitions of 7 with the further restriction of the smallest part at least 2, and there are only 2, shown in bold below:
+7,6111,5121,5112,4131,412111,4113,3211,3122,312112,3114,2311,2213,2115,177,6^11^1,5^12^1,5^11^2,4^13^1,4^12^11^1,4^11^3,3^21^1,3^12^2,3^12^11^2,3^11^4,2^31^1,2^21^3,2^11^5,1^7
+And there are also only 2 partitions of 7 involving only the parts 2, 3, 7:
+7,6111,5121,5112,4131,412111,4113,3211,3122,312112,3114,2311,2213,2115,177,6^11^1,5^12^1,5^11^2,4^13^1,4^12^11^1,4^11^3,3^21^1,3^12^2,3^12^11^2,3^11^4,2^31^1,2^21^3,2^11^5,1^7
+
+Notes[edit]
+
+
+^ J. W. L. Glaisher (1883). "A theorem in partitions". Messenger of Math. 12: 158–170.
+
+
+References[edit]
+D. H. Lehmer (1946). "Two nonexistence theorems on partitions". Bull. Amer. Math. Soc. 52 (6): 538–544. doi:10.1090/S0002-9904-1946-08605-X.
+
+
+

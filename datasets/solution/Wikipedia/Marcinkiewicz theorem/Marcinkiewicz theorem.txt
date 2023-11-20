@@ -1,0 +1,235 @@
+Mathematical theory by discovered by Józef Marcinkiewicz
+In mathematics, the Marcinkiewicz interpolation theorem, discovered by Józef Marcinkiewicz (1939), is a result bounding the norms of non-linear operators acting on Lp spaces.
+Marcinkiewicz' theorem is similar  to the Riesz–Thorin theorem about linear operators, but also applies to non-linear operators.
+
+
+Preliminaries[edit]
+Let f be a measurable function with real or complex values, defined on a measure space (X, F, ω).  The distribution function of f is defined by
+
+λf(t)=ωx∈X∣|f(x)|>t.λ_f(t)=ω{x||f(x)|>t}.
+Then f is called weak L1^1 if there exists a constant C such that the distribution function of f satisfies the following inequality for all t > 0:
+
+λf(t)≤Ct.λ_f(t)≤C/t.
+The smallest constant C in the inequality above is called the weak L1^1 norm and is usually denoted by ‖f‖1,wf_1,w or ‖f‖1,∞.f_1,∞. Similarly the space is usually denoted by L1,w or L1,∞.
+(Note: This terminology is a bit misleading since the weak norm does not satisfy the triangle inequality as one can see by considering the sum of the functions on (0,1)(0,1) given by 1/x1/x  and 1/(1−x)1/(1-x), which has norm 4 not 2.)
+Any L1^1 function belongs to L1,w and in addition one has the inequality
+
+‖f‖1,w≤‖f‖1.f_1,w≤f_1.
+This is nothing but Markov's inequality (aka Chebyshev's Inequality). The converse is not true. For example, the function 1/x belongs to L1,w but not to L1.
+Similarly, one may define the weak Lp^p space as the space of all functions f such that |f|p|f|^p belong to L1,w, and the weak Lp^p norm using
+
+‖f‖p,w=‖|f|p‖1,w1p.f_p,w=|f|^p_1,w^1/p.
+More directly, the Lp,w norm is defined as the best constant C in the inequality
+
+λf(t)≤Cptpλ_f(t)≤C^p/t^p
+for all t > 0.
+
+Formulation[edit]
+Informally, Marcinkiewicz's theorem is
+
+Theorem. Let T be a bounded linear operator from Lp^p to Lp,w^p,w and at the same time from Lq^q to Lq,w^q,w. Then T is also a bounded operator from Lr^r to Lr^r for any r between p and q.
+In other words, even if one only requires weak boundedness on the extremes p and q, regular boundedness still holds. To make this more formal, one has to explain that T is bounded only on a dense subset and can be completed. See Riesz-Thorin theorem for these details.
+Where Marcinkiewicz's theorem is weaker than the Riesz-Thorin theorem is in the estimates of the norm. The theorem gives bounds for the Lr^r norm of T but this bound increases to infinity as r converges to either p or q.  Specifically (DiBenedetto 2002, Theorem VIII.9.2), suppose that
+
+‖Tf‖p,w≤Np‖f‖p,Tf_p,w_pf_p,
+‖Tf‖q,w≤Nq‖f‖q,Tf_q,w_qf_q,
+so that the operator norm of T from Lp to Lp,w is at most Np, and the operator norm of T from Lq to Lq,w is at most Nq.  Then the following interpolation inequality holds for all r between p and q and all f ∈ Lr:
+
+‖Tf‖r≤γNpδNq1−δ‖f‖rTf_r≤_p^δN_q^1-δf_r
+where
+
+δ=p(q−r)r(q−p)δ=p(q-r)/r(q-p)
+and
+
+γ=2(r(q−p)(r−p)(q−r))1/r.γ=2(r(q-p)/(r-p)(q-r))^1/r.
+The constants δ and γ can also be given for q = ∞ by passing to the limit.
+A version of the theorem also holds more generally if T is only assumed to be a quasilinear operator  in the following sense: there exists a constant C > 0 such that T satisfies
+
+|T(f+g)(x)|≤C(|Tf(x)|+|Tg(x)|)|T(f+g)(x)|(|Tf(x)|+|Tg(x)|)
+for almost every x. The theorem holds precisely as stated, except with γ replaced by
+
+γ=2C(r(q−p)(r−p)(q−r))1/r.γ=2C(r(q-p)/(r-p)(q-r))^1/r.
+An operator T (possibly quasilinear) satisfying an estimate of the form
+
+‖Tf‖q,w≤C‖f‖pTf_q,wf_p
+is said to be of weak type (p,q).  An operator is simply of type (p,q) if T is a bounded transformation from Lp to Lq:
+
+‖Tf‖q≤C‖f‖p.Tf_qf_p.
+A more general formulation of the interpolation theorem is as follows:
+
+If T is a quasilinear operator of weak type (p0, q0) and of weak type (p1, q1) where q0 ≠ q1, then for each θ ∈ (0,1), T is of type (p,q), for p and q with p ≤ q of the form
+1p=1−θp0+θp1,1q=1−θq0+θq1.1/p=1-θ/p_0+θ/p_1,  1/q=1-θ/q_0+θ/q_1.
+The latter formulation follows from the former through an application of Hölder's inequality and a duality argument.[citation needed]
+
+Applications and examples[edit]
+A famous application example is the Hilbert transform. Viewed as a multiplier, the Hilbert transform of a function f can be computed by first taking the Fourier transform of f, then multiplying by the sign function, and finally applying the inverse Fourier transform.
+Hence Parseval's theorem easily shows that the Hilbert transform is bounded from L2^2 to L2^2. A much less obvious fact is that it is bounded from L1^1 to L1,w^1,w. Hence Marcinkiewicz's theorem shows that it is bounded from Lp^p to Lp^p for any 1 < p < 2. Duality arguments show that it is also bounded for 2 < p < ∞. In fact, the Hilbert transform is really unbounded for p equal to 1 or ∞.
+Another famous example is the Hardy–Littlewood maximal function, which is only sublinear operator rather than linear.  While Lp^p to Lp^p bounds can be derived immediately from the L1^1 to weak L1^1 estimate by a clever change of variables, Marcinkiewicz interpolation is a more intuitive approach. Since the Hardy–Littlewood Maximal Function is trivially bounded from L∞^∞ to L∞^∞, strong boundedness for all p>1>1 follows immediately from the weak (1,1) estimate and interpolation. The weak (1,1) estimate can be obtained from the Vitali covering lemma.
+
+History[edit]
+The theorem was first announced by Marcinkiewicz (1939), who showed this result to Antoni Zygmund shortly before he died in World War II.  The theorem was almost forgotten by Zygmund, and was absent from his original works on the theory of singular integral operators.  Later Zygmund (1956) realized that Marcinkiewicz's result could greatly simplify his work, at which time he published his former student's theorem together with a generalization of his own.
+In 1964 Richard A. Hunt and Guido Weiss published a new proof of the Marcinkiewicz interpolation theorem.[1]
+
+See also[edit]
+Interpolation space
+References[edit]
+
+
+^ Hunt, Richard A.; Weiss, Guido (1964). "The Marcinkiewicz interpolation theorem". Proceedings of the American Mathematical Society. 15 (6): 996–998. doi:10.1090/S0002-9939-1964-0169038-4. ISSN 0002-9939.
+
+
+DiBenedetto, Emmanuele (2002), Real analysis, Birkhäuser, ISBN 3-7643-4231-5.
+Gilbarg, David; Trudinger, Neil S. (2001), Elliptic partial differential equations of second order, Springer-Verlag, ISBN 3-540-41160-7.
+Marcinkiewicz, J. (1939), "Sur l'interpolation d'operations", C. R. Acad. Sci. Paris, 208: 1272–1273
+Stein, Elias; Weiss, Guido (1971), Introduction to Fourier analysis on Euclidean spaces, Princeton University Press, ISBN 0-691-08078-X.
+Zygmund, A. (1956), "On a theorem of Marcinkiewicz concerning interpolation of operations", Journal de Mathématiques Pures et Appliquées, Neuvième Série, 35: 223–248, ISSN 0021-7824, MR 0080887
+vteLp spacesBasic concepts
+Banach & Hilbert spaces
+Lp spaces
+Measure
+Lebesgue
+Measure space
+Measurable space/function
+Minkowski distance
+Sequence spaces
+L1 spaces
+Integrable function
+Lebesgue integration
+Taxicab geometry
+L2 spaces
+Bessel's
+Cauchy–Schwarz
+Euclidean distance
+Hilbert space
+Parseval's identity
+Polarization identity
+Pythagorean theorem
+Square-integrable function
+L∞^∞ spaces
+Bounded function
+Chebyshev distance
+Infimum and supremum
+Essential
+Uniform norm
+Maps
+Almost everywhere
+Convergence almost everywhere
+Convergence in measure
+Function space
+Integral transform
+Locally integrable function
+Measurable function
+Symmetric decreasing rearrangement
+Inequalities
+Babenko–Beckner
+Chebyshev's
+Clarkson's
+Hanner's
+Hausdorff–Young
+Hölder's
+Markov's
+Minkowski
+Young's convolution
+Results
+Marcinkiewicz interpolation theorem
+Plancherel theorem
+Riemann–Lebesgue
+Riesz–Fischer theorem
+Riesz–Thorin theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+
+Applications & related
+Bochner space
+Fourier analysis
+Lorentz space
+Probability theory
+Quasinorm
+Real analysis
+Sobolev space
+*-algebra
+C*-algebra
+Von Neumann
+
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

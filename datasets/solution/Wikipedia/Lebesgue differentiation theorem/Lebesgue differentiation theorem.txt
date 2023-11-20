@@ -1,0 +1,231 @@
+Mathematical theorem in real analysis
+In mathematics, the Lebesgue differentiation theorem is a theorem of real analysis, which states that for almost every point, the value of an integrable function is the limit of infinitesimal averages taken about the point. The theorem is named for Henri Lebesgue.
+
+
+Statement[edit]
+For a Lebesgue integrable real or complex-valued function f on Rn, the indefinite integral is a set function which maps a measurable set A to the Lebesgue integral of f⋅1A·1_A, where 1A1_A denotes the characteristic function of the set A. It is usually written
+A↦∫Afdλ,↦∫_Af
+mathrmdλ, 
+with λ the n–dimensional Lebesgue measure.
+The derivative of this integral at x is defined to be
+limB→x1|B|∫Bfdλ,lim_B1/|B|∫_Bf dλ,
+where |B| denotes the volume (i.e., the Lebesgue measure) of a ball B  centered at x, and B → x means that the diameter of B  tends to 0. 
+The Lebesgue differentiation theorem (Lebesgue 1910) states that this derivative exists and is equal to f(x) at almost every point x ∈ Rn.[1] In fact a slightly stronger statement is true. Note that:
+|1|B|∫Bf(y)dλ(y)−f(x)|=|1|B|∫B(f(y)−f(x))dλ(y)|≤1|B|∫B|f(y)−f(x)|dλ(y).|1/|B|∫_Bf(y) dλ(y)-f(x)|=|1/|B|∫_B(f(y)-f(x)) dλ(y)|≤1/|B|∫_B|f(y)-f(x)| dλ(y).
+The stronger assertion is that the right hand side tends to zero for almost every point x. The points x for which this is true are called the Lebesgue points of f.
+A more general version also holds. One may replace the balls B  by a family V𝒱 of sets U  of bounded eccentricity. This means that there exists some fixed c > 0 such that each set U  from the family is contained in a ball B   with |U|≥c|B||U| |B|.  It is also assumed that every point x ∈ Rn is contained in arbitrarily small sets from V𝒱. When these sets shrink to x, the same result holds: for almost every point x,
+f(x)=limU→x,U∈V1|U|∫Ufdλ.(x)=lim_U, U∈𝒱1/|U|∫_Uf dλ.
+The family of cubes is an example of such a family V𝒱, as is the family V𝒱(m) of rectangles in R2 such that the ratio of sides stays between m−1 and m, for some fixed m ≥ 1. If an arbitrary norm is given on Rn, the family of balls for the metric associated to the norm is another example.
+The one-dimensional case was proved earlier by Lebesgue (1904). If f is integrable on the real line, the function
+F(x)=∫(−∞,x]f(t)dt(x)=∫_(-∞,x]f(t) dt
+is almost everywhere differentiable, with F′(x)=f(x).'(x)=f(x). Were F defined by a Riemann integral this would be essentially the fundamental theorem of calculus, but Lebesgue proved that it remains true when using the Lebesgue integral.[2]
+
+Proof[edit]
+The theorem in its stronger form—that almost every point is a Lebesgue point of a locally integrable function f—can be proved as a consequence of the weak–L1 estimates for the Hardy–Littlewood maximal function.  The proof below follows the standard treatment that can be found in Benedetto & Czaja (2009), Stein & Shakarchi (2005),  Wheeden & Zygmund (1977) and Rudin (1987).
+Since the statement is local in character, f can be assumed to be  zero outside some ball of finite radius and hence integrable. It is then sufficient to prove that the set 
+
+Eα=x∈Rn:limsup|B|→0,x∈B1|B||∫Bf(y)−f(x)dy|>2α_α={x∈𝐑^n:lim sup_|B|→0, x1/|B||∫_Bf(y)-f(x) dy|>2α}
+has measure 0 for all α > 0.
+Let ε > 0 be given. Using the density of continuous functions of compact support in L1(Rn), one can find such a function g satisfying
+
+‖f−g‖L1=∫Rn|f(x)−g(x)|dx<ε.f-g_L^1=∫_𝐑^n|f(x)-g(x)| dx<ε.
+It is then helpful to rewrite the main difference as 
+
+1|B|∫Bf(y)dy−f(x)=(1|B|∫B(f(y)−g(y))dy)+(1|B|∫Bg(y)dy−g(x))+(g(x)−f(x)).1/|B|∫_Bf(y) dy-f(x)=(1/|B|∫_B(f(y)-g(y)) dy)+(1/|B|∫_Bg(y) dy-g(x))+(g(x)-f(x)).
+The first term can be bounded by the value at x of the maximal function for f − g, denoted here by (f−g)∗(x)(f-g)^*(x):
+
+1|B|∫B|f(y)−g(y)|dy≤supr>01|Br(x)|∫Br(x)|f(y)−g(y)|dy=(f−g)∗(x).1/|B|∫_B|f(y)-g(y)| dy≤sup_r>01/|B_r(x)|∫_B_r(x)|f(y)-g(y)| dy=(f-g)^*(x).
+The second term disappears in the limit since g is a continuous function, and the third term is bounded by |f(x) − g(x)|. For the absolute value of the original difference to be greater than 2α in the limit, at least one of the first or third terms must be greater than α in absolute value. However, the estimate on the Hardy–Littlewood function says that
+
+|x:(f−g)∗(x)>α|≤Anα‖f−g‖L1<Anαε,|{x:(f-g)^*(x)>α}|≤A_n/α f-g_L^1<A_n/α ε,
+for some constant An depending only upon the dimension n.  The Markov inequality (also called Tchebyshev's inequality) says that 
+
+|x:|f(x)−g(x)|>α|≤1α‖f−g‖L1<1αε|{x:|f(x)-g(x)|>α}|≤1/α f-g_L^1<1/α ε
+whence 
+
+|Eα|≤An+1αε.|E_α|≤A_n+1/α ε.
+Since ε was arbitrary, it can be taken to be arbitrarily small, and the theorem follows.
+
+Discussion of proof[edit]
+The Vitali covering lemma is vital to the proof of this theorem; its role lies in proving the estimate for the Hardy–Littlewood maximal function.
+The theorem also holds if balls are replaced, in the definition of the derivative, by families of  sets with diameter tending to zero satisfying the Lebesgue's regularity condition, defined above as family of sets with bounded eccentricity. This follows since the same substitution can be made in the statement of the Vitali covering lemma.
+
+Discussion[edit]
+This is an analogue, and a generalization, of the fundamental theorem of calculus, which equates a Riemann integrable function and the derivative of its (indefinite) integral. It is also possible to show a converse – that every differentiable function is equal to the integral of its derivative, but this requires a Henstock–Kurzweil integral in order to be able to integrate an arbitrary derivative.
+A special case of the Lebesgue differentiation theorem is the Lebesgue density theorem, which is equivalent to the differentiation theorem for characteristic functions of measurable sets. The density theorem is usually proved using a simpler method (e.g. see Measure and Category).
+This theorem is also true for every finite Borel measure on Rn instead of Lebesgue measure (a proof can be found in e.g. (Ledrappier & Young 1985)). More generally, it is true of any finite Borel measure on a separable metric space such that at least one of the following holds:
+
+the metric space is a Riemannian manifold,
+the metric space is a locally compact ultrametric space,
+the measure is doubling.
+A proof of these results can be found in sections 2.8–2.9 of (Federer 1969).
+
+See also[edit]
+Lebesgue's density theorem
+References[edit]
+
+
+^ Folland, G. B. (1999). Real analysis : modern techniques and their applications (2 ed.). New York: Wiley. pp. Chapter 3. ISBN 0-471-31716-0. OCLC 39849337.
+
+^ McDonald, John N. (2013). A course in real analysis. N. A. Weiss (2 ed.). Boston, Mass.: Academic Press/Elsevier. ISBN 978-0-12-387774-1. OCLC 754105634.
+
+
+Lebesgue, Henri (1904). Leçons sur l'Intégration et la recherche des fonctions primitives. Paris: Gauthier-Villars.
+Lebesgue, Henri (1910). "Sur l'intégration des fonctions discontinues". Annales Scientifiques de l'École Normale Supérieure. 27: 361–450. doi:10.24033/asens.624.
+Wheeden, Richard L.; Zygmund, Antoni (1977). Measure and Integral – An introduction to Real Analysis. Marcel Dekker.
+Oxtoby, John C. (1980). Measure and Category. Springer Verlag.
+Stein, Elias M.; Shakarchi, Rami (2005). Real analysis. Princeton Lectures in Analysis, III. Princeton, NJ: Princeton University Press. pp. xx+402. ISBN 0-691-11386-6. MR2129625
+Benedetto, John J.; Czaja, Wojciech (2009). Integration And Modern Analysis. Birkhäuser Advanced Texts. Springer. pp. 361–364. ISBN 978-0817643065.
+Rudin, Walter (1987). Real and complex analysis. International Series in Pure and Applied Mathematics (3rd ed.). McGraw–Hill. ISBN 0070542341.
+Ledrappier, F.; Young, L.S. (1985). "The Metric Entropy of Diffeomorphisms: Part I: Characterization of Measures Satisfying Pesin's Entropy Formula". Annals of Mathematics. 122 (3): 509–539. doi:10.2307/1971328. JSTOR 1971328.
+Federer, Herbert (1969). Geometric measure theory. Die Grundlehren der mathematischen Wissenschaften, Band. Vol. 153. New York: Springer-Verlag New York Inc.
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

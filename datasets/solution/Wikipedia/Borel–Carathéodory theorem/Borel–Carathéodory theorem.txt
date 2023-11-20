@@ -1,0 +1,125 @@
+In mathematics, the Borel–Carathéodory theorem in complex analysis shows that an analytic function may be bounded by its real part. It is an application of the maximum modulus principle. It is named for Émile Borel and Constantin Carathéodory.
+
+
+Statement of the theorem[edit]
+Let a function f be analytic on a closed disc of radius R centered at the origin. Suppose that r < R. Then, we have the following inequality:
+
+‖f‖r≤2rR−rsup|z|≤RRe⁡f(z)+R+rR−r|f(0)|.f_r≤2r/R-rsup_|z|Ref(z)+R+r/R-r|f(0)|.
+Here, the norm on the left-hand side denotes the maximum value of f in the closed disc:
+
+‖f‖r=max|z|≤r|f(z)|=max|z|=r|f(z)|f_r=max_|z||f(z)|=max_|z|=r|f(z)|
+(where the last equality is due to the maximum modulus principle).
+
+Proof[edit]
+Define A by
+
+A=sup|z|≤RRe⁡f(z).=sup_|z|Ref(z).
+If f is constant c, the inequality follows from (R+r)|c|+2rRe⁡c≥(R−r)|c|(R+r)|c|+2rRec≥(R-r)|c|, so we may assume f is nonconstant. First let f(0) = 0. Since Re f is harmonic, Re f(0) is equal to the average of its values around any circle centered at 0. That is,
+
+Re⁡f(0)=12π∫|z|=RRe⁡f(z)dz.Ref(0)=1/2π∫_|z|=RRef(z)dz.
+Since f is regular and nonconstant, we have that Re f is also nonconstant. Since Re f(0) = 0, we must have Re f(z)>0(z)>0 for some z on the circle |z|=R|z|=R, so we may take A>0>0. Now f maps into the half-plane P to the left of the x=A line. Roughly, our goal is to map this half-plane to a disk, apply Schwarz's lemma there, and make out the stated inequality.
+w↦w/A−1/A-1 sends P to the standard left half-plane. w↦R(w+1)/(w−1)(w+1)/(w-1) sends the left half-plane to the circle of radius R centered at the origin. The composite, which maps 0 to 0, is the desired map:
+
+w↦Rww−2A.↦Rw/w-2A.
+From Schwarz's lemma applied to the composite of this map and f, we have
+
+|Rf(z)||f(z)−2A|≤|z|.|Rf(z)|/|f(z)-2A|≤|z|.
+Take |z| ≤ r. The above becomes
+
+R|f(z)|≤r|f(z)−2A|≤r|f(z)|+2Ar|f(z)||f(z)-2A||f(z)|+2Ar
+so
+
+|f(z)|≤2ArR−r|f(z)|≤2Ar/R-r,
+as claimed. In the general case, we may apply the above to f(z)-f(0):
+
+|f(z)|−|f(0)|≤|f(z)−f(0)|≤2rR−rsup|w|≤RRe⁡(f(w)−f(0))≤2rR−r(sup|w|≤RRe⁡f(w)+|f(0)|),|f(z)|-|f(0)|   ≤|f(z)-f(0)|≤2r/R-rsup_|w|Re(f(w)-f(0))
+   ≤2r/R-r(sup_|w|Ref(w)+|f(0)|),
+which, when rearranged, gives the claim.
+
+Alternative result and proof[edit]
+We start with the following result:[1]
+
+
+Theorem — If f=u+iv=u+iv is analytic on B(0,R+ϵ)(0,R+ϵ) for some ϵ>0ϵ>0, and u≤M on ∂B(0,R)(0,R), then ∀n≥1≥1,
+|f(n)(0)|≤2n!Rn(M−u(0))|f^(n)(0)|≤2n!/R^n(M-u(0))
+and similarly if v≤M.
+
+
+Proof[2]
+It suffices to prove the u case, since the v case is found by −if=v−iu-if=v-iu.
+WLOG, subtract a constant away, to get f(0)=0(0)=0.
+Do three contour integrals around ∂B(0,R)(0,R) using Cauchy integral formula:
+f(n)(0)/n!=12πi∮f(z)zn+1dz=∫01f(Re2πit)Rne2πintdt^(n)(0)/n!=1/2∮f(z)/z^n+1dz=∫_0^1f(Re^2)/R^ne^2dt
+∫01f(Re2πit)e2πintdt=12πiRn∮f(z)zn−1dz=0∫_0^1f(Re^2)e^2dt=1/2^n(z)z^n-1dz=0
+∫01f(Re2πit)dt=12πi∮f(z)z−1dz=f(0)=0∫_0^1f(Re^2)dt=1/2(z)z^-1dz=f(0)=0
+Pick angle θθ, so that e−iθf(n)(0)=|f(n)(0)|^-iθf^(n)(0)=|f^(n)(0)|. Then by linearly combining the three integrals, we get
+∫01f(Re2πit)dt(1+cos⁡(2πnt+θ))=12Rn|f(n)(0)|/n!∫_0^1f(Re^2)dt(1+cos(2+θ))=1/2R^n|f^(n)(0)|/n!
+The imaginary part vanishes, and the real part gives
+∫01u(Re2πit)dt(1+cos⁡(2πnt+θ))=12Rn|f(n)(0)|/n!∫_0^1u(Re^2)dt(1+cos(2+θ))=1/2R^n|f^(n)(0)|/n!
+The integral is bounded above by M∫01dt(1+cos⁡(2πnt+θ))=M∫_0^1dt(1+cos(2+θ))=M, so we have the result.
+
+
+
+Corollary 1 — With the same assumptions, for all r∈(0,R)∈(0,R),
+maxz∈∂B(0,r)|f(z)|≤2rR−rM+R+rR−r|f(0)|max_z∈(0,r)|f(z)|≤2r/R-rM+R+r/R-r|f(0)|
+
+
+Proof
+It suffices to prove the case of f(0)=0(0)=0.
+By previous result, using the Taylor expansion,
+|f(z)|≤∑n=0∞1n!|f(n)(0)|⋅|z|n≤|f(0)|+∑n=1∞2M(r/R)n=2rR−rM|f(z)|≤∑_n=0^∞1/n!|f^(n)(0)|·|z|^n≤|f(0)|+∑_n=1^∞2M(r/R)^n=2r/R-rM
+
+
+
+Corollary 2 (Titchmarsh, 5.51, improved) — With the same assumptions, for all r∈(0,R)∈(0,R), and all integer n≥1≥1
+maxz∈∂B(0,r)|f(n)(z)|≤2n!(R−r)n+1R(M−u(0))max_z∈(0,r)|f^(n)(z)|≤2n!/(R-r)^n+1R(M-u(0))
+
+
+Proof
+It suffices to prove the case of f(0)=0(0)=0 as well. And similarly to above,
+|f(n)(z)|≤∑k=n∞k⋯(k−n+1)k!|f(k)(0)|⋅|z|k−n≤2(M−u(0))Rn∑k=n∞k⋯(k−n+1)(rR)k−n=2n!(R−r)n+1R(M−u(0))|f^(n)(z)|   ≤∑_k=n^∞k⋯(k-n+1)/k!|f^(k)(0)|·|z|^k-n
+   ≤2(M-u(0))/R^n∑_k=n^∞k⋯(k-n+1)(r/R)^k-n
+   =2n!/(R-r)^n+1R(M-u(0))
+
+
+
+
+Applications[edit]
+Borel–Carathéodory is often used to bound the logarithm of derivatives, such as in the proof of Hadamard factorization theorem.
+The following example is a strengthening of Liouville's theorem.
+
+
+Liouville's theorem, improved — If f is an entire function, such that there exists a sequence rk↗∞_k↗∞ with maxz∈∂B(0,rk)ℜ(f(z))=o(rkn+1)max_z∈(0,r_k)(f(z))=o(r_k^n+1), then f is a polynomial of degree at most n.
+
+
+Proof
+By Borel-Caratheodory lemma, for any 0<r<rk0<r<r_k,
+maxz∈∂B(0,r)|f(n+1)(z)|≤4n!(rk−r)n+2rkMmax_z∈(0,r)|f^(n+1)(z)|≤4n!/(r_k-r)^n+2r_kM
+	  where M=maxz∈∂B(0,rk)ℜ(f(z))=o(rkn+1)=max_z∈(0,r_k)(f(z))=o(r_k^n+1).  
+Letting r≤rk2≤r_k/2, and taking the k↗∞↗∞ limit:
+maxz∈∂B(0,r)|f(n+1)(z)|=o(1)→0max_z∈(0,r)|f^(n+1)(z)|=o(1)→0
+Thus by Liouville's theorem, f(n+1)^(n+1) is a constant function, and it converges to zero, so it is zero. So f is a polynomial of degree at most n.
+
+
+
+Corollary — If an entire function f has no roots and is of finite order ρρ, then f(z)=ep(z)(z)=e^p(z) for some polynomial p of degree deg(p)≤ρ(p)≤ρ.
+
+
+Proof
+Apply the improved Liouville theorem to g=log⁡(f)=log(f).
+
+
+References[edit]
+
+
+^ Ishita Goluguri, Toyesh Jayaswal, Andrew Lee. "The Prime Number Theorem: A PRIMES Exposition" (PDF).{{cite web}}:  CS1 maint: multiple names: authors list (link)
+
+^ Liu, Travor. "Borel-Caratheodory Lemma and Its Application".
+
+
+Sources[edit]
+Lang, Serge (1999). Complex Analysis (4th ed.). New York: Springer-Verlag, Inc. ISBN 0-387-98592-1.
+Titchmarsh, E. C. (1938). The theory of functions. Oxford University Press.
+
+
+

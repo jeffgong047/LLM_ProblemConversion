@@ -1,0 +1,197 @@
+Metatheorem in mathematical logicIn mathematical logic, a deduction theorem is a metatheorem that justifies doing conditional proofs from a hypothesis in systems that do not explicitly axiomatize that hypothesis, i.e. to prove an implication A → B, it is sufficient to assume A as a hypothesis and then proceed to derive B. Deduction theorems exist for both propositional logic and first-order logic.[1] The deduction theorem is an important tool in Hilbert-style deduction systems because it permits one to write more comprehensible and usually much shorter proofs than would be possible without it. In certain other formal proof systems the same conveniency is provided by an explicit inference rule; for example natural deduction calls it implication introduction.
+In more detail, the propositional logic deduction theorem states that if a formula B is deducible from a set of assumptions Δ∪AΔ∪{A} then the implication A→B is deducible from ΔΔ; in symbols, Δ∪A⊢BΔ∪{A} implies Δ⊢A→BΔ. In the special case where ΔΔ is the empty set, the deduction theorem claim can be more compactly written as: A⊢B implies ⊢A→B. The deduction theorem for predicate logic is similar, but comes with some extra constraints (that would for example be satisfied if A is a closed formula). In general a deduction theorem needs to take into account all logical details of the theory under consideration, so each logical system technically needs its own deduction theorem, although the differences are usually minor.
+The deduction theorem holds for all first-order theories with the usual[2] deductive systems for first-order logic.[3] However, there are first-order systems in which new inference rules are added for which the deduction theorem fails.[4] Most notably, the deduction theorem fails to hold in Birkhoff–von Neumann quantum logic, because the linear subspaces of a Hilbert space form a  non-distributive lattice.
+
+
+Examples of deduction[edit]
+"Prove" axiom 1: P→(Q→P) [a]
+P 1. hypothesis
+Q 2. hypothesis
+P 3. reiteration of 1
+Q→P 4. deduction from 2 to 3
+P→(Q→P) 5. deduction from 1 to 4 QED
+"Prove" axiom 2:
+P→(Q→R) 1. hypothesis
+P→Q 2. hypothesis
+P 3. hypothesis
+Q 4. modus ponens 3,2
+Q→R 5. modus ponens 3,1
+R 6. modus ponens 4,5
+P→R 7. deduction from 3 to 6
+(P→Q)→(P→R) 8. deduction from 2 to 7
+(P→(Q→R))→((P→Q)→(P→R)) 9. deduction from 1 to 8 QED
+Using axiom 1 to show ((P→(Q→P))→R)→R:
+(P→(Q→P))→R 1. hypothesis
+P→(Q→P) 2. axiom 1
+R 3. modus ponens 2,1
+((P→(Q→P))→R)→R 4. deduction from 1 to 3 QED
+Virtual rules of inference[edit]
+
+From the examples, you can see that we have added three virtual (or extra and temporary) rules of inference to our normal axiomatic logic. These are "hypothesis", "reiteration", and "deduction". The normal rules of inference (i.e. "modus ponens" and the various axioms) remain available.
+1. Hypothesis is a step where one adds an additional premise to those already available. So, if your previous step S was deduced as:
+
+E1,E2,...,En−1,En⊢S,_1,E_2,...,E_n-1,E_n,
+then one adds another premise H and gets:
+
+E1,E2,...,En−1,En,H⊢H._1,E_2,...,E_n-1,E_n,H.
+This is symbolized by moving from the n-th level of indentation to the n+1-th level and saying[b]
+
+S previous step
+H hypothesis
+2. Reiteration is a step where one re-uses a previous step. In practice, this is only necessary when one wants to take a hypothesis that is not the most recent hypothesis and use it as the final step before a deduction step.
+3. Deduction is a step where one removes the most recent hypothesis (still available) and prefixes it to the previous step. This is shown by unindenting one level as follows:[b]
+
+H hypothesis
+......... (other steps)
+C (conclusion drawn from H)
+H→C deduction
+Conversion from proof using the deduction meta-theorem to axiomatic proof[edit]
+In axiomatic versions of propositional logic, one usually has among the axiom schemas (where P, Q, and R are replaced by any propositions):
+
+Axiom 1 is: P→(Q→P)
+Axiom 2 is: (P→(Q→R))→((P→Q)→(P→R))
+Modus ponens is: from P and P→Q infer Q
+These axiom schemas are chosen to enable one to derive the deduction theorem from them easily. So it might seem that we are begging the question. However, they can be justified by checking that they are tautologies using truth tables and that modus ponens preserves truth.
+From these axiom schemas one can quickly deduce the theorem schema P→P (reflexivity of implication), which is used below:
+
+(P→((Q→P)→P))→((P→(Q→P))→(P→P)) from axiom schema 2 with P, (Q→P), P
+P→((Q→P)→P) from axiom schema 1 with P, (Q→P)
+(P→(Q→P))→(P→P) from modus ponens applied to step 2 and step 1
+P→(Q→P) from axiom schema 1 with P, Q
+P→P from modus ponens applied to step 4 and step 3
+Suppose that we have that Γ and H together prove C, and we wish to show that Γ proves H→C. For each step S in the deduction that is a premise in Γ (a reiteration step) or an axiom, we can apply modus ponens to the axiom 1, S→(H→S), to get H→S. If the step is H itself (a hypothesis step), we apply the theorem schema to get H→H. If the step is the result of applying modus ponens to A and A→S, we first make sure that these have been converted to H→A and H→(A→S) and then we take the axiom 2, (H→(A→S))→((H→A)→(H→S)), and apply modus ponens to get (H→A)→(H→S) and then again to get H→S. At the end of the proof we will have H→C as required, except that now it only depends on Γ, not on H. So the deduction step will disappear, consolidated into the previous step which was the conclusion derived from H.
+To minimize the complexity of the resulting proof, some preprocessing should be done before the conversion. Any steps (other than the conclusion) that do not actually depend on H should be moved up before the hypothesis step and unindented one level. And any other unnecessary steps (which are not used to get the conclusion or can be bypassed), such as reiterations that are not the conclusion, should be eliminated.
+During the conversion, it may be useful to put all the applications of modus ponens to axiom 1 at the beginning of the deduction (right after the H→H step).
+When converting a modus ponens, if A is outside the scope of H, then it will be necessary to apply axiom 1, A→(H→A), and modus ponens to get H→A. Similarly, if A→S is outside the scope of H, apply axiom 1, (A→S)→(H→(A→S)), and modus ponens to get H→(A→S). It should not be necessary to do both of these, unless the modus ponens step is the conclusion, because if both are outside the scope, then the modus ponens should have been moved up before H and thus be outside the scope also.
+Under the Curry–Howard correspondence, the above conversion process for the deduction meta-theorem is analogous to the conversion process from lambda calculus terms to terms of combinatory logic, where axiom 1 corresponds to the K combinator, and axiom 2 corresponds to the S combinator.  Note that the I combinator corresponds to the theorem schema P→P.
+
+Helpful theorems[edit]
+If one intends to convert a complicated proof using the deduction theorem to a straight-line proof not using the deduction theorem, then it would probably be useful to prove these theorems once and for all at the beginning and then use them to help with the conversion:
+
+A→A
+helps convert the hypothesis steps.
+
+(B→C)→((A→B)→(A→C))(B)→((A)→(A))
+helps convert modus ponens when the major premise is not dependent on the hypothesis, replaces axiom 2 while avoiding a use of axiom 1.
+
+(A→(B→C))→(B→(A→C))(A→(B))→(B→(A))
+helps convert modus ponens when the minor premise is not dependent on the hypothesis, replaces axiom 2 while avoiding a use of axiom 1.
+These two theorems jointly can be used in lieu of axiom 2, although the converted proof would be more complicated:
+
+(A→B)→((B→C)→(A→C))(A)→((B)→(A))
+(A→(A→C))→(A→C)(A→(A))→(A)
+Peirce's law is not a consequence of the deduction theorem, but it can be used with the deduction theorem to prove things that one might not otherwise be able to prove.
+
+((A→B)→A)→A((A))
+It can also be used to get the second of the two theorems, which can used in lieu of axiom 2.
+
+Proof of the deduction theorem[edit]
+We prove the deduction theorem in a Hilbert-style deductive system of propositional calculus.[7]
+Let ΔΔ be a set of formulas and A and B formulas, such that Δ∪A⊢BΔ∪{A}. We want to prove that Δ⊢A→BΔ.
+Since Δ∪A⊢BΔ∪{A}, there is a proof of B from Δ∪AΔ∪{A}. We prove the theorem by induction on the proof length n; thus the induction hypothesis is that for any ΔΔ, A and B such that there is a proof of B from Δ∪AΔ∪{A} of length up to n, Δ⊢A→BΔ holds.
+If n = 1 then B is member of the set of formulas Δ∪AΔ∪{A}. Thus either B=A=A, in which case A→B is simply A→A, which is derivable by substitution from p → p, which is derivable from the axioms, and hence also Δ⊢A→BΔ, or B is in ΔΔ, in which case Δ⊢BΔ; it follows from axiom p → (q → p) with substitution that Δ⊢B→(A→B)Δ→(A) and hence by modus ponens that Δ⊢A→BΔ.
+Now let us assume the induction hypothesis for proofs of length up to n, and let B be a formula provable from Δ∪AΔ∪{A} with a proof of length n+1. Then there are two possibilities:
+
+B is member of the set of formulas Δ∪AΔ∪{A}; in this case we proceed as for n=1.
+B is arrived at by using modus ponens. Then there is a formula C such that Δ∪AΔ∪{A} proves C and C→B, and modus ponens is then used to prove B. The proofs of C and C→B are with at most n steps, and by the induction hypothesis we have Δ⊢A→CΔ and Δ⊢A→(C→B)Δ→(C). By the axiom (p → (q → r)) → ((p → q) → (p → r)) with substitution it follows that  Δ⊢(A→(C→B))→((A→C)→(A→B))Δ⊢(A→(C))→((A)→(A)), and by using modus ponens twice we have Δ⊢A→BΔ.
+Thus in all cases the theorem holds also for n+1, and by induction the deduction theorem is proven.
+
+The deduction theorem in predicate logic[edit]
+The deduction theorem is also valid in first-order logic in the following form:
+
+If T is a theory and F, G are formulas with F closed, and T∪F⊢G∪{F}, then T⊢F→G.
+Here, the symbol ⊢⊢ means "is a syntactical consequence of." We indicate below how the proof of this deduction theorem differs from that of the deduction theorem in propositional calculus.
+In the most common versions of the notion of formal proof, there are, in addition to the axiom schemes
+of propositional calculus (or the understanding that all tautologies of propositional calculus are to
+be taken as axiom schemes in their own right), quantifier axioms, and in addition to modus ponens, one additional rule of inference, known as the rule of generalization: "From K, infer ∀vK."
+In order to convert a proof of G from T∪{F} to one of F→G from T, one deals 
+with steps of the proof of G that are axioms or result from application of modus ponens in the 
+same way as for proofs in propositional logic. Steps that result from application of the rule of
+generalization are dealt with via the following quantifier axiom (valid whenever the variable
+v is not free in formula H):
+
+(∀v(H→K))→(H→∀vK).
+Since in our case F is assumed to be closed, we can take H to be F. This axiom allows
+one to deduce F→∀vK from F→K and generalization, which is just what is needed whenever
+the rule of generalization is applied to some K in the proof of G.
+In first-order logic, the restriction of that F be a closed formula can be relaxed given that the free variables in F has not been varied in the deduction of G from T∪F∪{F}. In the case that a free variable v in F has been varied in the deduction, we write T∪F⊢vG∪{F}⊢^vG (the superscript in the turnstile indicating that v has been varied) and the corresponding form of the deduction theorem is T⊢(∀vF)→G⊢().[8]
+
+Example of conversion[edit]
+To illustrate how one can convert a natural deduction to the axiomatic form of proof, we apply it to the tautology Q→((Q→R)→R). In practice, it is usually enough to know that we could do this. We normally use the natural-deductive form in place of the much longer axiomatic proof.
+First, we write a proof using a natural-deduction like method:
+
+Q 1. hypothesis
+Q→R 2. hypothesis
+R 3. modus ponens 1,2
+(Q→R)→R 4. deduction from 2 to 3
+Q→((Q→R)→R) 5. deduction from 1 to 4 QED
+Second, we convert the inner deduction to an axiomatic proof:
+
+(Q→R)→(Q→R) 1. theorem schema (A→A)
+((Q→R)→(Q→R))→(((Q→R)→Q)→((Q→R)→R)) 2. axiom 2
+((Q→R)→Q)→((Q→R)→R) 3. modus ponens 1,2
+Q→((Q→R)→Q) 4. axiom 1
+Q 5. hypothesis
+(Q→R)→Q 6. modus ponens 5,4
+(Q→R)→R 7. modus ponens 6,3
+Q→((Q→R)→R) 8. deduction from 5 to 7 QED
+Third, we convert the outer deduction to an axiomatic proof:
+
+(Q→R)→(Q→R) 1. theorem schema (A→A)
+((Q→R)→(Q→R))→(((Q→R)→Q)→((Q→R)→R)) 2. axiom 2
+((Q→R)→Q)→((Q→R)→R) 3. modus ponens 1,2
+Q→((Q→R)→Q) 4. axiom 1
+[((Q→R)→Q)→((Q→R)→R)]→[Q→(((Q→R)→Q)→((Q→R)→R))] 5. axiom 1
+Q→(((Q→R)→Q)→((Q→R)→R)) 6. modus ponens 3,5
+[Q→(((Q→R)→Q)→((Q→R)→R))]→([Q→((Q→R)→Q)]→[Q→((Q→R)→R))]) 7. axiom 2
+[Q→((Q→R)→Q)]→[Q→((Q→R)→R))] 8. modus ponens 6,7
+Q→((Q→R)→R)) 9. modus ponens 4,8 QED
+These three steps can be stated succinctly using the Curry–Howard correspondence:
+
+first, in lambda calculus, the function f = λa. λb. b a has type q → (q → r) → r
+second, by lambda elimination on b, f = λa. s i (k a)
+third, by lambda elimination on a, f = s (k (s i)) k
+See also[edit]
+Cut-elimination theorem
+Conditional proof
+Currying
+Propositional calculus
+Peirce's law
+Notes[edit]
+
+
+^ See  explanation of Notation § below.
+
+^ a b Hypothesis is denoted by indentation, and Conclusion is denoted by unindentation[5] as cited by [6]
+
+
+
+^ Kleene 1967, p. 39, 112; Shoenfield 1967, p. 33
+
+^ For example, Hilbert-style deductive systems, natural deduction, the sequent calculus, the tableaux method, and resolution —see First order logic
+
+^ An explicit verification of this result may be found in https://github.com/georgydunaev/VerifiedMathFoundations/blob/master/SHEN.v
+
+^ Kohlenbach 2008, p. 148
+
+^ Fredric B. Fitch (1952) Symbolic Logic: an Introduction
+
+^ Peter Smith (13 Oct 2010) Types of proof system pages 5, and following
+
+^ Deduction theorem, from Curtis Franks at the University of Notre Dame, retrieved 2020-07-21
+
+^ Kleene, Stephen (1980). Introduction to meta-mathematics. North Holland. pp. 102–106. ISBN 9780720421033.
+
+
+References[edit]
+Carl Hewitt (2008), "ORGs for Scalable, Robust, Privacy-Friendly Client Cloud Computing", IEEE Internet Computing, 12 (5): 96–99, doi:10.1109/MIC.2008.107, S2CID 27828219. September/October 2008
+Kohlenbach, Ulrich (2008), Applied proof theory: proof interpretations and their use in mathematics, Springer Monographs in Mathematics, Berlin, New York: Springer-Verlag, ISBN 978-3-540-77532-4, MR 2445721
+Kleene, Stephen Cole (2002) [1967], Mathematical logic, New York: Dover Publications, ISBN 978-0-486-42533-7, MR 1950307
+Rautenberg, Wolfgang (2010), A Concise Introduction to Mathematical Logic (3rd ed.), New York: Springer Science+Business Media, doi:10.1007/978-1-4419-1221-3, ISBN 978-1-4419-1220-6.
+Shoenfield, Joseph R. (2001) [1967], Mathematical Logic (2nd ed.), A K Peters, ISBN 978-1-56881-135-2
+External links[edit]
+Introduction to Mathematical Logic by Vilnis Detlovs and Karlis Podnieks is a comprehensive tutorial.  See Section 1.5.
+"Deduction Theorem"
+
+
+

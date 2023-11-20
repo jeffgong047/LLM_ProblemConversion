@@ -1,0 +1,261 @@
+Unconditional series converge absolutely
+In mathematics, the Riemann series theorem, also called the Riemann rearrangement theorem, named after 19th-century German mathematician Bernhard Riemann, says that if an infinite series of real numbers is conditionally convergent, then its terms can be arranged in a permutation so that the new series converges to an arbitrary real number, or diverges. This implies that a series of real numbers is absolutely convergent if and only if it is unconditionally convergent.
+As an example, the series 1 − 1 + 1/2 − 1/2 + 1/3 − 1/3 + ⋯ converges to 0 (for a sufficiently large number of terms, the partial sum gets arbitrarily near to 0); but replacing all terms with their absolute values gives 1 + 1 + 1/2 + 1/2 + 1/3 + 1/3 + ⋯, which sums to infinity. Thus the original series is conditionally convergent, and can be rearranged (by taking the first two positive terms followed by the first negative term, followed by the next two positive terms and then the next negative term, etc.) to give a series that converges to a different sum: 1 + 1/2 − 1 + 1/3 + 1/4 − 1/2 + ⋯ = ln 2. More generally, using this procedure with p positives followed by q negatives gives the sum ln(p/q). Other rearrangements give other finite sums or do not converge to any sum.
+
+
+History[edit]
+It is a basic result that the sum of finitely many numbers does not depend on the order in which they are added. For example, 2 + 6 + 7 = 7 + 2 + 6. The observation that the sum of an infinite sequence of numbers can depend on the ordering of the summands is commonly attributed to Augustin-Louis Cauchy in 1833.[1] He analyzed the alternating harmonic series, showing that certain rearrangements of its summands result in different limits. Around the same time, Peter Gustav Lejeune Dirichlet highlighted that such phenomena is ruled out in the context of absolute convergence, and gave further examples of Cauchy's phenomena for some other series which fail to be absolutely convergent.[2]
+In the course of his analysis of Fourier series and the theory of Riemann integration, Bernhard Riemann gave a full characterization of the rearrangement phenomena.[3] He proved that in the case of a convergent series which does not converge absolutely (known as conditional convergence), rearrangements can be found so that the new series converges to any arbitrarily prescribed real number.[4] Riemann's theorem is now considered as a basic part of the field of mathematical analysis.[5]
+For any series, one may consider the set of all possible sums, corresponding to all possible rearrangements of the summands. Riemann's theorem can be formulated as saying that, for a series of real numbers, this set is either empty, a single point (in the case of absolute convergence), or the entire real number line (in the case of conditional convergence). In this formulation, Riemann's theorem was extended by Paul Lévy and Ernst Steinitz to series whose summands are complex numbers or, even more generally, elements of a finite-dimensional real vector space. They proved that the set of possible sums forms a real affine subspace. Extensions of the Lévy–Steinitz theorem to series in infinite-dimensional spaces have been considered by a number of authors.[6]
+
+Definitions[edit]
+A series ∑n=1∞an∑_n=1^∞a_n converges if there exists a value ℓℓ such that the sequence of the partial sums
+
+(S1,S2,S3,…),Sn=∑k=1nak,(S_1,S_2,S_3,…),_n=∑_k=1^na_k,
+converges to ℓℓ. That is, for any ε > 0, there exists an integer N such that if n ≥ N, then
+
+|Sn−ℓ|≤ε._n-ℓ|≤ε.
+A series converges conditionally if the series ∑n=1∞an∑_n=1^∞a_n converges but the series ∑n=1∞|an|∑_n=1^∞_n| diverges.
+A permutation is simply a bijection from the set of positive integers to itself. This means that if σσ is a permutation, then for any positive integer b,, there exists exactly one positive integer a such that σ(a)=b.σ(a)=b. In particular, if x≠y, then σ(x)≠σ(y)σ(x)≠σ(y).
+
+Statement of the theorem[edit]
+Suppose that (a1,a2,a3,…)(a_1,a_2,a_3,…) is a sequence of real numbers, and that ∑n=1∞an∑_n=1^∞a_n is conditionally convergent. Let M be a real number. Then there exists a permutation σσ such that
+
+∑n=1∞aσ(n)=M.∑_n=1^∞a_σ(n)=M.
+There also exists a permutation σσ such that
+
+∑n=1∞aσ(n)=∞.∑_n=1^∞a_σ(n)=∞.
+The sum can also be rearranged to diverge to −∞-∞ or to fail to approach any limit, finite or infinite.
+
+Alternating harmonic series[edit]
+Changing the sum[edit]
+The alternating harmonic series is a classic example of a conditionally convergent series:∑n=1∞(−1)n+1n∑_n=1^∞(-1)^n+1/nis convergent, whereas∑n=1∞|(−1)n+1n|=∑n=1∞1n∑_n=1^∞|(-1)^n+1/n|=∑_n=1^∞1/nis the ordinary harmonic series, which diverges. Although in standard presentation the alternating harmonic series converges to ln(2), its terms can be arranged to converge to any number, or even to diverge.  
+
+One instance of this is as follows.  Begin with the series written in the usual order,
+
+
+ln⁡(2)=1−12+13−14+15−16+17−18+19⋯ln(2)=1-1/2+1/3-1/4+1/5-1/6+1/7-1/8+1/9⋯
+
+and rearrange and regroup the terms as:
+
+1−12−14+13−16−18+15−110−112+⋯=(1−12)−14+(13−16)−18+(15−110)−112+⋯   1-1/2-1/4+1/3-1/6-1/8+1/5-1/10-1/12+⋯
+=   (1-1/2)-1/4+(1/3-1/6)-1/8+(1/5-1/10)-1/12+⋯
+
+where the pattern is: the first two terms are 1 and −1/2, whose sum is 1/2. The next term is −1/4. The next two terms are 1/3 and −1/6, whose sum is 1/6. The next term is −1/8. The next two terms are 1/5 and −1/10, whose sum is 1/10. In general, since every odd integer occurs once positively and every even integers occur once negatively (half of them as multiples of 4, the other half as twice odd integers), the sum is composed of blocks of three which can be simplified as:
+
+(12k−1−12(2k−1))−14k=(12(2k−1))−14k,k=1,2,….(1/2k-1-1/2(2k-1))-1/4k=(1/2(2k-1))-1/4k,=1,2,….
+
+Hence, the above series can in fact be written as:
+
+12−14+16−18+110+⋯+12(2k−1)−12(2k)+⋯=12(1−12+13−⋯)=12ln⁡(2)   1/2-1/4+1/6-1/8+1/10+⋯+1/2(2k-1)-1/2(2k)+⋯
+=   1/2(1-1/2+1/3-⋯)=1/2ln(2)
+
+which is half the sum originally, and can only equate to the original sequence if the value were zero. This series can be demonstrated to be greater than zero by the proof of Leibniz's theorem using that the second partial sum is half.[7] Alternatively, the value of ln⁡(2)ln(2) which it converges to, cannot be zero. Hence, the value of the sequence is shown to depend on the order in which series is computed. 
+It is true that the sequence:
+bn=1,−12,−14,13,−16,−18,15,−110,−112,17,−114,−116,⋯{b_n}=1,-1/2,-1/4,1/3,-1/6,-1/8,1/5,-1/10,-1/12,1/7,-1/14,-1/16,⋯
+contains all elements in the sequence:
+an=1,−12,13,−14,15,−16,17,−18,19,−110,111,−112,113,−114,115,⋯{a_n}=1,-1/2,1/3,-1/4,1/5,-1/6,1/7,-1/8,1/9,-1/10,1/11,-1/12,1/13,-1/14,1/15,⋯
+
+However, since the summation is defined as ∑n=1∞an:=limn→∞(a1+a2+⋯+an)∑_n=1^∞a_n:=lim_n→∞(a_1+a_2+⋯+a_n) and ∑n=1∞bn:=limn→∞(b1+b2+⋯+bn)∑_n=1^∞b_n:=lim_n→∞(b_1+b_2+⋯+b_n), the order of the terms can influence the limit.[7]
+
+Getting an arbitrary sum[edit]
+An efficient way to recover and generalize the result of the previous section is to use the fact that
+
+1+12+13+⋯+1n=γ+ln⁡n+o(1),1+12+13+⋯+1=γ++o(1),
+where γ is the Euler–Mascheroni constant, and where the notation o(1) denotes a quantity that depends upon the current variable (here, the variable is n) in such a way that this quantity goes to 0 when the variable tends to infinity.
+It follows that the sum of q even terms satisfies
+
+12+14+16+⋯+12q=12γ+12ln⁡q+o(1),12+14+16+⋯+12q=12 γ+12+o(1),
+and by taking the difference, one sees that the sum of p odd terms satisfies
+
+1+13+15+⋯+12p−1=12γ+12ln⁡p+ln⁡2+o(1).1+13+15+⋯+12p-1=12 γ+12+ln2+o(1).
+Suppose that two positive integers a and b are given, and that a rearrangement of the alternating harmonic series is formed by taking, in order, a positive terms from the alternating harmonic series, followed by b negative terms, and repeating this pattern at infinity (the alternating series itself corresponds to a = b = 1, the example in the preceding section corresponds to a = 1, b = 2):
+
+1+13+⋯+12a−1−12−14−⋯−12b+12a+1+⋯+14a−1−12b+2−⋯1+13+⋯+12a-1-12-14-⋯-12b+12a+1+⋯+14a-1-12b+2-⋯
+Then the partial sum of order (a + b)n of this rearranged series contains p = an positive odd terms and q = bn negative even terms, hence
+
+S(a+b)n=12ln⁡p+ln⁡2−12ln⁡q+o(1)=12ln⁡(ab)+ln⁡2+o(1)._(a+b)n=12+ln2-12+o(1)=12ln(a/b)+ln2+o(1).
+It follows that the sum of this rearranged series is[8]
+
+12ln⁡(ab)+ln⁡2=ln⁡(2ab).12ln(a/b)+ln2=ln(2√(a/b)).
+Suppose now that, more generally, a rearranged series of the alternating harmonic series is organized in such a way that the ratio pn/qn between the number of positive and negative terms in the partial sum of order n tends to a positive limit r.  Then, the sum of such a rearrangement will be
+
+ln⁡(2r),ln(2√(r)),
+and this explains that any real number x can be obtained as sum of a rearranged series of the alternating harmonic series: it suffices to form a rearrangement for which the limit r is equal to e2x/ 4.
+
+Proof[edit]
+Existence of a rearrangement that sums to any positive real M[edit]
+Riemann's description of the theorem and its proof reads in full:[9]
+
+… infinite series fall into two distinct classes, depending on whether or not they remain convergent when all the terms are made positive. In the first class the terms can be arbitrarily rearranged; in the second, on the other hand, the value is dependent on the ordering of the terms. Indeed, if we denote the positive terms of a series in the second class by a1, a2, a3, ... and the negative terms by −b1, −b2, −b3, ... then it is clear that Σa as well as Σb must be infinite. For if they were both finite, the series would still be convergent after making all the signs the same. If only one were infinite, then the series would diverge. Clearly now an arbitrarily given value C can be obtained by a suitable reordering of the terms. We take alternately the positive terms of the series until the sum is greater than C, and then the negative terms until the sum is less than C. The deviation from C never amounts to more than the size of the term at the last place the signs were switched. Now, since the number a as well as the numbers b become infinitely small with increasing index, so also are the deviations from C. If we proceed sufficiently far in the series, the deviation becomes arbitrarily small, that is, the series converges to C.
+This can be given more detail as follows.[10] Recall that a conditionally convergent series of real terms has both infinitely many negative terms and infinitely many positive terms. First, define two quantities, an+_n^+ and an−_n^- by:
+
+an+=anifan≥00ifan<0,an−=0ifan≥0anifan<0._n^+=a_n   ifa_n≥0
+0   ifa_n<0,_n^-=0   ifa_n≥0
+a_n   ifa_n<0.
+That is, the series ∑n=1∞an+∑_n=1^∞a_n^+ includes all an positive, with all negative terms replaced by zeroes, and the series ∑n=1∞an−∑_n=1^∞a_n^- includes all an negative, with all positive terms replaced by zeroes. Since ∑n=1∞an∑_n=1^∞a_n is conditionally convergent, both the 'positive' and the 'negative' series diverge. Let M be any real number. Take just enough of the positive terms an+_n^+ so that their sum exceeds M. That is, let p1 be the smallest positive integer such that
+
+M<∑n=1p1an+.<∑_n=1^p_1a_n^+.
+This is possible because the partial sums of the an+_n^+ series tend to +∞+∞. Now let q1 be the smallest positive integer such that
+
+M>∑n=1p1an++∑n=1q1an−.>∑_n=1^p_1a_n^++∑_n=1^q_1a_n^-.
+This number exists because the partial sums of an−_n^- tend to −∞-∞. Now continue inductively, defining p2 as the smallest integer larger than p1 such that
+
+M<∑n=1p2an++∑n=1q1an−,<∑_n=1^p_2a_n^++∑_n=1^q_1a_n^-,
+and so on. The result may be viewed as a new sequence 
+
+a1+,…,ap1+,a1−,…,aq1−,ap1+1+,…,ap2+,aq1+1−,…,aq2−,ap2+1+,…._1^+,…,a_p_1^+,a_1^-,…,a_q_1^-,a_p_1+1^+,…,a_p_2^+,a_q_1+1^-,…,a_q_2^-,a_p_2+1^+,….
+Furthermore the partial sums of this new sequence converge to M. This can be seen from the fact that for any i,
+
+∑n=1pi+1−1an++∑n=1qian−≤M<∑n=1pi+1an++∑n=1qian−,∑_n=1^p_i+1-1a_n^++∑_n=1^q_ia_n^-<∑_n=1^p_i+1a_n^++∑_n=1^q_ia_n^-,
+with the first inequality holding due to the fact that pi+1 has been defined as the smallest number larger than pi which makes the second inequality true; as a consequence, it holds that
+
+0<(∑n=1pi+1an++∑n=1qian−)−M≤api+1+.0<(∑_n=1^p_i+1a_n^++∑_n=1^q_ia_n^-)-M_p_i+1^+.
+Since the right-hand side converges to zero due to the assumption of conditional convergence,  this shows that the (pi+1 + qi)'th partial sum of the new sequence converges to M as i increases. Similarly, the (pi+1 + qi+1)'th partial sum also converges to M. Since the (pi+1 + qi + 1)'th, (pi+1 + qi + 2)'th, ... (pi+1 + qi+1 − 1)'th partial sums are valued between the (pi+1 + qi)'th and (pi+1 + qi+1)'th partial sums, it follows that the whole sequence of partial sums converges to M.
+Every entry in the original sequence an appears in this new sequence whose partial sums converge to M. Those entries of the original sequence which are zero will appear twice in the new sequence (once in the 'positive' sequence and once in the 'negative' sequence), and every second such appearance can be removed, which does not affect the summation in any way. The new sequence is thus a permutation of the original sequence.
+
+Existence of a rearrangement that diverges to infinity[edit]
+Let ∑i=1∞ai∑_i=1^∞a_i be a conditionally convergent series. The following is a proof that there exists a rearrangement of this series that tends to ∞∞ (a similar argument can be used to show that −∞-∞ can also be attained).
+The above proof of Riemann's original formulation only needs to be modified so that pi+1 is selected as the smallest integer larger than pi such that
+
+i+1<∑n=1pi+1an++∑n=1qian−,+1<∑_n=1^p_i+1a_n^++∑_n=1^q_ia_n^-,
+and with qi+1 selected as the smallest integer larger than qi such that
+
+i+1>∑n=1pi+1an++∑n=1qi+1an−.+1>∑_n=1^p_i+1a_n^++∑_n=1^q_i+1a_n^-.
+The choice of i+1 on the left-hand sides is immaterial, as it could be replaced by any sequence increasing to infinity. Since an−_n^- converges to zero as n increases, for sufficiently large i there is 
+
+∑n=1pi+1an++∑n=1qi+1an−>i,∑_n=1^p_i+1a_n^++∑_n=1^q_i+1a_n^->i,
+and this proves (just as with the analysis of convergence above) that the sequence of partial sums of the new sequence diverge to infinity.
+
+Existence of a rearrangement that fails to approach any limit, finite or infinite[edit]
+The above proof only needs to be modified so that pi+1 is selected as the smallest integer larger than pi such that
+
+1<∑n=1pi+1an++∑n=1qian−,1<∑_n=1^p_i+1a_n^++∑_n=1^q_ia_n^-,
+and with qi+1 selected as the smallest integer larger than qi such that
+
+−1>∑n=1pi+1an++∑n=1qi+1an−.-1>∑_n=1^p_i+1a_n^++∑_n=1^q_i+1a_n^-.
+This directly shows that the sequence of partial sums contains infinitely many entries which are larger than 1, and also infinitely many entries which are less than −1, so that the sequence of partial sums cannot converge.
+
+Generalizations[edit]
+Sierpiński theorem[edit]
+Given an infinite series a=(a1,a2,...)=(a_1,a_2,...), we may consider a set of "fixed points" I⊂N⊂ℕ, and study the real numbers that the series can sum to if we are only allowed to permute indices in I. That is, we letS(a,I)=∑n∈Naπ(n):πisapermutationonN,suchthat∀n∉I,π(n)=n,andthesummationconverges.(a,I)={∑_n∈ℕa_π(n):πisapermutationonℕ,suchthat,π(n)=n,andthesummationconverges.}With this notation, we have:
+
+If IΔI′' is finite, then S(a,I)=S(a,I′)(a,I)=S(a,I'). Here ΔΔ means symmetric difference.
+If I⊂I′' then S(a,I)⊂S(a,I′)(a,I)(a,I').
+If the series is an absolutely convergent sum, then S(a,I)=∑n∈Nan(a,I)={∑_n∈ℕa_n} for any I.
+If the series is a conditionally convergent sum, then by Riemann series theorem, S(a,N)=[−∞,+∞](a,ℕ)=[-∞,+∞].
+Sierpiński proved that rearranging only the positive terms one can obtain a series converging to any prescribed value less than or equal to the sum of the original series, but larger values in general can not be attained.[11][12][13] That is, let a be a conditionally convergent sum, then S(a,n∈N:an>0)(a,{n∈ℕ:a_n>0}) contains [−∞,∑n∈Nan][-∞,∑_n∈ℕa_n], but there is no guarantee that it contains any other number.
+More generally, let J be an ideal of Nℕ, then we can define S(a,J)=∪I∈JS(a,I)(a,J)=∪_IS(a,I). 
+Let Jd_d be the set of all asymptotic density zero sets I⊂N⊂ℕ, that is, limn→∞|[0,n]∩I|n=0lim_n→∞|[0,n]|/n=0. It's clear that Jd_d is an ideal of Nℕ. 
+
+
+(Władysław, 2007)[14] — 
+If a is a conditionally convergent sum, then S(a,Jd)=[−∞,−∞](a,J_d)=[-∞,-∞] (that is, it is sufficient to rearrange a set of indices of asymptotic density zero).
+
+
+Proof sketch: Given a, a conditionally convergent sum, construct some I∈Jd_d such that ∑n∈Ian∑_na_n and ∑n∉Ian∑_na_n are both conditionally convergent. Then, rearranging ∑n∈Ian∑_na_n suffices to converge to any number in [−∞,+∞][-∞,+∞].
+Filipów and Szuca proved that other ideals also have this property.[15]
+
+Steinitz's theorem[edit]
+Main article: Lévy–Steinitz theorem
+Given a converging series ∑an_nof complex numbers, several cases can occur when considering the set of possible sums for all series ∑aσ(n)_σ(n) obtained by rearranging (permuting) the terms of that series:
+
+the series ∑an_n may converge unconditionally; then, all rearranged series converge, and have the same sum: the set of sums of the rearranged series reduces to one point;
+the series ∑an_n may fail to converge unconditionally;  if S denotes the set of sums of those rearranged series that converge, then, either the set S is a line L in the complex plane C, of the form L=a+tb:t∈R,a,b∈C,b≠0,={a+tb:t∈ℝ},,b∈ℂ,≠̱0, or the set S is the whole complex plane C.
+More generally, given a converging series of vectors in a finite-dimensional real vector space E, the set of sums of converging rearranged series is an affine subspace of E.
+
+See also[edit]
+Absolute convergence § Rearrangements and unconditional convergence
+References[edit]
+
+
+^ Cauchy 1833, Section 8; Apostol 1967, p. 411.
+
+^ Dirichlet 1837, Section 1.
+
+^ Riemann 1868.
+
+^ Kline 1990, p. 966.
+
+^ Apostol 1967, Section 10.21; Apostol 1974, Section 8.18; Rudin 1976, Theorem 3.54; Whittaker & Watson 2021, Section II.17.
+
+^ Banaszczyk 1991, Section 10; Mauldin 2015, Problem 28 and Problem 106.
+
+^ a b Spivak, Michael (2008). Calculus (4th ed.). Houston, Texas: Publish or Perish. pp. 482–483. ISBN 978-0-914098-91-1.
+
+^ Apostol, Tom M. (1991-01-16). Calculus, Volume 1. John Wiley & Sons. p. 416. ISBN 978-0-471-00005-1.
+
+^ Riemann 1868, p. 97, quoted from the 2004 English translation.
+
+^ Apostol 1967, Section 10.21; Whittaker & Watson 2021, Section II.17.
+
+^ Sierpiński, Wacław (1910). "Przyczynek do teoryi szeregów rozbieżnych [Contribution à la théorie des séries divergentes]" [Contribution to the theory of divergent series]. Sprawozdania Z Posiedzen Towarzystwa Naukowego Warszawskiego (in Polish). 3: 89–93.
+
+^ Sierpiński, Wacław (1910). "Uwaga do twierdzenia Riemanna o szeregach warunkowo zbieżnych [Remarque sur le théorème de Riemann relatif aux séries semiconvergentes]" [Remark on Riemann's theorem relating to semi-convergent series]. Prace Matematyczno-Fizyczne (in Polish). 21 (1): 17–20.
+
+^ Sierpiński, Wacław (1911). "Sur une propriété des séries qui ne sont pas absolument convergentes [O pewnej własności szeregów warunkowo zbieżnych]". Bulletin International de l'Académie des Sciences de Cracovie, Séries A: 149–158.
+
+^ Wilczyński, Władysław (2007). "On Riemann derangement theorem". Słupskie Prace Matematyczno-Fizyczne. 4: 79–82.
+
+^ Filipów, Rafał; Szuca, Piotr (February 2010). "Rearrangement of conditionally convergent series on a small set". Journal of Mathematical Analysis and Applications. 362 (1): 64–71. doi:10.1016/j.jmaa.2009.07.029.
+
+
+
+Apostol, Tom M. (1967). Calculus. Volume I: One-variable calculus, with an introduction to linear algebra (Second edition of 1961 original ed.). New York: John Wiley & Sons, Inc. ISBN 0-471-00005-1. MR 0214705. Zbl 0148.28201.
+Apostol, Tom M. (1974). Mathematical analysis (Second edition of 1957 original ed.). Reading, MA: Addison-Wesley Publishing Co. MR 0344384. Zbl 0309.26002.
+Banaszczyk, Wojciech (1991). Additive subgroups of topological vector spaces. Lecture Notes in Mathematics. Vol. 1466. Berlin: Springer-Verlag. pp. 93–109. doi:10.1007/BFb0089147. ISBN 3-540-53917-4. MR 1119302. Zbl 0743.46002.
+Cauchy, M. Augustin Louis (1833). Résumés analytiques. Turin: L'imprimerie royale.
+Dirichlet, P. G. L. (1837). "Beweis des Satzes, dass jede unbegrenzte arithmetische Progression, deren erstes Glied und Differenz ganze Zahlen ohne gemeinschaftlichen Factor sind, unendlich viele Primzahlen enthält". Abhandlungen der Königlich Preussischen Akademie der Wissenschaften: 45–81.Lejeune Dirichlet, G. (1889). "Beweis des Satzes, dass jede unbegrenzte arithmetische Progression, deren erstes Glied und Differenz ganze Zahlen ohne gemeinschaftlichen Factor sind, unendlich viele Primzahlen enthält". In Kronecker, L. (ed.). Werke. Band I. Berlin: Dietrich Reimer Verlag. pp. 313–342. JFM 21.0016.01. MR 0249268.
+Kline, Morris (1990). Mathematical thought from ancient to modern times. Volume 3 (Second edition of 1972 original ed.). New York: The Clarendon Press. ISBN 0-19-506137-3. MR 1058203. Zbl 0864.01001.
+Mauldin, R. Daniel, ed. (2015). The Scottish Book. Mathematics from the Scottish Café with selected problems from the new Scottish Book. Including selected papers presented at the Scottish Book Conference held at North Texas University, Denton, TX, May 1979 (Second edition of 1981 original ed.). Springer, Cham. doi:10.1007/978-3-319-22897-6. ISBN 978-3-319-22896-9. MR 3242261. Zbl 1331.01039.
+Riemann, Bernhard (1868). "Über die Darstellbarkeit einer Function durch eine trigonometrische Reihe". Abhandlungen der Königlichen Gesellschaft der Wissenschaften zu Göttingen. 13: 87–132. JFM 01.0131.03.Riemann, Bernhard (2004). "On the representation of a function by a trigonometric series". Collected Papers. Translated by Baker, Roger; Christenson, Charles; Orde, Henry. Translation of 1892 German edition. Heber City, UT: Kendrick Press. ISBN 0-9740427-2-2. MR 2121437. Zbl 1101.01013.
+Rudin, Walter (1976). Principles of mathematical analysis. International Series in Pure and Applied Mathematics (Third edition of 1953 original ed.). New York: McGraw-Hill Book Co. MR 0385023. Zbl 0346.26002.
+Whittaker, E. T.; Watson, G. N. (2021). Moll, Victor H. (ed.). A course of modern analysis—an introduction to the general theory of infinite processes and of analytic functions with an account of the principal transcendental functions. With a foreword by S. J. Patterson (Fifth edition of 1902 original ed.). Cambridge: Cambridge University Press. doi:10.1017/9781009004091. ISBN 978-1-316-51893-9. MR 4286926. Zbl 1468.30001.
+
+External links[edit]
+Weisstein, Eric W. "Riemann Series Theorem". MathWorld. Retrieved February 1, 2023.
+vteBernhard Riemann
+Cauchy–Riemann equations
+Generalized Riemann hypothesis
+Grand Riemann hypothesis
+Grothendieck–Hirzebruch–Riemann–Roch theorem
+Hirzebruch–Riemann–Roch theorem
+Local zeta function
+Measurable Riemann mapping theorem
+Riemann (crater)
+Riemann Xi function
+Riemann curvature tensor
+Riemann hypothesis
+Riemann integral
+Riemann invariant
+Riemann mapping theorem
+Riemann form
+Riemann problem
+Riemann series theorem
+Riemann solver
+Riemann sphere
+Riemann sum
+Riemann surface
+Riemann zeta function
+Riemann's differential equation
+Riemann's minimal surface
+Riemannian circle
+Riemannian connection on a surface
+Riemannian geometry
+Riemann–Hilbert correspondence
+Riemann–Hilbert problems
+Riemann–Lebesgue lemma
+Riemann–Liouville integral
+Riemann–Roch theorem
+Riemann–Roch theorem for smooth manifolds
+Riemann–Siegel formula
+Riemann–Siegel theta function
+Riemann–Silberstein vector
+Riemann–Stieltjes integral
+Riemann–von Mangoldt formula
+
+ Category
+
+
+
+

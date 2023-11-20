@@ -1,0 +1,232 @@
+Curve whose range contains the unit square
+Three iterations of the Peano curve construction, whose limit is a space-filling curve.
+In mathematical analysis, a space-filling curve is a curve whose range reaches every point in a higher dimensional region, typically the unit square (or more generally an n-dimensional unit hypercube). Because Giuseppe Peano (1858–1932) was the first to discover one, space-filling curves in the 2-dimensional plane are sometimes called Peano curves, but that phrase also refers to the Peano curve, the specific example of a space-filling curve found by Peano.
+The closely related FASS curves (approximately space-Filling, self-Avoiding, Simple, and Self-similar curves)
+can be thought of as finite approximations of a certain type of space-filling curves.[1][2][3][4][5][6]
+
+
+Definition[edit]
+Intuitively, a curve in two or three (or higher) dimensions can be thought of as the path of a continuously moving point.  To eliminate the inherent vagueness of this notion, Jordan in 1887 introduced the following rigorous definition, which has since been adopted as the precise description of the notion of a curve:
+
+A curve (with endpoints) is a continuous function whose domain is the unit interval [0, 1].
+In the most general form, the range of such a function may lie in an arbitrary topological space, but in the most commonly studied cases, the range will lie in a Euclidean space such as the 2-dimensional plane (a planar curve) or the 3-dimensional space (space curve).
+Sometimes, the curve is identified with the image of the function (the set of all possible values of the function), instead of the function itself.  It is also possible to define curves without endpoints to be a continuous function on the real line (or on the open unit interval (0, 1)).
+
+History[edit]
+In 1890, Giuseppe Peano discovered a continuous curve, now called the Peano curve, that passes through every point of the unit square.[7] His purpose was to construct a continuous mapping from the unit interval  onto the unit square. Peano was motivated by Georg Cantor's earlier counterintuitive result that the infinite number of points in a unit interval is the same cardinality as the infinite number of points in any finite-dimensional manifold, such as the unit square.  The problem Peano solved was whether such a mapping could be continuous; i.e., a curve that fills a space. Peano's solution does not set up a continuous one-to-one correspondence between the unit interval and the unit square, and indeed such a correspondence does not exist (see § Properties below).
+It was common to associate the vague notions of thinness and 1-dimensionality to curves; all normally encountered curves were piecewise differentiable (that is, have piecewise continuous derivatives), and such curves cannot fill up the entire unit square.  Therefore, Peano's space-filling curve was found to be highly counterintuitive.
+From Peano's example, it was easy to deduce continuous curves whose ranges contained the n-dimensional hypercube (for any positive integer n). It was also easy to extend Peano's example to continuous curves without endpoints, which filled the entire n-dimensional Euclidean space (where n is 2, 3, or any other positive integer).
+Most well-known space-filling curves are constructed iteratively as the limit of a sequence of piecewise linear continuous curves, each one more closely approximating the space-filling limit.
+Peano's ground-breaking article contained no illustrations of his construction, which is defined in terms of ternary expansions and a mirroring operator.  But the graphical construction was perfectly clear to him—he made an ornamental tiling showing a picture of the curve in his home in Turin.  Peano's article also ends by observing that the technique can be obviously extended to other odd bases besides base 3.  His choice to avoid any appeal to graphical visualization was motivated by a desire for a completely rigorous proof owing nothing to pictures.  At that time (the beginning of the foundation of general topology), graphical arguments were still included in proofs, yet were becoming a hindrance to understanding often counterintuitive results.
+A year later, David Hilbert published in the same journal a variation of Peano's construction.[8] Hilbert's article was the first to include a picture helping to visualize the construction technique, essentially the same as illustrated here.  The analytic form of the Hilbert curve, however, is more complicated than Peano's.
+
+Six iterations of the Hilbert curve construction, whose limiting space-filling curve was devised by mathematician David Hilbert.
+Outline of the construction of a space-filling curve[edit]
+Let C𝒞 denote the Cantor space 2N2^ℕ.
+We start with a continuous function h from the Cantor space C𝒞 onto the entire unit interval [0,1][0, 1].  (The restriction of the Cantor function to the Cantor set is an example of such a function.)  From it, we get a continuous function H from the topological product C×C𝒞 × 𝒞 onto the entire unit square [0,1]×[0,1][0, 1] × [0, 1] by setting
+H(x,y)=(h(x),h(y)).(x,y)=(h(x),h(y)). 
+Since the Cantor set is homeomorphic to the product C×C𝒞×𝒞, there is a continuous bijection g from the Cantor set onto C×C𝒞 × 𝒞. The composition f of H and g is a continuous function mapping the Cantor set onto the entire unit square.  (Alternatively, we could use the theorem that every compact metric space is a continuous image of the Cantor set to get the function f.)
+Finally, one can extend f to a continuous function F whose domain is the entire unit interval [0,1][0, 1].  This can be done either by using the Tietze extension theorem on each of the components of f, or by simply extending f "linearly" (that is, on each of the deleted open interval (a,b)(a, b) in the construction of the Cantor set, we define the extension part of F on (a,b)(a, b) to be the line segment within the unit square joining the values f(a)(a) and f(b)(b)).
+
+Properties[edit]
+Morton and Hilbert curves of level 6 (45=1024 cells in the recursive square partition) plotting each address as different color in the RGB standard, and using Geohash labels. The neighborhoods have similar colors, but each curve offers different pattern of grouping similars in smaller scales.
+If a curve is not injective, then one can find two intersecting subcurves of the curve, each obtained by considering the images of two disjoint segments from the curve's domain (the unit line segment).  The two subcurves intersect if the intersection of the two images is non-empty.  One might be tempted to think that the meaning of curves intersecting is that they necessarily cross each other, like the intersection point of two non-parallel lines, from one side to the other.  However, two curves (or two subcurves of one curve) may contact one another without crossing, as, for example, a line tangent to a circle does.
+A non-self-intersecting continuous curve cannot fill the unit square because that will make the curve a homeomorphism from the unit interval onto the unit square (any continuous bijection from a compact space onto a Hausdorff space is a homeomorphism).  But a unit square has no cut-point, and so cannot be homeomorphic to the unit interval, in which all points except the endpoints are cut-points. There exist non-self-intersecting curves of nonzero area, the Osgood curves, but by Netto's theorem they are not space-filling.[9]
+For the classic Peano and Hilbert space-filling curves, where two subcurves intersect (in the technical sense), there is self-contact without self-crossing. A space-filling curve can be (everywhere) self-crossing if its approximation curves are self-crossing.  A space-filling curve's approximations can be self-avoiding, as the figures above illustrate.  In 3 dimensions, self-avoiding approximation curves can even contain knots.  Approximation curves remain within a bounded portion of n-dimensional space, but their lengths increase without bound.
+Space-filling curves are special cases of fractal curves.  No differentiable space-filling curve can exist. Roughly speaking, differentiability puts a bound on how fast the curve can turn. Michał Morayne proved that the continuum hypothesis is equivalent to the existence of a Peano curve such that at each point of real line at least one of its components is differentiable.[10]
+
+The Hahn–Mazurkiewicz theorem[edit]
+The Hahn–Mazurkiewicz theorem is the following characterization of spaces that are the continuous image of curves:
+
+A non-empty Hausdorff topological space is a continuous image of the unit interval if and only if it is a compact, connected, locally connected, second-countable space.
+Spaces that are the continuous image of a unit interval are sometimes called Peano spaces.
+In many formulations of the Hahn–Mazurkiewicz theorem, second-countable is replaced by metrizable.  These two formulations are equivalent.  In one direction a compact Hausdorff space is a normal space and, by the Urysohn metrization theorem, second-countable then implies metrizable. Conversely, a compact metric space is second-countable.
+
+Kleinian groups[edit]
+There are many natural examples of space-filling, or rather sphere-filling, curves in the theory of doubly degenerate Kleinian groups. For example,
+Cannon & Thurston (2007) showed that the circle at infinity of the universal cover of a fiber of a mapping torus of a pseudo-Anosov map is a sphere-filling curve. (Here the sphere is the sphere at infinity of hyperbolic 3-space.)
+
+Integration[edit]
+Wiener pointed out in The Fourier Integral and Certain of its Applications that space-filling curves could be used to reduce Lebesgue integration in higher dimensions to Lebesgue integration in one dimension.
+
+See also[edit]
+
+Dragon curve
+Gosper curve
+Hilbert curve
+Koch curve
+Moore curve
+Murray polygon
+Sierpiński curve
+Space-filling tree
+Spatial index
+Hilbert R-tree
+Bx-tree
+Z-order (curve) (Morton order)
+Cannon–Thurston map
+List of fractals by Hausdorff dimension
+
+Notes[edit]
+
+
+^ 
+Przemyslaw Prusinkiewicz and Aristid Lindenmayer.
+"The Algorithmic Beauty of Plants".
+2012.
+p. 12
+
+^ 
+Jeffrey Ventrella.
+"Brainfilling Curves - A Fractal Bestiary".
+2011.
+p. 43
+
+^ 
+Marcia Ascher.
+"Mathematics Elsewhere: An Exploration of Ideas Across Cultures".
+2018.
+p. 179.
+
+^ 
+"Fractals in the Fundamental and Applied Sciences".
+1991.
+p. 341-343.
+
+^ 
+Przemyslaw Prusinkiewicz; Aristid Lindenmayer; F. David Fracchia.
+"Synthesis of Space-Filling Curves on the Square Grid".
+1989.
+
+^ 
+"FASS-curve".
+D. Frettlöh, E. Harriss, F. Gähler: Tilings encyclopedia, https://tilings.math.uni-bielefeld.de/
+
+^ Peano 1890.
+
+^ Hilbert 1891.
+
+^ Sagan 1994, p. 131.
+
+^ Morayne, Michał (1987). "On differentiability of Peano type functions". Colloquium Mathematicum. 53 (1): 129–132. doi:10.4064/cm-53-1-129-132. ISSN 0010-1354.
+
+
+References[edit]
+Cannon, James W.; Thurston, William P. (2007) [1982], "Group invariant Peano curves", Geometry & Topology, 11 (3): 1315–1355, doi:10.2140/gt.2007.11.1315, ISSN 1465-3060, MR 2326947
+Hilbert, D. (1891), "Ueber die stetige Abbildung einer Linie auf ein Flächenstück", Mathematische Annalen (in German), 38 (3): 459–460, doi:10.1007/BF01199431, S2CID 123643081
+Mandelbrot, B. B. (1982), "Ch. 7: Harnessing the Peano Monster Curves", The Fractal Geometry of Nature, W. H. Freeman.
+McKenna, Douglas M. (1994), "SquaRecurves, E-Tours, Eddies, and Frenzies: Basic Families of Peano Curves on the Square Grid", in Guy, Richard K.; Woodrow, Robert E. (eds.), The Lighter Side of Mathematics: Proceedings of the Eugene Strens Memorial Conference on Recreational Mathematics and its History, Mathematical Association of America, pp. 49–73, ISBN 978-0-88385-516-4.
+Peano, G. (1890), "Sur une courbe, qui remplit toute une aire plane", Mathematische Annalen (in French), 36 (1): 157–160, doi:10.1007/BF01199438, S2CID 179177780.
+Sagan, Hans (1994), Space-Filling Curves, Universitext, Springer-Verlag, doi:10.1007/978-1-4612-0871-6, ISBN 0-387-94265-3, MR 1299533.
+External links[edit]
+
+
+
+Wikimedia Commons has media related to Space-filling curves.
+
+Multidimensional Space-Filling Curves
+Proof of the existence of a bijection at cut-the-knot
+Java applets:
+
+Peano Plane Filling Curves at cut-the-knot
+Hilbert's and Moore's Plane Filling Curves at cut-the-knot
+All Peano Plane Filling Curves at cut-the-knot
+vteFractalsCharacteristics
+Fractal dimensions
+Assouad
+Box-counting
+Higuchi
+Correlation
+Hausdorff
+Packing
+Topological
+Recursion
+Self-similarity
+Iterated function system
+Barnsley fern
+Cantor set
+Koch snowflake
+Menger sponge
+Sierpinski carpet
+Sierpinski triangle
+Apollonian gasket
+Fibonacci word
+Space-filling curve
+Blancmange curve
+De Rham curve
+Minkowski
+Dragon curve
+Hilbert curve
+Koch curve
+Lévy C curve
+Moore curve
+Peano curve
+Sierpiński curve
+Z-order curve
+String
+T-square
+n-flake
+Vicsek fractal
+Hexaflake
+Gosper curve
+Pythagoras tree
+Weierstrass function
+Strange attractor
+Multifractal system
+L-system
+Fractal canopy
+Space-filling curve
+H tree
+Escape-time fractals
+Burning Ship fractal
+Julia set
+Filled
+Newton fractal
+Douady rabbit
+Lyapunov fractal
+Mandelbrot set
+Misiurewicz point
+Multibrot set
+Newton fractal
+Tricorn
+Mandelbox
+Mandelbulb
+Rendering techniques
+Buddhabrot
+Orbit trap
+Pickover stalk
+Random fractals
+Brownian motion
+Brownian tree
+Brownian motor
+Fractal landscape
+Lévy flight
+Percolation theory
+Self-avoiding walk
+People
+Michael Barnsley
+Georg Cantor
+Bill Gosper
+Felix Hausdorff
+Desmond Paul Henry
+Gaston Julia
+Helge von Koch
+Paul Lévy
+Aleksandr Lyapunov
+Benoit Mandelbrot
+Hamid Naderi Yeganeh
+Lewis Fry Richardson
+Wacław Sierpiński
+Other
+"How Long Is the Coast of Britain?"
+Coastline paradox
+Fractal art
+List of fractals by Hausdorff dimension
+The Fractal Geometry of Nature (1982 book)
+The Beauty of Fractals (1986 book)
+Chaos: Making a New Science (1987 book)
+Kaleidoscope
+Chaos theory
+
+
+
+

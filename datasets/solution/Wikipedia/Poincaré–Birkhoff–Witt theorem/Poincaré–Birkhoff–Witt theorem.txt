@@ -1,0 +1,88 @@
+Explicitly describes the universal enveloping algebra of a Lie algebra
+For the Poincaré–Birkhoff fixed-point theorem, see Poincaré–Birkhoff theorem.
+In mathematics, more specifically in the theory of Lie algebras, the Poincaré–Birkhoff–Witt theorem (or PBW theorem) is a result giving an explicit description of the universal enveloping algebra of a Lie algebra. It is named after Henri Poincaré, Garrett Birkhoff, and Ernst Witt.
+The terms PBW type theorem and PBW theorem may also refer to various analogues of the original theorem, comparing a filtered algebra to its associated graded algebra, in particular in the area of quantum groups.
+
+
+Statement of the theorem[edit]
+Recall that any vector space V over a field has a basis; this is a set S such that any element of V is a unique (finite) linear combination of elements of S.  In the formulation of Poincaré–Birkhoff–Witt theorem we consider bases of which the elements are totally ordered by some relation which we denote ≤.
+If L is a Lie algebra over a field K,  let h denote the canonical K-linear map from L into the universal enveloping algebra U(L).
+Theorem.[1] Let L be a Lie algebra over  K and X a totally ordered basis of L. A  canonical monomial over X is a finite sequence  (x1, x2   ..., xn) of elements of X which is non-decreasing in the order ≤, that is, x1 ≤x2 ≤  ... ≤ xn. Extend h to all canonical monomials as follows: if (x1, x2, ..., xn) is a canonical monomial, let 
+
+h(x1,x2,…,xn)=h(x1)⋅h(x2)⋯h(xn).(x_1,x_2,…,x_n)=h(x_1)(x_2)(x_n).
+Then h is injective on the set of canonical monomials and the image of this set h(x1,…,xn)|x1≤...≤xn{h(x_1,…,x_n)|x_1≤..._n} forms a basis for U(L) as a K-vector space.
+Stated somewhat differently, consider Y = h(X). Y is totally ordered by the induced ordering from X. The set of monomials
+
+y1k1y2k2⋯yℓkℓ_1^k_1y_2^k_2_ℓ^k_ℓ
+where y1 <y2 < ... < yn are elements of Y, and the exponents are non-negative, together with the multiplicative unit 1, form a basis for U(L).  Note that the unit element 1 corresponds to the empty canonical monomial. The theorem then asserts that these monomials form a basis for U(L) as a vector space. It is easy to see that these monomials span U(L); the content of the theorem is that they are linearly independent.
+The multiplicative structure of U(L) is determined by the structure constants in the basis X, that is, the coefficients cu,vx_u,v^x such that
+
+[u,v]=∑x∈Xcu,vxx.[u,v]=∑_xc_u,v^x x.
+This relation allows one to reduce any product of y's to a linear combination of canonical monomials: The structure constants determine yiyj – yjyi, i.e. what to do in order to change the order of two elements of Y in a product. This fact, modulo an inductive argument on the degree of (non-canonical) monomials, shows one can always achieve products where the factors are ordered in a non-decreasing fashion.
+The Poincaré–Birkhoff–Witt theorem can be interpreted as saying that the end result of this reduction is unique and does not depend on the order in which one swaps adjacent elements.
+Corollary. If L is a Lie algebra over a field, the canonical map L → U(L) is injective.  In particular, any Lie algebra over a field is isomorphic to a Lie subalgebra of an associative algebra.
+
+More general contexts[edit]
+Already at its earliest stages, it was known that K could be replaced by any commutative ring, provided that L is a free K-module, i.e., has a basis as above.
+To extend to the case when L is no longer a free K-module, one needs to make a reformulation that does not use bases. This involves replacing the space of monomials in some basis with the symmetric algebra, S(L), on L.
+In the case that K contains the field of rational numbers, one can consider the natural map from S(L) to U(L), sending a monomial v1v2⋯vn_1v_2_n. for vi∈L_i, to the element 
+
+1n!∑σ∈Snvσ(1)vσ(2)⋯vσ(n).1/n!∑_σ_nv_σ(1)v_σ(2)_σ(n).
+Then, one has the theorem that this map is an isomorphism of K-modules.
+Still more generally and naturally, one can consider U(L) as a filtered algebra, equipped with the filtration given by specifying that v1v2⋯vn_1v_2_n lies in filtered degree ≤n.  The map L → U(L)  of K-modules canonically extends to a map T(L) → U(L) of algebras, where T(L) is the tensor algebra on L (for example, by the universal property of tensor algebras), and this is a filtered map equipping T(L) with the filtration putting L in degree one (actually, T(L) is graded).  Then, passing to the associated graded, one gets a canonical morphism T(L) → grU(L), which kills the elements vw - wv for v, w ∈ L, and hence descends to a canonical morphism S(L) → grU(L).  Then, the (graded) PBW theorem can be reformulated as the statement that, under certain hypotheses, this final morphism is an isomorphism of commutative algebras.
+This is not true for all K and L (see, for example, the last section of Cohn's 1961 paper), but is true in many cases. These include the aforementioned ones, where either L is a free K-module (hence whenever K is a field), or K contains the field of rational numbers.  More generally, the PBW theorem as formulated above extends to cases such as where  (1) L is a flat K-module, (2) L is torsion-free as an abelian group, (3) L is a direct sum of cyclic modules (or all its localizations at prime ideals of K have this property), or (4) K is a Dedekind domain.  See, for example, the 1969 paper by Higgins for these statements.
+Finally, it is worth noting that, in some of these cases, one also obtains the stronger statement that the canonical morphism S(L) → grU(L) lifts to a K-module isomorphism S(L) → U(L), without taking associated graded.  This is true in the first cases mentioned, where L is a free K-module, or K contains the field of rational numbers, using the construction outlined here (in fact, the result is a coalgebra isomorphism, and not merely a K-module isomorphism, equipping both S(L) and U(L) with their natural coalgebra structures such that Δ(v)=v⊗1+1⊗vΔ(v)=v⊗1+1 for v ∈ L).  This stronger statement, however, might not extend to all of the cases in the previous paragraph.
+
+History of the theorem[edit]
+In four papers from the 1880s Alfredo Capelli proved, in different terminology, what is now known as the Poincaré–Birkhoff–Witt theorem in the case of L=gln,=𝔤𝔩_n, the General linear Lie algebra; while Poincaré later stated it more generally in 1900.[2] Armand Borel says that these results of Capelli were "completely forgotten for almost a century", and he does not suggest that Poincaré was aware of Capelli's result.[2]
+Ton-That and Tran [3] have investigated the history of the theorem. They have found out that the majority of the sources before Bourbaki's 1960 book call it Birkhoff-Witt theorem. Following this old tradition, Fofanova[4] in her encyclopaedic entry says that Poincaré obtained the first variant of the theorem. She further says that the theorem was subsequently completely demonstrated by Witt and Birkhoff. It appears that pre-Bourbaki sources were not familiar with Poincaré's paper.
+Birkhoff [5] and Witt [6] do not mention Poincaré's work in their 1937 papers. Cartan and Eilenberg[7] call the theorem Poincaré-Witt Theorem and attribute the complete proof to Witt. Bourbaki[8] were the first to use all three names in their 1960 book. Knapp presents a clear illustration of the shifting tradition. In his 1986 book[9] he calls it Birkhoff-Witt Theorem, while in his later 1996 book[10] he switches to Poincaré-Birkhoff-Witt Theorem.
+It is not clear whether Poincaré's result was complete. Ton-That and Tran[3] conclude that "Poincaré had discovered and completely demonstrated this theorem at least thirty-seven years before Witt and Birkhoff". On the other hand, they point out that "Poincaré makes several statements without bothering to prove them". Their own proofs of all the steps are rather long according to their admission. Borel states that Poincaré "more or less proved the Poincaré-Birkhoff-Witt theorem" in 1900.[2]
+
+Notes[edit]
+
+
+^ Hall 2015 Theorem 9.9
+
+^ a b c Borel 2001, p. 6
+
+^ a b Ton-That & Tran 1999
+
+^ Fofanova 2001 harvnb error: no target: CITEREFFofanova2001 (help)
+
+^ Birkhoff 1937
+
+^ Witt 1937
+
+^ Cartan & Eilenberg 1956
+
+^ Bourbaki 1960
+
+^ Knapp 1986
+
+^ Knapp 1996
+
+
+References[edit]
+Birkhoff, Garrett (April 1937). "Representability of Lie algebras and Lie groups by matrices". Annals of Mathematics. 38 (2): 526–532. doi:10.2307/1968569. JSTOR 1968569.
+Borel, Armand (2001). Essays in the History of Lie groups and algebraic groups. History of Mathematics. Vol. 21. American mathematical society and London mathematical society. ISBN 978-0821802885.
+Bourbaki, Nicolas (1960). "Chapitre 1: Algèbres de Lie". Groupes et algèbres de Lie. Éléments de mathématique. Paris: Hermann. ISBN 9782705613648.
+Capelli, Alfredo (1890). "Sur les Opérations dans la théorie des formes algébriques". Mathematische Annalen. 37: 1–37. doi:10.1007/BF01206702. S2CID 121470841.
+Cartan, Henri; Eilenberg, Samuel (1956). Homological Algebra. Princeton Mathematical Series (PMS). Vol. 19. Princeton University Press. ISBN 978-0-691-04991-5.
+Cartier, Pierre (1958). "Remarques sur le théorème de Birkhoff–Witt". Annali della Scuola Normale Superiore di Pisa - Classe di Scienze. Série 3. 12 (1–2): 1–4.
+Cohn, P.M. (1963). "A remark on the Birkhoff-Witt theorem". J. London Math. Soc. 38: 197–203. doi:10.1112/jlms/s1-38.1.197.
+Fofanova, T.S. (2001) [1994], "Birkhoff–Witt theorem", Encyclopedia of Mathematics, EMS Press
+Hall, Brian C. (2015). Lie Groups, Lie Algebras and Representations: An Elementary Introduction. Graduate Texts in Mathematics. Vol. 222 (2nd ed.). Springer. ISBN 978-3319134666.
+Higgins, P.J. (1969). "Baer Invariants and the Birkhoff-Witt theorem". Journal of Algebra. 11 (4): 469–482. doi:10.1016/0021-8693(69)90086-6.
+Hochschild, G. (1965). The Theory of Lie Groups. Holden-Day.
+Knapp, A. W. (2001) [1986]. Representation theory of semisimple groups. An overview based on examples. Princeton Mathematical Series. Vol. 36. Princeton University Press. ISBN 0-691-09089-0. JSTOR j.ctt1bpm9sn.
+Knapp, A. W. (2013) [1996]. Lie groups beyond an introduction. Springer. ISBN 978-1-4757-2453-0.
+Poincaré, Henri (1900). "Sur les groupes continus". Transactions of the Cambridge Philosophical Society. Vol. 18. University Press. pp. 220–5. OCLC 1026731418.
+Ton-That, T.; Tran, T.-D. (1999). "Poincaré's proof of the so-called Birkhoff-Witt theorem" (PDF). Rev. Histoire Math. 5: 249–284. arXiv:math/9908139. Bibcode:1999math......8139T. CiteSeerX 10.1.1.489.7065. Zbl 0958.01012.
+Witt, Ernst (1937). "Treue Darstellung Liescher Ringe". J. Reine Angew. Math. 1937 (177): 152–160. doi:10.1515/crll.1937.177.152. S2CID 118046494.
+Authority control databases: National 
+Germany
+
+
+
+

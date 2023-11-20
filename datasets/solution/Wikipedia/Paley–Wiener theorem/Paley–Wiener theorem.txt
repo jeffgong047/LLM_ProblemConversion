@@ -1,0 +1,96 @@
+In mathematics, a Paley–Wiener theorem is any theorem that relates decay properties of a function or distribution at infinity with analyticity of its Fourier transform.  The theorem is named for Raymond Paley (1907–1933) and Norbert Wiener (1894–1964).  The original theorems did not use the language of distributions, and instead applied to square-integrable functions.  The first such theorem using distributions was due to Laurent Schwartz. These theorems heavily rely on the triangle inequality (to interchange the absolute value and integration).
+
+
+Holomorphic Fourier transforms[edit]
+The classical Paley–Wiener theorems make use of the holomorphic Fourier transform on classes of square-integrable functions supported on the real line.  Formally, the idea is to take the integral defining the (inverse) Fourier transform
+
+f(ζ)=∫−∞∞F(x)eixζdx(ζ)=∫_-∞^∞F(x)e^ixζ dx
+and allow ζζ to be a complex number in the upper half-plane.  One may then expect to differentiate under the integral in order to verify that the Cauchy–Riemann equations hold, and thus that f defines an analytic function. However, this integral may not be well-defined, even for F in L2(R)^2(ℝ); indeed, since ζζ is in the upper half plane, the modulus of eixζ^ixζ grows exponentially as x→−∞→-∞; so differentiation under the integral sign is out of the question. One must impose further restrictions on F in order to ensure that this integral is well-defined.
+The first such restriction is that F be supported on R+ℝ_+: that is, F∈L2(R+)^2(ℝ_+).  The Paley–Wiener theorem now asserts the following:[1] The holomorphic Fourier transform of F, defined by
+
+f(ζ)=∫0∞F(x)eixζdx(ζ)=∫_0^∞F(x)e^ixζ dx
+for ζζ in the upper half-plane is a holomorphic function. Moreover, by Plancherel's theorem, one has
+
+∫−∞∞|f(ξ+iη)|2dξ≤∫0∞|F(x)|2dx∫_-∞^∞|f(ξ+iη)|^2 dξ≤∫_0^∞|F(x)|^2 dx
+and by dominated convergence, 
+
+limη→0+∫−∞∞|f(ξ+iη)−f(ξ)|2dξ=0.lim_η→0^+∫_-∞^∞|f(ξ+iη)-f(ξ)|^2 dξ=0.
+Conversely, if f is a holomorphic function in the upper half-plane satisfying
+
+supη>0∫−∞∞|f(ξ+iη)|2dξ=C<∞sup_η>0∫_-∞^∞|f(ξ+iη)|^2 dξ=C<∞
+then there exists F∈L2(R+)^2(ℝ_+) such that f is the holomorphic Fourier transform of F.
+In abstract terms, this version of the theorem explicitly describes the Hardy space H2(R)^2(ℝ). The theorem states that
+
+FH2(R)=L2(R+).ℱH^2(ℝ)=L^2(ℝ_+).
+This is a very useful result as it enables one to pass to the Fourier transform of a function in the Hardy space and perform calculations in the easily understood space 
+L2(R+)^2(ℝ_+) of square-integrable functions supported on the positive axis.
+By imposing the alternative restriction that F be compactly supported, one obtains another Paley–Wiener theorem.[2] Suppose that F is supported in [−A,A][-A,A], so that F∈L2(−A,A)^2(-A,A).  Then the holomorphic Fourier transform
+
+f(ζ)=∫−AAF(x)eixζdx(ζ)=∫_-A^AF(x)e^ixζ dx
+is an entire function of exponential type A, meaning that there is a constant C such that
+
+|f(ζ)|≤CeA|ζ|,|f(ζ)|^A|ζ|,
+and moreover, f is square-integrable over horizontal lines:
+
+∫−∞∞|f(ξ+iη)|2dξ<∞.∫_-∞^∞|f(ξ+iη)|^2 dξ<∞.
+Conversely, any entire function of exponential type A which is square-integrable over horizontal lines is the holomorphic Fourier transform of an 
+L2^2 function supported in [−A,A][-A,A].
+
+Schwartz's Paley–Wiener theorem[edit]
+Schwartz's Paley–Wiener theorem asserts that the Fourier transform of a distribution of compact support on Rnℝ^n is an entire function on Cnℂ^n and gives estimates on its growth at infinity.  It was proven by Laurent Schwartz (1952). The formulation presented here is from Hörmander (1976) harvtxt error: no target: CITEREFHörmander1976 (help).
+Generally, the Fourier transform can be defined for any tempered distribution; moreover, any distribution of compact support v is a tempered distribution. If v is a distribution of compact support and f is an infinitely differentiable function, the expression
+
+v(f)=v(x↦f(x))(f)=v(x(x))
+is well defined.
+It can be shown that the Fourier transform of v is a function (as opposed to a general tempered distribution) given at the value s by
+
+v^(s)=(2π)−n2v(x↦e−i⟨x,s⟩)v̂(s)=(2π)^-n/2v(x^-i,s⟩)
+and that this function can be extended to values of s in the complex space Cnℂ^n.  This extension of the Fourier transform to the complex domain is called the Fourier–Laplace transform.
+
+
+Schwartz's theorem — An entire function F on Cnℂ^n is the Fourier–Laplace transform of a distribution v of compact support if and only if for all z∈Cn∈ℂ^n,
+
+|F(z)|≤C(1+|z|)NeB|Im(z)||F(z)|(1+|z|)^Ne^B|Im(z)|
+for some constants C, N, B.  The distribution v in fact will be supported in the closed ball of center 00 
+and radius B.
+
+
+Additional growth conditions on the entire function F impose regularity properties on the distribution v. 
+For instance:[3]
+
+
+Theorem — If for every positive N there is a constant CN_N such that for all z∈Cn∈ℂ^n,
+
+|F(z)|≤CN(1+|z|)−NeB|Im(z)||F(z)|_N(1+|z|)^-Ne^B|Im(z)|
+then v is an infinitely differentiable function, and vice versa.
+
+
+Sharper results giving good control over the singular support of v have been formulated by Hörmander (1990). In particular,[4] let K be a convex compact set in Rnℝ^n with supporting function H, defined by
+
+H(x)=supy∈K⟨x,y⟩.(x)=sup_y,y⟩.
+Then the singular support of v is contained in K if and only if there is a constant N and sequence of constants Cm_m such that
+
+|v^(ζ)|≤Cm(1+|ζ|)NeH(Im(ζ))|v̂(ζ)|_m(1+|ζ|)^Ne^H(Im(ζ))
+for |Im(ζ)|≤mlog⁡(|ζ|+1).|Im(ζ)|log(|ζ|+1).
+
+Notes[edit]
+
+
+^ Rudin 1973, Theorem 19.2 harvnb error: no target: CITEREFRudin1973 (help); Strichartz 1994, Theorem 7.2.4; Yosida 1968, §VI.4
+
+^ Rudin 1973, Theorem 19.3 harvnb error: no target: CITEREFRudin1973 (help); Strichartz 1994, Theorem 7.2.1
+
+^ Strichartz 1994, Theorem 7.2.2; Hörmander 1990, Theorem 7.3.1
+
+^ Hörmander 1990, Theorem 7.3.8
+
+
+References[edit]
+Hörmander, L. (1990), The Analysis of Linear Partial Differential Operators I, Springer Verlag.
+Rudin, Walter (1987), Real and complex analysis (3rd ed.), New York: McGraw-Hill, ISBN 978-0-07-054234-1, MR 0924157.
+Schwartz, Laurent (1952), "Transformation de Laplace des distributions", Comm. Sém. Math. Univ. Lund [Medd. Lunds Univ. Mat. Sem.], 1952: 196–206, MR 0052555
+Strichartz, R. (1994), A Guide to Distribution Theory and Fourier Transforms, CRC Press, ISBN 0-8493-8273-4.
+Yosida, K. (1968), Functional Analysis, Academic Press.
+
+
+

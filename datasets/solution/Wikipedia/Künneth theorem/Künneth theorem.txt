@@ -1,0 +1,79 @@
+Relates the homology of two objects to the homology of their product
+In mathematics, especially in homological algebra and algebraic topology, a Künneth theorem, also called a Künneth formula, is a statement relating the homology of two objects to the homology of their product. The classical statement of the Künneth theorem relates the singular homology of two topological spaces X and Y and their product space X×Y. In the simplest possible case the relationship is that of a tensor product, but for applications it is very often necessary to apply certain tools of homological algebra to express the answer.
+A Künneth theorem or Künneth formula is true in many different homology and cohomology theories, and the name has become generic. These many results are named for the German mathematician Hermann Künneth.
+
+
+Singular homology with coefficients in a field[edit]
+Let X and Y be two topological spaces.  In general one uses singular homology; but if X and Y happen to be CW complexes, then this can be replaced by cellular homology, because that is isomorphic to singular homology. The simplest case is when the coefficient ring  for homology is a field F. In this situation, the Künneth theorem (for singular homology) states that for any integer k,
+
+⨁i+j=kHi(X;F)⊗Hj(Y;F)≅Hk(X×Y;F)⊕_i+j=kH_i(X;F)_j(Y;F)_k(X;F).
+Furthermore, the isomorphism is a natural isomorphism. The map from the sum to the homology group of the product is called the cross product. More precisely, there is a cross product operation by which an i-cycle on X and a j-cycle on Y can be combined to create an  (i+j)(i+j)-cycle on X×Y; so that there is an explicit linear mapping defined from the direct sum to Hk(X×Y)_k(X).
+A consequence of this result is that the Betti numbers, the dimensions of the homology with Qℚ coefficients, of X×Y can be determined from those of X and Y. If pZ(t)_Z(t) is the generating function of the sequence of Betti numbers bk(Z)_k(Z) of a space Z, then
+
+pX×Y(t)=pX(t)pY(t)._X(t)=p_X(t)p_Y(t).
+Here when there are finitely many Betti numbers of X and Y, each of which is a natural number rather than ∞∞, this reads as an identity on Poincaré polynomials. In the general case these are formal power series with possibly infinite coefficients, and have to be interpreted accordingly. Furthermore, the above statement holds not only for the Betti numbers but also for the generating functions of the dimensions of the homology over any field. (If the integer homology is not torsion-free, then these numbers may differ from the standard Betti numbers.)
+
+Singular homology with coefficients in a principal ideal domain[edit]
+The above formula is simple because vector spaces over a field have very restricted behavior. As the coefficient ring becomes more general, the relationship becomes more complicated. The next simplest case is the case when the coefficient ring is a principal ideal domain. This case is particularly important because the integers Zℤ are a PID.
+In this case the equation above is no longer always true. A correction factor appears to account for the possibility of torsion phenomena. This correction factor is expressed in terms of the Tor functor, the first derived functor of the tensor product.
+When R is a PID, then the correct statement of the Künneth theorem is that for any topological spaces X and Y there are natural short exact sequences
+
+0→⨁i+j=kHi(X;R)⊗RHj(Y;R)→Hk(X×Y;R)→⨁i+j=k−1Tor1R(Hi(X;R),Hj(Y;R))→0.0→⊕_i+j=kH_i(X;R)⊗_RH_j(Y;R)_k(X;R)→⊕_i+j=k-1Tor_1^R(H_i(X;R),H_j(Y;R))→0.
+Furthermore, these sequences split, but not canonically.
+
+Example[edit]
+The short exact sequences just described can easily be used to compute the homology groups with integer coefficients of the product RP2×RP2ℝℙ^2×ℝℙ^2 of two real projective planes, in other words, Hk(RP2×RP2;Z)_k(ℝℙ^2×ℝℙ^2;ℤ). These spaces are CW complexes. Denoting the homology group Hi(RP2;Z)_i(ℝℙ^2;ℤ)  by hi_i for brevity's sake, one knows from a simple calculation with cellular homology that 
+
+h0≅Z_0≅ℤ,
+h1≅Z/2Z_1≅ℤ/2ℤ,
+hi=0_i=0 for all other values of i.
+The only non-zero Tor group (torsion product) which can be formed from these values of hi_i is 
+
+Tor1Z(h1,h1)≅Tor1Z(Z/2Z,Z/2Z)≅Z/2ZTor_1^ℤ(h_1,h_1)≅Tor_1^ℤ(ℤ/2ℤ,ℤ/2ℤ)≅ℤ/2ℤ.
+Therefore, the Künneth short exact sequence reduces in every degree to an isomorphism, because there is a zero group in each case on either the left or the right side in the sequence. The result is
+
+H0(RP2×RP2;Z)≅h0⊗h0≅ZH1(RP2×RP2;Z)≅h0⊗h1⊕h1⊗h0≅Z/2Z⊕Z/2ZH2(RP2×RP2;Z)≅h1⊗h1≅Z/2ZH3(RP2×RP2;Z)≅Tor1Z(h1,h1)≅Z/2ZH_0(ℝℙ^2×ℝℙ^2;ℤ)    ≅ h_0_0 ≅ ℤ
+H_1(ℝℙ^2×ℝℙ^2;ℤ)    ≅ h_0_1 ⊕ h_1_0 ≅ ℤ/2ℤ⊕ℤ/2ℤ
+H_2(ℝℙ^2×ℝℙ^2;ℤ)    ≅ h_1_1 ≅ ℤ/2ℤ
+H_3(ℝℙ^2×ℝℙ^2;ℤ)    ≅ Tor_1^ℤ(h_1,h_1) ≅ ℤ/2ℤ
+
+and all the other homology groups are zero.
+
+The Künneth spectral sequence[edit]
+For a general commutative ring R, the homology of X and Y is related to the homology of their product by a  Künneth spectral sequence
+
+Epq2=⨁q1+q2=qTorpR(Hq1(X;R),Hq2(Y;R))⇒Hp+q(X×Y;R)._pq^2=⊕_q_1+q_2=qTor_p^R(H_q_1(X;R),H_q_2(Y;R))_p+q(X;R).
+In the cases described above, this spectral sequence collapses to give an isomorphism or a short exact sequence.
+
+Relation with homological algebra, and idea of proof[edit]
+The chain complex of the space X × Y is related to the chain complexes of X and Y by a natural quasi-isomorphism
+
+C∗(X×Y)≅C∗(X)⊗C∗(Y)._*(X)_*(X)_*(Y).
+For singular chains this is the theorem of Eilenberg and Zilber. For cellular chains on CW complexes, it is a straightforward isomorphism.  Then the homology of the tensor product on the right is given by the spectral Künneth formula of homological algebra.[1]
+The freeness of the chain modules means that in this geometric case it is not necessary to use any hyperhomology or total derived tensor product.
+There are analogues of the above statements for singular cohomology and sheaf cohomology. For sheaf cohomology on an algebraic variety, Alexander Grothendieck found six spectral sequences relating the possible hyperhomology groups of two chain complexes of sheaves and the hyperhomology groups of their tensor product.[2]
+
+Künneth theorems in generalized homology and cohomology theories[edit]
+There are many generalized (or "extraordinary") homology and cohomology theories for topological spaces. K-theory and cobordism are the best-known. Unlike ordinary homology and cohomology, they typically cannot be defined using chain complexes. Thus Künneth theorems can not be obtained by the above methods of homological algebra.  Nevertheless, Künneth theorems in just the same form have been proved in very many cases by various other methods.  The first were Michael Atiyah's Künneth theorem for complex K-theory and Pierre Conner and Edwin E. Floyd's result in cobordism.[3][4]  A general method of proof emerged, based upon a homotopical theory of modules over highly structured ring spectra.[5][6]  The homotopy category of such modules closely resembles the derived category in homological algebra.
+
+References[edit]
+
+
+^ See final chapter of Mac Lane, Saunders (1963), Homology, Berlin: Springer, ISBN 0-387-03823-X
+
+^ Grothendieck, Alexander; Dieudonné, Jean (1963), "Éléments de géométrie algébrique (rédigés avec la collaboration de Jean Dieudonné): III. Étude cohomologique des faisceaux cohérents, Seconde partie", Publications Mathématiques de l'IHÉS, 17: 5–91, archived from the original on 2016-04-19, retrieved 2008-07-29 (EGA III2, Théorème 6.7.3.).
+
+^ Atiyah, Michael F. (1967), K-theory, New York: W. A. Benjamin
+
+^ Conner, Pierre E.; Floyd, Edwin E. (1964), Differentiable periodic maps, Berlin: Springer
+
+^ Robinson, Alan (1983), "Derived tensor products in stable homotopy theory", Topology, 22 (1): 1–18, doi:10.1016/0040-9383(83)90042-3, MR 0682056
+
+^ Elmendorf, Anthony D.; Kříž, Igor; Mandell, Michael A. & May, J. Peter (1997), Rings, modules and algebras in stable homotopy theory, Mathematical Surveys and Monographs, vol. 47, Providence, RI: American Mathematical Society, ISBN 0-8218-0638-6, MR 1417719
+
+
+External links[edit]
+"Künneth formula", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+
+
+

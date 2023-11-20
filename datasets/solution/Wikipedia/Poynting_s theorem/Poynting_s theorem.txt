@@ -1,0 +1,127 @@
+Theorem in physics showing the conservation of energy for the electromagnetic field
+In electrodynamics, Poynting's theorem is a statement of conservation of energy for electromagnetic fields developed by British physicist John Henry Poynting.[1] It states that in a given volume, the stored energy changes at a rate given by the work done on the charges within the volume, minus the rate at which energy leaves the volume. It is only strictly true in media which is not dispersive, but can be extended for the dispersive case.[2]
+The theorem is analogous to the work-energy theorem in classical mechanics, and mathematically similar to the continuity equation.
+
+
+Definition[edit]
+Poynting's theorem states that the rate of energy transfer per unit volume from a region of space equals the rate of work done on the charge distribution in the region, plus the energy flux leaving that region.
+Mathematically:
+
+
+−∂u∂t=∇⋅S+J⋅E-/=∇·𝐒+𝐉·𝐄
+
+
+where:
+
+−∂u∂t-/ is the rate of change of the energy density in the volume.
+∇•S is the energy flow out of the volume, given by the divergence of the Poynting vector S.
+J•E is the rate at which the fields do work on charges in the volume (J is the current density corresponding to the motion of charge, E is the electric field, and • is the dot product).
+Integral Form[edit]
+Using the divergence theorem, Poynting's theorem can also be written in integral form:
+
+
+−ddt∫VudV=-d/dt∫_Vu dV= ∂V S⋅dA+∫VJ⋅EdV𝐒·d𝐀+∫_V𝐉·𝐄 dV
+
+
+where
+
+S is the energy flow, given by the Poynting Vector.
+u is the energy density in the volume.
+∂V is the boundary of the volume. The shape of the volume is arbitrary but fixed for the calculation.
+Continuity Equation Analog[edit]
+In an electrical engineering context the theorem is sometimes written with the energy density term u expanded as shown.[citation needed] This form resembles the continuity equation:
+
+∇⋅S+ϵ0E⋅∂E∂t+Bμ0⋅∂B∂t+J⋅E=0∇·𝐒+ϵ_0𝐄·∂𝐄/+𝐁/μ_0·∂𝐁/+𝐉·𝐄=0,
+where
+
+ε0 is the vacuum permittivity and μ0 is the vacuum permeability.
+ϵ0E⋅∂E∂tϵ_0𝐄·∂𝐄/ is the density of reactive power driving the build-up of electric field,
+Bμ0⋅∂B∂t𝐁/μ_0·∂𝐁/ is the density of reactive power driving the build-up of magnetic field, and
+J⋅E𝐉·𝐄 is the density of electric power dissipated by the Lorentz force acting on charge carriers.
+Derivation[edit]
+For an individual charge in an electromagnetic field, the rate of work done by the field on the charge is given by the Lorentz Force Law as:
+dWdt=qv⋅EdW/dt=q𝐯·𝐄
+Extending this to a continuous distribution of charges, moving with current density J, gives:
+dWdt=∫VJ⋅Ed3xdW/dt=∫_V𝐉·𝐄 d^3x
+By Ampère's circuital law:
+J=∇×H−∂D∂t𝐉=∇×𝐇-∂𝐃/
+(Note that the H and D forms of the magnetic and electric fields are used here.  The B and E forms could also be used in an equivalent derivation.)[3]
+Substituting this into the expression for rate of work gives:
+∫VJ⋅Ed3x=∫V[E⋅(∇×H)−E⋅∂D∂t]d3x∫_V𝐉·𝐄 d^3x=∫_V[𝐄·(∇×𝐇)-𝐄·∂𝐃/] d^3x
+Using the vector identity ∇⋅(E×H)=(∇×E)⋅H−E⋅(∇×H)∇·(𝐄×𝐇)=∇×𝐄)·𝐇 - 𝐄·(∇×𝐇):
+∫VJ⋅Ed3x=−∫V[∇⋅(E×H)−H⋅(∇×E)+E⋅∂D∂t]d3x∫_V𝐉·𝐄 d^3x=-∫_V[∇·(𝐄×𝐇)-𝐇·(∇×𝐄)+𝐄·∂𝐃/] d^3x
+By Faraday's Law:
+∇×E=−∂B∂t∇×𝐄=-∂𝐁/
+giving:
+∫VJ⋅Ed3x=−∫V[∇⋅(E×H)+E⋅∂D∂t+H⋅∂B∂t]d3x∫_V𝐉·𝐄 d^3x=-∫_V[∇·(𝐄×𝐇)+𝐄·∂𝐃/+𝐇·∂𝐁/] d^3x
+Continuing the derivation requires the following assumptions:[2]
+
+the charges are moving in a medium which is not dispersive.
+the total electromagnetic energy density, even for time-varying fields, is given by u=12(E⋅D+B⋅H)=1/2(𝐄·𝐃+𝐁·𝐇)
+It can be shown[4] that:
+∂∂t(E⋅D)=2E⋅∂∂tD∂/(𝐄·𝐃)=2𝐄·∂/𝐃 and ∂∂t(H⋅B)=2H⋅∂∂tB∂/(𝐇·𝐁)=2𝐇·∂/𝐁
+and so:
+∂u∂t=E⋅∂D∂t+H⋅∂B∂t/=𝐄·∂𝐃/+𝐇·∂𝐁/
+Returning to the equation for rate of work,
+∫VJ⋅Ed3x=−∫V[∂u∂t+∇⋅(E×H)]d3x∫_V𝐉·𝐄 d^3x=-∫_V[/+∇·(𝐄×𝐇)] d^3x
+Since the volume is arbitrary, this can be cast in differential form as:
+−∂u∂t=∇⋅S+J⋅E-/=∇·𝐒+𝐉·𝐄
+where S=E×H𝐒=𝐄×𝐇 is the Poynting vector.
+
+Poynting vector in macroscopic media[edit]
+In a macroscopic medium, electromagnetic effects are described by spatially averaged (macroscopic) fields. The Poynting vector in a macroscopic medium can be defined self-consistently with microscopic theory, in such a way that the spatially averaged microscopic Poynting vector is exactly predicted by a macroscopic formalism. This result is strictly valid in the limit of low-loss and allows for the unambiguous identification of the Poynting vector form in macroscopic electrodynamics.[5][6]
+
+Alternative forms[edit]
+It is possible to derive alternative versions of Poynting's theorem.[7] Instead of the flux vector E × H as above, it is possible to follow the same style of derivation, but instead choose E × B, the Minkowski form D × B, or perhaps D × H. Each choice represents the response of the propagation medium in its own way: the E × B form above has the property that the response happens only due to electric currents, while the D × H form uses only (fictitious) magnetic monopole currents.  The other two forms (Abraham and Minkowski) use complementary combinations of electric and magnetic currents to represent the polarization and magnetization responses of the medium.[7]
+
+Modification[edit]
+The derivation of the statement is dependent on the assumption that the materials the equation models can be described by a set of susceptibility properties that are linear, isotropic, homogenous and independent of frequency.[8] The assumption that the materials have no absorption must also be made. A modification to Poynting's theorem to account for variations includes a term for the rate of non-Ohmic absorption in a material, which can be calculated by a simplified approximation based on the Drude model.[8]
+∂∂tU+∇⋅S+E⋅Jfree+R⊣∫=0∂/𝒰+∇·𝐒+𝐄·𝐉_free+ℛ_⊣∫=0
+
+Complex Poynting vector theorem[edit]
+This form of the theorem is useful in Antenna theory, where one has often to consider harmonic fields propagating in the space.
+In this case, using phasor notation, E(t)=Eejωt(t)=Ee^j and H(t)=Hejωt(t)=He^j.
+Then the following mathematical identity holds:
+
+12∫∂ΩE×H∗⋅da=jω2∫Ω(εEE∗−μHH∗)dv−12∫ΩEJ∗dv,12∫_∂ΩE^*𝐚=jω2∫_Ω(^*-^*)dv-12∫_ΩEJ^*dv,
+where J is the current density.
+Note that in free space, εε and μμ are real, thus,
+taking the real part of the above formula, it expresses the fact that the averaged radiated power flowing through ∂Ω∂Ω is equal to the work on the charges.
+
+References[edit]
+
+
+^ Poynting, J. H. (December 1884). "On the Transfer of Energy in the Electromagnetic Field" . Philosophical Transactions of the Royal Society of London. 175: 343–361. doi:10.1098/rstl.1884.0016.
+
+^ a b Jackson, John David (1999). Classical Electrodynamics (3rd ed.). John WIley & Sons. pp. 258–267. ISBN 978-0-471-30932-1.
+
+^ Griffiths, David J. (1989). Introduction to electrodynamics (2nd ed.). Englewood Cliffs, N.J.: Prentice Hall. pp. 322–324. ISBN 0-13-481367-7.
+
+^ Ellingson, Steven. "Poynting's Theorem". LibreTexts. Retrieved 3 December 2021.
+
+^ Silveirinha, M. G. (2010). "Poynting vector, heating rate, and stored energy in structured materials: a first principles derivation". Phys. Rev. B. 82: 037104. doi:10.1103/physrevb.82.037104.
+
+^ Costa, J. T. , M. G. Silveirinha, A. Alù (2011). "Poynting Vector in Negative-Index Metamaterials". Phys. Rev. B. 83: 165120. doi:10.1103/physrevb.83.165120.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+
+^ a b 
+Kinsler, P.; Favaro, A.; McCall M.W. (2009). "Four Poynting theorems" (PDF). European Journal of Physics. 30 (5): 983. arXiv:0908.1721. Bibcode:2009EJPh...30..983K. doi:10.1088/0143-0807/30/5/007.
+
+^ a b Freeman, Richard; King, James; Lafyatis, Gregory (2019), "Essentials of Electricity and Magnetism", Electromagnetic Radiation, Oxford: Oxford University Press, doi:10.1093/oso/9780198726500.001.0001/oso-9780198726500-chapter-1#oso-9780198726500-chapter-1-displaymaths-20, ISBN 978-0-19-872650-0, retrieved 2022-02-18
+
+
+External links[edit]
+
+
+
+Wikiversity has a lesson on  Poynting's theorem
+
+Eric W. Weisstein "Poynting Theorem" From ScienceWorld – A Wolfram Web Resource.
+Authority control databases International
+FAST
+National
+Israel
+United States
+
+
+
+

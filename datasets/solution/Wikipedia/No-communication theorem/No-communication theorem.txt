@@ -1,0 +1,219 @@
+
+
+Principle in quantum information theory
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "No-communication theorem" – news · newspapers · books · scholar · JSTOR (February 2018) (Learn how and when to remove this template message)
+In physics, the no-communication theorem or no-signaling principle is a no-go theorem from quantum information theory which states that, during measurement of an entangled quantum state, it is not possible for one observer, by making a measurement of a subsystem of the total state, to communicate information to another observer. The theorem is important because, in quantum mechanics, quantum entanglement is an effect by which certain widely separated events can be correlated in ways that, at first glance, suggest the possibility of communication faster-than-light. The no-communication theorem gives conditions under which such transfer of information between two observers is impossible.  These results can be applied to understand the so-called paradoxes in quantum mechanics, such as the EPR paradox, or violations of local realism obtained in tests of Bell's theorem. In these experiments, the no-communication theorem shows that failure of local realism does not lead to what could be referred to as "spooky communication at a distance" (in analogy with Einstein's labeling of quantum entanglement as requiring "spooky action at a distance" on the assumption of QM's completeness).
+
+
+Informal overview[edit]
+The no-communication theorem states that, within the context of quantum mechanics, it is not possible to transmit classical bits of information by means of carefully prepared mixed or pure states, whether entangled or not. The theorem is only a sufficient condition that states that if the Kraus matrices commute then there can be no communication through the quantum entangled states and this is applicable to all communication. From a relativity and quantum field perspective also faster than light or "instantaneous" communication is disallowed.[1] 
+Being only a sufficient condition there can be extra cases where communication is not allowed and there can be also cases where is still possible to communicate through the quantum channel encoding more than the classical information.
+In regards to communication a quantum channel can always be used to transfer classical information by means of shared quantum states.[2][3] 
+In 2008 Matthew Hastings proved a counterexample where the minimum output entropy is not additive for all quantum channels. Therefore, by an equivalence result due to Peter Shor,[4] the Holevo capacity is not just additive, but super-additive like the entropy, and by consequence there may be some quantum channels where you can transfer more than the classical capacity.[5][6] Typically overall communication happens at the same time via quantum and non quantum channels, and in general time ordering and causality cannot be violated.
+The basic assumption entering into the theorem is that a quantum-mechanical system is prepared in an initial state with some entangled states, and that this initial state is describable as a mixed or pure state in a Hilbert space H. After a certain amount of time the system is divided in two parts each of which contains some non entangled states and half of quantum entangled states and the two parts becomes spatially distinct, A and B, sent to two distinct observers, Alice and Bob, who are free to perform quantum mechanical measurements on their portion of the total system (viz, A and B). The question is: is there any action that Alice can perform on A that would be detectable by Bob making an observation of B? The theorem replies 'no'.
+An important assumption going into the theorem is that neither Alice nor Bob is allowed, in any way, to affect the preparation of the initial state. If Alice were allowed to take part in the preparation of the initial state, it would be trivially easy for her to encode a message into it; thus neither Alice nor Bob participates in the preparation of the initial state.  The theorem does not require that the initial state be somehow 'random' or 'balanced' or 'uniform': indeed, a third party preparing the initial state could easily encode messages in it, received by Alice and Bob. Simply, the theorem states that, given some initial state, prepared in some way, there is no action that Alice can take that would be detectable by Bob.
+The proof proceeds by defining how the total Hilbert space H can be split into two parts, HA and HB, describing the subspaces accessible to Alice and Bob. The total state of the system is assumed to be described by a density matrix σ. This appears to be a reasonable assumption, as a density matrix is sufficient to describe both pure and mixed states in quantum mechanics.  Another important part of the theorem is that measurement is performed by applying a generalized projection operator P to the state σ.  This again is reasonable, as projection operators give the appropriate mathematical description of  quantum measurements.  After a measurement by Alice, the state of the total system is said to have collapsed to a state P(σ).
+The goal of the theorem is to prove that Bob cannot in any way distinguish the pre-measurement state σ from the post-measurement state P(σ).  This is accomplished mathematically by comparing the trace of σ and the trace of P(σ), with the trace being taken over the subspace HA. Since the trace is only over a subspace, it is technically called a partial trace. Key to this step is the assumption that the (partial) trace adequately summarizes the system from Bob's point of view. That is, everything that Bob has access to, or could ever have access to, measure, or detect, is completely described by a partial trace over HA of the system σ.  Again, this is a reasonable assumption, as it is a part of standard quantum mechanics.  The fact that this trace never changes as Alice performs her measurements is the conclusion of the proof of the no-communication theorem.
+
+Formulation[edit]
+The proof of the theorem is commonly illustrated for the setup of Bell tests in which two observers Alice and Bob perform local observations on a common bipartite system, and uses the statistical machinery of quantum mechanics, namely density states  and quantum operations.[1]
+Alice and Bob perform measurements on system S whose underlying Hilbert space is
+H=HA⊗HB.=H_A_B.
+It is also assumed that everything is finite-dimensional to avoid convergence issues.  The state of the composite system is given by a density operator on H.  Any density operator σ on H is a sum of the form:
+σ=∑iTi⊗Siσ=∑_iT_i_i
+where Ti and  Si are operators on HA and HB respectively. For the following, it is not required to assume that Ti and  Si  are state projection operators: i.e. they need not necessarily be non-negative, nor have a trace of one. That is, σ can have a definition somewhat broader than that of a density matrix; the theorem still holds. Note that the theorem holds trivially for separable states. If the shared state σ is separable, it is clear that any local operation by Alice will leave Bob's system intact. Thus the point of the theorem is no communication can be achieved via a shared entangled state.
+Alice performs a local measurement on her subsystem. In general, this is described by a quantum operation, on the system state, of the following kind
+P(σ)=∑k(Vk⊗IHB)∗σ(Vk⊗IHB),(σ)=∑_k(V_k_H_B)^*
+sigmaV_k_H_B),
+where Vk are called Kraus matrices which satisfy
+∑kVkVk∗=IHA.∑_kV_kV_k^*=I_H_A.
+The term
+IHB_H_B
+from the expression
+(Vk⊗IHB)(V_k_H_B)
+means that Alice's measurement apparatus does not interact with Bob's subsystem.
+Supposing the combined system is prepared in state σ and assuming, for purposes of argument, a non-relativistic situation, immediately (with no time delay) after Alice performs her measurement, the relative state of Bob's system is given by the partial trace of the overall state with respect to Alice's system. In symbols, the relative state of Bob's system after Alice's operation is
+trHA⁡(P(σ))tr_H_A(P(σ))
+where trHAtr_H_A is the partial trace mapping with respect to Alice's system.
+One can directly calculate this state:
+trHA⁡(P(σ))=trHA⁡(∑k(Vk⊗IHB)∗σ(Vk⊗IHB))=trHA⁡(∑k∑iVk∗TiVk⊗Si)=∑i∑ktr⁡(Vk∗TiVk)Si=∑i∑ktr⁡(TiVkVk∗)Si=∑itr⁡(Ti∑kVkVk∗)Si=∑itr⁡(Ti)Si=trHA⁡(σ).tr_H_A(P(σ))   =tr_H_A(∑_k(V_k_H_B)^*σ(V_k_H_B))
+   =tr_H_A(∑_k∑_iV_k^*T_iV_k_i)
+   =∑_i∑_ktr(V_k^*T_iV_k)S_i
+   =∑_i∑_ktr(T_iV_kV_k^*)S_i
+   =∑_itr(T_i∑_kV_kV_k^*)S_i
+   =∑_itr(T_i)S_i
+   =tr_H_A(σ).
+From this it is argued that, statistically, Bob cannot tell the difference between what Alice did and a random measurement (or whether she did anything at all).
+
+Some comments[edit]
+If the density operator P(σ)(σ) is allowed to evolve under the influence of non-local interactions between A and B, then in general the calculation in the proof no longer holds, unless suitable commutation relations are assumed.[7]
+The no-communication theorem thus says shared entanglement alone cannot be used to transmit any information. Compare this with the no-teleportation theorem, which states a classical information channel cannot transmit quantum information. (By transmit, we mean transmission with full fidelity.) However, quantum teleportation schemes utilize both resources to achieve what is impossible for either alone.
+The no-communication theorem implies the no-cloning theorem, which states that quantum states cannot be (perfectly) copied.  That is, cloning is a sufficient condition for the communication of classical information to occur.   To see this, suppose that quantum states could be cloned. Assume parts of a maximally entangled Bell state are distributed to Alice and Bob. Alice could send bits to Bob in the following way: If Alice wishes to transmit a "0", she measures the spin of her electron in the z direction, collapsing Bob's state to either |z+⟩B|z+⟩_B or |z−⟩B|z-⟩_B.  To transmit "1", Alice does nothing to her qubit. Bob creates many copies of his electron's state, and measures the spin of each copy in the z direction. Bob will know that Alice has transmitted a "0" if all his measurements will produce the same result; otherwise, his measurements will have outcomes |z+⟩B|z+⟩_B or |z−⟩B|z-⟩_B with equal probability. This would allow Alice and Bob to communicate classical bits between each other (possibly across space-like separations, violating causality).
+The version of the no-communication theorem discussed in this article assumes that the quantum system shared by Alice and Bob is a composite system, i.e. that its underlying Hilbert space is a tensor product whose first factor describes the part of the system that Alice can interact with and whose second factor describes the part of the system that Bob can interact with. In quantum field theory, this assumption can be replaced by the assumption that Alice and Bob are spacelike separated.[8] This alternate version of the no-communication theorem shows that faster-than-light communication cannot be achieved using processes which obey the rules of quantum field theory.
+The proof of the no-communication theorem assumes that all measurable properties of Bob's system can be calculated from its reduced density matrix, which is true given the Born rule for calculating the probability of making various measurements. But this equivalence with the Born rule can also essentially be derived in the opposite direction, in that it's possible to show that the Born rule follows from the assumption that space-like separated events cannot violate causality by affecting each other.[9]
+See also[edit]
+No-broadcast theorem
+No-cloning theorem
+No-deleting theorem
+No-hiding theorem
+No-teleportation theorem
+References[edit]
+
+
+^ a b Peres, A.; Terno, D. (2004). "Quantum Information and Relativity Theory". Rev. Mod. Phys. 76 (1): 93–123. arXiv:quant-ph/0212023. Bibcode:2004RvMP...76...93P. doi:10.1103/RevModPhys.76.93. S2CID 7481797. see page 8
+
+^ Quantum Information, Computation and cryptography, Benatti, Fannes, Floreanini, Petritis: pp 210 - theorem HSV and Lemma 1
+
+^ Lajos Diósi, A Short Course in Quantum Information Theory - An Approach From Theoretical Physics 2006 Ch 10. pp 87
+
+^ Shor, Peter W. (1 April 2004). "Equivalence of Additivity Questions in Quantum Information Theory". Communications in Mathematical Physics. 246 (3): 453–472. arXiv:quant-ph/0305035. Bibcode:2004CMaPh.246..453S. doi:10.1007/s00220-003-0981-7. S2CID 189829228.
+
+^ Hastings, M. B. (April 2009). "Superadditivity of communication capacity using entangled inputs". Nature Physics. 5 (4): 255–257. arXiv:0809.3972. Bibcode:2009NatPh...5..255H. doi:10.1038/nphys1224. S2CID 199687264.
+
+^ Quantum Information, Computation and cryptography, Benatti, Fannes, Floreanini, Petritis: pp 212 
+
+^ Peacock, K.A.; Hepburn, B. (1999). "Begging the Signaling Question: Quantum Signaling and the Dynamics of Multiparticle Systems". Proceedings of the Meeting of the Society of Exact Philosophy. arXiv:quant-ph/9906036. Bibcode:1999quant.ph..6036P.
+
+^ Eberhard, Phillippe H.; Ross, Ronald R. (1989), "Quantum field theory cannot provide faster than light communication", Foundations of Physics Letters, 2 (2): 127–149, Bibcode:1989FoPhL...2..127E, doi:10.1007/bf00696109, S2CID 123217211
+
+^ Zurek, Wojciech Hubert. "Environment - Assisted Invariance, Causality, and Probabilities in Quantum Physics." https://arxiv.org/abs/quant-ph/0211037
+
+
+Hall, Michael J.W. (1987). "Imprecise measurements and non-locality in quantum mechanics". Physics Letters A. Elsevier BV. 125 (2–3): 89–91. Bibcode:1987PhLA..125...89H. doi:10.1016/0375-9601(87)90127-7. ISSN 0375-9601.
+Ghirardi, G. C.; Grassi, R; Rimini, A; Weber, T (1988-05-15). "Experiments of the EPR Type Involving CP-Violation Do not Allow Faster-than-Light Communication between Distant Observers". Europhysics Letters (EPL). IOP Publishing. 6 (2): 95–100. Bibcode:1988EL......6...95G. doi:10.1209/0295-5075/6/2/001. ISSN 0295-5075. S2CID 250762344.
+Florig, Martin; Summers, Stephen J. (1997). "On the statistical independence of algebras of observables". Journal of Mathematical Physics. AIP Publishing. 38 (3): 1318–1328. Bibcode:1997JMP....38.1318F. doi:10.1063/1.531812. ISSN 0022-2488.
+vteQuantum information scienceGeneral
+DiVincenzo's criteria
+NISQ era
+Quantum computing
+timeline
+Quantum information
+Quantum programming
+Quantum simulation
+Qubit
+physical vs. logical
+Quantum processors
+cloud-based
+Theorems
+Bell's
+Eastin–Knill
+Gleason's
+Gottesman–Knill
+Holevo's
+Margolus–Levitin
+No-broadcasting
+No-cloning
+No-communication
+No-deleting
+No-hiding
+No-teleportation
+PBR
+Threshold
+Solovay–Kitaev
+Purification
+Quantumcommunication
+Classical capacity
+entanglement-assisted
+quantum capacity
+Entanglement distillation
+Monogamy of entanglement
+LOCC
+Quantum channel
+quantum network
+Quantum teleportation
+quantum gate teleportation
+Superdense coding
+Quantum cryptography
+Post-quantum cryptography
+Quantum coin flipping
+Quantum money
+Quantum key distribution
+BB84
+SARG04
+other protocols
+Quantum secret sharing
+
+Quantum algorithms
+Amplitude amplification
+Bernstein–Vazirani
+Boson sampling
+Deutsch–Jozsa
+Grover's
+HHL
+Hidden subgroup
+Quantum annealing
+Quantum counting
+Quantum Fourier transform
+Quantum optimization
+Quantum phase estimation
+Shor's
+Simon's
+VQE
+Quantumcomplexity theory
+BQP
+EQP
+QIP
+QMA
+PostBQP
+Quantum  processor benchmarks
+Quantum supremacy
+Quantum volume
+Randomized benchmarking
+XEB
+Relaxation times
+T1
+T2
+Quantumcomputing models
+Adiabatic quantum computation
+Continuous-variable quantum information
+One-way quantum computer
+cluster state
+Quantum circuit
+quantum logic gate
+Quantum machine learning
+quantum neural network
+Quantum Turing machine
+Topological quantum computer
+Quantumerror correction
+Codes
+CSS
+quantum convolutional
+stabilizer
+Shor
+Bacon–Shor
+Steane
+Toric
+gnu
+Entanglement-assisted
+PhysicalimplementationsQuantum optics
+Cavity QED
+Circuit QED
+Linear optical QC
+KLM protocol
+Ultracold atoms
+Optical lattice
+Trapped-ion QC
+Spin-based
+Kane QC
+Spin qubit QC
+NV center
+NMR QC
+Superconducting
+Charge qubit
+Flux qubit
+Phase qubit
+Transmon
+Quantumprogramming
+OpenQASM–Qiskit–IBM QX
+Quil–Forest/Rigetti QCS
+Cirq
+Q#
+libquantum
+many others...
+
+ Quantum information science
+ Quantum mechanics topics
+
+
+
+

@@ -1,0 +1,251 @@
+Rational-number approximation of a real number
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Diophantine approximation" – news · newspapers · books · scholar · JSTOR (May 2023) (Learn how and when to remove this template message)
+
+
+Best rational approximants for π (green circle), e (blue diamond), ϕ (pink oblong), (√3)/2 (grey hexagon), 1/√2 (red octagon) and 1/√3 (orange triangle) calculated from their continued fraction expansions, plotted as slopes y/x with errors from their true values (black dashes)   vte
+In number theory, the study of Diophantine approximation deals with the approximation of real numbers by rational numbers.  It is named after Diophantus of Alexandria.
+The first problem was to know how well a real number can be approximated by rational numbers. For this problem, a rational number a/b is a "good" approximation of a real number α if the absolute value of the difference between a/b and α may not decrease if a/b is replaced by another rational number with a smaller denominator. This problem was solved during the 18th century by means of continued fractions.
+Knowing the "best" approximations of a given number, the main problem of the field is to find sharp upper and lower bounds of the above difference, expressed as a function of the denominator. It appears that these bounds depend on the nature of the real numbers to be approximated: the lower bound for the approximation of a rational number by another rational number is larger than the lower bound for algebraic numbers, which is itself larger than the lower bound for all real numbers. Thus a real number that may be better approximated than the bound for algebraic numbers is certainly a transcendental number. 
+This knowledge enabled Liouville, in 1844, to produce the first explicit transcendental number. Later, the proofs that π and e are transcendental were obtained by a similar method. 
+Diophantine approximations and transcendental number theory are very close areas that share many theorems and methods. Diophantine approximations also have important applications in the study of Diophantine equations.
+The 2022 Fields Medal was awarded to James Maynard for his work on Diophantine approximation.
+
+
+Best Diophantine approximations of a real number[edit]
+Main article: Continued fraction § Best rational approximations
+Given a real number α, there are two ways to define a best Diophantine approximation of α. For the first definition,[1] the rational number p/q is a best Diophantine approximation of α if
+
+|α−pq|<|α−p′q′|,|α-p/q|<|α-p'/q'|,
+for every rational number p'/q'  different from p/q such that 0 < q′ ≤ q.
+For the second definition,[2][3] the above inequality is replaced by
+
+|qα−p|<|q′α−p′|.|qα-p|<|q^'α-p^'|.
+A best approximation for the second definition is also a best approximation for the first one, but the converse is not true in general.[4]
+The theory of continued fractions allows us to compute the best approximations of a real number: for the second definition, they are the convergents of its expression as a regular continued fraction.[3][4][5]  For the first definition, one has to consider also the semiconvergents.[1]
+For example, the constant e = 2.718281828459045235... has the (regular) continued fraction representation
+
+[2;1,2,1,1,4,1,1,6,1,1,8,1,…].[2;1,2,1,1,4,1,1,6,1,1,8,1,… ].
+Its best approximations for the second definition are
+
+3,83,114,197,8732,…,3,83,114,197,8732,… ,
+while, for the first definition, they are
+
+3,52,83,114,197,4918,6825,8732,10639,….3,52,83,114,197,4918,6825,8732,10639,… .
+Measure of the accuracy of approximations[edit]
+The obvious measure of the accuracy of a Diophantine approximation of a real number α by a rational number p/q is |α−pq|.|α-p/q|. However, this quantity can always be made arbitrarily small by increasing the absolute values of p and q; thus the accuracy of the approximation is usually estimated by comparing this quantity to some function φ of the denominator q, typically a negative power of it.
+For such a comparison, one may want upper bounds or lower bounds of the accuracy. A lower bound is typically described by a theorem like "for every element α of some subset of the real numbers and every rational number p/q, we have |α−pq|>ϕ(q)|α-p/q|>ϕ(q) ". In some cases, "every rational number" may be replaced by "all rational numbers except a finite number of them", which amounts to multiplying φ by some constant depending on α.
+For upper bounds, one has to take into account that not all the "best" Diophantine approximations provided by the convergents may have the desired accuracy. Therefore, the theorems take the form "for every element α of some subset of the real numbers, there are infinitely many rational numbers p/q such that |α−pq|<ϕ(q)|α-p/q|<ϕ(q) ".
+
+Badly approximable numbers[edit]
+A badly approximable number is an x for which there is a positive constant c such that for all rational p/q we have
+
+|x−pq|>cq2.|x-p/q|>c/q^2
+The badly approximable numbers are precisely those with bounded partial quotients.[6]
+Equivalently, a number is badly approximable if and only if its Markov constant is bounded.
+
+Lower bounds for Diophantine approximations[edit]
+This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (May 2023) (Learn how and when to remove this template message)
+Approximation of a rational by other rationals[edit]
+A rational number α=abα=a/b may be obviously and perfectly approximated by piqi=iaibp_i/q_i=i a/i b for every positive integer i.
+If pq≠α=ab,p/q≠α=a/b , we have
+
+|ab−pq|=|aq−bpbq|≥1bq,|a/b-p/q|=|aq-bp/bq|≥1/bq,
+because |aq−bp||aq-bp| is a positive integer and is thus not lower than 1. Thus the accuracy of the approximation is bad relative to irrational numbers (see next sections).
+It may be remarked that the preceding proof uses a variant of the pigeonhole principle: a non-negative integer that is not 0 is not smaller than 1. This apparently trivial remark is used in almost every proof of lower bounds for Diophantine approximations, even the most sophisticated ones.
+In summary, a rational number is perfectly approximated by itself, but is badly approximated by any other rational number.
+
+Approximation of algebraic numbers, Liouville's result[edit]
+Main article: Liouville number
+In the 1840s, Joseph Liouville obtained the first lower bound for the approximation of algebraic numbers: If x is an irrational algebraic number of degree n over the rational numbers, then there exists a constant c(x) > 0 such that
+
+|x−pq|>c(x)qn|x-p/q|>c(x)/q^n
+holds for all integers p and q where q > 0.
+This result allowed him to produce the first proven example of a transcendental number, the Liouville constant
+
+∑j=1∞10−j!=0.110001000000000000000001000…,∑_j=1^∞10^-j!=0.110001000000000000000001000… ,
+which does not satisfy Liouville's theorem, whichever degree n is chosen.
+This link between Diophantine approximations and transcendental number theory continues to the present day. Many of the proof techniques are shared between the two areas.
+
+Approximation of algebraic numbers, Thue–Siegel–Roth theorem[edit]
+Main article: Thue–Siegel–Roth theorem
+Over more than a century, there were many efforts to improve Liouville's theorem: every improvement of the bound enables us to prove that more numbers are transcendental. The main improvements are due to Axel Thue (1909), Siegel (1921), Freeman Dyson (1947), and Klaus Roth (1955), leading finally to the Thue–Siegel–Roth theorem: If x is an irrational algebraic number and ε a (small) positive real number, then there exists a  positive constant c(x, ε) such that
+
+|x−pq|>c(x,ε)q2+ε|x-p/q|>c(x,ε)/q^2+ε
+holds for every integer p and q such that q > 0.
+In some sense, this result is optimal, as the theorem would be false with ε = 0. This is an immediate consequence of the upper bounds described below.
+
+Simultaneous approximations of algebraic numbers[edit]
+Main article: Subspace theorem
+Subsequently, Wolfgang M. Schmidt generalized this to the case of simultaneous approximations, proving that: If x1, ..., xn are algebraic numbers such that 1, x1, ..., xn are linearly independent over the rational numbers and ε is any given positive real number, then there are only finitely many rational n-tuples (p1/q, ..., pn/q) such that
+
+|xi−piq|<q−(1+1/n+ε),i=1,…,n.|x_i-p_i/q|<q^-(1+1/n+ε),=1,…,n.
+Again, this result is optimal in the sense that one may not remove ε from the exponent.
+
+Effective bounds[edit]
+All preceding lower bounds are not effective, in the sense that the proofs do not provide any way to compute the constant implied in the statements. This means that one cannot use the results or their proofs to obtain bounds on the size of solutions of related Diophantine equations. However, these techniques and results can often be used to bound the number of solutions of such equations.
+Nevertheless, a refinement of Baker's theorem by Feldman provides an effective bound: if x is an algebraic number of degree n over the rational numbers, then there exist effectively computable constants c(x) > 0 and 0 < d(x) < n such that
+
+|x−pq|>c(x)|q|d(x)|x-p/q|>c(x)/|q|^d(x)
+holds for all rational integers.
+However, as for every effective version of Baker's theorem, the constants d and 1/c are so large that this effective result cannot be used in practice.
+
+Upper bounds for Diophantine approximations[edit]
+General upper bound[edit]
+Main article: Hurwitz's theorem (number theory)
+The first important result about upper bounds for Diophantine approximations is Dirichlet's approximation theorem, which implies that, for every irrational number α, there are infinitely many fractions pqpq  such that
+
+|α−pq|<1q2.|α-p/q|<1/q^2 .
+This implies immediately that one cannot suppress the ε in the statement of Thue-Siegel-Roth theorem.
+Adolf Hurwitz (1891)[7] strengthened this result, proving that for every irrational number α, there are infinitely many fractions pqpq  such that
+
+|α−pq|<15q2.|α-p/q|<1/√(5)q^2 .
+Therefore, 15q21/√(5) q^2 is an upper bound for the Diophantine approximations of any irrational number.
+The constant in this result may not be further improved without excluding some irrational numbers (see below).
+Émile Borel (1903)[8] showed that, in fact, given any irrational number α, and given three consecutive convergents of α, at least one must satisfy the inequality given in Hurwitz's Theorem.
+
+Equivalent real numbers[edit]
+Definition: Two real numbers x,y,y are called equivalent[9][10] if there are integers a,b,c,d,b,c,d  with ad−bc=±1-bc=±1  such that:
+
+y=ax+bcx+d.=ax+b/cx+d .
+So equivalence is defined by an integer Möbius transformation on the real numbers, or by a member of the Modular group SL2±(Z)SL_2^±(ℤ), the set of invertible 2 × 2 matrices over the integers. Each rational number is equivalent to 0; thus the rational numbers are an equivalence class for this relation.
+The equivalence may be read on the regular continued fraction representation, as shown by the following theorem of Serret:
+Theorem: Two irrational numbers x and y are equivalent if and only if there exist two positive integers h and k such that the regular continued fraction representations of x and y
+
+x=[u0;u1,u2,…],y=[v0;v1,v2,…],x   =[u_0;u_1,u_2,…] ,
+y   =[v_0;v_1,v_2,…] ,
+satisfy
+
+uh+i=vk+i_h+i=v_k+i
+for every non negative integer i.[11]
+Thus, except for a finite initial sequence, equivalent numbers have the same continued fraction representation.
+Equivalent numbers are approximable to the same degree, in the sense that they have the same Markov constant.
+
+Lagrange spectrum[edit]
+Main article: Markov spectrum
+As said above, the constant in Borel's theorem may not be improved, as shown by Adolf Hurwitz in 1891.[12]
+Let ϕ=1+52ϕ=1+√(5)2 be the golden ratio.
+Then for any real constant c with c>5>√(5)  there are only a finite number of rational numbers p/q such that 
+
+|ϕ−pq|<1cq2.|ϕ-p/q|<1/c q^2.
+Hence an improvement can only be achieved, if the numbers which are equivalent to ϕϕ are excluded. More precisely:[13][14]
+For every irrational number αα, which is not equivalent to ϕϕ, there are infinite many fractions pqpq  such that
+
+|α−pq|<18q2.|α-p/q|<1/√(8)q^2.
+By successive exclusions — next one must exclude the numbers equivalent to 2√(2) — of more and more classes of equivalence, the lower bound can be further enlarged.
+The values which may be generated in this way are Lagrange numbers, which are part of the Lagrange spectrum. 
+They converge to the number 3 and are related to the Markov numbers.[15][16]
+
+Khinchin's theorem on metric Diophantine approximation and extensions[edit]
+Let ψψ be a positive real-valued function on positive integers  (i.e., a positive sequence) such that qψ(q)ψ(q) is non-increasing. A real number x (not necessarily algebraic) is called ψψ-approximable if there exist infinitely many rational numbers  p/q such that
+
+|x−pq|<ψ(q)|q|.|x-p/q|<ψ(q)/|q|.
+Aleksandr Khinchin proved in 1926 that if the series ∑qψ(q)∑_qψ(q) diverges, then almost every real number (in the sense of Lebesgue measure) is ψψ-approximable, and if the series converges, then almost every real number is not ψψ-approximable.  The circle of ideas surrounding this theorem and its relatives is known as metric Diophantine approximation or the metric theory of Diophantine approximation (not to be confused with height "metrics" in Diophantine geometry) or metric number theory.
+Duffin & Schaeffer (1941) proved a generalization of Khinchin's result, and posed what is now known as the Duffin–Schaeffer conjecture on the analogue of  Khinchin's dichotomy for general, not necessarily decreasing, sequences ψψ . Beresnevich & Velani (2006) proved that a Hausdorff measure analogue of the Duffin–Schaeffer conjecture is equivalent to the original Duffin–Schaeffer conjecture, which is a priori weaker.
+In July 2019, Dimitris Koukoulopoulos and James Maynard announced a proof of the conjecture.[17][18]
+
+Hausdorff dimension of exceptional sets[edit]
+An important example of a function ψψ to which Khinchin's theorem can be applied is the function ψc(q)=q−cψ_c(q)=q^-c, where c > 1 is a real number. For this function, the relevant series converges and so Khinchin's theorem tells us that almost every point is not ψcψ_c-approximable. Thus, the set of numbers which are ψcψ_c-approximable forms a subset of the real line of Lebesgue measure zero. The Jarník-Besicovitch theorem, due to V. Jarník and A. S. Besicovitch, states that the Hausdorff dimension of this set is equal to 1/c1/c.[19] In particular, the set of numbers which are ψcψ_c-approximable for some c>1>1 (known as the set of very well approximable numbers) has Hausdorff dimension one, while the set of numbers which are ψcψ_c-approximable for all c>1>1 (known as the set of Liouville numbers) has Hausdorff dimension zero.
+Another important example is the function ψε(q)=εq−1ψ_ε(q)=^-1, where ε>0ε>0 is a real number. For this function, the relevant series diverges and so Khinchin's theorem tells us that almost every number is ψεψ_ε-approximable. This is the same as saying that every such number is well approximable, where a number is called well approximable if it is not badly approximable. So an appropriate analogue of the Jarník-Besicovitch theorem should concern the Hausdorff dimension of the set of badly approximable numbers. And indeed, V. Jarník proved that the Hausdorff dimension of this set is equal to one. This result was improved by W. M. Schmidt, who showed that the set of badly approximable numbers is incompressible, meaning that if f1,f2,…_1,f_2,… is a sequence of bi-Lipschitz maps, then the set of numbers x for which f1(x),f2(x),…_1(x),f_2(x),… are all badly approximable has Hausdorff dimension one. Schmidt also generalized Jarník's theorem to higher dimensions, a significant achievement because Jarník's argument is essentially one-dimensional, depending on the apparatus of continued fractions.
+
+Uniform distribution[edit]
+This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (May 2023) (Learn how and when to remove this template message)
+Another topic that has seen a thorough development is the theory of uniform distribution mod 1. Take a sequence a1, a2, ... of real numbers and consider their fractional parts. That is, more abstractly, look at the sequence in R/Zℝ/ℤ, which is a circle. For any interval I on the circle we look at the proportion of the sequence's elements that lie in it, up to some integer N, and compare it to the proportion of the circumference occupied by I. Uniform distribution means that in the limit, as N grows, the proportion of hits on the interval tends to the 'expected' value. Hermann Weyl proved a basic result showing that this was equivalent to bounds for exponential sums formed from the sequence. This showed that Diophantine approximation results were closely related to the general problem of cancellation in exponential sums, which occurs throughout analytic number theory in the bounding of error terms.
+Related to uniform distribution is the topic of irregularities of distribution, which is of a combinatorial nature.
+
+Unsolved problems[edit]
+This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (May 2023) (Learn how and when to remove this template message)
+There are still simply-stated unsolved problems remaining in Diophantine approximation, for example the Littlewood conjecture and the lonely runner conjecture.
+It is also unknown if there are algebraic numbers with unbounded coefficients in their continued fraction expansion.
+
+Recent developments[edit]
+This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (May 2023) (Learn how and when to remove this template message)
+In his plenary address at the International Mathematical Congress in Kyoto (1990), Grigory Margulis outlined a broad program rooted in ergodic theory that allows one to prove number-theoretic results using the dynamical and ergodic properties of actions of subgroups of semisimple Lie groups. The work of D. Kleinbock, G. Margulis and their collaborators demonstrated the power of this novel approach to classical problems in Diophantine approximation. Among its notable successes are the proof of the decades-old Oppenheim conjecture by Margulis, with later extensions by Dani and Margulis and Eskin–Margulis–Mozes, and the proof of Baker and Sprindzhuk conjectures in the Diophantine approximations on manifolds by Kleinbock and Margulis. Various generalizations of the above results of Aleksandr Khinchin in metric Diophantine approximation have also been obtained within this framework.
+
+See also[edit]
+Davenport–Schmidt theorem
+Duffin–Schaeffer conjecture
+Heilbronn set
+Low-discrepancy sequence
+Notes[edit]
+
+
+^ a b Khinchin 1997, p. 21
+
+^ Cassels 1957, p. 2
+
+^ a b Lang 1995, p. 9
+
+^ a b Khinchin 1997, p. 24
+
+^ Cassels 1957, pp. 5–8
+
+^ Bugeaud 2012, p. 245
+
+^ Hurwitz 1891, p. 279
+
+^ Perron 1913, Chapter 2, Theorem 15
+
+^ Hurwitz 1891, p. 284
+
+^ Hardy & Wright 1979, Chapter 10.11
+
+^ See Perron 1929, Chapter 2, Theorem 23, p. 63
+
+^ Hardy & Wright 1979, p. 164
+
+^ Cassels 1957, p. 11
+
+^ Hurwitz 1891
+
+^ Cassels 1957, p. 18
+
+^ See Michel Waldschmidt: Introduction to Diophantine methods irrationality and transcendence Archived 2012-02-09 at the Wayback Machine, pp 24–26.
+
+^ Koukoulopoulos, D.; Maynard, J. (2019). "On the Duffin–Schaeffer conjecture". arXiv:1907.04593 [math.NT].
+
+^ Sloman, Leila (2019). "New Proof Solves 80-Year-Old Irrational Number Problem". Scientific American.
+
+^ Bernik et al. 2013, p. 24
+
+
+References[edit]
+
+Beresnevich, Victor; Velani, Sanju (2006). "A mass transference principle and the Duffin-Schaeffer conjecture for Hausdorff measures". Annals of Mathematics. 164 (3): 971–992. arXiv:math/0412141. doi:10.4007/annals.2006.164.971. S2CID 14475449. Zbl 1148.11033.
+Bernik, V.; Beresnevich, V.; Götze, F.; Kukso, O. (2013). "Distribution of algebraic numbers and metric theory of Diophantine approximation". In Eichelsbacher, Peter; Elsner, Guido; Kösters, Holger; Löwe, Matthias; Merkl, Franz; Rolles, Silke (eds.). Limit Theorems in Probability, Statistics and Number Theory: In Honor of Friedrich Götze. Springer Proceedings in Mathematics & Statistics. Vol. 42. Heidelberg: Springer. pp. 23–48. doi:10.1007/978-3-642-36068-8_2. MR 3079136. S2CID 55652124.
+Bugeaud, Yann (2012). Distribution modulo one and Diophantine approximation. Cambridge Tracts in Mathematics. Vol. 193. Cambridge: Cambridge University Press. ISBN 978-0-521-11169-0. Zbl 1260.11001.
+Cassels, J. W. S. (1957). An introduction to Diophantine approximation. Cambridge Tracts in Mathematics and Mathematical Physics. Vol. 45. Cambridge University Press.
+Duffin, R. J.; Schaeffer, A. C. (1941). "Khintchine's problem in metric diophantine approximation". Duke Mathematical Journal. 8 (2): 243–255. doi:10.1215/s0012-7094-41-00818-9. ISSN 0012-7094. Zbl 0025.11002.
+Dyson, Freeman J. (1947). "The approximation to algebraic numbers by rationals". Acta Mathematica. 79: 225–240. doi:10.1007/BF02404697. ISSN 0001-5962. MR 0023854. Zbl 0030.02101.
+Hardy, G. H.; Wright, E. M. (1979). An Introduction to the Theory of Numbers (5th ed.). Oxford University Press. ISBN 978-0-19-853170-8. MR 0568909.
+Hurwitz, A. (1891). "Ueber die angenäherte Darstellung der Irrationalzahlen durch rationale Brüche" [On the approximate representation of irrational numbers by rational fractions]. Mathematische Annalen (in German). 39 (2): 279–284. doi:10.1007/BF01206656. MR 1510702. S2CID 119535189.
+Khinchin, A. Ya. (1997) [1964]. Continued Fractions. Dover. ISBN 0-486-69630-8.
+Kleinbock, D. Y.; Margulis, G. A. (1998). "Flows on homogeneous spaces and Diophantine approximation on manifolds". Ann. Math. 148 (1): 339–360. arXiv:math/9810036. Bibcode:1998math.....10036K. doi:10.2307/120997. JSTOR 120997. MR 1652916. S2CID 8471125. Zbl 0922.11061.
+Lang, Serge (1995). Introduction to Diophantine Approximations (New expanded ed.). Springer-Verlag. ISBN 0-387-94456-7. Zbl 0826.11030.
+Margulis, G. A. (2002). "Diophantine approximation, lattices and flows on homogeneous spaces". In Wüstholz, Gisbert (ed.). A panorama of number theory or the view from Baker's garden. Cambridge: Cambridge University Press. pp. 280–310. ISBN 0-521-80799-9. MR 1975458.
+Perron, Oskar (1913). Die Lehre von den Kettenbrüchen [The Theory of Continued Fractions] (in German). Leipzig: B. G. Teubner.
+Perron, Oskar (1929). Die Lehre von den Kettenbrüchen [The Theory of Continued Fractions] (in German) (2nd ed.). Chelsea.{{cite book}}:  CS1 maint: location missing publisher (link)
+Roth, Klaus Friedrich (1955). "Rational approximations to algebraic numbers". Mathematika. 2: 1–20, 168. doi:10.1112/S0025579300000644. ISSN 0025-5793. MR 0072182. Zbl 0064.28501.
+Schmidt, Wolfgang M. (1980). Diophantine approximation. Lecture Notes in Mathematics. Vol. 785 (1996 ed.). Berlin-Heidelberg-New York: Springer-Verlag. ISBN 3-540-09762-7. Zbl 0421.10019.
+Schmidt, Wolfgang M. (1996). Diophantine approximations and Diophantine equations. Lecture Notes in Mathematics. Vol. 1467 (2nd ed.). Springer-Verlag. ISBN 3-540-54058-X. Zbl 0754.11020.
+Siegel, Carl Ludwig (1921). "Approximation algebraischer Zahlen". Mathematische Zeitschrift. 10 (3): 173–213. doi:10.1007/BF01211608. ISSN 0025-5874. S2CID 119577458.
+Sprindzhuk, Vladimir G. (1979). Metric theory of Diophantine approximations. Scripta Series in Mathematics. Transl. from the Russian and ed. by Richard A. Silverman. With a foreword by Donald J. Newman. John Wiley & Sons. ISBN 0-470-26706-2. MR 0548467. Zbl 0482.10047.
+Thue, A. (1909). "Über Annäherungswerte algebraischer Zahlen". Journal für die reine und angewandte Mathematik. 1909 (135): 284–305. doi:10.1515/crll.1909.135.284. ISSN 0075-4102. S2CID 125903243.
+
+External links[edit]
+Diophantine Approximation: historical survey. From Introduction to Diophantine methods course by Michel Waldschmidt.
+"Diophantine approximations", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Authority control databases International
+FAST
+National
+France
+BnF data
+Germany
+Israel
+United States
+Japan
+Other
+IdRef
+
+
+
+

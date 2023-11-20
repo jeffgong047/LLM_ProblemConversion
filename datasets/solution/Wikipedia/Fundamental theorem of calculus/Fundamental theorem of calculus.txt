@@ -1,0 +1,658 @@
+Relationship between derivatives and integrals
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vte
+The fundamental theorem of calculus is a theorem that links the concept of differentiating a function (calculating its slopes, or rate of change at each time) with the concept of integrating a function (calculating the area under its graph, or the cumulative effect of small contributions). The two operations are inverses of each other apart from a constant value which depends on where one starts to compute area.
+The first part of the theorem, the first fundamental theorem of calculus, states that for a function f , an antiderivative or indefinite integral F may be obtained as the integral of f over an interval with a variable upper bound. This implies the existence of antiderivatives for continuous functions.[1]
+Conversely, the second part of the theorem, the second fundamental theorem of calculus, states that the integral of a function f over a fixed interval is equal to the change of any antiderivative F between the ends of the interval. This greatly simplifies the calculation of a definite integral provided an antiderivative can be found by symbolic integration, thus avoiding numerical integration.
+
+
+History[edit]
+See also: History of calculus
+The fundamental theorem of calculus relates differentiation and integration, showing that these two operations are essentially inverses of one another. Before the discovery of this theorem, it was not recognized that these two operations were related. Ancient Greek mathematicians knew how to compute area via infinitesimals, an operation that we would now call integration. The origins of differentiation likewise predate the fundamental theorem of calculus by hundreds of years; for example, in the fourteenth century the notions of continuity of functions and motion were studied by the Oxford Calculators and other scholars. The historical relevance of the fundamental theorem of calculus is not the ability to calculate these operations, but the realization that the two seemingly distinct operations (calculation of geometric areas, and calculation of gradients) are actually closely related.
+From the conjecture and the proof of the fundamental theorem of calculus, calculus as a unified theory of integration and differentiation is started. The first published statement and proof of a rudimentary form of the fundamental theorem, strongly geometric in character,[2] was by James Gregory (1638–1675).[3][4] Isaac Barrow (1630–1677) proved a more generalized version of the theorem,[5] while his student Isaac Newton (1642–1727) completed the development of the surrounding mathematical theory. Gottfried Leibniz (1646–1716) systematized the knowledge into a calculus for infinitesimal quantities and introduced the notation used today.
+
+Geometric meaning[edit]
+The area shaded in red stripes is close to h times f(x). Alternatively, if the function A(x) were known, this area would be exactly A(x + h) − A(x). These two values are approximately equal, particularly for small h.
+The first fundamental theorem may be interpreted as follows. Given a continuous function y = f(x) whose graph is plotted as a curve, one defines a corresponding "area function" x↦A(x)(x) such that A(x) is the area beneath the curve between 0 and x. The area A(x) may not be easily computable, but it is assumed to be well defined.
+The area under the curve between x and x + h could be computed by finding the area between 0 and x + h, then subtracting the area between 0 and x. In other words, the area of this "strip" would be A(x + h) − A(x).
+There is another way to estimate the area of this same strip. As shown in the accompanying figure, h is multiplied by f(x) to find the area of a rectangle that is approximately the same size as this strip. So:
+A(x+h)−A(x)≈f(x)⋅h(x+h)-A(x)(x)
+In fact, this estimate becomes a perfect equality if we add the red "Excess" area in the diagram. So:
+A(x+h)−A(x)=f(x)⋅h+(Excess)(x+h)-A(x)=f(x)+(Excess)
+Rearranging terms:
+f(x)=A(x+h)−A(x)h−Excessh.(x)=A(x+h)-A(x)/h-Excess/h.
+
+As h approaches 0 in the limit, the last fraction must go to zero.[6] To see this, note that the excess region is inside the tiny black-bordered rectangle, giving an upper bound for the excess area:|Excess|≤h(f(x+h1)−f(x+h2)),|Excess| (f(x+h_1)-f(x+h_2)),where x+h1+h_1 and x+h2+h_2 are points where f  reaches its maximum and its minimum, respectively, in the interval [x, x + h].
+Thus:
+|f(x)−A(x+h)−A(x)h|=|Excess|h≤h(f(x+h1)−f(x+h2))h=f(x+h1)−f(x+h2),|f(x)-A(x+h)-A(x)/h|=|Excess|/h≤h(f(x+h_1)-f(x+h_2))/h=f(x+h_1)-f(x+h_2),By the continuity of f, the right-hand expression tends to zero as h does. Therefore, the left-hand side also tends to zero, and:
+f(x)=limh→0A(x+h)−A(x)h=defA′(x).(x)=lim_h→0A(x+h)-A(x)/h{def='(x).
+
+That is, the derivative of the area function A(x) exists and is equal to the original function f(x), so the area function is an antiderivative of the original function. 
+Thus, the derivative of the integral of a function (the area) is the original function, so that derivative and integral are inverse operations which reverse each other. This is the essence of the Fundamental Theorem.
+
+Physical intuition[edit]
+Intuitively, the fundamental theorem states that integration and differentiation are essentially inverse operations which reverse each other.
+The second fundamental theorem says that the sum of infinitesimal changes in a quantity over time (the integral of the derivative of the quantity) adds up to the net change in the quantity. To visualize this, imagine traveling in a car and wanting to know the distance traveled (the net change in position along the highway). You can see the velocity on the speedometer but cannot look out to see your location. Each second, you can find how far the car has traveled using distance = speed × time, multiplying the current speed (in kilometers or miles per hour) by the time interval (1 second = 1360013600 hour). Summing up all these small steps, you can calculate the total distance traveled, without ever looking outside the car:distancetraveled=∑(velocityateachtime)×(timeinterval)=∑v(t)×Δt.distancetraveled=∑([ velocityat;   eachtime ])×([     time; interval ])=(t)×.As Δt becomes infinitesimally small, the summing up corresponds to integration. Thus, the integral of the velocity function (the derivative of position) computes how far the car has traveled (the net change in position).
+The first fundamental theorem says that any quantity is the rate of change (the derivative) of the integral of the quantity from a fixed time up to a variable time. Continuing the above example, if you imagine a velocity function, you can integrate it from the starting time up to any given time to obtain a distance function whose derivative is the given velocity. (To obtain the highway-marker position, you need to add your starting position to this integral.)
+
+Formal statements[edit]
+There are two parts to the theorem. The first part deals with the derivative of an antiderivative, while the second part deals with the relationship between antiderivatives and definite integrals.
+
+First part[edit]
+This part is sometimes referred to as the first fundamental theorem of calculus.[7]
+Let f be a continuous real-valued function defined on a closed interval [a, b]. Let F be the function defined, for all x in [a, b], by
+F(x)=∫axf(t)dt.(x)=∫_a^xf(t) dt.
+Then F is uniformly continuous on [a, b] and differentiable on the open interval (a, b), and
+F′(x)=f(x)'(x)=f(x)
+for all x in (a, b) so F is an antiderivative of f.
+
+Corollary[edit]
+Fundamental theorem of calculus (animation)
+The fundamental theorem is often employed to compute the definite integral of a function f for which an antiderivative F is known. Specifically, if f is a real-valued continuous function on [a,b][a,b] and F is an antiderivative of f in [a,b][a,b] then
+∫abf(t)dt=F(b)−F(a).∫_a^bf(t) dt=F(b)-F(a).
+The corollary assumes continuity on the whole interval. This result is strengthened slightly in the following part of the theorem.
+
+Second part[edit]
+This part is sometimes referred to as the second fundamental theorem of calculus[8] or the Newton–Leibniz theorem.
+Let f be a real-valued function on a closed interval [a,b][a,b] and F a continuous function on [a,b][a,b] which is an antiderivative of f in (a,b)(a,b):
+F′(x)=f(x).'(x)=f(x).
+If f is Riemann integrable on [a,b][a,b] then
+∫abf(x)dx=F(b)−F(a).∫_a^bf(x) dx=F(b)-F(a).
+The second part is somewhat stronger than the corollary because it does not assume that f is continuous.
+When an antiderivative F of f exists, then there are infinitely many antiderivatives for f, obtained by adding an arbitrary constant to F. Also, by the first part of the theorem, antiderivatives of f always exist when f is continuous.
+
+Proof of the first part[edit]
+For a given function f, define the function F(x) as
+F(x)=∫axf(t)dt.(x)=∫_a^xf(t) dt.
+For any two numbers x1 and x1 + Δx in [a, b], we have
+F(x1+Δx)−F(x1)=∫ax1+Δxf(t)dt−∫ax1f(t)dt=∫x1x1+Δxf(t)dt,F(x_1+)-F(x_1)   =∫_a^x_1+f(t) dt-∫_a^x_1f(t) dt
+   =∫_x_1^x_1+f(t) dt,
+the latter equality resulting from the basic properties of integrals and the additivity of areas.
+According to the mean value theorem for integration, there exists a real number c∈[x1,x1+Δx]∈[x_1,x_1+] such that
+∫x1x1+Δxf(t)dt=f(c)⋅Δx.∫_x_1^x_1+f(t) dt=f(c)·.
+It follows that
+F(x1+Δx)−F(x1)=f(c)⋅Δx,(x_1+)-F(x_1)=f(c)·,
+and thus that
+F(x1+Δx)−F(x1)Δx=f(c).F(x_1+)-F(x_1)/=f(c).
+Taking the limit as Δx→0,→0, and keeping in mind that c∈[x1,x1+Δx],∈[x_1,x_1+], one gets 
+limΔx→0F(x1+Δx)−F(x1)Δx=limΔx→0f(c),lim_→0F(x_1+)-F(x_1)/=lim_→0f(c),
+that is, 
+F′(x1)=f(x1),'(x_1)=f(x_1),
+according to the definition of the derivative, the continuity of f, and the squeeze theorem.[9]
+
+Proof of the corollary[edit]
+Suppose F is an antiderivative of f, with f continuous on [a, b]. Let
+G(x)=∫axf(t)dt.(x)=∫_a^xf(t) dt.
+By the first part of the theorem, we know G is also an antiderivative of f. Since F′ − G′ = 0 the mean value theorem implies that F − G is a constant function, that is, there is a number c such that G(x) = F(x) + c for all x in [a, b]. Letting x = a, we have
+F(a)+c=G(a)=∫aaf(t)dt=0,(a)+c=G(a)=∫_a^af(t) dt=0,
+which means c = −F(a). In other words, G(x) = F(x) − F(a), and so
+∫abf(x)dx=G(b)=F(b)−F(a).∫_a^bf(x) dx=G(b)=F(b)-F(a).
+
+Proof of the second part[edit]
+This is a limit proof by Riemann sums.
+To begin, we recall the mean value theorem. Stated briefly, if F is continuous on the closed interval [a, b] and differentiable on the open interval (a, b), then there exists some c in (a, b) such that
+F′(c)(b−a)=F(b)−F(a).'(c)(b-a)=F(b)-F(a).
+Let f be (Riemann) integrable on the interval [a, b], and let f admit an antiderivative F on (a, b) such that F is continuous on [a, b]. Begin with the quantity F(b) − F(a). Let there be numbers x0, ..., xn such that
+a=x0<x1<x2<⋯<xn−1<xn=b.=x_0<x_1<x_2<⋯<x_n-1<x_n=b.
+It follows that
+F(b)−F(a)=F(xn)−F(x0).(b)-F(a)=F(x_n)-F(x_0).
+Now, we add each F(xi) along with its additive inverse, so that the resulting quantity is equal:
+F(b)−F(a)=F(xn)+[−F(xn−1)+F(xn−1)]+⋯+[−F(x1)+F(x1)]−F(x0)=[F(xn)−F(xn−1)]+[F(xn−1)−F(xn−2)]+⋯+[F(x2)−F(x1)]+[F(x1)−F(x0)].F(b)-F(a)   =F(x_n)+[-F(x_n-1)+F(x_n-1)]+⋯+[-F(x_1)+F(x_1)]-F(x_0)
+   =[F(x_n)-F(x_n-1)]+[F(x_n-1)-F(x_n-2)]+⋯+[F(x_2)-F(x_1)]+[F(x_1)-F(x_0)].
+The above quantity can be written as the following sum:
+
+
+
+F(b)−F(a)=∑i=1n[F(xi)−F(xi−1)].(b)-F(a)=∑_i=1^n[F(x_i)-F(x_i-1)].
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1')
+
+The function F is differentiable on the interval (a, b) and continuous on the closed interval [a, b]; therefore, it is also differentiable on each interval (xi−1, xi) and continuous on each interval [xi−1, xi]. According to the mean value theorem (above), for each i there exists a ci_i in (xi−1, xi) such that
+F(xi)−F(xi−1)=F′(ci)(xi−xi−1).(x_i)-F(x_i-1)=F'(c_i)(x_i-x_i-1).
+Substituting the above into (1'), we get
+F(b)−F(a)=∑i=1n[F′(ci)(xi−xi−1)].(b)-F(a)=∑_i=1^n[F'(c_i)(x_i-x_i-1)].
+The assumption implies F′(ci)=f(ci).'(c_i)=f(c_i). Also, xi−xi−1_i-x_i-1 can be expressed as Δx of partition i.
+
+
+
+F(b)−F(a)=∑i=1n[f(ci)(Δxi)].(b)-F(a)=∑_i=1^n[f(c_i)(_i)].
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2')
+
+A converging sequence of Riemann sums. The number in the upper left is the total area of the blue rectangles. They converge to the definite integral of the function.
+We are describing the area of a rectangle, with the width times the height, and we are adding the areas together. Each rectangle, by virtue of the mean value theorem, describes an approximation of the curve section it is drawn over. Also Δxi_i need not be the same for all values of i, or in other words that the width of the rectangles can differ. What we have to do is approximate the curve with n rectangles. Now, as the size of the partitions get smaller and n increases, resulting in more partitions to cover the space, we get closer and closer to the actual area of the curve.
+By taking the limit of the expression as the norm of the partitions approaches zero, we arrive at the Riemann integral. We know that this limit exists because f was assumed to be integrable. That is, we take the limit as the largest of the partitions approaches zero in size, so that all other partitions are smaller and the number of partitions approaches infinity.
+So, we take the limit on both sides of (2'). This gives us
+lim‖Δxi‖→0F(b)−F(a)=lim‖Δxi‖→0∑i=1n[f(ci)(Δxi)].lim__i→0F(b)-F(a)=lim__i→0∑_i=1^n[f(c_i)(_i)].
+Neither F(b) nor F(a) is dependent on ‖Δxi‖_i, so the limit on the left side remains F(b) − F(a).
+F(b)−F(a)=lim‖Δxi‖→0∑i=1n[f(ci)(Δxi)].(b)-F(a)=lim__i→0∑_i=1^n[f(c_i)(_i)].
+The expression on the right side of the equation defines the integral over f from a to b. Therefore, we obtain
+F(b)−F(a)=∫abf(x)dx,(b)-F(a)=∫_a^bf(x) dx,
+which completes the proof.
+
+Relationship between the parts[edit]
+As discussed above, a slightly weaker version of the second part follows from the first part.
+Similarly, it almost looks like the first part of the theorem follows directly from the second. That is, suppose G is an antiderivative of f. Then by the second theorem, G(x)−G(a)=∫axf(t)dt(x)-G(a)=∫_a^xf(t) dt. Now, suppose F(x)=∫axf(t)dt=G(x)−G(a)(x)=∫_a^xf(t) dt=G(x)-G(a). Then F has the same derivative as G, and therefore F′ = f. This argument only works, however, if we already know that f has an antiderivative, and the only way we know that all continuous functions have antiderivatives is by the first part of the Fundamental Theorem.[1]
+For example, if f(x) = e−x2, then f has an antiderivative, namely
+G(x)=∫0xf(t)dt(x)=∫_0^xf(t) dt
+and there is no simpler expression for this function. It is therefore important not to interpret the second part of the theorem as the definition of the integral. Indeed, there are many functions that are integrable but lack elementary antiderivatives, and discontinuous functions can be integrable but lack any antiderivatives at all. Conversely, many functions that have antiderivatives are not Riemann integrable (see Volterra's function).
+
+Examples[edit]
+Computing a particular integral[edit]
+Suppose the following is to be calculated:
+∫25x2dx.∫_2^5x^2 dx.
+Here, f(x)=x2(x)=x^2 and we can use F(x)=13x3(x)=1/3x^3 as the antiderivative. Therefore:
+∫25x2dx=F(5)−F(2)=533−233=1253−83=1173=39.∫_2^5x^2 dx=F(5)-F(2)=5^3/3-2^3/3=125/3-8/3=117/3=39.
+
+Using the first part[edit]
+Suppose
+ddx∫0xt3dtd/dx∫_0^xt^3 dt
+is to be calculated. Using the first part of the theorem with f(t)=t3(t)=t^3 gives
+ddx∫0xt3dt=f(x)=x3.d/dx∫_0^xt^3 dt=f(x)=x^3.
+This can also be checked using the second part of the theorem. Specifically, F(t)=14t4(t)=1/4t^4 is an antiderivative of f(t)(t), so
+ddx∫0xt3dt=ddxF(x)−ddxF(0)=ddxx44=x3.d/dx∫_0^xt^3 dt=d/dxF(x)-d/dxF(0)=d/dxx^4/4=x^3.
+
+An integral where the corollary is insufficient[edit]
+Suppose
+f(x)=sin⁡(1x)−1xcos⁡(1x)x≠00x=0(x)=sin(1/x)-1/xcos(1/x)   x≠0
+0   x=0
+
+Then f(x)(x) is not continuous at zero. Moreover, this is not just a matter of how f is defined at zero, since the limit as x→0→0 of f(x)(x) does not exist. Therefore, the corollary cannot be used to compute
+∫01f(x)dx.∫_0^1f(x) dx.
+But consider the function
+F(x)=xsin⁡(1x)x≠00x=0.(x)=xsin(1/x)   x≠0
+0   x=0.
+
+Notice that F(x)(x) is continuous on [0,1][0,1] (including at zero by the squeeze theorem), and F(x)(x) is differentiable on (0,1)(0,1) with F′(x)=f(x).'(x)=f(x). Therefore, part two of the theorem applies, and
+∫01f(x)dx=F(1)−F(0)=sin⁡(1).∫_0^1f(x) dx=F(1)-F(0)=sin(1).
+
+Theoretical example[edit]
+The theorem can be used to prove that
+∫abf(x)dx=∫acf(x)dx+∫cbf(x)dx.∫_a^bf(x)dx=∫_a^cf(x)dx+∫_c^bf(x)dx.
+Since, 
+∫abf(x)dx=F(b)−F(a),∫acf(x)dx=F(c)−F(a),and∫cbf(x)dx=F(b)−F(c),∫_a^bf(x)dx   =F(b)-F(a),
+∫_a^cf(x)dx   =F(c)-F(a),and
+∫_c^bf(x)dx   =F(b)-F(c),
+the result follows from, 
+F(b)−F(a)=F(c)−F(a)+F(b)−F(c).(b)-F(a)=F(c)-F(a)+F(b)-F(c).
+
+Generalizations[edit]
+The function f does not have to be continuous over the whole interval. Part I of the theorem then says: if f is any Lebesgue integrable function on [a, b] and x0 is a number in [a, b] such that f is continuous at x0, then
+F(x)=∫axf(t)dt(x)=∫_a^xf(t) dt
+is differentiable for x = x0 with F′(x0) = f(x0). We can relax the conditions on f still further and suppose that it is merely locally integrable. In that case, we can conclude that the function F is differentiable almost everywhere and F′(x) = f(x) almost everywhere. On the real line this statement is equivalent to Lebesgue's differentiation theorem. These results remain true for the Henstock–Kurzweil integral, which allows a larger class of integrable functions.[10]
+In higher dimensions Lebesgue's differentiation theorem generalizes the Fundamental theorem of calculus by stating that for almost every x, the average value of a function f over a ball of radius r centered at x tends to f(x) as r tends to 0.
+Part II of the theorem is true for any Lebesgue integrable function f, which has an antiderivative F (not all integrable functions do, though). In other words, if a real function F on [a, b] admits a derivative f(x) at every point x of [a, b] and if this derivative f is Lebesgue integrable on [a, b], then[11]
+F(b)−F(a)=∫abf(t)dt.(b)-F(a)=∫_a^bf(t) dt.
+This result may fail for continuous functions F that admit a derivative f(x) at almost every point x, as the example of the Cantor function shows. However, if F is absolutely continuous, it admits a derivative F′(x) at almost every point x, and moreover F′ is integrable, with F(b) − F(a) equal to the integral of F′ on [a, b]. Conversely, if f is any integrable function, then F as given in the first formula will be absolutely continuous with F′ = f almost everywhere.
+The conditions of this theorem may again be relaxed by considering the integrals involved as Henstock–Kurzweil integrals. Specifically, if a continuous function F(x) admits a derivative f(x) at all but countably many points, then f(x) is Henstock–Kurzweil integrable and F(b) − F(a) is equal to the integral of f on [a, b]. The difference here is that the integrability of f does not need to be assumed.[12]
+The version of Taylor's theorem, which expresses the error term as an integral, can be seen as a generalization of the fundamental theorem.
+There is a version of the theorem for complex functions: suppose U is an open set in C and f : U → C is a function that has a holomorphic antiderivative F on U. Then for every curve γ : [a, b] → U, the curve integral can be computed as
+∫γf(z)dz=F(γ(b))−F(γ(a)).∫_γf(z) dz=F(γ(b))-F(γ(a)).
+The fundamental theorem can be generalized to curve and surface integrals in higher dimensions and on manifolds. One such generalization offered by the calculus of moving surfaces is the time evolution of integrals. The most familiar extensions of the fundamental theorem of calculus in higher dimensions are the divergence theorem and the gradient theorem.
+One of the most powerful generalizations in this direction is Stokes' theorem (sometimes known as the fundamental theorem of multivariable calculus):[13] Let M be an oriented piecewise smooth manifold of dimension n and let ωω be a smooth compactly supported (n − 1)-form on M. If ∂M denotes the boundary of M given its induced orientation, then
+∫Mdω=∫∂Mω.∫_Mdω=∫_ω.
+Here d is the exterior derivative, which is defined using the manifold structure only.
+The theorem is often used in situations where M is an embedded oriented submanifold of some bigger manifold (e.g. Rk) on which the form ωω is defined.
+The fundamental theorem of calculus allows us to pose a definite integral as a first-order ordinary differential equation.
+∫abf(x)dx∫_a^bf(x) dx
+can be posed as
+dydx=f(x),y(a)=0dy/dx=f(x),  y(a)=0
+with y(b)(b) as the value of the integral.
+
+See also[edit]
+
+Mathematics portal
+Differentiation under the integral sign
+Telescoping series
+Fundamental theorem of calculus for line integrals
+Notation for differentiation
+Notes[edit]
+
+
+References[edit]
+
+
+^ a b Spivak, Michael (1980), Calculus (2nd ed.), Houston, Texas: Publish or Perish Inc.
+
+^ Malet, Antoni (1993). "James Gregorie on tangents and the "Taylor" rule for series expansions". Archive for History of Exact Sciences. Springer-Verlag. 46 (2): 97–137. doi:10.1007/BF00375656. S2CID 120101519. Gregorie's thought, on the other hand, belongs to a conceptual framework strongly geometrical in character. (page 137)
+
+^ 
+See, e.g., Marlow Anderson, Victor J. Katz, Robin J. Wilson, Sherlock Holmes in Babylon and Other Tales of Mathematical History, Mathematical Association of America, 2004, p. 114.
+
+^ Gregory, James (1668). Geometriae Pars Universalis. Museo Galileo: Patavii: typis heredum Pauli Frambotti.
+
+^ Child, James Mark; Barrow, Isaac (1916). The Geometrical Lectures of Isaac Barrow. Chicago: Open Court Publishing Company.
+
+^ Bers, Lipman. Calculus, pp. 180–181 (Holt, Rinehart and Winston (1976).
+
+^ Apostol 1967, §5.1
+
+^ Apostol 1967, §5.3
+
+^ Leithold, L. (1996), The calculus of a single variable (6th ed.), New York: HarperCollins College Publishers, p. 380.
+
+^ Bartle (2001), Thm. 4.11.
+
+^ Rudin 1987, th. 7.21
+
+^ Bartle (2001), Thm. 4.7.
+
+^ Spivak, M. (1965). Calculus on Manifolds. New York: W. A. Benjamin. pp. 124–125. ISBN 978-0-8053-9021-6.
+
+
+Bibliography[edit]
+
+Apostol, Tom M. (1967), Calculus, Vol. 1: One-Variable Calculus with an Introduction to Linear Algebra (2nd ed.), New York: John Wiley & Sons, ISBN 978-0-471-00005-1.
+Bartle, Robert (2001), A Modern Theory of Integration, AMS, ISBN 0-8218-0845-1.
+Leithold, L. (1996), The calculus of a single variable (6th ed.), New York: HarperCollins College Publishers.
+Rudin, Walter (1987), Real and Complex Analysis (third ed.), New York: McGraw-Hill Book Co., ISBN 0-07-054234-1
+
+Further reading[edit]
+
+Courant, Richard; John, Fritz (1965), Introduction to Calculus and Analysis, Springer.
+Larson, Ron; Edwards, Bruce H.; Heyd, David E. (2002), Calculus of a single variable (7th ed.), Boston: Houghton Mifflin Company, ISBN 978-0-618-14916-2.
+Malet, A., Studies on James Gregorie (1638-1675) (PhD Thesis, Princeton, 1989).
+Hernandez Rodriguez, O. A.; Lopez Fernandez, J. M. . "Teaching the Fundamental Theorem of Calculus: A Historical Reflection", Loci: Convergence (MAA), January 2012.
+Stewart, J. (2003), "Fundamental Theorem of Calculus", Calculus: early transcendentals, Belmont, California: Thomson/Brooks/Cole.
+Turnbull, H. W., ed. (1939), The James Gregory Tercentenary Memorial Volume, London{{citation}}:  CS1 maint: location missing publisher (link).
+
+External links[edit]
+
+
+
+Wikibooks has more on the topic of: Fundamental theorem of calculus
+
+"Fundamental theorem of calculus", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+James Gregory's Euclidean Proof of the Fundamental Theorem of Calculus at Convergence
+Isaac Barrow's proof of the Fundamental Theorem of Calculus
+Fundamental Theorem of Calculus at imomath.com
+Alternative proof of the fundamental theorem of calculus
+Fundamental Theorem of Calculus MIT.
+Fundamental Theorem of Calculus Mathworld.
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+vteMajor topics in mathematical analysis
+Calculus: Integration
+Differentiation
+Differential equations
+ordinary
+partial
+stochastic
+Fundamental theorem of calculus
+Calculus of variations
+Vector calculus
+Tensor calculus
+Matrix calculus
+Lists of integrals
+Table of derivatives
+
+Real analysis
+Complex analysis
+Hypercomplex analysis (quaternionic analysis)
+Functional analysis
+Fourier analysis
+Least-squares spectral analysis
+Harmonic analysis
+P-adic analysis (P-adic numbers)
+Measure theory
+Representation theory
+Functions
+Continuous function
+Special functions
+Limit
+Series
+Transform
+Infinity
+Mathematics portal
+
+
+

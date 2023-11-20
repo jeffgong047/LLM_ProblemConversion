@@ -1,0 +1,41 @@
+In probability theory, Kolmogorov's Three-Series Theorem, named after Andrey Kolmogorov, gives a criterion for the almost sure convergence of an infinite series of random variables in terms of the convergence of three different series involving properties of their probability distributions. Kolmogorov's three-series theorem, combined with Kronecker's lemma, can be used to give a relatively easy proof of the Strong Law of Large Numbers.[1]
+
+
+Statement of the theorem[edit]
+Let (Xn)n∈N(X_n)_n∈ℕ be independent random variables. The random series ∑n=1∞Xn∑_n=1^∞X_n converges almost surely in Rℝ if the following conditions hold for some A>0>0, and only if the following conditions hold for any A>0>0:
+
+∑n=1∞P(|Xn|≥A)∑_n=1^∞ℙ(|X_n|) converges.Let Yn=Xn1|Xn|≤A_n=X_n1_{|X_n|}. Then ∑n=1∞E[Yn]∑_n=1^∞𝔼[Y_n], the series of expected values of Yn_n, converges.∑n=1∞var(Yn)∑_n=1^∞var(Y_n) converges, where Yn_n is defined as in the second condition.
+Proof[edit]
+Sufficiency of conditions ("if")[edit]
+Condition (i) and Borel–Cantelli give that Xn=Yn_n=Y_n for n large, almost surely. Hence ∑n=1∞Xn∑_n=1^∞X_n converges if and only if ∑n=1∞Yn∑_n=1^∞Y_n converges. Conditions (ii)-(iii) and Kolmogorov's Two-Series Theorem give the almost sure convergence of ∑n=1∞Yn∑_n=1^∞Y_n.
+
+Necessity of conditions ("only if")[edit]
+Suppose that ∑n=1∞Xn∑_n=1^∞X_n converges almost surely.
+Without condition (i), by Borel–Cantelli there would exist some A>0>0 such that |Xn|≥A{|X_n|} for infinitely many n, almost surely. But then the series would diverge. Therefore, we must have condition (i).
+We see that condition (iii) implies condition (ii): Kolmogorov's two-series theorem along with condition (i) applied to the case A=1=1 gives the convergence of ∑n=1∞(Yn−E[Yn])∑_n=1^∞(Y_n-𝔼[Y_n]). So given the convergence of ∑n=1∞Yn∑_n=1^∞Y_n, we have ∑n=1∞E[Yn]∑_n=1^∞𝔼[Y_n]  converges, so condition (ii) is implied.
+Thus, it only remains to demonstrate the necessity of condition (iii), and we will have obtained the full result. It is equivalent to check condition (iii) for the series
+∑n=1∞Zn=∑n=1∞(Yn−Yn′)∑_n=1^∞Z_n=∑_n=1^∞(Y_n-Y'_n) where for each n, Yn_n and Yn′'_n are IID—that is, to employ the assumption that E[Yn]=0𝔼[Y_n]=0, since Zn_n is a sequence of random variables bounded by 2, converging almost surely, and with var(Zn)=2var(Yn)var(Z_n)=2var(Y_n). So we wish to check that if ∑n=1∞Zn∑_n=1^∞Z_n converges, then ∑n=1∞var(Zn)∑_n=1^∞var(Z_n) converges as well. This is a special case of a more general result from martingale theory with summands equal to the increments of a martingale sequence and the same conditions (E[Zn]=0𝔼[Z_n]=0; the series of the variances is converging; and the summands are bounded).[2][3][4]
+
+Example[edit]
+As an illustration of the theorem, consider the example of the harmonic series with random signs:
+
+∑n=1∞±1n.∑_n=1^∞±1/n.
+Here, "±±" means that each term 1/n1/n is taken with a random sign that is either 11 or −1-1 with respective probabilities 1/2,1/21/2,/2, and all random signs are chosen independently. Let Xn_n in the theorem denote a random variable that takes the values 1/n1/n and −1/n-1/n with equal probabilities. With A=2=2 the summands of the first two series are identically zero and var(Yn)=n−2^-2. The conditions of the theorem are then satisfied, so it follows that the harmonic series with random signs converges almost surely. On the other hand, the analogous series of (for example) square root reciprocals with random signs, namely
+
+∑n=1∞±1n,∑_n=1^∞±1/√(n),
+diverges almost surely, since condition (3) in the theorem is not satisfied for any A. Note that this is different from the behavior of the analogous series with alternating signs, ∑n=1∞(−1)n/n∑_n=1^∞(-1)^n/√(n), which does converge.
+
+Notes[edit]
+
+^ Durrett, Rick. "Probability: Theory and Examples." Duxbury advanced series, Third Edition, Thomson Brooks/Cole, 2005, Section 1.8, pp. 60–69.
+
+^ Sun, Rongfeng. Lecture notes. http://www.math.nus.edu.sg/~matsr/ProbI/Lecture4.pdf Archived 2018-04-17 at the Wayback Machine
+
+^ M. Loève, "Probability theory", Princeton Univ. Press (1963) pp. Sect. 16.3
+
+^ W. Feller, "An introduction to probability theory and its applications", 2, Wiley (1971) pp. Sect. IX.9
+
+
+
+
+

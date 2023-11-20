@@ -1,0 +1,87 @@
+Theorem relating graph minors and topological embeddings
+In mathematics, the graph structure theorem is a major result in the area of graph theory.  The result establishes a deep and fundamental connection between the theory of graph minors and topological embeddings. The theorem is stated in the seventeenth of a series of 23 papers by Neil Robertson and Paul Seymour.  Its proof is very long and involved. Kawarabayashi & Mohar (2007) and Lovász (2006) are surveys accessible to nonspecialists, describing the theorem and its consequences.
+
+
+Setup and motivation for the theorem[edit]
+A minor of a graph G is any graph H that is isomorphic to a graph that can be obtained from a subgraph of G by contracting some edges.  If G does not have a graph H as a minor, then we say that G is  H-free. Let H be a fixed graph. Intuitively, if G is a huge H-free graph, then there ought to be a "good reason" for this.  The graph structure theorem provides such a "good reason" in the form of a rough description of the structure of G.   In essence, every H-free graph G suffers from one of two structural deficiencies: either G is "too thin" to have H as a minor, or G can be (almost) topologically embedded on a surface that is too simple to embed H upon.  The first reason applies if H is a planar graph, and both reasons apply if H is not planar.  We first make precise these notions.
+
+Tree width[edit]
+The tree width of a graph G is a positive integer that specifies the "thinness" of G. For example, a connected graph G has tree width one if and only if it is a tree, and G has tree width two if and only if it is a series–parallel graph. Intuitively, a huge graph G has small tree width if and only if G takes the structure of a huge tree whose nodes and edges have been replaced by small graphs.  We give a precise definition of tree width in the subsection regarding clique-sums.  It is a theorem that if H is a minor of G, then the tree width of H is not greater than that of G.  Therefore, one "good reason" for G to be H-free is that the tree width of G is not very large.  The graph structure theorem implies that this reason always applies in case H is planar.
+Corollary 1. For every planar graph H, there exists a positive integer k such that every H-free graph has tree width less than k.
+It is unfortunate that the value of k in Corollary 1 is generally much larger than the tree width of H (a notable exception is when H = K4, the complete graph on four vertices, for which k = 3). This is one reason that the graph structure theorem is said to describe the "rough structure" of H-free graphs.
+
+Surface embeddings[edit]
+Roughly, a surface is a set of points with a local topological structure of a disc. Surfaces fall into two infinite families: the orientable surfaces include the sphere, the torus, the double torus and so on; the nonorientable surfaces include the real projective plane, the Klein bottle and so on. A graph embeds on a surface if the graph can be drawn on the surface as a set of points (vertices) and arcs (edges) that do not cross or touch each other, except where edges and vertices are incident or adjacent.  A graph is planar if it embeds on the sphere. If a graph G embeds on a particular surface then every minor of G also embeds on that same surface.  Therefore, a "good reason" for G to be H-free is that G embeds on a surface that H does not embed on.
+When H is not planar, the graph structure theorem may be looked at as a vast generalization of the Kuratowski theorem.  A version of this theorem proved by Wagner (1937) states that if a graph G is both K5-free and K3,3-free, then G is planar.  This theorem provides a "good reason" for a graph G not to have K5 or K3,3 as minors; specifically, G embeds on the sphere, whereas neither K5 nor K3,3 embed on the sphere.  Unfortunately, this notion of "good reason" is not sophisticated enough for the graph structure theorem.  Two more notions are required: clique-sums and vortices.
+
+Clique-sums[edit]
+A clique in a graph G is any set of vertices that are pairwise adjacent in G. For a non-negative integer k, a k-clique-sum of two graphs G and K is any graph obtained by selecting a non-negative integer m ≤ k, selecting clique of size m in each of G and K, identifying the two cliques into a single clique of size m, then deleting zero or more of the edges that join vertices in the new clique.
+If G1, G2, …, Gn is a list of graphs, then we may produce a new graph by joining the list of graphs via k-clique-sums.  That is, we take a k-clique-sum of G1 and G2, then take a k-clique-sum of G3 with the resulting graph, and so on.  A graph has tree width at most k  if it can be obtained via k-clique-sums from a list of graphs, where each graph in the list has at most k + 1 vertices.
+Corollary 1 indicates to us that k-clique-sums of small graphs describe the rough structure H-free graphs when H is planar.  When H is nonplanar, we also need to consider k-clique-sums of a list of graphs, each of which is embedded on a surface. The following example with H = K5 illustrates this point. The graph K5 embeds on every surface except for the sphere.  However there exist K5-free graphs that are far from planar.  In particular, the 3-clique-sum of any list of planar graphs results in a K5-free graph. Wagner (1937) determined the precise structure of K5-free graphs, as part of a cluster of results known as Wagner's theorem:
+Theorem 2. If G is K5-free, then G can be obtained via 3-clique-sums from a list of planar graphs, and copies of one special non-planar graph having 8-vertices.
+We point out that Theorem 2 is an exact structure theorem since the precise structure of K5-free graphs is determined. Such results are rare within graph theory.  The graph structure theorem is not precise in this sense because, for most graphs H, the structural description of H-free graphs includes some graphs that are not H-free.
+
+Vortices (rough description)[edit]
+One might be tempted to conjecture that an analog of Theorem 2 holds for graphs H other than K5.  Perhaps it is true that: for any non-planar graph H, there exists a positive integer k such that every H-free graph can be obtained via k-clique-sums from a list of graphs, each of which either has at most k vertices or embeds on some surface that H does not embed on.  Unfortunately, this statement is not yet sophisticated enough to be true.  We must allow each embedded graph Gi to "cheat" in two limited ways.  First, we must allow a bounded number of locations on the surface at which we may add some new vertices and edges that are permitted to cross each other in a manner of limited complexity.  Such locations are called vortices.  The "complexity" of a vortex is limited by a parameter called its depth, closely related to pathwidth.  The reader may prefer to defer reading the following precise description of a vortex of depth k.  Second, we must allow a limited number of new vertices to add to each of the embedded graphs with vortices.
+
+Vortices (precise definition)[edit]
+A face of an embedded graph is an open 2-cell in the surface that is disjoint from the graph, but whose boundary is the union of some of the edges of the embedded graph. Let F be a face of an embedded graph G and let v0, v1, ..., vn – 1, vn = v0 be the vertices lying on the boundary of F (in that circular order).   A circular interval for F is a set of vertices of the form {va, va+1, …, va+s}  where a and s are integers and where subscripts are reduced modulo n.  Let Λ be a finite list of circular intervals for F.  We construct a new graph as follows.  For each circular interval L in Λ we add a new vertex vL that joins to zero or more of the vertices in L.  Finally, for each pair {L, M}  of intervals in Λ, we may add an edge joining vL to vM provided that L and M have nonempty intersection.  The resulting graph is said to be obtained from G by adding a vortex of depth at most k (to the face F) provided that no vertex on the boundary of F appears in more than k of the intervals in Λ.
+
+Statement of the graph structure theorem[edit]
+Graph structure theorem. For any graph H, there exists a positive integer k such that every H-free graph can be obtained as follows:
+
+We start with a list of graphs, where each graph in the list is embedded on a surface on which H does not embed
+to each embedded graph in the list, we add at most k vortices, where each vortex has depth at most k
+to each resulting graph we add at most k new vertices (called apexes) and add any number of edges, each having at least one of its endpoints among the apexes.
+finally, we join via k-clique-sums the resulting list of graphs.
+Note that steps 1. and 2. result in an empty graph if H is planar, but the bounded number of vertices added in step 3. makes the statement consistent with Corollary 1.
+
+Refinements[edit]
+Strengthened versions of the graph structure theorem are possible depending on the set H of forbidden minors. For instance, when one of the graphs in H is planar, then every H-minor-free graph has a tree decomposition of bounded width; equivalently, it can be represented as a clique-sum of graphs of constant size.[1] When one of the graphs in H can be drawn in the plane with only a single crossing, then the H-minor-free graphs admit a decomposition as a clique-sum of graphs of constant size and graphs of bounded genus, without vortices.[2]
+A different strengthening is also known when one of the graphs in H is an apex graph.[3]
+
+See also[edit]
+Robertson–Seymour theorem
+Notes[edit]
+
+
+^ Graph Minors V.
+
+^ Robertson & Seymour (1993); Demaine, Hajiaghayi & Thilikos (2002)).
+
+^ Demaine, Hajiaghayi & Kawarabayashi (2009).
+
+
+References[edit]
+Demaine, Erik D.; Hajiaghayi, Mohammad Taghi; Kawarabayashi, Ken-ichi (2009), "Approximation algorithms via structural results for apex-minor-free graphs", Proc. 36th International Colloquium Automata, Languages and Programming (ICALP '09) (PDF), Lecture Notes in Computer Science, vol. 5555, Springer-Verlag, pp. 316–327, doi:10.1007/978-3-642-02927-1_27, MR 2544855.
+Demaine, Erik D.; Hajiaghayi, Mohammad Taghi; Thilikos, Dimitrios M. (2002), "1.5-Approximation for treewidth of graphs excluding a graph with one crossing as a minor", Proc. 5th International Workshop on Approximation Algorithms for Combinatorial Optimization (APPROX 2002), Lecture Notes in Computer Science, vol. 2462, Springer-Verlag, pp. 67–80, doi:10.1007/3-540-45753-4_8, hdl:2117/97497, MR 2091577.
+Kawarabayashi, Ken-ichi; Mohar, Bojan (2007), "Some recent progress and applications in graph minor theory", Graphs and Combinatorics, 23 (1): 1–46, doi:10.1007/s00373-006-0684-x, MR 2292102, S2CID 7237484.
+Lovász, László (2006), "Graph minor theory", Bulletin of the American Mathematical Society, 43 (1): 75–86, doi:10.1090/S0273-0979-05-01088-8, MR 2188176.
+Robertson, Neil; Seymour, P. D. (1983), "Graph minors. I. Excluding a forest", Journal of Combinatorial Theory, Series B, 35 (1): 39–61, doi:10.1016/0095-8956(83)90079-5, MR 0723569.
+Robertson, Neil; Seymour, P. D. (1986), "Graph minors. II. Algorithmic aspects of tree-width", Journal of Algorithms, 7 (3): 309–322, doi:10.1016/0196-6774(86)90023-4, MR 0855559.
+Robertson, Neil; Seymour, P. D. (1984), "Graph minors. III. Planar tree-width", Journal of Combinatorial Theory, Series B, 36 (1): 49–64, doi:10.1016/0095-8956(84)90013-3, MR 0742386.
+Robertson, Neil; Seymour, P. D. (1990), "Graph minors. IV. Tree-width and well-quasi-ordering", Journal of Combinatorial Theory, Series B, 48 (2): 227–254, doi:10.1016/0095-8956(90)90120-O, MR 1046757.
+Robertson, Neil; Seymour, P. D. (1986), "Graph minors. V. Excluding a planar graph", Journal of Combinatorial Theory, Series B, 41 (1): 92–114, doi:10.1016/0095-8956(86)90030-4, MR 0854606.
+Robertson, Neil; Seymour, P. D. (1986), "Graph minors. VI. Disjoint paths across a disc", Journal of Combinatorial Theory, Series B, 41 (1): 115–138, doi:10.1016/0095-8956(86)90031-6, MR 0854607.
+Robertson, Neil; Seymour, P. D. (1988), "Graph minors. VII. Disjoint paths on a surface", Journal of Combinatorial Theory, Series B, 45 (2): 212–254, doi:10.1016/0095-8956(88)90070-6, MR 0961150.
+Robertson, Neil; Seymour, P. D. (1990), "Graph minors. VIII. A Kuratowski theorem for general surfaces", Journal of Combinatorial Theory, Series B, 48 (2): 255–288, doi:10.1016/0095-8956(90)90121-F, MR 1046758.
+Robertson, Neil; Seymour, P. D. (1990), "Graph minors. IX. Disjoint crossed paths", Journal of Combinatorial Theory, Series B, 49 (1): 40–77, doi:10.1016/0095-8956(90)90063-6, MR 1056819.
+Robertson, Neil; Seymour, P. D. (1991), "Graph minors. X. Obstructions to tree-decomposition", Journal of Combinatorial Theory, Series B, 52 (2): 153–190, doi:10.1016/0095-8956(91)90061-N, MR 1110468.
+Robertson, Neil; Seymour, P. D. (1993), "Excluding a graph with one crossing", in Robertson, Neil; Seymour, Paul (eds.), Graph Structure Theory: Proc. AMS–IMS–SIAM Joint Summer Research Conference on Graph Minors, Contemporary Mathematics, vol. 147, American Mathematical Society, pp. 669–675, doi:10.1090/conm/147/01206, MR 1224738.
+Robertson, Neil; Seymour, P. D. (1994), "Graph minors. XI. Circuits on a surface", Journal of Combinatorial Theory, Series B, 60 (1): 72–106, doi:10.1006/jctb.1994.1007, MR 1256585.
+Robertson, Neil; Seymour, P. D. (1995), "Graph minors. XII. Distance on a surface", Journal of Combinatorial Theory, Series B, 64 (2): 240–272, doi:10.1006/jctb.1995.1034, MR 1339851.
+Robertson, Neil; Seymour, P. D. (1995), "Graph minors. XIII. The disjoint paths problem", Journal of Combinatorial Theory, Series B, 63 (1): 65–110, doi:10.1006/jctb.1995.1006, MR 1309358.
+Robertson, Neil; Seymour, P. D. (1995), "Graph minors. XIV. Extending an embedding", Journal of Combinatorial Theory, Series B, 65 (1): 23–50, doi:10.1006/jctb.1995.1042, MR 1347339.
+Robertson, Neil; Seymour, P. D. (1996), "Graph minors. XV. Giant steps", Journal of Combinatorial Theory, Series B, 68 (1): 112–148, doi:10.1006/jctb.1996.0059, MR 1405708
+Robertson, Neil; Seymour, P. D. (2003), "Graph minors. XVI. Excluding a non-planar graph", Journal of Combinatorial Theory, Series B, 89 (1): 43–76, doi:10.1016/S0095-8956(03)00042-X, MR 1999736.
+Robertson, Neil; Seymour, P. D. (1999), "Graph minors. XVII. Taming a vortex", Journal of Combinatorial Theory, Series B, 77 (1): 162–210, doi:10.1006/jctb.1999.1919, MR 1710538.
+Robertson, Neil; Seymour, Paul (2003), "Graph minors. XVIII. Tree-decompositions and well-quasi-ordering", Journal of Combinatorial Theory, Series B, 89 (1): 77–108, doi:10.1016/S0095-8956(03)00067-4, MR 1999737.
+Robertson, Neil; Seymour, P. D. (2004), "Graph minors. XIX. Well-quasi-ordering on a surface", Journal of Combinatorial Theory, Series B, 90 (2): 325–385, doi:10.1016/j.jctb.2003.08.005, MR 2034033.
+Robertson, Neil; Seymour, P. D. (2004), "Graph minors. XX. Wagner's conjecture", Journal of Combinatorial Theory, Series B, 92 (2): 325–357, doi:10.1016/j.jctb.2004.08.001, MR 2099147.
+Robertson, Neil; Seymour, Paul (2009), "Graph minors. XXI. Graphs with unique linkages", Journal of Combinatorial Theory, Series B, 99 (3): 583–616, doi:10.1016/j.jctb.2008.08.003, MR 2507943.
+Robertson, Neil; Seymour, Paul (2012), "Graph minors. XXII. Irrelevant vertices in linkage problems", Journal of Combinatorial Theory, Series B, 102 (2): 530–563, doi:10.1016/j.jctb.2007.12.007, MR 2885434.
+Robertson, Neil; Seymour, Paul (2010), "Graph minors XXIII. Nash-Williams' immersion conjecture", Journal of Combinatorial Theory, Series B, 100 (2): 181–205, doi:10.1016/j.jctb.2009.07.003, MR 2595703.
+Wagner, Klaus (1937), "Über eine Erweiterung des Satzes von Kuratowski", Deutsche Mathematik, 2: 280–285.
+
+
+

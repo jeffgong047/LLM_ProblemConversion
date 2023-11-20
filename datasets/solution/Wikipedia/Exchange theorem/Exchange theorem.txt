@@ -1,0 +1,44 @@
+Extension of independent vectors to bases
+The Steinitz exchange lemma is a basic theorem in linear algebra used, for example, to show that any two bases for a finite-dimensional vector space have the same number of elements. The result is named after the German mathematician Ernst Steinitz. The result is often called the Steinitz–Mac Lane exchange lemma, also recognizing the generalization[1]
+by Saunders Mac Lane
+of Steinitz's lemma to matroids.[2]
+
+
+Statement[edit]
+Let U and W be finite subsets of a vector space V. If U is a set of linearly independent vectors, and W spans V, then:
+1. |U|≤|W||U|≤|W|;
+2. There is a set W′⊆W' with |W′|=|W|−|U||W'|=|W|-|U| such that U∪W′' spans V.
+
+Proof[edit]
+Suppose U=u1,…,um={u_1,…,u_m} and W=w1,…,wn={w_1,…,w_n}. We wish to show that m≤n, and that after rearranging the wj_j if necessary, the set u1,…,um,wm+1,…,wn{u_1,…,u_m,w_m+1,…,w_n} spans V. We proceed by induction on m.
+For the base case, suppose m is zero.
+In this case, the claim holds because there are no vectors ui_i, and the set w1,…,wn{w_1,…,w_n} spans V by hypothesis.
+For the inductive step, assume the proposition is true for m−1-1. By the inductive hypothesis we may reorder the wi_i so that u1,…,um−1,wm,…,wn{u_1,…,u_m-1,w_m,…,w_n} spans V. Since um∈V_m, there exist coefficients μ1,…,μnμ_1,…,μ_n such that
+
+um=∑j=1m−1μjuj+∑j=mnμjwj_m=∑_j=1^m-1μ_ju_j+∑_j=m^nμ_jw_j.
+At least one of μm,…,μn{μ_m,…,μ_n} must be non-zero, since otherwise this equality would contradict the linear independence of u1,…,um{u_1,…,u_m}; it follows that m≤n. By reordering the μmwm,…,μnwnμ_mw_m,…,μ_nw_n if necessary, we may assume that μmμ_m is nonzero. Therefore, we have
+
+wm=1μm(um−∑j=1m−1μjuj−∑j=m+1nμjwj)_m=1/μ_m(u_m-∑_j=1^m-1μ_ju_j-∑_j=m+1^nμ_jw_j).
+In other words, wm_m is in the span of u1,…,um,wm+1,…,wn{u_1,…,u_m,w_m+1,…,w_n}. Since this span contains each of the vectors u1,…,um−1,wm,wm+1,…,wn_1,…,u_m-1,w_m,w_m+1,…,w_n, by the inductive hypothesis it contains V.
+
+Applications[edit]
+The Steinitz exchange lemma is a basic result in computational mathematics, especially in linear algebra and in combinatorial algorithms.[3]
+
+References[edit]
+
+^ 
+Mac Lane, Saunders (1936), "Some interpretations of abstract linear dependence in terms of projective geometry", American Journal of Mathematics, The Johns Hopkins University Press, 58 (1): 236–240, doi:10.2307/2371070, JSTOR 2371070.
+
+^ 
+Kung, Joseph P. S., ed. (1986), A Source Book in Matroid Theory, Boston: Birkhäuser, doi:10.1007/978-1-4684-9199-9, ISBN 0-8176-3173-9, MR 0890330.
+
+^ Page v in Stiefel:
+Stiefel, Eduard L. (1963). An introduction to numerical mathematics (Translated by Werner C. Rheinboldt & Cornelie J. Rheinboldt from the second German ed.). New York: Academic Press. pp. x+286. MR 0181077.
+
+
+Julio R. Bastida, Field extensions and Galois Theory, Addison–Wesley Publishing Company (1984).
+External links[edit]
+Mizar system proof: http://mizar.org/version/current/html/vectsp_9.html#T19
+
+
+

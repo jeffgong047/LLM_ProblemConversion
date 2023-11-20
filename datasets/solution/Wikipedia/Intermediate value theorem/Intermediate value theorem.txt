@@ -1,0 +1,167 @@
+Continuous function on an interval takes on every value between its values at the ends
+Intermediate value theorem: Let f be a continuous function defined on [a,b][a,b] and let s be a number with f(a)<s<f(b)(a)<s<f(b). Then there exists some x between a and b such that f(x)=s(x)=s.
+In mathematical analysis, the intermediate value theorem states that if f is a continuous function whose domain contains the interval [a, b], then it takes on any given value between f(a)(a) and f(b)(b) at some point within the interval.
+This has two important corollaries:
+
+If a continuous function has values of opposite sign inside an interval, then it has a root in that interval (Bolzano's theorem).[1] [2]
+The image of a continuous function over an interval is itself an interval.
+
+Motivation[edit]
+The intermediate value theorem
+This captures an intuitive property of continuous functions over the real numbers: given f continuous on [1,2][1,2] with the known values f(1)=3(1)=3 and f(2)=5(2)=5, then the graph of y=f(x)=f(x) must pass through the horizontal line y=4=4 while x moves from 11 to 22. It represents the idea that the graph of a continuous function on a closed interval can be drawn without lifting a pencil from the paper.
+
+Theorem[edit]
+The intermediate value theorem states the following:
+Consider an interval I=[a,b]=[a,b] of real numbers Rℝ and a continuous function f:I→R→ℝ. Then
+
+Version I. if u is a number between f(a)(a) and f(b)(b), that is, min(f(a),f(b))<u<max(f(a),f(b)),min(f(a),f(b))<u<max(f(a),f(b)), then there is a c∈(a,b)∈(a,b) such that f(c)=u(c)=u.
+Version II. the image set f(I)(I) is also an interval (closed), and it contains [min(f(a),f(b)),max(f(a),f(b))][min(f(a),f(b)),max(f(a),f(b))].
+Remark: Version II states that the set of function values has no gap. For any two function values c,d∈f(I),dinf(I) with c<d<d, even if they are outside the interval between f(a)(a) and f(b)(b), all points in the interval [c,d][c,d] are also function values, [c,d]⊆f(I).[c,d](I).
+A subset of the real numbers with no internal gap is an interval. Version I is naturally contained in Version II.
+
+Relation to completeness[edit]
+The theorem depends on, and is equivalent to, the completeness of the real numbers. The intermediate value theorem does not apply to the rational numbers Q because gaps exist between rational numbers; irrational numbers fill those gaps. For example, the function f(x)=x2(x)=x^2 for x∈Q∈ℚ satisfies f(0)=0(0)=0 and f(2)=4(2)=4. However, there is no rational number x such that f(x)=2(x)=2, because 2√(2) is an irrational number.
+
+Proof[edit]
+Proof version A[edit]
+The theorem may be proven as a consequence of the completeness property of the real numbers as follows:[3]
+We shall prove the first case, f(a)<u<f(b)(a)<u<f(b). The second case is similar.
+Let S be the set of all x∈[a,b]∈[a,b] such that f(x)<u(x)<u. Then S is non-empty since a is an element of S. Since S is non-empty and bounded above by b, by completeness, the supremum c=supS= exists. That is, c is the smallest number that is greater than or equal to every member of S.
+Note that, due to the continuity of f at a, we can keep f(x)(x) within any ε>0ε>0 of f(a)(a) by keeping x sufficiently close to a. Since f(a)<u(a)<u is a strict inequality, consider the implication when εε is the distance between u and f(a)(a). No x sufficiently close to a can then make f(x)(x) greater than or equal to u, which means there are values greater than a in S. A more detailed proof goes like this:
+
+Choose ε=u−f(a)>0ε=u-f(a)>0. Then ∃δ>0∃δ>0 such that ∀x∈[a,b]∈[a,b], |x−a|<δ⟹|f(x)−f(a)|<u−f(a)⟹f(x)<u.|x-a|<δ|f(x)-f(a)|<u-f(a)(x)<u.Consider the interval [a,min(a+δ,b))=I1[a,min(a+δ,b))=I_1. Notice that I1⊆[a,b]_1⊆[a,b] and every x∈I1_1 satisfies the condition |x−a|<δ|x-a|<δ. Therefore for every x∈I1_1 we have f(x)<u(x)<u. Hence c cannot be a.
+Likewise, due to the continuity of f at b, we can keep f(x)(x) within any ε>0ε>0 of f(b)(b) by keeping x sufficiently close to b. Since u<f(b)<f(b) is a strict inequality, consider the similar implication when εε is the distance between u and f(b)(b). Every x sufficiently close to b must then make f(x)(x) greater than u, which means there are values smaller than b that are upper bounds of S. A more detailed proof goes like this:
+Choose ε=f(b)−u>0ε=f(b)-u>0. Then ∃δ>0∃δ>0 such that ∀x∈[a,b]∈[a,b], |x−b|<δ⟹|f(x)−f(b)|<f(b)−u⟹f(x)>u.|x-b|<δ|f(x)-f(b)|<f(b)-u(x)>u.Consider the interval (max(a,b−δ),b]=I2(max(a,b-δ),b]=I_2. Notice that I2⊆[a,b]_2⊆[a,b] and every x∈I2_2 satisfies the condition |x−b|<δ|x-b|<δ. Therefore for every x∈I2_2 we have f(x)>u(x)>u. Hence c cannot be b.
+With c≠a and c≠b, it must be the case c∈(a,b)∈(a,b). Now we claim that f(c)=u(c)=u.
+Fix some ε>0ε>0. Since f is continuous at c, ∃δ1>0∃δ_1>0 such that ∀x∈[a,b]∈[a,b], |x−c|<δ1⟹|f(x)−f(c)|<ε|x-c|<δ_1|f(x)-f(c)|<ε.
+Since c∈(a,b)∈(a,b) and (a,b)(a,b) is open, ∃δ2>0∃δ_2>0 such that (c−δ2,c+δ2)⊆(a,b)(c-δ_2,c+δ_2)⊆(a,b). Set δ=min(δ1,δ2)δ=min(δ_1,δ_2). Then we have
+f(x)−ε<f(c)<f(x)+ε(x)-ε<f(c)<f(x)+ε
+for all x∈(c−δ,c+δ)∈(c-δ,c+δ). By the properties of the supremum, there exists some a∗∈(c−δ,c]^*∈(c-δ,c] that is contained in S, and so
+f(c)<f(a∗)+ε<u+ε.(c)<f(a^*)+ε<u+ε.
+Picking a∗∗∈(c,c+δ)^**∈(c,c+δ), we know that a∗∗∉S^** because c is the supremum of S. This means that
+f(c)>f(a∗∗)−ε≥u−ε.(c)>f(a^**)-ε-ε.
+Both inequalities
+u−ε<f(c)<u+ε-ε<f(c)<u+ε
+are valid for all ε>0ε>0, from which we deduce f(c)=u(c)=u as the only possible value, as stated.
+
+Proof version B[edit]
+We will only prove the case of f(a)<u<f(b)(a)<u<f(b), as the f(a)>u>f(b)(a)>u>f(b) case is similar.[4]
+Define g(x)=f(x)−u(x)=f(x)-u which is equivalent to f(x)=g(x)+u(x)=g(x)+u and lets us rewrite f(a)<u<f(b)(a)<u<f(b) as g(a)<0<g(b)(a)<0<g(b), and we have to prove, that g(c)=0(c)=0  for some c∈[a,b]∈[a,b], which is more intuitive. We further define the set S=x∈[a,b]:g(x)≤0={x∈[a,b]:g(x)≤0}. Because g(a)<0(a)<0 we know, that a∈S so, that S is not empty. Moreover, as S⊆[a,b]⊆[a,b], we know that S is bounded and non-empty, so by Completeness, the supremum c=sup(S)=sup(S) exists.
+
+There are 3 cases for the value of g(c)(c), those being g(c)<0,g(c)>0(c)<0,g(c)>0 and g(c)=0(c)=0. For contradiction, let us assume, that g(c)<0(c)<0. Then, by the definition of continuity, for ϵ=0−g(c)ϵ=0-g(c), there exists a δ>0δ>0 such that x∈(c−δ,c+δ)∈(c-δ,c+δ) implies, that |g(x)−g(c)|<−g(c)|g(x)-g(c)|<-g(c), which is equivalent to g(x)<0(x)<0. If we just chose x=c+δN=c+δ/N, where N>δb−c>δ/b-c, then g(x)<0(x)<0 and c<x<b<x<b, so x∈S. It follows that x is an upper bound for S.  However, x>c>c, contradicting the upper bound property of the least upper bound c, so g(c)≥0(c)≥0. Assume then, that g(c)>0(c)>0. We similarly chose ϵ=g(c)−0ϵ=g(c)-0 and know, that there exists a δ>0δ>0 such that x∈(c−δ,c+δ)∈(c-δ,c+δ) implies |g(x)−g(c)|<g(c)|g(x)-g(c)|<g(c). We can rewrite this as −g(c)<g(x)−g(c)<g(c)-g(c)<g(x)-g(c)<g(c) which implies, that g(x)>0(x)>0. If we now chose x=c−δ2=c-δ/2, then g(x)>0(x)>0 and a<x<c<x<c. It follows that x is an upper bound for S. However, x<c<c, which contradict the least property of the least upper bound c, which means, that g(c)>0(c)>0 is impossible. If we combine both results, we get that g(c)=0(c)=0 or f(c)=u(c)=u is the only remaining possibility.
+
+
+Remark: The intermediate value theorem can also be proved using the methods of non-standard analysis, which places "intuitive" arguments involving infinitesimals on a rigorous[clarification needed]  footing.[5]
+
+History[edit]
+A form of the theorem was postulated as early as the 5th century BCE, in the work of Bryson of Heraclea on squaring the circle. Bryson argued that, as circles larger than and smaller than a given square both exist, there must exist a circle of equal area.[6] The theorem was first proved by Bernard Bolzano in 1817. Bolzano used the following formulation of the theorem:[7]
+Let f,ϕ,ϕ be continuous functions on the interval between αα and ββ such that f(α)<ϕ(α)(α)<ϕ(α) and f(β)>ϕ(β)(β)>ϕ(β). Then there is an x between αα and ββ such that f(x)=ϕ(x)(x)=ϕ(x).
+The equivalence between this formulation and the modern one can be shown by setting ϕϕ to the appropriate constant function. Augustin-Louis Cauchy provided the modern formulation and a proof in 1821.[8] Both were inspired by the goal of formalizing the analysis of functions and the work of Joseph-Louis Lagrange. The idea that continuous functions possess the intermediate value property has an earlier origin. Simon Stevin proved the intermediate value theorem for polynomials (using a cubic as an example) by providing an algorithm for constructing the decimal expansion of the solution.  The algorithm iteratively subdivides the interval into 10 parts, producing an additional decimal digit at each step of the iteration.[9] Before the formal definition of continuity was given, the intermediate value property was given as part of the definition of a continuous function. Proponents include Louis Arbogast, who assumed the functions to have no jumps, satisfy the intermediate value property and have increments whose sizes corresponded to the sizes of the increments of the variable.[10]
+Earlier authors held the result to be intuitively obvious and requiring no proof.  The insight of Bolzano and Cauchy was to define a general notion of continuity (in terms of infinitesimals in Cauchy's case and using real inequalities in Bolzano's case), and to provide a proof based on such definitions.
+
+Converse is false[edit]
+A Darboux function is a real-valued function f that has the "intermediate value property," i.e., that satisfies the conclusion of the intermediate value theorem: for any two values a and b in the domain of f, and any y between f(a) and f(b), there is some c between a and b with f(c) = y.  The intermediate value theorem says that every continuous function is a Darboux function.  However, not every Darboux function is continuous; i.e., the converse of the intermediate value theorem is false.
+As an example, take the function f : [0, ∞) → [−1, 1] defined by f(x) = sin(1/x) for x > 0 and f(0) = 0. This function is not continuous at x = 0 because the limit of f(x) as x tends to 0 does not exist; yet the function has the intermediate value property.  Another, more complicated example is given by the Conway base 13 function.
+In fact, Darboux's theorem states that all functions that result from the differentiation of some other function on some interval have the intermediate value property (even though they need not be continuous).
+Historically, this intermediate value property has been suggested as a definition for continuity of real-valued functions;[11] this definition was not adopted.
+
+Generalizations[edit]
+Multi-dimensional spaces[edit]
+The Poincaré-Miranda theorem is a generalization of the Intermediate value theorem from a (one-dimensional) interval to a (two-dimensional) rectangle, or more generally, to an n-dimensional cube.
+Vrahatis[12] presents a similar generalization to triangles, or more generally, n-dimensional simplices. Let Dn be an n-dimensional simplex with n+1 vertices denoted by v0,...,vn. Let F=(f1,...,fn) be a function from Dn to Rn, that never equals 0 on the boundary of Dn. Suppose F satisfies the following conditions:
+
+For all i in 1,...,n, the sign of fi(vi) is opposite to the sign of fi(x) for all points x on the face opposite to vi;
+The sign-vector of f1,...,fn on v0 is not equal to the sign-vector of f1,...,fn  on all points on the face opposite to v0.
+Then there is a point z in the interior of Dn on which F(z)=(0,...,0).
+It is possible to normalize the fi such that fi(vi)>0 for all i; then the conditions become simpler:
+
+For all i in 1,...,n, fi(vi)>0, and fi(x)<0 for all points x on the face opposite to vi. In particular, fi(v0)<0.
+For all points x on the face opposite to v0, fi(x)>0 for at least one i in 1,...,n.
+The theorem can be proved based on the Knaster–Kuratowski–Mazurkiewicz lemma. In can be used for approximations of fixed points and zeros.[13]
+
+General metric and topological spaces[edit]
+The intermediate value theorem is closely linked to the topological notion of connectedness and follows from the basic properties of connected sets in metric spaces and connected subsets of R in particular:
+
+If X and Y are metric spaces, f:X→Y is a continuous map, and E⊂X is a connected subset, then f(E)(E) is connected. (*)
+A subset E⊂R⊂ℝ is connected if and only if it satisfies the following property: x,y∈E,x<r<y⟹r∈E,y,<r<y. (**)
+In fact, connectedness is a topological property and (*) generalizes to topological spaces: If X and Y are topological spaces, f:X→Y is a continuous map, and X is a connected space, then f(X)(X) is connected.  The preservation of connectedness under continuous maps can be thought of as a generalization of the intermediate value theorem, a property of real valued functions of a real variable, to continuous functions in general spaces.
+Recall the first version of the intermediate value theorem, stated previously:
+
+
+Intermediate value theorem (Version I) — Consider a closed interval I=[a,b]=[a,b] in the real numbers Rℝ and a continuous function f:I→R→ℝ. Then, if u is a real number such that min(f(a),f(b))<u<max(f(a),f(b))min(f(a),f(b))<u<max(f(a),f(b)), there exists c∈(a,b)∈(a,b) such that f(c)=u(c)=u.
+
+
+The intermediate value theorem is an immediate consequence of these two properties of connectedness:[14]
+
+Proof
+By (**), I=[a,b]=[a,b] is a connected set.  It follows from (*) that the image, f(I)(I), is also connected.  For convenience, assume that f(a)<f(b)(a)<f(b).  Then once more invoking (**), f(a)<u<f(b)(a)<u<f(b) implies that u∈f(I)inf(I), or f(c)=u(c)=u for some c∈I.  Since u≠f(a),f(b)(a),f(b), c∈(a,b)∈(a,b) must actually hold, and the desired conclusion follows.  The same argument applies if f(b)<f(a)(b)<f(a), so we are done. Q.E.D.
+
+
+The intermediate value theorem generalizes in a natural way: Suppose that X is a connected topological space and (Y, <) is a totally ordered set equipped with the order topology, and let f : X → Y be a continuous map. If a and b are two points in X and u is a point in Y lying between f(a) and f(b) with respect to <, then there exists c in X such that f(c) = u.  The original theorem is recovered by noting that R is connected and that its natural topology is the order topology.
+The Brouwer fixed-point theorem is a related theorem that, in one dimension, gives a special case of the intermediate value theorem.
+
+In constructive mathematics[edit]
+In constructive mathematics, the intermediate value theorem is not true. Instead, one has to weaken the conclusion:
+
+Let a and b be real numbers and f:[a,b]→R:[a,b] be a pointwise continuous function from the closed interval [a,b][a,b] to the real line, and suppose that f(a)<0(a)<0 and 0<f(b)0<f(b). Then for every positive number ε>0ε>0 there exists a point x in the unit interval such that |f(x)|<ε(x)|<ε.[15]
+Practical applications[edit]
+A similar result is the Borsuk–Ulam theorem, which says that a continuous map from the n-sphere to Euclidean n-space will always map some pair of antipodal points to the same place.
+
+Proof for 1-dimensional case
+Take f to be any continuous function on a circle. Draw a line through the center of the circle, intersecting it at two opposite points A and B. Define d to be f(A)−f(B)(A)-f(B). If the line is rotated 180 degrees, the value −d will be obtained instead. Due to the intermediate value theorem there must be some intermediate rotation angle for which d = 0, and as a consequence f(A) = f(B) at this angle.
+
+
+In general, for any continuous function whose domain is some closed convex n-dimensional shape and any point inside the shape (not necessarily its center), there exist two antipodal points with respect to the given point whose functional value is the same.
+The theorem also underpins the explanation of why rotating a wobbly table will bring it to stability (subject to certain easily  met constraints).[16]
+
+See also[edit]
+Mean value theorem – On the existence of a tangent to an arc parallel to the line through its endpoints
+Non-atomic measure – A measurable set with positive measure that contains no subset of smaller positive measurePages displaying short descriptions of redirect targets
+Hairy ball theorem – Theorem in differential topology
+Sperner's lemma – Theorem on triangulation graph colorings
+References[edit]
+
+
+^ Weisstein, Eric W. "Bolzano's Theorem". MathWorld.
+
+^ Cates, Dennis M. (2019). Cauchy's Calcul Infinitésimal. p. 249. doi:10.1007/978-3-030-11036-9. ISBN 978-3-030-11035-2. S2CID 132587955.
+
+^ Essentially follows Clarke, Douglas A. (1971). Foundations of Analysis. Appleton-Century-Crofts. p. 284.
+
+^ Slightly modified version of Abbot, Stephen (2015). Understanding Analysis. Springer. p. 123.
+
+^ Sanders, Sam (2017). "Nonstandard Analysis and Constructivism!". arXiv:1704.00281 [math.LO].
+
+^ Bos, Henk J. M. (2001). "The legitimation of geometrical procedures before 1590". Redefining Geometrical Exactness: Descartes' Transformation of the Early Modern Concept of Construction. Sources and Studies in the History of Mathematics and Physical Sciences. New York: Springer. pp. 23–36. doi:10.1007/978-1-4613-0087-8_2. MR 1800805.
+
+^ Russ, S.B. (1980). "A translation of Bolzano's paper on the intermediate value theorem". Historia Mathematica. 7 (2): 156–185. doi:10.1016/0315-0860(80)90036-1.
+
+^ Grabiner, Judith V. (March 1983). "Who Gave You the Epsilon? Cauchy and the Origins of Rigorous Calculus" (PDF). The American Mathematical Monthly. 90 (3): 185–194. doi:10.2307/2975545. JSTOR 2975545.
+
+^ Karin Usadi Katz and Mikhail G. Katz (2011) A Burgessian Critique of Nominalistic Tendencies in Contemporary Mathematics and its Historiography. Foundations of Science. doi:10.1007/s10699-011-9223-1 See link
+
+^ O'Connor, John J.; Robertson, Edmund F., "Intermediate value theorem", MacTutor History of Mathematics Archive, University of St Andrews
+
+^ Smorynski, Craig (2017-04-07). MVT: A Most Valuable Theorem. Springer. ISBN 9783319529561.
+
+^ Vrahatis, Michael N. (2016-04-01). "Generalization of the Bolzano theorem for simplices". Topology and its Applications. 202: 40–46. doi:10.1016/j.topol.2015.12.066. ISSN 0166-8641.
+
+^ Vrahatis, Michael N. (2020-04-15). "Intermediate value theorem for simplices for simplicial approximation of fixed points and zeros". Topology and its Applications. 275: 107036. doi:10.1016/j.topol.2019.107036. ISSN 0166-8641.
+
+^ Rudin, Walter (1976). Principles of Mathematical Analysis. New York: McGraw-Hill. pp. 42, 93. ISBN 978-0-07-054235-8.
+
+^ Matthew Frank (July 14, 2020). "Interpolating Between Choices for the Approximate Intermediate Value Theorem". Logical Methods in Computer Science. 16 (3). arXiv:1701.02227. doi:10.23638/LMCS-16(3:5)2020.
+
+^ Keith Devlin (2007) How to stabilize a wobbly table
+
+
+External links[edit]
+Intermediate value theorem at ProofWiki
+Intermediate value Theorem - Bolzano Theorem at cut-the-knot
+Bolzano's Theorem by Julio Cesar de la Yncera, Wolfram Demonstrations Project.
+Weisstein, Eric W. "Intermediate Value Theorem". MathWorld.
+Belk, Jim (January 2, 2012). "Two-dimensional version of the Intermediate Value Theorem". Stack Exchange.
+Mizar system proof: http://mizar.org/version/current/html/topreal5.html#T4
+
+
+

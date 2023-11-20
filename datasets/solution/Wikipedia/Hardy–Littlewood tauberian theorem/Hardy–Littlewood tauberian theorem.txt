@@ -1,0 +1,104 @@
+In mathematical analysis, the Hardy–Littlewood Tauberian theorem is a Tauberian theorem relating the asymptotics of the partial sums of a series with the asymptotics of its Abel summation. In this form, the theorem asserts that if the sequence
+an≥0_n≥0 is such that there is an asymptotic equivalence
+
+∑n=0∞ane−ny∼1yasy↓0∑_n=0^∞a_ne^-ny∼1/y{as↓0
+then there is also an asymptotic equivalence
+
+∑k=0nak∼n∑_k=0^na_k
+as n→∞→∞.  The integral formulation of the theorem relates in an analogous manner the asymptotics of the cumulative distribution function of a function with the asymptotics of its Laplace transform.
+The theorem was proved in 1914 by G. H. Hardy and J. E. Littlewood.[1]: 226  In 1930, Jovan Karamata gave a new and much simpler proof.[1]: 226 
+
+
+Statement of the theorem[edit]
+Series formulation[edit]
+This formulation is from Titchmarsh.[1]: 226  Suppose an≥0_n≥0 for all n∈N∈ℕ, and we have
+
+∑n=0∞anxn∼11−xasx↑1.∑_n=0^∞a_nx^n∼1/1-x{as↑1.
+Then as n→∞→∞ we have
+
+∑k=0nak∼n.∑_k=0^na_k.
+The theorem is sometimes quoted in equivalent forms, where instead of requiring an≥0_n≥0, we require an=O(1)_n=O(1), or we require 
+an≥−K_n≥-K for some constant K.[2]: 155  The theorem is sometimes quoted in another equivalent formulation (through the change of variable x=1/ey=1/e^y).[2]: 155  
+If,
+
+∑n=0∞ane−ny∼1yasy↓0∑_n=0^∞a_ne^-ny∼1/y{as↓0
+then
+
+∑k=0nak∼n.∑_k=0^na_k.
+Integral formulation[edit]
+The following more general formulation is from Feller.[3]: 445  Consider a real-valued function F:[0,∞)→R:[0,∞)→ℝ of bounded variation.[4]  The Laplace–Stieltjes transform of F is defined by the Stieltjes integral
+
+ω(s)=∫0∞e−stdF(t).ω(s)=∫_0^∞e^-st dF(t).
+The theorem relates the asymptotics of ω with those of F in the following way. If ρρ is a non-negative real number, then the following statements are equivalent
+
+ω(s)∼Cs−ρ,ass→0ω(s)^-ρ,  as}s→0
+F(t)∼CΓ(ρ+1)tρ,ast→∞.(t)∼C/Γ(ρ+1)t^ρ,{as→∞.
+Here ΓΓ denotes the Gamma function. One obtains the theorem for series as a special case by taking ρ=1ρ=1 and F(t)(t) to be a piecewise constant function with value ∑k=0nak∑_k=0^na_k between t=n=n and t=n+1=n+1.
+A slight improvement is possible. According to the definition of a slowly varying function, L(x)(x) is slow varying at infinity iff
+
+L(tx)L(x)→1,x→∞L(tx)/L(x)→1,→∞
+for every t>0>0. Let L be a function slowly varying at infinity and ρ≥0ρ≥0. Then the following statements are equivalent
+
+ω(s)∼s−ρL(s−1),ass→0ω(s)^-ρL(s^-1),  as→0
+F(t)∼1Γ(ρ+1)tρL(t),ast→∞.(t)∼1/Γ(ρ+1)t^ρL(t),  as→∞.
+Karamata's proof[edit]
+Karamata (1930) found a short proof of the theorem by considering the functions g such that
+
+limx→1(1−x)∑anxng(xn)=∫01g(t)dtlim_x→1(1-x)_nx^ng(x^n)=∫_0^1g(t)dt
+An easy calculation shows that all monomials g(x)=xk(x)=x^k have this property, and therefore so do all polynomials g. This can be extended to a function g with simple (step) discontinuities by approximating it by polynomials from above and below (using the Weierstrass approximation theorem and a little extra fudging) and using the fact that the coefficients an_n are positive. In particular the function given by g(t)=1/t(t)=1/t if 1/e<t<11/e<t<1 and 00 otherwise has this property. But then for x−1/N^-1/N the sum 
+∑anxng(xn)_nx^ng(x^n) is a0+⋯+aN_0+⋯+a_N and the integral of g is 11, from which the Hardy–Littlewood theorem follows immediately.
+
+Examples[edit]
+Non-positive coefficients[edit]
+The theorem can fail without the condition that the coefficients are non-negative. For example, the function
+
+1(1+x)2(1−x)=1−x+2x2−2x3+3x4−3x5+⋯1/(1+x)^2(1-x)=1-x+2x^2-2x^3+3x^4-3x^5+⋯
+is asymptotic to 1/4(1−x)1/4(1-x) as x→1→1, but the partial sums of its coefficients are 1, 0, 2, 0, 3, 0, 4, ... and are not asymptotic to any linear function.
+
+Littlewood's extension of Tauber's theorem[edit]
+Main article: Littlewood's Tauberian theorem
+In 1911 Littlewood proved an extension of Tauber's converse of Abel's theorem. Littlewood showed the following: If an=O(1/n)_n=O(1/n), and we have 
+
+∑anxn→sasx↑1_nx^n{as↑1
+then
+
+∑an=s._n=s.
+This came historically before the Hardy–Littlewood Tauberian theorem, but can be proved as a simple application of it.[1]: 233–235 
+
+Prime number theorem[edit]
+In 1915 Hardy and Littlewood developed a proof of the prime number theorem based on their Tauberian theorem; they proved
+
+∑n=2∞Λ(n)e−ny∼1y,∑_n=2^∞Λ(n)e^-ny∼1/y,
+where ΛΛ is the von Mangoldt function, and then conclude
+
+∑n≤xΛ(n)∼x,∑_nΛ(n),
+an equivalent form of the prime number theorem.[5]: 34–35 [6]: 302–307 
+Littlewood developed a simpler proof, still based on this Tauberian theorem, in 1971.[6]: 307–309 
+
+Notes[edit]
+
+
+^ a b c d 
+Titchmarsh, E. C. (1939). The Theory of Functions (2nd ed.). Oxford: Oxford University Press. ISBN 0-19-853349-7.
+
+^ a b 
+Hardy, G. H. (1991) [1949]. Divergent Series. Providence, RI: AMS Chelsea. ISBN 0-8284-0334-1.
+
+^ Feller, William (1971). An introduction to probability theory and its applications. Vol. II. Second edition. New York: John Wiley & Sons. MR 0270403.
+
+^ Bounded variation is only required locally: on every bounded subinterval of [0,∞)[0,∞).  However, then more complicated additional assumptions on the convergence of the Laplace–Stieltjes transform are required. See Shubin, M. A. (1987). Pseudodifferential operators and spectral theory. Springer Series in Soviet Mathematics. Berlin, New York: Springer-Verlag. ISBN 978-3-540-13621-7. MR 0883081.
+
+^ 
+Hardy, G. H. (1999) [1940]. Ramanujan: Twelve Lectures on Subjects Suggested by his Life and Work. Providence: AMS Chelsea Publishing. ISBN 978-0-8218-2023-0.
+
+^ a b 
+Narkiewicz, Władysław (2000). The Development of Prime Number Theory. Berlin: Springer-Verlag. ISBN 3-540-66289-8.
+
+
+Karamata, J. (December 1930). "Über die Hardy-Littlewoodschen Umkehrungen des Abelschen Stetigkeitssatzes". Mathematische Zeitschrift (in German). 32 (1): 319–320. doi:10.1007/BF01194636.
+External links[edit]
+"Tauberian theorems", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Weisstein, Eric W. "Hardy-Littlewood Tauberian Theorem". MathWorld.
+
+
+

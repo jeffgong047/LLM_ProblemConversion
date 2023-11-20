@@ -1,0 +1,110 @@
+On  the approximate structure of sets whose sumset is small
+In additive combinatorics, Freiman's theorem is a central result which indicates the approximate structure of sets whose sumset is small. It roughly states that if |A+A|/|A||A+A|/|A| is small, then A can be contained in a small generalized arithmetic progression.
+
+
+Statement[edit]
+If A is a finite subset of Zℤ with |A+A|≤K|A||A+A||A|, then A is contained in a generalized arithmetic progression of dimension at most d(K)(K) and size at most f(K)|A|(K)|A|, where d(K)(K) and f(K)(K) are constants depending only on K.
+
+Examples[edit]
+For a finite set A of integers, it is always true that
+
+|A+A|≥2|A|−1,|A+A|≥2|A|-1,
+with equality precisely when A is an arithmetic progression.
+More generally, suppose A is a subset of a finite proper generalized arithmetic progression P of dimension d such that |P|≤C|A||P||A| for some real C≥1≥1. Then |P+P|≤2d|P||P+P|≤2^d|P|, so that
+
+|A+A|≤|P+P|≤2d|P|≤C2d|A|.|A+A|≤|P+P|≤2^d|P|2^d|A|.
+History of Freiman's theorem[edit]
+This result is due to Gregory Freiman (1964, 1966).[1][2][3]  Much interest in it, and applications, stemmed from a new proof by Imre Z. Ruzsa (1994).[4] Mei-Chu Chang proved new polynomial estimates for the size of arithmetic progressions arising in the theorem in 2002.[5] The current best bounds were provided by Tom Sanders.[6]
+
+Tools used in the proof[edit]
+The proof presented here follows the proof in Yufei Zhao's lecture notes.[7]
+
+Plünnecke-Ruzsa inequality[edit]
+Main article: Plünnecke-Ruzsa inequality
+Ruzsa covering lemma[edit]
+The Ruzsa covering lemma states the following:
+
+Let A and S be finite subsets of an abelian group with S nonempty, and let K be a positive real number. Then if |A+S|≤K|S||A+S||S|, there is a subset T of A with at most K elements such that A⊆T+S−S+S-S.
+This lemma provides a bound on how many copies of S−S-S one needs to cover A, hence the name. The proof is essentially a greedy algorithm:
+Proof: Let T be a maximal subset of A such that the sets t+S+S for A are all disjoint. Then |T+S|=|T|⋅|S||T+S|=|T|·|S|, and also |T+S|≤|A+S|≤K|S||T+S|≤|A+S||S|, so |T|≤K|T|. Furthermore, for any a∈A, there is some t∈T such that t+S+S intersects a+S+S, as otherwise adding a to T contradicts the maximality of T. Thus a∈T+S−S+S-S, so A⊆T+S−S+S-S.
+
+Freiman homomorphisms and the Ruzsa modeling lemma[edit]
+Let s≥2≥2 be a positive integer, and ΓΓ and Γ′Γ' be abelian groups. Let A⊆Γ⊆Γ and B⊆Γ′⊆Γ'. A map φ:A→Bφ is a Freiman s-homomorphism if
+
+φ(a1)+⋯+φ(as)=φ(a1′)+⋯+φ(as′)φ(a_1)+⋯+φ(a_s)=φ(a_1')+⋯+φ(a_s')
+whenever a1+⋯+as=a1′+⋯+as′_1+⋯+a_s=a_1'+⋯+a_s' for any a1,…,as,a1′,…,as′∈A_1,…,a_s,a_1',…,a_s'.
+If in addition φφ is a bijection and φ−1:B→Aφ^-1 is a Freiman s-homomorphism, then φφ is a Freiman s-isomorphism.
+If φφ is a Freiman s-homomorphism, then φφ is a Freiman t-homomorphism for any positive integer t such that 2≤t≤s2.
+Then the Ruzsa modeling lemma states the following:
+
+Let A be a finite set of integers, and let s≥2≥2 be a positive integer. Let N be a positive integer such that N≥|sA−sA|≥|sA-sA|. Then there exists a subset A′' of A with cardinality at least |A|/s|A|/s such that A′' is Freiman s-isomorphic to a subset of Z/NZℤ/Nℤ.
+The last statement means there exists some Freiman s-homomorphism between the two subsets.
+Proof sketch: Choose a prime q sufficiently large such that the modulo-q reduction map πq:Z→Z/qZπ_qℤ→ℤ/qℤ is a Freiman s-isomorphism from A to its image in Z/qZℤ/qℤ. Let ψq:Z/qZ→Zψ_qℤ/qℤ→ℤ be the lifting map that takes each member of Z/qZℤ/qℤ to its unique representative in 1,…,q⊆Z{1,…,q}⊆ℤ. For nonzero λ∈Z/qZλ∈ℤ/qℤ, let ⋅λ:Z/qZ→Z/qZ·λℤ/qℤ→ℤ/qℤ be the multiplication by λλ map, which is a Freiman s-isomorphism. Let B be the image (⋅λ∘πq)(A)(·λ∘π_q)(A). Choose a suitable subset B′' of B with cardinality at least |B|/s|B|/s such that the restriction of ψqψ_q to B′' is a Freiman s-isomorphism onto its image, and let A′⊆A' be the preimage of B′' under ⋅λ∘πq·λ∘π_q. Then the restriction of ψq∘⋅λ∘πqψ_q∘·λ∘π_q to A′' is a Freiman s-isomorphism onto its image ψq(B′)ψ_q(B'). Lastly, there exists some choice of nonzero λλ such that the restriction of the modulo-N reduction Z→Z/NZℤ→ℤ/Nℤ to ψq(B′)ψ_q(B') is a Freiman s-isomorphism onto its image. The result follows after composing this map with the earlier Freiman s-isomorphism.
+
+Bohr sets and Bogolyubov's lemma[edit]
+Though Freiman's theorem applies to sets of integers, the Ruzsa modeling lemma allows one to model sets of integers as subsets of finite cyclic groups. So it is useful to first work in the setting of a finite field, and then generalize results to the integers. The following lemma was proved by Bogolyubov:
+
+Let A∈F2n∈𝔽_2^n and let α=|A|/2nα=|A|/2^n. Then 4A4A contains a subspace of F2n𝔽_2^n of dimension at least n−α−2-α^-2.
+Generalizing this lemma to arbitrary cyclic groups requires an analogous notion to “subspace”: that of the Bohr set. Let R be a subset of Z/NZℤ/Nℤ where N is a prime. The Bohr set of dimension |R||R| and width ϵϵ is 
+
+Bohr⁡(R,ϵ)=x∈Z/NZ:∀r∈R,|rx/N|≤ϵ,Bohr(R,ϵ)={x∈ℤ/Nℤ:,|rx/N|≤ϵ},
+where |rx/N||rx/N| is the distance from rx/N/N to the nearest integer. The following lemma generalizes Bogolyubov's lemma:
+
+Let A∈Z/NZ∈ℤ/Nℤ and α=|A|/Nα=|A|/N. Then 2A−2A2A-2A contains a Bohr set of dimension at most α−2α^-2 and width 1/41/4.
+Here the dimension of a Bohr set is analogous to the codimension of a set in F2n𝔽_2^n. The proof of the lemma involves Fourier-analytic methods. The following proposition relates Bohr sets back to generalized arithmetic progressions, eventually leading to the proof of Freiman's theorem.
+
+Let X be a Bohr set in Z/NZℤ/Nℤ of dimension d and width ϵϵ. Then X contains a proper generalized arithmetic progression of dimension at most d and size at least (ϵ/d)dN(ϵ/d)^dN.
+The proof of this proposition uses Minkowski's theorem, a fundamental result in geometry of numbers.
+
+Proof[edit]
+By the Plünnecke-Ruzsa inequality, |8A−8A|≤K16|A||8A-8A|^16|A|. By Bertrand's postulate, there exists a prime N such that |8A−8A|≤N≤2K16|A||8A-8A|≤2K^16|A|. By the Ruzsa modeling lemma, there exists a subset A′' of A of cardinality at least |A|/8|A|/8 such that A′' is Freiman 8-isomorphic to a subset B⊆Z/NZ⊆ℤ/Nℤ.
+By the generalization of Bogolyubov's lemma, 2B−2B2B-2B contains a proper generalized arithmetic progression of dimension d at most (1/(8⋅2K16))−2=256K32(1/(8·2K^16))^-2=256K^32 and size at least (1/(4d))dN(1/(4d))^dN. Because A′' and B are Freiman 8-isomorphic, 2A′−2A′2A'-2A' and 2B−2B2B-2B are Freiman 2-isomorphic. Then the image under the 2-isomorphism of the proper generalized arithmetic progression in 2B−2B2B-2B is a proper generalized arithmetic progression in 2A′−2A′⊆2A−2A2A'-2A'⊆2A-2A called P.
+But P+A⊆3A−2A+A⊆3A-2A, since P⊆2A−2A⊆2A-2A. Thus 
+
+|P+A|≤|3A−2A|≤|8A−8A|≤N≤(4d)d|P||P+A|≤|3A-2A|≤|8A-8A|≤(4d)^d|P|
+so by the Ruzsa covering lemma A⊆X+P−P+P-P for some X⊆A of cardinality at most (4d)d(4d)^d. Then X+P−P+P-P is contained in a generalized arithmetic progression of dimension |X|+d|X|+d and size at most 2|X|2d|P|≤2|X|+d|2A−2A|≤2|X|+dK4|A|2^|X|2^d|P|≤2^|X|+d|2A-2A|≤2^|X|+dK^4|A|, completing the proof.
+
+Generalizations[edit]
+A result due to Ben Green and Imre Ruzsa generalized Freiman's theorem to arbitrary abelian groups. They used an analogous notion to generalized arithmetic progressions, which they called coset progressions. A coset progression of an abelian group G is a set P+H+H for a proper generalized arithmetic progression P and a subgroup H of G. The dimension of this coset progression is defined to be the dimension of P, and its size is defined to be the cardinality of the whole set. Green and Ruzsa showed the following:
+
+Let A be a finite set in an abelian group G such that |A+A|≤K|A||A+A||A|. Then A is contained in a coset progression of dimension at most d(K)(K) and size at most f(K)|A|(K)|A|, where f(K)(K) and d(K)(K) are functions of K that are independent of G.
+Green and Ruzsa provided upper bounds of d(K)=CK4log⁡(K+2)(K)=CK^4log(K+2) and f(K)=eCK4log2⁡(K+2)(K)=e^CK^4log^2(K+2) for some absolute constant C.[8]
+Terence Tao (2010) also generalized Freiman's theorem to solvable groups of bounded derived length.[9]
+Extending Freiman’s theorem to an arbitrary nonabelian group is still open. Results for K<2<2, when a set has very small doubling, are referred to as  Kneser theorems.[10]
+
+See also[edit]
+Markov spectrum
+Plünnecke-Ruzsa inequality
+Kneser's theorem (combinatorics)
+References[edit]
+
+
+^ Freiman, G.A. (1964). "Addition of finite sets". Soviet Mathematics. Doklady. 5: 1366–1370. Zbl 0163.29501.
+
+^ Freiman, G. A. (1966). Foundations of a Structural Theory of Set Addition (in Russian). Kazan: Kazan Gos. Ped. Inst. p. 140. Zbl 0203.35305.
+
+^ Nathanson, Melvyn B. (1996). Additive Number Theory: Inverse Problems and Geometry of Sumsets. Graduate Texts in Mathematics. Vol. 165. Springer. ISBN 978-0-387-94655-9. Zbl 0859.11003. p. 252.
+
+^ Ruzsa, Imre Z. (1994). "Generalized arithmetical progressions and sumsets". Acta Mathematica Hungarica. 65 (4): 379–388. doi:10.1007/bf01876039. Zbl 0816.11008.
+
+^ Chang, Mei-Chu (2002). "A polynomial bound in Freiman's theorem". Duke Mathematical Journal. 113 (3): 399–419. CiteSeerX 10.1.1.207.3090. doi:10.1215/s0012-7094-02-11331-3. MR 1909605.
+
+^ Sanders, Tom (2013). "The structure theory of set addition revisited". Bulletin of the American Mathematical Society. 50: 93–127. arXiv:1212.0458. doi:10.1090/S0273-0979-2012-01392-7.
+
+^ Zhao, Yufei. "Graph Theory and Additive Combinatorics" (PDF).
+
+^  Ruzsa, Imre Z.; Green, Ben (2007). "Freiman's theorem in an arbitrary abelian group". Journal of the London Mathematical Society. 75 (1): 163–175. arXiv:math/0505198. doi:10.1112/jlms/jdl021. 
+
+^  Tao, Terence (2010). "Freiman's theorem for solvable groups". Contributions to Discrete Mathematics. 5 (2): 137–184. doi:10.11575/cdm.v5i2.62020. 
+
+^  Tao, Terence. "An elementary non-commutative Freiman theorem". Terence Tao's blog. 
+
+
+Further reading[edit]
+Freiman, G. A. (1999). "Structure theory of set addition". Astérisque. 258: 1–33. Zbl 0958.11008.
+
+This article incorporates material from Freiman's theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+
+
+

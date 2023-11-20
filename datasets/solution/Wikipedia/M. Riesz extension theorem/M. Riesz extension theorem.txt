@@ -1,0 +1,155 @@
+For more theorems that are sometimes called Riesz's theorem, see Riesz theorem.
+The M. Riesz extension theorem is a theorem in mathematics, proved by Marcel Riesz[1] during his study of the problem of moments.[2]
+
+
+Formulation[edit]
+Let E be a real vector space, F⊂E be a vector subspace, and K⊂E be a convex cone.
+A linear functional ϕ:F→Rϕ:F→ℝ is called K-positive, if it takes only non-negative values on the cone K:
+
+ϕ(x)≥0forx∈F∩K.ϕ(x)≥0  for.
+A linear functional ψ:E→Rψ:E→ℝ is called a K-positive extension of ϕϕ, if it is identical to ϕϕ in the domain of ϕϕ, and also returns a value of at least 0 for all points in the cone K:
+
+ψ|F=ϕandψ(x)≥0forx∈K.ψ|_F=ϕ  and  ψ(x)≥0  for.
+In general, a K-positive linear functional on F cannot be extended to a K-positive linear functional on E. Already in two dimensions one obtains a counterexample. Let E=R2,K=(x,y):y>0∪(x,0):x>0,=ℝ^2,={(x,y):y>0}∪{(x,0):x>0}, and F be the x-axis. The positive functional ϕ(x,0)=xϕ(x,0)=x can not be extended to a positive functional on E.
+However, the extension exists under the additional assumption that E⊂K+F,+F, namely for every y∈E,, there exists an x∈F such that y−x∈K.-x.
+
+Proof[edit]
+The proof is similar to the proof of the Hahn–Banach theorem (see also below).
+By transfinite induction or Zorn's lemma it is sufficient to consider the case dim E/F=1/F=1.
+Choose any y∈E∖F. Set
+
+a=supϕ(x)∣x∈F,y−x∈K,b=infϕ(x)∣x∈F,x−y∈K.=sup{ ϕ(x),-x },=̱inf{ ϕ(x),x-y }.
+We will prove below that −∞<a≤b-∞<a. For now, choose any c satisfying a≤c≤b, and set ψ(y)=cψ(y)=c, ψ|F=ϕψ|_F=ϕ, and then extend ψψ to all of E by linearity. We need to show that ψψ is K-positive. Suppose z∈K. Then either z=0=0, or z=p(x+y)=p(x+y) or z=p(x−y)=p(x-y) for some p>0>0 and x∈F. If z=0=0, then ψ(z)>0ψ(z)>0. In the first remaining case x+y=y−(−x)∈K+y=y-(-x), and so
+
+ψ(y)=c≥a≥ϕ(−x)=ψ(−x)ψ(y)=c≥ϕ(-x)=ψ(-x)
+by definition. Thus
+
+ψ(z)=pψ(x+y)=p(ψ(x)+ψ(y))≥0.ψ(z)=pψ(x+y)=p(ψ(x)+ψ(y))≥0.
+In the second case, x−y∈K-y, and so similarly
+
+ψ(y)=c≤b≤ϕ(x)=ψ(x)ψ(y)=c≤ϕ(x)=ψ(x)
+by definition and so
+
+ψ(z)=pψ(x−y)=p(ψ(x)−ψ(y))≥0.ψ(z)=pψ(x-y)=p(ψ(x)-ψ(y))≥0.
+In all cases, ψ(z)>0ψ(z)>0, and so ψψ is K-positive.
+We now prove that −∞<a≤b-∞<a. Notice by assumption there exists at least one x∈F for which y−x∈K-x, and so −∞<a-∞<a. However, it may be the case that there are no x∈F for which x−y∈K-y, in which case b=∞=∞ and the inequality is trivial (in this case notice that the third case above cannot happen). Therefore, we may assume that b<∞<∞ and there is at least one x∈F for which x−y∈K-y. To prove the inequality, it suffices to show that whenever x∈F and y−x∈K-x, and x′∈F' and x′−y∈K'-y, then ϕ(x)≤ϕ(x′)ϕ(x)≤ϕ(x'). Indeed,
+
+x′−x=(x′−y)+(y−x)∈K'-x=(x'-y)+(y-x)
+since K is a convex cone, and so
+
+0≤ϕ(x′−x)=ϕ(x′)−ϕ(x)0≤ϕ(x'-x)=ϕ(x')-ϕ(x)
+since ϕϕ is K-positive.
+
+Corollary: Krein's extension theorem[edit]
+Let E be a real linear space, and let K ⊂ E be a convex cone. Let x ∈ E\(−K) be such that R x + K = E. Then there exists a K-positive linear functional φ: E → R such that φ(x) > 0.
+
+Connection to the Hahn–Banach theorem[edit]
+Main article: Hahn–Banach theorem
+The Hahn–Banach theorem can be deduced from the M. Riesz extension theorem.
+Let V be a linear space, and let N be a sublinear function on V. Let φ be a functional on a subspace U ⊂ V that is dominated by N:
+
+ϕ(x)≤N(x),x∈U.ϕ(x)(x),.
+The Hahn–Banach theorem asserts that φ can be extended to a linear functional on V that is dominated by N.
+To derive this from the M. Riesz extension theorem, define a convex cone K ⊂ R×V by
+
+K=(a,x)∣N(x)≤a.={(a,x) | N(x)}.
+Define a functional φ1 on R×U by
+
+ϕ1(a,x)=a−ϕ(x).ϕ_1(a,x)=a-ϕ(x).
+One can see that φ1 is K-positive, and that K + (R × U) = R × V. Therefore φ1 can be extended to a K-positive functional ψ1 on R×V. Then
+
+ψ(x)=−ψ1(0,x)ψ(x)=-ψ_1(0,x)
+is the desired extension of φ. Indeed, if ψ(x) > N(x), we have: (N(x), x) ∈ K, whereas
+
+ψ1(N(x),x)=N(x)−ψ(x)<0,ψ_1(N(x),x)=N(x)-ψ(x)<0,
+leading to a contradiction.
+
+Notes[edit]
+
+
+^ Riesz (1923)
+
+^ Akhiezer (1965)
+
+
+References[edit]
+Castillo, Reńe E. (2005), "A note on Krein's theorem" (PDF), Lecturas Matematicas, 26, archived from the original (PDF) on 2014-02-01, retrieved 2014-01-18
+Riesz, M. (1923), "Sur le problème des moments. III.", Arkiv för Matematik, Astronomi och Fysik (in French), 17 (16), JFM 49.0195.01
+Akhiezer, N.I. (1965), The classical moment problem and some related questions in analysis, New York: Hafner Publishing Co., MR 0184042
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

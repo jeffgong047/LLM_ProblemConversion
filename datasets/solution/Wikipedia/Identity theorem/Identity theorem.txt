@@ -1,0 +1,114 @@
+Theorem on the equality of analytic functions
+In real analysis and complex analysis, branches of mathematics, the identity theorem for analytic functions states: given functions f and g analytic on a domain D (open and connected subset of Rℝ or Cℂ), if f = g on some S⊆D, where S has an accumulation point in D, then f = g on D.[1]
+Thus an analytic function is completely determined by its values on a single open neighborhood in D, or even a countable subset of D (provided this contains a converging sequence together with its limit). This is not true in general for real-differentiable functions, even infinitely real-differentiable functions. In comparison, analytic functions are a much more rigid notion. Informally, one sometimes summarizes the theorem by saying analytic functions are "hard" (as opposed to, say, continuous functions which are "soft").
+The underpinning fact from which the theorem is established is the expandability of a holomorphic function into its Taylor series.
+The connectedness assumption on the domain D is necessary. For example, if D consists of two disjoint open sets, f can be 00 on one open set, and 11 on another, while g is 00 on one, and 22 on another.
+
+
+Lemma[edit]
+If two holomorphic functions f and g on a domain D agree on a set S which has an accumulation point c in D, then f=g=g on a disk in D centered at c.
+To prove this, it is enough to show that f(n)(c)=g(n)(c)^(n)(c)=g^(n)(c) for all n≥0≥0. 
+If this is not the case, let m be the smallest nonnegative integer with f(m)(c)≠g(m)(c)^(m)(c)^(m)(c). By holomorphy, we have the following Taylor series representation in some open neighborhood U of c:
+
+(f−g)(z)=(z−c)m⋅[(f−g)(m)(c)m!+(z−c)⋅(f−g)(m+1)(c)(m+1)!+⋯]=(z−c)m⋅h(z).(f-g)(z)   =(z-c)^m·[(f-g)^(m)(c)/m!+(z-c)·(f-g)^(m+1)(c)/(m+1)!+⋯]
+   =(z-c)^m(z).
+By continuity, h is non-zero in some small open disk B around c. But then f−g≠0-g≠0 on the punctured set B−c-{c}. This contradicts the assumption that c is an accumulation point of f=g{f=g}.
+This lemma shows that for a complex number a∈C∈ℂ, the fiber f−1(a)^-1(a)  is a discrete (and therefore countable) set, unless f≡a.
+
+Proof[edit]
+Define the set on which f and g have the same Taylor expansion:
+S=z∈D∣f(k)(z)=g(k)(z)forallk≥0=⋂k=0∞z∈D∣(f(k)−g(k))(z)=0.={z^(k)(z)=g^(k)(z)forallk≥0}=⋂_k=0^∞{z|(f^(k)-g^(k))(z)=0}.
+We'll show S is nonempty, open, and closed. Then by connectedness of D, S must be all of D, which implies f=g=g on S=D=D.
+By the lemma, f=g=g in a disk centered at c in D, they have the same Taylor series at c, so c∈S, S is nonempty.
+As f and g are holomorphic on D, ∀w∈S, the Taylor series of f and g at w have non-zero radius of convergence. Therefore, the open disk Br(w)_r(w) also lies in S for some r. So S is open.
+By holomorphy of f and g, they have holomorphic derivatives, so all f(n),g(n)^(n),g^(n) are continuous. This means that z∈D∣(f(k)−g(k))(z)=0{z|(f^(k)-g^(k))(z)=0} is closed for all k. S is an intersection of closed sets, so it's closed.
+
+Full characterisation[edit]
+Since the Identity Theorem is concerned with the equality of two holomorphic functions, we can simply consider the difference (which remains holomorphic) and can simply characterise when a holomorphic function is identically 00. The following result can be found in.[2]
+
+Claim[edit]
+Let G⊆C⊆ℂ denote a non-empty, connected open subset of the complex plane.
+For h:G→C:G→ℂ the following are equivalent.
+
+h≡0≡0 on G;
+the set G0=z∈G∣h(z)=0_0={z(z)=0} contains an accumulation point, z0_0;
+the set G∗=⋂n∈N0Gn_∗=⋂_n∈ℕ_0G_n is non-empty, where Gn:=z∈G∣h(n)(z)=0_n:={z^(n)(z)=0}.
+Proof[edit]
+The directions (1 ⇒⇒ 2) and (1 ⇒⇒ 3) hold trivially.
+For (3 ⇒⇒ 1), by connectedness of G it suffices to prove that the non-empty subset, G∗⊆G_∗, is clopen (since a topological space is connected if and only if it has no proper clopen subsets).
+Since holomorphic functions are infinitely differentiable, i.e. h∈C∞(G)^∞(G), it is clear that G∗_∗ is closed. To show openness, consider some u∈G∗_∗.
+Consider an open ball U⊆G containing u, in which h has a convergent Taylor-series expansion centered on u.
+By virtue of u∈G∗_∗, all coefficients of this series are 00, whence h≡0≡0 on U.
+It follows that all n-th derivatives of h are 00 on U, whence U⊆G∗_∗.
+So each u∈G∗_∗ lies in the interior of G∗_∗.
+Towards (2 ⇒⇒ 3), fix an accumulation point z0∈G0_0_0.
+We now prove directly by induction that z0∈Gn_0_n for each n∈N0∈ℕ_0.
+To this end let r∈(0,∞)∈(0,∞) be strictly smaller than the convergence radius of the power series expansion of h around z0_0, given by ∑k∈N0h(k)(z0)k!(z−z0)k∑_k∈ℕ_0h^(k)(z_0)/k!(z-z_0)^k. Fix now some n≥0≥0 and assume that z0∈Gk_0_k for all k<n<n. Then for z∈B¯r(z0)∖z0∈B̅_r(z_0)∖{z_0} manipulation of the power series expansion yields
+
+
+
+h(n)(z0)=n!h(z)(z−z0)n−(z−z0)n!∑k=n+1∞h(k)(z0)k!(z−z0)k−(n+1)⏟=:R(z).^(n)(z_0)=n!h(z)/(z-z_0)^n-(z-z_0)n!∑_k=n+1^∞h^(k)(z_0)/k!(z-z_0)^k-(n+1)_=:R(z).
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+Note that, since r is smaller than radius of the power series, one can readily derive that the power series R(⋅)(·) is continuous and thus bounded on B¯r(z0)B̅_r(z_0).
+Now, since z0_0 is an accumulation point in G0_0, there is a sequence of points (z(i))i⊆G0∩Br(z0)∖z0(z^(i))_i_0_r(z_0)∖{z_0} convergent to z0_0.
+Since h≡0≡0 on G0_0 and since each z(i)∈G0∩Br(z0)∖z0^(i)_0_r(z_0)∖{z_0}, the expression in (1) yields
+
+
+
+h(n)(z0)=n!h(z(i))(z(i)−z0)n−(z(i)−z0)R(z(i))=0−(z(i)−z0)⏟⟶i0R(z(i)).^(n)(z_0)=n!h(z^(i))/(z^(i)-z_0)^n-(z^(i)-z_0)R(z^(i))=0-(z^(i)-z_0)_⟶_i0R(z^(i)).
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+By the boundedness of R(⋅)(·) on B¯r(z0)B̅_r(z_0),
+it follows that h(n)(z0)=0^(n)(z_0)=0, whence z0∈Gn_0_n.
+Via induction the claim holds.
+Q.E.D.
+
+See also[edit]
+Analytic continuation
+Identity theorem for Riemann surfaces
+References[edit]
+
+^ For real functions, see Krantz, Steven G.; Parks, Harold R. (2002). A Primer of Real Analytic Functions (Second ed.). Boston: Birkhäuser. Corollary 1.2.7. ISBN 0-8176-4264-1.
+
+^ Guido Walz, ed. (2017). Lexikon der Mathematik (in German). Vol. 2. Mannheim: Springer Spektrum Verlag. p. 476. ISBN 978-3-662-53503-5.
+
+
+Ablowitz, Mark J.; Fokas A. S. (1997). Complex variables: Introduction and applications. Cambridge, UK: Cambridge University Press. p. 122. ISBN 0-521-48058-2.
+
+
+

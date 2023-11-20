@@ -1,0 +1,171 @@
+For the theorem in algebraic number theory, see Bauer's theorem.
+In mathematics, the Bauer–Fike theorem is a standard result in the perturbation theory of the eigenvalue of a complex-valued diagonalizable matrix. In its substance, it states an absolute upper bound for the deviation of one perturbed matrix eigenvalue from a properly chosen eigenvalue of the exact matrix. Informally speaking, what it says is that the sensitivity of the eigenvalues is estimated by the condition number of the matrix of eigenvectors.
+The theorem was proved by Friedrich L. Bauer and C. T. Fike in 1960.
+
+
+The setup[edit]
+In what follows we assume that:
+
+A ∈ Cn,n is a diagonalizable matrix;
+V ∈ Cn,n is the non-singular eigenvector matrix such that A = VΛV −1, where Λ is a diagonal matrix.
+If X ∈ Cn,n is invertible, its condition number in p-norm is denoted by κp(X) and defined by:
+κp(X)=‖X‖p‖X−1‖p.κ_p(X)=X_pX^-1_p.
+The Bauer–Fike Theorem[edit]
+Bauer–Fike Theorem. Let μ be an eigenvalue of A + δA. Then there exists λ ∈ Λ(A) such that:
+|λ−μ|≤κp(V)‖δA‖p|λ-μ|≤κ_p(V)_p
+Proof. We can suppose μ ∉ Λ(A), otherwise take λ = μ and the result is trivially true since κp(V) ≥ 1. Since μ is an eigenvalue of A + δA, we have det(A + δA − μI) = 0 and so
+
+0=det(A+δA−μI)=det(V−1)det(A+δA−μI)det(V)=det(V−1(A+δA−μI)V)=det(V−1AV+V−1δAV−V−1μIV)=det(Λ+V−1δAV−μI)=det(Λ−μI)det((Λ−μI)−1V−1δAV+I)0   =(A+-)
+   =(V^-1)(A+-)(V)
+   =(V^-1(A+-)V)
+   =(V^-1AV+V^-1-V^-1)
+   =(Λ+V^-1-)
+   =(Λ-)((Λ-)^-1V^-1+I)
+
+However our assumption, μ ∉ Λ(A), implies that: det(Λ − μI) ≠ 0 and therefore we can write:
+
+det((Λ−μI)−1V−1δAV+I)=0.((Λ-)^-1V^-1+I)=0.
+This reveals −1 to be an eigenvalue of 
+
+(Λ−μI)−1V−1δAV.(Λ-)^-1V^-1.
+Since all p-norms are consistent matrix norms we have |λ| ≤ ||A||p where λ is an eigenvalue of A. In this instance this gives us:
+
+1=|−1|≤‖(Λ−μI)−1V−1δAV‖p≤‖(Λ−μI)−1‖p‖V−1‖p‖V‖p‖δA‖p=‖(Λ−μI)−1‖pκp(V)‖δA‖p1=|-1|≤(Λ-)^-1V^-1_p≤(Λ-)^-1_pV^-1_pV_p_p=(Λ-)^-1_p
+kappa_p(V)_p
+But (Λ − μI)−1 is a diagonal matrix, the p-norm of which is easily computed:
+
+‖(Λ−μI)−1‖p=max‖x‖p≠0‖(Λ−μI)−1x‖p‖x‖p=maxλ∈Λ(A)1|λ−μ|=1minλ∈Λ(A)|λ−μ|(Λ-)^-1_pm̄āx̄_x_p≠0(Λ-)^-1x_p/x_p=max_λ∈Λ(A)1/|λ-μ|1̄/̄m̄īn̄_̄λ̄∈̄Λ̄(̄Ā)̄|̄λ̄-̄μ̄|̄
+whence:
+
+minλ∈Λ(A)|λ−μ|≤κp(V)‖δA‖p.min_λ∈Λ(A)|λ-μ|≤
+kappa_p(V)_p.
+An Alternate Formulation[edit]
+The theorem can also be reformulated to better suit numerical methods. In fact, dealing with real eigensystem problems, one often has an exact matrix A, but knows only an approximate eigenvalue-eigenvector couple, (λa, va ) and needs to bound the error. The following version comes in help.
+
+Bauer–Fike Theorem (Alternate Formulation). Let (λa, va ) be an approximate eigenvalue-eigenvector couple, and r = Ava − λava. Then there exists λ ∈ Λ(A) such that:
+|λ−λa|≤κp(V)‖r‖p‖va‖p|λ-λ^a|≤κ_p(V)r_p/v^a_p
+Proof. We can suppose λa ∉ Λ(A), otherwise take λ = λa and the result is trivially true since κp(V) ≥ 1. So (A − λaI)−1 exists, so we can write:
+
+va=(A−λaI)−1r=V(D−λaI)−1V−1rv^a=(A-λ^aI)^-1r=V(D-λ^aI)^-1V^-1r
+since A is diagonalizable; taking the p-norm of both sides, we obtain:
+
+‖va‖p=‖V(D−λaI)−1V−1r‖p≤‖V‖p‖(D−λaI)−1‖p‖V−1‖p‖r‖p=κp(V)‖(D−λaI)−1‖p‖r‖p.v^a_p=V(D-λ^aI)^-1V^-1r_p≤V_p(D-λ^aI)^-1_pV^-1_pr_p=κ_p(V)(D-λ^aI)^-1_pr_p.
+However 
+
+(D−λaI)−1(D-λ^aI)^-1
+is a diagonal matrix and its p-norm is easily computed:
+
+‖(D−λaI)−1‖p=max‖x‖p≠0‖(D−λaI)−1x‖p‖x‖p=maxλ∈σ(A)1|λ−λa|=1minλ∈σ(A)|λ−λa|(D-λ^aI)^-1_p=max_x_p≠0(D-λ^aI)^-1x_p/x_p=max_λ∈σ(A)1/|λ-λ^a|=1/min_λ∈σ(A)|λ-λ^a|
+whence:
+
+minλ∈λ(A)|λ−λa|≤κp(V)‖r‖p‖va‖p.min_λ∈λ(A)|λ-λ^a|≤κ_p(V)r_p/v^a_p.
+A Relative Bound[edit]
+Both formulations of Bauer–Fike theorem yield an absolute bound. The following corollary is useful whenever a relative bound is needed:
+
+Corollary. Suppose A is invertible and that μ is an eigenvalue of A + δA. Then there exists λ ∈ Λ(A) such that:
+|λ−μ||λ|≤κp(V)‖A−1δA‖p|λ-μ|/|λ|≤κ_p(V)A^-1_p
+Note. ||A−1δA|| can be formally viewed as the relative variation of A, just as |λ − μ|/|λ| is the relative variation of λ.
+Proof. Since μ is an eigenvalue of A + δA and det(A) ≠ 0, by multiplying by −A−1 from left we have:
+
+−A−1(A+δA)v=−μA−1v.-A^-1(A+)v=-^-1v.
+If we set:
+
+Aa=μA−1,(δA)a=−A−1δA^a=^-1,    ()^a=-A^-1
+then we have:
+
+(Aa+(δA)a−I)v=0(A^a+()^a-I)v=0
+which means that 1 is an eigenvalue of Aa + (δA)a, with v as an eigenvector. Now, the eigenvalues of Aa are μ/λi, while it has the same eigenvector matrix as A. Applying the Bauer–Fike theorem to Aa + (δA)a with eigenvalue 1, gives us:
+
+minλ∈Λ(A)|μλ−1|=minλ∈Λ(A)|λ−μ||λ|≤κp(V)‖A−1δA‖pmin_λ∈Λ(A)|μ/λ-1|=min_λ∈Λ(A)|λ-μ|/|λ|≤κ_p(V)A^-1_p
+The Case of Normal Matrices[edit]
+If A is normal, V is a unitary matrix, therefore:
+
+‖V‖2=‖V−1‖2=1,V_2=V^-1_2=1,
+so that κ2(V) = 1. The Bauer–Fike theorem then becomes:
+
+∃λ∈Λ(A):|λ−μ|≤‖δA‖2∃λ∈Λ(A):  |λ-μ|≤_2
+Or in alternate formulation:
+
+∃λ∈Λ(A):|λ−λa|≤‖r‖2‖va‖2∃λ∈Λ(A):  |λ-λ^a|≤r_2/v^a_2
+which obviously remains true if A is a Hermitian matrix. In this case, however, a much stronger result holds, known as the Weyl's theorem on eigenvalues. In the hermitian case one can also restate the Bauer–Fike theorem in the form that the map A ↦ Λ(A) that maps a matrix to its spectrum is a non-expansive function with respect to the Hausdorff distance on the set of compact subsets of C.
+
+References[edit]
+Bauer, F. L.; Fike, C. T. (1960). "Norms and Exclusion Theorems". Numer. Math. 2 (1): 137–141. doi:10.1007/BF01386217. S2CID 121278235.
+Eisenstat, S. C.; Ipsen, I. C. F. (1998). "Three absolute perturbation bounds for matrix eigenvalues imply relative bounds". SIAM Journal on Matrix Analysis and Applications. 20 (1): 149–158. CiteSeerX 10.1.1.45.3999. doi:10.1137/S0895479897323282.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

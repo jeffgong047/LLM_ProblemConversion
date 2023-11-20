@@ -1,0 +1,385 @@
+Square of a triangular number
+For triangular numbers that are themselves square, see square triangular number.
+A square whose side length is a triangular number can be partitioned into squares and half-squares whose areas add to cubes. From Gulley (2010).
+In number theory, the sum of the first n cubes is the square of the nth triangular number. That is,
+
+13+23+33+⋯+n3=(1+2+3+⋯+n)2.1^3+2^3+3^3+⋯+n^3=(1+2+3+⋯+n)^2.
+The same equation may be written more compactly using the mathematical notation for summation:
+
+∑k=1nk3=(∑k=1nk)2.∑_k=1^nk^3=(∑_k=1^nk)^2.
+This identity is sometimes called Nicomachus's theorem, after Nicomachus of Gerasa (c. 60 – c. 120 CE).
+
+
+History[edit]
+Nicomachus, at the end of Chapter 20 of his Introduction to Arithmetic, pointed out that if one writes a list of the odd numbers, the first is the cube of 1, the sum of the next two is the cube of 2, the sum of the next three is the cube of 3, and so on. He does not go further than this, but from this it follows that the sum of the first n cubes equals the sum of the first n(n+1)/2(n+1)/2 odd numbers, that is, the odd numbers from 1 to n(n+1)−1(n+1)-1. The average of these numbers is obviously n(n+1)/2(n+1)/2, and there are n(n+1)/2(n+1)/2 of them, so their sum is (n(n+1)/2)2.(n(n+1)/2)^2.
+Many early mathematicians have studied and provided proofs of Nicomachus's theorem. Stroeker (1995) claims that "every student of number theory surely must have marveled at this miraculous fact". Pengelley (2002) finds references to the identity not only in the works of Nicomachus in what is now Jordan in the first century CE, but also in those of Aryabhata in India in the fifth century, and in those of Al-Karaji circa 1000 in Persia. Bressoud (2004) mentions several additional early mathematical works on this formula, by Al-Qabisi (tenth century Arabia), Gersonides (circa 1300 France), and Nilakantha Somayaji (circa 1500 India); he reproduces Nilakantha's visual proof.
+
+Numeric values;  geometric and probabilistic interpretation[edit]
+All 36 (= (1 + 2 + 3)2 = 13 + 23 + 33) rectangles, including 14 (= 12 + 22 + 32) squares (red), in a 3×3 square (4×4 vertex) grid
+The sequence of squared triangular numbers is[1]
+
+0, 1, 9, 36, 100, 225, 441, 784, 1296, 2025, 3025, 4356, 6084, 8281, ... .
+These numbers can be viewed as figurate numbers, a four-dimensional hyperpyramidal generalization of the triangular numbers and square pyramidal numbers.
+As Stein (1971) observes, these numbers also count the number of rectangles with horizontal and vertical sides formed in an n × n grid. For instance, the points of a 4 × 4 grid (or a square made up of three smaller squares on a side) can form 36 different rectangles. The number of squares in a square grid is similarly counted by the square pyramidal numbers.
+The identity also admits a natural probabilistic interpretation as follows. Let X, Y, Z, W be four integer numbers independently and uniformly chosen at random between 1 and n. Then, the probability that W is the largest of the four numbers equals the probability that Y is at least as large as X and that W is at least as large as Z. That is, P[max(X,Y,Z)≤W]=P[X≤Y∧Z≤W][max(X,Y,Z)]=P[X]. For any particular value of W, the combinations of X, Y, and Z that make W largest form a cube 1 ≤ X, Y, Z ≤ n so (adding the size of this cube over all choices of W) the number of combinations of X, Y, Z, W for which W is largest is a sum of cubes, the left hand side of the Nichomachus identity. The sets of pairs (X,Y) with X ≤ Y and of pairs (Z,W) with Z ≤ W form isosceles right triangles, and the set counted by the right hand side of the equation of probabilities is the Cartesian product of these two triangles, so its size is the square of a triangular number on the right hand side of the Nichomachus identity. The probabilities themselves are respectively the left and right sides of the Nichomachus identity, normalized to make probabilities by dividing both sides by n4.[citation needed]
+
+Proofs[edit]
+Charles Wheatstone (1854) gives a particularly simple derivation, by expanding each cube in the sum into a set of consecutive odd numbers. He begins by giving the identity 
+n3=(n2−n+1)+(n2−n+1+2)+(n2−n+1+4)+⋯+(n2+n−1)⏟nconsecutiveoddnumbers.^3=(n^2-n+1)+(n^2-n+1+2)+(n^2-n+1+4)+⋯+(n^2+n-1)_nconsecutiveoddnumbers.
+That identity is related to triangular numbers Tn_n in the following way:
+n3=∑k=Tn−1+1Tn(2k−1),^3=∑_k=T_n-1+1^T_n(2k-1),
+and thus the summands forming n3^3 start off just after those forming all previous values 131^3 up to (n−1)3(n-1)^3.
+Applying this property, along with another well-known identity:
+n2=∑k=1n(2k−1),^2=∑_k=1^n(2k-1),
+produces the following derivation:
+∑k=1nk3=1+8+27+64+⋯+n3=1⏟13+3+5⏟23+7+9+11⏟33+13+15+17+19⏟43+⋯+(n2−n+1)+⋯+(n2+n−1)⏟n3=1⏟12+3⏟22+5⏟32+⋯+(n2+n−1)⏟(n2+n2)2=(1+2+⋯+n)2=(∑k=1nk)2.∑_k=1^nk^3   =1+8+27+64+⋯+n^3
+   =1_1^3+3+5_2^3+7+9+11_3^3+13+15+17+19_4^3+⋯+(n^2-n+1)+⋯+(n^2+n-1)_n^3
+   =1_1^2+3_2^2+5_3^2+⋯+(n^2+n-1)_(n^2+n/2)^2
+   =(1+2+⋯+n)^2
+   =(∑_k=1^nk)^2.
+Row (1893) obtains another proof by summing the numbers in a square multiplication table in two different ways. The sum of the ith row is i times a triangular number, from which it follows that the sum of all the rows is the square of a triangular number. Alternatively, one can decompose the table into a sequence of nested gnomons, each consisting of the products in which the larger of the two terms is some fixed value. The sum within each gmonon is a cube, so the sum of the whole table is a sum of cubes.
+
+Visual demonstration that the square of a triangular number equals a sum of cubes.
+In the more recent mathematical literature, Edmonds (1957) provides a proof using summation by parts. Stein (1971) uses the rectangle-counting interpretation of these numbers to form a geometric proof of the identity (see also Benjamin, Quinn & Wurtz 2006); he observes that it may also be proved easily (but uninformatively) by induction, and states that Toeplitz (1963) provides "an interesting old Arabic proof". Kanim (2004) provides a purely visual proof, Benjamin & Orrison (2002) provide two additional proofs, and Nelsen (1993) gives seven geometric proofs.
+
+Generalizations[edit]
+A similar result to Nicomachus's theorem holds for all power sums, namely that odd power sums (sums of odd powers) are a polynomial in triangular numbers.
+These are called Faulhaber polynomials, of which the sum of cubes is the simplest and most elegant example.
+However, in no other case is one power sum a square of another.[2]
+Stroeker (1995) studies more general conditions under which the sum of a consecutive sequence of cubes forms a square. Garrett & Hummel (2004) and Warnaar (2004) study polynomial analogues of the square triangular number formula, in which series of polynomials add to the square of another polynomial.
+
+Notes[edit]
+
+
+^ Sloane, N. J. A. (ed.), "Sequence A000537", The On-Line Encyclopedia of Integer Sequences, OEIS Foundation
+
+^ Edmonds (1957).
+
+
+References[edit]
+
+Benjamin, Arthur T.; Orrison, M. E. (2002), "Two quick combinatorial proofs of ∑k3=(n+12)2^3=n+12^2" (PDF), College Mathematics Journal, 33 (5): 406–408, doi:10.2307/1559017, JSTOR 1559017.
+Benjamin, Arthur T.; Quinn, Jennifer J.; Wurtz, Calyssa (2006), "Summing cubes by counting rectangles" (PDF), College Mathematics Journal, 37 (5): 387–389, doi:10.2307/27646391, JSTOR 27646391.
+Bressoud, David (2004), Calculus before Newton and Leibniz, Part III (PDF), AP Central.
+Edmonds, Sheila M. (1957), "Sums of powers of the natural numbers", The Mathematical Gazette, 41 (337): 187–188, doi:10.2307/3609189, JSTOR 3609189, MR 0096615, S2CID 126165678
+Garrett, Kristina C.; Hummel, Kristen (2004), "A combinatorial proof of the sum of q-cubes", Electronic Journal of Combinatorics, 11 (1), Research Paper 9, doi:10.37236/1762, MR 2034423.
+Gulley, Ned (March 4, 2010), Shure, Loren (ed.), Nicomachus's Theorem, Matlab Central.
+Kanim, Katherine (2004), "Proofs without words: The sum of cubes—An extension of Archimedes' sum of squares", Mathematics Magazine, 77 (4): 298–299, doi:10.2307/3219288, JSTOR 3219288.
+Nelsen, Roger B. (1993), Proofs without Words, Cambridge University Press, ISBN 978-0-88385-700-7.
+Pengelley, David (2002), "The bridge between continuous and discrete via original sources", Study the Masters: The Abel-Fauvel Conference (PDF), National Center for Mathematics Education, Univ. of Gothenburg, Sweden.
+Row, T. Sundara (1893), Geometric Exercises in Paper Folding, Madras: Addison, pp. 47–48.
+Stein, Robert G. (1971), "A combinatorial proof that ∑k3=(∑k)2^3=()^2", Mathematics Magazine, 44 (3): 161–162, doi:10.2307/2688231, JSTOR 2688231.
+Stroeker, R. J. (1995), "On the sum of consecutive cubes being a perfect square", Compositio Mathematica, 97 (1–2): 295–307, MR 1355130.
+Toeplitz, Otto (1963), The Calculus, a Genetic Approach, University of Chicago Press, ISBN 978-0-226-80667-9.
+Warnaar, S. Ole (2004), "On the q-analogue of the sum of cubes", Electronic Journal of Combinatorics, 11 (1), Note 13, doi:10.37236/1854, MR 2114194.
+Wheatstone, C. (1854), "On the formation of powers from arithmetical progressions", Proceedings of the Royal Society of London, 7: 145–151, Bibcode:1854RSPS....7..145W, doi:10.1098/rspl.1854.0036.
+
+External links[edit]
+Weisstein, Eric W., "Nicomachus's theorem", MathWorld
+A visual proof of Nicomachus's theorem Archived 2019-10-19 at the Wayback Machine
+vteFigurate numbers2-dimensionalcentered
+Centered triangular numbers
+Centered square numbers
+Centered pentagonal numbers
+Centered hexagonal numbers
+Centered heptagonal numbers
+Centered octagonal numbers
+Centered nonagonal numbers
+Centered decagonal numbers
+Star numbers
+non-centered
+Triangular numbers
+Square numbers
+Pentagonal numbers
+Hexagonal numbers
+Heptagonal numbers
+Octagonal numbers
+Nonagonal numbers
+Decagonal numbers
+Dodecagonal numbers
+3-dimensionalcentered
+Centered tetrahedral numbers
+Centered cube numbers
+Centered octahedral numbers
+Centered dodecahedral numbers
+Centered icosahedral numbers
+non-centered
+Cube numbers
+Octahedral numbers
+Dodecahedral numbers
+Icosahedral numbers
+Stella octangula numbers
+pyramidal
+Tetrahedral numbers
+Square pyramidal numbers
+4-dimensionalnon-centered
+Pentatope numbers
+Squared triangular numbers
+Tesseractic numbers
+Higher dimensionalnon-centered
+5-hypercube numbers
+6-hypercube numbers
+7-hypercube numbers
+8-hypercube numbers
+
+vteClasses of natural numbersPowers and related numbers
+Achilles
+Power of 2
+Power of 3
+Power of 10
+Square
+Cube
+Fourth power
+Fifth power
+Sixth power
+Seventh power
+Eighth power
+Perfect power
+Powerful
+Prime power
+Of the form a × 2b ± 1
+Cullen
+Double Mersenne
+Fermat
+Mersenne
+Proth
+Thabit
+Woodall
+Other polynomial numbers
+Hilbert
+Idoneal
+Leyland
+Loeschian
+Lucky numbers of Euler
+Recursively defined numbers
+Fibonacci
+Jacobsthal
+Leonardo
+Lucas
+Padovan
+Pell
+Perrin
+Possessing a specific set of other numbers
+Amenable
+Congruent
+Knödel
+Riesel
+Sierpiński
+Expressible via specific sums
+Nonhypotenuse
+Polite
+Practical
+Primary pseudoperfect
+Ulam
+Wolstenholme
+Figurate numbers2-dimensionalcentered
+Centered triangular
+Centered square
+Centered pentagonal
+Centered hexagonal
+Centered heptagonal
+Centered octagonal
+Centered nonagonal
+Centered decagonal
+Star
+non-centered
+Triangular
+Square
+Square triangular
+Pentagonal
+Hexagonal
+Heptagonal
+Octagonal
+Nonagonal
+Decagonal
+Dodecagonal
+3-dimensionalcentered
+Centered tetrahedral
+Centered cube
+Centered octahedral
+Centered dodecahedral
+Centered icosahedral
+non-centered
+Tetrahedral
+Cubic
+Octahedral
+Dodecahedral
+Icosahedral
+Stella octangula
+pyramidal
+Square pyramidal
+4-dimensionalnon-centered
+Pentatope
+Squared triangular
+Tesseractic
+Combinatorial numbers
+Bell
+Cake
+Catalan
+Dedekind
+Delannoy
+Euler
+Eulerian
+Fuss–Catalan
+Lah
+Lazy caterer's sequence
+Lobb
+Motzkin
+Narayana
+Ordered Bell
+Schröder
+Schröder–Hipparchus
+Stirling first
+Stirling second
+Telephone number
+Wedderburn–Etherington
+Primes
+Wieferich
+Wall–Sun–Sun
+Wolstenholme prime
+Wilson
+Pseudoprimes
+Carmichael number
+Catalan pseudoprime
+Elliptic pseudoprime
+Euler pseudoprime
+Euler–Jacobi pseudoprime
+Fermat pseudoprime
+Frobenius pseudoprime
+Lucas pseudoprime
+Lucas–Carmichael number
+Somer–Lucas pseudoprime
+Strong pseudoprime
+Arithmetic functions and dynamicsDivisor functions
+Abundant
+Almost perfect
+Arithmetic
+Betrothed
+Colossally abundant
+Deficient
+Descartes
+Hemiperfect
+Highly abundant
+Highly composite
+Hyperperfect
+Multiply perfect
+Perfect
+Practical
+Primitive abundant
+Quasiperfect
+Refactorable
+Semiperfect
+Sublime
+Superabundant
+Superior highly composite
+Superperfect
+Prime omega functions
+Almost prime
+Semiprime
+Euler's totient function
+Highly cototient
+Highly totient
+Noncototient
+Nontotient
+Perfect totient
+Sparsely totient
+Aliquot sequences
+Amicable
+Perfect
+Sociable
+Untouchable
+Primorial
+Euclid
+Fortunate
+Other prime factor or divisor related numbers
+Blum
+Cyclic
+Erdős–Nicolas
+Erdős–Woods
+Friendly
+Giuga
+Harmonic divisor
+Jordan–Pólya
+Lucas–Carmichael
+Pronic
+Regular
+Rough
+Smooth
+Sphenic
+Størmer
+Super-Poulet
+Zeisel
+Numeral system-dependent numbersArithmetic functions and dynamics
+Persistence
+Additive
+Multiplicative
+Digit sum
+Digit sum
+Digital root
+Self
+Sum-product
+Digit product
+Multiplicative digital root
+Sum-product
+Coding-related
+Meertens
+Other
+Dudeney
+Factorion
+Kaprekar
+Kaprekar's constant
+Keith
+Lychrel
+Narcissistic
+Perfect digit-to-digit invariant
+Perfect digital invariant
+Happy
+
+P-adic numbers-related
+Automorphic
+Trimorphic
+Digit-composition related
+Palindromic
+Pandigital
+Repdigit
+Repunit
+Self-descriptive
+Smarandache–Wellin
+Undulating
+Digit-permutation related
+Cyclic
+Digit-reassembly
+Parasitic
+Primeval
+Transposable
+Divisor-related
+Equidigital
+Extravagant
+Frugal
+Harshad
+Polydivisible
+Smith
+Vampire
+Other
+Friedman
+Binary numbers
+Evil
+Odious
+Pernicious
+Generated via a sieve
+Lucky
+Prime
+Sorting related
+Pancake number
+Sorting number
+Natural language related
+Aronson's sequence
+Ban
+Graphemics related
+Strobogrammatic
+
+ Mathematics portal
+
+
+
+

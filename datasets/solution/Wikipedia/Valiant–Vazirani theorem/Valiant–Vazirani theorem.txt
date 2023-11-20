@@ -1,0 +1,29 @@
+If there is a polynomial time algorithm for unambiguous-SAT, then NP equals RP
+The Valiant–Vazirani theorem is a theorem in computational complexity theory stating that if there is a polynomial time algorithm for Unambiguous-SAT, then NP = RP.  It was proven by Leslie Valiant and Vijay Vazirani in their paper titled NP is as easy as detecting unique solutions published in 1986.[1] The proof is based on the Mulmuley–Vazirani–Vazirani isolation lemma, which was subsequently used for a number of important applications in theoretical computer science.
+The Valiant–Vazirani theorem implies that the Boolean satisfiability problem, which is NP-complete, remains a computationally hard problem even if the input instances are promised to have at most one satisfying assignment.
+
+Proof outline[edit]
+Unambiguous-SAT is the promise problem of deciding whether a given Boolean formula that has at most one satisfying assignment is unsatisfiable or has exactly one satisfying assignment. In the first case, an algorithm for Unambiguous-SAT should reject, and in the second it should accept the formula.
+If the formula has more than one satisfying assignment, then there is no condition on the behavior of the algorithm.
+The promise problem Unambiguous-SAT can be decided by a nondeterministic Turing machine that has at most one accepting computation path. In this sense, this promise problem belongs to the complexity class UP (which is usually only defined for languages).
+The proof of the Valiant–Vazirani theorem consists of a probabilistic reduction from SAT to SAT such that, with probability at least Ω(1/n)Ω(1/n), the output formula has at most one satisfying assignment, and thus satisfies the promise of the Unambiguous-SAT problem.
+More precisely, the reduction is a randomized polynomial-time algorithm that maps a Boolean formula F(x1,…,xn)(x_1,…,x_n) with n variables x1,…,xn_1,…,x_n to a Boolean formula F′(x1,…,xn)'(x_1,…,x_n) such that
+
+every satisfying assignment of F′' also satisfies F, and
+if F is satisfiable, then, with probability at least Ω(1/n)Ω(1/n), F′' has a unique satisfying assignment (a1,…,an)(a_1,…,a_n).
+By running the reduction a polynomial number t of times, each time with fresh independent random bits, we get formulas F1′,…,Ft′'_1,…,F'_t.
+Choosing t=O(n)=O(n), we get that the probability that at least one formula Fi′'_i is uniquely satisfiable is at least 1/21/2 if F is satisfiable.
+This gives a Turing reduction from SAT to Unambiguous-SAT since an assumed algorithm for Unambiguous-SAT can be invoked on the Fi′'_i. Then the self-reducibility of SAT can be used to compute a satisfying assignment, should it exist.
+Overall, this proves that NP = RP if Unambiguous-SAT can be solved in RP.
+The idea of the reduction is to intersect the solution space of the formula F with k random affine hyperplanes over GF(2)nGF(2)^n, where k∈1,…,n∈{1,…,n} is chosen uniformly at random.
+An alternative proof is based on the isolation lemma by Mulmuley, Vazirani, and Vazirani. They consider a more general setting, and applied to the setting here this gives an isolation probability of only Ω(1/n8)Ω(1/n^8).
+
+References[edit]
+
+
+^ Valiant, L.; Vazirani, V. (1986). "NP is as easy as detecting unique solutions" (PDF). Theoretical Computer Science. 47: 85–93. doi:10.1016/0304-3975(86)90135-0.
+
+
+
+
+

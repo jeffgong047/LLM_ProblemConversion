@@ -1,0 +1,195 @@
+Every natural number can be represented as the sum of four integer squares
+For Lagrange's identity, see Lagrange's identity (disambiguation). For Lagrange's theorem, see Lagrange's theorem (disambiguation).
+"four-square theorem" and "four square theorem" redirect here. For other uses, see four square (disambiguation).
+Unlike in three dimensions in which distances between vertices of a polycube with unit edges excludes √7 due to Legendre's three-square theorem, Lagrange's four-square theorem states that the analogue in four dimensions yields square roots of every natural number
+Lagrange's four-square theorem, also known as Bachet's conjecture, states that every natural number can be represented as a sum of four non-negative integer squares.[1] That is, the squares form an additive basis of order four.
+p=a2+b2+c2+d2=a^2+b^2+c^2+d^2 
+where the four numbers a,b,c,d,b,c,d are integers. For illustration, 3, 31, and 310 in several ways, can be represented as the sum of four squares as follows:
+3=12+12+12+0231=52+22+12+12310=172+42+22+12=162+72+22+12=152+92+22+02=122+112+62+32.3   =1^2+1^2+1^2+0^2
+31   =5^2+2^2+1^2+1^2
+310   =17^2+4^2+2^2+1^2
+   =16^2+7^2+2^2+1^2
+   =15^2+9^2+2^2+0^2
+   =12^2+11^2+6^2+3^2.
+This theorem was proven by Joseph Louis Lagrange in 1770. It is a special case of the Fermat polygonal number theorem.
+
+
+Historical development[edit]
+From examples given in the Arithmetica, it is clear that Diophantus was aware of the theorem. This book was translated in 1621 into Latin by Bachet (Claude Gaspard Bachet de Méziriac), who stated the theorem in the notes of his translation. But the theorem was not proved until 1770 by Lagrange.[2]
+Adrien-Marie Legendre extended the theorem in 1797–8 with his three-square theorem, by proving that a positive integer can be expressed as the sum of three squares if and only if it is not of the form 4k(8m+7)4^k(8m+7) for integers k and m. Later, in 1834, Carl Gustav Jakob Jacobi discovered a simple formula for the number of representations of an integer as the sum of four squares with his own four-square theorem.
+The formula is also linked to Descartes' theorem of four "kissing circles", which involves the sum of the squares of the curvatures of four circles. This is also linked to Apollonian gaskets, which were more recently related to the Ramanujan–Petersson conjecture.[3]
+
+Proofs[edit]
+The classical proof[edit]
+Several very similar modern versions[4][5][6] of Lagrange's proof exist. The proof below is a slightly simplified version, in which the cases for which m is even or odd do not require separate arguments.
+
+The classical proof
+It is sufficient to prove the theorem for every odd prime number p. This immediately follows from Euler's four-square identity (and from the fact that the theorem is true for the numbers 1 and 2).
+The residues of a2 modulo p are distinct for every a between 0 and (p − 1)/2 (inclusive).
+To see this, take some a and define c as a2 mod p.
+a is a root of the polynomial x2 − c over the field Z/pZ.
+So is p − a (which is different from a).
+In a field K, any polynomial of degree n has at most n distinct roots (Lagrange's theorem (number theory)),
+so there are no other a with this property, in particular not among 0 to (p − 1)/2.
+Similarly, for b taking integral values between 0 and (p − 1)/2 (inclusive), the −b2 − 1 are distinct.
+By the pigeonhole principle, there are a and b in this range, for which a2 and −b2 − 1 are congruent modulo p, that is for which
+a2+b2+12+02=np.^2+b^2+1^2+0^2=np.
+Now let m be the smallest positive integer such that mp is the sum of four squares, x12 + x22 + x32 + x42 (we have just shown that there is some m (namely n) with this property, so there is a least one m, and it is smaller than p). We show by contradiction that m equals 1: supposing it is not the case, we prove the existence of a positive integer r less than m, for which rp is also the sum of four squares (this is in the spirit of the infinite descent[7] method of Fermat).
+For this purpose, we consider for each xi the yi which is in the same residue class modulo m and between (–m + 1)/2 and m/2 (possibly included). It follows that y12 + y22 + y32 + y42 = mr, for some strictly positive integer r less than m.
+Finally, another appeal to Euler's four-square identity shows that mpmr = z12 + z22 + z32 + z42. But the fact that each xi is congruent to its corresponding yi implies that all of the zi are divisible by m. Indeed,
+z1=x1y1+x2y2+x3y3+x4y4≡x12+x22+x32+x42=mp≡0(modm),z2=x1y2−x2y1+x3y4−x4y3≡x1x2−x2x1+x3x4−x4x3=0(modm),z3=x1y3−x2y4−x3y1+x4y2≡x1x3−x2x4−x3x1+x4x2=0(modm),z4=x1y4+x2y3−x3y2−x4y1≡x1x4+x2x3−x3x2−x4x1=0(modm).z_1   =x_1y_1+x_2y_2+x_3y_3+x_4y_4   _1^2+x_2^2+x_3^2+x_4^2   =mp≡0   m,
+z_2   =x_1y_2-x_2y_1+x_3y_4-x_4y_3   _1x_2-x_2x_1+x_3x_4-x_4x_3   =0   m,
+z_3   =x_1y_3-x_2y_4-x_3y_1+x_4y_2   _1x_3-x_2x_4-x_3x_1+x_4x_2   =0   m,
+z_4   =x_1y_4+x_2y_3-x_3y_2-x_4y_1   _1x_4+x_2x_3-x_3x_2-x_4x_1   =0   m.
+It follows that, for wi = zi/m, w12 + w22 + w32 + w42 = rp, and this is in contradiction with the minimality of m.
+In the descent above, we must rule out both the case y1 = y2 = y3 = y4 = m/2 (which would give r = m and no descent), and also the case y1 = y2 = y3 = y4 = 0 (which would give r = 0 rather than strictly positive).  For both of those cases, one can check that mp = x12 + x22 + x32 + x42 would be a multiple of m2, contradicting the fact that p is a prime greater than m.
+
+
+Proof using the Hurwitz integers[edit]
+Another way to prove the theorem relies on Hurwitz quaternions, which are the analog of integers for quaternions.[8]
+
+Proof using the Hurwitz integers
+The Hurwitz quaternions consist of all quaternions with integer components and all quaternions with half-integer components. These two sets can be combined into a single formula
+α=12E0(1+i+j+k)+E1i+E2j+E3k=a0+a1i+a2j+a3kα=1/2E_0(1+𝐢+𝐣+𝐤)+E_1𝐢+E_2𝐣+E_3𝐤=a_0+a_1𝐢+a_2𝐣+a_3𝐤
+where E0,E1,E2,E3_0,E_1,E_2,E_3 are integers. Thus, the quaternion components a0,a1,a2,a3_0,a_1,a_2,a_3 are either all integers or all half-integers, depending on whether E0_0 is even or odd, respectively. The set of Hurwitz quaternions forms a ring; that is to say, the sum or product of any two Hurwitz quaternions is likewise a Hurwitz quaternion.
+The (arithmetic, or field) norm N(α)N(α) of a rational quaternion αα is the nonnegative rational number
+N(α)=αα¯=a02+a12+a22+a32N(α)=αα̅=a_0^2+a_1^2+a_2^2+a_3^2
+where α¯=a0−a1i−a2j−a3kα̅=a_0-a_1𝐢-a_2𝐣-a_3𝐤 is the conjugate of αα. Note that the norm of a Hurwitz quaternion is always an integer. (If the coefficients are half-integers, then their squares are of the form 14+n:n∈Z14+n:n∈ℤ, and the sum of four such numbers is an integer.)
+Since quaternion multiplication is associative, and real numbers commute with other quaternions, the norm of a product of quaternions equals the product of the norms:
+N(αβ)=αβ(αβ¯)=αββ¯α¯=αN(β)α¯=αα¯N(β)=N(α)N(β).N(αβ)=αβ(αβ)=αββ̅α̅=αN(β)α̅=αα̅N(β)=N(α)N(β).
+For any α≠0α≠0, α−1=α¯N(α)−1α^-1=α̅N(α)^-1. It follows easily that αα is a unit in the ring of Hurwitz quaternions if and only if N(α)=1N(α)=1.
+The proof of the main theorem begins by reduction to the case of prime numbers. Euler's four-square identity implies that if Lagrange's four-square theorem holds for two numbers, it holds for the product of the two numbers. Since any natural number can be factored into powers of primes, it suffices to prove the theorem for prime numbers. It is true for 2=12+12+02+022=1^2+1^2+0^2+0^2. To show this for an odd prime integer p, represent it as a quaternion (p,0,0,0)(p,0,0,0) and assume for now (as we shall show later) that it is not a Hurwitz irreducible; that is, it can be factored into two non-unit Hurwitz quaternions
+p=αβ.=αβ.
+The norms of p,α,β,α,β are integers such that
+N(p)=p2=N(αβ)=N(α)N(β)N(p)=p^2=N(αβ)=N(α)N(β)
+and N(α),N(β)>1N(α),N(β)>1. This shows that both N(α)N(α) and N(β)N(β) are equal to p (since they are integers), and p is the sum of four squares
+p=N(α)=a02+a12+a22+a32.=N(α)=a_0^2+a_1^2+a_2^2+a_3^2.
+If it happens that the αα chosen has half-integer coefficients, it can be replaced by another Hurwitz quaternion. Choose ω=(±1±i±j±k)/2ω=(±1±𝐢±𝐣±𝐤)/2 in such a way that γ≡ω+αγ≡ω+α has even integer coefficients. Then
+p=(γ¯−ω¯)ωω¯(γ−ω)=(γ¯ω−1)(ω¯γ−1).=(γ̅-ω̅)ωω̅(γ-ω)=(γ̅ω-1)(ω̅γ-1).
+Since γγ has even integer coefficients, (ω¯γ−1)(ω̅γ-1) will have integer coefficients and can be used instead of the original αα to give a representation of p as the sum of four squares.
+As for showing that p is not a Hurwitz irreducible, Lagrange proved that any odd prime p divides at least one number of the form u=1+l2+m2=1+l^2+m^2, where l and m are integers.[8] This can be seen as follows: since p is prime, a2≡b2(modp)^2^2p can hold for integers a,b,b, only when a≡±b(modp)≡p. Thus, the set X=02,12,…,((p−1)/2)2={0^2,1^2,…,((p-1)/2)^2} of squares contains (p+1)/2(p+1)/2 distinct residues modulo p. Likewise, Y=−(1+x):x∈X={-(1+x):x} contains (p+1)/2(p+1)/2 residues. Since there are only p residues in total, and |X|+|Y|=p+1>p|X|+|Y|=p+1>p, the sets X and Y must intersect.
+The number u can be factored in Hurwitz quaternions:
+1+l2+m2=(1+li+mj)(1−li−mj).1+l^2+m^2=(1+l 𝐢+m 𝐣)(1-l 𝐢-m 𝐣).
+The norm on Hurwitz quaternions satisfies a form of the Euclidean property: for any quaternion α=a0+a1i+a2j+a3kα=a_0+a_1𝐢+a_2𝐣+a_3𝐤 with rational coefficients we can choose a Hurwitz quaternion β=b0+b1i+b2j+b3kβ=b_0+b_1𝐢+b_2𝐣+b_3𝐤 so that N(α−β)<1N(α-β)<1 by first choosing b0_0 so that |a0−b0|≤1/4|a_0-b_0|≤1/4 and then b1,b2,b3_1,b_2,b_3 so that |ai−bi|≤1/2|a_i-b_i|≤1/2 for i=1,2,3=1,2,3. Then we obtain
+N(α−β)=(a0−b0)2+(a1−b1)2+(a2−b2)2+(a3−b3)2≤(14)2+(12)2+(12)2+(12)2=1316<1.N(α-β)   =(a_0-b_0)^2+(a_1-b_1)^2+(a_2-b_2)^2+(a_3-b_3)^2
+   ≤(1/4)^2+(1/2)^2+(1/2)^2+(1/2)^2=13/16<1.
+It follows that for any Hurwitz quaternions α,βα,β with α≠0α≠0, there exists a Hurwitz quaternion γγ such that
+N(β−αγ)<N(α).N(β-αγ)<N(α).
+The ring H of Hurwitz quaternions is not commutative, hence it is not an actual Euclidean domain, and it does not have unique factorization in the usual sense. Nevertheless, the property above implies that every right ideal is principal. Thus, there is a Hurwitz quaternion αα such that
+αH=pH+(1−li−mj)H.=pH+(1-l 𝐢-m 𝐣)H.
+In particular, p=αβ=αβ for some Hurwitz quaternion ββ. If ββ were a unit, 1−li−mj1-l 𝐢-m 𝐣 would be a multiple of p, however this is impossible as 1/p−l/pi−m/pj1/p-l/p 𝐢-m/p 𝐣 is not a Hurwitz quaternion for p>2>2. Similarly, if αα were a unit, we would have
+(1+li+mj)H=(1+li+mj)pH+(1+li+mj)(1−li−mj)H⊆pH(1+l 𝐢+m 𝐣)H=(1+l 𝐢+m 𝐣)pH+(1+l 𝐢+m 𝐣)(1-l 𝐢-m 𝐣)H
+so p divides 1+li+mj1+l 𝐢+m 𝐣, which again contradicts the fact that 1/p−l/pi−m/pj1/p-l/p 𝐢-m/p 𝐣 is not a Hurwitz quaternion. Thus, p is not Hurwitz irreducible, as claimed.
+
+
+Generalizations[edit]
+Lagrange's four-square theorem is a special case of the Fermat polygonal number theorem and Waring's problem. Another possible generalization is the following problem: Given natural numbers a,b,c,d,b,c,d, can we solve
+n=ax12+bx22+cx32+dx42=ax_1^2+bx_2^2+cx_3^2+dx_4^2
+for all positive integers n in integers x1,x2,x3,x4_1,x_2,x_3,x_4? The case a=b=c=d=1=b=c=d=1 is answered in the positive by Lagrange's four-square theorem. The general solution was given by Ramanujan.[9] He proved that if we assume, without loss of generality, that a≤b≤c≤d then there are exactly 54 possible choices for a,b,c,d,b,c,d such that the problem is solvable in integers x1,x2,x3,x4_1,x_2,x_3,x_4 for all n. (Ramanujan listed a 55th possibility a=1,b=2,c=5,d=5=1,b=2,c=5,d=5, but in this case the problem is not solvable if n=15=15.[10])
+
+Algorithms[edit]
+In 1986, Michael O. Rabin and Jeffrey Shallit[11] proposed randomized polynomial-time algorithms for computing a single representation n=x12+x22+x32+x42=x_1^2+x_2^2+x_3^2+x_4^2 for a given integer n, in expected running time O(log⁡(n)2)O(log(n)^2). It was further improved to O(log⁡(n)2log⁡(log⁡(n))−1)O(log(n)^2log(log(n))^-1) by Paul Pollack and Enrique Treviño in 2018.[12]
+
+Number of representations[edit]
+Main article: Jacobi's four-square theorem
+The number of representations of a natural number n as the sum of four squares of integers is denoted by r4(n). Jacobi's four-square theorem states that this is eight times the sum of the divisors of n if n is odd and 24 times the sum of the odd divisors of n if n is even (see divisor function), i.e.
+r4(n)=8∑m∣nmifnisodd24∑m|nmoddmifniseven._4(n)=8∑_mm   ifnisodd
+24∑_[  m|n; modd ]m   ifniseven.
+Equivalently, it is eight times the sum of all its divisors which are not divisible by 4, i.e.
+r4(n)=8∑m:4∤m∣nm._4(n)=8∑_m : 4m.
+We may also write this as
+r4(n)=8σ(n)−32σ(n/4),_4(n)=8σ(n)-32σ(n/4) 
+where the second term is to be taken as zero if n is not divisible by 4. In particular, for a prime number p we have the explicit formula r4(p) = 8(p + 1).[13]
+Some values of r4(n) occur infinitely often as r4(n) = r4(2mn) whenever n is even. The values of r4(n)/n can be arbitrarily large: indeed, r4(n)/n is infinitely often larger than 8√log n.[13]
+
+Uniqueness[edit]
+The sequence of positive integers which have only one representation as a sum of four squares of non-negative integers (up to order) is:
+
+1, 2, 3, 5, 6, 7, 8, 11, 14, 15, 23, 24, 32, 56, 96, 128, 224, 384, 512, 896 ... (sequence A006431 in the OEIS).
+These integers consist of the seven odd numbers 1, 3, 5, 7, 11, 15, 23 and all numbers of the form 2(4k),6(4k)2(4^k),6(4^k) or 14(4k)14(4^k).
+The sequence of positive integers which cannot be represented as a sum of four non-zero squares is:
+
+1, 2, 3, 5, 6, 8, 9, 11, 14, 17, 24, 29, 32, 41, 56, 96, 128, 224, 384, 512, 896 ... (sequence A000534 in the OEIS).
+These integers consist of the eight odd numbers 1, 3, 5, 9, 11, 17, 29, 41 and all numbers of the form 2(4k),6(4k)2(4^k),6(4^k) or 14(4k)14(4^k).
+
+Further refinements[edit]
+Lagrange's four-square theorem can be refined in various ways. For example, Zhi-Wei Sun[14] proved that each natural number can be written as a sum of four squares with some requirements on the choice of these four numbers.
+One may also wonder whether it is necessary to use the entire set of square integers to write each natural as the sum of four squares. Eduard Wirsing proved that there exists a set of squares S with |S|=O(n1/4log1/4⁡n)|S|=O(n^1/4log^1/4n) such that every positive integer smaller than or equal n can be written as a sum of at most 4 elements of  S.[15]
+
+See also[edit]
+Fermat's theorem on sums of two squares
+Fermat's polygonal number theorem
+Waring's problem
+Legendre's three-square theorem
+Sum of two squares theorem
+Sum of squares function
+15 and 290 theorems
+Notes[edit]
+
+
+^ Andrews, George E. (1994), Number Theory, Dover Publications, p. 144, ISBN 0-486-68252-8
+
+^ Ireland & Rosen 1990.
+
+^ Sarnak 2013.
+
+^ Landau 1958, Theorems 166 to 169.
+
+^ Hardy & Wright 2008, Theorem 369.
+
+^ Niven & Zuckerman 1960, paragraph 5.7.
+
+^ Here the argument is a direct proof by contradiction. With the initial assumption that m > 2, m < p, is some integer such that mp is the sum of four squares (not necessarily the smallest), the argument could be modified to become an infinite descent argument in the spirit of Fermat.
+
+^ a b Stillwell 2003, pp. 138–157.
+
+^ Ramanujan 1917.
+
+^ Oh 2000.
+
+^ Rabin & Shallit 1986.
+
+^ Pollack & Treviño 2018.
+
+^ a b Williams 2011, p. 119.
+
+^ Sun 2017.
+
+^ Spencer 1996.
+
+
+References[edit]
+Hardy, G. H.; Wright, E. M. (2008) [1938]. Heath-Brown, D. R.; Silverman, J. H.; Wiles, Andrew (eds.). An Introduction to the Theory of Numbers (6th ed.). Oxford University Press. ISBN 978-0-19-921985-8.
+Ireland, Kenneth; Rosen, Michael (1990). A Classical Introduction to Modern Number Theory (2nd ed.). Springer. doi:10.1007/978-1-4757-2103-4. ISBN 978-1-4419-3094-1.
+Landau, Edmund (1958) [1927]. Elementary Number Theory. Vol. 125. Translated by Goodman, Jacob E. (2nd ed.). AMS Chelsea Publishing.
+Niven, Ivan; Zuckerman, Herbert S. (1960). An introduction to the theory of numbers. Wiley.
+Oh, Byeong-Kweon (2000). "Representations of Binary Forms by Quinary Quadratic Forms" (PDF). Trends in Mathematics. 3 (1): 102–107.
+Rabin, M. O.; Shallit, J. O. (1986). "Randomized Algorithms in Number Theory". Communications on Pure and Applied Mathematics. 39 (S1): S239–S256. doi:10.1002/cpa.3160390713.
+Ramanujan, S. (1917). "On the expression of a number in the form ax2 + by2 + cz2 + dw2". Proc. Camb. Phil. Soc. 19: 11–21.
+Sarnak, Peter (2013). "The Ramanujan Conjecture and some Diophantine Equations". YouTube (Lecture at Tata Institute of Fundamental Research). ICTS Lecture Series. Bangalore, India.
+Stillwell, John (2003). Elements of Number Theory. Undergraduate Texts in Mathematics. Springer. doi:10.1007/978-0-387-21735-2. ISBN 978-0-387-95587-2. Zbl 1112.11002.
+Sun, Z.-W. (2017). "Refining Lagrange's four-square theorem". J. Number Theory. 175: 167–190. arXiv:1604.06723. doi:10.1016/j.jnt.2016.11.008. S2CID 119597024.
+Williams, Kenneth S. (2011). Number theory in the spirit of Liouville. London Mathematical Society Student Texts. Vol. 76. Cambridge University Press. ISBN 978-0-521-17562-3. Zbl 1227.11002.
+Spencer, Joel (1996). "Four Squares with Few Squares". Number Theory: New York Seminar 1991–1995. Springer US. pp. 295–297. doi:10.1007/978-1-4612-2418-1_22. ISBN 9780387948263.
+Pollack, P.; Treviño, E. (2018). "Finding the four squares in Lagrange's theorem" (PDF). Integers. 18A: A15.
+External links[edit]
+Proof at PlanetMath.org
+Another proof
+an applet decomposing numbers as sums of four squares
+OEIS index to sequences related to sums of squares and sums of cubes
+vteJoseph-Louis Lagrange
+Lagrange multiplier
+Lagrange polynomial
+Lagrange's four-square theorem
+Lagrange's theorem (group theory)
+Lagrange's identity
+Lagrange's identity (boundary value problem)
+Lagrange's trigonometric identities
+Lagrange multiplier
+Lagrangian mechanics
+Lagrange's mean value theorem
+Lagrange stability
+
+
+
+

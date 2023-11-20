@@ -1,0 +1,211 @@
+Euclidean Wightman distributions
+In quantum field theory, the Wightman distributions can be analytically continued to analytic functions in Euclidean space with the domain restricted to the ordered set of points in Euclidean space with no coinciding points.[1] These functions are called the Schwinger functions (named after Julian Schwinger) and they are real-analytic, symmetric under the permutation of arguments (antisymmetric for fermionic fields), Euclidean covariant and satisfy a property known as reflection positivity. Properties of Schwinger functions are known as Osterwalder–Schrader axioms (named after Konrad Osterwalder and Robert Schrader).[2] Schwinger functions are also referred to as Euclidean correlation functions.
+
+
+Osterwalder–Schrader axioms[edit]
+Here we describe Osterwalder–Schrader (OS) axioms for a Euclidean quantum field theory of a Hermitian scalar field ϕ(x)ϕ(x), x∈Rd∈ℝ^d. Note that a typical quantum field theory will contain infinitely many local operators, including also composite operators, and their correlators should also satisfy OS axioms similar to the ones described below. 
+The Schwinger functions of ϕϕ are denoted as
+
+Sn(x1,…,xn)≡⟨ϕ(x1)ϕ(x2)…ϕ(xn)⟩,xk∈Rd._n(x_1,…,x_n)≡⟨ϕ(x_1)ϕ(x_2)…ϕ(x_n)⟩,_k∈ℝ^d.
+OS axioms from [2] are numbered (E0)-(E4) and have the following meaning:  
+
+(E0) Temperedness
+(E1) Euclidean covariance
+(E2) Positivity
+(E3) Symmetry
+(E4) Cluster property
+Temperedness[edit]
+Temperedness axiom (E0) says that Schwinger functions are tempered distributions away from coincident points. This means that they can be integrated against Schwartz test functions which vanish with all their derivatives at configurations where two or more points coincide. It can be shown from this axiom and other OS axioms (but not the linear growth condition) that Schwinger functions are in fact real-analytic away from coincident points.
+
+Euclidean covariance[edit]
+Euclidean covariance axiom (E1) says that Schwinger functions transform covariantly under rotations and translations, namely:
+
+Sn(x1,…,xn)=Sn(Rx1+b,…,Rxn+b)_n(x_1,…,x_n)=S_n(Rx_1+b,…,Rx_n+b)
+for an arbitrary rotation matrix R∈SO(d)(d) and an arbitrary translation vector b∈Rd∈ℝ^d. OS axioms can be formulated for Schwinger functions of fields transforming in arbitrary representations of the rotation group.[2][3]
+
+Symmetry[edit]
+Symmetry axiom (E3) says that Schwinger functions are invariant under permutations of points:
+
+Sn(x1,…,xn)=Sn(xπ(1),…,xπ(n))_n(x_1,…,x_n)=S_n(x_π(1),…,x_π(n)),
+where ππ is an arbitrary permutation of 1,…,n{1,…,n}. Schwinger functions of fermionic fields are instead antisymmetric; for them this equation would have a ± sign equal to the signature of the permutation.
+
+Cluster property[edit]
+Cluster property (E4) says that Schwinger function Sp+q_p+q reduces to the product SpSq_pS_q if two groups of points are separated from each other by a large constant translation:
+
+limb→∞Sp+q(x1,…,xp,xp+1+b,…,xp+q+b)=Sp(x1,…,xp)Sq(xp+1,…,xp+q)lim_b→∞S_p+q(x_1,…,x_p,x_p+1+b,…,x_p+q+b)=S_p(x_1,…,x_p)S_q(x_p+1,…,x_p+q).
+The limit is understood in the sense of distributions. There is also a technical assumption that the two groups of points lie on two sides of the x0=0^0=0 hyperplane, while the vector b is parallel to it:
+
+x10,…,xp0>0,xp+10,…,xp+q0<0,b0=0._1^0,…,x_p^0>0,_p+1^0,…,x_p+q^0<0,^0=0.
+Reflection positivity[edit]
+Positivity axioms (E2) asserts the following property called (Osterwalder–Schrader) reflection positivity. Pick any arbitrary coordinate τ and pick a test function fN with N points as its arguments. Assume fN has its support in the "time-ordered" subset of N points with 0 < τ1 < ... < τN. Choose one such fN for each positive N, with the f's being zero for all N larger than some integer M. Given a point x, let xθ^θ be the reflected point about the τ = 0 hyperplane. Then,
+
+∑m,n∫ddx1⋯ddxmddy1⋯ddynSm+n(x1,…,xm,y1,…,yn)fm(x1θ,…,xmθ)∗fn(y1,…,yn)≥0∑_m,n^dx_1^dx_m d^dy_1^dy_nS_m+n(x_1,…,x_m,y_1,…,y_n)f_m(x_1^θ,…,x_m^θ)^*f_n(y_1,…,y_n)≥0
+where * represents complex conjugation. 
+Sometimes in theoretical physics literature reflection positivity is stated as the requirement that the Schwinger function of arbitrary even order should be non-negative if points are inserted symmetrically with respect to the  τ=0τ=0 hyperplane:
+
+S2n(x1,…,xn,xnθ,…,x1θ)≥0_2n(x_1,…,x_n,x_n^θ,…,x_1^θ)≥0.
+This property indeed follows from the reflection positivity but it is weaker than full reflection positivity.
+
+Intuitive understanding[edit]
+One way of (formally) constructing Schwinger functions which satisfy the above properties is through the Euclidean path integral. In particular, Euclidean path integrals (formally) satisfy reflection positivity.  Let F be any polynomial functional of the field φ which only depends upon the value of φ(x) for those points x whose τ coordinates are nonnegative. Then
+
+∫DϕF[ϕ(x)]F[ϕ(xθ)]∗e−S[ϕ]=∫Dϕ0∫ϕ+(τ=0)=ϕ0Dϕ+F[ϕ+]e−S+[ϕ+]∫ϕ−(τ=0)=ϕ0Dϕ−F[(ϕ−)θ]∗e−S−[ϕ−].∫𝒟[ϕ(x)]F[ϕ(x^θ)]^*e^-S[ϕ]=∫𝒟ϕ_0∫_ϕ_+(τ=0)=ϕ_0𝒟ϕ_+F[ϕ_+]e^-S_+[ϕ_+]∫_ϕ_-(τ=0)=ϕ_0𝒟ϕ_-F[(ϕ_-)^θ]^*e^-S_-[ϕ_-].
+Since the action S is real and can be split into S+_+, which only depends on φ on the positive half-space (ϕ+ϕ_+), and S−_- which only depends upon φ on the negative half-space (ϕ−ϕ_-), and if S also happens to be invariant under the combined action of taking a reflection and complex conjugating all the fields, then the previous quantity has to be nonnegative.
+
+Osterwalder–Schrader theorem[edit]
+The Osterwalder–Schrader theorem[4] states that Euclidean Schwinger functions which satisfy the above axioms (E0)-(E4) and an additional property (E0') called linear growth condition can be analytically continued to Lorentzian Wightman distributions which satisfy Wightman axioms and thus define a quantum field theory.
+
+Linear growth condition[edit]
+This condition, called (E0') in,[4] asserts that when the Schwinger function of order n is paired with an arbitrary Schwartz test function f which vanishes at coincident points, we have the following bound:
+
+|Sn(f)|≤σn|f|C⋅n,|S_n(f)|≤σ_n|f|_C,
+where C∈N∈ℕ is an integer constant, |f|C⋅n|f|_C is the Schwartz-space seminorm of order N=C⋅n=C, i.e.
+
+|f|N=sup|α|≤N,x∈Rd|(1+|x|)NDαf(x)|,|f|_N=sup_|α|,x∈ℝ^d|(1+|x|)^ND^αf(x)|,
+and σnσ_n a sequence of constants of factorial growth, i.e. σn≤A(n!)Bσ_n(n!)^B with some constants A,B,B.
+Linear growth condition is subtle as it has to be satisfied for all Schwinger functions simultaneously. It also has not been derived from the Wightman axioms, so that the system of OS axioms (E0)-(E4) plus the linear growth condition (E0') appears to be stronger than the Wightman axioms.
+
+History[edit]
+At first, Osterwalder and Schrader claimed a stronger theorem that the axioms (E0)-(E4) by themselves imply the Wightman axioms,[2] however their proof contained an error which could not be corrected without adding extra assumptions. Two years later they published a new theorem, with the linear growth condition added as an assumption, and a correct proof.[4] The new proof is based on a complicated inductive argument (proposed also by Vladimir Glaser),[5] by which the region of analyticity of Schwinger functions is gradually extended towards the Minkowski space, and Wightman distributions are recovered as a limit. The linear growth condition (E0') is crucially used to show that the limit exists and is a tempered distribution.
+Osterwalder's and Schrader's paper also contains another theorem replacing (E0') by yet another assumption called (E0)ˇ(̌Ě0̌)̌.[4] This other theorem is rarely used, since (E0)ˇ(̌Ě0̌)̌ is hard to check in practice.[3]
+
+Other axioms for Schwinger functions[edit]
+Axioms by Glimm and Jaffe[edit]
+An alternative approach to axiomatization of Euclidean correlators is described by Glimm and Jaffe in their book.[6] In this approach one assumes that one is given a measure dμμ on the space of distributions ϕ∈D′(Rd)ϕ'(ℝ^d). One then considers a generating functional
+
+S(f)=∫eϕ(f)dμ,f∈D(Rd)(f)=^ϕ(f)dμ,(ℝ^d)
+which is assumed to satisfy properties OS0-OS4:
+
+(OS0) Analyticity. This asserts that
+z=(z1,…,zn)↦S(∑i=1nzifi)=(z_1,…,z_n)(∑_i=1^nz_if_i)
+is an entire-analytic function of z∈Rn∈ℝ^n for any collection of n compactly supported test functions fi∈D(Rd)_i(ℝ^d). Intuitively, this means that the measure dμμ decays faster than any exponential.
+
+(OS1) Regularity. This demands a growth bound for S(f)(f) in terms of f, such as|S(f)|≤exp⁡(C∫ddx|f(x)|)|S(f)|≤exp(C^dx|f(x)|).  See [6] for the precise condition.
+(OS2) Euclidean invariance. This says that the functional S(f)(f) is invariant under Euclidean transformations f(x)↦f(Rx+b)(x)(Rx+b).
+(OS3) Reflection positivity. Take a finite sequence of test functions fi∈D(Rd)_i(ℝ^d) which are all supported in the upper half-space i.e. at x0>0^0>0. Denote by θfi(x)=fi(θx)_i(x)=f_i() where θθ is a reflection operation defined above. This axioms says that the matrix Mij=S(fi+θfj)_ij=S(f_i+_j) has to be positive semidefinite.
+(OS4) Ergodicity. The time translation semigroup acts ergodically on the measure space (D′(Rd),dμ)(D'(ℝ^d),dμ). See [6] for the precise condition.
+Relation to Osterwalder–Schrader axioms[edit]
+Although the above axioms were named by Glimm and Jaffe (OS0)-(OS4) in honor of Osterwalder and Schrader, they are not equivalent to the Osterwalder–Schrader axioms.
+Given (OS0)-(OS4), one can define Schwinger functions of ϕϕ as moments of the measure dμμ, and show that these moments satisfy Osterwalder–Schrader axioms (E0)-(E4) and also the linear growth conditions (E0'). Then one can appeal to the Osterwalder–Schrader theorem to show that Wightman functions are tempered distributions. Alternatively, and much easier, one can derive Wightman axioms directly from (OS0)-(OS4).[6]
+Note however that the full quantum field theory will contain infinitely many other local operators apart from ϕϕ, such as ϕ2ϕ^2, ϕ4ϕ^4 and other composite operators built from ϕϕ and its derivatives. It's not easy to extract these Schwinger functions from the measure  dμμ and show that they satisfy OS axioms, as it should be the case.
+To summarize, the axioms called (OS0)-(OS4) by Glimm and Jaffe are stronger than the OS axioms as far as the correlators of the field  ϕϕ  are concerned, but weaker than then the full set of OS axioms since they don't say much about correlators of composite operators.
+
+Nelson's axioms[edit]
+These axioms were proposed by Edward Nelson.[7] See also their description in the book of Barry Simon.[8] Like in the above axioms by Glimm and Jaffe, one assumes that the field ϕ∈D′(Rd)ϕ'(ℝ^d) is a random distribution with a measure dμμ. This measure is sufficiently regular so that the field ϕϕ has regularity of a Sobolev space of negative derivative order. The crucial feature of these axioms is to consider the field restricted to a surface. One of the axioms is Markov property, which formalizes the intuitive notion that the state of the field inside a closed surface depends only on the state of the field on the surface.  
+
+See also[edit]
+Wick rotation
+Axiomatic quantum field theory
+Wightman axioms
+References[edit]
+
+
+^ Streater, R. F.; Wightman, A.S. (2000). PCT, spin and statistics, and all that. Princeton, N.J: Princeton University Press. ISBN 978-0-691-07062-9. OCLC 953694720.
+
+^ a b c d Osterwalder, K., and Schrader, R.: "Axioms for Euclidean Green’s functions," Comm. Math. Phys. 31 (1973), 83–112; 42 (1975), 281–305.
+
+^ a b Kravchuk, Petr; Qiao, Jiaxin; Rychkov, Slava (2021-04-05). "Distributions in CFT II. Minkowski Space". arXiv:2104.02090v1.
+
+^ a b c d Osterwalder, Konrad; Schrader, Robert (1975). "Axioms for Euclidean Green's functions II". Communications in Mathematical Physics. Springer Science and Business Media LLC. 42 (3): 281–305. doi:10.1007/bf01608978. ISSN 0010-3616. S2CID 119389461.
+
+^ Glaser, V. (1974). "On the equivalence of the Euclidean and Wightman formulation of field theory". Communications in Mathematical Physics. Springer Science and Business Media LLC. 37 (4): 257–272. doi:10.1007/bf01645941. ISSN 0010-3616. S2CID 121257568.
+
+^ a b c d Glimm, James; Jaffe, Arthur (1987). Quantum Physics : a Functional Integral Point of View. New York, NY: Springer New York. ISBN 978-1-4612-4728-9. OCLC 852790676.
+
+^ Nelson, Edward (1973-01-01). "Construction of quantum fields from Markoff fields". Journal of Functional Analysis. 12 (1): 97–112. doi:10.1016/0022-1236(73)90091-8. ISSN 0022-1236.
+
+^ Simon, Barry (1974). The P(phi)_2 Euclidean (quantum) field theory. Princeton, New Jersey: Princeton University Press. ISBN 0-691-08144-1. OCLC 905864308.
+
+
+vteQuantum field theoriesTheories
+Algebraic QFT
+Axiomatic QFT
+Conformal field theory
+Lattice field theory
+Noncommutative QFT
+Gauge theory
+QFT in curved spacetime
+String theory
+Supergravity
+Thermal QFT
+Topological QFT
+Two-dimensional conformal field theory
+ModelsRegular
+Born–Infeld
+Euler–Heisenberg
+Ginzburg–Landau
+Non-linear sigma
+Proca
+Quantum electrodynamics
+Quantum chromodynamics
+Quartic interaction
+Scalar electrodynamics
+Scalar chromodynamics
+Soler
+Yang–Mills
+Yang–Mills–Higgs
+Yukawa
+Low dimensional
+2D Yang–Mills
+Bullough–Dodd
+Gross–Neveu
+Schwinger
+Sine-Gordon
+Thirring
+Thirring–Wess
+Toda
+Conformal
+2D free massless scalar
+Liouville
+Minimal
+Polyakov
+Wess–Zumino–Witten
+Supersymmetric
+Wess–Zumino
+N = 1 super Yang–Mills
+Seiberg–Witten
+Super QCD
+Superconformal
+6D (2,0)
+ABJM
+N = 4 super Yang–Mills
+Supergravity
+Higher dimensional
+N = 8
+Pure 4D N = 1
+Topological
+BF
+Chern–Simons
+Particle theory
+Chiral
+Fermi
+MSSM
+Nambu–Jona-Lasinio
+NMSSM
+Standard Model
+Stueckelberg
+Related
+Casimir effect
+Cosmic string
+History
+Loop quantum gravity
+Loop quantum cosmology
+On shell and off shell
+Quantum chaos
+Quantum dynamics
+Quantum foam
+Quantum fluctuations
+links
+Quantum gravity
+links
+Quantum hadrodynamics
+Quantum hydrodynamics
+Quantum information
+Quantum information science
+links
+Quantum logic
+Quantum thermodynamics
+See also:  Template:Quantum mechanics topics
+
+
+

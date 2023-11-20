@@ -1,0 +1,105 @@
+For Mertens's theorem on convergence of Cauchy products of series, see Cauchy product § Convergence and Mertens' theorem.
+
+
+This article utilizes technical mathematical notation for logarithms. All instances of log(x) without a subscript base should be interpreted as a natural logarithm, commonly notated as ln(x) or loge(x).
+
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (May 2023) (Learn how and when to remove this template message)
+In analytic number theory, Mertens' theorems are three 1874 results related to the density of prime numbers proved by Franz Mertens.[1]
+In the following, let p≤n mean all primes not exceeding n.
+
+
+First theorem[edit]
+Mertens' first theorem is that
+
+∑p≤nlog⁡pp−log⁡n∑_p/p-
+does not exceed 2 in absolute value for any n≥2≥2. (A083343)
+
+Second theorem[edit]
+Mertens' second theorem is
+
+limn→∞(∑p≤n1p−log⁡log⁡n−M)=0,lim_n→∞(∑_p1/p-log-M)=0,
+where M is the Meissel–Mertens constant (A077761). More precisely, Mertens[1] proves that the expression under the limit does not in absolute value exceed
+
+4log⁡(n+1)+2nlog⁡n4/log(n+1)+2/n
+for any n≥2≥2.
+
+Proof[edit]
+The main step in the proof of Mertens' second theorem is 
+
+O(n)+nlog⁡n=log⁡n!=∑pk≤n⌊n/pk⌋log⁡p=∑pk≤n(npk+O(1))log⁡p=n∑pk≤nlog⁡ppk+O(n)(n)+n=!=∑_p^k/p^k⌋=∑_p^k(n/p^k+O(1))=n∑_p^k/p^kO(n)
+where the last equality needs ∑pk≤nlog⁡p=O(n)∑_p^k=O(n) which follows from ∑p∈(n,2n]log⁡p≤log⁡(2nn)=O(n)∑_p∈(n,2n]≤log2n=O(n).
+Thus, we have proved that
+
+∑pk≤nlog⁡ppk=log⁡n+O(1)∑_p^k/p^k=+O(1).
+Since the sum over prime powers with k≥2≥2 converges, this implies
+
+∑p≤nlog⁡pp=log⁡n+O(1)∑_p/p=+O(1).
+A partial summation yields
+
+∑p≤n1p=log⁡log⁡n+M+O(1/log⁡n)∑_p1/p=log+M+O(1/).
+Changes in sign[edit]
+In a paper [2] on the growth rate of the sum-of-divisors function published in 1983, Guy Robin proved that in Mertens' 2nd theorem the difference
+
+∑p≤n1p−log⁡log⁡n−M∑_p1/p-log-M
+changes sign infinitely often, and that in Mertens' 3rd theorem the difference
+
+log⁡n∏p≤n(1−1p)−e−γ∏_p(1-1/p)-e^-γ
+changes sign infinitely often. Robin's results are analogous to Littlewood's famous theorem that the difference π(x) − li(x) changes sign infinitely often. No analog of the Skewes number (an upper bound on the first natural number x for which π(x) > li(x)) is known in the case of Mertens' 2nd and 3rd theorems.
+
+Relation to the prime number theorem [edit]
+Regarding this asymptotic formula Mertens refers in his paper to "two curious formula of Legendre",[1] the first one being Mertens' second theorem's prototype (and the second one being Mertens' third theorem's prototype: see the very first lines of the paper). He recalls that it is contained in Legendre's third edition of his "Théorie des nombres" (1830; it is in fact already mentioned in the second edition, 1808), and also that a more elaborate version was proved by Chebyshev in 1851.[3] Note that, already in 1737, Euler knew the asymptotic behaviour of this sum.
+Mertens diplomatically describes his proof as more precise and rigorous. In reality none of the previous proofs are acceptable by modern standards: Euler's computations involve the infinity (and the hyperbolic logarithm of infinity, and the logarithm of the logarithm of infinity!); Legendre's argument is heuristic; and Chebyshev's proof, although perfectly sound, makes use of the Legendre-Gauss conjecture, which was not proved until 1896 and became better known as the prime number theorem.
+Mertens' proof does not appeal to any unproved hypothesis (in 1874), and only to elementary real analysis. It comes 22 years before the first proof of the prime number theorem which, by contrast, relies on a careful analysis of the behavior of the Riemann zeta function as a function of a complex variable.
+Mertens' proof is in that respect remarkable. Indeed, with modern notation it yields
+
+∑p≤x1p=log⁡log⁡x+M+O(1/log⁡x)∑_p1/p=log+M+O(1/)
+whereas the prime number theorem (in its simplest form, without error estimate), can be shown to imply [4]
+
+∑p≤x1p=log⁡log⁡x+M+o(1/log⁡x).∑_p1/p=log+M+o(1/).
+In 1909 Edmund Landau, by using the best version of the prime number theorem then at his disposition, proved[5] that 
+
+∑p≤x1p=log⁡log⁡x+M+O(e−(log⁡x)1/14)∑_p1/p=log+M+O(e^-()^1/14)
+holds; in particular the error term is smaller than 1/(log⁡x)k1/()^k for any fixed integer k. A simple summation by parts exploiting the strongest form known of the prime number theorem improves this to
+
+∑p≤x1p=log⁡log⁡x+M+O(e−c(log⁡x)3/5(log⁡log⁡x)−1/5)∑_p1/p=log+M+O(e^-c()^3/5(log)^-1/5)
+for some c>0>0.
+Similarly a partial summation shows that ∑p≤xlog⁡pp=log⁡x+C+o(1)∑_p/p=+C+o(1) is implied by the PNT.
+
+Third theorem[edit]
+Merten's third theorem is
+
+limn→∞log⁡n∏p≤n(1−1p)=e−γ≈0.561459483566885,lim_n→∞∏_p(1-1/p)=e^-γ≈0.561459483566885,
+where γ is the Euler–Mascheroni constant (A001620).
+
+Relation to sieve theory[edit]
+An estimate of the probability of X (X≫n) having no factor ≤n is given by
+
+∏p≤n(1−1p)∏_p(1-1/p)
+This is closely related to Mertens' third theorem which gives an asymptotic approximation of
+
+P(p∤X∀p≤n)=1eγlog⁡n(p
+forallp)=1/e^γ
+References[edit]
+
+
+^ a b c F. Mertens. J. reine angew. Math. 78 (1874), 46–62 Ein Beitrag zur analytischen Zahlentheorie
+
+^ Robin, G. (1983). "Sur l'ordre maximum de la fonction somme des diviseurs". Séminaire Delange–Pisot–Poitou, Théorie des nombres (1981–1982). Progress in Mathematics. 38: 233–244.
+
+^ P.L. Tchebychev. Sur la fonction qui détermine la totalité des nombres premiers. Mémoires présentés à l'Académie Impériale des Sciences de St-Pétersbourg par divers savants, VI 1851, 141–157
+
+^  I.3 of: G. Tenenbaum. Introduction to analytic and probabilistic number theory. Translated from the second French edition (1995) by C. B. Thomas. Cambridge Studies in Advanced Mathematics, 46. Cambridge University Press, Cambridge,1995.
+
+^ Edmund Landau. Handbuch der Lehre von der Verteilung der Primzahlen, Teubner, Leipzig 1909, Repr.  Chelsea New York 1953, § 55, p. 197-203.
+
+
+Further reading[edit]
+Yaglom and Yaglom Challenging mathematical problems with elementary solutions Vol 2, problems 171, 173, 174
+External links[edit]
+Weisstein, Eric W. "Mertens Constant". MathWorld.
+Sondow, Jonathan & Weisstein, Eric W. "Mertens Theorem". MathWorld.
+Weisstein, Eric W. "Mertens' Second Theorem". MathWorld.
+Varun Rajkumar, π(x) and the Sieve of Eratosthenes
+
+
+

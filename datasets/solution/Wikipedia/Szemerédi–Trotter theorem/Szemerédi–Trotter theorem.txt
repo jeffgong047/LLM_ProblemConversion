@@ -1,0 +1,143 @@
+Bound on the number of incidences between points and lines in the plane
+The Szemerédi–Trotter theorem is a mathematical result in the field of Discrete geometry. It asserts that given n points and m lines in the Euclidean plane, the number of incidences (i.e., the number of point-line pairs, such that the point lies on the line) is
+O(n2/3m2/3+n+m).(n^2/3m^2/3+n+m).
+This bound cannot be improved, except in terms of the implicit constants.
+As for the implicit constants, it was shown by János Pach, Radoš Radoičić, Gábor Tardos, and Géza Tóth[1] that the upper bound 2.5n2/3m2/3+n+m2.5n^2/3m^2/3+n+m holds. Since then better constants are known due to better crossing lemma constants; the current best is 2.44.[2] On the other hand, Pach and Tóth showed that the statement does not hold true if one replaces the coefficient 2.5 with 0.42.[3]
+An equivalent formulation of the theorem is the following. Given n  points and an integer k ≥ 2, the number of lines which pass through at least k of the points is
+O(n2k3+nk).(n^2/k^3+n/k).
+The original proof of Endre Szemerédi and William T. Trotter was somewhat complicated, using a combinatorial technique known as cell decomposition.[4][5]  Later, László Székely discovered a much simpler proof using the crossing number inequality for graphs.[6] (See below.)
+The Szemerédi–Trotter theorem has a number of consequences, including Beck's theorem in incidence geometry and the Erdős-Szemerédi sum-product problem in additive combinatorics.
+
+
+Proof of the first formulation[edit]
+We may discard the lines which contain two or fewer of the points, as they can contribute at most 2m incidences to the total number. Thus we may assume that every line contains at least three of the points.
+If a line contains k points, then it will contain k − 1 line segments which connect two consecutive points along the line. Because k ≥ 3 after discarding the two-point lines, it follows that k − 1 ≥ k/2, so the number of these line segments on each line is at least half the number of incidences on that line. Summing over all of the lines, the number of these line segments is again at least half the total number of incidences. Thus if e denotes the number of such line segments, it will suffice to show that
+e=O(n2/3m2/3+n+m).=O(n^2/3m^2/3+n+m).
+Now consider the graph formed by using the n  points as vertices, and the e line segments as edges. Since each line segment lies on one of m lines, and any two lines intersect in at most one point, the crossing number of this graph is at most the number of points where two lines intersect, which is at most m(m − 1)/2. The crossing number inequality implies that either e ≤ 7.5n, or that m(m − 1)/2 ≥ e3 / 33.75n2. In either case e ≤ 3.24(nm)2/3 + 7.5n, giving the desired bound
+
+e=O(n2/3m2/3+n+m).=O(n^2/3m^2/3+n+m).
+Proof of the second formulation[edit]
+Since every pair of points can be connected by at most one line, there can be at most n(n − 1)/2 lines which can connect at k or more points, since k ≥ 2. This bound will prove the theorem when k is small (e.g. if k ≤ C for some absolute constant C).  Thus, we need only consider the case when k is large, say k ≥ C.
+Suppose that there are m lines that each contain at least k points. These lines generate at least mk incidences, and so by the first formulation of the Szemerédi–Trotter theorem, we have
+mk=O(n2/3m2/3+n+m),=O(n^2/3m^2/3+n+m),
+and so at least one of the statements mk=O(n2/3m2/3),mk=O(n)=O(n^2/3m^2/3),mk=O(n), or mk=O(m)=O(m) is true.  The third possibility is ruled out since k was assumed to be large, so we are left with the first two.  But in either of these two cases, some elementary algebra will give the bound m=O(n2/k3+n/k)=O(n^2/k^3+n/k) as desired.
+
+Optimality[edit]
+Except for its constant, the Szemerédi–Trotter incidence bound cannot be improved. To see this, consider for any positive integer N∈N∈ℕ a set of points on the integer lattice
+P=(a,b)∈Z2:1≤a≤N;1≤b≤2N2,={(a,b)∈ℤ^2 ;1≤2N^2},
+and a set of lines
+L=(x,mx+b):m,b∈Z;1≤m≤N;1≤b≤N2.={(x,mx+b) ,b∈ℤ;1;1^2}.
+Clearly, |P|=2N3|P|=2N^3 and |L|=N3|L|=N^3. Since each line is incident to N points (i.e., once for each x∈1,⋯,N∈{1,⋯,N}), the number of incidences is N4^4 which matches the upper bound.[7]
+
+Generalization to Rdℝ^d[edit]
+One generalization of this result to arbitrary dimension, Rdℝ^d, was found by Agarwal and Aronov.[8] Given a set of n points, S, and the set of m hyperplanes, H, which are each spanned by S, the number of incidences between S and H is bounded above by
+O(m2/3nd/3+nd−1).(m^2/3n^d/3+n^d-1).
+Equivalently, the number of hyperplanes in H containing k  or more points is bounded above by
+O(ndk3+nd−1k).(n^d/k^3+n^d-1/k).
+A construction due to Edelsbrunner shows this bound to be asymptotically optimal.[9]
+József Solymosi and Terence Tao obtained near sharp upper bounds for the number of incidences between points and algebraic varieties in higher dimensions, when the points and varieties satisfy "certain pseudo-line type axioms". Their proof uses the Polynomial Ham Sandwich Theorem.[10]
+
+In C2ℂ^2[edit]
+Many proofs of the Szemerédi–Trotter theorem over Rℝ rely in a crucial way on the topology of Euclidean space, so do not extend easily to other fields. e.g. the original proof of Szemerédi and Trotter; the polynomial partitioning proof and the crossing number proof do not extend to the complex plane.
+Tóth successfully generalized the original proof of Szemerédi and Trotter to the complex plane C2ℂ^2 by introducing additional ideas.[11] This result was also obtained independently and through a different method by Zahl.[12] The implicit constant in the bound is not the same in the complex numbers: in Tóth's proof the constant can be taken to be 106010^60; the constant is not explicit in Zahl's proof.
+When the point set is a Cartesian product, Solymosi and Tardos show that the Szemerédi-Trotter bound holds using a much simpler argument.[13]
+
+In finite fields[edit]
+Let F𝔽 be a field.
+A Szemerédi-Trotter bound is impossible in general due to the following example, stated here in Fp𝔽_p: let P=Fp×Fp𝒫=𝔽_p×𝔽_p be the set of all p2^2 points and let Lℒ be the set of all p2^2 lines in the plane. Since each line contains p points, there are p3^3 incidences. On the other hand, a Szemerédi-Trotter bound would give O((p2)2/3(p2)2/3+p2)=O(p8/3)((p^2)^2/3(p^2)^2/3+p^2)=O(p^8/3) incidences. This example shows that the trivial, combinatorial incidence bound is tight.
+Bourgain, Katz and Tao[14] show that if this example is excluded, then an incidence bound that is an improvement on the trivial bound can be attained.
+Incidence bounds over finite fields are of two types: (i) when at least one of the set of points or lines is `large' in terms of the characteristic of the field; (ii) both the set of points and the set of lines are `small' in terms of the characteristic.
+
+Large set incidence bounds[edit]
+Let q be an odd prime power. Then Vinh[15] showed that the number of incidences between n points and m lines in Fq2𝔽_q^2 is at most
+nmq+qnm.nm/q+√(qnm).
+Note that there is no implicit constant in this bound.
+
+Small set incidence bounds[edit]
+Let F𝔽 be a field of characteristic p≠2≠2. Stevens and de Zeeuw[16] show that the number of incidences between  n points and m lines in F2𝔽^2 is
+O(m11/15n11/15)(m^11/15n^11/15)
+under the condition m−2n13≤p15^-2n^13^15 in positive characteristic. (In a field of characteristic zero, this condition is not necessary.) This bound is better than the trivial incidence estimate when m7/8<n<m8/7^7/8<n<m^8/7.
+If the point set is a Cartesian Product, then they show an improved incidence bound: let P=A×B⊆F2𝒫=A⊆𝔽^2 be a finite set of points with |A|≤|B||A|≤|B| and let Lℒ be a set of lines in the plane. Suppose that |A||B|2≤|L|3|A||B|^2≤|ℒ|^3 and in positive characteristic that |A||L|≤p2|A||ℒ|^2. Then the number of incidences between P𝒫 and Lℒ is
+O(|A|3/4|B|1/2|L|3/4+|L|).(|A|^3/4|B|^1/2|ℒ|^3/4+|ℒ|).
+This bound is optimal. Note that by point-line duality in the plane, this incidence bound can be rephrased for an arbitrary point set and a set of lines having a Cartesian product structure.
+In both the reals and arbitrary fields, Rudnev and Shkredov[17] show an incidence bound for when both the point set and the line set has a Cartesian product structure. This is sometimes better than the above bounds.
+
+References[edit]
+
+
+^ Pach, János; Radoičić, Radoš; Tardos, Gábor; Tóth, Géza (2006). "Improving the Crossing Lemma by Finding More Crossings in Sparse Graphs". Discrete & Computational Geometry. 36 (4): 527–552. doi:10.1007/s00454-006-1264-9.
+
+^ Ackerman, Eyal (December 2019). "On topological graphs with at most four crossings per edge". Computational Geometry. 85: 101574. arXiv:1509.01932. doi:10.1016/j.comgeo.2019.101574. ISSN 0925-7721. S2CID 16847443.
+
+^ Pach, János; Tóth, Géza (1997). "Graphs drawn with few crossings per edge". Combinatorica. 17 (3): 427–439. CiteSeerX 10.1.1.47.4690. doi:10.1007/BF01215922. S2CID 20480170.
+
+^ Szemerédi, Endre; Trotter, William T. (1983). "Extremal problems in discrete geometry". Combinatorica. 3 (3–4): 381–392. doi:10.1007/BF02579194. MR 0729791. S2CID 1750834.
+
+^ Szemerédi, Endre; Trotter, William T. (1983). "A Combinatorial Distinction Between the Euclidean and Projective Planes" (PDF). European Journal of Combinatorics. 4 (4): 385–394. doi:10.1016/S0195-6698(83)80036-5.
+
+^ Székely, László A. (1997). "Crossing numbers and hard Erdős problems in discrete geometry". Combinatorics, Probability and Computing. 6 (3): 353–358. CiteSeerX 10.1.1.125.1484. doi:10.1017/S0963548397002976. MR 1464571. S2CID 36602807.
+
+^ Terence Tao (March 17, 2011). "An incidence theorem in higher dimensions". Retrieved August 26, 2012.
+
+^ Agarwal, Pankaj; Aronov, Boris (1992). "Counting facets and incidences". Discrete & Computational Geometry. 7 (1): 359–369. doi:10.1007/BF02187848.
+
+^ Edelsbrunner, Herbert (1987). "6.5 Lower bounds for many cells". Algorithms in Combinatorial Geometry. Springer-Verlag. ISBN 978-3-540-13722-1.
+
+^ Solymosi, József; Tao, Terence (September 2012). "An incidence theorem in higher dimensions". Discrete & Computational Geometry. 48 (2): 255–280. arXiv:1103.2926. doi:10.1007/s00454-012-9420-x. MR 2946447. S2CID 17830766.
+
+^ Tóth, Csaba D. (2015). "The Szemerédi-Trotter Theorem in the Complex Plane". Combinatorica. 35 (1): 95–126. arXiv:math/0305283. doi:10.1007/s00493-014-2686-2. S2CID 13237229.
+
+^ Zahl, Joshua (2015). "A Szemerédi-Trotter Type Theorem in ℝ4". Discrete & Computational Geometry. 54 (3): 513–572. arXiv:1203.4600. doi:10.1007/s00454-015-9717-7. S2CID 16610999.
+
+^ Solymosi, Jozsef; Tardos, Gabor (2007). "On the number of k-rich transformations". Proceedings of the twenty-third annual symposium on Computational geometry - SCG '07. SCG '07. New York, New York, USA: ACM Press. pp. 227–231. doi:10.1145/1247069.1247111. ISBN 978-1-59593-705-6. S2CID 15928844.
+
+^ Bourgain, Jean; Katz, Nets; Tao, Terence (2004-02-01). "A sum-product estimate in finite fields, and applications". Geometric and Functional Analysis. 14 (1): 27–57. arXiv:math/0301343. doi:10.1007/s00039-004-0451-1. ISSN 1016-443X. S2CID 14097626.
+
+^ Vinh, Le Anh (November 2011). "The Szemerédi–Trotter type theorem and the sum-product estimate in finite fields". European Journal of Combinatorics. 32 (8): 1177–1181. arXiv:0711.4427. doi:10.1016/j.ejc.2011.06.008. ISSN 0195-6698. S2CID 1956316.
+
+^ Stevens, Sophie; de Zeeuw, Frank (2017-08-03). "An improved point-line incidence bound over arbitrary fields". Bulletin of the London Mathematical Society. 49 (5): 842–858. arXiv:1609.06284. doi:10.1112/blms.12077. ISSN 0024-6093. S2CID 119635655.
+
+^ Rudnev, Misha; Shkredov, Ilya D. (July 2022). "On the growth rate in SL_2(F_p), the affine group and sum-product type implications". Mathematika. 68 (3): 738–783. arXiv:1812.01671. doi:10.1112/mtk.12120. S2CID 248710290.
+
+
+vteIncidence structuresRepresentation
+Incidence matrix
+Incidence graph
+Fields
+Combinatorics
+Block design
+Steiner system
+Geometry
+Incidence
+Projective plane
+Graph theory
+Hypergraph
+Statistics
+Blocking
+Configurations
+Complete quadrangle
+Fano plane
+Möbius–Kantor configuration
+Pappus configuration
+Hesse configuration
+Desargues configuration
+Reye configuration
+Schläfli double six
+Cremona–Richmond configuration
+Kummer configuration
+Grünbaum–Rigby configuration
+Klein configuration
+Dual
+Theorems
+Sylvester–Gallai theorem
+De Bruijn–Erdős theorem
+Szemerédi–Trotter theorem
+Beck's theorem
+Bruck–Ryser–Chowla theorem
+Applications
+Design of experiments
+Kirkman's schoolgirl problem
+
+
+
+

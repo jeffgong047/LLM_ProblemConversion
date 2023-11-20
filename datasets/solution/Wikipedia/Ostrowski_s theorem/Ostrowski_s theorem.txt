@@ -1,0 +1,91 @@
+On all absolute values of rational numbers
+In number theory, Ostrowski's theorem, due to Alexander Ostrowski (1916), states that every non-trivial absolute value on the rational numbers Qℚ is equivalent to either the usual real absolute value or a p-adic absolute value.[1]
+
+
+Definitions[edit]
+Two absolute values |⋅||·| and |⋅|∗|·|_* on the rationals are defined to be equivalent if they induce the same topology; this can be shown to be equivalent to the existence of a positive real number λ∈(0,∞)λ∈(0,∞) such that
+
+∀x∈K:|x|∗=|x|λ.:  |x|_*=|x|^λ.
+(Note: In general, if |x||x| is an absolute value, |x|λ|x|^λ is not necessarily an absolute value anymore; however if two absolute values are equivalent, then each is a positive power of the other.[2]) The trivial absolute value on any field K is defined to be
+
+|x|0:=0x=0,1x≠0.|x|_0:=0   x=0,
+1   x≠0.
+The real absolute value on the rationals Qℚ is the standard absolute value on the reals, defined to be
+
+|x|∞:=xx≥0,−xx<0.|x|_∞:=x   x≥0,
+-x   x<0.
+This is sometimes written with a subscript 1 instead of infinity.
+For a prime number p, the p-adic absolute value on Qℚ is defined as follows: any non-zero rational x can be written uniquely as x=pnab=p^nab, where a and b are coprime integers not divisible by p, and n is an integer; so we define
+
+|x|p:=0x=0,p−nx≠0.|x|_p:=0   x=0,
+p^-n   x≠0.
+Proof[edit]
+The following proof follows the one of Theorem 10.1 in Schikhof (2007).
+Let |⋅|∗|·|_* be an absolute value on the rationals. We start the proof by showing that it is entirely determined by the values it takes on prime numbers.
+From the fact that 1×1=11×1=1 and the multiplicativity property of the absolute value, we infer that |1|∗2=|1|∗|1|_*^2=|1|_*. In particular, |1|∗|1|_* has to be 0 or 1 and since 1≠01≠0, one must have |1|∗=1|1|_*=1. A similar argument shows that |−1|∗=1|-1|_*=1. 
+For all positive integer n, the multiplicativity property entails |−n|∗=|−1|∗×|n|∗=|n|∗|-n|_*=|-1|_*×|n|_*=|n|_*. In other words, the absolute value of a negative integer coincides with that of its opposite.
+Let n be a positive integer. From the fact that n−1×n=1^-1=1 and the multiplicativity property, we conclude that |n−1|∗=|n|∗−1|n^-1|_*=|n|_*^-1.
+Let now r be a positive rational. There exist two coprime positive integers p and q such that r=pq−1=pq^-1. The properties above show that |r|∗=|p|∗|q−1|∗=|p|∗|q|∗−1|r|_*=|p|_*|q^-1|_*=|p|_*|q|_*^-1. Altogether, the absolute value of a positive rational is entirely determined from that of its numerator and denominator.
+Finally, let Pℙ be the set of prime numbers. For all positive integer n, we can write
+
+n=∏p∈Ppvp(n),=∏_p∈ℙp^v_p(n),
+where vp(n)_p(n) is the p-adic valuation of n. The multiplicativity property enables one to compute the absolute value of n from that of the prime numbers using the following relationship
+
+|n|∗=|∏p∈Ppvp(n)|=∏p∈P|p|∗vp(n).|n|_*=|∏_p∈ℙp^v_p(n)|=∏_p∈ℙ|p|_*^v_p(n).
+We continue the proof by separating two cases:
+
+There exists a positive integer n such that |n|∗>1|n|_*>1; or
+For all integer n, one has |n|∗≤1|n|_*≤1.
+First case[edit]
+Suppose that there exists a positive integer n such that |n|∗>1.|n|_*>1. Let k be a non-negative integer and b be a positive integer greater than 11. We express nk^k in base b: there exist a positive integer m and integers (ci)0≤i<m(c_i)_0<m such that for all i, 0≤ci<b0_i<b and nk=∑i<mcibi^k=∑_i<mc_ib^i. In particular, nk≥bm−1^k^m-1 so m≤1+klogb⁡n≤1+klog_bn.
+Each term |cibi|∗|c_ib^i|_* is smaller than (b−1)|b|∗i(b-1)|b|_*^i (by the multiplicativity property and the triangle inequality). Besides, |b|∗i|b|_*^i is smaller than max1,|b|∗m−1max{1,|b|_*^m-1}. By the triangle inequality and the above bound on m, it follows:
+
+|n|∗k≤mmaxi<m|cibi|∗≤m(b−1)max1,|b|∗m−1≤(1+klogb⁡n)(b−1)max1,|b|∗klogb⁡n.|n|_*^k   max_i<m{|c_ib^i|_*}
+   (b-1)max{1,|b|_*^m-1}
+   ≤(1+klog_bn)(b-1)max{1,|b|_*^klog_bn}.
+Therefore, raising both sides to the power 1/k1/k, we obtain
+
+|n|∗≤((1+klogb⁡n)(b−1))1/kmax1,|b|∗logb⁡n.|n|_*≤((1+klog_bn)(b-1))^1/kmax{1,|b|_*^log_bn}.
+Finally, taking the limit as k tends to infinity shows that
+
+|n|∗≤max1,|b|∗logb⁡n.|n|_*≤max{1,|b|_*^log_bn}.
+Together with the condition |n|∗>1,|n|_*>1, the above argument leads to |b|∗>1|b|_*>1 regardless of the choice of b (otherwise |b|∗logb⁡n≤1|b|_*^log_bn≤1 implies |n|∗≤1|n|_*≤1). As a result, all integers greater than one have an absolute value strictly greater than one. Thus generalizing the above, for any choice of integers n and b greater than or equal to 2, we get
+
+|n|∗≤|b|∗logb⁡n,|n|_*≤|b|_*^log_bn,
+i.e.
+
+logn⁡|n|∗≤logb⁡|b|∗.log_n|n|_*≤log_b|b|_*.
+By symmetry, this inequality is an equality. In particular, for all n≥2≥2, logn⁡|n|∗=log2⁡|2|∗=λlog_n|n|_*=log_2|2|_*=λ, i.e. |n|∗=nλ=|n|∞λ|n|_*=n^λ=|n|_∞^λ. Because the triangle inequality implies that for all positive integers n we have |n|∗≤n|n|_*, in this case we obtain more precisely that 0<λ≤10<λ≤1.
+As per the above result on the determination of an absolute value by its values on the prime numbers, we easily see that |r|∗=|r|∞λ|r|_*=|r|_∞^λ for all rational r, thus demonstrating equivalence to the real absolute value.
+
+Second case[edit]
+Suppose that for all integer n, one has |n|∗≤1|n|_*≤1. As our absolute value is non-trivial, there must exist a positive integer n for which |n|∗<1.|n|_*<1. Decomposing |n|∗|n|_* on the prime numbers shows that there exists p∈P∈ℙ such that |p|∗<1|p|_*<1. We claim that in fact this is so for one prime number only.
+Suppose per contra that p and q are two distinct primes with absolute value strictly less than 1. Let k be a positive integer such that |p|∗k|p|_*^k and |q|∗k|q|_*^k are smaller than 1/21/2. By Bezout's identity, since pk^k and qk^k are coprime, there exist two integers a and b such that apk+bqk=1.^k+bq^k=1. This yields a contradiction, as
+
+1=|1|∗≤|a|∗|p|∗k+|b|∗|q|∗k<|a|∗+|b|∗2≤1.1=|1|_*≤|a|_*|p|_*^k+|b|_*|q|_*^k<|a|_*+|b|_*/2≤1.
+This means that there exists a unique prime p such that |p|∗<1|p|_*<1 and that for all other prime q, one has |q|∗=1|q|_*=1 (from the hypothesis of this second case). Let λ=−logp⁡|p|∗λ=-log_p|p|_*. From |p|∗<1|p|_*<1, we infer that 0<λ<∞0<λ<∞. (And indeed in this case, all positive λλ give absolute values equivalent to the p-adic one.)
+We finally verify that |p|pλ=p−λ=|p|∗|p|_p^λ=p^-λ=|p|_* and that for all other prime q, |q|pλ=1=|q|∗|q|_p^λ=1=|q|_*. As per the above result on the determination of an absolute value by its values on the prime numbers, we conclude that |r|∗=|r|pλ|r|_*=|r|_p^λ for all rational r, implying that this absolute value is equivalent to the p-adic one. ◼▪
+
+Another Ostrowski's theorem[edit]
+Another theorem states that any field, complete with respect to an Archimedean absolute value, is (algebraically and topologically) isomorphic to either the real numbers or the complex numbers. This is sometimes also referred to as Ostrowski's theorem.[3]
+
+See also[edit]
+Valuation (algebra)
+References[edit]
+
+
+^ Koblitz, Neal (1984). P-adic numbers, p-adic analysis, and zeta-functions. Graduate Texts in Mathematics (2nd ed.). New York: Springer-Verlag. p. 3. ISBN 978-0-387-96017-3. Retrieved 24 August 2012. Theorem 1 (Ostrowski). Every nontrivial norm ‖ ‖ on Qℚ is equivalent to | |p for some prime p or for p = ∞.
+
+^ Schikhof (2007) Theorem 9.2 and Exercise 9.B
+
+^ Cassels (1986) p. 33
+
+
+Cassels, J. W. S. (1986). Local Fields. London Mathematical Society Student Texts. Vol. 3. Cambridge University Press. ISBN 0-521-31525-5. Zbl 0595.12006.
+Janusz, Gerald J. (1996). Algebraic Number Fields (2nd ed.). American Mathematical Society. ISBN 0-8218-0429-4.
+Jacobson, Nathan (1989). Basic algebra II (2nd ed.). W H Freeman. ISBN 0-7167-1933-9.
+Schikhof, W. H. (2007). Ultrametric Calculus (2nd ed.). Cambridge University Press. ISBN 978-0-521-03287-2.
+Ostrowski, Alexander (1916). "Über einige Lösungen der Funktionalgleichung φ(x)·φ(y)=φ(xy)". Acta Mathematica (2nd ed.). 41 (1): 271–284. doi:10.1007/BF02422947. ISSN 0001-5962.
+
+
+

@@ -1,0 +1,75 @@
+For the theorem in complex analysis, see Gauss–Lucas theorem.
+In number theory, Lucas's theorem expresses the remainder of division of the binomial coefficient (mn)mn by a prime number p in terms of the base p expansions of the integers m and n.
+Lucas's theorem first appeared in 1878 in papers by Édouard Lucas.[1]
+
+
+Statement[edit]
+For non-negative integers m and n and a prime p, the following congruence relation holds:
+
+(mn)≡∏i=0k(mini)(modp),mn≡∏_i=0^km_in_ip,
+where
+
+m=mkpk+mk−1pk−1+⋯+m1p+m0,=m_kp^k+m_k-1p^k-1+⋯+m_1p+m_0,
+and
+
+n=nkpk+nk−1pk−1+⋯+n1p+n0=n_kp^k+n_k-1p^k-1+⋯+n_1p+n_0
+are the base p expansions of m and n respectively.  This uses the convention that (mn)=0mn=0 if m < n.
+
+Proofs[edit]
+There are several ways to prove Lucas's theorem. 
+
+Combinatorial proof
+Let M be a set with m elements, and divide it into mi cycles of length pi for the various values of i.  Then each of these cycles can be rotated separately, so that a group G which is the Cartesian product of cyclic groups Cpi acts on M.  It thus also acts on subsets N of size n.  Since the number of elements in G is a power of p, the same is true of any of its orbits.  Thus in order to compute (mn)mn modulo p, we only need to consider fixed points of this group action.  The fixed points are those subsets N that are a union of some of the cycles.  More precisely one can show by induction on k-i, that N must have exactly ni cycles of size pi.  Thus the number of choices for N is exactly
+∏i=0k(mini)(modp)∏_i=0^km_in_ip.
+
+
+Proof based on generating functions
+This proof is due to Nathan Fine.[2]
+If p is a prime and n is an integer with 1 ≤ n ≤ p − 1, then the numerator of the binomial coefficient
+
+(pn)=p⋅(p−1)⋯(p−n+1)n⋅(n−1)⋯1pn=p·(p-1)⋯(p-n+1)/n·(n-1)⋯1
+is divisible by p but the denominator is not.  Hence p divides (pn)pn.  In terms of ordinary generating functions, this means that
+
+(1+X)p≡1+Xp(modp).(1+X)^p≡1+X^pp.
+Continuing by induction, we have for every nonnegative integer i that
+
+(1+X)pi≡1+Xpi(modp).(1+X)^p^i≡1+X^p^ip.
+Now let m be a nonnegative integer, and let p be a prime.  Write m in base p, so that m=∑i=0kmipi=∑_i=0^km_ip^i for some nonnegative integer k and integers mi with 0 ≤ mi ≤ p-1.  Then
+
+∑n=0m(mn)Xn=(1+X)m=∏i=0k((1+X)pi)mi≡∏i=0k(1+Xpi)mi=∏i=0k(∑ni=0mi(mini)Xnipi)=∏i=0k(∑ni=0p−1(mini)Xnipi)=∑n=0m(∏i=0k(mini))Xn(modp),∑_n=0^mmnX^n   =(1+X)^m=∏_i=0^k((1+X)^p^i)^m_i
+   ≡∏_i=0^k(1+X^p^i)^m_i=∏_i=0^k(∑_n_i=0^m_im_in_iX^n_ip^i)
+   =∏_i=0^k(∑_n_i=0^p-1m_in_iX^n_ip^i)=∑_n=0^m(∏_i=0^km_in_i)X^np,
+where in the final product, ni is the ith digit in the base p representation of n.  This proves Lucas's theorem.
+
+
+Consequences[edit]
+A binomial coefficient (mn)mn is divisible by a prime p if and only if at least one of the base p digits of n is greater than the corresponding digit of m.
+In particular, (mn)mn is odd if and only if the binary digits (bits) in the binary expansion of n are a subset of the bits of m.
+Variations and generalizations[edit]
+Kummer's theorem asserts that the largest integer k such that pk divides the binomial coefficient (mn)mn (or in other words, the valuation of the binomial coefficient  with respect to the prime p) is equal to the number of carries that occur when n and m − n are added in the base p.
+Generalizations of Lucas's theorem to the case of p being a prime power are given by Davis and Webb (1990)[3] and Granville (1997).[4]
+The q-Lucas theorem is a generalization for the q-binomial coefficients, first proved by J. Désarménien.[5]
+References[edit]
+
+
+^ 
+Edouard Lucas (1878). "Théorie des Fonctions Numériques Simplement Périodiques". American Journal of Mathematics. 1 (2): 184–196. doi:10.2307/2369308. JSTOR 2369308. MR 1505161. (part 1);
+Edouard Lucas (1878). "Théorie des Fonctions Numériques Simplement Périodiques". American Journal of Mathematics. 1 (3): 197–240. doi:10.2307/2369311. JSTOR 2369311. MR 1505164. (part 2);
+Edouard Lucas (1878). "Théorie des Fonctions Numériques Simplement Périodiques". American Journal of Mathematics. 1 (4): 289–321. doi:10.2307/2369373. JSTOR 2369373. MR 1505176. (part 3)
+
+^ Fine, Nathan (1947). "Binomial coefficients modulo a prime". American Mathematical Monthly. 54 (10): 589–592. doi:10.2307/2304500. JSTOR 2304500.
+
+^ Kenneth S. Davis, William A. Webb (1990). "Lucas' Theorem for Prime Powers". European Journal of Combinatorics. 11 (3): 229–233. doi:10.1016/S0195-6698(13)80122-9.
+
+^ Andrew Granville (1997). "Arithmetic Properties of Binomial Coefficients I: Binomial coefficients modulo prime powers" (PDF). Canadian Mathematical Society Conference Proceedings. 20: 253–275. MR 1483922. Archived from the original (PDF) on 2017-02-02.
+
+^ Désarménien, Jacques (March 1982). "Un Analogue des Congruences de Kummer pour les q-nombres d'Euler". European Journal of Combinatorics. 3 (1): 19–28. doi:10.1016/S0195-6698(82)80005-X.
+
+
+External links[edit]
+Lucas's Theorem at PlanetMath.
+A. Laugier; M. P. Saikia (2012). "A new proof of Lucas' Theorem" (PDF). Notes on Number Theory and Discrete Mathematics. 18 (4): 1–6. arXiv:1301.4250.
+R. Meštrović (2014). "Lucas' theorem: its generalizations, extensions and applications (1878–2014)". arXiv:1409.3820 [math.NT].
+
+
+

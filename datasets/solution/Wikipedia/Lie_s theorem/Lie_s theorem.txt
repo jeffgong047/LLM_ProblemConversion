@@ -1,0 +1,86 @@
+In mathematics, specifically the theory of Lie algebras, Lie's theorem states that,[1] over an algebraically closed field of characteristic zero, if π:g→gl(V)π:𝔤→𝔤𝔩(V) is a finite-dimensional representation of a solvable Lie algebra, then there's a flag V=V0⊃V1⊃⋯⊃Vn=0=V_0_1⊃⋯_n=0 of invariant subspaces of π(g)π(𝔤) with codim⁡Vi=icodimV_i=i,  meaning that π(X)(Vi)⊆Viπ(X)(V_i)_i for each X∈g∈𝔤 and i.
+Put in another way, the theorem says there is a basis for V such that all linear transformations in π(g)π(𝔤) are represented by upper triangular matrices.[2] This is a generalization of the result of Frobenius that commuting matrices are simultaneously upper triangularizable, as commuting matrices generate an abelian Lie algebra, which is a fortiori solvable.
+A consequence of Lie's theorem  is that any finite dimensional solvable Lie algebra over a field of characteristic 0 has a nilpotent derived algebra (see #Consequences). Also, to each flag in a finite-dimensional vector space V, there correspond a Borel subalgebra (that consist of linear transformations stabilizing the flag); thus, the theorem says that π(g)π(𝔤) is contained in some Borel subalgebra of gl(V)𝔤𝔩(V).[1]
+
+
+Counter-example[edit]
+For algebraically closed fields of characteristic p>0 Lie's theorem holds provided the dimension of the representation is less than p (see the proof below), but can fail for representations of dimension p. An example is given by the 3-dimensional nilpotent Lie algebra spanned by 1, x, and d/dx acting on the p-dimensional vector space k[x]/(xp), which has no eigenvectors. Taking the semidirect product of this 3-dimensional Lie algebra by the p-dimensional representation (considered as an abelian Lie algebra) gives a solvable Lie algebra whose derived algebra is not nilpotent.
+
+Proof[edit]
+The proof is by induction on the dimension of g𝔤 and consists of several steps. (Note: the structure of the proof is very similar to that for Engel's theorem.) The basic case is trivial and we assume the dimension of g𝔤 is positive. We also assume V is not zero. For simplicity, we write X⋅v=π(X)(v)=π(X)(v).
+Step 1: Observe that the theorem is equivalent to the statement:[3]
+
+There exists a vector in V that is an eigenvector for each linear transformation in π(g)π(𝔤).
+Indeed, the theorem says in particular that a nonzero vector spanning Vn−1_n-1 is a common eigenvector for all the linear transformations in π(g)π(𝔤). Conversely, if v is a common eigenvector, take Vn−1_n-1 to its span and then π(g)π(𝔤) admits a common eigenvector in the quotient V/Vn−1/V_n-1; repeat the argument.
+Step 2: Find an ideal h𝔥 of codimension one in g𝔤.
+Let Dg=[g,g]𝔤=[𝔤,𝔤] be the derived algebra. Since g𝔤 is solvable and has positive dimension, Dg≠g𝔤≠𝔤 and so the quotient g/Dg𝔤/D𝔤 is a nonzero abelian Lie algebra, which certainly contains an ideal of codimension one and by the ideal correspondence, it corresponds to an ideal of codimension one in g𝔤.
+Step 3: There exists some linear functional λλ in h∗𝔥^* such that
+
+Vλ=v∈V|X⋅v=λ(X)v,X∈h_λ={v|X=λ(X)v,X∈𝔥}
+is nonzero. This follows from the inductive hypothesis (it is easy to check that the eigenvalues determine a linear functional).
+Step 4: Vλ_λ is a g𝔤-invariant subspace. (Note this step proves a general fact and does not involve solvability.)
+Let Y∈g∈𝔤, v∈Vλ_λ, then we need to prove Y⋅v∈Vλ_λ. If v=0=0 then it's obvious, so assume v≠0≠0 and set recursively v0=v,vi+1=Y⋅vi_0=v, v_i+1=Y_i. Let U=span⁡vi|i≥0=span{v_i|i≥0} and ℓ∈N0ℓ∈ℕ_0 be the largest such that v0,…,vℓ_0,…,v_ℓ are linearly independent. Then we'll prove that they generate U and thus α=(v0,…,vℓ)α=(v_0,…,v_ℓ) is a basis of U. Indeed, assume by contradiction that it's not the case and let m∈N0∈ℕ_0 be the smallest such that vm∉⟨v0,…,vℓ⟩_m∉_0,…,v_ℓ⟩, then obviously m≥ℓ+1≥ℓ+1. Since v0,…,vℓ+1_0,…,v_ℓ+1 are linearly dependent, vℓ+1_ℓ+1 is a linear combination of v0,…,vℓ_0,…,v_ℓ. Applying the map Ym−ℓ−1^m-ℓ-1 it follows that vm_m is a linear combination of vm−ℓ−1,…,vm−1_m-ℓ-1,…,v_m-1. Since by the minimality of m each of these vectors is a linear combination of v0,…,vℓ_0,…,v_ℓ, so is vm_m, and we get the desired contradiction. We'll prove by induction that for every n∈N0∈ℕ_0 and X∈h∈𝔥 there exist elements a0,n,X,…,an,n,X_0,n,X,…,a_n,n,X of the base field such that an,n,X=λ(X)_n,n,X=λ(X) and
+
+X⋅vn=∑i=0nai,n,Xvi._n=∑_i=0^na_i,n,Xv_i.
+The n=0=0 case is straightforward since X⋅v0=λ(X)v0_0=λ(X)v_0. Now assume that we have proved the claim for some n∈N0∈ℕ_0 and all elements of h𝔥 and let X∈h∈𝔥. Since h𝔥 is an ideal, it's [X,Y]∈h[X,Y]∈𝔥, and thus
+
+X⋅vn+1=Y⋅(X⋅vn)+[X,Y]⋅vn=Y⋅∑i=0nai,n,Xvi+∑i=0nai,n,[X,Y]vi=a0,n,[X,Y]v0+∑i=1n(ai−1,n,X+ai,n,[X,Y])vi+λ(X)vn+1,_n+1=Y·(X_n)+[X,Y]_n=Y·∑_i=0^na_i,n,Xv_i+∑_i=0^na_i,n,[X,Y]v_i=a_0,n,[X,Y]v_0+∑_i=1^n(a_i-1,n,X+a_i,n,[X,Y])v_i+λ(X)v_n+1,
+and the induction step follows. This implies that for every X∈h∈𝔥 the subspace U is an invariant subspace of X and the matrix of the restricted map π(X)|Uπ(X)|_U in the basis αα is upper triangular with diagonal elements equal to λ(X)λ(X), hence tr⁡(π(X)|U)=dim⁡(U)λ(X)tr(π(X)|_U)=(U)λ(X). Applying this with [X,Y]∈h[X,Y]∈𝔥 instead of X gives tr⁡(π([X,Y])|U)=dim⁡(U)λ([X,Y])tr(π([X,Y])|_U)=(U)λ([X,Y]). On the other hand, U is also obviously an invariant subspace of Y, and so
+
+tr⁡(π([X,Y])|U)=tr⁡([π(X),π(Y)]|U])=tr⁡([π(X)|U,π(Y)|U])=0tr(π([X,Y])|_U)=tr([π(X),π(Y)]|_U])=tr([π(X)|_U,π(Y)|_U])=0
+since commutators have zero trace, and thus dim⁡(U)λ([X,Y])=0(U)λ([X,Y])=0. Since dim⁡(U)>0(U)>0 is invertible (because of the assumption on the characteristic of the base field), λ([X,Y])=0λ([X,Y])=0 and
+
+X⋅(Y⋅v)=Y⋅(X⋅v)+[X,Y]⋅v=Y⋅(λ(X)v)+λ([X,Y])v=λ(X)(Y⋅v),·(Y)=Y·(X)+[X,Y]=Y·(λ(X)v)+λ([X,Y])v=λ(X)(Y),
+and so Y⋅v∈Vλ_λ.
+Step 5: Finish up the proof by finding a common eigenvector.
+Write g=h+L𝔤=𝔥+L where L is a one-dimensional vector subspace. Since the base field is algebraically closed, there exists an eigenvector in Vλ_λ for some (thus every) nonzero element of L. Since that vector is also eigenvector for each element of h𝔥, the proof is complete. ◻□
+
+Consequences[edit]
+The theorem applies in particular to the adjoint representation ad:g→gl(g)ad:𝔤→𝔤𝔩(𝔤) of a (finite-dimensional) solvable Lie algebra g𝔤 over an algebraically closed field of characteristic zero; thus, one can choose a basis on g𝔤 with respect to which ad⁡(g)ad(𝔤) consists of upper triangular matrices. It follows easily that for each x,y∈g,y∈𝔤, ad⁡([x,y])=[ad⁡(x),ad⁡(y)]ad([x,y])=[ad(x),ad(y)] has diagonal consisting of zeros; i.e., ad⁡([x,y])ad([x,y]) is a strictly upper triangular matrix. This implies that [g,g][𝔤,𝔤] is a nilpotent Lie algebra. Moreover, if the base field is not algebraically closed then solvability and nilpotency of a Lie algebra is unaffected by extending the base field to its algebraic closure. Hence, one concludes the statement (the other implication is obvious):[4]
+
+A finite-dimensional Lie algebra g𝔤 over a field of characteristic zero is solvable if and only if the derived algebra Dg=[g,g]𝔤=[𝔤,𝔤] is nilpotent.
+Lie's theorem also establishes one direction in Cartan's criterion for solvability:
+
+If V is a finite-dimensional vector space over a field of characteristic zero and g⊆gl(V)𝔤⊆𝔤𝔩(V) a Lie subalgebra, then g𝔤 is solvable if and only if tr⁡(XY)=0tr(XY)=0 for every X∈g∈𝔤 and Y∈[g,g]∈[𝔤,𝔤].[5]
+Indeed, as above, after extending the base field, the implication ⇒⇒ is seen easily. (The converse is more difficult to prove.)
+Lie's theorem (for various V) is equivalent to the statement:[6]
+
+For a solvable Lie algebra g𝔤 over an algebraically closed field of characteristic zero, each finite-dimensional simple g𝔤-module (i.e., irreducible as a representation) has dimension one.
+Indeed, Lie's theorem clearly implies this statement. Conversely, assume the statement is true. Given a finite-dimensional g𝔤-module V, let V1_1 be a maximal g𝔤-submodule (which exists by finiteness of the dimension). Then, by maximality, V/V1/V_1 is simple; thus, is one-dimensional. The induction now finishes the proof.
+The statement says in particular that a finite-dimensional simple module over an abelian Lie algebra is one-dimensional; this fact remains true over any base field since in this case every vector subspace is a Lie subalgebra.[7]
+Here is another quite useful application:[8]
+
+Let g𝔤 be a finite-dimensional Lie algebra over an algebraically closed field of characteristic zero with radical rad⁡(g)rad(𝔤). Then each finite-dimensional simple representation π:g→gl(V)π:𝔤→𝔤𝔩(V) is the tensor product of a simple representation of g/rad⁡(g)𝔤/rad(𝔤) with a one-dimensional representation of g𝔤 (i.e., a linear functional vanishing on Lie brackets).
+By Lie's theorem, we can find a linear functional λλ of rad⁡(g)rad(𝔤) so that there is the weight space Vλ_λ of rad⁡(g)rad(𝔤). By Step 4 of the proof of Lie's theorem, Vλ_λ is also a g𝔤-module; so V=Vλ=V_λ. In particular, for each X∈rad⁡(g)∈rad(𝔤), tr⁡(π(X))=dim⁡(V)λ(X)tr(π(X))=(V)λ(X). Extend λλ to a linear functional on g𝔤 that vanishes on [g,g][𝔤,𝔤]; λλ is then a one-dimensional representation of g𝔤. Now, (π,V)≃(π,V)⊗(−λ)⊗λ(π,V)≃(π,V)⊗(-λ)⊗λ. Since ππ coincides with λλ on rad⁡(g)rad(𝔤), we have that V⊗(−λ)⊗(-λ) is trivial on rad⁡(g)rad(𝔤) and thus is the restriction of a (simple) representation of g/rad⁡(g)𝔤/rad(𝔤). ◻□
+
+See also[edit]
+Engel's theorem, which concerns a nilpotent Lie algebra.
+Lie–Kolchin theorem, which is about a (connected) solvable linear algebraic group.
+References[edit]
+
+
+^ a b Serre, Theorem 3 harvnb error: no target: CITEREFSerre (help)
+
+^ Humphreys, Ch. II, § 4.1., Corollary A. harvnb error: no target: CITEREFHumphreys (help)
+
+^ Serre, Theorem 3″ harvnb error: no target: CITEREFSerre (help)
+
+^ Humphreys, Ch. II, § 4.1., Corollary C. harvnb error: no target: CITEREFHumphreys (help)
+
+^ Serre, Theorem 4 harvnb error: no target: CITEREFSerre (help)
+
+^ Serre, Theorem 3' harvnb error: no target: CITEREFSerre (help)
+
+^ Jacobson, Ch. II, § 6, Lemma 5. harvnb error: no target: CITEREFJacobson (help)
+
+^ Fulton & Harris, Proposition 9.17. harvnb error: no target: CITEREFFultonHarris (help)
+
+
+Sources[edit]
+Fulton, William; Harris, Joe (1991). Representation theory. A first course. Graduate Texts in Mathematics, Readings in Mathematics. Vol. 129. New York: Springer-Verlag. doi:10.1007/978-1-4612-0979-9. ISBN 978-0-387-97495-8. MR 1153249. OCLC 246650103.
+Humphreys, James E. (1972), Introduction to Lie Algebras and Representation Theory, Berlin, New York: Springer-Verlag, ISBN 978-0-387-90053-7.
+Jacobson, Nathan, Lie algebras, Republication of the 1962 original. Dover Publications, Inc., New York, 1979.  ISBN 0-486-63832-4
+Jean-Pierre Serre: Complex Semisimple Lie Algebras, Springer, Berlin, 2001. ISBN 3-5406-7827-1
+
+
+

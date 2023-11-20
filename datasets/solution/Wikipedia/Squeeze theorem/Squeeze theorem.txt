@@ -1,0 +1,177 @@
+Method for finding limits in calculus
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Squeeze theorem" – news · newspapers · books · scholar · JSTOR (April 2010) (Learn how and when to remove this template message)
+"Sandwich theorem" redirects here. For the result in measure theory, see Ham sandwich theorem.
+Illustration of the squeeze theorem
+When a sequence lies between two other converging sequences with the same limit, it also converges to this limit.
+In calculus, the squeeze theorem (also known as the sandwich theorem, among other names[a]) is a theorem regarding the limit of a function that is trapped between two other functions.
+The squeeze theorem is used in calculus and mathematical analysis, typically to confirm the limit of a function via comparison with two other functions whose limits are known. It was first used geometrically by the mathematicians Archimedes and Eudoxus in an effort to compute π, and was formulated in modern terms by Carl Friedrich Gauss.
+
+
+Statement[edit]
+The squeeze theorem is formally stated as follows.[1]
+
+
+Theorem — 
+Let I be an interval containing the point a.  Let g, f, and h be functions defined on I, except possibly at a itself. Suppose that for every x in I not equal to a, we have
+g(x)≤f(x)≤h(x)(x)(x)(x)
+and also suppose that
+limx→ag(x)=limx→ah(x)=L.lim_xg(x)=lim_xh(x)=L.
+Then limx→af(x)=L.lim_xf(x)=L.
+
+
+The functions g and h are said to be lower and upper bounds (respectively) of f.
+Here, a is not required to lie in the interior of I. Indeed, if a is an endpoint of I, then the above limits are left- or right-hand limits.
+A similar statement holds for infinite intervals: for example, if I = (0, ∞), then the conclusion holds, taking the limits as x → ∞.
+This theorem is also valid for sequences. Let (an), (cn) be two sequences converging to ℓ, and (bn) a sequence. If ∀n≥N,N∈N,N∈ℕ we have an ≤ bn ≤  cn, then (bn) also converges to ℓ.
+
+Proof[edit]
+According to the above hypotheses we have, taking the limit inferior and superior:
+L=limx→ag(x)≤liminfx→af(x)≤limsupx→af(x)≤limx→ah(x)=L,=lim_xg(x)≤lim inf_xf(x)≤lim sup_xf(x)≤lim_xh(x)=L,
+so all the inequalities are indeed equalities, and the thesis immediately follows.
+A direct proof, using the (ε, δ)-definition of limit, would be to prove that for all real ε > 0 there exists a real δ > 0 such that for all x with |x−a|<δ,|x-a|<δ, we have |f(x)−L|<ε.|f(x)-L|<ε. Symbolically,
+∀ε>0,∃δ>0:∀x,(|x−a|<δ⇒|f(x)−L|<ε).∀ε>0,∃δ>0:,(|x-a|<δ
+Rightarrow|f(x)-L|<ε).
+As
+limx→ag(x)=Llim_xg(x)=L
+means that
+
+
+
+∀ε>0,∃δ1>0:∀x(|x−a|<δ1⇒|g(x)−L|<ε).∀ε>0,∃
+delta_1>0:|x-a|<δ_1
+Rightarrowg(x)-L|<ε).
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+and 
+limx→ah(x)=Llim_xh(x)=L
+means that
+
+
+
+∀ε>0,∃δ2>0:∀x(|x−a|<δ2⇒|h(x)−L|<ε),∀ε>0,∃
+delta_2>0:|x-a|<δ_2
+Rightarrowh(x)-L|<ε),
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+then we have
+g(x)≤f(x)≤h(x)(x)(x)(x)
+g(x)−L≤f(x)−L≤h(x)−L(x)-L(x)-L(x)-L
+We can choose δ:=minδ1,δ2δ:=min{δ_1,δ_2}. Then, if |x−a|<δ|x-a|<δ, combining (1) and (2), we have
+−ε<g(x)−L≤f(x)−L≤h(x)−L<ε,-ε<g(x)-L(x)-L(x)-Lε,
+−ε<f(x)−L<ε,-ε<f(x)-L<ε,
+which completes the proof. Q.E.D
+The proof for sequences is very similar, using the εε-definition of the limit of a sequence.
+
+Examples[edit]
+First example[edit]
+x2sin⁡(1x)^2sin(1x) being squeezed in the limit as x goes to 0
+The limit
+limx→0x2sin⁡(1x)lim_x→0x^2sin(1x)
+cannot be determined through the limit law
+limx→a(f(x)⋅g(x))=limx→af(x)⋅limx→ag(x),lim_x(f(x)(x))=lim_xf(x)·lim_xg(x),
+because
+limx→0sin⁡(1x)lim_x→0sin(1x)
+does not exist.
+However, by the definition of the sine function,
+−1≤sin⁡(1x)≤1.-1≤sin(1x)≤1.
+It follows that
+−x2≤x2sin⁡(1x)≤x2-x^2^2sin(1x)^2
+Since limx→0−x2=limx→0x2=0lim_x→0-x^2=lim_x→0x^2=0, by the squeeze theorem, limx→0x2sin⁡(1x)lim_x→0x^2sin(1x) must also be 0.
+
+Second example[edit]
+Comparing areas: A(△ADB)≤A(sectorADB)≤A(△ADF)⇒12⋅sin⁡x⋅1≤x2π⋅π≤12⋅tan⁡x⋅1⇒sin⁡x≤x≤sin⁡xcos⁡x⇒cos⁡xsin⁡x≤1x≤1sin⁡x⇒cos⁡x≤sin⁡xx≤1[          A()            ≤ A(sectorADB)            ≤          A();            ⇒       1/2··1            ≤       x/2π·π            ≤       1/2··1;            ⇒                         ≤            x            ≤            /;            ⇒            /            ≤          1/x            ≤           1/;            ⇒                         ≤           /x            ≤            1 ]
+Probably the best-known examples of finding a limit by squeezing are the proofs of the equalities
+limx→0sin⁡xx=1,limx→01−cos⁡xx=0.   lim_x→0/x=1,
+   lim_x→01-/x=0.
+The first limit follows by means of the squeeze theorem from the fact that[2]
+cos⁡x≤sin⁡xx≤1≤/x≤1
+for x close enough to 0. The correctness of which for positive x can be seen by simple geometric reasoning (see drawing) that can be extended to negative x as well. The second limit follows from the squeeze theorem and the fact that
+0≤1−cos⁡xx≤x0≤1-/x
+for x close enough to 0. This can be derived by replacing sin x in the earlier fact by 1−cos2⁡x√(1-cos^2x) and squaring the resulting inequality.
+These two limits are used in proofs of the fact that the derivative of the sine function is the cosine function.  That fact is relied on in other proofs of derivatives of trigonometric functions.
+
+Third example[edit]
+It is possible to show that
+ddθtan⁡θ=sec2⁡θd/dθtanθ=^2θ
+by squeezing, as follows.
+
+
+In the illustration at right, the area of the smaller of the two shaded sectors of the circle is
+sec2⁡θΔθ2,^2θ Δθ/2,
+since the radius is sec θ and the arc on the unit circle has length Δθ.  Similarly, the area of the larger of the two shaded sectors is
+sec2⁡(θ+Δθ)Δθ2.^2(θ+Δθ) Δθ/2.
+What is squeezed between them is the triangle whose base is the vertical segment whose endpoints are the two dots. The length of the base of the triangle is tan(θ + Δθ) − tan θ, and the height is 1. The area of the triangle is therefore
+tan⁡(θ+Δθ)−tan⁡θ2.tan(θ+Δθ)-tanθ/2.
+From the inequalities
+sec2⁡θΔθ2≤tan⁡(θ+Δθ)−tan⁡θ2≤sec2⁡(θ+Δθ)Δθ2^2θ Δθ/2≤tan(θ+Δθ)-tanθ/2≤^2(θ+Δθ) Δθ/2
+we deduce that
+sec2⁡θ≤tan⁡(θ+Δθ)−tan⁡θΔθ≤sec2⁡(θ+Δθ),^2θ≤tan(θ+Δθ)-tanθ/Δθ≤^2(θ+Δθ),
+provided Δθ > 0, and the inequalities are reversed if Δθ < 0.  Since the first and third expressions approach sec2θ as Δθ → 0, and the middle expression approaches ddθtan⁡θ,ddθtanθ, the desired result follows.
+
+Fourth example[edit]
+The squeeze theorem can still be used in multivariable calculus but the lower (and upper functions) must be below (and above) the target function not just along a path but around the entire neighborhood of the point of interest and it only works if the function really does have a limit there. It can, therefore, be used to prove that a function has a limit at a point, but it can never be used to prove that a function does not have a limit at a point.[3]
+lim(x,y)→(0,0)x2yx2+y2lim_(x,y)→(0,0)x^2y/x^2+y^2
+cannot be found by taking any number of limits along paths that pass through the point, but since
+0≤x2x2+y2≤1−|y|≤y≤|y|⟹−|y|≤x2yx2+y2≤|y|lim(x,y)→(0,0)−|y|=0lim(x,y)→(0,0)|y|=0⟹0≤lim(x,y)→(0,0)x2yx2+y2≤0[                                         0                                         ≤                               x^2/x^2+y^2                                         ≤                                         1;                                  -|y|≤|y|                                      -|y|                                         ≤                              x^2y/x^2+y^2                                         ≤                                       |y|; lim_(x,y)→(0,0)-|y|=0lim_(x,y)→(0,0)
+y|=0                                         0                                         ≤               lim_(x,y)→(0,0)x^2y/x^2+y^2                                         ≤                                         0 ]
+therefore, by the squeeze theorem,
+lim(x,y)→(0,0)x2yx2+y2=0.lim_(x,y)→(0,0)x^2y/x^2+y^2=0.
+
+References[edit]
+Notes[edit]
+
+
+^ Also known as the pinching theorem, the sandwich rule, the police theorem, the between theorem and sometimes the squeeze lemma. In Italy, the theorem is also known as the theorem of carabinieri.
+
+
+References[edit]
+
+^ Sohrab, Houshang H. (2003). Basic Real Analysis (2nd ed.). Birkhäuser. p. 104. ISBN 978-1-4939-1840-9.
+
+^ Selim G. Krejn, V.N. Uschakowa: Vorstufe zur höheren Mathematik. Springer, 2013, ISBN 9783322986283, pp. 80-81 (German). See also Sal Khan: Proof: limit of (sin x)/x at x=0 (video, Khan Academy)
+
+^ Stewart, James (2008). "Chapter 15.2 Limits and Continuity". Multivariable Calculus (6th ed.). pp. 909–910. ISBN 978-0495011637.
+
+
+External links[edit]
+Weisstein, Eric W. "Squeezing Theorem". MathWorld.
+Squeeze Theorem by Bruce Atwood (Beloit College) after work by, Selwyn Hollis (Armstrong Atlantic State University), the Wolfram Demonstrations Project.
+Squeeze Theorem on ProofWiki.
+Portal: Mathematics
+
+
+

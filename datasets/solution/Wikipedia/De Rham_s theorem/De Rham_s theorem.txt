@@ -1,0 +1,276 @@
+Cohomology with real coefficients computed using differential forms
+For Grothendieck's de Rham cohomology of varieties, see algebraic de Rham cohomology.
+Vector field corresponding to a differential form on the punctured plane that is closed but not exact, showing that the de Rham cohomology of this space is non-trivial.
+In mathematics, de Rham cohomology (named after Georges de Rham) is a tool belonging both to algebraic topology and to differential topology, capable of expressing basic topological information about smooth manifolds in a form particularly adapted to computation and the concrete representation of cohomology classes. It is a cohomology theory based on the existence of differential forms with prescribed properties.
+On any smooth manifold, every exact form is closed, but the converse may fail to hold. Roughly speaking, this failure is related to the possible existence of "holes" in the manifold, and the de Rham cohomology groups comprise a set of topological invariants of smooth manifolds that precisely quantify this relationship.[1]
+
+The integration on forms concept is of fundamental importance in differential topology, geometry, and physics, and also yields one of the most important examples of cohomology, namely de Rham cohomology, which (roughly speaking) measures precisely the extent to which the fundamental theorem of calculus fails in higher dimensions and on general manifolds. — Terence Tao, Differential Forms and Integration[2]
+
+Definition[edit]
+The de Rham complex is the cochain complex of differential forms on some smooth manifold M, with the exterior derivative as the differential:
+
+0→Ω0(M)→dΩ1(M)→dΩ2(M)→dΩ3(M)→⋯,0→Ω^0(M){d→
+Omega^1(M){d→
+Omega^2(M){d→
+Omega^3(M)→⋯,
+where Ω0(M) is the space of smooth functions on M, Ω1(M) is the space of 1-forms, and so forth. Forms that are the image of other forms under the exterior derivative, plus the constant 0 function in Ω0(M), are called exact and forms whose exterior derivative is 0 are called closed (see Closed and exact differential forms); the relationship d2 = 0 then says that exact forms are closed.
+In contrast, closed forms are not necessarily exact. An illustrative case is a circle as a manifold, and the 1-form corresponding to the derivative of angle from a reference point at its centre, typically written as dθ (described at Closed and exact differential forms). There is no function θ defined on the whole circle such that dθ is its derivative; the increase of 2π in going once around the circle in the positive direction implies a multivalued function θ. Removing one point of the circle obviates this, at the same time changing the topology of the manifold. 
+One prominent example when all closed forms are exact is when the underlying space is contractible to a point, i.e., it is simply connected (no-holes condition). In this case the exterior derivative d restricted to closed forms has a local inverse called a homotopy operator.[3][4] Since it is also nilpotent,[3] it forms a dual chain complex with the arrows reversed[5] compared to the de Rham complex. This is the situation described in the Poincaré lemma. 
+The idea behind de Rham cohomology is to define equivalence classes of closed forms on a manifold. One classifies two closed forms α, β ∈ Ωk(M) as cohomologous if they differ by an exact form, that is, if α − β is exact. This classification induces an equivalence relation on the space of closed forms in Ωk(M). One then defines the k-th de Rham cohomology group HdRk(M)_dR^k(M) to be the set of equivalence classes, that is, the set of closed forms in Ωk(M) modulo the exact forms.
+Note that, for any manifold M composed of m disconnected components, each of which is connected, we have that
+
+HdR0(M)≅Rm._dR^0(M)≅ℝ^m.
+This follows from the fact that any smooth function on M with zero derivative everywhere is separately constant on each of the connected components of M.
+
+De Rham cohomology computed[edit]
+One may often find the general de Rham cohomologies of a manifold using the above fact about the zero cohomology and a Mayer–Vietoris sequence. Another useful fact is that the de Rham cohomology is a homotopy invariant. While the computation is not given, the following are the computed de Rham cohomologies for some common topological objects:
+
+The n-sphere[edit]
+For the n-sphere, Sn^n, and also when taken together with a product of open intervals, we have the following. Let n > 0, m ≥ 0, and I be an open real interval. Then
+
+HdRk(Sn×Im)≃Rk=0ork=n,0k≠0andk≠n._dR^k(S^n^m)≃ℝ   k=0ork=n,
+0   k≠0andk.
+The n-torus[edit]
+The n-torus is the Cartesian product: Tn=S1×⋯×S1⏟n^n=S^1×⋯^1_n. Similarly, allowing n≥1≥1 here, we obtain
+
+HdRk(Tn)≃R(nk)._dR^k(T^n)≃ℝ^n.
+We can also find explicit generators for the de Rham cohomology of the torus directly using differential forms. Given a quotient manifold π:X→X/Gπ:X/G and a differential form ω∈Ωk(X)ω∈Ω^k(X) we can say that ωω is G-invariant if given any diffeomorphism induced by G, ⋅g:X→X:X we have (⋅g)∗(ω)=ω()^*(ω)=ω. In particular, the pullback of any form on X/G/G is G-invariant. Also, the pullback is an injective morphism. In our case of Rn/Znℝ^n/ℤ^n the differential forms dxi_i are Znℤ^n-invariant since d(xi+k)=dxi(x_i+k)=dx_i. But, notice that xi+α_i+α for α∈Rα∈ℝ is not an invariant 00-form. This with injectivity implies that
+
+[dxi]∈HdR1(Tn)[dx_i]_dR^1(T^n)
+Since the cohomology ring of a torus is generated by H1^1, taking the exterior products of these forms gives all of the explicit representatives for the de Rham cohomology of a torus.
+
+Punctured Euclidean space[edit]
+Punctured Euclidean space is simply Rnℝ^n with the origin removed.
+
+HdRk(Rn∖0)≅R2n=1,k=0Rn>1,k=0,n−10otherwise._dR^k(ℝ^n∖{0})≅ℝ^2   n=1,k=0
+ℝ   n>1,k=0,n-1
+0   otherwise.
+The Möbius strip[edit]
+We may deduce from the fact that the Möbius strip, M, can be deformation retracted to the 1-sphere (i.e. the real unit circle), that:
+
+HdRk(M)≃HdRk(S1)._dR^k(M)_dR^k(S^1).
+De Rham's theorem[edit]
+Stokes' theorem is an expression of duality between de Rham cohomology and the homology of chains. It says that the pairing of differential forms and chains, via integration, gives a homomorphism from de Rham cohomology HdRk(M)_dR^k(M) to singular cohomology groups Hk(M;R).^k(M;ℝ). De Rham's theorem, proved by Georges de Rham in 1931, states that for a smooth manifold M, this map is in fact an isomorphism.
+More precisely, consider the map
+
+I:HdRp(M)→Hp(M;R),:H_dR^p(M)^p(M;ℝ),
+defined as follows: for any [ω]∈HdRp(M)[ω]_dR^p(M), let I(ω) be the element of Hom(Hp(M),R)≃Hp(M;R)Hom(H_p(M),ℝ)^p(M;ℝ) that acts as follows:
+
+Hp(M)∋[c]⟼∫cω._p(M)∋[c]⟼∫_cω.
+The theorem of de Rham asserts that this is an isomorphism between de Rham cohomology and singular cohomology.
+The exterior product endows the direct sum of these groups with a ring structure. A further result of the theorem is that the two cohomology rings are isomorphic (as graded rings), where the analogous product on singular cohomology is the cup product.
+
+Sheaf-theoretic de Rham isomorphism[edit]
+For any smooth manifold M, let R_ℝ be the constant sheaf on M associated to the abelian group Rℝ; in other words, R_ℝ is the sheaf of locally constant real-valued functions on M. Then we have a natural isomorphism
+
+HdR∗(M)≅H∗(M,R_)_dR^*(M)^*(M,ℝ)
+between the de Rham cohomology and the sheaf cohomology of R_ℝ. (Note that this shows that de Rham cohomology may also be computed in terms of Čech cohomology; indeed, since every smooth manifold is paracompact Hausdorff we have that sheaf cohomology is isomorphic to the Čech cohomology Hˇ∗(U,R_)Ȟ^*(𝒰,ℝ) for any good cover U𝒰 of M.)
+
+Proof[edit]
+The standard proof proceeds by showing that the de Rham complex, when viewed as a complex of sheaves, is an acyclic resolution of R_ℝ. In more detail, let m be the dimension of M and let ΩkΩ^k denote the sheaf of germs of k-forms on M (with Ω0Ω^0 the sheaf of C∞^∞ functions on M). By the Poincaré lemma, the following sequence of sheaves is exact (in the abelian category of sheaves):
+
+0→R_→Ω0→d0Ω1→d1Ω2→d2⋯→dm−1Ωm→0.0→ℝ→Ω^0  Ω^1  Ω^2 … Ω^m→0.
+This long exact sequence now breaks up into short exact sequences of sheaves
+
+0→imdk−1→⊂Ωk→dkimdk→0,0→im d_k-1  Ω^k  im d_k→0,
+where by exactness we have isomorphisms imdk−1≅kerdkim d_k-1≅ker d_k for all k. Each of these induces a long exact sequence in cohomology. Since the sheaf Ω0Ω^0 of C∞^∞ functions on M admits partitions of unity, any Ω0Ω^0-module is a fine sheaf; in particular, the sheaves ΩkΩ^k are all fine. Therefore, the sheaf cohomology groups Hi(M,Ωk)^i(M,Ω^k) vanish for i>0>0 since all fine sheaves on paracompact spaces are acyclic. So the long exact cohomology sequences themselves ultimately separate into a chain of isomorphisms. At one end of the chain is the sheaf cohomology of R_ℝ and at the other lies the de Rham cohomology.
+
+Related ideas[edit]
+The de Rham cohomology has inspired many mathematical ideas, including Dolbeault cohomology, Hodge theory, and the Atiyah–Singer index theorem. However, even in more classical contexts, the theorem has inspired a number of developments. Firstly, the Hodge theory proves that there is an isomorphism between the cohomology consisting of harmonic forms and the de Rham cohomology consisting of closed forms modulo exact forms. This relies on an appropriate definition of harmonic forms and of the Hodge theorem. For further details see Hodge theory.
+
+Harmonic forms[edit]
+See also: Harmonic differential
+If M is a compact Riemannian manifold, then each equivalence class in HdRk(M)_dR^k(M) contains exactly one harmonic form. That is, every member ωω of a given equivalence class of closed forms can be written as
+
+ω=α+γω=α+γ
+where αα is exact and γγ is harmonic: Δγ=0Δγ=0.
+Any harmonic function on a compact connected Riemannian manifold is a constant. Thus, this particular representative element can be understood to be an extremum (a minimum) of all cohomologously equivalent forms on the manifold. For example, on a 2-torus, one may envision a constant 1-form as one where all of the "hair" is combed neatly in the same direction (and all of the "hair" having the same length). In this case, there are two cohomologically distinct combings; all of the others are linear combinations. In particular, this implies that the 1st Betti number of a 2-torus is two. More generally, on an n-dimensional torus Tn^n, one can consider the various combings of k-forms on the torus. There are n choose k such combings that can be used to form the basis vectors for HdRk(Tn)_dR^k(T^n); the k-th Betti number for the de Rham cohomology group for the n-torus is thus n choose k.
+More precisely, for a differential manifold M, one may equip it with some auxiliary Riemannian metric. Then the Laplacian ΔΔ is defined by
+
+Δ=dδ+δdΔ=dδ+
+with d the exterior derivative and δδ the codifferential. The Laplacian is a homogeneous (in grading) linear differential operator acting upon the exterior algebra of differential forms: we can look at its action on each component of degree k separately.
+If M is compact and oriented, the dimension of the kernel of the Laplacian acting upon the space of k-forms is then equal (by Hodge theory) to that of the de Rham cohomology group in degree k: the Laplacian picks out a unique harmonic form in each cohomology class of closed forms. In particular, the space of all harmonic k-forms on M is isomorphic to Hk(M;R).^k(M;ℝ). The dimension of each such space is finite, and is given by the k-th Betti number.
+
+Hodge decomposition[edit]
+Let M be a compact oriented Riemannian manifold.  The Hodge decomposition states that any k-form on M uniquely splits into the sum of three L2 components:
+
+ω=α+β+γ,ω=α+β+γ,
+where αα is exact, ββ is co-exact, and γγ is harmonic.
+One says that a form ββ is co-closed if δβ=0δβ=0 and co-exact if β=δηβ=δη for some form ηη, and that γγ is harmonic if the Laplacian is zero, Δγ=0Δγ=0. This follows by noting that exact and co-exact forms are orthogonal; the orthogonal complement then consists of forms that are both closed and co-closed: that is, of harmonic forms. Here, orthogonality is defined with respect to the L2 inner product on Ωk(M)Ω^k(M):
+
+(α,β)=∫Mα∧⋆β.(α,β)=∫_Mα∧⋆β.
+By use of Sobolev spaces or distributions, the decomposition can be extended for example to a complete (oriented or not) Riemannian manifold.[6]
+
+See also[edit]
+Hodge theory
+Integration along fibers (for de Rham cohomology, the pushforward is given by integration)
+Sheaf theory
+∂∂¯∂∂̅-lemma for a refinement of exact differential forms in the case of compact Kähler manifolds.
+Citations[edit]
+
+
+^ Lee 2013, p. 440.
+
+^ Tao, Terence (2007) "Differential Forms and Integration" Princeton Companion to Mathematics 2008. Timothy Gowers, ed.
+
+^ a b Edelen, Dominic G. B. (2011). Applied exterior calculus (Revised ed.). Mineola, N.Y.: Dover Publications. ISBN 978-0-486-43871-9. OCLC 56347718.
+
+^ Warner, Frank W. (1983). Foundations of differentiable manifolds and Lie groups. New York: Springer. ISBN 0-387-90894-3. OCLC 9683855.
+
+^ Kycia, Radosław Antoni (2020). "The Poincare Lemma, Antiexact Forms, and Fermionic Quantum Harmonic Oscillator". Results in Mathematics. 75 (3): 122. arXiv:1908.02349. doi:10.1007/s00025-020-01247-8. ISSN 1422-6383. S2CID 199472766.
+
+^ Jean-Pierre Demailly, Complex Analytic and Differential Geometry Ch VIII, § 3.
+
+
+References[edit]
+
+Lee, John M. (2013). Introduction to Smooth Manifolds. Springer-Verlag. ISBN 978-1-4419-9981-8.
+Bott, Raoul; Tu, Loring W. (1982), Differential Forms in Algebraic Topology, Berlin, New York: Springer-Verlag, ISBN 978-0-387-90613-3
+Griffiths, Phillip; Harris, Joseph (1994), Principles of algebraic geometry, Wiley Classics Library, New York: John Wiley & Sons, ISBN 978-0-471-05059-9, MR 1288523
+Warner, Frank (1983), Foundations of Differentiable Manifolds and Lie Groups, Berlin, New York: Springer-Verlag, ISBN 978-0-387-90894-6
+
+External links[edit]
+Idea of the De Rham Cohomology in Mathifold Project
+"De Rham cohomology", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+vteManifolds (Glossary)Basic concepts
+Topological manifold
+Atlas
+Differentiable/Smooth manifold
+Differential structure
+Smooth atlas
+Submanifold
+Riemannian manifold
+Smooth map
+Submersion
+Pushforward
+Tangent space
+Differential form
+Vector field
+Main results (list)
+Atiyah–Singer index
+Darboux's
+De Rham's
+Frobenius
+Generalized Stokes
+Hopf–Rinow
+Noether's
+Sard's
+Whitney embedding
+Maps
+Curve
+Diffeomorphism
+Local
+Geodesic
+Exponential map
+in Lie theory
+Foliation
+Immersion
+Integral curve
+Lie derivative
+Section
+Submersion
+Types ofmanifolds
+Closed
+(Almost) Complex
+(Almost) Contact
+Fibered
+Finsler
+Flat
+G-structure
+Hadamard
+Hermitian
+Hyperbolic
+Kähler
+Kenmotsu
+Lie group
+Lie algebra
+Manifold with boundary
+Oriented
+Parallelizable
+Poisson
+Prime
+Quaternionic
+Hypercomplex
+(Pseudo−, Sub−) Riemannian
+Rizza
+(Almost) Symplectic
+Tame
+TensorsVectors
+Distribution
+Lie bracket
+Pushforward
+Tangent space
+bundle
+Torsion
+Vector field
+Vector flow
+Covectors
+Closed/Exact
+Covariant derivative
+Cotangent space
+bundle
+De Rham cohomology
+Differential form
+Vector-valued
+Exterior derivative
+Interior product
+Pullback
+Ricci curvature
+flow
+Riemann curvature tensor
+Tensor field
+density
+Volume form
+Wedge product
+Bundles
+Adjoint
+Affine
+Associated
+Cotangent
+Dual
+Fiber
+(Co) Fibration
+Jet
+Lie algebra
+(Stable) Normal
+Principal
+Spinor
+Subbundle
+Tangent
+Tensor
+Vector
+Connections
+Affine
+Cartan
+Ehresmann
+Form
+Generalized
+Koszul
+Levi-Civita
+Principal
+Vector
+Parallel transport
+Related
+Classification of manifolds
+Gauge theory
+History
+Morse theory
+Moving frame
+Singularity theory
+Generalizations
+Banach manifold
+Diffeology
+Diffiety
+Fréchet manifold
+K-theory
+Orbifold
+Secondary calculus
+over commutative algebras
+Sheaf
+Stratifold
+Supermanifold
+Stratified space
+
+
+
+

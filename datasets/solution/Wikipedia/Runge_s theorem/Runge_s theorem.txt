@@ -1,0 +1,30 @@
+Given a holomorphic function f on the blue compact set and a point in each of the holes, one can approximate f as well as desired by rational functions having poles only at those three points.
+In complex analysis, Runge's theorem (also known as Runge's approximation theorem) is named after the German mathematician Carl Runge who first proved it in the year 1885. It states the following:
+Denoting by C the set of complex numbers, let K be a compact subset of C and let f be a function which is holomorphic on an open set containing K. If A is a set containing at least one complex number from every bounded connected component of C\K then there exists a sequence (rn)n∈N(r_n)_n∈ℕ of rational functions which converges uniformly to f on K and such that all the poles of the functions (rn)n∈N(r_n)_n∈ℕ are in A.
+Note that not every complex number in A needs to be a pole of every rational function of the sequence (rn)n∈N(r_n)_n∈ℕ. We merely know that for all members of (rn)n∈N(r_n)_n∈ℕ that do have poles, those poles lie in A.
+One aspect that makes this theorem so powerful is that one can choose the set A arbitrarily. In other words, one can choose any complex numbers from the bounded connected components of C\K and the theorem guarantees the existence of a sequence of rational functions with poles only amongst those chosen numbers.
+For the special case in which C\K is a connected set (in particular when K is simply-connected), the set A in the theorem will clearly be empty. Since rational functions with no poles are simply polynomials, we get the following corollary: If K is a compact subset of C such that C\K is a connected set, and f is a holomorphic function on an open set containing  K, then there exists a sequence of polynomials (pn)(p_n) that approaches f uniformly on K (the assumptions can be relaxed, see Mergelyan's theorem).
+Runge's theorem generalises as follows: one can take A to be a subset of the Riemann sphere C∪{∞} and require that A intersect also the unbounded connected component of K (which now contains ∞). That is, in the formulation given above, the rational functions may turn out to have a pole at infinity, while in the more general formulation the pole can be chosen instead anywhere in the unbounded connected component of C\K.
+
+
+Proof[edit]
+An elementary proof, given in Sarason (1998), proceeds as follows. There is a closed piecewise-linear contour Γ in the open set, containing K in its interior. By Cauchy's integral formula
+
+f(w)=12πi∫Γf(z)dzz−w(w)=12∫_Γf(z) dz-w
+for w in K. Riemann approximating sums can be used to approximate the contour integral uniformly over K. Each term in the sum is a scalar multiple of (z − w)−1 for some point z on the contour. This gives a uniform approximation by a rational function with poles on Γ.
+To modify this to an approximation with poles at specified points in each component of the complement of K, it is enough to check this for terms of the form  (z − w)−1. If z0 is the point in the same component as z, take a piecewise-linear path from z to  z0. If two points are sufficiently close on the path, any rational function with poles only at the first point can be expanded as a Laurent series about the second point. That Laurent series can be truncated to give a rational function with poles only at the second point uniformly close to the original function on K. Proceeding by steps along the path from z to z0 the original function (z − w)−1 can be successively modified to give a rational function with poles only at z0.
+If z0 is the point at infinity, then by the above procedure the rational function  (z − w)−1 can first be approximated by a rational function g with poles at R > 0 where R is so large that K lies in w < R.  The Taylor series expansion of g about 0 can then be truncated to give a polynomial approximation on K.
+
+See also[edit]
+Mergelyan's theorem
+Oka–Weil theorem
+Behnke–Stein theorem on Stein manifolds
+References[edit]
+Conway, John B. (1997), A Course in Functional Analysis (2nd ed.), Springer, ISBN 0-387-97245-5
+Greene, Robert E.; Krantz, Steven G. (2002), Function Theory of One Complex Variable (2nd ed.), American Mathematical Society, ISBN 0-8218-2905-X
+Sarason, Donald (1998), Notes on complex function theory, Texts and Readings in Mathematics, vol. 5, Hindustan Book Agency, pp. 108–115, ISBN 81-85931-19-4
+External links[edit]
+"Runge theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+
+
+

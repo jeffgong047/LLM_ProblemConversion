@@ -1,0 +1,201 @@
+Two closely related mathematical subjects
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (November 2021) (Learn how and when to remove this template message)
+In mathematics, algebraic geometry and analytic geometry are two closely related subjects. While algebraic geometry studies algebraic varieties, analytic geometry deals with complex manifolds and the more general analytic spaces defined locally by the vanishing of analytic functions of several complex variables. The deep relation between these subjects has numerous applications in which algebraic techniques are applied to analytic spaces and analytic techniques to algebraic varieties.
+
+
+Main statement[edit]
+Let X be a projective complex algebraic variety.  Because X is a complex variety, its set of complex points X(C) can be given the structure of a compact complex analytic space.  This analytic space is denoted Xan.  Similarly, if Fℱ is a sheaf on X, then there is a corresponding sheaf Fanℱ^an on Xan.  This association of an analytic object to an algebraic one is a functor.  The prototypical theorem relating X and Xan says that for any two coherent sheaves Fℱ and G𝒢 on X, the natural homomorphism:
+
+HomOX(F,G)→HomOXan(Fan,Gan)Hom_𝒪_X(ℱ,𝒢)→Hom_𝒪_X^an(ℱ^an,𝒢^an)
+is an isomorphism.  Here OX𝒪_X is the structure sheaf of the algebraic variety X and OXan𝒪_X^an is the structure sheaf of the analytic variety Xan.  In other words, the category of coherent sheaves on the algebraic variety X is equivalent to the category of analytic coherent sheaves on the analytic variety Xan, and the equivalence is given on objects by mapping Fℱ to Fanℱ^an.  (Note in particular that OXan𝒪_X^an itself is coherent, a result known as the Oka coherence theorem,[1] and also, it was proved in “Faisceaux Algebriques Coherents” (Serre (1955)) that the structure sheaf of the algebraic variety OX𝒪_X is coherent.[2])
+Another important statement is as follows: For any coherent sheaf Fℱ on an algebraic variety X the homomorphisms
+
+εq:Hq(X,F)→Hq(Xan,Fan)ε_q ^̋q(X,ℱ)^q(X^an,ℱ^an)
+are isomorphisms for all q's. This means that the q-th cohomology group on X is isomorphic to the cohomology group on Xan.
+The theorem applies much more generally than stated above (see the formal statement below).  It and its proof have many consequences, such as Chow's theorem, the Lefschetz principle and Kodaira vanishing theorem.
+
+Background[edit]
+Algebraic varieties are locally defined as the common zero sets of polynomials and since polynomials over the complex numbers are holomorphic functions, algebraic varieties over C can be interpreted as analytic spaces. Similarly, regular morphisms between varieties are interpreted as holomorphic mappings between analytic spaces. Somewhat surprisingly, it is often possible to go the other way, to interpret analytic objects in an algebraic way. 
+For example, it is easy to prove that the analytic functions from the Riemann sphere to itself are either
+the rational functions or the identically infinity function (an extension of Liouville's theorem). For if such a function f is nonconstant, then since the set of z where f(z) is infinity is isolated and the Riemann sphere is compact, there are finitely many  z with f(z) equal to infinity. Consider the Laurent expansion at all such z and subtract off the singular part: we are left with a function on the Riemann sphere with values in C, which by Liouville's theorem is constant. Thus f is a rational function.  This fact shows there is no essential difference between the complex projective line as an algebraic variety, or as the Riemann sphere.
+
+Important results[edit]
+There is a long history of comparison results between algebraic geometry and analytic geometry, beginning in the nineteenth century. Some of the more important advances are listed here in chronological order.
+
+Riemann's existence theorem[edit]
+Riemann surface theory shows that a compact Riemann surface has enough meromorphic functions on it, making it an (smooth projective) algebraic curve. Under the name Riemann's existence theorem[3][4][5][6] a deeper result on ramified coverings of a compact Riemann surface was known: such finite coverings as topological spaces are classified by permutation representations of the fundamental group of the complement of the ramification points. Since the Riemann surface property is local, such coverings are quite easily seen to be coverings in the complex-analytic sense. It is then possible to conclude that they come from covering maps of algebraic curves—that is, such coverings all come from finite extensions of the function field.
+
+The Lefschetz principle[edit]
+In the twentieth century, the Lefschetz principle, named for Solomon Lefschetz, was cited in algebraic geometry to justify the use of topological techniques for algebraic geometry over any algebraically closed field K of characteristic 0, by treating K as if it were the complex number field. An elementary form of it asserts that true statements of the first order theory of fields about C are true for any algebraically closed field K of characteristic zero. A precise principle and its proof are due to Alfred Tarski and are based in mathematical logic.[7][8]
+This principle permits the carrying over of some results obtained using analytic or topological methods for algebraic varieties over C to other algebraically closed ground fields of characteristic 0. (e.g. Kodaira type vanishing theorem.[9])
+
+Chow's theorem[edit]
+Chow (1949), proved by Wei-Liang Chow, is an example of the most immediately useful kind of comparison available. It states that an analytic subspace of complex projective space that is closed (in the ordinary topological sense) is an algebraic subvariety.[10] This can be rephrased as "any analytic subspace of complex projective space which is closed in the strong topology is closed in the Zariski topology." This allows quite a free use of complex-analytic methods within the classical parts of algebraic geometry.
+
+GAGA[edit]
+Foundations for the many relations between the two theories were put in place during the early part of the 1950s, as part of the business of laying the foundations of algebraic geometry to include, for example, techniques from Hodge theory. The major paper consolidating the theory was Géometrie Algébrique et Géométrie Analytique Serre (1956) by Jean-Pierre Serre, now usually referred to as GAGA. It proves general results that relate classes of algebraic varieties, regular morphisms and sheaves with classes of analytic spaces, holomorphic mappings and sheaves. It reduces all of these to the comparison of categories of sheaves.
+Nowadays the phrase GAGA-style result is used for any theorem of comparison, allowing passage between a category of objects from algebraic geometry, and their morphisms, to a well-defined subcategory of analytic geometry objects and holomorphic mappings.
+
+Formal statement of GAGA[edit]
+Let (X,OX)(X,𝒪_X) be a scheme of finite type over C. Then there is a topological space Xan which as a set consists of the closed points of X with a continuous inclusion map λX: Xan → X. The topology on Xan is called the "complex topology" (and is very different from the subspace topology).
+Suppose φ: X → Y is a morphism of schemes of locally finite type over C. Then there exists a continuous map φan: Xan → Yan such λY ∘ φan = φ ∘ λX.
+There is a sheaf OXan𝒪_X^an on Xan such that (Xan,OXan)(X^an,𝒪_X^an) is a ringed space and λX: Xan → X becomes a map of ringed spaces. The space (Xan,OXan)(X^an,𝒪_X^an) is called the "analytification" of (X,OX)(X,𝒪_X) and is an analytic space. For every φ: X → Y the map φan defined above is a mapping of analytic spaces. Furthermore, the map φ ↦ φan maps open immersions into open immersions. If X = Spec(C[x1,...,xn]) then Xan = Cn and OXan(U)𝒪_X^an(U) for every polydisc U is a suitable quotient of the space of holomorphic functions on U.
+For every sheaf Fℱ on X (called algebraic sheaf) there is a sheaf Fanℱ^an on Xan (called analytic sheaf) and a map of sheaves of OX𝒪_X-modules λX∗:F→(λX)∗Fanλ_X^*:ℱ→(λ_X)_*ℱ^an. The sheaf Fanℱ^an is defined as λX−1F⊗λX−1OXOXanλ_X^-1ℱ⊗_λ_X^-1𝒪_X𝒪_X^an. The correspondence F↦Fanℱ↦ℱ^an defines an exact functor from the category of sheaves over (X,OX)(X,𝒪_X) to the category of sheaves of (Xan,OXan)(X^an,𝒪_X^an).The following two statements are the heart of Serre's GAGA theorem[11][12] (as extended by Alexander Grothendieck, Amnon Neeman, and others).
+If f: X → Y is an arbitrary morphism of schemes of finite type over C and Fℱ is coherent then the natural map (f∗F)an→f∗anFan(f_*ℱ)^an_*^anℱ^an is injective. If f is proper then this map is an isomorphism. One also has isomorphisms of all higher direct image sheaves (Rif∗F)an≅Rif∗anFan(R^if_*ℱ)^an^if_*^anℱ^an in this case.[13]
+Now assume that Xan is Hausdorff and compact. If F,Gℱ,𝒢 are two coherent algebraic sheaves on (X,OX)(X,𝒪_X) and if f:Fan→Ganℱ^an→𝒢^an is a map of sheaves of OXan𝒪_X^an-modules then there exists a unique map of sheaves of OX𝒪_X-modules φ:F→Gφ:ℱ→𝒢 with f=φan=φ^an. If Rℛ is a coherent analytic sheaf of OXan𝒪_X^an-modules over Xan then there exists a coherent algebraic sheaf Fℱ of OX𝒪_X-modules and an isomorphism Fan≅Rℱ^an≅ℛ.
+In slightly lesser generality, the GAGA theorem asserts that the category of coherent algebraic sheaves on a complex projective variety X and the category of coherent analytic sheaves on the corresponding analytic space Xan are equivalent. The analytic space Xan is obtained roughly by pulling back to X the complex structure from Cn through the coordinate charts. Indeed, phrasing the theorem in this manner is closer in spirit to Serre's paper, seeing how the full scheme-theoretic language that the above formal statement uses heavily had not yet been invented by the time of GAGA's publication.
+
+See also[edit]
+Flat module - Notion of flatness was introduced by Serre (1956). Algebraic and analytic local rings have the same completion, and thereby they become a "flat couple" (couple plat).[14]
+Notes[edit]
+
+
+^ (Hall 2023)
+
+^ (Remmert 1994)
+
+^ (Grauert & Remmert 1958)
+
+^ (Harbater 2003)
+
+^ (Grothendieck & Raynaud 2002, EXPOSE XII, Théorème 5.1 (« Théorème d’existence de Riemann »))
+
+^ (Hartshorne 1977, Appendix B, Theorem 3.1 (Part (b)) and 3.2)
+
+^ For discussions see Seidenberg (1958), Comments on Lefschetz's Principle; Frey & Rück (1986), The strong Lefschetz principle in algebraic geometry.
+
+^ (Kuhlmann 2001)
+
+^ (Kawamata, Matsuda & Matsuki 1987)
+
+^ (Hartshorne 1970)
+
+^ (Grothendieck & Raynaud 2002, EXPOSE XII.)
+
+^ (Neeman 2007)
+
+^ (Grothendieck & Raynaud 2002, EXPOSE XII, 4. Théorèmes de comparaison cohomologique et théorèmes d’existence)
+
+^ (Hartshorne 2010)
+
+
+References[edit]
+
+Chow, Wei-Liang (1949). "On Compact Complex Analytic Varieties". American Journal of Mathematics. 71 (4): 893–914. doi:10.2307/2372375. JSTOR 2372375.
+Frey, Gerhard; Rück, Hans -Georg (1986). "The strong Lefschetz principle in algebraic geometry". Manuscripta Mathematica. 55 (3–4): 385–401. doi:10.1007/BF01186653. S2CID 122967192.
+Grauert, Hans; Remmert, Reinhold (1958). "Komplexe Räume". Mathematische Annalen. 136 (3): 245–318. doi:10.1007/BF01362011. S2CID 121348794.
+Grothendieck, A. "Sur les faisceaux algébriques et les faisceaux analytiques cohérents". Séminaire Henri Cartan. 9: 1–16.
+Grothendieck, Alexander; Raynaud, Michele (2002). "Revêtements étales et groupe fondamental§XII. Géométrie algébrique et géométrie analytique". Revêtements étales et groupe fondamental (SGA 1) (in French). arXiv:math/0206203. doi:10.1007/BFb0058656. ISBN 978-2-85629-141-2.
+Harbater, David (21 July 2003). "Galois Groups and Fundamental Groups§9.Patching and Galois theory (Dept. of Mathematics, University of Pennsylvania)" (PDF). In Schneps, Leila (ed.). Galois Groups and Fundamental Groups. Cambridge University Press. ISBN 9780521808316.
+Hall, Jack (2023). "GAGA theorems". Journal de Mathématiques Pures et Appliquées. 175: 109–142. arXiv:1804.01976. doi:10.1016/j.matpur.2023.05.004. S2CID 119702436.
+Kuhlmann, F.-V. (2001) [1994], "Transfer principle", Encyclopedia of Mathematics, EMS Press
+Neeman, Amnon (2007). Algebraic and Analytic Geometry. doi:10.1017/CBO9780511800443. ISBN 9780511800443.
+Seidenberg, A. (1958). "Comments on Lefschetz's Principle". The American Mathematical Monthly. 65 (9): 685–690. doi:10.1080/00029890.1958.11991979. JSTOR 2308709.
+Hartshorne, Robin (1970). Ample Subvarieties of Algebraic Varieties. Lecture Notes in Mathematics. Vol. 156. doi:10.1007/BFb0067839. ISBN 978-3-540-05184-8.
+Hartshorne, Robin (1977). Algebraic Geometry. Graduate Texts in Mathematics. Vol. 52. Berlin, New York: Springer-Verlag. doi:10.1007/978-1-4757-3849-0. ISBN 978-0-387-90244-9. MR 0463157. S2CID 197660097. Zbl 0367.14001.
+Hartshorne, Robin (2010). "First-Order Deformations". Deformation Theory. Graduate Texts in Mathematics. Vol. 257. pp. 5–44. doi:10.1007/978-1-4419-1596-2_2. ISBN 978-1-4419-1595-5.
+Kawamata, Yujiro; Matsuda, Katsumi; Matsuki, Kenji (1987). "Introduction to the Minimal Model Problem". Algebraic Geometry, Sendai, 1985. pp. 283–360. doi:10.2969/aspm/01010283. ISBN 978-4-86497-068-6.
+Remmert, R. (1994). "Local Theory of Complex Spaces". Several Complex Variables VII. Encyclopaedia of Mathematical Sciences. Vol. 74. pp. 7–96. doi:10.1007/978-3-662-09873-8_2. ISBN 978-3-642-08150-7.
+Serre, Jean-Pierre (1955), "Faisceaux algébriques cohérents" (PDF), Annals of Mathematics, 61 (2): 197–278, doi:10.2307/1969915, JSTOR 1969915, MR 0068874
+Serre, Jean-Pierre (1956). "Géométrie algébrique et géométrie analytique". Annales de l'Institut Fourier (in French). 6: 1–42. doi:10.5802/aif.59. ISSN 0373-0956. MR 0082175.
+Taylor, Joseph L. (2002). Several Complex Variables with Connections to Algebraic Geometry and Lie Groups. American Mathematical Soc. ISBN 9780821831786.
+
+External links[edit]
+Kiran Kedlaya. 18.726 Algebraic Geometry (LEC # 30 - 33 GAGA)Spring 2009. Massachusetts Institute of Technology: MIT OpenCourseWare Creative Commons BY-NC-SA.
+vteTopics in algebraic curvesRational curves
+Five points determine a conic
+Projective line
+Rational normal curve
+Riemann sphere
+Twisted cubic
+Elliptic curvesAnalytic theory
+Elliptic function
+Elliptic integral
+Fundamental pair of periods
+Modular form
+Arithmetic theory
+Counting points on elliptic curves
+Division polynomials
+Hasse's theorem on elliptic curves
+Mazur's torsion theorem
+Modular elliptic curve
+Modularity theorem
+Mordell–Weil theorem
+Nagell–Lutz theorem
+Supersingular elliptic curve
+Schoof's algorithm
+Schoof–Elkies–Atkin algorithm
+Applications
+Elliptic curve cryptography
+Elliptic curve primality
+Higher genus
+De Franchis theorem
+Faltings's theorem
+Hurwitz's automorphisms theorem
+Hurwitz surface
+Hyperelliptic curve
+Plane curves
+AF+BG theorem
+Bézout's theorem
+Bitangent
+Cayley–Bacharach theorem
+Conic section
+Cramer's paradox
+Cubic plane curve
+Fermat curve
+Genus–degree formula
+Hilbert's sixteenth problem
+Nagata's conjecture on curves
+Plücker formula
+Quartic plane curve
+Real plane curve
+Riemann surfaces
+Belyi's theorem
+Bring's curve
+Bolza surface
+Compact Riemann surface
+Dessin d'enfant
+Differential of the first kind
+Klein quartic
+Riemann's existence theorem
+Riemann–Roch theorem
+Teichmüller space
+Torelli theorem
+Constructions
+Dual curve
+Polar curve
+Smooth completion
+Structure of curvesDivisors on curves
+Abel–Jacobi map
+Brill–Noether theory
+Clifford's theorem on special divisors
+Gonality of an algebraic curve
+Jacobian variety
+Riemann–Roch theorem
+Weierstrass point
+Weil reciprocity law
+Moduli
+ELSV formula
+Gromov–Witten invariant
+Hodge bundle
+Moduli of algebraic curves
+Stable curve
+Morphisms
+Hasse–Witt matrix
+Riemann–Hurwitz formula
+Prym variety
+Weber's theorem (Algebraic curves)
+Singularities
+Acnode
+Crunode
+Cusp
+Delta invariant
+Tacnode
+Vector bundles
+Birkhoff–Grothendieck theorem
+Stable vector bundle
+Vector bundles on algebraic curves
+
+
+
+

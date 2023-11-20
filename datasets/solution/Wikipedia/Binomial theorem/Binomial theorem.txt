@@ -1,0 +1,479 @@
+Algebraic expansion of powers of a binomial
+
+111121133114641151010511615201561172135352171[                          1;                       1  1;                    1  2  1;                 1  3  3  1;              1  4  6  4  1;         1  5  10  10  5  1;     1  6  15  20  15  6  1; 1  7  21  35  35  21  7  1 ]The binomial coefficient (nk)nk appears as the kth entry in the nth row of Pascal's triangle (counting starts at 0, i.e.: the top row is the 0th row). Each entry is the sum of the two above it.
+In elementary algebra, the binomial theorem (or binomial expansion) describes the algebraic expansion of powers of a binomial. According to the theorem, it is possible to expand the polynomial (x + y)n into a sum involving terms of the form axbyc, where the exponents b and c are nonnegative integers with b + c = n, and the coefficient a of each term is a specific positive integer depending on n and b.  For example, for n = 4,
+(x+y)4=x4+4x3y+6x2y2+4xy3+y4.(x+y)^4=x^4+4x^3y+6x^2y^2+4xy^3+y^4.
+The coefficient a in the term of axbyc is known as the binomial coefficient (nb)nb or (nc)nc (the two have the same value). These coefficients for varying n and b can be arranged to form Pascal's triangle. These numbers also occur in combinatorics, where (nb)nb gives the number of different combinations of b elements that can be chosen from an n-element set.  Therefore (nb)nb is often pronounced as "n choose b".
+
+
+History[edit]
+Special cases of the binomial theorem were known since at least the 4th century BC when Greek mathematician Euclid mentioned the special case of the binomial theorem for exponent 2.[1] Greek mathematican Diophantus cubed various binomials, including n−1-1.[1]  Indian mathematican Aryabhata's method for finding cube roots, from around 510 CE, suggests that he knew the binomial formula for exponent 3.[1]
+Binomial coefficients, as combinatorial quantities expressing the number of ways of selecting k objects out of n without replacement, were of interest to ancient Indian mathematicians.  The earliest known reference to this combinatorial problem is the Chandaḥśāstra by the Indian lyricist Pingala (c. 200 BC), which contains a method for its solution.[2]: 230   The commentator Halayudha from the 10th century AD explains this method.[2][page needed]  By the 6th century AD, the Indian mathematicians probably knew how to express this as a quotient n!(n−k)!k!n!/(n-k)!k!,[3] and a clear statement of this rule can be found in the 12th century text Lilavati by Bhaskara.[3]
+The first formulation of the binomial theorem and the table of binomial coefficients, to our knowledge, can be found in a work by Al-Karaji, quoted by Al-Samaw'al in his "al-Bahir".[4][5][6] Al-Karaji described the triangular pattern of the binomial coefficients[7] and also provided a mathematical proof of both the binomial theorem and Pascal's triangle, using an early form of mathematical induction.[7]   The Persian poet and mathematician Omar Khayyam was probably familiar with the formula to higher orders, although many of his mathematical works are lost.[1]  The binomial expansions of small degrees were known in the 13th century mathematical works of Yang Hui[8] and also Chu Shih-Chieh.[1]  Yang Hui attributes the method to a much earlier 11th century text of Jia Xian, although those writings are now also lost.[2]: 142 
+In 1544, Michael Stifel introduced the term "binomial coefficient" and showed how to use them to express (1+a)n(1+a)^n in terms of (1+a)n−1(1+a)^n-1, via "Pascal's triangle".[9] Blaise Pascal studied the eponymous triangle comprehensively in his Traité du triangle arithmétique.[10] However, the pattern of numbers was already known to the European mathematicians of the late Renaissance,  including Stifel, Niccolò Fontana Tartaglia, and Simon Stevin.[9]
+Isaac Newton is generally credited with discovering the generalized binomial theorem, valid for any rational exponent, in 1665.[9][11]  It was discovered independently in 1670 by James Gregory.[12]
+
+Statement[edit]
+According to the theorem, it is possible to expand any nonnegative integer power of x + y into a sum of the form
+(x+y)n=(n0)xny0+(n1)xn−1y1+(n2)xn−2y2+⋯+(nn−1)x1yn−1+(nn)x0yn,(x+y)^n=n0x^ny^0+n1x^n-1y^1+n2x^n-2y^2+⋯+n-1x^1y^n-1+nx^0y^n,
+where n≥0≥0 is an integer and each (nk)nk is a positive integer known as a binomial coefficient. (When an exponent is zero, the corresponding power expression is taken to be 1 and this multiplicative factor is often omitted from the term.  Hence one often sees the right hand side written as (n0)xn+⋯n0x^n+⋯.) This formula is also referred to as the binomial formula or the binomial identity. Using summation notation, it can be written as
+(x+y)n=∑k=0n(nk)xn−kyk=∑k=0n(nk)xkyn−k.(x+y)^n=∑_k=0^nnx^n-ky^k=∑_k=0^nnx^ky^n-k.
+The final expression follows from the previous one by the symmetry of x and y in the first expression, and by comparison it follows that the sequence of binomial coefficients in the formula is symmetrical.  A simple variant of the binomial formula is obtained by substituting 1 for y, so that it involves only a single variable. In this form, the formula reads
+(1+x)n=(n0)x0+(n1)x1+(n2)x2+⋯+(nn−1)xn−1+(nn)xn,(1+x)^n=n0x^0+n1x^1+n2x^2+⋯+nn-1x^n-1+nx^n,
+or equivalently
+(1+x)n=∑k=0n(nk)xk,(1+x)^n=∑_k=0^nnx^k,
+or more explicitly[13]
+(1+x)n=1+nx+n(n−1)2!x2+n(n−1)(n−2)3!x3+⋯+nxn−1+xn.(1+x)^n=1+nx+n(n-1)/2!x^2+n(n-1)(n-2)/3!x^3+⋯+nx^n-1+x^n.
+
+Examples[edit]
+Here are the first few cases of the binomial theorem:
+(x+y)0=1,(x+y)1=x+y,(x+y)2=x2+2xy+y2,(x+y)3=x3+3x2y+3xy2+y3,(x+y)4=x4+4x3y+6x2y2+4xy3+y4,(x+y)5=x5+5x4y+10x3y2+10x2y3+5xy4+y5,(x+y)6=x6+6x5y+15x4y2+20x3y3+15x2y4+6xy5+y6,(x+y)7=x7+7x6y+21x5y2+35x4y3+35x3y4+21x2y5+7xy6+y7,(x+y)8=x8+8x7y+28x6y2+56x5y3+70x4y4+56x3y5+28x2y6+8xy7+y8.(x+y)^0   =1,
+(x+y)^1   =x+y,
+(x+y)^2   =x^2+2xy+y^2,
+(x+y)^3   =x^3+3x^2y+3xy^2+y^3,
+(x+y)^4   =x^4+4x^3y+6x^2y^2+4xy^3+y^4,
+(x+y)^5   =x^5+5x^4y+10x^3y^2+10x^2y^3+5xy^4+y^5,
+(x+y)^6   =x^6+6x^5y+15x^4y^2+20x^3y^3+15x^2y^4+6xy^5+y^6,
+(x+y)^7   =x^7+7x^6y+21x^5y^2+35x^4y^3+35x^3y^4+21x^2y^5+7xy^6+y^7,
+(x+y)^8   =x^8+8x^7y+28x^6y^2+56x^5y^3+70x^4y^4+56x^3y^5+28x^2y^6+8xy^7+y^8.
+In general, for the expansion of (x + y)n on the right side in the nth row (numbered so that the top row is the 0th row):
+
+the exponents of x in the terms are n, n − 1, ..., 2, 1, 0 (the last term implicitly contains x0 = 1);
+the exponents of y in the terms are 0, 1, 2, ..., n − 1, n (the first term implicitly contains y0 = 1);
+the coefficients form the nth row of Pascal's triangle;
+before combining like terms, there are 2n terms xiyj in the expansion (not shown);
+after combining like terms, there are n + 1 terms, and their coefficients sum to 2n.
+An example illustrating the last two points: (x+y)3=xxx+xxy+xyx+xyy+yxx+yxy+yyx+yyy(23terms)=x3+3x2y+3xy2+y3(3+1terms)(x+y)^3   =xxx+xxy+xyx+xyy+yxx+yxy+yyx+yyy   (2^3terms)
+   =x^3+3x^2y+3xy^2+y^3   (3+1terms) with 1+3+3+1=231+3+3+1=2^3.
+A simple example with a specific positive value of y:
+(x+2)3=x3+3x2(2)+3x(2)2+23=x3+6x2+12x+8.(x+2)^3   =x^3+3x^2(2)+3x(2)^2+2^3
+   =x^3+6x^2+12x+8.
+A simple example with a specific negative value of y:
+(x−2)3=x3−3x2(2)+3x(2)2−23=x3−6x2+12x−8.(x-2)^3   =x^3-3x^2(2)+3x(2)^2-2^3
+   =x^3-6x^2+12x-8.
+
+Geometric explanation[edit]
+Visualisation of binomial expansion up to the 4th power
+For positive values of a and b, the binomial theorem with n = 2 is the geometrically evident fact that a square of side a + b can be cut into a square of side a, a square of side b, and two rectangles with sides a and b. With n = 3, the theorem states that a cube of side a + b can be cut into a cube of side a, a cube of side b, three a × a × b rectangular boxes, and three a × b × b rectangular boxes.
+In calculus, this picture also gives a geometric proof of the derivative (xn)′=nxn−1:(x^n)'=nx^n-1:[14] if one sets a=x=x and b=Δx,=, interpreting b as an infinitesimal change in a, then this picture shows the infinitesimal change in the volume of an n-dimensional hypercube, (x+Δx)n,(x+)^n, where the coefficient of the linear term (in Δx) is nxn−1,^n-1, the area of the n faces, each of dimension n − 1:
+(x+Δx)n=xn+nxn−1Δx+(n2)xn−2(Δx)2+⋯.(x+)^n=x^n+nx^n-1+n2x^n-2()^2+⋯.
+Substituting this into the definition of the derivative via a difference quotient and taking limits means that the higher order terms, (Δx)2()^2 and higher, become negligible, and yields the formula (xn)′=nxn−1,(x^n)'=nx^n-1, interpreted as
+
+"the infinitesimal rate of change in volume of an n-cube as side length varies is the area of n of its (n − 1)-dimensional faces".
+If one integrates this picture, which corresponds to applying the fundamental theorem of calculus, one obtains Cavalieri's quadrature formula, the integral ∫xn−1dx=1nxn^n-1 dx=1nx^n – see proof of Cavalieri's quadrature formula for details.[14]
+
+
+Binomial coefficients[edit]
+Main article: Binomial coefficient
+The coefficients that appear in the binomial expansion are called binomial coefficients. These are usually written (nk),nk, and pronounced "n choose k".
+
+Formulas[edit]
+The coefficient of xn−kyk is given by the formula
+(nk)=n!k!(n−k)!,nk=n!/k! (n-k)!,
+which is defined in terms of the factorial function n!. Equivalently, this formula can be written
+(nk)=n(n−1)⋯(n−k+1)k(k−1)⋯1=∏ℓ=1kn−ℓ+1ℓ=∏ℓ=0k−1n−ℓk−ℓnk=n(n-1)⋯(n-k+1)/k(k-1)⋯1=∏_ℓ=1^kn-ℓ+1/ℓ=∏_ℓ=0^k-1n-ℓ/k-ℓ
+with k factors in both the numerator and denominator of the fraction. Although this formula involves a fraction, the binomial coefficient (nk)nk is actually an integer.
+
+Combinatorial interpretation[edit]
+The binomial coefficient (nk)nk can be interpreted as the number of ways to choose k elements from an n-element set. This is related to binomials for the following reason: if we write (x + y)n as a product
+(x+y)(x+y)(x+y)⋯(x+y),(x+y)(x+y)(x+y)⋯(x+y),
+then, according to the distributive law, there will be one term in the expansion for each choice of either x or y from each of the binomials of the product. For example, there will only be one term xn, corresponding to choosing x from each binomial. However, there will be several terms of the form xn−2y2, one for each way of choosing exactly two binomials to contribute a y. Therefore, after combining like terms, the coefficient of xn−2y2 will be equal to the number of ways to choose exactly 2 elements from an n-element set.
+
+Proofs[edit]
+Combinatorial proof[edit]
+Example[edit]
+The coefficient of xy2 in
+(x+y)3=(x+y)(x+y)(x+y)=xxx+xxy+xyx+xyy_+yxx+yxy_+yyx_+yyy=x3+3x2y+3xy2_+y3(x+y)^3   =(x+y)(x+y)(x+y)
+   =xxx+xxy+xyx+xyy+yxx+yxy+yyx+yyy
+   =x^3+3x^2y+3xy^2+y^3
+equals (32)=332=3 because there are three x,y strings of length 3 with exactly two ys, namely,
+xyy,yxy,yyx,, yxy, yyx,
+corresponding to the three 2-element subsets of {1, 2, 3}, namely,
+2,3,1,3,1,2,{2,3}, {1,3}, {1,2},
+where each subset specifies the positions of the y in a corresponding string.
+
+General case[edit]
+Expanding (x + y)n yields the sum of the 2n products of the form e1e2 ... en where each ei is x or y. Rearranging factors shows that each product equals xn−kyk for some k between 0 and n. For a given k, the following are proved equal in succession:
+
+the number of copies of xn−kyk in the expansion
+the number of n-character x,y strings having y in exactly k positions
+the number of k-element subsets of {1, 2, ..., n}
+(nk),nk, either by definition, or by a short combinatorial argument if one is defining (nk)nk as n!k!(n−k)!.n!k!(n-k)!.
+This proves the binomial theorem.
+
+Inductive proof[edit]
+Induction yields another proof of the binomial theorem. When n = 0, both sides equal 1, since x0 = 1 and (00)=1.00=1.  Now suppose that the equality holds for a given n; we will prove it for n + 1.  For j, k ≥ 0, let [f(x, y)]j,k denote the coefficient of xjyk in the polynomial f(x, y).  By the inductive hypothesis, (x + y)n is a polynomial in x and y such that [(x + y)n]j,k is (nk)nk if j + k = n, and 0 otherwise.  The identity
+(x+y)n+1=x(x+y)n+y(x+y)n(x+y)^n+1=x(x+y)^n+y(x+y)^n
+shows that (x + y)n+1 is also a polynomial in x and y, and
+[(x+y)n+1]j,k=[(x+y)n]j−1,k+[(x+y)n]j,k−1,[(x+y)^n+1]_j,k=[(x+y)^n]_j-1,k+[(x+y)^n]_j,k-1,
+since if j + k = n + 1, then (j − 1) + k = n and j + (k − 1) = n. Now, the right hand side is
+(nk)+(nk−1)=(n+1k),nk+nk-1=n+1k,
+by Pascal's identity.[15] On the other hand, if j + k ≠ n + 1, then (j – 1) + k ≠ n and j + (k – 1) ≠ n, so we get 0 + 0 = 0. Thus
+(x+y)n+1=∑k=0n+1(n+1k)xn+1−kyk,(x+y)^n+1=∑_k=0^n+1n+1kx^n+1-ky^k,
+which is the inductive hypothesis with n + 1 substituted for n and so completes the inductive step.
+
+Generalizations[edit]
+Newton's generalized binomial theorem[edit]
+Main article: Binomial series
+Around 1665, Isaac Newton generalized the binomial theorem to allow real exponents other than nonnegative integers. (The same generalization also applies to complex exponents.) In this generalization, the finite sum is replaced by an infinite series. In order to do this, one needs to give meaning to binomial coefficients with an arbitrary upper index, which cannot be done using the usual formula with factorials.  However, for an arbitrary number r, one can define
+(rk)=r(r−1)⋯(r−k+1)k!=(r)kk!,r=r(r-1)⋯(r-k+1)/k!=(r)_k/k!,
+where (⋅)k(·)_k is the Pochhammer symbol, here standing for a falling factorial.  This agrees with the usual definitions when r is a nonnegative integer.  Then, if x and y are real numbers with |x| > |y|,[Note 1] and r is any complex number, one has
+(x+y)r=∑k=0∞(rk)xr−kyk=xr+rxr−1y+r(r−1)2!xr−2y2+r(r−1)(r−2)3!xr−3y3+⋯.(x+y)^r   =∑_k=0^∞rx^r-ky^k
+   =x^r+rx^r-1y+r(r-1)/2!x^r-2y^2+r(r-1)(r-2)/3!x^r-3y^3+⋯.
+When r is a nonnegative integer, the binomial coefficients for k > r are zero, so this equation reduces to the usual binomial theorem, and there are at most r + 1 nonzero terms. For other values of r, the series typically has infinitely many nonzero terms.
+For example, r = 1/2 gives the following series for the square root:
+1+x=1+12x−18x2+116x3−5128x4+7256x5−⋯.√(1+x)=1+1/2x-1/8x^2+1/16x^3-5/128x^4+7/256x^5-⋯.
+Taking r = −1, the generalized binomial series gives the geometric series formula, valid for |x| < 1:
+(1+x)−1=11+x=1−x+x2−x3+x4−x5+⋯.(1+x)^-1=1/1+x=1-x+x^2-x^3+x^4-x^5+⋯.
+More generally, with r = −s, we have for |x| < 1:[16]
+1(1+x)s=∑k=0∞(−sk)xk=∑k=0∞(s+k−1k)(−1)kxk.1/(1+x)^s=∑_k=0^∞-sx^k=∑_k=0^∞s+k-1(-1)^kx^k.
+So, for instance, when s = 1/2,
+11+x=1−12x+38x2−516x3+35128x4−63256x5+⋯.1/√(1+x)=1-1/2x+3/8x^2-5/16x^3+35/128x^4-63/256x^5+⋯.
+Replacing x with -x yields:
+1(1−x)s=∑k=0∞(s+k−1k)(−1)k(−x)k=∑k=0∞(s+k−1k)xk.1/(1-x)^s=∑_k=0^∞s+k-1(-1)^k(-x)^k=∑_k=0^∞s+k-1x^k.
+So, for instance, when s = 1/2, we have for |x| < 1:
+11−x=1+12x+38x2+516x3+35128x4+63256x5+⋯.1/√(1-x)=1+1/2x+3/8x^2+5/16x^3+35/128x^4+63/256x^5+⋯.
+
+Further generalizations[edit]
+The generalized binomial theorem can be extended to the case where x and y are complex numbers. For this version, one should again assume |x| > |y|[Note 1] and define the powers of x + y and x using a holomorphic branch of log defined on an open disk of radius |x| centered at x.  The generalized binomial theorem is valid also for elements x and y of a Banach algebra as long as xy = yx, and x is invertible, and ‖y/x‖ < 1.
+A version of the binomial theorem is valid for the following Pochhammer symbol-like family of polynomials: for a given real constant c, define x(0)=1^(0)=1 and
+x(n)=∏k=1n[x+(k−1)c]^(n)=∏_k=1^n[x+(k-1)c]
+for n>0.>0.  Then[17]
+(a+b)(n)=∑k=0n(nk)a(n−k)b(k).(a+b)^(n)=∑_k=0^nnka^(n-k)b^(k).
+The case c = 0 recovers the usual binomial theorem.
+More generally, a sequence pnn=0∞{p_n}_n=0^∞ of polynomials is said to be of binomial type if
+
+deg⁡pn=n_n=n for all n,
+p0(0)=1_0(0)=1, and
+pn(x+y)=∑k=0n(nk)pk(x)pn−k(y)_n(x+y)=∑_k=0^nnkp_k(x)p_n-k(y) for all x, y, and n.
+An operator Q on the space of polynomials is said to be the basis operator of the sequence pnn=0∞{p_n}_n=0^∞ if Qp0=0_0=0 and Qpn=npn−1_n=np_n-1 for all n⩾1⩾1. A sequence pnn=0∞{p_n}_n=0^∞ is binomial if and only if its basis operator is a Delta operator.[18] Writing Ea^a for the shift by a operator, the Delta operators corresponding to the above "Pochhammer" families of polynomials are the backward difference I−E−c-E^-c for c>0>0, the ordinary derivative for c=0=0, and the forward difference E−c−I^-c-I for c<0<0.
+
+Multinomial theorem[edit]
+Main article: Multinomial theorem
+The binomial theorem can be generalized to include powers of sums with more than two terms. The general version is
+(x1+x2+⋯+xm)n=∑k1+k2+⋯+km=n(nk1,k2,…,km)x1k1x2k2⋯xmkm,(x_1+x_2+⋯+x_m)^n=∑_k_1+k_2+⋯+k_m=nnk_1,k_2,…,k_mx_1^k_1x_2^k_2_m^k_m,
+where the summation is taken over all sequences of nonnegative integer indices k1 through km such that the sum of all ki is n. (For each term in the expansion, the exponents must add up to n). The coefficients (nk1,⋯,km)nk_1,⋯,k_m are known as multinomial coefficients, and can be computed by the formula
+(nk1,k2,…,km)=n!k1!⋅k2!⋯km!.nk_1,k_2,…,k_m=n!/k_1!_2!_m!.
+Combinatorially, the multinomial coefficient (nk1,⋯,km)nk_1,⋯,k_m counts the number of different ways to partition an n-element set into disjoint subsets of sizes k1, ..., km.
+
+ Multi-binomial theorem[edit]
+When working in more dimensions, it is often useful to deal with products of binomial expressions. By the binomial theorem this is equal to
+(x1+y1)n1⋯(xd+yd)nd=∑k1=0n1⋯∑kd=0nd(n1k1)x1k1y1n1−k1…(ndkd)xdkdydnd−kd.(x_1+y_1)^n_1…(x_d+y_d)^n_d=∑_k_1=0^n_1…∑_k_d=0^n_dn_1k_1x_1^k_1y_1^n_1-k_1…n_dk_dx_d^k_dy_d^n_d-k_d.
+This may be written more concisely, by multi-index notation, as
+(x+y)α=∑ν≤α(αν)xνyα−ν.(x+y)^α=∑_ν≤αανx^νy^α-ν.
+
+General Leibniz rule[edit]
+Main article: General Leibniz rule
+The general Leibniz rule gives the nth derivative of a product of two functions in a form similar to that of the binomial theorem:[19]
+(fg)(n)(x)=∑k=0n(nk)f(n−k)(x)g(k)(x).(fg)^(n)(x)=∑_k=0^nnkf^(n-k)(x)g^(k)(x).
+Here, the superscript (n) indicates the nth derivative of a function.  If one sets f(x) = eax and g(x) = ebx, and then cancels the common factor of e(a + b)x from both sides of the result, the ordinary binomial theorem is recovered.[20]
+
+Applications[edit]
+Multiple-angle identities[edit]
+For the complex numbers the binomial theorem can be combined with de Moivre's formula to yield multiple-angle formulas for the sine and cosine. According to De Moivre's formula,
+cos⁡(nx)+isin⁡(nx)=(cos⁡x+isin⁡x)n.cos(nx)+isin(nx)=(+i)^n.
+Using the binomial theorem, the expression on the right can be expanded, and then the real and imaginary parts can be taken to yield formulas for cos(nx) and sin(nx). For example, since
+(cos⁡x+isin⁡x)2=cos2⁡x+2icos⁡xsin⁡x−sin2⁡x,(+i)^2=cos^2x+2i-sin^2x,
+De Moivre's formula tells us that
+cos⁡(2x)=cos2⁡x−sin2⁡xandsin⁡(2x)=2cos⁡xsin⁡x,cos(2x)=cos^2x-sin^2x  and  sin(2x)=2,
+which are the usual double-angle identities. Similarly, since
+(cos⁡x+isin⁡x)3=cos3⁡x+3icos2⁡xsin⁡x−3cos⁡xsin2⁡x−isin3⁡x,(+i)^3=cos^3x+3icos^2x-3sin^2x-isin^3x,
+De Moivre's formula yields
+cos⁡(3x)=cos3⁡x−3cos⁡xsin2⁡xandsin⁡(3x)=3cos2⁡xsin⁡x−sin3⁡x.cos(3x)=cos^3x-3sin^2x  and  sin(3x)=3cos^2x-sin^3x.
+In general,
+cos⁡(nx)=∑keven(−1)k/2(nk)cosn−k⁡xsink⁡xcos(nx)=∑_keven(-1)^k/2ncos^n-kxsin^kx
+and
+sin⁡(nx)=∑kodd(−1)(k−1)/2(nk)cosn−k⁡xsink⁡x.sin(nx)=∑_kodd(-1)^(k-1)/2ncos^n-kxsin^kx.
+
+Series for e[edit]
+The number e is often defined by the formula
+e=limn→∞(1+1n)n.=lim_n→∞(1+1/n)^n.
+Applying the binomial theorem to this expression yields the usual infinite series for e. In particular:
+(1+1n)n=1+(n1)1n+(n2)1n2+(n3)1n3+⋯+(nn)1nn.(1+1/n)^n=1+n11/n+n21/n^2+n31/n^3+⋯+n1/n^n.
+The kth term of this sum is
+(nk)1nk=1k!⋅n(n−1)(n−2)⋯(n−k+1)nkn1/n^k=1/k!·n(n-1)(n-2)⋯(n-k+1)/n^k
+As n → ∞, the rational expression on the right approaches 1, and therefore
+limn→∞(nk)1nk=1k!.lim_n→∞n1/n^k=1/k!.
+This indicates that e can be written as a series:
+e=∑k=0∞1k!=10!+11!+12!+13!+⋯.=∑_k=0^∞1/k!=1/0!+1/1!+1/2!+1/3!+⋯.
+Indeed, since each term of the binomial expansion is an increasing function of n, it follows from the monotone convergence theorem for series that the sum of this infinite series is equal to e.
+
+Probability[edit]
+The binomial theorem is closely related to the probability mass function of the negative binomial distribution. The probability of a (countable) collection of independent Bernoulli trials Xtt∈S{X_t}_t with probability of success p∈[0,1]∈[0,1] all not happening is
+
+P(⋂t∈SXtC)=(1−p)|S|=∑n=0|S|(|S|n)(−p)n.(⋂_tX_t^C)=(1-p)^|S|=∑_n=0^|S||S|(-p)^n.
+An upper bound for this quantity is e−p|S|.^-p|S|.[21]
+
+In abstract algebra[edit]
+The binomial theorem is valid more generally for two elements x and y in a ring, or even a semiring, provided that xy = yx.  For example, it holds for two n × n matrices, provided that those matrices commute; this is useful in computing powers of a matrix.[22]
+The binomial theorem can be stated by saying that the polynomial sequence {1, x, x2, x3, ...} is of binomial type.
+
+In popular culture[edit]
+The binomial theorem is mentioned in the Major-General's Song in the comic opera The Pirates of Penzance.
+Professor Moriarty is described by Sherlock Holmes as having written a treatise on the binomial theorem.
+The Portuguese poet Fernando Pessoa, using the heteronym Álvaro de Campos, wrote that "Newton's Binomial is as beautiful as the Venus de Milo. The truth is that few people notice it."[23]
+In the 2014 film The Imitation Game, Alan Turing makes reference to Isaac Newton's work on the binomial theorem during his first meeting with Commander Denniston at Bletchley Park.
+See also[edit]
+
+Mathematics portal
+Binomial approximation
+Binomial distribution
+Binomial inverse theorem
+Stirling's approximation
+Tannery's theorem
+Notes[edit]
+
+
+^ a b This is to guarantee convergence. Depending on r, the series may also converge sometimes when |x| = |y|.
+
+
+References[edit]
+
+
+^ a b c d e Coolidge, J. L. (1949). "The Story of the Binomial Theorem". The American Mathematical Monthly. 56 (3): 147–157. doi:10.2307/2305028. JSTOR 2305028.
+
+^ a b c Jean-Claude Martzloff; S.S. Wilson; J. Gernet; J. Dhombres (1987). A history of Chinese mathematics. Springer.
+
+^ a b Biggs, N. L. (1979). "The roots of combinatorics". Historia Math. 6 (2): 109–136. doi:10.1016/0315-0860(79)90074-0.
+
+^ Yadegari, Mohammad (1980). "The Binomial Theorem: A Widespread Concept in Medieval Islamic Mathematics". Historia Mathematica. 7 (4): 401–406. doi:10.1016/0315-0860(80)90004-X.
+
+^ Stillwell, John (2015). "Taming the unknown. A history of algebra ... by  Victor J. Katz and Karen Hunger Parshall". Bulletin of the American Mathematical Society (Book review). 52 (4): 725–731. doi:10.1090/S0273-0979-2015-01491-6. p. 727: However, algebra advanced in other respects. Around 1000, al-Karaji stated the binomial theorem
+
+^ Rashed, Roshdi (1994). The Development of Arabic Mathematics: Between Arithmetic and Algebra. Kluwer. p. 63. ISBN 0-7923-2565-6.
+
+^ a b O'Connor, John J.; Robertson, Edmund F., "Abu Bekr ibn Muhammad ibn al-Husayn Al-Karaji", MacTutor History of Mathematics Archive, University of St Andrews
+
+^ Landau, James A. (1999-05-08). "Historia Matematica Mailing List Archive: Re: [HM] Pascal's Triangle". Archives of Historia Matematica. Archived from the original (mailing list email) on 2021-02-24. Retrieved 2007-04-13.
+
+^ a b c Kline, Morris (1972). History of mathematical thought. Oxford University Press. p. 273.
+
+^ Katz, Victor (2009). "14.3: Elementary Probability". A History of Mathematics: An Introduction. Addison-Wesley. p. 491. ISBN 978-0-321-38700-4.
+
+^ Bourbaki, N. (18 November 1998). Elements of the History of Mathematics Paperback. J. Meldrum (Translator). ISBN 978-3-540-64767-6.
+
+^ Stillwell, John (2010). Mathematics and its history (third ed.). Springer. p. 186. ISBN 978-1-4419-6052-8.
+
+^ Mathematical Methods for Physicists. 2013. p. 34. doi:10.1016/c2009-0-30629-7. ISBN 9780123846549.
+
+^ a b Barth, Nils R. (2004). "Computing Cavalieri's Quadrature Formula by a Symmetry of the n-Cube". The American Mathematical Monthly. 111 (9): 811–813. doi:10.2307/4145193. ISSN 0002-9890. JSTOR 4145193.
+
+^ Binomial theorem – inductive proofs Archived February 24, 2015, at the Wayback Machine
+
+^ Weisstein, Eric W. "Negative Binomial Series". Wolfram MathWorld.
+
+^ Sokolowsky, Dan; Rennie, Basil C. (February 1979). "Problem 352". Crux Mathematicorum. 5 (2): 55–56.
+
+^ Aigner, Martin (1997) [Reprint of the 1979 Edition]. Combinatorial Theory. Springer. p. 105. ISBN 3-540-61787-6.
+
+^ Olver, Peter J. (2000). Applications of Lie Groups to Differential Equations. Springer. pp. 318–319. ISBN 9780387950006.
+
+^ Spivey, Michael Z. (2019). The Art of Proving Binomial Identities. CRC Press. p. 71. ISBN 978-1351215800.
+
+^ Cover, Thomas M.; Thomas, Joy A. (2001-01-01). Data Compression. John Wiley & Sons, Inc. p. 320. doi:10.1002/0471200611.ch5. ISBN 9780471200611.
+
+^ Artin, Algebra, 2nd edition, Pearson, 2018, equation (4.7.11).
+
+^ "Arquivo Pessoa: Obra Édita - O binómio de Newton é tão belo como a Vénus de Milo". arquivopessoa.net.
+
+
+Further reading[edit]
+Bag, Amulya Kumar (1966). "Binomial theorem in ancient India". Indian J. History Sci. 1 (1): 68–74.
+Graham, Ronald; Knuth, Donald; Patashnik, Oren (1994). "(5) Binomial Coefficients". Concrete Mathematics (2nd ed.). Addison Wesley. pp. 153–256. ISBN 978-0-201-55802-9. OCLC 17649857.
+External links[edit]
+
+
+
+The Wikibook Combinatorics has a page on the topic of: The Binomial Theorem
+
+Solomentsev, E.D. (2001) [1994], "Newton binomial", Encyclopedia of Mathematics, EMS Press
+Binomial Theorem by Stephen Wolfram, and "Binomial Theorem (Step-by-Step)" by Bruce Colletti and Jeff Bryant, Wolfram Demonstrations Project, 2007.
+This article incorporates material from inductive proof of binomial theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+Authority control databases: National 
+Germany
+Japan
+
+
+
+

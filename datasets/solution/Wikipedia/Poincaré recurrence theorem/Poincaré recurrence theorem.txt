@@ -1,0 +1,107 @@
+Certain dynamical systems will eventually return to (or approximate) their initial state
+"Recurrence time" redirects here. For the concept from ergodic theory, see Ergodic theory § Sojourn time.
+In mathematics and physics, the Poincaré recurrence theorem states that certain dynamical systems will, after a sufficiently long but finite time, return to a state arbitrarily close to (for continuous state systems), or exactly the same as (for discrete state systems), their initial state.
+The Poincaré recurrence time is the length of time elapsed until the recurrence. This time may vary greatly depending on the exact initial state and required degree of closeness. The result applies to isolated mechanical systems subject to some constraints, e.g., all particles must be bound to a finite volume. The theorem is commonly discussed in the context of ergodic theory, dynamical systems and statistical mechanics. Systems to which the Poincaré recurrence theorem applies are called conservative systems.
+The theorem is named after Henri Poincaré, who discussed it in 1890[1][2] and proved by Constantin Carathéodory using measure theory in 1919.[3][4]
+
+
+Precise formulation[edit]
+Any dynamical system defined by an ordinary differential equation determines a flow map f t mapping phase space on itself. The system is said to be volume-preserving if the volume of a set in phase space is invariant under the flow. For instance, all Hamiltonian systems are volume-preserving because of Liouville's theorem. The theorem is then: If a flow preserves volume and has only bounded orbits, then, for each open set, any orbit that intersects this open set intersects it infinitely often.[5]
+
+Discussion of proof[edit]
+The proof, speaking qualitatively, hinges on two premises:[6]
+
+A finite upper bound can be set on the total potentially accessible phase space volume. For a mechanical system, this bound can be provided by requiring that the system is contained in a bounded physical region of space (so that it cannot, for example, eject particles that never return) – combined with the conservation of energy, this locks the system into a finite region in phase space.
+The phase volume of a finite element under dynamics is conserved (for a mechanical system, this is ensured by Liouville's theorem).
+Imagine any finite starting volume D1_1 of the phase space and to follow its path under the dynamics of the system. The volume evolves through a "phase tube" in the phase space, keeping its size constant. Assuming a finite phase space, after some number of steps k1_1 the phase tube must intersect itself. This means that at least a finite fraction R1_1 of the starting volume is recurring.
+Now, consider the size of the non-returning portion D2_2 of the starting phase volume – that portion that never returns to the starting volume. Using the principle just discussed in the last paragraph, we know that if the non-returning portion is finite, then a finite part R2_2 of it must return after k2_2 steps. But that would be a contradiction, since in a number k3=_3=lcm(k1,k2)(k_1,k_2) of step, both R1_1 and R2_2 would be returning, against the hypothesis that only R1_1 was. Thus, the non-returning portion of the starting volume cannot be the empty set, i.e. all D1_1 is recurring after some number of steps.
+The theorem does not comment on certain aspects of recurrence which this proof cannot guarantee:
+
+There may be some special phases that never return to the starting phase volume, or that only return to the starting volume a finite number of times then never return again. These however are extremely "rare", making up an infinitesimal part of any starting volume.
+Not all parts of the phase volume need to return at the same time. Some will "miss" the starting volume on the first pass, only to make their return at a later time.
+Nothing prevents the phase tube from returning completely to its starting volume before all the possible phase volume is exhausted. A trivial example of this is the harmonic oscillator. Systems that do cover all accessible phase volume are called ergodic (this of course depends on the definition of "accessible volume").
+What can be said is that for "almost any" starting phase, a system will eventually return arbitrarily close to that starting phase. The recurrence time depends on the required degree of closeness (the size of the phase volume). To achieve greater accuracy of recurrence, we need to take smaller initial volume, which means longer recurrence time.
+For a given phase in a volume, the recurrence is not necessarily a periodic recurrence. The second recurrence time does not need to be double the first recurrence time.
+Formal statement[edit]
+Let 
+
+(X,Σ,μ)(X,Σ,μ)
+be a finite measure space and let 
+
+f:X→X
+be a measure-preserving transformation. Below are two alternative statements of the theorem.
+
+Theorem 1[edit]
+For any E∈Σ∈Σ, the set of those points x of E for which there exists N∈N∈ℕ such that fn(x)∉E^n(x) for all n>N>N has zero measure. 
+In other words, almost every point of E returns to E. In fact, almost every point returns infinitely often; i.e.
+
+μ(x∈E:thereexistsNsuchthatfn(x)∉Eforalln>N)=0.μ({x:thereexistsNsuchthatf^n(x)foralln>N})=0.
+Theorem 2[edit]
+The following is a topological version of this theorem:
+If X is a second-countable Hausdorff space and ΣΣ contains the Borel sigma-algebra, then the set of recurrent points of f has full measure. That is, almost every point is recurrent.
+More generally, the theorem applies to conservative systems, and not just to measure-preserving dynamical systems.  Roughly speaking, one can say that conservative systems are precisely those to which the recurrence theorem applies.
+
+Quantum mechanical version[edit]
+For time-independent quantum mechanical systems with discrete energy eigenstates, a similar theorem holds. For every ε>0ε>0 and T0>0_0>0 there exists a time T larger than T0_0, such that ||ψ(T)⟩−|ψ(0)⟩|<ε||ψ(T)⟩-|ψ(0)⟩|<ε, where |ψ(t)⟩|ψ(t)⟩ denotes the state vector of the system at time t.[7][8][9]
+The essential elements of the proof are as follows. The system evolves in time according to:
+
+|ψ(t)⟩=∑n=0∞cnexp⁡(−iEnt)|ϕn⟩|ψ(t)⟩=∑_n=0^∞c_nexp(-iE_nt)|ϕ_n⟩
+where the En_n are the energy eigenvalues (we use natural units, so ℏ=1ħ=1 ), and the |ϕn⟩|ϕ_n⟩ are the energy eigenstates. The squared norm of the difference of the state vector at time T and time zero, can be written as:
+
+||ψ(T)⟩−|ψ(0)⟩|2=2∑n=0∞|cn|2[1−cos⁡(EnT)]||ψ(T)⟩-|ψ(0)⟩|^2=2∑_n=0^∞|c_n|^2[1-cos(E_nT)]
+We can truncate the summation at some n = N independent of T, because
+∑n=N+1∞|cn|2[1−cos⁡(EnT)]≤2∑n=N+1∞|cn|2∑_n=N+1^∞|c_n|^2[1-cos(E_nT)]≤2∑_n=N+1^∞|c_n|^2
+which can be made arbitrarily small by increasing N, as the summation ∑n=0∞|cn|2∑_n=0^∞|c_n|^2, being the squared norm of the initial state, converges to 1.
+The finite sum
+
+∑n=0N|cn|2[1−cos⁡(EnT)]∑_n=0^N|c_n|^2[1-cos(E_nT)]
+can be made arbitrarily small for specific choices of the time T, according to the following construction. Choose an arbitrary δ>0δ>0, and then choose T such that there are integers  kn_n that satisfies 
+
+|EnT−2πkn|<δ|E_nT-2_n|<δ,
+for all numbers 0≤n≤N0. For this specific choice of T, 
+
+1−cos⁡(EnT)<δ22.1-cos(E_nT)<δ^2/2.
+As such, we have:
+
+2∑n=0N|cn|2[1−cos⁡(EnT)]<δ2∑n=0N|cn|2<δ22∑_n=0^N|c_n|^2[1-cos(E_nT)]<δ^2∑_n=0^N|c_n|^2<δ^2.
+The state vector |ψ(T)⟩|ψ(T)⟩ thus returns arbitrarily close to the initial state |ψ(0)⟩|ψ(0)⟩.
+
+See also[edit]
+Arnold's cat map
+Ergodic hypothesis
+Recurrence period density entropy
+Recurrence plot
+Wandering set
+Quantum revival
+References[edit]
+
+
+^ Poincaré, H. (1890). "Sur le problème des trois corps et les équations de la dynamique". Acta Math. 13: 1–270.
+
+^ Poincaré, Œuvres VII, 262–490 (theorem 1 section 8)
+
+^ Carathéodory, C. (1919). "Über den Wiederkehrsatz von Poincaré". Berl. Sitzungsber: 580–584.
+
+^ Carathéodory, Ges. math. Schr. IV, 296–301
+
+^ Barreira, Luis (2006). Zambrini, Jean-Claude (ed.). Poincaré recurrence: Old and new. XIVth International Congress on Mathematical Physics. World Scientific. pp. 415–422. doi:10.1142/9789812704016_0039. ISBN 978-981-256-201-2.
+
+^ Gibbs, Josiah Willard (1902). Elementary Principles in Statistical Mechanics. New York, NY: Charles Scribner's Sons. Chapter X.
+
+^ Bocchieri, P.; Loinger, A. (1957). "Quantum Recurrence Theorem". Phys. Rev. 107 (2): 337–338. Bibcode:1957PhRv..107..337B. doi:10.1103/PhysRev.107.337.
+
+^ Percival, I.C. (1961). "Almost Periodicity and the Quantal H theorem". J. Math. Phys. 2 (2): 235–239. Bibcode:1961JMP.....2..235P. doi:10.1063/1.1703705.
+
+^ Schulman, L. S. (1978). "Note on the quantum recurrence theorem". Phys. Rev. A. 18 (5): 2379–2380. Bibcode:1978PhRvA..18.2379S. doi:10.1103/PhysRevA.18.2379.
+
+
+Further reading[edit]
+Page, Don N. (25 November 1994). "Information loss in black holes and/or conscious beings?". arXiv:hep-th/9411193.
+External links[edit]
+Padilla, Tony. "The Longest Time". Numberphile. Brady Haran. Archived from the original on 2013-11-27. Retrieved 2013-04-08.
+"Arnold's Cat Map: An interactive graphical illustration of the recurrence theorem of Poincaré".
+This article incorporates material from Poincaré recurrence theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+
+
+

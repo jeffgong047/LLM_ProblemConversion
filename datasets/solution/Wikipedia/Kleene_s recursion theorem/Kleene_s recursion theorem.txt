@@ -1,0 +1,155 @@
+Theorem in computability theory
+Not to be confused with Kleene's theorem for regular languages.
+  
+In computability theory,  Kleene's recursion theorems are a pair of fundamental results about the application of computable functions to their own descriptions.    The theorems were first proved by Stephen Kleene in 1938[1] and appear in his 1952 book Introduction to Metamathematics.[2] A related theorem, which constructs fixed points of a computable function, is known as Rogers's theorem and is due to Hartley Rogers, Jr.[3]
+The recursion theorems can be applied to construct fixed points of certain operations on computable functions, to generate quines, and to construct functions defined via recursive definitions.
+
+
+Notation[edit]
+The statement of the theorems refers to an admissible numbering φφ of the partial recursive functions, such that the function corresponding to index e is φeφ_e.
+If F and G are partial functions on the natural numbers, the notation F≃G indicates that, for each n, either F(n)(n) and G(n)(n) are both defined and are equal, or else F(n)(n) and G(n)(n) are both undefined.
+
+Rogers's fixed-point theorem[edit]
+Given a function F, a fixed point of F is an index e such that φe≃φF(e)φ_e≃φ_F(e). Note that the comparison of in- and outputs here is not in terms of numerical values, but in terms of their associated functions.
+Rogers describes the following result as "a simpler version" of Kleene's (second) recursion theorem.[4]
+
+
+Rogers's fixed-point theorem — If F is a total computable function, it has a fixed point in the above sense.
+
+
+Proof of the fixed-point theorem[edit]
+The proof uses a particular total computable function h, defined as follows. Given a natural number x, the function h outputs the index of the partial computable function that performs the following computation:
+
+Given an input y, first attempt to compute φx(x)φ_x(x). If that computation returns an output e, then compute φe(y)φ_e(y) and return its value, if any.
+Thus, for all indices x of partial computable functions, if φx(x)φ_x(x) is defined, then φh(x)≃φφx(x)φ_h(x)≃φ_φ_x(x). If φx(x)φ_x(x) is not defined, then φh(x)φ_h(x) is a function that is nowhere defined.   The function h can be constructed from the partial computable function g(x,y)(x,y) described above and the s-m-n theorem: for each x, h(x)(x) is the index of a program which computes the function y↦g(x,y)(x,y).
+To complete the proof, let F be any total computable function, and construct h as above. Let e be an index of the composition F∘h, which is a total computable function.  Then φh(e)≃φφe(e)φ_h(e)≃φ_φ_e(e) by the definition of h.
+But, because e is an index of F∘h, φe(e)=(F∘h)(e)φ_e(e)=(F)(e), and thus φφe(e)≃φF(h(e))φ_φ_e(e)≃φ_F(h(e)). By the transitivity of ≃≃, this means φh(e)≃φF(h(e))φ_h(e)≃φ_F(h(e)). Hence φn≃φF(n)φ_n≃φ_F(n) for n=h(e)=h(e).
+This proof is a construction of a partial recursive function which implements the Y combinator.
+
+Fixed-point-free functions[edit]
+A function F such that φe≄φF(e)φ_e≄φ_F(e) for all e is called fixed-point free.  The fixed-point theorem shows that no total computable function is fixed-point free, but there are many non-computable fixed-point-free functions. Arslanov's completeness criterion states that the only recursively enumerable Turing degree that computes a fixed-point-free function is 0′, the degree of the halting problem.[5]
+
+Kleene's second recursion theorem[edit]
+The second recursion theorem is a generalization of Rogers's theorem with a second input in the function. One informal interpretation of the second recursion theorem is that it is possible to construct self-referential programs; see "Application to quines" below.
+
+The second recursion theorem.  For any partial recursive function Q(x,y)(x,y) there is an index p such that φp≃λy.Q(p,y)φ_p≃.Q(p,y).
+The theorem can be proved from Rogers's theorem by letting F(p)(p) be a function such that φF(p)(y)=Q(p,y)φ_F(p)(y)=Q(p,y) (a construction described by the S-m-n theorem). One can then verify that a fixed-point of this F is an index p as required. The theorem is constructive in the sense that a fixed computable function maps an index for Q into the index p.
+
+Comparison to Rogers's theorem[edit]
+Kleene's second recursion theorem and Rogers's theorem can both be proved, rather simply, from each other.[6] However, a direct proof of Kleene's theorem[7] does not make use of a universal program, which means that the theorem holds for certain subrecursive programming systems that do not have a universal program.
+
+Application to quines[edit]
+A classic example using the second recursion theorem is the function Q(x,y)=x(x,y)=x. The corresponding  index p in this case yields a computable function that outputs its own index when applied to any value.[8] When expressed as computer programs, such indices are known as quines.
+The following example in Lisp illustrates how the p in the corollary can be effectively produced from the function Q.   The function s11 in the code is the function of that name produced by the S-m-n theorem.
+Q can be changed to any two-argument function.
+
+(setq Q '(lambda (x y) x))
+(setq s11 '(lambda (f x) (list 'lambda '(y) (list f x 'y))))
+(setq n (list 'lambda '(x y) (list Q (list s11 'x 'x) 'y)))
+(setq p (eval (list s11 n n)))
+
+The results of the following expressions should be the same. φφ p(nil)
+
+(eval (list p nil))
+
+Q(p, nil)
+
+(eval (list Q p nil))
+
+Application to elimination of recursion[edit]
+Suppose that g and h are total computable functions that are used in a recursive definition for a function f:
+
+f(0,y)≃g(y),(0,y)(y),
+f(x+1,y)≃h(f(x,y),x,y),(x+1,y)(f(x,y),x,y),
+The second recursion theorem can be used to show that such equations define a computable function, where the notion of computability does not have to allow, prima facie, for recursive definitions (for example, it may be defined by μ-recursion, or by Turing machines). This recursive definition can be converted into a computable function φF(e,x,y)φ_F(e,x,y) that assumes e is an index to itself, to simulate recursion:
+
+φF(e,0,y)≃g(y),φ_F(e,0,y)(y),
+φF(e,x+1,y)≃h(φe(x,y),x,y).φ_F(e,x+1,y)(φ_e(x,y),x,y).
+The recursion theorem establishes the existence of a computable function φfφ_f such that φf(x,y)≃φF(f,x,y)φ_f(x,y)≃φ_F(f,x,y). Thus  f satisfies the given recursive definition.
+
+Reflexive programming[edit]
+Reflexive, or reflective, programming refers to the usage of self-reference in programs. Jones presents a view of the second recursion theorem based on a reflexive language.[9]
+It is shown that the reflexive language defined is not stronger than a language without reflection (because an interpreter for the reflexive language can be implemented without using reflection); then, it is shown that the recursion theorem is almost trivial in the reflexive language.
+
+The first recursion theorem[edit]
+While the second recursion theorem is about fixed points of computable functions, the first recursion theorem is related to fixed points determined by enumeration operators, which are a computable analogue of inductive definitions. An enumeration operator is a set of pairs (A,n) where A is a (code for a) finite set of numbers and n is a single natural number. Often, n will be viewed as a code for an ordered pair of natural numbers, particularly when functions are defined via enumeration operators. Enumeration operators are of central importance in the study of enumeration reducibility.
+Each enumeration operator Φ determines a function from sets of naturals to sets of naturals given by
+
+Φ(X)=n∣∃A⊆X[(A,n)∈Φ].Φ(X)={n|[(A,n)∈Φ]}.
+A recursive operator is an enumeration operator that, when given the graph of a partial recursive function, always returns the graph of a partial recursive function.
+A fixed point of an enumeration operator Φ is a set F such that Φ(F) = F. The first enumeration theorem shows that fixed points can be effectively obtained if the enumeration operator itself is computable.
+
+First recursion theorem. The following statements hold.
+For any computable enumeration operator Φ there is a recursively enumerable set F such that Φ(F) = F and F is the smallest set with this property.
+For any recursive operator Ψ there is a partial computable function φ such that Ψ(φ) = φ and φ is the smallest partial computable function with this property.
+Example[edit]
+Like the second recursion theorem, the first recursion theorem can be used to obtain functions satisfying systems of recursion equations. To apply the first recursion theorem, the recursion equations must first be recast as a recursive operator.
+Consider the recursion equations for the factorial function f:
+f(0)=1f(n+1)=(n+1)⋅f(n)   f(0)=1
+   f(n+1)=(n+1)(n)
+The corresponding recursive operator Φ will have information that tells how to get to the next value of f from the previous value. However, the recursive operator will actually define the graph of f. First, Φ will contain the pair (∅,(0,1))(∅,(0,1)). This indicates that f(0) is unequivocally 1, and thus the pair (0,1) is in the graph of f.
+Next, for each n and m, Φ will contain the pair ((n,m),(n+1,(n+1)⋅m))({(n,m)},(n+1,(n+1))). This indicates that, if f(n) is m, then f(n + 1) is (n + 1)m, so that the pair (n + 1, (n + 1)m) is in the graph of f. Unlike the base case f(0) = 1, the recursive operator requires some information about f(n) before it defines a value of f(n + 1).
+The first recursion theorem (in particular, part 1) states that there is a set F such that Φ(F) = F. The set F will consist entirely of ordered pairs of natural numbers, and will be the graph of the factorial function f, as desired.
+The restriction to recursion equations that can be recast as recursive operators ensures that the recursion equations actually define a least fixed point. For example, consider the set of recursion equations:
+g(0)=1g(n+1)=1g(2n)=0   g(0)=1
+   g(n+1)=1
+   g(2n)=0
+There is no function g satisfying these equations, because they imply g(2) = 1 and also imply g(2) = 0. Thus there is no fixed point g satisfying these recursion equations. It is possible to make an enumeration operator corresponding to these equations, but it will not be a recursive operator.
+
+Proof sketch for the first recursion theorem[edit]
+The proof of part 1 of the first recursion theorem is obtained by iterating the enumeration operator Φ beginning with the empty set. First, a sequence Fk is constructed, for k=0,1,…=0,1,….  Let F0 be the empty set. Proceeding inductively, for each k, let Fk + 1 be Fk∪Φ(Fk)_k∪Φ(F_k). Finally, F is taken to be ⋃Fk_k.  The remainder of the proof consists of a verification that F is recursively enumerable and is the least fixed point of Φ.   The sequence Fk used in this proof corresponds to the Kleene chain in the proof of the Kleene fixed-point theorem.
+The second part of the first recursion theorem follows from the first part. The assumption that Φ is a recursive operator is used to show that the fixed point of Φ is the graph of a partial function. The key point is that if the fixed point F is not the graph of a function, then there is some k such that Fk is not the graph of a function.
+
+Comparison to the second recursion theorem[edit]
+Compared to the second recursion theorem, the first recursion theorem produces a stronger conclusion but only when narrower hypotheses are satisfied. Rogers uses the term weak recursion theorem for the first recursion theorem and strong recursion theorem for the second recursion theorem.[3]
+One difference between the first and second recursion theorems is that the fixed points obtained by the first recursion theorem are guaranteed to be least fixed points, while those obtained from the second recursion theorem may not be least fixed points.
+A second difference is that the first recursion theorem only applies to systems of equations that can be recast as recursive operators. This restriction is similar to the restriction to continuous operators in the Kleene fixed-point theorem of order theory. The second recursion theorem can be applied to any total recursive function.
+
+Generalized theorem[edit]
+In the context of his theory of numberings, Ershov showed that Kleene's recursion theorem holds for any precomplete numbering.[10] A Gödel numbering is a precomplete numbering on the set of computable functions so the generalized theorem yields the Kleene recursion theorem as a special case.[11]
+Given a precomplete numbering νν, then for any partial computable function f with two parameters there exists a total computable function t with one parameter such that
+
+∀n∈N:ν∘f(n,t(n))=ν∘t(n).∈ℕ:ν(n,t(n))=ν(n).
+See also[edit]
+Denotational semantics, where another least fixed point theorem is used for the same purpose as the first recursion theorem.
+Fixed-point combinators, which are used in lambda calculus for the same purpose as the first recursion theorem.
+Diagonal lemma a closely related result in mathematical logic
+References[edit]
+Ershov, Yuri L. (1999). "Part 4: Mathematics and Computability Theory. 14. Theory of numbering". In Griffor, Edward R. (ed.). Handbook of Computability Theory. Studies in logic and the foundations of mathematics. Vol. 140. Amsterdam: Elsevier. pp. 473–503. ISBN 9780444898821. OCLC 162130533. Retrieved 6 May 2020.
+Jones, Neil D. (1997). Computability and complexity: From a Programming Perspective. Cambridge, Massachusetts: MIT Press. ISBN 9780262100649. OCLC 981293265.
+Kleene, Stephen C. (1952). Introduction to Metamathematics. Bibliotheca Mathematica. North-Holland Publishing. ISBN 9780720421033. OCLC 459805591. Retrieved 6 May 2020.
+Rogers, Hartley (1967). Theory of recursive functions and effective computability. Cambridge, Massachusetts: MIT Press. ISBN 9780262680523. OCLC 933975989. Retrieved 6 May 2020.
+Footnotes
+
+
+
+^ Kleene, Stephen C. (1938). "On notation for ordinal numbers" (PDF). Journal of Symbolic Logic. 3 (4): 150–155. doi:10.2307/2267778. ISSN 0022-4812. JSTOR 2267778. S2CID 34314018. Retrieved 6 May 2020.
+
+^ Kleene 1952.
+
+^ a b Rogers 1967.
+
+^ Rogers 1967, §11.2.
+
+^ Soare, R.I. (1987). Recursively Enumerable Sets and Degrees: A Study of Computable Functions and Computably Generated Sets. Perspectives in Mathematical Logic. Berlin and New York City: Springer-Verlag. p. 88. ISBN 9780387152998. OCLC 318368332.
+
+^ Jones 1997, pp. 229–30.
+
+^ Kleene 1952, pp. 352–3.
+
+^ Cutland, Nigel J. (1980). Computability: An Introduction to Recursive Function Theory. Cambridge University Press. p. 204. doi:10.1017/cbo9781139171496. ISBN 9781139935609. OCLC 488175597. Retrieved 6 May 2020.
+
+^ Jones 1997.
+
+^ Barendregt, Henk; Terwijn, Sebastiaan A. (2019). "Fixed point theorems for precomplete numberings". Annals of Pure and Applied Logic. 170 (10): 1151–1161. doi:10.1016/j.apal.2019.04.013. hdl:2066/205967. ISSN 0168-0072. S2CID 52289429. Retrieved 6 May 2020. p. 1151.
+
+^ See Ershov 1999, §4.14 for a survey in English.
+
+
+Further reading[edit]
+Jockusch, C. G.; Lerman, M.; Soare, R.I.; Solovay, R.M. (1989). "Recursively enumerable sets modulo iterated jumps and extensions of Arslanov's completeness criterion". The Journal of Symbolic Logic. 54 (4): 1288–1323. doi:10.1017/S0022481200041104. ISSN 0022-4812. JSTOR 2274816. S2CID 32203705.
+External links[edit]
+"Recursive Functions" entry  by Piergiorgio Odifreddi in the Stanford Encyclopedia of Philosophy, 2012.
+
+
+

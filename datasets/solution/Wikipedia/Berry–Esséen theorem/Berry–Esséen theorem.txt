@@ -1,0 +1,108 @@
+In probability theory, the central limit theorem states that, under certain circumstances, the probability distribution of the scaled mean of a random sample converges to a normal distribution as the sample size increases to infinity. Under stronger assumptions, the Berry–Esseen theorem, or Berry–Esseen inequality, gives a more quantitative result, because it also specifies the rate at which this convergence takes place by giving a bound on the maximal error of approximation between the normal distribution and the true distribution of the scaled sample mean. The approximation is measured by the Kolmogorov–Smirnov distance. In the case of independent samples, the convergence rate is n−1/2, where n is the sample size, and the constant is estimated in terms of the third absolute normalized moment.
+
+
+Statement of the theorem[edit]
+Statements of the theorem vary, as it was independently discovered by two mathematicians, Andrew C. Berry (in 1941) and Carl-Gustav Esseen (1942), who then, along with other authors, refined it repeatedly over subsequent decades.
+
+Identically distributed summands[edit]
+One version, sacrificing generality somewhat for the sake of clarity, is the following:
+
+There exists a positive constant C such that if X1, X2, ..., are i.i.d. random variables with E(X1) = 0, E(X12) = σ2 > 0, and E(|X1|3) = ρ < ∞,[note 1] and if we define
+Yn=X1+X2+⋯+Xnn_n=X_1+X_2+⋯+X_n
+the sample mean, with Fn the cumulative distribution function of
+Ynnσ,Y_n√(n)σ,
+and Φ the cumulative distribution function of the standard normal distribution, then for all x and n,
+|Fn(x)−Φ(x)|≤Cρσ3n.(1)|F_n(x)-Φ(x)|≤Cρσ^3√(n).
+
+(1)
+Illustration of the difference in cumulative distribution functions alluded to in the theorem.
+That is: given a sequence of independent and identically distributed random variables, each having mean zero and positive variance, if additionally the third absolute moment is finite, then the cumulative distribution functions of the standardized sample mean and the standard normal distribution differ (vertically, on a graph) by no more than the specified amount.  Note that the approximation error for all n (and hence the limiting rate of convergence for indefinite n sufficiently large) is bounded by  the order of n−1/2.
+Calculated values of the constant C have decreased markedly over the years, from the original value of 7.59 by Esseen (1942), to 0.7882 by van Beek (1972), then 0.7655 by Shiganov (1986), then 0.7056 by Shevtsova (2007), then 0.7005 by Shevtsova (2008), then 0.5894 by Tyurin (2009), then 0.5129 by Korolev & Shevtsova (2010a), then 0.4785 by Tyurin (2010). The detailed review can be found in the papers Korolev & Shevtsova (2010a) and Korolev & Shevtsova (2010b). The best estimate as of 2012[update], C < 0.4748, follows from the inequality
+
+supx∈R|Fn(x)−Φ(x)|≤0.33554(ρ+0.415σ3)σ3n,sup_x∈ℝ|F_n(x)-Φ(x)|≤0.33554(ρ+0.415σ^3)σ^3√(n),
+due to Shevtsova (2011), since σ3 ≤ ρ and 0.33554 · 1.415 < 0.4748. However, if ρ ≥ 1.286σ3, then the estimate 
+
+supx∈R|Fn(x)−Φ(x)|≤0.3328(ρ+0.429σ3)σ3n,sup_x∈ℝ|F_n(x)-Φ(x)|≤0.3328(ρ+0.429σ^3)σ^3√(n),
+which is also proved in Shevtsova (2011), gives an even tighter upper estimate.
+Esseen (1956) proved that the constant also satisfies the lower bound
+
+C≥10+362π≈0.40973≈12π+0.01079.≥√(10)+3/6√(2π)≈0.40973≈1/√(2π)+0.01079.
+Non-identically distributed summands[edit]
+Let X1, X2, ..., be independent random variables with E(Xi) = 0, E(Xi2) = σi2 > 0, and E(|Xi|3) = ρi < ∞. Also, let
+Sn=X1+X2+⋯+Xnσ12+σ22+⋯+σn2_n=X_1+X_2+⋯+X_n√(σ_1^2+σ_2^2+⋯+σ_n^2)
+be the normalized n-th partial sum. Denote Fn the cdf of Sn, and Φ the cdf of the standard normal distribution. For the sake of convenience denote
+σ→=(σ1,…,σn),ρ→=(ρ1,…,ρn).σ⃗=(σ_1,…,σ_n),{ρ⃗=(ρ_1,…,ρ_n).
+In 1941, Andrew C. Berry proved that for all n there exists an absolute constant C1 such that
+supx∈R|Fn(x)−Φ(x)|≤C1⋅ψ1,(2)sup_x∈ℝ|F_n(x)-Φ(x)|_1·ψ_1,
+
+(2)
+where
+ψ1=ψ1(σ→,ρ→)=(∑i=1nσi2)−1/2⋅max1≤i≤nρiσi2.ψ_1=ψ_1(σ⃗,ρ⃗)=(∑_i=1^nσ_i^2)^-1/2·max_1ρ_i/σ_i^2.
+Independently, in 1942, Carl-Gustav Esseen proved that for all n there exists an absolute constant C0 such that
+supx∈R|Fn(x)−Φ(x)|≤C0⋅ψ0,(3)sup_x∈ℝ|F_n(x)-Φ(x)|_0·ψ_0,
+
+(3)
+where
+ψ0=ψ0(σ→,ρ→)=(∑i=1nσi2)−3/2⋅∑i=1nρi.ψ_0=ψ_0(σ⃗,ρ⃗)=(∑_i=1^nσ_i^2)^-3/2·∑_i=1^nρ_i.
+It is easy to make sure that ψ0≤ψ1. Due to this circumstance inequality (3) is conventionally called the Berry–Esseen inequality, and the quantity ψ0 is called the Lyapunov fraction of the third order. Moreover, in the case where the summands X1, ..., Xn have identical distributions 
+
+ψ0=ψ1=ρ1σ13n,ψ_0=ψ_1=ρ_1/σ_1^3√(n),
+and thus the bounds stated by inequalities (1), (2) and (3) coincide apart from the constant.
+Regarding C0, obviously, the lower bound established by Esseen (1956) remains valid:
+
+C0≥10+362π=0.4097…._0≥√(10)+3/6√(2π)=0.4097….
+The upper bounds for C0 were subsequently lowered from the original estimate 7.59 due to Esseen (1942) to (considering recent results only) 0.9051 due to Zolotarev (1967), 0.7975 due to van Beek (1972), 0.7915 due to Shiganov (1986), 0.6379 and 0.5606 due to Tyurin (2009) and Tyurin (2010). As of 2011[update] the best estimate is 0.5600 obtained by Shevtsova (2010).
+
+Multidimensional version[edit]
+As with the multidimensional central limit theorem, there is a multidimensional version of the Berry–Esseen theorem.[1][2]
+Let X1,…,Xn_1,…,X_n be independent Rdℝ^d-valued random vectors each having mean zero. Write Sn=∑i=1nXin_n=∑_i=1^nX_i/√(n) and assume Σn=Cov⁡[Sn]Σ_n=Cov[S_n] is invertible. Let Zn∼N⁡(0,Σ)_n∼N(0,Σ) be a d-dimensional Gaussian with the same mean and covariance matrix as Sn_n. Then for all convex sets U⊆Rd⊆ℝ^d,
+
+|Pr[Sn∈U]−Pr[Zn∈U]|≤Cd1/4γn|[S_n]-[Z_n] |^1/4γ_n,
+where C is a universal constant and γn=∑i=1nE⁡[‖Σn−1/2Xi‖23]γ_n=∑_i=1^nE[Σ_n^-1/2X_i_2^3] (the third power of the L2 norm).
+The dependency on d1/4^1/4 is conjectured to be optimal, but might not be.[2]
+
+See also[edit]
+Chernoff's inequality
+Edgeworth series
+List of inequalities
+List of mathematical theorems
+Concentration inequality
+Notes[edit]
+
+^ Since the random variables are identically distributed, X2, X3, ... all have the same moments as X1.
+
+
+References[edit]
+
+
+^ Bentkus, Vidmantas. "A Lyapunov-type bound in Rd." Theory of Probability & Its Applications 49.2 (2005): 311–323.
+
+^ a b Raič, Martin (2019). "A multivariate Berry--Esseen theorem with explicit constants". Bernoulli. 25 (4A): 2824–2853. arXiv:1802.06475. doi:10.3150/18-BEJ1072. ISSN 1350-7265. S2CID 119607520.
+
+
+
+Berry, Andrew C. (1941). "The Accuracy of the Gaussian Approximation to the Sum of Independent Variates". Transactions of the American Mathematical Society. 49 (1): 122–136. doi:10.1090/S0002-9947-1941-0003498-3. JSTOR 1990053.
+Durrett, Richard (1991). Probability: Theory and Examples. Pacific Grove, CA: Wadsworth & Brooks/Cole. ISBN 0-534-13206-5.
+Esseen, Carl-Gustav (1942). "On the Liapunoff limit of error in the theory of probability". Arkiv för Matematik, Astronomi och Fysik. A28: 1–19. ISSN 0365-4133.
+Esseen, Carl-Gustav (1956). "A moment inequality with an application to the central limit theorem". Skand. Aktuarietidskr. 39: 160–170.
+Feller, William (1972). An Introduction to Probability Theory and Its Applications, Volume II (2nd ed.). New York: John Wiley & Sons. ISBN 0-471-25709-5.
+Korolev, V. Yu.; Shevtsova, I. G. (2010a). "On the upper bound for the absolute constant in the Berry–Esseen inequality". Theory of Probability and Its Applications. 54 (4): 638–658. doi:10.1137/S0040585X97984449.
+Korolev, Victor; Shevtsova, Irina (2010b). "An improvement of the Berry–Esseen inequality with applications to Poisson and mixed Poisson random sums". Scandinavian Actuarial Journal. 2012 (2): 1–25. arXiv:0912.2795. doi:10.1080/03461238.2010.485370. S2CID 115164568.
+Manoukian, Edward B. (1986). Modern Concepts and Theorems of Mathematical Statistics. New York: Springer-Verlag. ISBN 0-387-96186-0.
+Serfling, Robert J. (1980). Approximation Theorems of Mathematical Statistics. New York: John Wiley & Sons. ISBN 0-471-02403-1.
+Shevtsova, I. G. (2008). "On the absolute constant in the Berry–Esseen inequality". The Collection of Papers of Young Scientists of the Faculty of Computational Mathematics and Cybernetics (5): 101–110.
+Shevtsova, Irina (2007). "Sharpening of the upper bound of the absolute constant in the Berry–Esseen inequality". Theory of Probability and Its Applications. 51 (3): 549–553. doi:10.1137/S0040585X97982591.
+Shevtsova, Irina (2010). "An Improvement of Convergence Rate Estimates in the Lyapunov Theorem". Doklady Mathematics. 82 (3): 862–864. doi:10.1134/S1064562410060062. S2CID 122973032.
+Shevtsova, Irina (2011). "On the absolute constants in the Berry Esseen type inequalities for identically distributed summands". arXiv:1111.6554 [math.PR].
+Shiganov, I.S. (1986). "Refinement of the upper bound of a constant in the remainder term of the central limit theorem". Journal of Soviet Mathematics. 35 (3): 109–115. doi:10.1007/BF01121471. S2CID 120112396.
+Tyurin, I.S. (2009). "On the accuracy of the Gaussian approximation". Doklady Mathematics. 80 (3): 840–843. doi:10.1134/S1064562409060155. S2CID 121383741.
+Tyurin, I.S. (2010). "An improvement of upper estimates of the constants in the Lyapunov theorem". Russian Mathematical Surveys. 65 (3(393)): 201–202. doi:10.1070/RM2010v065n03ABEH004688. S2CID 118771013.
+van Beek, P. (1972). "An application of Fourier methods to the problem of sharpening the Berry–Esseen inequality". Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete. 23 (3): 187–196. doi:10.1007/BF00536558. S2CID 121036017.
+Zolotarev, V. M. (1967). "A sharpening of the inequality of Berry–Esseen". Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete. 8 (4): 332–342. doi:10.1007/BF00531598. S2CID 122347713.
+
+External links[edit]
+Gut, Allan & Holst Lars. Carl-Gustav Esseen, retrieved Mar. 15, 2004.
+"Berry–Esseen inequality", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+
+
+

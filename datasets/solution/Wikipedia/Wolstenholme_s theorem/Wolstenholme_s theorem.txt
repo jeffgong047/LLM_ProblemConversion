@@ -1,0 +1,119 @@
+Result in number theory
+In mathematics, Wolstenholme's theorem states that for a prime number p≥5≥5, the congruence
+
+(2p−1p−1)≡1(modp3)2p-1-1≡1p^3
+holds, where the parentheses denote a binomial coefficient.  For example, with p = 7, this says that 1716 is one more than a multiple of 343. The theorem was first proved by Joseph Wolstenholme in 1862.  In 1819, Charles Babbage showed the same congruence modulo p2, which holds for p≥3≥3. An equivalent formulation is the congruence
+
+(apbp)≡(ab)(modp3)ap≡ap^3
+for p≥5≥5, which is due to Wilhelm Ljunggren[1] (and, in the special case b=1=1, to J. W. L. Glaisher[citation needed]) and is inspired by Lucas' theorem.
+No known composite numbers satisfy Wolstenholme's theorem and it is conjectured that there are none (see below).  A prime that satisfies the congruence modulo p4 is called a Wolstenholme prime (see below).
+As Wolstenholme himself established, his theorem can also be expressed as a pair of congruences for (generalized) harmonic numbers:
+
+1+12+13+⋯+1p−1≡0(modp2),and1+12+13+…+1-1≡0p^2
+1+122+132+⋯+1(p−1)2≡0(modp).1+12^2+13^2+…+1(p-1)^2≡0p.
+(Congruences with fractions make sense, provided that the denominators are coprime to the modulus.)
+For example, with p=7, the first of these says that the numerator of 49/20 is a multiple of 49, while the second says the numerator of 5369/3600 is a multiple of 7.
+
+
+Wolstenholme primes[edit]
+Main article: Wolstenholme prime
+A prime p is called a Wolstenholme prime iff the following condition holds:
+
+(2p−1p−1)≡1(modp4).2p-1p-1≡1p^4.
+If p is a Wolstenholme prime, then Glaisher's theorem holds modulo p4.  The only known Wolstenholme primes so far are 16843 and 2124679 (sequence A088164 in the OEIS); any other Wolstenholme prime must be greater than 109.[2] This result is consistent with the heuristic argument that the residue modulo p4 is a pseudo-random multiple of p3.  This heuristic predicts that the number of Wolstenholme primes between K and N is roughly ln ln N − ln ln K.  The Wolstenholme condition has been checked up to 109, and the heuristic says that there should be roughly one Wolstenholme prime between 109 and 1024.  A similar heuristic predicts that there are no "doubly Wolstenholme" primes, for which the congruence would hold modulo p5.
+
+A proof of the theorem[edit]
+There is more than one way to prove Wolstenholme's theorem.  Here is a proof that directly establishes Glaisher's version using both combinatorics and algebra.
+For the moment let p be any prime, and let a and b be any non-negative integers.  Then a set A with ap elements can be divided into a rings of length p, and the rings can be rotated separately. Thus, the a-fold direct sum of the cyclic group of order p acts on the set A, and by extension it acts on the set of subsets of size bp.  Every orbit of this group action has pk elements, where k is the number of incomplete rings, i.e., if there are k rings that only partly intersect a subset B in the orbit.  There are (ab)a orbits of size 1 and there are no orbits of size p.  Thus we first obtain Babbage's theorem
+
+(apbp)≡(ab)(modp2).ap≡ap^2.
+Examining the orbits of size p2, we also obtain
+
+(apbp)≡(ab)+(a2)((2pp)−2)(a−2b−1)(modp3).ap≡a+a2(2p-2)a-2-1p^3.
+Among other consequences, this equation tells us that the case a=2 and b=1 implies the general case of the second form of Wolstenholme's theorem.
+Switching from combinatorics to algebra, both sides of this congruence are polynomials in a for each fixed value of b.  The congruence therefore holds when a is any integer, positive or negative, provided that b is a fixed positive integer.  In particular, if a=-1 and b=1, the congruence becomes
+
+(−pp)≡(−11)+(−12)((2pp)−2)(modp3).-p≡-11+-12(2p-2)p^3.
+This congruence becomes an equation for (2pp)2p using the relation
+
+(−pp)=(−1)p2(2pp).-p=(-1)^p/22p.
+When p is odd, the relation is
+
+3(2pp)≡6(modp3).32p≡6p^3.
+When p≠3, we can divide both sides by 3 to complete the argument.
+A similar derivation modulo p4 establishes that
+
+(apbp)≡(ab)(modp4)ap≡ap^4
+for all positive a and b if and only if it holds when a=2 and b=1, i.e., if and only if p is a Wolstenholme prime.
+
+The converse as a conjecture[edit]
+It is conjectured that if
+
+
+
+
+(2n−1n−1)≡1(modnk)2n-1-1≡1n^k
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+when k=3, then n is prime.  The conjecture can be understood by considering k = 1 and 2 as well as 3.  When k = 1, Babbage's theorem implies that it holds for n = p2 for p an odd prime, while Wolstenholme's theorem implies that it holds for n = p3 for p > 3, and it holds for n = p4 if p is a Wolstenholme prime. When k = 2, it holds for n = p2 if p is a Wolstenholme prime. These three numbers, 4 = 22, 8 = 23, and 27 = 33 are not held for (1) with k = 1, but all other prime square and prime cube are held for (1) with k = 1. Only 5 other composite values (neither prime square nor prime cube) of n are known to hold for (1) with k = 1, they are called Wolstenholme pseudoprimes, they are
+
+27173, 2001341, 16024189487, 80478114820849201, 20378551049298456998947681, ... (sequence A082180 in the OEIS)
+The first three are not prime powers (sequence A228562 in the OEIS), the last two are 168434 and 21246794, 16843 and 2124679 are Wolstenholme primes (sequence A088164 in the OEIS). Besides, with an exception of 168432 and 21246792, no composites are known to hold for  (1) with k = 2, much less k = 3.  Thus the conjecture is considered likely because Wolstenholme's congruence seems over-constrained and artificial for composite numbers.  Moreover, if the congruence does hold for any particular n other than a prime or prime power, and any particular k, it does not imply that
+
+(anbn)≡(ab)(modnk).an≡an^k.
+The number of Wolstenholme pseudoprimes up to x is O(x1/2log⁡(log⁡(x))499712)(x^1/2log(log(x))^499712), so the sum of reciprocals of those numbers converges. The constant 499712499712 follows from the existence of only three Wolstenholme pseudoprimes up to 101210^12. The number of Wolstenholme pseudoprimes up to 101210^12 should be at least 7 if the sum of its reciprocals diverged, and since this is not satisfied, the counting function of these pseudoprimes is at most O(x1/2log⁡(log⁡(x))C)(x^1/2log(log(x))^C) for some efficiently computable constant C; we can take C as 499712.
+
+Generalizations[edit]
+Leudesdorf has proved that for a positive integer n coprime to 6, the following congruence holds:[3]
+
+∑i=1(i,n)=1n−11i≡0(modn2).∑_i=1(i,n)=1^n-11/i≡0n^2.
+See also[edit]
+Fermat's little theorem
+Wilson's theorem
+Wieferich prime
+Wilson prime
+Wall–Sun–Sun prime
+List of special classes of prime numbers
+Table of congruences
+Notes[edit]
+
+
+^ Granville, Andrew (1997), "Binomial coefficients modulo prime powers" (PDF), Canadian Mathematical Society Conference Proceedings, 20: 253–275, MR 1483922, archived from the original (PDF) on 2017-02-02
+
+^ McIntosh, R. J.; Roettger, E. L. (2007), "A search for Fibonacci−Wieferich and Wolstenholme primes", Mathematics of Computation, 76 (260): 2087–2094, Bibcode:2007MaCom..76.2087M, CiteSeerX 10.1.1.105.9393, doi:10.1090/S0025-5718-07-01955-2
+
+^ Leudesdorf, C. (1888). "Some results in the elementary theory of numbers". Proc. London Math. Soc. 20: 199–212. doi:10.1112/plms/s1-20.1.199.
+
+
+References[edit]
+Babbage, C. (1819), "Demonstration of a theorem relating to prime numbers", The Edinburgh Philosophical Journal, 1: 46–49.
+Glaisher, J.W.L. (1900), "Congruences relating to the sums of products of the first n numbers and to other sums of products", The Quarterly Journal of Pure and Applied Mathematics, 31: 1–35.
+Glaisher, J.W.L. (1900), "Residues of binomial-theorem coefficients with respect to p3", The Quarterly Journal of Pure and Applied Mathematics, 31: 110–124.
+Glaisher, J.W.L. (1900), "On the residues of the sums of products of the first p−1 numbers, and their powers, to modulus p2 or p3", The Quarterly Journal of Pure and Applied Mathematics, 31: 321–353.
+Granville, Andrew (1997), "Binomial coefficients modulo prime powers" (PDF), Canadian Mathematical Society Conference Proceedings, 20: 253–275, MR 1483922, archived from the original (PDF) on 2017-02-02.
+McIntosh, R. J. (1995), "On the converse of Wolstenholme's theorem" (PDF), Acta Arithmetica, 71 (4): 381–389, doi:10.4064/aa-71-4-381-389.
+R. Mestrovic, Wolstenholme's theorem: Its Generalizations and Extensions in the last hundred and fifty years (1862—2012).
+Wolstenholme, Joseph (1862), "On certain properties of prime numbers", The Quarterly Journal of Pure and Applied Mathematics, 5: 35–39.
+External links[edit]
+The Prime Glossary: Wolstenholme prime
+Status of the search for Wolstenholme primes
+
+
+

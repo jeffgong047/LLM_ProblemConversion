@@ -1,0 +1,69 @@
+An Aztec diamond of order 4
+In combinatorial mathematics, an Aztec diamond of order n consists of all squares of a square lattice whose centers (x,y) satisfy |x| + |y| ≤ n. Here n is a fixed integer, and the square lattice consists of unit squares with the origin as a vertex of 4 of them, so that both x and y are half-integers.[1]
+
+One of 1024 possible domino tilings of an order 4 Aztec diamond
+A domino tiling of an order-50 Aztec diamond, chosen uniformly at random. The four corners of the diamond outside of the roughly circular area are "frozen".
+The Aztec diamond theorem states that the number of domino tilings of the Aztec diamond of order n is 2n(n+1)/2.[2] The Arctic Circle theorem says that a random tiling of a large Aztec diamond tends to be frozen outside a certain circle.[3]
+It is common to color the tiles in the following fashion. First consider a checkerboard coloring
+of the diamond. Each tile will cover exactly one black square. Vertical tiles where the top square covers a black square,
+is colored in one color, and the other vertical tiles in a second. Similarly for horizontal tiles.
+Knuth has also defined Aztec diamonds of order n + 1/2.[4] They are identical with the polyominoes associated with the centered square numbers.
+
+
+Non-intersecting paths[edit]
+Something that is very useful for counting tilings is looking at the non-intersecting paths through its corresponding directed graph. If we define our movements through a tiling (domino tiling) to be
+
+(1,1) when we are the bottom of a vertical tiling
+(1,0) where we are the end of a horizontal tiling
+(1,-1) when we are at the top of a vertical tiling
+Then through any tiling we can have these paths from our sources to our sinks. These movements are similar to Schröder paths. For example, consider an Aztec Diamond of order 2, and after drawing its directed graph we can label its sources and sinks. a1,a2_1,a_2 are our sources and b1,b2_1,b_2 are our sinks. On its directed graph, we can draw a path from ai_i to bj_j, this gives us a path matrix,  P2_2,
+P2=[a1b1a2b1a1b2a2b2]=[6222]_2=[ a_1b_1 a_2b_1; a_1b_2 a_2b_2;  ]=[ 6 2; 2 2;  ]
+where aibj=_ib_j= all the paths from ai_i to bj_j. The number of tilings for order 2 is
+det(P2)=12−4=8=22(2+1)/2(P_2)=12-4=8=2^2(2+1)/2
+According to Lindstrom-Gessel-Viennot, if we let S be the set of all our sources and T be the set of all our sinks of our directed graph then
+det(Pn)=(P_n)=number of non-intersecting paths from S to T.[5]
+Considering the directed graph of the Aztec Diamond, it has also been shown by Eu and Fu that Schröder paths and the tilings of the Aztec diamond are in bijection.[6] Hence, finding the determinant of the path matrix, Pn_n, will give us the number of tilings for the Aztec Diamond of order n.
+Another way to determine the number of tilings of an Aztec Diamond is using Hankel matrices of large and small Schröder numbers,[6] using the method from Lindstrom-Gessel-Viennot again.[5] Finding the determinant of these matrices gives us the number of non-intersecting paths of small and large Schröder numbers, which is in bijection with the tilings. The small Schröder numbers are 1,1,3,11,45,⋯=y0,y1,y2,y3,y4,⋯{1,1,3,11,45,⋯}={y_0,y_1,y_2,y_3,y_4,⋯} and the large Schröder numbers are 1,2,6,22,90,⋯=x0,x1,x2,x3,x4,⋯{1,2,6,22,90,⋯}={x_0,x_1,x_2,x_3,x_4,⋯}, and in general our two Hankel matrices will be
+Hn=[x1x2⋯xnx2x3⋯xn+1⋮⋮⋮xnxn+1⋯x2n−1]_n=[    x_1    x_2      ⋯    x_n;    x_2    x_3      ⋯  x_n+1;      ⋮      ⋮      ⋮;    x_n  x_n+1      ⋯ x_2n-1;  ]
+and
+Gn=[y1y2⋯yny2y3⋯yn+1⋮⋮⋮ynyn+1⋯y2n−1]_n=[    y_1    y_2      ⋯    y_n;    y_2    y_3      ⋯  y_n+1;      ⋮      ⋮      ⋮;    y_n  y_n+1      ⋯ y_2n-1;  ]
+where det(Hn)=2n(n+1)/2(H_n)=2^n(n+1)/2 and det(Gn)=2n(n−1)/2(G_n)=2^n(n-1)/2 where n≥1≥1 (It also true that det(Hn0)=2n(n−1)/2(H_n^0)=2^n(n-1)/2 where this is the Hankel matrix like Hn_n, but started with x0_0 instead of x1_1 for the first entry of the matrix in the top left corner).
+
+Other tiling problems[edit]
+Consider the shape, 2×n2 block, and we can ask the same question as for the Aztec Diamond of order n. As this has been proven in many papers, we will refer to.[7] Letting the 2×n2 block shape be denoted by Bn_n, then it can be seen
+The number of tilings of Bn=Fn_n=F_n
+where Fn_n is the nth^th Fibonacci number and n≥0≥0. It is understood that B0_0 is a 2×02×0 shape that can only be tiled 1 way, no ways. Using induction, consider B1_1 and that is just 2×12×1 domino tile where there is only F1=1_1=1 tiling. Assuming the number of tilings for Bn=Fn_n=F_n, then we consider Bn+1_n+1. Focusing on how we can begin our tiling, we have two cases. We can start with our first tile being vertical, which means we are left with Bn_n which has Fn_n different tilings. The other way we can start our tiling is by laying two horizontal tiles on top of each other, which leaves us with Bn−1_n-1 that has Fn−1_n-1 different tilings. By adding the two together, the number of tilings for Bn+1=Fn+Fn−1=Fn+1_n+1=F_n+F_n-1=F_n+1.[7]
+
+Generating valid tilings[edit]
+Finding valid tilings of the Aztec diamond involves the solution of the underlying set-covering problem.  Let D=d1,d2,…,dn={d_1,d_2,…,d_n} be the set of 2X1 dominoes where each domino in D may be placed within the diamond (without crossing its boundaries) when no other dominoes are present. Let S=s1,s2,…,sm={s_1,s_2,…,s_m} be the set of 1X1 squares lying within the diamond that must be covered.  Two dominoes within D can be found to cover any boundary square within S, and four dominoes within D can be found to cover any non-boundary square within S.
+Define c(si)⊂D(s_i) to be the set of dominoes that cover square si_i, and let xi_i be an indicator variable such that xi=1_i=1 if the ith^th domino is used in the tiling, and 0 otherwise.  With these definitions, the task of tiling the Aztec diamond may be reduced to a constraint satisfaction problem formulated as a binary integer program:
+min∑1≤i≤m0⋅ximin∑_10_i
+Subject to:
+∑i∈c(si)xi=1,∑_i(s_i)x_i=1, 
+for 1≤i≤m1, and xi∈0,1_i∈{0,1}.
+The ith^th constraint guarantee that square si_i will be covered by a single tile, and the collection of m constraints ensures that each square will be covered (no holes in the covering).  This formulation can be solved with standard integer programming packages.  Additional constraints can be constructed to force placement of particular dominoes, ensure a minimum number of horizontal or vertically-oriented dominoes are used, or generate distinct tilings.
+An alternative approach is to apply Knuth's Algorithm X to enumerate valid tilings for the problem.
+
+References[edit]
+
+
+^ Stanley, Richard P. (1999), Enumerative combinatorics. Vol. 2, Cambridge Studies in Advanced Mathematics, vol. 62, Cambridge University Press, ISBN 978-0-521-56069-6, MR 1676282, archived from the original on 2008-10-05, retrieved 2008-11-18
+
+^ Elkies, Noam; Kuperberg, Greg; Larsen, Michael; Propp, James (1992), "Alternating-sign matrices and domino tilings. I", Journal of Algebraic Combinatorics, 1 (2): 111–132, doi:10.1023/A:1022420103267, ISSN 0925-9899, MR 1226347
+
+^ Jockusch, William; Propp, James; Shor, Peter (1998), Random Domino Tilings and the Arctic Circle Theorem, arXiv:math/9801068, Bibcode:1998math......1068J
+
+^ Knuth, Donald E. (2019), "Pre-Fascicle 5c (section 7.2.2.1, Dancing Links)", The Art of Computer Programming, vol. 4, p. 93
+
+^ a b Majumdar, Diptapriyo. "Advance Graph Algorithms: Lemma of Gessel Viennot" (PDF). Archived (PDF) from the original on 2018-03-05. Retrieved 22 April 2014.
+
+^ a b Eu, Sen-Peng; Fu, Tung-Shan (2005). "A Simple Proof of the Aztec Diamond". Electron. J. Combin., 12:Research Paper. The Electroninc Journal of Combinatorics: 0412041. CiteSeerX 10.1.1.214.7065.
+
+^ a b Martinez, Megan; Kanoff, Ilene. "Domino Tiling and the Fibonacci numbers" (PDF). Archived (PDF) from the original on 2016-05-03. Retrieved 2 March 2018.
+
+
+External links[edit]
+Weisstein, Eric W. "Aztec Diamond". MathWorld.
+
+
+

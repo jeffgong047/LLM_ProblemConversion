@@ -1,0 +1,319 @@
+Mathematical function
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (January 2013) (Learn how and when to remove this template message)
+In the mathematical field of measure theory, an outer measure or exterior measure is a function defined on all subsets of a given set with values in the extended real numbers satisfying some additional technical conditions. The theory of outer measures was first introduced by Constantin Carathéodory to provide an abstract basis for the theory of measurable sets and countably additive measures.[1][2] Carathéodory's work on outer measures found many applications in measure-theoretic set theory (outer measures are for example used in the proof of the fundamental Carathéodory's extension theorem), and was used in an essential way by Hausdorff to define a dimension-like metric invariant now called Hausdorff dimension. Outer measures are commonly used in the field of geometric measure theory.
+Measures are generalizations of length, area and volume, but are useful for much more abstract and irregular sets than intervals in Rℝ or balls in R3ℝ^3. One might expect to define a generalized measuring function φφ on Rℝ that fulfills the following requirements:
+
+Any interval of reals [a,b][a,b] has measure b−a-a
+The measuring function φφ is a non-negative extended real-valued function defined for all subsets of Rℝ.
+Translation invariance:  For any set A and any real x, the sets A and A+x=a+x:a∈A+x={a+x:a} have the same measure
+Countable additivity: for any sequence (Aj)(A_j) of pairwise disjoint subsets of Rℝ
+φ(⋃i=1∞Ai)=∑i=1∞φ(Ai).φ(⋃_i=1^∞A_i)=∑_i=1^∞φ(A_i).
+It turns out that these requirements are incompatible conditions; see non-measurable set.  The purpose of constructing an outer measure on all subsets of X is to pick out a class of subsets (to be called measurable) in such a way as to satisfy the countable additivity property.
+
+
+Outer measures[edit]
+Given a set X,, let 2X2^X denote the collection of all subsets of X,, including the empty set ∅.∅. An outer measure on X is a set function
+μ:2X→[0,∞]μ:2^X→[0,∞]
+such that 
+
+null empty set: μ(∅)=0μ(∅)=0
+countably subadditive: for arbitrary subsets A,B1,B2,…,B_1,B_2,… of X,,ifA⊆⋃j=1∞Bjthenμ(A)≤∑j=1∞μ(Bj).ifA⊆⋃_j=1^∞B_jthenμ(A)≤∑_j=1^∞μ(B_j).
+Note that there is no subtlety about infinite summation in this definition. Since the summands are all assumed to be nonnegative, the sequence of partial sums could only diverge by increasing without bound. So the infinite sum appearing in the definition will always be a well-defined element of [0,∞].[0,∞]. If, instead, an outer measure were allowed to take negative values, its definition would have to be modified to take into account the possibility of non-convergent infinite sums.
+An alternative and equivalent definition.[3] Some textbooks, such as Halmos (1950), instead define an outer measure on X to be a function μ:2X→[0,∞]μ:2^X→[0,∞] such that
+
+null empty set: μ(∅)=0μ(∅)=0
+monotone: if A and B are subsets of X with A⊆B,, then μ(A)≤μ(B)μ(A)≤μ(B)
+for arbitrary subsets B1,B2,…_1,B_2,… of X,,μ(⋃j=1∞Bj)≤∑j=1∞μ(Bj).μ(⋃_j=1^∞B_j)≤∑_j=1^∞μ(B_j).
+
+
+Proof of equivalence.
+
+
+Suppose that μμ is an outer measure in sense originally given above. If A and B are subsets of X with A⊆B,, then by appealing to the definition with B1=B_1=B and Bj=∅_j=∅ for all j≥2,≥2, one finds that μ(A)≤μ(B).μ(A)≤μ(B). The third condition in the alternative definition is immediate from the trivial observation that ∪jBj⊆∪jBj.∪_jB_j⊆∪_jB_j.
+Suppose instead that μμ is an outer measure in the alternative definition. Let A,B1,B2,…,B_1,B_2,… be arbitrary subsets of X,, and suppose that 
+A⊆⋃j=1∞Bj.⊆⋃_j=1^∞B_j.
+One then has
+μ(A)≤μ(⋃j=1∞Bj)≤∑j=1∞μ(Bj),μ(A)≤μ(⋃_j=1^∞B_j)≤∑_j=1^∞μ(B_j),
+with the first inequality following from the second condition in the alternative definition, and the second inequality following from the third condition in the alternative definition. So μμ is an outer measure in the sense of the original definition.
+
+
+Measurability of sets relative to an outer measure[edit]
+Let X be a set with an outer measure μ.μ. One says that a subset E of X is μμ-measurable (sometimes called Carathéodory-measurable relative to μμ, after the mathematician Carathéodory) if and only if
+μ(A)=μ(A∩E)+μ(A∖E)μ(A)=μ(A)+μ(A)
+for every subset A of X..
+Informally, this says that a μμ-measurable subset is one which may be used as a building block, breaking any other subset apart into pieces (namely, the piece which is inside of the measurable set together with the piece which is outside of the measurable set). In terms of the motivation for measure theory, one would expect that area, for example, should be an outer measure on the plane. One might then expect that every subset of the plane would be deemed "measurable," following the expected principle that
+area⁡(A∪B)=area⁡(A)+area⁡(B)area(A)=area(A)+area(B)
+whenever A and B are disjoint subsets of the plane. However, the formal logical development of the theory shows that the situation is more complicated. A formal implication of the axiom of choice is that for any definition of area as an outer measure which includes as a special case the standard formula for the area of a rectangle, there must be subsets of the plane which fail to be measurable. In particular, the above "expected principle" is false, provided that one accepts the axiom of choice.
+
+The measure space associated to an outer measure[edit]
+It is straightforward to use the above definition of μμ-measurability to see that
+
+if A⊆X is μμ-measurable then its complement X∖A⊆X is also μμ-measurable.
+The following condition is known as the "countable additivity of μμ on measurable subsets."
+
+if A1,A2,…_1,A_2,… are μμ-measurable pairwise-disjoint (Ai∩Aj=∅_i_j=∅ for i≠j) subsets of X, then one has μ(⋃j=1∞Aj)=∑j=1∞μ(Aj).μ(⋃_j=1^∞A_j)=∑_j=1^∞μ(A_j).
+
+
+Proof of countable additivity.
+
+
+One automatically has the conclusion in the form "≤ ≤ " from the definition of outer measure. So it is only necessary to prove the "≥ ≥ " inequality. One has μ(⋃j=1∞Aj)≥μ(⋃j=1NAj)μ(⋃_j=1^∞A_j)≥μ(⋃_j=1^NA_j) for any positive number N,, due to the second condition in the "alternative definition" of outer measure given above. Suppose (inductively) that μ(⋃j=1N−1Aj)=∑j=1N−1μ(Aj)μ(⋃_j=1^N-1A_j)=∑_j=1^N-1μ(A_j)
+Applying the above definition of μμ-measurability with A=A1∪⋯∪AN=A_1∪⋯_N and with E=AN,=A_N, one has μ(⋃j=1NAj)=μ((⋃j=1NAj)∩AN)+μ((⋃j=1NAj)∖AN)=μ(AN)+μ(⋃j=1N−1Aj)μ(⋃_j=1^NA_j)   =μ((⋃_j=1^NA_j)_N)+μ((⋃_j=1^NA_j)_N)
+   =μ(A_N)+μ(⋃_j=1^N-1A_j) which closes the induction. Going back to the first line of the proof, one then has μ(⋃j=1∞Aj)≥∑j=1Nμ(Aj)μ(⋃_j=1^∞A_j)≥∑_j=1^Nμ(A_j) for any positive integer N.. One can then send N to infinity to get the required "≥ ≥ " inequality.
+
+
+A similar proof shows that:
+
+if A1,A2,…_1,A_2,… are μμ-measurable subsets of X,, then the union ⋃i=1∞Ai⋃_i=1^∞A_i and intersection ⋂i=1∞Ai⋂_i=1^∞A_i are also μμ-measurable.
+The properties given here can be summarized by the following terminology:
+
+Given any outer measure μμ on a set X,, the collection of all μμ-measurable subsets of X is a σ-algebra. The restriction of μμ to this σσ-algebra is a measure.
+One thus has a measure space structure on X,, arising naturally from the specification of an outer measure on X.. This measure space has the additional property of completeness, which is contained in the following statement:
+
+Every subset A⊆X such that μ(A)=0μ(A)=0 is μμ-measurable.
+This is easy to prove by using the second property in the "alternative definition" of outer measure.
+
+Restriction and pushforward of an outer measure[edit]
+Let μμ be an outer measure on the set X.
+
+Pushforward[edit]
+Given another set Y and a map f:X→Y:X define f♯μ:2Y→[0,∞]_♯μ:2^Y→[0,∞] by
+
+(f♯μ)(A)=μ(f−1(A)).(f_♯μ)(A)=μ(f^-1(A)).
+One can verify directly from the definitions that f♯μ_♯μ is an outer measure on Y.
+
+Restriction[edit]
+Let B be a subset of X. Define μB : 2X→[0,∞] by
+
+μB(A)=μ(A∩B).μ_B(A)=μ(A).
+One can check directly from the definitions that μB is another outer measure on X.
+
+Measurability of sets relative to a pushforward or restriction[edit]
+If a subset A of X is μ-measurable, then it is also μB-measurable for any subset B of X.
+Given a map f : X→Y and a subset A of Y, if f −1(A) is μ-measurable then A is f# μ-measurable. More generally, f −1(A) is μ-measurable if and only if A is f# (μB)-measurable for every subset B of X.
+
+Regular outer measures[edit]
+Definition of a regular outer measure[edit]
+Given a set X, an outer measure μ on X is said to be regular if any subset A⊆X can be approximated 'from the outside' by μ-measurable sets. Formally, this is requiring either of the following equivalent conditions:
+
+μ(A)=infμ(B)∣A⊆B,Bisμ-measurableμ(A)=inf{μ(B),Bisμ-measurable}
+There exists a μ-measurable subset B of X which contains A and such that μ(B)=μ(A)μ(B)=μ(A).
+It is automatic that the second condition implies the first; the first implies the second by taking the countable intersection of Bi_i with μ(Bi)→μ(A)μ(B_i)→μ(A)
+
+This article is missing information about This differs from the definition given in Regular measure, where we further demand the B be open. The relationship between the two definitions is unclear (different conventions?). See also Encyclopedia of Math (Outer measure) which further adds the concept of Borel regular measures. Please expand the article to include this information. Further details may exist on the talk page. (August 2023)
+The regular outer measure associated to an outer measure[edit]
+Given an outer measure μ on a set X, define ν : 2X→[0,∞] by
+
+ν(A)=infμ(B):μ-measurablesubsetsB⊂XwithB⊃A.ν(A)=inf{μ(B):μ-measurablesubsetsBwithB}.
+Then ν is a regular outer measure on X which assigns the same measure as μ to all μ-measurable subsets of X. Every μ-measurable subset is also ν-measurable, and every ν-measurable subset of finite ν-measure is also μ-measurable.
+So the measure space associated to ν may have a larger σ-algebra than the measure space associated to μ. The restrictions of ν and μ to the smaller σ-algebra are identical. The elements of the larger σ-algebra which are not contained in the smaller σ-algebra have infinite ν-measure and finite μ-measure.
+From this perspective, ν may be regarded as an extension of μ.
+
+Outer measure and topology[edit]
+Suppose (X, d) is a metric space and φ an outer measure on X. If φ has the property that
+
+φ(E∪F)=φ(E)+φ(F)φ(E)=φ(E)+φ(F)
+whenever
+
+d(E,F)=infd(x,y):x∈E,y∈F>0,(E,F)=inf{d(x,y):x,y}>0,
+then φ is called a metric outer measure.
+Theorem. If φ is a metric outer measure on X,  then every Borel subset of X is φ-measurable. (The Borel sets of X are the elements of the smallest σ-algebra generated by the open sets.)
+
+Construction of outer measures[edit]
+See also: Valuation (measure theory)
+There are several procedures for constructing outer measures on  a set.  The classic Munroe reference below describes two particularly useful ones which are referred to as Method I and Method II.
+
+Method I[edit]
+Let X be a set, C a family of subsets of X which contains the empty set and p a non-negative extended real valued function on C which vanishes on the empty set.
+Theorem. Suppose the family C and the function p are as above and  define
+
+φ(E)=inf∑i=0∞p(Ai)|E⊆⋃i=0∞Ai,∀i∈N,Ai∈C.φ(E)=inf{∑_i=0^∞p(A_i) | E⊆⋃_i=0^∞A_i,∈ℕ,A_i}.
+That is, the infimum extends over all sequences {Ai}  of elements of C which cover E, with the convention that the infimum is infinite if no such sequence exists.  Then φ is an outer measure on X.
+
+Method II[edit]
+The second technique is more suitable for constructing outer measures on metric spaces, since it yields metric outer measures. Suppose (X, d) is a metric space. As above C is a family of subsets of X which contains the empty set and p a non-negative extended real valued function on C which vanishes on the empty set.  For each δ > 0, let
+
+Cδ=A∈C:diam⁡(A)≤δ_δ={A:diam(A)≤δ}
+and
+
+φδ(E)=inf∑i=0∞p(Ai)|E⊆⋃i=0∞Ai,∀i∈N,Ai∈Cδ.φ_δ(E)=inf{∑_i=0^∞p(A_i) | E⊆⋃_i=0^∞A_i,∈ℕ,A_i_δ}.
+Obviously, φδ ≥ φδ' when δ ≤ δ' since the infimum is taken over a smaller class as δ decreases. Thus
+
+limδ→0φδ(E)=φ0(E)∈[0,∞]lim_δ→0φ_δ(E)=φ_0(E)∈[0,∞]
+exists (possibly infinite).
+Theorem. φ0 is a metric outer measure on X.
+This is the construction used in the definition of Hausdorff measures for a metric space.
+
+See also[edit]
+Inner measure
+Notes[edit]
+
+
+^ Carathéodory 1968
+
+^ Aliprantis & Border 2006, pp. S379
+
+^ The original definition given above follows the widely cited texts of Federer and of Evans and Gariepy. Note that both of these books use non-standard terminology in defining a "measure" to be what is here called an "outer measure."
+
+
+References[edit]
+Aliprantis, C.D.; Border, K.C. (2006). Infinite Dimensional Analysis (3rd ed.). Berlin, Heidelberg, New York: Springer Verlag. ISBN 3-540-29586-0.
+Carathéodory, C. (1968) [1918]. Vorlesungen über reelle Funktionen (in German) (3rd ed.). Chelsea Publishing. ISBN 978-0828400381.
+Evans, Lawrence C.; Gariepy, Ronald F. (2015). Measure theory and fine properties of functions. Revised edition. pp. xiv+299. ISBN 978-1-4822-4238-6. {{cite book}}: |work= ignored (help)
+Federer, H. (1996) [1969]. Geometric Measure Theory. Classics in Mathematics (1st ed reprint ed.). Berlin, Heidelberg, New York: Springer Verlag. ISBN 978-3540606567.
+Halmos, P. (1978) [1950]. Measure theory. Graduate Texts in Mathematics (2nd ed.). Berlin, Heidelberg, New York: Springer Verlag. ISBN 978-0387900889.
+Munroe, M. E. (1953). Introduction to Measure and Integration (1st ed.). Addison Wesley. ISBN 978-1124042978.
+Kolmogorov, A. N.; Fomin, S. V. (1970). Introductory Real Analysis. Richard A. Silverman transl. New York: Dover Publications. ISBN 0-486-61226-0.
+External links[edit]
+Outer measure at Encyclopedia of Mathematics
+Caratheodory measure at Encyclopedia of Mathematics
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

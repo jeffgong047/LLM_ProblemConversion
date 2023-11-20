@@ -1,0 +1,344 @@
+On closed convex subsets in Hilbert space
+This article relies largely or entirely on a single source. Relevant discussion may be found on the talk page. Please help improve this article by introducing  citations to additional sources.Find sources: "Hilbert projection theorem" – news · newspapers · books · scholar · JSTOR (February 2020)
+In mathematics, the Hilbert projection theorem is a famous result of convex analysis that says that for every vector x in a Hilbert space H and every nonempty closed convex C⊆H,, there exists a unique vector m∈C for which ‖c−x‖c-x is minimized over the vectors c∈C; that is, such that ‖m−x‖≤‖c−x‖m-x≤c-x for every c∈C..
+
+
+Finite dimensional case[edit]
+Some intuition for the theorem can be obtained by considering the first order condition of the optimization problem.
+Consider a finite dimensional real Hilbert space H with a subspace C and a point x.. If m∈C is a minimizer or minimum point of the function N:C→R:C→ℝ defined by N(c):=‖c−x‖(c):=c-x (which is the same as the minimum point of c↦‖c−x‖2↦c-x^2), then derivative must be zero at m..
+In matrix derivative notation[1]
+∂‖x−c‖2=∂⟨c−x,c−x⟩=2⟨c−x,∂c⟩∂-c‖^2   =∂-x,c-x⟩
+   =2-x,⟩
+Since ∂c is a vector in C that represents an arbitrary tangent direction, it follows that m−x-x must be orthogonal to every vector in C..
+
+Statement[edit]
+
+Hilbert projection theorem — For every vector x in a Hilbert space H and every nonempty closed convex C⊆H,, there exists a unique vector m∈C for which ‖x−m‖-m‖ is equal to δ:=infc∈C‖x−c‖.δ:=inf_cx-c.
+If the closed subset C is also a vector subspace of H then this minimizer m is the unique element in C such that x−m-m is orthogonal to C..
+
+
+Detailed elementary proof[edit]
+Proof that a minimum point y exists
+Let δ:=infc∈C‖x−c‖δ:=inf_cx-c be the distance between x and C,, (cn)n=1∞(c_n)_n=1^∞ a sequence in C such that the distance squared between x and cn_n is less than or equal to δ2+1/n.δ^2+1/n. Let n and m be two integers, then the following equalities are true:
+‖cn−cm‖2=‖cn−x‖2+‖cm−x‖2−2⟨cn−x,cm−x⟩c_n-c_m^2=c_n-x^2+c_m-x^2-2_n-x , c_m-x⟩
+and
+4‖cn+cm2−x‖2=‖cn−x‖2+‖cm−x‖2+2⟨cn−x,cm−x⟩4c_n+c_m/2-x^2=c_n-x^2+c_m-x^2+2_n-x , c_m-x⟩
+Therefore
+‖cn−cm‖2=2‖cn−x‖2+2‖cm−x‖2−4‖cn+cm2−x‖2c_n-c_m^2=2c_n-x^2+2c_m-x^2-4c_n+c_m/2-x^2
+(This equation is the same as the formula a2=2b2+2c2−4Ma2^2=2b^2+2c^2-4M_a^2 for the length Ma_a of a median in a triangle with sides of length a,b,,b, and c,, where specifically, the triangle's vertices are x,cm,cn,c_m,c_n).
+By giving an upper bound to the first two terms of the equality and by noticing that the middle of cn_n and cm_m belong to C and has therefore a distance greater than or equal to δδ from x,, it follows that:
+‖cn−cm‖2≤2(δ2+1n)+2(δ2+1m)−4δ2=2(1n+1m)c_n-c_m^2 ≤ 2(δ^2+1/n)+2(δ^2+1/m)-4δ^2=2(1/n+1/m)
+The last inequality proves that (cn)n=1∞(c_n)_n=1^∞ is a Cauchy sequence. Since C is complete, the sequence is therefore convergent to a point m∈C,, whose distance from x is minimal.
+◼▪
+
+
+Proof that m is unique
+Let m1_1 and m2_2 be two minimum points. Then:
+‖m2−m1‖2=2‖m1−x‖2+2‖m2−x‖2−4‖m1+m22−x‖2m_2-m_1^2=2m_1-x^2+2m_2-x^2-4m_1+m_2/2-x^2
+Since m1+m22m_1+m_2/2 belongs to C,, we have ‖m1+m22−x‖2≥δ2m_1+m_2/2-x^2≥δ^2 and therefore
+‖m2−m1‖2≤2δ2+2δ2−4δ2=0.m_2-m_1^2≤2δ^2+2δ^2-4δ^2=0.
+Hence m1=m2,_1=m_2, which proves uniqueness. 
+◼▪
+
+
+Proof of characterization of minimum point when C is a closed vector subspace
+Assume that C is a closed vector subspace of H.. It must be shown the minimizer m is the unique element in C such that ⟨m−x,c⟩=0-x,c⟩=0 for every c∈C..
+Proof that the condition is sufficient: 
+Let z∈C be such that ⟨z−x,c⟩=0-x,c⟩=0 for all c∈C.. 
+If c∈C then c−z∈C-z and so 
+‖c−x‖2=‖(z−x)+(c−z)‖2=‖z−x‖2+‖c−z‖2+2⟨z−x,c−z⟩=‖z−x‖2+‖c−z‖2c-x^2=(z-x)+(c-z)^2=z-x^2+c-z^2+2-x,c-z⟩=z-x^2+c-z^2 
+which implies that ‖z−x‖2≤‖c−x‖2.z-x^2≤c-x^2. 
+Because c∈C was arbitrary, this proves that ‖z−x‖=infc∈C‖c−x‖z-x=inf_cc-x and so z is a minimum point. 
+Proof that the condition is necessary: 
+Let m∈C be the minimum point. Let c∈C and t∈R.∈ℝ.
+Because m+tc∈C,+tc, the minimality of m guarantees that ‖m−x‖≤‖(m+tc)−x‖.m-x≤(m+tc)-x. Thus
+‖(m+tc)−x‖2−‖m−x‖2=2t⟨m−x,c⟩+t2‖c‖2(m+tc)-x^2-m-x^2=2t-x,c⟩+t^2c^2
+is always non-negative and ⟨m−x,c⟩-x,c⟩ must be a real number. 
+If ⟨m−x,c⟩≠0-x,c⟩≠0 then the map f(t):=2t⟨m−x,c⟩+t2‖c‖2(t):=2t-x,c⟩+t^2c^2 has a minimum at t0:=−⟨m−x,c⟩‖c‖2_0:=--x,c⟩/c^2 and moreover, f(t0)<0,(t_0)<0, which is a contradiction. 
+Thus ⟨m−x,c⟩=0.-x,c⟩=0.
+◼▪
+
+
+Proof by reduction to a special case[edit]
+It suffices to prove the theorem in the case of x=0=0 because the general case follows from the statement below by replacing C with C−x.-x.
+
+
+Hilbert projection theorem (case x=0=0)[2] — For every nonempty closed convex subset C⊆H of a Hilbert space H,, there exists a unique vector m∈C such that infc∈C‖c‖=‖m‖.inf_cc=m.
+Furthermore, letting d:=infc∈C‖c‖,:=inf_cc, if (cn)n=1∞(c_n)_n=1^∞ is any sequence in C such that limn→∞‖cn‖=dlim_n→∞c_n=d in Rℝ[note 1] then limn→∞cn=mlim_n→∞c_n=m in H..
+
+
+Proof
+Let C be as described in this theorem and let
+d:=infc∈C‖c‖.:=inf_cc.
+This theorem will follow from the following lemmas.
+
+
+Lemma 1 — If c∙:=(cn)n=1∞_∙:=(c_n)_n=1^∞ is any sequence in C such that limn→∞‖cn‖=dlim_n→∞c_n=d in Rℝ then there exists some c∈C such that limn→∞cn=clim_n→∞c_n=c in H.. Furthermore, ‖c‖=d.c=d.
+
+
+
+
+
+Proof of Lemma 1
+
+
+
+Vectors involved in the parallelogram law: ‖x+y‖2+‖x−y‖2=2‖x‖2+2‖y‖2.x+y^2+x-y^2=2x^2+2y^2.
+Because C is convex, if m,n∈N,n∈ℕ then 12(cm+cn)∈C1/2(c_m+c_n) so that by definition of the infimum, d≤‖12(cm+cn)‖,≤1/2(c_m+c_n), which implies that 4d2≤‖cm+cn‖2.4d^2≤c_m+c_n^2. 
+By the parallelogram law,
+‖cm+cn‖2+‖cm−cn‖2=2‖cm‖2+2‖cn‖2c_m+c_n^2+c_m-c_n^2=2c_m^2+2c_n^2
+where 4d2≤‖cm+cn‖24d^2≤c_m+c_n^2 now implies 
+4d2+‖cm−cn‖2≤2‖cm‖2+2‖cn‖24d^2+c_m-c_n^2 ≤ 2c_m^2+2c_n^2
+and so
+‖cm−cn‖2≤2‖cm‖2+2‖cn‖2−4d24c_m-c_n^2 ≤ 2c_m^2+2c_n^2-4d^2
+The assumption limn→∞‖cn‖=dlim_n→∞c_n=d implies that the right hand side (RHS) of the above inequality can be made arbitrary close to 00 by making m and n sufficiently large.[note 2] The same must consequently also be true of the inequality's left hand side ‖cm−cn‖2c_m-c_n^2 and thus also of ‖cm−cn‖,c_m-c_n, which proves that (cn)n=1∞(c_n)_n=1^∞ is a Cauchy sequence in H..
+Since H is complete, there exists some c∈H such that limn→∞cn=clim_n→∞c_n=c in H.. 
+Because every cn_n belongs to C,, which is a closed subset of H,, their limit c must also belongs to this closed subset, which proves that c∈C.. 
+Since the norm ‖⋅‖:H→R · :H→ℝ is a continuous function, limn→∞cn=clim_n→∞c_n=c in H implies that limn→∞‖cn‖=‖c‖lim_n→∞c_n=c in R.ℝ. But limn→∞‖cn‖=dlim_n→∞c_n=d also holds (by assumption) so that ‖c‖=dc=d (because limits in Rℝ are unique). 
+◼▪
+
+
+
+Lemma 2 — A sequence (cn)n=1∞(c_n)_n=1^∞ satisfying the hypotheses of Lemma 1 exists.
+
+
+
+
+
+Proof of Lemma 2
+
+
+
+The existence of the sequence follows from the definition of the infimum, as is now shown. 
+The set S:=‖c‖:c∈C:={c:c} is a non-empty subset of non-negative real numbers and d:=infc∈C‖c‖=infS.:=inf_cc=. 
+Let n≥1≥1 be an integer. 
+Because infS<d+1n,<d+1/n, there exists some sn∈S_n such that sn<d+1n._n<d+1/n. 
+Since sn∈S,_n, d=infS≤sn=_n holds (by definition of the infimum). Thus d≤sn<d+1n_n<d+1/n and now the squeeze theorem implies that limn→∞sn=dlim_n→∞s_n=d in R.ℝ. (This first part of the proof works for any non-empty subset of S⊆R⊆ℝ for which d:=infs∈Ss:=inf_ss is finite). 
+For every n∈N,∈ℕ, the fact that sn∈S=‖c‖:c∈C_n={c:c} means that there exists some cn∈C_n such that sn=‖cn‖._n=c_n. 
+The convergence limn→∞sn=dlim_n→∞s_n=d in Rℝ thus becomes limn→∞‖cn‖=dlim_n→∞c_n=d in R.ℝ.
+◼▪
+
+
+Lemma 2 and Lemma 1 together prove that there exists some c∈C such that ‖c‖=d.c=d. 
+Lemma 1 can be used to prove uniqueness as follows. 
+Suppose b∈C is such that ‖b‖=db=d and denote the sequence b,c,b,c,b,c,…,c,b,c,b,c,… by (cn)n=1∞(c_n)_n=1^∞ so that the subsequence (c2n)n=1∞(c_2n)_n=1^∞ of even indices is the constant sequence c,c,c,…,c,c,… while the subsequence (c2n−1)n=1∞(c_2n-1)_n=1^∞ of odd indices is the constant sequence b,b,b,….,b,b,…. 
+Because ‖cn‖=dc_n=d for every n∈N,∈ℕ, limn→∞‖cn‖=limn→∞d=dlim_n→∞c_n=lim_n→∞d=d in R,ℝ, which shows that the sequence (cn)n=1∞(c_n)_n=1^∞ satisfies the hypotheses of Lemma 1. 
+Lemma 1 guarantees the existence of some x∈C such that limn→∞cn=xlim_n→∞c_n=x in H.. 
+Because (cn)n=1∞(c_n)_n=1^∞ converges to x,, so do all of its subsequences. 
+In particular, the subsequence c,c,c,…,c,c,… converges to x,, which implies that x=c=c (because limits in H are unique and this constant subsequence also converges to c). Similarly, x=b=b because the subsequence b,b,b,…,b,b,… converges to both x and b.. Thus b=c,=c, which proves the theorem. ◼▪
+
+
+Consequences[edit]
+
+Proposition — If C is a closed vector subspace of a Hilbert space H then[note 3]
+H=C⊕C⊥.=C^.
+
+
+
+
+
+Proof[3]
+
+
+
+Proof that C∩C⊥=0^={0}: 
+If c∈C∩C⊥^ then 
+0=⟨c,c⟩=‖c‖2,0=⟨ c, c ⟩=c^2, 
+which implies c=0.=0.
+◼▪
+
+
+Proof that C⊥^ is a closed vector subspace of H: 
+Let P:=∏c∈CF:=∏_c𝔽 where F𝔽 is the underlying scalar field of H and define 
+L:H→Ph↦(⟨h,c⟩)c∈C4L:    H      →       P
+   h      ↦       (⟨ h, c ⟩)_c
+
+which is continuous and linear because this is true of each of its coordinates h↦⟨h,c⟩.↦,c⟩. 
+The set C⊥=L−1(0)=L−1(0)^=L^-1(0)=L^-1({0}) is closed in H because 0{0} is closed in P and L:H→P:H is continuous. 
+The kernel of any linear map is a vector subspace of its domain, which is why C⊥=ker⁡L^= is a vector subspace of H..
+◼▪
+
+
+Proof that C+C⊥=H+C^=H: 
+Let x∈H.. 
+The Hilbert projection theorem guarantees the existence of a unique m∈C such that ‖x−m‖≤‖x−c‖forallc∈Cx-m≤x-cforallc (or equivalently, for all x−c∈x−C-c-C). 
+Let p:=x−m:=x-m so that x=m+p∈C+p=m+p+p and it remains to show that p∈C⊥.^. 
+The inequality above can be rewritten as:
+‖p‖≤‖z‖forallz∈x−C.p≤z  forallz-C.
+Because m∈C and C is a vector space, m+C=C+C=C and C=−C,=-C, which implies that x−C=x+C=p+m+C=p+C.-C=x+C=p+m+C=p+C. 
+The previous inequality thus becomes
+‖p‖≤‖z‖forallz∈p+C.p≤z  forallz+C.
+or equivalently,
+‖p‖≤‖p+c‖forallc∈C.p≤p+c  forallc. 
+But this last statement is true if and only if ⟨p,c⟩=0⟨ p,c ⟩=0 every c∈C.. Thus p∈C⊥.^.
+◼▪
+
+
+Properties[edit]
+Expression as a global minimum
+The statement and conclusion of the Hilbert projection theorem can be expressed in terms of global minimums of the followings functions. Their notation will also be used to simplify certain statements.
+Given a non-empty subset C⊆H and some x∈H,, define a function 
+dC,x:C→[0,∞)byc↦‖x−c‖._C,x:C→[0,∞)  byc↦x-c. 
+A global minimum point of dC,x,_C,x, if one exists, is any point m in domain⁡dC,x=C domaind_C,x=C  such that 
+dC,x(m)≤dC,x(c)forallc∈C,_C,x(m) ≤ d_C,x(c)  forallc, 
+in which case dC,x(m)=‖m−x‖_C,x(m)=m-x is equal to the global minimum value of the function dC,x,_C,x, which is:
+infc∈CdC,x(c)=infc∈C‖x−c‖.inf_cd_C,x(c)=inf_cx-c.
+Effects of translations and scalings
+When this global minimum point m exists and is unique then denote it by min(C,x);min(C,x); explicitly, the defining properties of min(C,x)min(C,x) (if it exists) are:
+min(C,x)∈Cand‖x−min(C,x)‖≤‖x−c‖forallc∈C.min(C,x)  and  x-min(C,x)≤x-c  forallc.
+The Hilbert projection theorem guarantees that this unique minimum point exists whenever C is a non-empty closed and convex subset of a Hilbert space. 
+However, such a minimum point can also exist in non-convex or non-closed subsets as well; for instance, just as long is C is non-empty, if x∈C then min(C,x)=x.min(C,x)=x.
+If C⊆H is a non-empty subset, s is any scalar, and x,x0∈H,x_0 are any vectors then
+min(sC+x0,sx+x0)=smin(C,x)+x0 min(sC+x_0,sx+x_0)=smin(C,x)+x_0
+which implies:
+min(sC,sx)=smin(C,x)min(−C,−x)=−min(C,x)6min   (sC,sx)      =s      min(C,x)
+min   (-C,-x)      =-      min(C,x)
+
+min(C+x0,x+x0)=min(C,x)+x0min(C−x0,x−x0)=min(C,x)−x06min(C+x_0,x+x_0)   =min(C,x)+x_0
+min(C-x_0,x-x_0)   =min(C,x)-x_0
+
+min(C,−x)=min(C+x,0)−xmin(C,0)+x=min(C+x,x)min(C−x,0)=min(C,x)−x6min   (C,-x)      =min(C+x,0)-x
+min   (C,0) + x          =min(C+x,x)
+min   (C-x,0)      =min(C,x)-x
+
+Examples
+The following counter-example demonstrates a continuous linear isomorphism A:H→H:H for which min(A(C),A(x))≠A(min(C,x)). min(A(C),A(x))(min(C,x)). 
+Endow H:=R2:=ℝ^2 with the dot product, let x0:=(0,1),_0:=(0,1), and for every real s∈R,∈ℝ, let Ls:=(x,sx):x∈R_s:={(x,sx):x∈ℝ} be the line of slope s through the origin, where it is readily verified that min(Ls,x0)=s1+s2(1,s).min(L_s,x_0)=s/1+s^2(1,s). 
+Pick a real number r≠0≠0 and define A:R2→R2:ℝ^2→ℝ^2 by A(x,y):=(rx,y)(x,y):=(rx,y) (so this map scales the x−-coordinate by r while leaving the y−-coordinate unchanged). 
+Then A:R2→R2:ℝ^2→ℝ^2 is an invertible continuous linear operator that satisfies A(Ls)=Ls/r(L_s)=L_s/r and A(x0)=x0,(x_0)=x_0, 
+so that min(A(Ls),A(x0))=sr2+s2(1,s) min(A(L_s),A(x_0))=s/r^2+s^2(1,s) and A(min(Ls,x0))=s1+s2(r,s).(min(L_s,x_0))=s/1+s^2(r,s). 
+Consequently, if C:=Ls:=L_s with s≠0≠0 and if (r,s)≠(±1,1)(r,s)≠(±1,1) then min(A(C),A(x0))≠A(min(C,x0)). min(A(C),A(x_0))(min(C,x_0)).
+
+See also[edit]
+Orthogonal complement – Concept in linear algebra
+Orthogonal projection – Idempotent linear transformation from a vector space to itselfPages displaying short descriptions of redirect targets
+Orthogonality principle – Condition for optimality of Bayesian estimator
+Riesz representation theorem – Theorem about the dual of a Hilbert space
+Notes[edit]
+
+
+^ Because the norm ‖⋅‖:H→R·:H→ℝ is continuous, if limn→∞xnlim_n→∞x_n converges in H then necessarily limn→∞‖xn‖lim_n→∞x_n converges in R.ℝ. But in general, the converse is not guaranteed. However, under this theorem's hypotheses, knowing that limn→∞‖cn‖=dlim_n→∞c_n=d in Rℝ is sufficient to conclude that limn→∞cnlim_n→∞c_n converges in H..
+
+^ Explicitly, this means that given any ϵ>0ϵ>0 there exists some integer N>0>0 such that "the quantity" is ≤ϵ ≤ϵ whenever m,n≥N.,n. Here, "the quantity" refers to the inequality's right hand side 2‖cm‖2+2‖cn‖2−4d22c_m^2+2c_n^2-4d^2 and later in the proof, "the quantity" will also refer to ‖cm−cn‖2c_m-c_n^2 and then ‖cm−cn‖.c_m-c_n. By definition of "Cauchy sequence," (cn)n=1∞(c_n)_n=1^∞ is Cauchy in H if and only if "the quantity" ‖cm−cn‖c_m-c_n satisfies this aforementioned condition.
+
+^ Technically, H=K⊕K⊥=K^ means that the addition map K×K⊥→H^ defined by (k,p)↦k+p(k,p)+p is a surjective linear isomorphism and homeomorphism. See the article on complemented subspaces for more details.
+
+
+References[edit]
+
+
+^ Petersen, Kaare. "The Matrix Cookbook" (PDF). Retrieved 9 January 2021.
+
+^ Rudin 1991, pp. 306–309.
+
+^ Rudin 1991, pp. 307−309.
+
+
+Bibliography[edit]
+Rudin, Walter (1987). Real and Complex Analysis (Third ed.).
+Rudin, Walter (1991). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 8 (Second ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 978-0-07-054236-5. OCLC 21163277.
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteHilbert spacesBasic concepts
+Adjoint
+Inner product and L-semi-inner product
+Hilbert space and Prehilbert space
+Orthogonal complement
+Orthonormal basis
+Main results
+Bessel's inequality
+Cauchy–Schwarz inequality
+Riesz representation
+Other results
+Hilbert projection theorem
+Parseval's identity
+Polarization identity (Parallelogram law)
+Maps
+Compact operator on Hilbert space
+Densely defined
+Hermitian form
+Hilbert–Schmidt
+Normal
+Self-adjoint
+Sesquilinear form
+Trace class
+Unitary
+Examples
+Cn(K) with K compact & n<∞
+Segal–Bargmann F
+
+
+
+

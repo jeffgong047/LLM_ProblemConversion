@@ -1,0 +1,98 @@
+Bound on eigenvalues
+In mathematics, the Gershgorin circle theorem may be used to bound the spectrum of a square matrix. It was first published by the Soviet mathematician Semyon Aronovich Gershgorin in 1931.  Gershgorin's name has been transliterated in several different ways, including Geršgorin, Gerschgorin, Gershgorin, Hershhorn, and Hirschhorn.
+
+
+Statement and proof[edit]
+Let A be a complex n×n matrix, with entries aij_ij. For i∈1,…,n∈{1,…,n} let Ri_i be the sum of the absolute values of the non-diagonal entries in the i-th row:  
+
+Ri=∑j≠i|aij|._i=∑_j≠i|a_ij|.
+Let D(aii,Ri)⊆C(a_ii,R_i)⊆ℂ be a closed disc centered at aii_ii with radius Ri_i. Such a disc is called a Gershgorin disc.
+
+Theorem. Every eigenvalue of A lies within at least one of the Gershgorin discs D(aii,Ri).(a_ii,R_i).
+Proof. Let λλ be an eigenvalue of A with corresponding eigenvector x=(xj)=(x_j). Find i such that the element of x with the largest absolute value is xi_i. Since Ax=λx=, in particular we take the ith component of that equation to get: 
+
+∑jaijxj=λxi.∑_ja_ijx_j=_i.
+Taking aii_ii to the other side:
+
+∑j≠iaijxj=(λ−aii)xi.∑_ja_ijx_j=(λ-a_ii)x_i.
+Therefore, applying the triangle inequality and recalling that |xj||xi|≤1|x_j|/|x_i|≤1 based on how we picked i,
+
+|λ−aii|=|∑j≠iaijxjxi|≤∑j≠i|aij|=Ri.|λ-a_ii|=|∑_ja_ijx_j/x_i|≤∑_j|a_ij|=R_i.
+Corollary. The eigenvalues of A must also lie within the Gershgorin discs Cj corresponding to the columns of A.
+Proof. Apply the Theorem to AT while recognizing that the eigenvalues of the transpose are the same as those of the original matrix.
+Example. For a diagonal matrix, the Gershgorin discs coincide with the spectrum. Conversely, if the Gershgorin discs coincide with the spectrum, the matrix is diagonal.
+
+Discussion[edit]
+One way to interpret this theorem is that if the off-diagonal entries of a square matrix over the complex numbers have small norms, the eigenvalues of the matrix cannot be "far from" the diagonal entries of the matrix. Therefore, by reducing the norms of off-diagonal entries one can attempt to approximate the eigenvalues of the matrix. Of course, diagonal entries may change in the process of minimizing off-diagonal entries.
+The theorem does not claim that there is one disc for each eigenvalue; if anything, the discs rather correspond to the axes in Cnℂ^n, and each expresses a bound on precisely those eigenvalues whose eigenspaces are closest to one particular axis. In the matrix
+
+(322110101)(a000b000c)(322110101)−1=(−3a+2b+2c6a−2b−4c6a−4b−2cb−aa+(a−b)2(a−b)c−a2(a−c)a+(a−c))[ 3 2 2; 1 1 0; 1 0 1 ][ a 0 0; 0 b 0; 0 0 c ][ 3 2 2; 1 1 0; 1 0 1 ]^-1=[ -3a+2b+2c  6a-2b-4c  6a-4b-2c;       b-a   a+(a-b)    2(a-b);       c-a    2(a-c)   a+(a-c) ]
+— which by construction has eigenvalues a, b, and c with eigenvectors (311)([ 3; 1; 1 ]), (210)([ 2; 1; 0 ]), and (201)([ 2; 0; 1 ]) — it is easy to see that the disc for row 2 covers a and b while the disc for row 3 covers a and c. This is however just a happy coincidence; if working through the steps of the proof one finds that it in each eigenvector is the first element that is the largest (every eigenspace is closer to the first axis than to any other axis), so the theorem only promises that the disc for row 1 (whose radius can be twice the sum of the other two radii) covers all three eigenvalues.
+
+Strengthening of the theorem[edit]
+If one of the discs is disjoint from the others then it contains exactly one eigenvalue. If however it meets another disc it is possible that it contains no eigenvalue (for example, A=(0140)=([ 0 1; 4 0 ]) or A=(1−21−1)=([  1 -2;  1 -1 ])). In the general case the theorem can be strengthened as follows:
+Theorem: If the union of k discs is disjoint from the union of the other n − k discs then the former union contains exactly k and the latter n − k eigenvalues of A,  when the eigenvalues are counted with their algebraic multiplicities. 
+Proof: Let D be the diagonal matrix with entries equal to the diagonal entries of A and let
+
+B(t)=(1−t)D+tA.(t)=(1-t)D+tA.
+We will use the fact that the eigenvalues are continuous in t, and show that if any eigenvalue moves from one of the unions to the other, then it must be outside all the discs for some t, which is a contradiction.
+The statement is true for D=B(0)=B(0). The diagonal entries of B(t)(t) are equal to that of A, thus the centers of the Gershgorin circles are the same, however their radii are t times that of A. Therefore, the union of the corresponding k discs of B(t)(t) is disjoint from the union of the remaining n-k for all t∈[0,1]∈[0,1]. The discs are closed, so the distance of the two unions for A is d>0>0. The distance for B(t)(t) is a decreasing function of t, so it is always at least d. Since the eigenvalues of B(t)(t) are a continuous function of t, for any eigenvalue λ(t)λ(t) of B(t)(t) in the union of the k discs its distance d(t)(t) from the union of the other n-k discs is also continuous. Obviously d(0)≥d(0), and assume λ(1)λ(1) lies in the union of the n-k discs. Then d(1)=0(1)=0, so there exists 0<t0<10<t_0<1 such that 0<d(t0)<d0<d(t_0)<d. But this means λ(t0)λ(t_0) lies outside the Gershgorin discs, which is impossible. Therefore λ(1)λ(1) lies in the union of the k discs, and the theorem is proven.
+
+Remarks: It is necessary to count the eigenvalues with respect to their algebraic multiplicities. Here is a counter-example :
+Consider the matrix,
+[5100005100005000001100001][ 5 1 0 0 0; 0 5 1 0 0; 0 0 5 0 0; 0 0 0 1 1; 0 0 0 0 1 ]
+The union of the first 3 disks does not intersect the last 2, but the matrix has only 2 eigenvectors, e1,e4, and therefore only 2 eigenvalues, demonstrating that theorem is false in its formulation. The demonstration of the shows only that eigenvalues are distinct, however any affirmation about number of them is something that does not fit, and this is a counterexample.
+
+The continuity of λ(t)λ(t) should be understood in the sense of topology. It is sufficient to show that the roots (as a point in space Cnℂ^n) is continuous function of its coefficients. Note that the inverse map that maps roots to coefficients is described by Vieta's formulas (note for Characteristic polynomial an≡1_n≡1) which can be proved an open map. This proves the roots as a whole is a continuous function of its coefficients. Since composition of continuous functions is again continuous, the λ(t)λ(t) as a composition of roots solver and B(t)(t) is also continuous.
+Individual eigenvalue λ(t)λ(t) could merge with other eigenvalue(s) or appeared from a splitting of previous eigenvalue. This may confuse people and questioning the concept of continuous. However, when viewing from the space of eigenvalue set Cnℂ^n, the trajectory is still a continuous curve although not necessarily smooth everywhere.
+Added Remark:
+
+The proof given above is arguably (in)correct......  There are two types of continuity concerning eigenvalues: (1) each individual eigenvalue is a usual continuous function (such a representation does exist on a real interval but may not exist on a complex domain), (2) eigenvalues are continuous as a whole in the topological sense (a mapping from the matrix space with metric induced by a norm to unordered tuples, i.e., the quotient space of C^n under permutation equivalence with induced metric). Whichever continuity is used in a proof of the Gerschgorin disk theorem, it should be justified that the sum of algebraic multiplicities of eigenvalues remains unchanged on each connected region. A proof using the argument principle of complex analysis requires no eigenvalue continuity of any kind.[1] For a brief discussion and clarification, see.[2]
+Application[edit]
+The Gershgorin circle theorem is useful in solving matrix equations of the form Ax = b for x where b is a vector and A is a matrix with a large condition number.
+In this kind of problem, the error in the final result is usually of the same order of magnitude as the error in the initial data multiplied by the condition number of A. For instance, if b is known to six decimal places and the condition number of A is 1000 then we can only be confident that x is accurate to three decimal places. For very high condition numbers, even very small errors due to rounding can be magnified to such an extent that the result is meaningless.
+It would be good to reduce the condition number of A. This can be done by preconditioning: A matrix P such that P ≈ A−1 is constructed, and then the equation PAx = Pb is solved for x. Using the exact inverse of A would be nice but finding the inverse of a matrix is something we want to avoid because of the computational expense. 
+Now, since PA ≈ I where I is the identity matrix, the eigenvalues of PA should all be close to 1. By the Gershgorin circle theorem, every eigenvalue of PA lies within a known area and so we can form a rough estimate of how good our choice of P was.
+
+Example[edit]
+Use the Gershgorin circle theorem to estimate the eigenvalues of:
+
+This diagram shows the discs in yellow derived for the eigenvalues. The first two disks overlap and their union contains two eigenvalues.  The third and fourth disks are disjoint from the others and contain one eigenvalue each.
+A=[101010.280.20.21121−1−1−1−11].=[  10   1   0   1; 0.2   8 0.2 0.2;   1   1   2   1;  -1  -1  -1 -11;  ].
+Starting with row one, we take the element on the diagonal, aii as the center for the disc.  We then take the remaining elements in the row and apply the formula:
+
+∑j≠i|aij|=Ri∑_j|a_ij|=R_i
+to obtain the following four discs:
+
+D(10,2),D(8,0.6),D(2,3),andD(−11,3).(10,2), D(8,0.6), D(2,3), and D(-11,3).
+Note that we can improve the accuracy of the last two discs by applying the formula to the corresponding columns of the matrix, obtaining D(2,1.2)(2,1.2) and D(−11,2.2)(-11,2.2).
+The eigenvalues are  9.8218,  8.1478,  1.8995, −10.86. Note that this is a (column) diagonally dominant matrix: |aii|>∑j≠i|aji||a_ii|>∑_j|a_ji|. This means that most of the matrix is in the diagonal, which explains why the eigenvalues are so close to the centers of the circles, and the estimates are very good. For a random matrix, we would expect the eigenvalues to be substantially further from the centers of the circles.
+
+See also[edit]
+For matrices with non-negative entries, see Perron–Frobenius theorem.
+Doubly stochastic matrix
+Hurwitz matrix
+Joel Lee Brenner
+Metzler matrix
+Muirhead's inequality
+Bendixson's inequality
+Schur–Horn theorem
+References[edit]
+
+
+^ Roger A. Horn & Charles R.  Johnson (2013), Matrix Analysis, second edition, Cambridge University Press ISBN 9780521548236 [https://www.cambridge.org/ca/academic/subjects/mathematics/algebra/matrix-analysis-2nd-edition
+
+^ Chi-Kwong Li & Fuzhen Zhang (2019), Eigenvalue continuity and Gersgorin's theorem, Electronic Journal of Linear Algebra (ELA) {Vol.35, pp.619-625|2019} [DOI: https://doi.org/10.13001/ela.2019.5179]
+
+
+Gerschgorin, S. (1931), "Über die Abgrenzung der Eigenwerte einer Matrix", Izv. Akad. Nauk. USSR Otd. Fiz.-Mat. Nauk (in German), 6: 749–754.
+Varga, Richard S. (2004), Geršgorin and His Circles, Berlin: Springer-Verlag, ISBN 3-540-21100-4. (Errata).
+Varga, Richard S. (2002), Matrix Iterative Analysis (2nd ed.), Springer-Verlag. 1st ed., Prentice Hall, 1962.
+Golub, G. H.; Van Loan, C. F. (1996), Matrix Computations, Baltimore: Johns Hopkins University Press, p. 320, ISBN 0-8018-5413-X.
+External links[edit]
+"Gershgorin's circle theorem". PlanetMath.
+Eric W. Weisstein. "Gershgorin Circle Theorem." From MathWorld—A Wolfram Web Resource.
+Semyon Aranovich Gershgorin biography at MacTutor
+
+
+

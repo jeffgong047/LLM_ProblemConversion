@@ -1,0 +1,35 @@
+In mathematical logic, Craig's theorem (also known as Craig's trick[1]) states that any recursively enumerable set of well-formed formulas of a first-order language is (primitively) recursively axiomatizable. This result is not related to the well-known Craig interpolation theorem, although both results are named after the same logician, William Craig.
+
+
+Recursive axiomatization[edit]
+Let A1,A2,…_1,A_2,… be an enumeration of the axioms of a recursively enumerable set T of first-order formulas. Construct another set T* consisting of
+
+Ai∧⋯∧Ai⏟iA_i…_i_i
+for each positive integer i. The deductive closures of T* and T are thus equivalent; the proof will show that T* is a recursive set. A decision procedure for T* lends itself according to the following informal reasoning. Each member of T* is of the form
+
+Bj∧⋯∧Bj⏟j.B_j…_j_j.
+Since each formula has finite length, it is checkable whether or not it is of the said form. If it is of the said form and consists of j conjuncts, it is in T* if the (reoccurring) conjunct is Aj_j; otherwise it is not in T*. Again, it is checkable whether the conjunct is in fact An_n by going through the enumeration of the axioms of T and then checking symbol-for-symbol whether the expressions are identical.
+
+Primitive recursive axiomatizations[edit]
+The proof above shows that for each recursively enumerable set of axioms there is a recursive set of axioms with the same deductive closure. A set of axioms is primitive recursive if there is a primitive recursive function that decides membership in the set. To obtain a primitive recursive axiomatization, instead of replacing a formula Ai_i with 
+
+Ai∧⋯∧Ai⏟iA_i…_i_i
+one instead replaces it with 
+
+Ai∧⋯∧Ai⏟f(i)A_i…_i_f(i) (*)
+where f(x) is a function that, given i, returns a computation history showing that Ai_i is in the original recursively enumerable set of axioms.  It is possible for a primitive recursive function to parse an expression of form (*) to obtain Ai_i and j. Then, because Kleene's T predicate is primitive recursive, it is possible for a primitive recursive function to verify that j is indeed a computation history as required.
+
+Philosophical implications[edit]
+If T is a recursively axiomatizable theory and we divide its predicates into two disjoint sets VA_A and VB_B, then those theorems of T that are in the vocabulary VA_A are recursively enumerable, and hence, based on Craig's theorem, axiomatizable. Carl G. Hempel argued based on this that since all science's predictions are in the vocabulary of observation terms, the theoretical vocabulary of science is in principle eliminable. He himself raised two objections to this argument: 1) the new axioms of science are practically unmanageable, and 2) science uses inductive reasoning and eliminating theoretical terms may alter the inductive relations between observational sentences. Hilary Putnam argues that this argument is based on a misconception that the sole aim of science is successful prediction. He proposes that the main reason we need theoretical terms is that we wish to talk about theoretical entities (such as viruses, radio stars, and elementary particles).
+
+References[edit]
+
+
+^ A. Visser, "Vaught's Theorem on Axiomatizability by a Scheme". Bulletin of Symbolic Logic, vol. 18, no. 3 (2012).
+
+
+William Craig. "On Axiomatizability Within a System", The Journal of Symbolic Logic, Vol. 18, No. 1 (1953), pp. 30-32.
+Hilary Putnam. "Craig's Theorem", The Journal of Philosophy, Vol. 62, No. 10 (1965), pp. 251.260.
+
+
+

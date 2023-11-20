@@ -1,0 +1,240 @@
+Boolean satisfiability is NP-complete and therefore that NP-complete problems exist
+In computational complexity theory, the Cook–Levin theorem, also known as Cook's theorem, states that the Boolean satisfiability problem is NP-complete.  That is, it is in NP, and any problem in NP can be reduced in polynomial time by a deterministic Turing machine to the Boolean satisfiability problem.
+The theorem is named after Stephen Cook and Leonid Levin.
+An important consequence of this theorem is that if there exists a deterministic polynomial-time algorithm for solving Boolean satisfiability, then every NP problem can be solved by a deterministic polynomial-time algorithm.  The question of whether such an algorithm for Boolean satisfiability exists is thus equivalent to the P versus NP problem, which is still widely considered the most important unsolved problem in theoretical computer science as of 2023[update].
+
+
+Contributions[edit]
+The concept of NP-completeness was developed in the late 1960s and early 1970s in parallel by researchers in North America and the USSR.
+In 1971, Stephen Cook published his paper "The complexity of theorem proving procedures"[1] in conference proceedings of the newly founded ACM Symposium on Theory of Computing. Richard Karp's subsequent paper, "Reducibility among
+combinatorial problems",[2] generated renewed interest in Cook's paper by providing a list of 21 NP-complete problems. Karp also introduced the notion of completeness used in the current definition of NP-completeness (i.e., by polynomial-time many-one reduction). Cook and Karp each received a Turing Award for this work.
+The theoretical interest in NP-completeness was also enhanced by the work of Theodore P. Baker, John Gill, and Robert Solovay who showed, in 1975, that solving NP-problems in certain oracle machine models requires exponential time. That is, there exists an oracle A such that, for all subexponential deterministic-time complexity classes T, the relativized complexity class NPA is not a subset of TA. In particular, for this oracle, PA ≠ NPA.[3]
+In the USSR, a result equivalent to Baker, Gill, and Solovay's was published in 1969 by M. Dekhtiar.[4] Later Leonid Levin's paper, "Universal search problems",[5] was published in 1973, although it was mentioned in talks and submitted for publication a few years earlier.
+Levin's approach was slightly different from Cook's and Karp's in that he considered search problems, which require finding solutions rather than simply determining existence. He provided six such NP-complete search problems, or universal problems.
+Additionally he found for each of these problems an algorithm that solves it in optimal time (in particular, these algorithms run in polynomial time if and only if P = NP).
+
+Definitions[edit]
+A decision problem is in NP if it can be decided by a non-deterministic Turing machine in polynomial time.
+An instance of the Boolean satisfiability problem is a Boolean expression that combines Boolean variables using Boolean operators.
+Such an expression is satisfiable if there is some assignment of truth values to the variables that makes the entire expression true.
+
+Idea[edit]
+Given any decision problem in NP, construct a non-deterministic machine that solves it in polynomial time. Then for each input to that machine, build a Boolean expression that computes whether when that specific input is passed to the machine, the machine runs correctly, and the machine halts and answers "yes". Then the expression can be satisfied if and only if there is a way for the machine to run correctly and answer "yes", so the satisfiability of the constructed expression is equivalent to asking whether or not the machine will answer "yes".
+
+Proof[edit]
+This proof is based on the one given by Garey and Johnson.[6]
+There are two parts to proving that the Boolean satisfiability problem (SAT) is NP-complete. One is to show that SAT is an NP problem. The other is to show that every NP problem can be reduced to an instance of a SAT problem by a polynomial-time many-one reduction.
+SAT is in NP because any assignment of Boolean values to Boolean variables that is claimed to satisfy the given expression can be verified in polynomial time by a deterministic Turing machine. (The statements verifiable in polynomial time by a deterministic Turing machine and solvable in polynomial time by a non-deterministic Turing machine are equivalent, and the proof can be found in many textbooks, for example Sipser's Introduction to the Theory of Computation, section 7.3., as well as in the Wikipedia article on NP).
+
+Commutative diagram showing Cook's reduction of M to SAT. Data sizes and program runtimes are colored in orange and green, respectively.
+Schematized accepting computation by the machine M.
+Now suppose that a given problem in NP can be solved by the nondeterministic Turing machine M=(Q,Σ,s,F,δ)=(Q,Σ,s,F,δ), where Q is the set of states, ΣΣ is the alphabet of tape symbols, s∈Q is the initial state, F⊆Q is the set of accepting states, and δ⊆((Q∖F)×Σ)×(Q×Σ×−1,+1)δ⊆((Q)×Σ)×(Q×Σ×{-1,+1}) is the transition relation. Suppose further that M accepts or rejects an instance of the problem after at most p(n)(n) computation steps, where n is the size of the instance and p is a polynomial function.
+For each input, I, specify a Boolean expression B that is satisfiable if and only if the machine M accepts I.
+The Boolean expression uses the variables set out in the following table. Here, q∈Q is a machine state, −p(n)≤i≤p(n)-p(n)(n) is a tape position, j∈Σ∈Σ is a tape symbol, and 0≤k≤p(n)0(n) is the number of a computation step.
+
+
+
+Variables
+
+Intended interpretation
+
+How many?[7]
+
+
+Ti,j,k_i,j,k
+
+True if tape cell i contains symbol j at step k of the computation.
+
+O(p(n)2)(p(n)^2)
+
+
+Hi,k_i,k
+
+True if M's read/write head is at tape cell i at step k of the computation.
+
+O(p(n)2)(p(n)^2)
+
+
+Qq,k_q,k
+
+True if M is in state q at step k of the computation.
+
+O(p(n))(p(n))
+
+Define the Boolean expression B to be the conjunction of the sub-expressions in the following table, for all −p(n)≤i≤p(n)-p(n)(n) and 0≤k≤p(n)0(n):
+
+
+
+Expression
+
+Conditions
+
+Interpretation
+
+How many?
+
+
+Ti,j,0_i,j,0
+
+Tape cell i initially contains symbol j
+
+Initial contents of the tape.  For i>n−1>n-1 and i<0<0, outside of the actual input I, the initial symbol is the special default/blank symbol.
+
+O(p(n))(p(n))
+
+
+Qs,0_s,0
+
+
+
+Initial state of M.
+
+1
+
+
+H0,0_0,0
+
+
+
+Initial position of read/write head.
+
+1
+
+
+¬Ti,j,k∨¬Ti,j′,k_i,j,k_i,j',k
+
+j≠j′'
+
+At most one symbol per tape cell.
+
+O(p(n)2)(p(n)^2)
+
+
+⋁j∈ΣTi,j,k⋁_j∈ΣT_i,j,k
+
+
+
+At least one symbol per tape cell.
+
+O(p(n)2)(p(n)^2)
+
+
+Ti,j,k∧Ti,j′,k+1→Hi,k_i,j,k_i,j',k+1_i,k
+
+j≠j′'
+
+Tape remains unchanged unless written by head.
+
+O(p(n)2)(p(n)^2)
+
+
+¬Qq,k∨¬Qq′,k_q,k_q',k
+
+q≠q′'
+
+At most one state at a time.
+
+O(p(n))(p(n))
+
+
+⋁q∈QQq,k⋁_qQ_q,k
+
+
+
+At least one state at a time.
+
+O(p(n))(p(n))
+
+
+¬Hi,k∨¬Hi′,k_i,k_i',k
+
+i≠i′'
+
+At most one head position at a time.
+
+O(p(n)3)(p(n)^3)
+
+
+⋁−p(n)≤i≤p(n)Hi,k⋁_-p(n)(n)H_i,k
+
+
+
+At least one head position at a time.
+
+O(p(n)2)(p(n)^2)
+
+
+(Hi,k∧Qq,k∧Ti,σ,k)→⋁((q,σ),(q′,σ′,d))∈δ(Hi+d,k+1∧Qq′,k+1∧Ti,σ′,k+1)[                                    (H_i,k_q,k_i,σ,k)→; ⋁_((q,σ),(q',σ',d))∈δ(H_i+d,+̨1_q',+̨1_i,
+sigma',+̨1) ]
+
+k<p(n)<p(n)
+
+Possible transitions at computation step k when head is at position i.
+
+O(p(n)2)(p(n)^2)
+
+
+⋁0≤k≤p(n)⋁f∈FQf,k⋁_0(n)⋁_fQ_f,k
+
+
+
+Must finish in an accepting state, not later than in step p(n)(n).
+
+1
+
+If there is an accepting computation for M on input I, then B is satisfiable by assigning Ti,j,k_i,j,k, Hi,k_i,k and Qi,k_i,k their intended interpretations. On the other hand, if B is satisfiable, then there is an accepting computation for M on input I that follows the steps indicated by the assignments to the variables.
+There are O(p(n)2)(p(n)^2) Boolean variables, each encodable in space O(log⁡p(n))((n)). The number of clauses is O(p(n)3)(p(n)^3)[8] so the size of B is O(log⁡(p(n))p(n)3)(log(p(n))p(n)^3). Thus the transformation is certainly a polynomial-time many-one reduction, as required.
+Only the first table row (Ti,j,0_i,j,0) actually depends on the input string I. The remaining lines depend only on the input length n and on the machine M; they formalize a generic computation of M for up to p(n)(n) steps.
+The transformation makes extensive use of the polynomial p(n)(n). As a consequence, the above proof is not constructive: even if M is known, witnessing the membership of the given problem in NP, the transformation cannot be effectively computed, unless an upper bound p(n)(n) of M's time complexity is also known.
+
+Complexity[edit]
+While the above method encodes a non-deterministic Turing machine in complexity O(log⁡(p(n))p(n)3)(log(p(n))p(n)^3), the literature describes more sophisticated approaches in complexity O(p(n)log⁡(p(n)))(p(n)log(p(n))).[9][10][11][12][13] The quasilinear result first appeared seven years after Cook's original publication.
+The use of SAT to prove the existence of an NP-complete problem can be extended to other computational problems in logic, and to completeness for other complexity classes.
+The quantified Boolean formula problem (QBF) involves Boolean formulas extended to include nested universal quantifiers and existential quantifiers for its variables. The QBF problem can be used to encode computation with a Turing machine limited to polynomial space complexity, proving that there exists a problem (the recognition of true quantified Boolean formulas) that is PSPACE-complete. Analogously, dependency quantified boolean formulas encode computation with a Turing machine limited to logarithmic space complexity, proving that there exists a problem that is NL-complete.[14][15]
+
+Consequences[edit]
+The proof shows that every problem in NP can be reduced in polynomial time (in fact, logarithmic space suffices) to an instance of the Boolean satisfiability problem. This means that if the Boolean satisfiability problem could be solved in polynomial time by a deterministic Turing machine, then all problems in NP could be solved in polynomial time, and so the complexity class NP would be equal to the complexity class P.
+The significance of NP-completeness was made clear by the publication in 1972 of Richard Karp's landmark paper, "Reducibility among combinatorial problems", in which he showed that 21 diverse combinatorial and graph theoretical problems, each infamous for its intractability, are NP-complete.[2]
+Karp showed each of his problems to be NP-complete by reducing another problem (already shown to be NP-complete) to that problem.  For example, he showed the problem 3SAT (the Boolean satisfiability problem for expressions in conjunctive normal form (CNF) with exactly three variables or negations of variables per clause) to be NP-complete by showing how to reduce (in polynomial time) any instance of SAT to an equivalent instance of 3SAT.[16]
+Garey and Johnson presented more than 300 NP-complete problems in their book Computers and Intractability: A Guide to the Theory of NP-Completeness,[6] and new problems are still being discovered to be within that complexity class.
+Although many practical instances of SAT can be solved by heuristic methods, the question of whether there is a deterministic polynomial-time algorithm for SAT (and consequently all other NP-complete problems) is still a famous unsolved problem, despite decades of intense effort by complexity theorists, mathematical logicians, and others.  For more details, see the article P versus NP problem.
+
+References[edit]
+
+
+^ Cook, Stephen (1971). "The complexity of theorem proving procedures". Proceedings of the Third Annual ACM Symposium on Theory of Computing. pp. 151–158. doi:10.1145/800157.805047. ISBN 9781450374644. S2CID 7573663.
+
+^ a b Karp, Richard M. (1972). "Reducibility Among Combinatorial Problems". In Raymond E. Miller; James W. Thatcher (eds.). Complexity of Computer Computations. New York: Plenum. pp. 85–103. ISBN 0-306-30707-3.
+
+^ T. P. Baker; J. Gill; R. Solovay (1975). "Relativizations of the P = NP question". SIAM Journal on Computing. 4 (4): 431–442. doi:10.1137/0204037.
+
+^ Dekhtiar, M. (1969). "On the impossibility of eliminating exhaustive search in computing a function relative to its graph". Proceedings of the USSR Academy of Sciences (in Russian). 14: 1146–1148.
+
+^ Levin, Leonid (1973). "Универсальные задачи перебора" [Universal search problems]. Problems of Information Transmission (in Russian). 9 (3): 115–116. Translated into English by Trakhtenbrot, B. A. (1984). "A survey of Russian approaches to perebor (brute-force searches) algorithms". Annals of the History of Computing. 6 (4): 384–400. doi:10.1109/MAHC.1984.10036. S2CID 950581. Translation see appendix, p.399-400.
+
+^ a b Garey, Michael R.; Johnson, David S. (1979). Computers and Intractability: A Guide to the Theory of NP-Completeness. W. H. Freeman. ISBN 0-7167-1045-5. Here: Sect.2.6, p.38-44.
+
+^ This column uses the big O notation.
+
+^ The number of literals in each clause does not depend on n, except for the last table row, which leads to a clause with O(p(n))(p(n)) literals.
+
+^ Claus-Peter Schnorr (Jan 1978). "Satisfiability is quasilinear complete in NQL" (PDF). Journal of the ACM. 25 (1): 136–145. doi:10.1145/322047.322060. S2CID 1929802.
+
+^ Nicholas Pippenger and Michael J. Fischer (Apr 1979). "Relations among complexity measures" (PDF). Journal of the ACM. 26 (2): 361–381. doi:10.1145/322123.322138. S2CID 2432526.
+
+^ John Michael Robson (Feb 1979). A new proof of the NP completeness of satisfiability. Proceedings of the 2nd Australian Computer Science Conference. pp. 62–70.
+
+^ John Michael Robson (May 1991). "An O(Tlog⁡T)(T) reduction from RAM computations to satisfiability". Theoretical Computer Science. 82 (1): 141–149. doi:10.1016/0304-3975(91)90177-4.
+
+^ Stephen A. Cook (Jan 1988). "Short propositional formulas represent nondeterministic computations" (PDF). Information Processing Letters. 26 (5): 269–270. doi:10.1016/0020-0190(88)90152-4.
+
+^ Gary L. Peterson; John H. Reif (1979). "Multiple-person alternation". In Ronald V. Book; Paul Young (eds.). Proc. 20th Annual Symposium on Foundations of Computer Science (SFCS). IEEE. pp. 348–363.
+
+^ Gary Peterson; John Reif; Salman Azhar (Apr 2001). "Lower bounds for multiplayer noncooperative games of incomplete information". Computers & Mathematics with Applications. 41 (7–8): 957–992. doi:10.1016/S0898-1221(00)00333-3.
+
+^ First modify the proof of the Cook–Levin theorem, so that the resulting formula is in conjunctive normal form, then introduce new variables to split clauses with more than 3 atoms.  For example, the clause (A∨B∨C∨D)(A) can be replaced by the conjunction of clauses (A∨B∨Z)∧(¬Z∨C∨D)(A)(), where Z is a new variable that will not be used anywhere else in the expression.  Clauses with fewer than three atoms can be padded; for example, (A∨B)(A) can be replaced by (A∨B∨B)(A).
+
+
+
+
+

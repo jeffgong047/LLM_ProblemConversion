@@ -1,0 +1,148 @@
+Mathematical result on order relations
+In order theory, the Szpilrajn extension theorem (also called the order-extension principle), proved by Edward Szpilrajn in 1930,[1] states that every partial order is contained in a total order. Intuitively, the theorem says that any method of comparing elements that leaves some pairs incomparable can be extended in such a way that every pair becomes comparable. The theorem is one of many examples of the use of the axiom of choice in the form of Zorn's lemma to find a maximal set with certain properties.
+
+
+Definitions and statement[edit]
+A binary relation R on a set X is formally defined as a set of ordered pairs (x,y)(x,y) of elements of X,, and (x,y)∈R(x,y) is often abbreviated as xRy..
+A relation is reflexive if xRx holds for every element x∈X;; it is transitive if xRyandyRzandyRz imply xRz for all x,y,z∈X;,y,z; it is antisymmetric if xRyandyRxandyRx imply x=y=y for all x,y∈X;,y; and it is a connex relation if xRyoryRxoryRx holds for all x,y∈X.,y. A partial order is, by definition, a reflexive, transitive and antisymmetric relation. A total order is a partial order that is connex.
+A relation R is contained in another relation S when all ordered pairs in R also appear in S;; that is,xRy implies xSy for all x,y∈X.,y. The extension theorem states that every relation R that is reflexive, transitive and antisymmetric (that is, a partial order) is contained in another relation S which is reflexive, transitive, antisymmetric and connex (that is, a total order).
+
+Proof[edit]
+The theorem is proved in two steps. First, if a partial order does not compare x and y,, it can be extended by first adding the pair (x,y)(x,y) and then performing the transitive closure, and second, since this operation generates an ordering that strictly contains the original one and can be applied to all pairs of incomparable elements, there exists a relation in which all pairs of elements have been made comparable.
+The first step is proved as a preliminary lemma, in which a partial order where a pair of elements x and y are incomparable is changed to make them comparable. This is done by first adding the pair xRy to the relation, which may result in a non-transitive relation, and then restoring transitivity by adding all pairs qRp such that qRxandyRp.andyRp. This is done on a single pair of incomparable elements x and y,, and produces a relation that is still reflexive, antisymmetric and transitive and that strictly contains the original one. 
+Next it is shown that the poset of partial orders containing R,, ordered by inclusion, has a maximal element. The existence of such a maximal element is proved by applying Zorn's lemma to this poset. A chain in this poset is a set of relations containing R such that given any two of these relations, one is contained in the other.
+To apply Zorn's lemma, it must be shown that every chain has an upper bound in the poset. Let C𝒞 be such a chain, and it remains to show that the union of its elements, ⋃C,⋃𝒞, is an upper bound for C𝒞 which is in the poset: C𝒞 contains the original relation R since every element of C𝒞 is a partial order containing R.. Next, it is shown that ⋃C⋃𝒞 is a transitive relation. Suppose that (x,y)(x,y) and (y,z)(y,z) are in ⋃C,⋃𝒞, so that there exist S,T∈C,T∈𝒞 such that (x,y)∈Sand(y,z)∈T.(x,y)and(y,z). Since C𝒞 is a chain, either S⊆TorT⊆S.orT. Suppose S⊆T;; the argument for when T⊆S is similar. Then (x,y)∈T.(x,y). Since all relations produced by our process are transitive, (x,z)(x,z) is in T and therefore also in ⋃C.⋃𝒞. Similarly, it can be shown that ⋃C⋃𝒞 is antisymmetric.
+Therefore by Zorn's lemma the set of partial orders containing R has a maximal element Q,, and it remains only to show that Q is total. Indeed if Q had a pair of incomparable elements then it is possible to apply the process of the first step to it, leading to another strict partial order that contains R and strictly contains Q,, contradicting that Q is maximal. Q is therefore a total order containing R,, completing the proof.
+
+Other extension theorems[edit]
+Arrow[2] stated that every preorder (reflexive and transitive relation) can be extended to a total preorder (transitive and connex relation). This claim was later proved by Hansson.[3]: Lemma 3 [4]
+Suzumura proved that a binary relation can be extended to a total preorder if and only if it is Suzumura-consistent, which means that there is no cycle of elements such that xRy for every pair of consecutive elements (x,y),(x,y), and there is some pair of consecutive elements (x,y)(x,y) in the cycle for which yRx does not hold.[4]
+
+See also[edit]
+Linear extension – Mathematical ordering of a partial order
+References[edit]
+
+
+^ Szpilrajn, Edward (1930), "Sur l'extension de l'ordre partiel" (PDF), Fundamenta Mathematicae (in French), 16: 386–389, doi:10.4064/fm-16-1-386-389.
+
+^ Arrow, Kenneth J. (2012-06-26). Social Choice and Individual Values: Third Edition. Yale University Press. ISBN 978-0-300-18698-7.
+
+^ Hansson, Bengt (1968). "Choice Structures and Preference Relations". Synthese. 18 (4): 443–458. doi:10.1007/BF00484979. ISSN 0039-7857. JSTOR 20114617. S2CID 46966243.
+
+^ a b Cato, Susumu (2012-05-01). "SZPILRAJN, ARROW AND SUZUMURA: CONCISE PROOFS OF EXTENSION THEOREMS AND AN EXTENSION: Extension Theorems". Metroeconomica. 63 (2): 235–249. doi:10.1111/j.1467-999X.2011.04130.x. S2CID 153381284.
+
+
+vteOrder theory
+Topics
+Glossary
+Category
+Key concepts
+Binary relation
+Boolean algebra
+Cyclic order
+Lattice
+Partial order
+Preorder
+Total order
+Weak ordering
+Results
+Boolean prime ideal theorem
+Cantor–Bernstein theorem
+Cantor's isomorphism theorem
+Dilworth's theorem
+Dushnik–Miller theorem
+Hausdorff maximal principle
+Knaster–Tarski theorem
+Kruskal's tree theorem
+Laver's theorem
+Mirsky's theorem
+Szpilrajn extension theorem
+Zorn's lemma
+Properties & Types (list)
+Antisymmetric
+Asymmetric
+Boolean algebra
+topics
+Completeness
+Connected
+Covering
+Dense
+Directed
+(Partial) Equivalence
+Foundational
+Heyting algebra
+Homogeneous
+Idempotent
+Lattice
+Bounded
+Complemented
+Complete
+Distributive
+Join and meet
+Reflexive
+Partial order
+Chain-complete
+Graded
+Eulerian
+Strict
+Prefix order
+Preorder
+Total
+Semilattice
+Semiorder
+Symmetric
+Total
+Tolerance
+Transitive
+Well-founded
+Well-quasi-ordering (Better)
+(Pre) Well-order
+Constructions
+Composition
+Converse/Transpose
+Lexicographic order
+Linear extension
+Product order
+Reflexive closure
+Series-parallel partial order
+Star product
+Symmetric closure
+Transitive closure
+Topology & Orders
+Alexandrov topology & Specialization preorder
+Ordered topological vector space
+Normal cone
+Order topology
+Order topology
+Topological vector lattice
+Banach
+Fréchet
+Locally convex
+Normed
+Related
+Antichain
+Cofinal
+Cofinality
+Comparability
+Graph
+Duality
+Filter
+Hasse diagram
+Ideal
+Net
+Subnet
+Order morphism
+Embedding
+Isomorphism
+Order type
+Ordered field
+Ordered vector space
+Partially ordered
+Positive cone
+Riesz space
+Upper set
+Young's lattice
+
+
+
+

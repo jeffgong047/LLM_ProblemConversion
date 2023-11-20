@@ -1,0 +1,194 @@
+In additive number theory, a way to measure how dense a sequence of numbers is
+In additive number theory, the Schnirelmann density of a sequence of numbers is a way to measure how "dense" the sequence is. It is named after Russian mathematician Lev Schnirelmann, who was the first to study it.[1][2]
+
+
+Definition[edit]
+The Schnirelmann density of a set of natural numbers A is defined as
+
+σA=infnA(n)n,=inf_nA(n)/n,
+where A(n) denotes the number of elements of A not exceeding n and inf is infimum.[3]
+The Schnirelmann density is well-defined even if the limit of A(n)/n as n → ∞ fails to exist (see upper and lower asymptotic density).
+
+Properties[edit]
+By definition, 0 ≤ A(n) ≤ n and n σA ≤ A(n) for all n, and therefore 0 ≤ σA ≤ 1, and σA = 1 if and only if A = N. Furthermore,
+
+σA=0⇒∀ϵ>0∃nA(n)<ϵn.=0⇒∀ϵ>0
+existsn(n)<.
+Sensitivity[edit]
+The Schnirelmann density is sensitive to the first values of a set:
+
+∀kk∉A⇒σA≤1−1/k⇒≤1-1/k.
+In particular,
+
+1∉A⇒σA=01⇒=0
+and
+
+2∉A⇒σA≤12.2⇒≤1/2.
+Consequently, the Schnirelmann densities of the even numbers and the odd numbers, which one might expect to agree, are 0 and 1/2 respectively. Schnirelmann and Yuri Linnik exploited this sensitivity.
+
+Schnirelmann's theorems[edit]
+If we set G2=k2k=1∞𝔊^2={k^2}_k=1^∞, then Lagrange's four-square theorem can be restated as σ(G2⊕G2⊕G2⊕G2)=1σ(𝔊^2⊕𝔊^2⊕𝔊^2⊕𝔊^2)=1. (Here the symbol A⊕B denotes the sumset of A∪0∪{0} and B∪0∪{0}.) It is clear that σG2=0σ𝔊^2=0. In fact, we still have σ(G2⊕G2)=0σ(𝔊^2⊕𝔊^2)=0, and one might ask at what point the sumset attains Schnirelmann density 1 and how does it increase. It actually is the case that σ(G2⊕G2⊕G2)=5/6σ(𝔊^2⊕𝔊^2⊕𝔊^2)=5/6 and one sees that sumsetting G2𝔊^2 once again yields a more populous set, namely all of Nℕ. Schnirelmann further succeeded in developing these ideas into the following theorems, aiming towards Additive Number Theory, and proving them to be a novel resource (if not greatly powerful) to attack important problems, such as Waring's problem and Goldbach's conjecture.
+
+
+Theorem. Let A and B be subsets of Nℕ. Then
+
+
+σ(A⊕B)≥σA+σB−σA⋅σB.σ(A)≥+-·.
+
+
+
+Note that σA+σB−σA⋅σB=1−(1−σA)(1−σB)+-·=1-(1-)(1-). Inductively, we have the following generalization.
+
+
+Corollary. Let Ai⊆N_i⊆ℕ be a finite family of subsets of Nℕ. Then
+
+
+σ(⨁iAi)≥1−∏i(1−σAi).σ(⊕_iA_i)≥1-∏_i(1-_i).
+
+
+
+The theorem provides the first insights on how sumsets accumulate. It seems unfortunate that its conclusion stops short of showing σσ being superadditive. Yet, Schnirelmann provided us with the following results, which sufficed for most of his purpose.
+
+
+Theorem. Let A and B be subsets of Nℕ. If σA+σB≥1+≥1, then
+
+
+A⊕B=N.=ℕ.
+
+
+
+
+Theorem. (Schnirelmann) Let A⊆N⊆ℕ. If σA>0>0 then there exists k such that
+
+
+⨁i=1kA=N.⊕_i=1^kA=ℕ.
+
+
+
+Additive bases[edit]
+A subset A⊆N⊆ℕ with the property that A⊕A⊕⋯⊕A=N⊕⋯=ℕ for a finite sum, is called an additive basis, and the least number of summands required is called the degree (sometimes order) of the basis. Thus, the last theorem states that any set with positive Schnirelmann density is an additive basis. In this terminology, the set of squares G2=k2k=1∞𝔊^2={k^2}_k=1^∞ is an additive basis of degree 4. (About an open problem for additive bases, see Erdős–Turán conjecture on additive bases.)
+
+Mann's theorem[edit]
+Historically the theorems above were pointers to the following result, at one time known as the α+βα+β hypothesis. It was used by Edmund Landau and was finally proved by Henry Mann in 1942.
+
+
+Theorem. (Mann 1942) Let A and B be subsets of Nℕ. In case that A⊕B≠N≠ℕ, we still have
+
+
+σ(A⊕B)≥σA+σB.σ(A)≥+.
+
+
+
+An analogue of this theorem for lower asymptotic density was obtained by Kneser.[4] At a later date, E. Artin and P. Scherk simplified the proof of Mann's theorem.[5]
+
+Waring's problem[edit]
+Main article: Waring's problem
+Let k and N be natural numbers. Let Gk=iki=1∞𝔊^k={i^k}_i=1^∞. Define rNk(n)_N^k(n) to be the number of non-negative integral solutions to the equation
+
+x1k+x2k+⋯+xNk=n_1^k+x_2^k+⋯+x_N^k=n
+and RNk(n)_N^k(n) to be the number of non-negative integral solutions to the inequality
+
+0≤x1k+x2k+⋯+xNk≤n,0_1^k+x_2^k+⋯+x_N^k,
+in the variables xi_i, respectively. Thus RNk(n)=∑i=0nrNk(i)_N^k(n)=∑_i=0^nr_N^k(i). We have
+
+rNk(n)>0↔n∈NGk,_N^k(n)>0𝔊^k,
+RNk(n)≥(nN)Nk._N^k(n)≥(n/N)^N/k.
+The volume of the N-dimensional body defined by 0≤x1k+x2k+⋯+xNk≤n0_1^k+x_2^k+⋯+x_N^k, is bounded by the volume of the hypercube of size n1/k^1/k, hence RNk(n)=∑i=0nrNk(i)≤nN/k_N^k(n)=∑_i=0^nr_N^k(i)^N/k. The hard part is to show that this bound still works on the average, i.e.,
+
+
+Lemma. (Linnik) For all k∈N∈ℕ there exists N∈N∈ℕ and a constant c=c(k)=c(k), depending only on k, such that for all n∈N∈ℕ,
+
+
+rNk(m)<cnNk−1_N^k(m)<cn^N/k-1
+
+
+for all 0≤m≤n.0.
+
+
+With this at hand, the following theorem can be elegantly proved.
+
+
+Theorem. For all k there exists N for which σ(NGk)>0σ(N𝔊^k)>0.
+
+
+We have thus established the general solution to Waring's Problem:
+
+
+Corollary. (Hilbert 1909) For all k there exists N, depending only on k, such that every positive integer n can be expressed as the sum of at most N many k-th powers.
+
+
+Schnirelmann's constant[edit]
+In 1930 Schnirelmann used these ideas in conjunction with the Brun sieve to prove Schnirelmann's theorem,[1][2] that any natural number greater than 1 can be written as the sum of not more than C prime numbers, where C is an effectively computable constant:[6] Schnirelmann obtained C < 800000.[7] Schnirelmann's constant is the lowest number C with this property.[6]
+Olivier Ramaré showed in (Ramaré 1995) that Schnirelmann's constant is at most 7,[6] improving the earlier upper bound of 19 obtained by Hans Riesel and R. C. Vaughan.
+Schnirelmann's constant is at least 3; Goldbach's conjecture implies that this is the constant's actual value.[6]
+In 2013, Harald Helfgott proved Goldbach's weak conjecture for all odd numbers. Therefore, Schnirelmann's constant is at most 4.[8][9][10][11]
+
+Essential components[edit]
+Khintchin proved that the sequence of squares, though of zero Schnirelmann density, when added to a sequence of Schnirelmann density between 0 and 1, increases the density:
+
+σ(A+G2)>σ(A)for0<σ(A)<1.σ(A+𝔊^2)>σ(A)for0<σ(A)<1.
+This was soon simplified and extended by Erdős, who showed, that if A is any sequence with Schnirelmann density α and B is an additive basis of order k then
+
+σ(A+B)≥α+α(1−α)2k,σ(A+B)≥α+α(1-α)/2k ,[12]
+and this was improved by Plünnecke to
+
+σ(A+B)≥α1−1k.σ(A+B)≥α^1-1/k[13]
+Sequences with this property, of increasing density less than one by addition, were named essential components by Khintchin.  Linnik showed that an essential component need not be an additive basis[14]  as he constructed an essential component that has xo(1) elements less than x.  More precisely, the sequence has
+
+e(log⁡x)c^()^c
+elements less than x for some c < 1. This was improved by E. Wirsing to
+
+elog⁡xlog⁡log⁡x.^√()log.
+For a while, it remained an open problem how many elements an essential component must have. Finally, Ruzsa determined that an essential component has at least (log x)c elements up to x, for some c > 1, and for every c > 1 there is an essential component which has at most (log x)c elements up to x.[15]
+
+References[edit]
+
+
+^ a b Schnirelmann, L.G. (1930). "On the additive properties of numbers", first published in "Proceedings of the Don Polytechnic Institute in Novocherkassk" (in Russian), vol XIV (1930), pp. 3-27, and reprinted in "Uspekhi Matematicheskikh Nauk" (in Russian), 1939, no. 6, 9–25.
+
+^ a b Schnirelmann, L.G. (1933). First published as "Über additive Eigenschaften von Zahlen" in "Mathematische Annalen" (in German), vol 107 (1933), 649-690, and reprinted as "On the additive properties of numbers" in "Uspekhin. Matematicheskikh Nauk" (in Russian), 1940, no. 7, 7–46.
+
+^ Nathanson (1996) pp.191–192
+
+^ Nathanson (1990) p.397
+
+^ E. Artin and P. Scherk (1943) On the sums of two sets of integers, Ann. of Math 44, page=138-142.
+
+^ a b c d Nathanson (1996) p.208
+
+^ Gelfond & Linnik (1966) p.136
+
+^ Helfgott, Harald A. (2013). "Major arcs for Goldbach's theorem". arXiv:1305.2897 [math.NT].
+
+^ Helfgott, Harald A. (2012). "Minor arcs for Goldbach's problem". arXiv:1205.5252 [math.NT].
+
+^ Helfgott, Harald A. (2013). "The ternary Goldbach conjecture is true". arXiv:1312.7748 [math.NT].
+
+^ Helfgoot, Harald A. (2015). "The ternary Goldbach problem". arXiv:1501.05438 [math.NT].
+
+^ Ruzsa (2009) p.177
+
+^ Ruzsa (2009) p.179
+
+^ Linnik, Yu. V. (1942). "On Erdõs's theorem on the addition of numerical sequences". Mat. Sb. 10: 67–78. Zbl 0063.03574.
+
+^ Ruzsa (2009) p.184
+
+
+Hilbert, David (1909). "Beweis für die Darstellbarkeit der ganzen Zahlen durch eine feste Anzahl nter Potenzen (Waringsches Problem)". Mathematische Annalen. 67 (3): 281–300. doi:10.1007/BF01450405. ISSN 0025-5831. MR 1511530. S2CID 179177986.
+Schnirelmann, L.G. (1930). "On additive properties of numbers". Ann. Inst. Polytechn. Novočerkassk (in Russian). 14: 3–28. JFM 56.0892.02.
+Schnirelmann, L.G. (1933). "Über additive Eigenschaften von Zahlen". Math. Ann. (in German). 107: 649–690. doi:10.1007/BF01448914. S2CID 123067485. Zbl 0006.10402.
+Mann, Henry B. (1942). "A proof of the fundamental theorem on the density of sums of sets of positive integers". Annals of Mathematics. Second Series. 43 (3): 523–527. doi:10.2307/1968807. ISSN 0003-486X. JSTOR 1968807. MR 0006748. Zbl 0061.07406.
+Gelfond, A.O.; Linnik, Yu. V. (1966). L.J. Mordell (ed.). Elementary Methods in Analytic Number Theory. George Allen & Unwin.
+Mann, Henry B. (1976). Addition Theorems: The Addition Theorems of Group Theory and Number Theory (Corrected reprint of 1965 Wiley ed.). Huntington, New York: Robert E. Krieger Publishing Company. ISBN 978-0-88275-418-5. MR 0424744. {{cite book}}: External link in |publisher= (help)
+Nathanson, Melvyn B. (1990). "Best possible results on the density of sumsets". In Berndt, Bruce C.; Diamond, Harold G.; Halberstam, Heini; et al. (eds.). Analytic number theory. Proceedings of a conference in honor of Paul T. Bateman, held on April 25-27, 1989, at the University of Illinois, Urbana, IL (USA). Progress in Mathematics. Vol. 85. Boston: Birkhäuser. pp. 395–403. ISBN 978-0-8176-3481-0. Zbl 0722.11007.
+Ramaré, O. (1995). "On Šnirel'man's constant". Annali della Scuola Normale Superiore di Pisa. Classe di Scienze. Serie IV. 22 (4): 645–706. Zbl 0851.11057. Retrieved 2011-03-28.
+Nathanson, Melvyn B. (1996). Additive Number Theory: the Classical Bases. Graduate Texts in Mathematics. Vol. 164. Springer-Verlag. ISBN 978-0-387-94656-6. Zbl 0859.11002.
+Nathanson, Melvyn B. (2000). Elementary Methods in Number Theory. Graduate Texts in Mathematics. Vol. 195. Springer-Verlag. pp. 359–367. ISBN 978-0-387-98912-9. Zbl 0953.11002.
+Khinchin, A. Ya. (1998). Three Pearls of Number Theory. Mineola, NY: Dover. ISBN 978-0-486-40026-6. Has a proof of Mann's theorem and the Schnirelmann-density proof of Waring's conjecture.
+Artin, Emil; Scherk, P. (1943). "On the sums of two set of integers". Ann. of Math. 44: 138–142. {{cite journal}}: Cite journal requires |journal= (help)
+Cojocaru, Alina Carmen; Murty, M. Ram (2005). An introduction to sieve methods and their applications. London Mathematical Society Student Texts. Vol. 66. Cambridge University Press. pp. 100–105. ISBN 978-0-521-61275-3.
+Ruzsa, Imre Z. (2009). "Sumsets and structure". In Geroldinger, Alfred; Ruzsa, Imre Z. (eds.). Combinatorial number theory and additive group theory. Advanced Courses in Mathematics CRM Barcelona. Elsholtz, C.; Freiman, G.; Hamidoune, Y. O.; Hegyvári, N.; Károlyi, G.; Nathanson, M.; Solymosi, J.; Stanchescu, Y. With a foreword by Javier Cilleruelo, Marc Noy and Oriol Serra (Coordinators of the DocCourse). Basel: Birkhäuser. pp. 87–210. ISBN 978-3-7643-8961-1. Zbl 1221.11026.
+
+
+

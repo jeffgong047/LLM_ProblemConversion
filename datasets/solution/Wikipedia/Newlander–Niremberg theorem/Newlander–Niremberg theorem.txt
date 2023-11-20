@@ -1,0 +1,234 @@
+Smooth manifold
+In mathematics, an almost complex manifold is a smooth manifold equipped with a smooth linear complex structure on each tangent space. Every complex manifold is an almost complex manifold, but there are almost complex manifolds that are not complex manifolds. Almost complex structures have important applications in symplectic geometry.
+The concept is due to Charles Ehresmann and Heinz Hopf in the 1940s.[1]
+
+
+Formal definition[edit]
+Let M be a smooth manifold. An almost complex structure J on M is a linear complex structure (that is, a linear map which squares to −1) on each tangent space of the manifold, which varies smoothly on the manifold. In other words, we have a smooth tensor field J of degree (1, 1) such that J2=−1^2=-1 when regarded as a vector bundle isomorphism J:TM→TM on the tangent bundle. A manifold equipped with an almost complex structure is called an almost complex manifold.
+If M admits an almost complex structure, it must be even-dimensional. This can be seen as follows. Suppose M is n-dimensional, and let J : TM → TM be an almost complex structure. If J2 = −1 then (det J)2 = (−1)n. But if M is a real manifold, then det J is a real number – thus n must be even if M has an almost complex structure. One can show that it must be orientable as well.
+An easy exercise in linear algebra shows that any even dimensional vector space admits a linear complex structure. Therefore, an even dimensional manifold always admits a (1, 1)-rank tensor pointwise (which is just a linear transformation on each tangent space) such that Jp2 = −1 at each point p. Only when this local tensor can be patched together to be defined globally does the pointwise linear complex structure yield an almost complex structure, which is then uniquely determined. The possibility of this patching, and therefore existence of an almost complex structure on a manifold M is equivalent to a reduction of the structure group of the tangent bundle from GL(2n, R) to GL(n, C). The existence question is then a purely algebraic topological one and is fairly well understood.
+
+Examples[edit]
+For every integer n, the flat space R2n admits an almost complex structure. An example for such an almost complex structure is (1 ≤ i, j ≤ 2n): Jij=−δi,j−1_ij=-δ_i,j-1 for even i, Jij=δi,j+1_ij=δ_i,j+1 for odd i.
+The only spheres which admit almost complex structures are S2 and S6 (Borel & Serre (1953)). In particular, S4 cannot be given an almost complex 
+structure (Ehresmann and Hopf). In the case of S2, the almost complex structure comes from an honest complex structure on the Riemann sphere. The 6-sphere, S6, when considered as the set of unit norm imaginary octonions, inherits an almost complex structure from the octonion multiplication; the question of whether it has a complex structure is known as the Hopf problem, after Heinz Hopf.[2]
+
+Differential topology of almost complex manifolds[edit]
+Just as a complex structure on a vector space V allows a decomposition of VC into V+ and V− (the eigenspaces of J corresponding to +i and −i, respectively), so an almost complex structure on M allows a decomposition of the complexified tangent bundle TMC (which is the vector bundle of complexified tangent spaces at each point) into TM+ and TM−. A section of TM+ is called a vector field of type (1, 0), while a section of TM− is a vector field of type (0, 1). Thus J corresponds to multiplication by i on the (1, 0)-vector fields of the complexified tangent bundle, and multiplication by −i on the (0, 1)-vector fields.
+Just as we build differential forms out of exterior powers of the cotangent bundle, we can build exterior powers of the complexified cotangent bundle (which is canonically isomorphic to the bundle of dual spaces of the complexified tangent bundle). The almost complex structure induces the decomposition of each space of r-forms
+
+Ωr(M)C=⨁p+q=rΩ(p,q)(M).Ω^r(M)^𝐂=⊕_p+q=rΩ^(p,q)(M). 
+In other words, each Ωr(M)C admits a decomposition into a sum of Ω(p, q)(M), with r = p + q.
+As with any direct sum, there is a canonical projection πp,q from Ωr(M)C to Ω(p,q). We also have the exterior derivative d which maps Ωr(M)C to Ωr+1(M)C. Thus we may use the almost complex structure to refine the action of the exterior derivative to the forms of definite type
+
+∂=πp+1,q∘d∂=π_p+1,q
+∂¯=πp,q+1∘d∂=π_p,q+1
+so that ∂∂ is a map which increases the holomorphic part of the type by one (takes forms of type (p, q) to forms of type (p+1, q)), and ∂¯∂ is a map which increases the antiholomorphic part of the type by one. These operators are called the Dolbeault operators.
+Since the sum of all the projections must be the identity map, we note that the exterior derivative can be written
+
+d=∑r+s=p+q+1πr,s∘d=∂+∂¯+⋯.=∑_r+s=p+q+1π_r,s=∂+∂+⋯.
+Integrable almost complex structures[edit]
+Every complex manifold is itself an almost complex manifold. In local holomorphic coordinates zμ=xμ+iyμ^μ=x^μ+iy^μ one can define the maps
+
+J∂∂xμ=∂∂yμJ∂∂yμ=−∂∂xμ∂/^μ=∂/^μ∂/^μ=-∂/^μ
+(just like a counterclockwise rotation of π/2) or
+
+J∂∂zμ=i∂∂zμJ∂∂z¯μ=−i∂∂z¯μ.∂/^μ=i∂/^μ∂/∂z̅^μ=-i∂/∂z̅^μ.
+One easily checks that this map defines an almost complex structure. Thus any complex structure on a manifold yields an almost complex structure, which is said to be 'induced' by the complex structure, and the complex structure is said to be 'compatible with' the almost complex structure.
+The converse question, whether the almost complex structure implies the existence of a complex structure is much less trivial, and not true in general. On an arbitrary almost complex manifold one can always find coordinates for which the almost complex structure takes the above canonical form at any given point p. In general, however, it is not possible to find coordinates so that J takes the canonical form on an entire neighborhood of p. Such coordinates, if they exist, are called 'local holomorphic coordinates for J'. If M admits local holomorphic coordinates for J around every point then these patch together to form a holomorphic atlas for M giving it a complex structure, which moreover induces J. J is then said to be 'integrable'. If J is induced by a complex structure, then it is induced by a unique complex structure.
+Given any linear map A on each tangent space of M; i.e., A is a tensor field of rank (1, 1), then the Nijenhuis tensor is a tensor field of rank (1,2) given by
+
+NA(X,Y)=−A2[X,Y]+A([AX,Y]+[X,AY])−[AX,AY]._A(X,Y)=-A^2[X,Y]+A([AX,Y]+[X,AY])-[AX,AY]. 
+or, for the usual case of an almost complex structure A=J such that J2=−Id^2=-Id,
+
+NJ(X,Y)=[X,Y]+J([JX,Y]+[X,JY])−[JX,JY]._J(X,Y)=[X,Y]+J([JX,Y]+[X,JY])-[JX,JY]. 
+The individual expressions on the right depend on the choice of the smooth vector fields X and Y, but the left side actually depends only on the pointwise values of X and Y, which is why NA is a tensor. This is also clear from the component formula
+
+−(NA)ijk=Aim∂mAjk−Ajm∂mAik−Amk(∂iAjm−∂jAim).-(N_A)_ij^k=A_i^m∂_mA_j^k-A_j^m∂_mA_i^k-A_m^k(∂_iA_j^m-∂_jA_i^m).
+In terms of the Frölicher–Nijenhuis bracket, which generalizes the Lie bracket of vector fields, the Nijenhuis tensor NA is just one-half of [A, A].
+The Newlander–Nirenberg theorem states that an almost complex structure J is integrable if and only if NJ = 0. The compatible complex structure is unique, as discussed above. Since the existence of an integrable almost complex structure is equivalent to the existence of a complex structure, this is sometimes taken as the definition of a complex structure.
+There are several other criteria which are equivalent to the vanishing of the Nijenhuis tensor, and which therefore furnish methods for checking the integrability of an almost complex structure (and in fact each of these can be found in the literature):
+
+The Lie bracket of any two (1, 0)-vector fields is again of type (1, 0)
+d=∂+∂¯=∂+∂̅
+∂¯2=0.∂̅^2=0.
+Any of these conditions implies the existence of a unique compatible complex structure.
+The existence of an almost complex structure is a topological question and is relatively easy to answer, as discussed above. The existence of an integrable almost complex structure, on the other hand, is a much more difficult analytic question. For example, it is still not known whether S6 admits an integrable almost complex structure, despite a long history of ultimately unverified claims. Smoothness issues are important. For real-analytic J, the Newlander–Nirenberg theorem follows from the Frobenius theorem; for C∞ (and less smooth) J, analysis is required (with more difficult techniques as the regularity hypothesis weakens).
+
+Compatible triples[edit]
+Suppose M is equipped with a symplectic form ω, a Riemannian metric g, and an almost complex structure J. Since ω and g are nondegenerate, each induces a bundle isomorphism TM → T*M, where the first map, denoted φω, is given by the interior product φω(u) = iuω = ω(u, •) and the other, denoted φg, is given by the analogous operation for g. With this understood, the three structures (g, ω, J) form a compatible triple when each structure can be specified by the two others as follows:
+
+g(u, v) = ω(u, Jv)
+ω(u, v) = g(Ju, v)
+J(u) = (φg)−1(φω(u)).
+In each of these equations, the two structures on the right hand side are called compatible when the corresponding construction yields a structure of the type specified. For example, ω and J are compatible if and only if ω(•, J•) is a Riemannian metric. The bundle on M whose sections are the almost complex structures compatible to ω has contractible fibres: the complex structures on the tangent fibres compatible with the restriction to the symplectic forms.
+Using elementary properties of the symplectic form ω, one can show that a compatible almost complex structure J is an almost Kähler structure for the Riemannian metric ω(u, Jv). Also, if J is integrable, then (M, ω, J) is a Kähler manifold.
+These triples are related to the 2 out of 3 property of the unitary group.
+
+Generalized almost complex structure[edit]
+Nigel Hitchin introduced the notion of a generalized almost complex structure on the manifold M, which was elaborated in the doctoral dissertations of his students Marco Gualtieri and Gil Cavalcanti. An ordinary almost complex structure is a choice of a half-dimensional subspace of each fiber of the complexified tangent bundle TM. A generalized almost complex structure is a choice of a half-dimensional isotropic subspace of each fiber of the direct sum of the complexified tangent and cotangent bundles. In both cases one demands that the direct sum of the subbundle and its complex conjugate yield the original bundle.
+An almost complex structure integrates to a complex structure if the half-dimensional subspace is closed under the Lie bracket. A generalized almost complex structure integrates to a generalized complex structure if the subspace is closed under the Courant bracket. If furthermore this half-dimensional space is the annihilator of a nowhere vanishing pure spinor then M is a generalized Calabi–Yau manifold.
+
+See also[edit]
+Almost quaternionic manifold – Concept in geometryPages displaying short descriptions of redirect targets
+Chern class – Characteristic classes on algebraic vector bundles
+Frölicher–Nijenhuis bracket
+Kähler manifold – Manifold with Riemannian, complex and symplectic structure
+Poisson manifold – Mathematical structure in differential geometry
+Rizza manifold
+Symplectic manifold – Type of manifold in differential geometry
+References[edit]
+
+
+^ Van de Ven, A. (June 1966). "On the Chern numbers of certain complex and almost complex manifolds". Proceedings of the National Academy of Sciences. 55 (6): 1624–1627. Bibcode:1966PNAS...55.1624V. doi:10.1073/pnas.55.6.1624. PMC 224368. PMID 16578639.
+
+^ Agricola, Ilka; Bazzoni, Giovanni; Goertsches, Oliver; Konstantis, Panagiotis; Rollenske, Sönke (2018). "On the history of the Hopf problem". Differential Geometry and Its Applications. 57: 1–9. arXiv:1708.01068. doi:10.1016/j.difgeo.2017.10.014. S2CID 119297359.
+
+
+Newlander, August; Nirenberg, Louis (1957). "Complex analytic coordinates in almost complex manifolds". Annals of Mathematics. Second Series. 65 (3): 391–404. doi:10.2307/1970051. ISSN 0003-486X. JSTOR 1970051. MR 0088770.
+Cannas da Silva, Ana (2001). Lectures on Symplectic Geometry. Springer. ISBN 3-540-42195-5. Information on compatible triples, Kähler and Hermitian manifolds, etc.
+Wells, Raymond O. (1980). Differential Analysis on Complex Manifolds. New York: Springer-Verlag. ISBN 0-387-90419-0. Short section which introduces standard basic material.
+Rubei, Elena (2014). Algebraic Geometry, a concise dictionary. Berlin/Boston: Walter De Gruyter. ISBN 978-3-11-031622-3.
+Borel, Armand; Serre, Jean-Pierre (1953). "Groupes de Lie et puissances réduites de Steenrod". American Journal of Mathematics. 75 (3): 409–448. doi:10.2307/2372495. JSTOR 2372495. MR 0058213.
+vteManifolds (Glossary)Basic concepts
+Topological manifold
+Atlas
+Differentiable/Smooth manifold
+Differential structure
+Smooth atlas
+Submanifold
+Riemannian manifold
+Smooth map
+Submersion
+Pushforward
+Tangent space
+Differential form
+Vector field
+Main results (list)
+Atiyah–Singer index
+Darboux's
+De Rham's
+Frobenius
+Generalized Stokes
+Hopf–Rinow
+Noether's
+Sard's
+Whitney embedding
+Maps
+Curve
+Diffeomorphism
+Local
+Geodesic
+Exponential map
+in Lie theory
+Foliation
+Immersion
+Integral curve
+Lie derivative
+Section
+Submersion
+Types ofmanifolds
+Closed
+(Almost) Complex
+(Almost) Contact
+Fibered
+Finsler
+Flat
+G-structure
+Hadamard
+Hermitian
+Hyperbolic
+Kähler
+Kenmotsu
+Lie group
+Lie algebra
+Manifold with boundary
+Oriented
+Parallelizable
+Poisson
+Prime
+Quaternionic
+Hypercomplex
+(Pseudo−, Sub−) Riemannian
+Rizza
+(Almost) Symplectic
+Tame
+TensorsVectors
+Distribution
+Lie bracket
+Pushforward
+Tangent space
+bundle
+Torsion
+Vector field
+Vector flow
+Covectors
+Closed/Exact
+Covariant derivative
+Cotangent space
+bundle
+De Rham cohomology
+Differential form
+Vector-valued
+Exterior derivative
+Interior product
+Pullback
+Ricci curvature
+flow
+Riemann curvature tensor
+Tensor field
+density
+Volume form
+Wedge product
+Bundles
+Adjoint
+Affine
+Associated
+Cotangent
+Dual
+Fiber
+(Co) Fibration
+Jet
+Lie algebra
+(Stable) Normal
+Principal
+Spinor
+Subbundle
+Tangent
+Tensor
+Vector
+Connections
+Affine
+Cartan
+Ehresmann
+Form
+Generalized
+Koszul
+Levi-Civita
+Principal
+Vector
+Parallel transport
+Related
+Classification of manifolds
+Gauge theory
+History
+Morse theory
+Moving frame
+Singularity theory
+Generalizations
+Banach manifold
+Diffeology
+Diffiety
+Fréchet manifold
+K-theory
+Orbifold
+Secondary calculus
+over commutative algebras
+Sheaf
+Stratifold
+Supermanifold
+Stratified space
+
+
+
+

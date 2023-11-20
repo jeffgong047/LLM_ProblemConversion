@@ -1,0 +1,495 @@
+Relationship between two functors abstracting many common constructions
+For the construction in field theory, see Adjunction (field theory). For the construction in topology, see Adjunction space.
+In mathematics, specifically category theory, adjunction is a relationship that two functors may exhibit, intuitively corresponding to a weak form of equivalence between two related categories. Two functors that stand in this relationship are known as adjoint functors, one being the left adjoint and the other the right adjoint. Pairs of adjoint functors are ubiquitous in mathematics and often arise from constructions of "optimal solutions" to certain problems (i.e., constructions of objects having a certain universal property), such as the construction of a free group on a set in algebra, or the construction of the Stone–Čech compactification of a topological space in topology.
+By definition, an adjunction between categories C𝒞 and D𝒟 is a pair of functors (assumed to be covariant)
+
+F:D→C:𝒟→𝒞   and   G:C→D:𝒞→𝒟
+and, for all objects X in C𝒞 and Y in D𝒟, a bijection between the respective morphism sets
+
+homC(FY,X)≅homD(Y,GX)hom_𝒞(FY,X)≅hom_𝒟(Y,GX)
+such that this family of bijections is natural in X and Y. Naturality here means that there are natural isomorphisms between the pair of functors C(F−,X):D→Set𝒞(F-,X):𝒟→Set and D(−,GX):D→Set𝒟(-,GX):𝒟→Set for a fixed X in C𝒞, and also the pair of functors C(FY,−):C→Set𝒞(FY,-):𝒞→Set and D(Y,G−):C→Set𝒟(Y,G-):𝒞→Set for a fixed Y in D𝒟.
+The functor F is called a left adjoint functor or left adjoint to G, while G is called a right adjoint functor or right adjoint to F. We write F⊣G.
+An adjunction between categories C𝒞 and D𝒟 is somewhat akin to a "weak form" of an equivalence between C𝒞 and D𝒟, and indeed every equivalence is an adjunction. In many situations, an adjunction can be "upgraded" to an equivalence, by a suitable natural modification of the involved categories  and functors.
+
+
+Terminology and notation[edit]
+The terms adjoint and adjunct are both used, and are cognates: one is taken directly from Latin, the other from Latin via French.  In the classic text Categories for the working mathematician, Mac Lane makes a distinction between the two. Given a family
+
+φXY:homC(FY,X)≅homD(Y,GX)φ_XY:hom_𝒞(FY,X)≅hom_𝒟(Y,GX)
+of hom-set bijections, we call φφ an adjunction or an adjunction between F and G. If f is an arrow in homC(FY,X)hom_𝒞(FY,X), φf is the right adjunct of f (p. 81). The functor F is left adjoint to G, and G is right adjoint to F. (Note that G may have itself a right adjoint that is quite different from F; see below for an example.)
+In general, the phrases "F is a left adjoint" and "F has a right adjoint" are equivalent. We call F a left adjoint because it is applied to the left argument of homChom_𝒞, and G a right adjoint because it is applied to the right argument of homDhom_𝒟.
+If F is left adjoint to G, we also write
+
+F⊣G..
+The terminology comes from the Hilbert space idea of adjoint operators T, U with ⟨Ty,x⟩=⟨y,Ux⟩,x⟩=,Ux⟩, which is formally similar to the above relation between hom-sets. The analogy to adjoint maps of Hilbert spaces can be made precise in certain contexts.[1]
+
+Introduction and Motivation[edit]
+The slogan is "Adjoint functors arise everywhere".— Saunders Mac Lane, Categories for the Working Mathematician
+Common mathematical constructions are very often adjoint functors.  Consequently, general theorems about left/right adjoint functors encode the details of many useful and otherwise non-trivial results. Such general theorems include the equivalence of the various definitions of adjoint functors, the uniqueness of a right adjoint for a given left adjoint, the fact that left/right adjoint functors respectively preserve colimits/limits (which are also found in every area of mathematics), and the general adjoint functor theorems giving conditions under which a given functor is a left/right adjoint.
+
+Solutions to optimization problems[edit]
+In a sense, an adjoint functor is a way of giving the most efficient solution to some problem via a method which is formulaic.  For example, an elementary problem in ring theory is how to turn a rng (which is like a ring that might not have a multiplicative identity) into a ring.  The most efficient way is to adjoin an element '1' to the rng, adjoin all (and only) the elements which are necessary for satisfying the ring axioms (e.g. r+1 for each r in the ring), and impose no relations in the newly formed ring that are not forced by axioms.  Moreover, this construction is formulaic in the sense that it works in essentially the same way for any rng.
+This is rather vague, though suggestive, and can be made precise in the language of category theory: a construction is most efficient if it satisfies a universal property, and is formulaic if it defines a functor.  Universal properties come in two types: initial properties and terminal properties.  Since these are dual notions, it is only necessary to discuss one of them.
+The idea of using an initial property is to set up the problem in terms of some auxiliary category E, so that the problem at hand corresponds to finding an initial object of E.  This has an advantage that the optimization—the sense that the process finds the most efficient solution—means something rigorous and recognisable, rather like the attainment of a supremum.  The category E is also formulaic in this construction, since it is always the category of elements of the functor to which one is constructing an adjoint.
+Back to our example: take the given rng R, and make a category E whose objects are rng homomorphisms R → S, with S a ring having a multiplicative identity. The morphisms in E between R → S1 and R → S2 are commutative triangles of the form (R → S1, R → S2, S1 → S2) where S1 → S2 is a ring map (which preserves the identity). (Note that this is precisely the definition of the comma category of R over the inclusion of unitary rings into rng.) The existence of a morphism between R → S1 and R → S2 implies that S1 is at least as efficient a solution as S2 to our problem: S2 can have more adjoined elements and/or more relations not imposed by axioms than S1.
+Therefore, the assertion that an object R → R* is initial in E, that is, that there is a morphism from it to any other element of E, means that the ring R* is a most efficient solution to our problem.
+The two facts that this method of turning rngs into rings is most efficient and formulaic can be expressed simultaneously by saying that it defines an adjoint functor. More explicitly:  Let F denote the above process of adjoining an identity to a rng, so F(R)=R*.  Let G denote the process of “forgetting″ whether a ring S has an identity and considering it simply as a rng, so essentially G(S)=S. Then F is the left adjoint functor of G.
+Note however that we haven't actually constructed R* yet; it is an important and not altogether trivial algebraic fact that such a left adjoint functor R → R* actually exists.
+
+Symmetry of optimization problems[edit]
+It is also possible to start with the functor F, and pose the following (vague) question: is there a problem to which F is the most efficient solution?
+The notion that F is the most efficient solution to the problem posed by G is, in a certain rigorous sense, equivalent to the notion that G poses the most difficult problem that F solves.
+This gives the intuition behind the fact that adjoint functors occur in pairs: if F is left adjoint to G, then G is right adjoint to F.
+
+Formal definitions[edit]
+There are various equivalent definitions for adjoint functors:
+
+The definitions via universal morphisms are easy to state, and require minimal verifications when constructing an adjoint functor or proving two functors are adjoint.  They are also the most analogous to our intuition involving optimizations.
+The definition via hom-sets makes symmetry the most apparent, and is the reason for using the word adjoint.
+The definition via counit–unit adjunction is convenient for proofs about functors which are known to be adjoint, because they provide formulas that can be directly manipulated.
+The equivalency of these definitions is quite useful. Adjoint functors arise everywhere, in all areas of mathematics.  Since the structure in any of these definitions gives rise to the structures in the others, switching between them makes implicit use of many details that would otherwise have to be repeated separately in every subject area.
+
+Conventions[edit]
+The theory of adjoints has the terms left and right at its foundation, and there are many components which live in one of two categories C and D which are under consideration.  Therefore it can be helpful to choose letters in alphabetical order according to whether they live in the "lefthand" category C or the "righthand" category D, and also to write them down in this order whenever possible.
+In this article for example, the letters X, F, f, ε will consistently denote things which live in the category C, the letters Y, G, g, η will consistently denote things which live in the category D, and whenever possible such things will be referred to in order from left to right (a functor F : D → C can be thought of as "living" where its outputs are, in C). If the arrows for the left adjoint functor F were drawn they would be pointing to the left; if the arrows for the right adjoint functor G were drawn they would be pointing to the right.
+
+Definition via universal morphisms[edit]
+By definition, a functor 
+F:D→C:D is a left adjoint functor if for each object X in C there exists a universal morphism 
+from F to X. Spelled out, this means that for each object X in C there exists an object 
+G(X)(X) in D and a morphism ϵX:F(G(X))→Xϵ_X:F(G(X)) such that for every object 
+Y in D and every morphism f:F(Y)→X:F(Y) there exists a unique morphism 
+g:Y→G(X):Y(X) with ϵX∘F(g)=fϵ_X(g)=f.
+The latter equation is expressed by the following commutative diagram:
+
+Here the counit is a universal morphism.
+In this situation, one can show that G can be turned into a functor G:C→D:C in a unique way such that 
+ϵX∘F(G(f))=f∘ϵX′ϵ_X(G(f))=f∘ϵ_X' 
+for all morphisms f:X′→X:X' in C; F is then called a left adjoint to G.
+Similarly, we may define right-adjoint functors. A functor G:C→D:C is a right adjoint functor if for each object Y in D, 
+there exists a universal morphism from Y to G. Spelled out, this means that for each object Y in D, 
+there exists an object F(Y)(Y) in C and a morphism ηY:Y→G(F(Y))η_Y:Y(F(Y)) such that for every object X in C 
+and every morphism g:Y→G(X):Y(X) there exists a unique morphism f:F(Y)→X:F(Y) with G(f)∘ηY=g(f)∘η_Y=g.
+
+The existence of the unit, a universal morphism, can prove the existence of an adjunction.
+Again, this F can be uniquely turned into a functor F:D→C:D such that G(F(g))∘ηY=ηY′∘g(F(g))∘η_Y=η_Y' for g:Y→Y′:Y' a morphism in D; G is then called a right adjoint to F.
+It is true, as the terminology implies, that F is left adjoint to G if and only if G is right adjoint to F.
+These definitions via universal morphisms are often useful for establishing that a given functor is left or right adjoint, because they are minimalistic in their requirements. They are also intuitively meaningful in that finding a universal morphism is like solving an optimization problem.
+
+Definition via Hom-set adjunction[edit]
+A hom-set adjunction between two categories C and D consists of two functors F : D → C and G : C → D and a natural isomorphism
+
+Φ:homC(F−,−)→homD(−,G−)Φ:hom_C(F-,-)→hom_D(-,G-).
+This specifies a family of bijections
+
+ΦY,X:homC(FY,X)→homD(Y,GX)Φ_Y,X:hom_C(FY,X)→hom_D(Y,GX)
+for all objects X in C and Y in D.
+In this situation,  F is left adjoint to G  and  G is right adjoint to F .
+This definition is a logical compromise in that it is more difficult to satisfy than the universal morphism definitions, and has fewer immediate implications than the counit–unit definition.  It is useful because of its obvious symmetry, and as a stepping-stone between the other definitions.
+In order to interpret Φ as a natural isomorphism, one must recognize homC(F–, –) and homD(–, G–) as functors. In fact, they are both bifunctors from Dop × C to Set (the category of sets). For details, see the article on hom functors. Explicitly, the naturality of Φ means that for all morphisms f : X → X′ in C and all morphisms g : Y′  → Y in D the following diagram commutes:
+
+Naturality of Φ
+The vertical arrows in this diagram are those induced by composition. Formally, Hom(Fg, f) : HomC(FY, X) → HomC(FY′, X′) is given by h → f o h o Fg for each h in HomC(FY, X). Hom(g, Gf) is similar.
+
+Definition via counit–unit adjunction[edit]
+A counit–unit adjunction between two categories C and D consists of two functors F : D → C and G : C → D and two natural transformations
+
+ε:FG→1Cη:1D→GFε   :FG→1_𝒞
+η   :1_𝒟
+respectively called the counit and the unit of the adjunction (terminology from universal algebra), such that the compositions
+
+F→FηFGF→εFFFGFF
+G→ηGGFG→GεGGFGG
+are the identity transformations 1F and 1G on F and G respectively.
+In this situation we say that  F is left adjoint to G  and  G is right adjoint to F , and may indicate this relationship by writing  (ε,η):F⊣G(ε,η):F , or simply  F⊣G .
+In equation form, the above conditions on (ε,η) are the counit–unit equations
+
+1F=εF∘Fη1G=Gε∘ηG1_F   =η
+1_G   =Gε∘
+which mean that for each X in C and each Y in D,
+
+1FY=εFY∘F(ηY)1GX=G(εX)∘ηGX1_FY   =ε_FY(η_Y)
+1_GX   =G(ε_X)∘η_GX.
+Note that 1C1_𝒞 denotes the identify functor on the category C𝒞, 1F1_F denotes the identity natural transformation from the functor F to itself, and 1FY1_FY denotes the identity morphism of the object FY.
+
+String diagram for adjunction.
+These equations are useful in reducing proofs about adjoint functors to algebraic manipulations.  They are sometimes called the triangle identities, or sometimes the zig-zag equations because of the appearance of the corresponding string diagrams.  A way to remember them is to first write down the nonsensical equation 1=ε∘η1=ε∘η and then fill in either F or G in one of the two simple ways which make the compositions defined.
+Note: The use of the prefix "co" in counit here is not consistent with the terminology of limits and colimits, because a colimit satisfies an initial property whereas the counit morphisms will satisfy terminal properties, and dually.  The term unit here is borrowed from the theory of monads where it looks like the insertion of the identity 1 into a monoid.
+
+History[edit]
+The idea of adjoint functors was introduced by Daniel Kan in 1958.[2]  Like many of the concepts in category theory, it was suggested by the needs of homological algebra, which was at the time devoted to computations. Those faced with giving tidy, systematic presentations of the subject would have noticed relations such as
+
+hom(F(X), Y) = hom(X, G(Y))
+in the category of abelian groups, where F was the functor −⊗A- (i.e. take the tensor product with A), and G was the functor hom(A,–) (this is now known as the tensor-hom adjunction).
+The use of the equals sign is an abuse of notation; those two groups are not really identical but there is a way of identifying them that is natural. It can be seen to be natural on the basis, firstly, that these are two alternative descriptions of the bilinear mappings from X × A to Y. That is, however, something particular to the case of tensor product. In category theory the 'naturality' of the bijection is subsumed in the concept of a natural isomorphism.
+
+Ubiquity[edit]
+If one starts looking for these adjoint pairs of functors, they turn out to be very common in abstract algebra, and elsewhere as well. The example section below provides evidence of this; furthermore, universal constructions, which may be more familiar to some, give rise to numerous adjoint pairs of functors.
+In accordance with the thinking of Saunders Mac Lane, any idea, such as adjoint functors, that occurs widely enough in mathematics should be studied for its own sake.[citation needed]
+Concepts can be judged according to their use in solving problems, as well as for their use in building theories. The tension between these two motivations was especially great during the 1950s when category theory was initially developed. Enter Alexander Grothendieck, who used category theory to take compass bearings in other work—in functional analysis, homological algebra and finally algebraic geometry.
+It is probably wrong to say that he promoted the adjoint functor concept in isolation: but recognition of the role of adjunction was inherent  in Grothendieck's approach. For example, one of his major achievements was the formulation of Serre duality in relative form—loosely, in a continuous family of algebraic varieties. The entire proof turned on the existence of a right adjoint to a certain functor. This is something undeniably abstract, and non-constructive[discuss], but also powerful in its own way.
+
+Examples[edit]
+Free groups[edit]
+The construction of free groups is a common and illuminating example.
+Let F : Set → Grp be the functor assigning to each set Y the free group generated by the elements of Y, and let G : Grp → Set be the forgetful functor, which assigns to each group X its underlying set.  Then F is left adjoint to G:
+Initial morphisms.  For each set Y, the set GFY is just the underlying set of the free group FY generated by Y.  Let  ηY:Y→GFYη_Y:Y  be the set map given by "inclusion of generators".  This is an initial morphism from Y to G, because any set map from Y to the underlying set GW of some group W will factor through  ηY:Y→GFYη_Y:Y  via a unique group homomorphism from FY to W.  This is precisely the universal property of the free group on Y.
+Terminal morphisms.  For each group X, the group FGX is the free group generated freely by GX, the elements of X. Let  εX:FGX→Xε_X:FGX  be the group homomorphism which sends the generators of FGX to the elements of X they correspond to, which exists by the universal property of free groups. Then each  (GX,εX)(GX,ε_X)  is a terminal morphism from F to X, because any group homomorphism from a free group FZ to X will factor through  εX:FGX→Xε_X:FGX  via a unique set map from Z to GX.  This means that (F,G) is an adjoint pair.
+Hom-set adjunction.  Group homomorphisms from the free group FY to a group X correspond precisely to maps from the set Y to the set GX: each homomorphism from FY to X is fully determined by its action on generators, another restatement of the universal property of free groups.  One can verify directly that this correspondence is a natural transformation, which means it is a hom-set adjunction for the pair (F,G).
+counit–unit adjunction. One can also verify directly that ε and η are natural.  Then, a direct verification that they form a counit–unit adjunction  (ε,η):F⊣G(ε,η):F  is as follows:
+The first counit–unit equation  1F=εF∘Fη1_F=η  says that for each set Y the composition
+
+FY→F(ηY)FGFY→εFYFYFGFYFY
+should be the identity.  The intermediate group FGFY is the free group generated freely by the words of the free group FY.  (Think of these words as placed in parentheses to indicate that they are independent generators.)  The arrow  F(ηY)(η_Y)  is the group homomorphism from FY into FGFY sending each generator y of FY to the corresponding word of length one (y) as a generator of FGFY.  The arrow  εFYε_FY  is the group homomorphism from FGFY to FY sending each generator to the word of FY it corresponds to (so this map is "dropping parentheses").  The composition of these maps is indeed the identity on FY.
+The second counit–unit equation  1G=Gε∘ηG1_G=Gε∘  says that for each group X the composition
+
+ GX→ηGXGFGX→G(εX)GXGFGXGX 
+should be the identity.  The intermediate set GFGX is just the underlying set of FGX.  The arrow  ηGXη_GX  is the "inclusion of generators" set map from the set GX to the set GFGX.  The arrow  G(εX)(ε_X)  is the set map from GFGX to GX which underlies the group homomorphism sending each generator of FGX to the element of X it corresponds to ("dropping parentheses").  The composition of these maps is indeed the identity on GX.
+
+Free constructions and forgetful functors[edit]
+Free objects are all examples of a left adjoint to a forgetful functor which assigns to an algebraic object its underlying set.  These algebraic free functors have generally the same description as in the detailed description of the free group situation above.
+
+Diagonal functors and limits[edit]
+Products, fibred products, equalizers, and kernels are all examples of the categorical notion of a limit.  Any limit functor is right adjoint to a corresponding diagonal functor (provided the category has the type of limits in question), and the counit of the adjunction provides the defining maps from the limit object (i.e. from the diagonal functor on the limit, in the functor category).  Below are some specific examples.
+
+Products Let Π : Grp2 → Grp the functor which assigns to each pair (X1, X2) the product group X1×X2, and let Δ : Grp → Grp2  be the diagonal functor which assigns to every group X the pair (X, X) in the product category Grp2. The universal property of the product group shows that Π is right-adjoint to Δ.  The counit of this adjunction is the defining pair of projection maps from X1×X2 to X1 and X2 which define the limit, and the unit is the diagonal inclusion of a group X into X×X (mapping x to (x,x)).
+The cartesian product of sets, the product of rings, the product of topological spaces etc. follow the same pattern; it can also be extended in a straightforward manner to more than just two factors.  More generally, any type of limit is right adjoint to a diagonal functor.
+Kernels. Consider the category D of homomorphisms of abelian groups. If f1 : A1 → B1 and f2 : A2 → B2 are two objects of D, then a morphism from f1 to f2 is a pair (gA, gB) of morphisms such that gBf1 = f2gA. Let G : D → Ab be the functor which assigns to each homomorphism its kernel and let F : Ab → D  be the functor which maps the group A to the homomorphism A → 0. Then G is right adjoint to F, which expresses the universal property of kernels.  The counit of this adjunction is the defining embedding of a homomorphism's kernel into the homomorphism's domain, and the unit is the morphism identifying a group A with the kernel of the homomorphism A → 0.
+A suitable variation of this example also shows that the kernel functors for vector spaces and for modules are right adjoints. Analogously, one can show that the cokernel functors for abelian groups, vector spaces and modules are left adjoints.
+Colimits and diagonal functors[edit]
+Coproducts, fibred coproducts, coequalizers, and cokernels are all examples of the categorical notion of a colimit.  Any colimit functor is left adjoint to a corresponding diagonal functor (provided the category has the type of colimits in question), and the unit of the adjunction provides the defining maps into the colimit object.  Below are some specific examples.
+
+Coproducts. If F :  Ab2 → Ab assigns to every pair (X1, X2) of abelian groups their direct sum, and if G : Ab → Ab2 is the functor which assigns to every abelian group Y the pair (Y, Y), then F is left adjoint to G, again a consequence of the universal property of direct sums.  The unit of this adjoint pair is the defining pair of inclusion maps from X1 and X2 into the direct sum, and the counit is the additive map from the direct sum of (X,X) to back to X (sending an element (a,b) of the direct sum to the element a+b of X).
+Analogous examples are given by the direct sum of vector spaces and modules, by the free product of groups and by the disjoint union of sets.
+Further examples[edit]
+Algebra[edit]
+Adjoining an identity to a rng.  This example was discussed in the motivation section above.  Given a rng R, a multiplicative identity element can be added by taking RxZ and defining a Z-bilinear product with (r,0)(0,1) = (0,1)(r,0) = (r,0), (r,0)(s,0) = (rs,0), (0,1)(0,1) = (0,1). This constructs a left adjoint to the functor taking a ring to the underlying rng.
+Adjoining an identity to a semigroup. Similarly, given a semigroup S, we can add an identity element and obtain a monoid by taking the disjoint union S ⊔⊔ {1} and defining a binary operation on it such that it extends the operation on S and 1 is an identity element. This construction gives a functor that is  a left adjoint to the functor taking a monoid to the underlying semigroup.
+Ring extensions. Suppose R and S are rings, and ρ : R → S is a ring homomorphism. Then S can be seen as a (left) R-module, and the tensor product with S yields a functor F : R-Mod → S-Mod. Then F is left adjoint to the forgetful functor G : S-Mod → R-Mod.
+Tensor products. If R is a ring and M is a right R-module, then the tensor product with M yields a functor F : R-Mod → Ab. The functor G : Ab → R-Mod, defined by G(A) = homZ(M,A) for every abelian group A, is a right adjoint to F.
+From monoids and groups to rings. The integral monoid ring construction gives a functor from monoids to rings. This functor is left adjoint to the functor that associates to a given ring its underlying multiplicative monoid. Similarly, the integral group ring construction yields a functor from groups to rings, left adjoint to the functor that assigns to a given ring its group of units. One can also start with a field K and consider the category of K-algebras instead of the category of rings, to get the monoid and group rings over K.
+Field of fractions. Consider the category Domm of integral domains with injective morphisms. The forgetful functor Field → Domm from fields has a left adjoint—it assigns to every integral domain its field of fractions.
+Polynomial rings. Let Ring* be the category of pointed commutative rings with unity (pairs (A,a) where A is a ring, a ∈ A and morphisms preserve the distinguished elements). The forgetful functor G:Ring* → Ring has a left adjoint – it assigns to every ring R the pair (R[x],x) where R[x] is the polynomial ring with coefficients from R.
+Abelianization. Consider the inclusion functor G : Ab → Grp from the category of abelian groups to category of groups. It has a left adjoint called abelianization which assigns to every group G the quotient group Gab=G/[G,G].
+The Grothendieck group. In K-theory, the point of departure is to observe that the category of vector bundles on a topological space has a commutative monoid structure under direct sum. One may make an abelian group out of this monoid, the Grothendieck group, by formally adding an additive inverse for each bundle (or equivalence class). Alternatively one can observe that the functor that for each group takes the underlying monoid (ignoring inverses) has a left adjoint. This is a once-for-all construction, in line with the third section discussion above. That is, one can imitate the construction of negative numbers; but there is the other option of an existence theorem. For the case of finitary algebraic structures, the existence by itself can be referred to universal algebra, or model theory; naturally there is also a proof adapted to category theory, too.
+Frobenius reciprocity in the representation theory of groups: see induced representation. This example foreshadowed the general theory by about half a century.
+Topology[edit]
+A functor with a left and a right adjoint. Let G be the functor from topological spaces to sets that associates to every topological space its underlying set (forgetting the topology, that is). G has a left adjoint F, creating the discrete space on a set Y, and a right adjoint H creating the trivial topology on Y.
+Suspensions and loop spaces.  Given topological spaces X and Y, the space [SX, Y] of homotopy classes of maps from the suspension SX of X to Y is naturally isomorphic to the space [X, ΩY] of homotopy classes of maps from X to the loop space ΩY of Y.  The suspension functor is therefore left adjoint to the loop space functor in the homotopy category, an important fact in homotopy theory.
+Stone–Čech compactification. Let KHaus be the category of compact Hausdorff spaces and G : KHaus → Top be the inclusion functor to the category of topological spaces. Then G has a left adjoint F : Top → KHaus, the Stone–Čech compactification. The unit of this adjoint pair yields a continuous map from every topological space X into its Stone–Čech compactification.
+Direct and inverse images of sheaves. Every continuous map f : X → Y between topological spaces induces a functor f ∗ from the category of sheaves (of sets, or abelian groups, or rings...) on X to the corresponding category of sheaves on Y, the direct image functor. It also induces a functor f −1 from the category of sheaves of abelian groups on Y to the category of sheaves of abelian groups on X, the inverse image functor. f −1 is left adjoint to f ∗. Here a more subtle point is that the left adjoint for coherent sheaves will differ from that for sheaves (of sets).
+Soberification. The article on Stone duality describes an adjunction between the category of topological spaces and the category of sober spaces that is known as soberification. Notably, the article also contains a detailed description of another adjunction that prepares the way for the famous duality of sober spaces and spatial locales, exploited in pointless topology.
+Posets[edit]
+Every partially ordered set can be viewed as a category (where the elements of the poset become the category's objects and we have a single morphism from x to y if and only if x ≤ y). A pair of adjoint functors between two partially ordered sets is called a Galois connection (or, if it is contravariant, an antitone Galois connection). See that article for a number of examples: the case of Galois theory of course is a leading one. Any Galois connection gives rise to closure operators and to inverse order-preserving bijections between the corresponding closed elements.
+As is the case for Galois groups, the real interest lies often in refining a correspondence to a duality (i.e. antitone order isomorphism). A treatment of Galois theory along these lines by Kaplansky was influential in the recognition of the general structure here.
+The partial order case collapses the adjunction definitions quite noticeably, but can provide several themes:
+
+adjunctions may not be dualities or isomorphisms, but are candidates for upgrading to that status
+closure operators may indicate the presence of adjunctions, as corresponding monads (cf. the Kuratowski closure axioms)
+a very general comment of William Lawvere[3] is that syntax and semantics are adjoint: take C to be the set of all logical theories (axiomatizations), and D the power set of the set of all mathematical structures. For a theory T in C, let G(T) be the set of all structures that satisfy the axioms T; for a set of mathematical structures S, let F(S) be the minimal axiomatization of S. We can then say that S is a subset of G(T) if and only if F(S) logically implies T: the "semantics functor" G is right adjoint to the "syntax functor" F.
+division is (in general) the attempt to invert multiplication, but in situations where this is not possible, we often attempt to construct an adjoint instead: the ideal quotient is adjoint to the multiplication by ring ideals, and the implication in propositional logic is adjoint to logical conjunction.
+Category theory[edit]
+Equivalences. If F : D → C is an equivalence of categories, then we have an inverse equivalence G : C → D, and the two functors F and G form an adjoint pair. The unit and counit are natural isomorphisms in this case.
+A series of adjunctions. The functor π0 which assigns to a category its set of connected components is left-adjoint to the functor D which assigns to a set the discrete category on that set.  Moreover, D is left-adjoint to the object functor U which assigns to each category its set of objects, and finally U is left-adjoint to A which assigns to each set the indiscrete category[4] on that set.
+Exponential object. In a cartesian closed category the endofunctor C → C given by –×A has a right adjoint –A. This pair is often referred to as currying and uncurrying; in many special cases, they are also continuous and form a homeomorphism.
+Categorical logic[edit]
+Quantification. If ϕYϕ_Y is a unary predicate expressing some property, then a sufficiently strong set theory may prove the existence of the set Y=y∣ϕY(y)={y|ϕ_Y(y)} of terms that fulfill the property. A proper subset T⊂Y and the associated injection of T into Y is characterized by a predicate ϕT(y)=ϕY(y)∧φ(y)ϕ_T(y)=ϕ_Y(y)φ(y) expressing a strictly more restrictive property.
+The role of quantifiers in predicate logics is in forming propositions and also in expressing sophisticated predicates by closing formulas with possibly more variables. For example, consider a predicate ψfψ_f with two open variables of sort X and Y. Using a quantifier to close X, we can form the set
+y∈Y∣∃x.ψf(x,y)∧ϕS(x){y|. ψ_f(x,y)ϕ_S(x)}
+of all elements y of Y for which there is an x to which it is ψfψ_f-related, and which itself is characterized by the property ϕSϕ_S. Set theoretic operations like the intersection ∩∩ of two sets directly corresponds to the conjunction ∧ of predicates. In categorical logic, a subfield of topos theory, quantifiers are identified with adjoints to the pullback functor. Such a realization can be seen in analogy to the discussion of propositional logic using set theory but the general definition make for a richer range of logics.
+So consider an object Y in a category with pullbacks. Any morphism f:X→Y:X induces a functor
+f∗:Sub(Y)⟶Sub(X)^*:Sub(Y)⟶Sub(X)
+on the category that is the preorder of  subobjects. It maps subobjects T of Y (technically: monomorphism classes of T→Y) to the pullback X×YT×_YT. If this functor has a left- or right adjoint, they are called ∃f∃_f and ∀f∀_f, respectively.[5] They both map from Sub(X)Sub(X) back to Sub(Y)Sub(Y). Very roughly, given a domain S⊂X to quantify a relation expressed via f over, the functor/quantifier closes X in X×YT×_YT and returns the thereby specified subset of Y.
+Example: In SetSet, the category of sets and functions, the canonical subobjects are the subset (or rather their canonical injections). The pullback f∗T=X×YT^*T=X×_YT of an injection of a subset T into Y along f is characterized as the largest set which knows all about f and the injection of T into Y. It therefore turns out to be (in bijection with) the inverse image f−1[T]⊆X^-1[T].
+For S⊆X, let us figure out the left adjoint, which is defined via
+Hom(∃fS,T)≅Hom(S,f∗T),Hom(∃_fS,T)≅Hom(S,f^*T),
+which here just means
+∃fS⊆T↔S⊆f−1[T]∃_fS^-1[T].
+Consider f[S]⊆T[S]. We see S⊆f−1[f[S]]⊆f−1[T]^-1[f[S]]^-1[T]. Conversely, If for an x∈S we also have x∈f−1[T]inf^-1[T], then clearly f(x)∈T(x). So S⊆f−1[T]^-1[T] implies f[S]⊆T[S]. We conclude that left adjoint to the inverse image functor f∗^* is given by the direct image. Here is a characterization of this result, which matches more the logical interpretation: The image of S under ∃f∃_f is the full set of y's, such that f−1[y]∩S^-1[{y}] is non-empty. This works because it neglects exactly those y∈Y which are in the complement of f[S][S]. So
+∃fS=y∈Y∣∃(x∈f−1[y]).x∈S=f[S].∃_fS={y|∃(xinf^-1[{y}]). x }=f[S].
+Put this in analogy to our motivation y∈Y∣∃x.ψf(x,y)∧ϕS(x){y|. ψ_f(x,y)ϕ_S(x)}.
+The right adjoint to the inverse image functor is given (without doing the computation here) by
+∀fS=y∈Y∣∀(x∈f−1[y]).x∈S.∀_fS={y|∀(xinf^-1[{y}]). x }.
+The subset ∀fS∀_fS of Y is characterized as the full set of y's with the property that the inverse image of y{y} with respect to f is fully contained within S. Note how the predicate determining the set is the same as above, except that ∃∃ is replaced by ∀∀.
+See also powerset.
+Probability[edit]
+The twin fact in probability can be understood as an adjunction: that expectation commutes with affine transform, and that the expectation is in some sense the best solution to the problem of finding a real-valued approximation to a distribution on the real numbers.
+Define a category based on Rℝ, with objects being the real numbers, and the morphisms being "affine functions evaluated at a point". That is, for any affine function f(x)=ax+b(x)=ax+b and any real number r, define a morphism (r,f):r→f(r)(r,f):r(r).
+Define a category based on M(R)(ℝ), the set of probability distribution on Rℝ with finite expectation. Define morphisms on M(R)(ℝ) as "affine functions evaluated at a distribution". That is, for any affine function f(x)=ax+b(x)=ax+b and any μ∈M(R)μ(ℝ), define a morphism (μ,f):r→μ∘f−1(μ,f):r→μ^-1.
+Then, the Dirac delta measure defines a functor: δ:x↦δxδ:x↦δ_x, and the expectation defines another functor E:μ↦E[μ]𝔼:μ↦𝔼[μ], and they are adjoint: E⊣δ𝔼⊣δ. (Somewhat disconcertingly, E𝔼 is the left adjoint, even though E𝔼 is "forgetful" and δδ is "free".)
+
+Adjunctions in full[edit]
+There are hence numerous functors and natural transformations associated with every adjunction, and only a small portion is sufficient to determine the rest.
+An adjunction between categories C and D consists of
+
+A functor F : D → C called the left adjoint
+A functor G : C → D called the right adjoint
+A natural isomorphism Φ : homC(F–,–) → homD(–,G–)
+A natural transformation ε : FG → 1C called the counit
+A natural transformation η : 1D → GF called the unit
+An equivalent formulation, where X denotes any object of C and Y denotes any object of D, is as follows:
+
+For every C-morphism f : FY → X, there is a unique D-morphism ΦY, X(f) = g : Y → GX such that the diagrams below commute, and for every D-morphism g : Y → GX, there is a unique C-morphism Φ−1Y, X(g) = f : FY → X in C such that the diagrams below commute:
+
+From this assertion, one can recover that:
+
+The transformations ε, η, and Φ are related by the equations
+f=ΦY,X−1(g)=εX∘F(g)∈homC(F(Y),X)g=ΦY,X(f)=G(f)∘ηY∈homD(Y,G(X))ΦGX,X−1(1GX)=εX∈homC(FG(X),X)ΦY,FY(1FY)=ηY∈homD(Y,GF(Y))f=Φ_Y,X^-1(g)   =ε_X(g)   ∈     hom_C(F(Y),X)
+g=Φ_Y,X(f)   =G(f)∘η_Y   ∈     hom_D(Y,G(X))
+Φ_GX,X^-1(1_GX)   =ε_X   ∈     hom_C(FG(X),X)
+Φ_Y,FY(1_FY)   =η_Y   ∈     hom_D(Y,GF(Y))
+
+The transformations ε, η satisfy the counit–unit equations
+1FY=εFY∘F(ηY)1GX=G(εX)∘ηGX1_FY   =ε_FY(η_Y)
+1_GX   =G(ε_X)∘η_GX
+Each pair (GX, εX) is a terminal morphism from F to X in C
+Each pair (FY, ηY) is an initial morphism from Y to G in D
+In particular, the equations above allow one to define Φ, ε, and η in terms of any one of the three. However, the adjoint functors F and G alone are in general not sufficient to determine the adjunction. The equivalence of these situations is demonstrated below.
+
+Universal morphisms induce hom-set adjunction[edit]
+Given a right adjoint functor G : C → D; in the sense of initial morphisms, one may construct the induced hom-set adjunction by doing the following steps.
+
+Construct a functor F : D → C and a natural transformation η.
+For each object Y in D, choose an initial morphism (F(Y), ηY) from Y to G, so that ηY : Y → G(F(Y)). We have the map of F on objects and the family of morphisms η.
+For each f : Y0 → Y1, as (F(Y0), ηY0) is an initial morphism, then factorize ηY1 o f with ηY0 and get F(f) : F(Y0) → F(Y1). This is the map of F on morphisms.
+The commuting diagram of that factorization implies the commuting diagram of natural transformations, so η : 1D → G o F is a natural transformation.
+Uniqueness of that factorization and that G is a functor implies that the map of F on morphisms preserves compositions and identities.
+Construct a natural isomorphism Φ : homC(F-,-) → homD(-,G-).
+For each object X in C, each object Y in D, as (F(Y), ηY) is an initial morphism, then ΦY, X is a bijection, where ΦY, X(f : F(Y) → X) = G(f) o ηY.
+η is a natural transformation, G is a functor, then for any objects X0, X1 in C, any objects Y0, Y1 in D, any x : X0 → X1, any y : Y1 → Y0, we have ΦY1, X1(x o f o F(y)) = G(x) o G(f) o G(F(y)) o ηY1 = G(x) o G(f) o ηY0 o y = G(x) o ΦY0, X0(f) o y, and then Φ is natural in both arguments.
+A similar argument allows one to construct a hom-set adjunction from the terminal morphisms to a left adjoint functor.  (The construction that starts with a right adjoint is slightly more common, since the right adjoint in many adjoint pairs is a trivially defined inclusion or forgetful functor.)
+
+counit–unit adjunction induces hom-set adjunction[edit]
+Given functors F : D → C, G : C → D, and a counit–unit adjunction (ε, η) : F ⊣⊣ G, we can construct a hom-set adjunction by finding the natural transformation Φ : homC(F-,-) → homD(-,G-) in the following steps:
+
+For each f : FY → X and each g : Y → GX, define
+ΦY,X(f)=G(f)∘ηYΨY,X(g)=εX∘F(g)Φ_Y,X(f)=G(f)∘η_Y
+Ψ_Y,X(g)=ε_X(g)
+The transformations Φ and Ψ are natural because η and ε are natural.
+Using, in order, that F is a functor, that ε is natural, and the counit–unit equation 1FY = εFY o F(ηY), we obtain
+ΨΦf=εX∘FG(f)∘F(ηY)=f∘εFY∘F(ηY)=f∘1FY=fΨ   =ε_X(f)(η_Y)
+   =f∘ε_FY(η_Y)
+   =f∘1_FY=f
+hence ΨΦ is the identity transformation.
+Dually, using that G is a functor, that η is natural, and the counit–unit equation 1GX = G(εX) o ηGX, we obtain
+ΦΨg=G(εX)∘GF(g)∘ηY=G(εX)∘ηGX∘g=1GX∘g=gΦ   =G(ε_X)(g)∘η_Y
+   =G(ε_X)∘η_GX
+   =1_GX=g
+hence ΦΨ is the identity transformation. Thus Φ is a natural isomorphism with inverse Φ−1 = Ψ.
+Hom-set adjunction induces all of the above[edit]
+Given functors F : D → C, G : C → D, and a hom-set adjunction Φ : homC(F-,-) → homD(-,G-), one can construct a counit–unit adjunction
+
+(ε,η):F⊣G(ε,η):F ,
+which defines families of initial and terminal morphisms, in the following steps:
+
+Let  εX=ΦGX,X−1(1GX)∈homC(FGX,X)ε_X=Φ_GX,X^-1(1_GX)∈hom_C(FGX,X)  for each X in C, where  1GX∈homD(GX,GX)1_GX∈hom_D(GX,GX)  is the identity morphism.
+Let  ηY=ΦY,FY(1FY)∈homD(Y,GFY)η_Y=Φ_Y,FY(1_FY)∈hom_D(Y,GFY)  for each Y in D, where  1FY∈homC(FY,FY)1_FY∈hom_C(FY,FY)  is the identity morphism.
+The bijectivity and naturality of Φ imply that each (GX, εX) is a terminal morphism from F to X in C, and each (FY, ηY) is an initial morphism from Y to G in D.
+The naturality of Φ implies the naturality of ε and η, and the two formulas
+ΦY,X(f)=G(f)∘ηYΦY,X−1(g)=εX∘F(g)Φ_Y,X(f)=G(f)∘η_Y
+Φ_Y,X^-1(g)=ε_X(g)
+for each f: FY → X and g: Y → GX (which completely determine Φ).
+Substituting FY for X and ηY = ΦY, FY(1FY) for g in the second formula gives the first counit–unit equation
+1FY=εFY∘F(ηY)1_FY=ε_FY(η_Y),
+and substituting GX for Y and εX = Φ−1GX, X(1GX) for f in the first formula gives the second counit–unit equation
+1GX=G(εX)∘ηGX1_GX=G(ε_X)∘η_GX.
+Properties[edit]
+Existence[edit]
+See also: Formal criteria for adjoint functors
+Not every functor G : C → D admits a left adjoint. If C is a complete category, then the functors with left adjoints can be characterized by the adjoint functor theorem of Peter J. Freyd: G has a left adjoint if and only if it is continuous and a certain smallness condition is satisfied: for every object Y of D there exists a family of morphisms
+
+fi : Y → G(Xi)
+where the indices i come from a set I, not a proper class, such that every morphism
+
+h : Y → G(X)
+can be written as
+
+h = G(t) ∘ fi
+for some i in I and some morphism
+
+t : Xi → X ∈ C.
+An analogous statement characterizes those functors with a right adjoint.
+An important special case is that of locally presentable categories. If F:C→D:C is a functor between locally presentable categories, then
+
+F has a right adjoint if and only if F preserves small colimits
+F has a left adjoint if and only if F preserves small limits and is an accessible functor
+Uniqueness[edit]
+If the functor F : D → C has two right adjoints G and G′, then G and G′ are naturally isomorphic. The same is true for left adjoints.
+Conversely, if F is left adjoint to G, and G is naturally isomorphic to G′ then F is also left adjoint to G′. More generally, if 〈F, G, ε, η〉 is an adjunction (with counit–unit (ε,η)) and
+
+σ : F → F′
+τ : G → G′
+are natural isomorphisms then 〈F′, G′, ε′, η′〉 is an adjunction where
+
+η′=(τ∗σ)∘ηε′=ε∘(σ−1∗τ−1).η'   =(τ∗σ)∘η
+ε'   =ε∘(σ^-1∗τ^-1).
+Here ∘∘ denotes vertical composition of natural transformations, and ∗∗ denotes horizontal composition.
+
+Composition[edit]
+Adjunctions can be composed in a natural fashion. Specifically, if 〈F, G, ε, η〉 is an adjunction between C and D and 〈F′, G′, ε′, η′〉 is an adjunction between D and E then the functor
+
+F∘F′:E→C':E
+is left adjoint to
+
+G′∘G:C→E.':C.
+More precisely, there is an adjunction between F F' and G' G with unit and counit given respectively by the compositions:
+
+1E→η′G′F′→G′ηF′G′GFF′FF′G′G→Fε′GFG→ε1C.   1_ℰG'F'G'GFF'
+   FF'G'GFG1_𝒞.
+This new adjunction is called the composition of the two given adjunctions.
+Since there is also a natural way to define an identity adjunction between a category C and itself, one can then form a category whose objects are all small categories and whose morphisms are adjunctions.
+
+Limit preservation[edit]
+The most important property of adjoints is their continuity: every functor that has a left adjoint (and therefore is a right adjoint) is continuous (i.e. commutes with limits in the category theoretical sense); every functor that has a right adjoint (and therefore is a left adjoint) is cocontinuous (i.e. commutes with colimits).
+Since many common constructions in mathematics are limits or colimits, this provides a wealth of information. For example:
+
+applying a right adjoint functor to a product of objects yields the product of the images;
+applying a left adjoint functor to a coproduct of objects yields the coproduct of the images;
+every right adjoint functor between two abelian categories is left exact;
+every left adjoint functor between two abelian categories is right exact.
+Additivity[edit]
+If C and D are preadditive categories and F : D → C is an additive functor with a right adjoint G : C → D, then G is also an additive functor and the hom-set bijections
+
+ΦY,X:homC(FY,X)≅homD(Y,GX)Φ_Y,X:hom_𝒞(FY,X)≅hom_𝒟(Y,GX)
+are, in fact, isomorphisms of abelian groups. Dually, if G is additive with a left adjoint F, then F is also additive.
+Moreover, if both C and D are additive categories (i.e. preadditive categories with all finite biproducts), then any pair of adjoint functors between them are automatically additive.
+
+Relationships[edit]
+Universal constructions[edit]
+As stated earlier, an adjunction between categories C and D gives rise to a family of universal morphisms, one for each object in C and one for each object in D. Conversely, if there exists a universal morphism to a functor G : C → D from every object of D, then G has a left adjoint.
+However, universal constructions are more general than adjoint functors: a universal construction is like an optimization problem; it gives rise to an adjoint pair if and only if this problem has a solution for every object of D (equivalently, every object of C).
+
+Equivalences of categories[edit]
+If a functor F : D → C is one half of an equivalence of categories then it is the left adjoint in an adjoint equivalence of categories, i.e. an adjunction whose unit and counit are isomorphisms.
+Every adjunction 〈F, G, ε, η〉 extends an equivalence of certain subcategories. Define C1 as the full subcategory of C consisting of those objects X of C for which εX is an isomorphism, and define D1 as the full subcategory of D consisting of those objects Y of D for which ηY is an isomorphism. Then F and G can be restricted to D1 and C1 and yield inverse equivalences of these subcategories.
+In a sense, then, adjoints are "generalized" inverses. Note however that a right inverse of F (i.e. a functor G such that FG is naturally isomorphic to 1D) need not be a right (or left) adjoint of F. Adjoints generalize two-sided inverses.
+
+Monads[edit]
+Every adjunction 〈F, G, ε, η〉 gives rise to an associated monad 〈T, η, μ〉 in the category D. The functor
+
+T:D→D:𝒟→𝒟
+is given by T = GF. The unit of the monad
+
+η:1D→Tη:1_𝒟
+is just the unit η of the adjunction and the multiplication transformation
+
+μ:T2→Tμ:T^2 
+is given by μ = GεF. Dually, the triple 〈FG, ε, FηG〉 defines a comonad in C.
+Every monad arises from some adjunction—in fact, typically from many adjunctions—in the above fashion. Two constructions, called the category of Eilenberg–Moore algebras and the Kleisli category are two extremal solutions to the problem of constructing an adjunction that gives rise to a given monad.
+
+Notes[edit]
+
+
+^ Baez, John C. (1996). "Higher-Dimensional Algebra II: 2-Hilbert Spaces". arXiv:q-alg/9609018.
+
+^ Kan, Daniel M. (1958). "Adjoint Functors" (PDF). Transactions of the American Mathematical Society. 87 (2): 294–329. doi:10.2307/1993102. JSTOR 1993102.
+
+^ Lawvere, F. William, "Adjointness in foundations", Dialectica, 1969. The notation is different nowadays; an easier introduction by Peter Smith in these lecture notes, which also attribute the concept to the article cited.
+
+^ "Indiscrete category". nLab.
+
+^ Mac Lane, Saunders; Moerdijk, Ieke (1992) Sheaves in Geometry and Logic, Springer-Verlag. ISBN 0-387-97710-4 See page 58
+
+
+References[edit]
+Adámek, Jiří; Herrlich, Horst; Strecker, George E. (1990). Abstract and Concrete Categories. The joy of cats (PDF). John Wiley & Sons. ISBN 0-471-60922-6. Zbl 0695.18001.
+Mac Lane, Saunders (1998). Categories for the Working Mathematician. Graduate Texts in Mathematics. Vol. 5 (2nd ed.). Springer-Verlag. ISBN 0-387-98403-8. Zbl 0906.18001.
+External links[edit]
+Adjunctions playlist on YouTube – seven short lectures on adjunctions by Eugenia Cheng of The Catsters
+WildCats is a category theory package for Mathematica. Manipulation and visualization of objects, morphisms, categories, functors, natural transformations, universal properties.
+vteCategory theoryKey conceptsKey concepts
+Category
+Adjoint functors
+CCC
+Commutative diagram
+Concrete category
+End
+Exponential
+Functor
+Kan extension
+Morphism
+Natural transformation
+Universal property
+Universal constructionsLimits
+Terminal objects
+Products
+Equalizers
+Kernels
+Pullbacks
+Inverse limit
+Colimits
+Initial objects
+Coproducts
+Coequalizers
+Cokernels and quotients
+Pushout
+Direct limit
+Algebraic categories
+Sets
+Relations
+Magmas
+Groups
+Abelian groups
+Rings (Fields)
+Modules (Vector spaces)
+Constructions on categories
+Free category
+Functor category
+Kleisli category
+Opposite category
+Quotient category
+Product category
+Comma category
+Subcategory
+Higher category theory
+Key concepts
+Categorification
+Enriched category
+Higher-dimensional algebra
+Homotopy hypothesis
+Model category
+Simplex category
+String diagram
+Topos
+n-categoriesWeak n-categories
+Bicategory (pseudofunctor)
+Tricategory
+Tetracategory
+Kan complex
+∞-groupoid
+∞-topos
+Strict n-categories
+2-category (2-functor)
+3-category
+Categorified concepts
+2-group
+2-ring
+En-ring
+(Traced)(Symmetric) monoidal category
+n-group
+n-monoid
+
+
+ Category
+ Outline
+ Glossary
+
+vteFunctor types
+Additive
+Adjoint
+Conservative
+Derived
+Diagonal
+Enriched
+Essentially surjective
+Exact
+Forgetful
+Full and faithful
+Logical
+Monoidal
+Representable
+Smooth
+
+
+
+

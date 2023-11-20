@@ -1,0 +1,508 @@
+Every set is smaller than its power set
+For other theorems bearing Cantor's name, see Cantor's theorem (disambiguation).
+The cardinality of the set {x, y, z}, is three, while there are eight elements in its power set (3 < 23 = 8), here ordered by inclusion.
+
+
+This article contains special characters. Without proper rendering support, you may see question marks, boxes, or other symbols.
+
+In mathematical set theory, Cantor's theorem is a fundamental result which states that, for any set A, the set of all subsets of A,, the power set of A,, has a strictly greater cardinality than A itself. 
+For finite sets, Cantor's theorem can be seen to be true by simple enumeration of the number of subsets. Counting the empty set as a subset, a set with n elements has a total of 2n2^n subsets, and the theorem holds because 2n>n2^n>n for all non-negative integers.
+Much more significant is Cantor's discovery of an argument that is applicable to any set, and shows that the theorem holds for infinite sets also.  As a consequence, the cardinality of the real numbers, which is the same as that of the power set of the integers, is strictly larger than the cardinality of the integers; see Cardinality of the continuum for details.
+The theorem is named for German mathematician Georg Cantor, who first stated and proved it at the end of the 19th century.  Cantor's theorem had immediate and important consequences for the philosophy of mathematics.  For instance, by iteratively taking the power set of an infinite set and applying Cantor's theorem, we obtain an endless hierarchy of infinite cardinals, each strictly larger than the one before it.  Consequently, the theorem implies that there is no largest cardinal number (colloquially, "there's no largest infinity").
+
+
+Proof[edit]
+Cantor's argument is elegant and remarkably simple. The complete proof is presented below, with detailed explanations to follow.
+
+
+Theorem (Cantor) — Let f be a map from set A to its power set P(A)𝒫(A).  Then f:A→P(A):A→𝒫(A) is not surjective.  As a consequence, card⁡(A)<card⁡(P(A))card(A)<card(𝒫(A)) holds for any set A.
+
+
+Proof
+Consider the set B=x∈A∣x∉f(x)={x(x)}.  Suppose to the contrary that f is surjective.  Then there exists ξ∈Aξ such that f(ξ)=B(ξ)=B.  But by construction, ξ∈B⟺ξ∉f(ξ)=Bξξ(ξ)=B.  This is a contradiction.  Thus, f cannot be surjective.  On the other hand, g:A→P(A):A→𝒫(A) defined by x↦x↦{x} is an injective map.  Consequently, we must have card⁡(A)<card⁡(P(A))card(A)<card(𝒫(A)). Q.E.D.
+
+
+By definition of cardinality, we have card⁡(X)<card⁡(Y)card(X)<card(Y) for any two sets X and Y if and only if there is an injective function but no bijective function from X to Y.  It suffices to show that there is no surjection from X to Y.  This is the heart of Cantor's theorem: there is no surjective function from any set A to its power set.  To establish this, it is enough to show that no function f that maps elements in A to subsets of A can reach every possible subset, i.e., we just need to demonstrate the existence of a subset of A that is not equal to f(x)(x) for any x ∈ A. (Recall that each f(x)(x) is a subset of A.) Such a subset is given by the following construction, sometimes called the Cantor diagonal set of f:[1][2]
+
+B=x∈A∣x∉f(x).={xi̸n̸f̸(x)}.
+This means, by definition, that for all x ∈ A, x ∈ B if and only if x ∉ f(x). For all x the sets B and f(x) cannot be the same because B was constructed from elements of A whose images (under f) did not include themselves. More specifically, consider any x ∈ A, then either x ∈ f(x) or x ∉ f(x). In the former case, f(x) cannot equal B because x ∈ f(x) by assumption and x ∉ B by the construction of B. In the latter case, f(x) cannot equal B because x ∉ f(x) by assumption and x ∈ B by the construction of B.
+Equivalently, and slightly more formally, we just proved that the existence of ξ ∈ A such that f(ξ) = B implies the following contradiction:
+
+ξ∉f(ξ)⟺ξ∈B(bydefinitionofB);ξ∈B⟺ξ∈f(ξ)(byassumptionthatf(ξ)=B);ξ(ξ)   ξ      (bydefinitionofB);
+ξ   ξinf(ξ)      (byassumptionthatf(ξ)=B);
+
+Therefore, by reductio ad absurdum, the assumption must be false.[3] Thus there is no ξ ∈ A such that f(ξ) = B; in other words, B is not in the image of f and f does not map to every element of the power set of A, i.e., f is not surjective.
+Finally, to complete the proof, we need to exhibit an injective function from A to its power set.  Finding such a function is trivial: just map x to the singleton set {x}.  The argument is now complete, and we have established the strict inequality for any set A that card(A) < card(𝒫(A)).
+Another way to think of the proof is that B, empty or non-empty, is always in the power set of A. For f to be onto, some element of A must map to B. But that leads to a contradiction: no element of B can map to B because that would contradict the criterion of membership in B, thus the element mapping to B must not be an element of B meaning that it satisfies the criterion for membership in B, another contradiction. So the assumption that an element of A maps to B must be false; and f cannot be onto.
+Because of the double occurrence of x in the expression "x ∉ f(x)", this is a diagonal argument. For a countable (or finite) set, the argument of the proof given above can be illustrated by constructing a table in which each row is labelled by a unique x from A = {x1, x2, ...}, in this order. A is assumed to admit a linear order so that such table can be constructed. Each column of the table is labelled by a unique y from the power set of A; the columns are ordered by the argument to f, i.e. the column labels are f(x1), f(x2), ..., in this order. The intersection of each row x and column y records a true/false bit whether x ∈ y. Given the order chosen for the row and column labels, the main diagonal D of this table thus records whether  x ∈ f(x) for each x ∈ A. The set B constructed in the previous paragraphs coincides with the row labels for the subset of entries on this main diagonal D where the table records that x ∈ f(x) is false.[3] Each column records the values of the indicator function of the set corresponding to the column. The indicator function of B coincides with the logically negated (swap "true" and "false") entries of the main diagonal. Thus the indicator function of B does not agree with any column in at least one entry. Consequently, no column represents B.
+Despite the simplicity of the above proof, it is rather difficult for an automated theorem prover to produce it. The main difficulty lies in an automated discovery of the Cantor diagonal set. Lawrence Paulson noted in 1992 that Otter could not do it, whereas Isabelle could, albeit with a certain amount of direction in terms of tactics that might perhaps be considered cheating.[2]
+
+When A is countably infinite[edit]
+Let us examine the proof for the specific case when A is countably infinite. Without loss of generality, we may take A = N = {1, 2, 3, …}, the set of natural numbers.
+Suppose that N is equinumerous with its power set 𝒫(N). Let us see a sample of what 𝒫(N) looks like:
+
+P(N)=∅,1,2,1,2,3,4,1,5,3,4,6,2,4,6,…,….𝒫(ℕ)={∅,{1,2},{1,2,3},{4},{1,5},{3,4,6},{2,4,6,…},…}.
+𝒫(N) contains infinite subsets of N, e.g. the set of all even numbers {2, 4, 6,...}, as well as the empty set.
+Now that we have an idea of what the elements of 𝒫(N) look like, let us attempt to pair off each element of N with each element of 𝒫(N) to show that these infinite sets are equinumerous. In other words, we will attempt to pair off each element of N with an element from the infinite set 𝒫(N), so that no element from either infinite set remains unpaired. Such an attempt to pair elements would look like this:
+
+N1⟷4,52⟷1,2,33⟷4,5,64⟷1,3,5⋮⋮⋮P(N).ℕ1   ⟷   {4,5}
+2   ⟷   {1,2,3}
+3   ⟷   {4,5,6}
+4   ⟷   {1,3,5}
+⋮   ⋮   ⋮𝒫(ℕ).
+Given such a pairing, some natural numbers are paired with subsets that contain the very same number. For instance, in our example the number 2 is paired with the subset {1, 2, 3}, which contains 2 as a member. Let us call such numbers selfish. Other natural numbers are paired with subsets that do not contain them. For instance, in our example the number 1 is paired with the subset {4, 5}, which does not contain the number 1. Call these numbers non-selfish. Likewise, 3 and 4 are non-selfish.
+Using this idea, let us build a special set of natural numbers. This set will provide the contradiction we seek. Let B be the set of all non-selfish natural numbers. By definition, the power set 𝒫(N) contains all sets of natural numbers, and so it contains this set B as an element. If the mapping is bijective, B must be paired off with some natural number, say b. However, this causes a problem. If b is in B, then b is selfish because it is in the corresponding set, which contradicts the definition of B. If b is not in B, then it is non-selfish and it should instead be a member of B. Therefore, no such element b which maps to B can exist.
+Since there is no natural number which can be paired with B, we have contradicted our original supposition, that there is a bijection between N and 𝒫(N).
+Note that the set B may be empty. This would mean that every natural number x maps to a subset of natural numbers that contains x. Then, every number maps to a nonempty set and no number maps to the empty set. But the empty set is a member of 𝒫(N), so the mapping still does not cover 𝒫(N).
+Through this proof by contradiction we have proven that the cardinality of N and 𝒫(N) cannot be equal. We also know that the cardinality of 𝒫(N) cannot be less than the cardinality of N because 𝒫(N) contains all singletons, by definition, and these singletons form a "copy" of N inside of 𝒫(N). Therefore, only one possibility remains, and that is that the cardinality of 𝒫(N) is strictly greater than the cardinality of N, proving Cantor's theorem.
+
+Related paradoxes[edit]
+Cantor's theorem and its proof are closely related to two paradoxes of set theory.
+Cantor's paradox is the name given to a contradiction following from Cantor's theorem together with the assumption that there is a set containing all sets, the universal set V. In order to distinguish this paradox from the next one discussed below, it is important to note what this contradiction is. By Cantor's theorem |P(X)|>|X||𝒫(X)|>|X| for any set X. On the other hand, all elements of P(V)𝒫(V) are sets, and thus contained in V, therefore |P(V)|≤|V||𝒫(V)|≤|V|.[1]
+Another paradox can be derived from the proof of Cantor's theorem by instantiating the function f with the identity function; this turns Cantor's diagonal set into what is sometimes called the Russell set of a given set A:[1]
+
+RA=x∈A:x∉x._A={ x:x }.
+The proof of Cantor's theorem is straightforwardly adapted to show that assuming a set of all sets U exists, then considering its Russell set RU leads to the contradiction:
+
+RU∈RU⟺RU∉RU._U_U_U_U.
+This argument is known as Russell's paradox.[1] As a point of subtlety, the version of Russell's paradox we have presented here is actually a theorem of Zermelo;[4] we can conclude from the contradiction obtained that we must reject the hypothesis that RU∈U, thus disproving the existence of a set containing all sets. This was possible because we have used restricted comprehension (as featured in ZFC) in the definition of RA above, which in turn entailed that
+
+RU∈RU⟺(RU∈U∧RU∉RU)._U_U(R_U_U_U).
+Had we used unrestricted comprehension (as in Frege's system for instance) by defining the Russell set simply as R=x:x∉x={ x:x }, then the axiom system itself would have entailed the contradiction, with no further hypotheses needed.[4]
+Despite the syntactical similarities between the Russell set (in either variant) and the Cantor diagonal set, Alonzo Church emphasized that Russell's paradox is independent of considerations of cardinality and its underlying notions like one-to-one correspondence.[5]
+
+History[edit]
+Cantor gave essentially this proof in a paper published in 1891 "Über eine elementare Frage der Mannigfaltigkeitslehre",[6] where the diagonal argument for the uncountability of the reals also first appears (he had earlier proved the uncountability of the reals by other methods). The version of this argument he gave in that paper was phrased in terms of indicator functions on a set rather than subsets of a set.[7] He showed that if f is a function defined on X whose values are 2-valued functions on X, then the 2-valued function G(x) = 1 − f(x)(x) is not in the range of f.
+Bertrand Russell has a very similar proof in Principles of Mathematics (1903, section 348), where he shows that there are more propositional functions than objects.  "For suppose a correlation of all objects and some propositional functions to have been affected, and let phi-x be the correlate of x. Then "not-phi-x(x)," i.e. "phi-x does not hold of x" is a propositional function not contained in this correlation; for it is true or false of x according as phi-x is false or true of x, and therefore it differs from phi-x for every value of x."  He attributes the idea behind the proof to Cantor.
+Ernst Zermelo has a theorem (which he calls "Cantor's Theorem") that is identical to the form above in the paper that became the foundation of modern set theory ("Untersuchungen über die Grundlagen der Mengenlehre I"), published in 1908. See Zermelo set theory.
+
+Generalizations[edit]
+Cantor's theorem has been generalized to any category with products.[8]
+
+See also[edit]
+Schröder–Bernstein theorem
+Cantor's first uncountability proof
+Controversy over Cantor's theory
+References[edit]
+
+
+^ a b c d Abhijit Dasgupta (2013). Set Theory: With an Introduction to Real Point Sets. Springer Science & Business Media. pp. 362–363. ISBN 978-1-4614-8854-5.
+
+^ a b Lawrence Paulson (1992). Set Theory as a Computational Logic (PDF). University of Cambridge Computer Laboratory. p. 14.
+
+^ a b Graham Priest (2002). Beyond the Limits of Thought. Oxford University Press. pp. 118–119. ISBN 978-0-19-925405-7.
+
+^ a b Heinz-Dieter Ebbinghaus (2007). Ernst Zermelo: An Approach to His Life and Work. Springer Science & Business Media. pp. 86–87. ISBN 978-3-540-49553-6.
+
+^ Church, A. [1974] "Set theory with a universal set." in Proceedings of the Tarski Symposium. Proceedings of Symposia in Pure Mathematics XXV, ed. L. Henkin, Providence RI, Second printing with additions 1979, pp. 297−308. ISBN 978-0-8218-7360-1. Also published in International Logic Review 15 pp. 11−23.
+
+^ Cantor, Georg (1891), "Über eine elementare Frage der Mannigfaltigskeitslehre", Jahresbericht der Deutschen Mathematiker-Vereinigung (in German), 1: 75–78, also in Georg Cantor, Gesammelte Abhandlungen mathematischen und philosophischen Inhalts, E. Zermelo, 1932.
+
+^ A. Kanamori, "The Empty Set, the Singleton, and the Ordered Pair", p.276. Bulletin of Symbolic Logic vol. 9, no. 3, (2003). Accessed 21 August 2023.
+
+^ F. William Lawvere; Stephen H. Schanuel (2009). Conceptual Mathematics: A First Introduction to Categories. Cambridge University Press. Session 29. ISBN 978-0-521-89485-2.
+
+
+Halmos, Paul, Naive Set Theory. Princeton, NJ: D. Van Nostrand Company, 1960. Reprinted by Springer-Verlag, New York, 1974. ISBN 0-387-90092-6 (Springer-Verlag edition). Reprinted by Martino Fine Books, 2011. ISBN 978-1-61427-131-4 (Paperback edition).
+Jech, Thomas (2002), Set Theory, Springer Monographs in Mathematics (3rd millennium ed.), Springer, ISBN 3-540-44085-2
+External links[edit]
+"Cantor theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Weisstein, Eric W. "Cantor's Theorem". MathWorld.
+vteMetalogic and metamathematics
+Cantor's theorem
+Entscheidungsproblem
+Church–Turing thesis
+Consistency
+Effective method
+Foundations of mathematics
+of geometry
+Gödel's completeness theorem
+Gödel's incompleteness theorems
+Soundness
+Completeness
+Decidability
+Interpretation
+Löwenheim–Skolem theorem
+Metatheorem
+Satisfiability
+Independence
+Type–token distinction
+Use–mention distinction
+
+vteSet theoryOverview
+Set (mathematics)
+Axioms
+Adjunction
+Choice
+countable
+dependent
+global
+Constructibility (V=L)
+Determinacy
+Extensionality
+Infinity
+Limitation of size
+Pairing
+Power set
+Regularity
+Union
+Martin's axiom
+Axiom schema
+replacement
+specification
+Operations
+Cartesian product
+Complement (i.e. set difference)
+De Morgan's laws
+Disjoint union
+Identities
+Intersection
+Power set
+Symmetric difference
+Union
+ConceptsMethods
+Almost
+Cardinality
+Cardinal number (large)
+Class
+Constructible universe
+Continuum hypothesis
+Diagonal argument
+Element
+ordered pair
+tuple
+Family
+Forcing
+One-to-one correspondence
+Ordinal number
+Set-builder notation
+Transfinite induction
+Venn diagram
+Set types
+Amorphous
+Countable
+Empty
+Finite (hereditarily)
+Filter
+base
+subbase
+Ultrafilter
+Fuzzy
+Infinite (Dedekind-infinite)
+Recursive
+Singleton
+Subset · Superset
+Transitive
+Uncountable
+Universal
+Theories
+Alternative
+Axiomatic
+Naive
+Cantor's theorem
+Zermelo
+General
+Principia Mathematica
+New Foundations
+Zermelo–Fraenkel 
+von Neumann–Bernays–Gödel 
+Morse–Kelley
+Kripke–Platek
+Tarski–Grothendieck
+ParadoxesProblems
+Russell's paradox
+Suslin's problem
+Burali-Forti paradox
+Set theorists
+Paul Bernays
+Georg Cantor
+Paul Cohen
+Richard Dedekind
+Abraham Fraenkel
+Kurt Gödel
+Thomas Jech
+John von Neumann
+Willard Quine
+Bertrand Russell
+Thoralf Skolem
+Ernst Zermelo
+
+vteMathematical logicGeneral
+Axiom
+list
+Cardinality
+First-order logic
+Formal proof
+Formal semantics
+Foundations of mathematics
+Information theory
+Lemma
+Logical consequence
+Model
+Theorem
+Theory
+Type theory
+Theorems (list) & Paradoxes
+Gödel's completeness and incompleteness theorems
+Tarski's undefinability
+Banach–Tarski paradox
+Cantor's theorem, paradox and diagonal argument
+Compactness
+Halting problem
+Lindström's
+Löwenheim–Skolem
+Russell's paradox
+LogicsTraditional
+Classical logic
+Logical truth
+Tautology
+Proposition
+Inference
+Logical equivalence
+Consistency
+Equiconsistency
+Argument
+Soundness
+Validity
+Syllogism
+Square of opposition
+Venn diagram
+Propositional
+Boolean algebra
+Boolean functions
+Logical connectives
+Propositional calculus
+Propositional formula
+Truth tables
+Many-valued logic
+3
+Finite
+∞
+Predicate
+First-order
+list
+Second-order
+Monadic
+Higher-order
+Free
+Quantifiers
+Predicate
+Monadic predicate calculus
+Set theory
+Set
+Hereditary
+Class
+(Ur-)Element
+Ordinal number
+Extensionality
+Forcing
+Relation
+Equivalence
+Partition
+Set operations:
+Intersection
+Union
+Complement
+Cartesian product
+Power set
+Identities
+Types of Sets
+Countable
+Uncountable
+Empty
+Inhabited
+Singleton
+Finite
+Infinite
+Transitive
+Ultrafilter
+Recursive
+Fuzzy
+Universal
+Universe
+Constructible
+Grothendieck
+Von Neumann
+Maps & Cardinality
+Function/Map
+Domain
+Codomain
+Image
+In/Sur/Bi-jection
+Schröder–Bernstein theorem
+Isomorphism
+Gödel numbering
+Enumeration
+Large cardinal
+Inaccessible
+Aleph number
+Operation
+Binary
+Set theories
+Zermelo–Fraenkel
+Axiom of choice
+Continuum hypothesis
+General
+Kripke–Platek
+Morse–Kelley
+Naive
+New Foundations
+Tarski–Grothendieck
+Von Neumann–Bernays–Gödel
+Ackermann
+Constructive
+Formal systems (list),Language & Syntax
+Alphabet
+Arity
+Automata
+Axiom schema
+Expression
+Ground
+Extension
+by definition
+Conservative
+Relation
+Formation rule
+Grammar
+Formula
+Atomic
+Closed
+Ground
+Open
+Free/bound variable
+Language
+Metalanguage
+Logical connective
+¬
+∨
+∧
+→
+↔
+=
+Predicate
+Functional
+Variable
+Propositional variable
+Proof
+Quantifier
+∃
+!
+∀
+rank
+Sentence
+Atomic
+Spectrum
+Signature
+String
+Substitution
+Symbol
+Function
+Logical/Constant
+Non-logical
+Variable
+Term
+Theory
+list
+Example axiomaticsystems (list)
+of arithmetic:
+Peano
+second-order
+elementary function
+primitive recursive
+Robinson
+Skolem
+of the real numbers
+Tarski's axiomatization
+of Boolean algebras
+canonical
+minimal axioms
+of geometry:
+Euclidean:
+Elements
+Hilbert's
+Tarski's
+non-Euclidean
+Principia Mathematica
+Proof theory
+Formal proof
+Natural deduction
+Logical consequence
+Rule of inference
+Sequent calculus
+Theorem
+Systems
+Axiomatic
+Deductive
+Hilbert
+list
+Complete theory
+Independence (from ZFC)
+Proof of impossibility
+Ordinal analysis
+Reverse mathematics
+Self-verifying theories
+Model theory
+Interpretation
+Function
+of models
+Model
+Equivalence
+Finite
+Saturated
+Spectrum
+Submodel
+Non-standard model
+of arithmetic
+Diagram
+Elementary
+Categorical theory
+Model complete theory
+Satisfiability
+Semantics of logic
+Strength
+Theories of truth
+Semantic
+Tarski's
+Kripke's
+T-schema
+Transfer principle
+Truth predicate
+Truth value
+Type
+Ultraproduct
+Validity
+Computability theory
+Church encoding
+Church–Turing thesis
+Computably enumerable
+Computable function
+Computable set
+Decision problem
+Decidable
+Undecidable
+P
+NP
+P versus NP problem
+Kolmogorov complexity
+Lambda calculus
+Primitive recursive function
+Recursion
+Recursive set
+Turing machine
+Type theory
+Related
+Abstract logic
+Category theory
+Concrete/Abstract Category
+Category of sets
+History of logic
+History of mathematical logic
+timeline
+Logicism
+Mathematical object
+Philosophy of mathematics
+Supertask
+ Mathematics portal
+
+
+

@@ -1,0 +1,90 @@
+For the theorem about simplexes, see Sperner's lemma.
+Sperner's theorem, in discrete mathematics, describes the largest possible families of finite sets none of which contain any other sets in the family. It is one of the central results in extremal set theory.  It is named after Emanuel Sperner, who published it in 1928.
+This result is sometimes called Sperner's lemma, but the name "Sperner's lemma" also refers to an unrelated result on coloring triangulations.  To differentiate the two results, the result on the size of a Sperner family is now more commonly known as Sperner's theorem.
+
+
+Statement[edit]
+A family of sets in which none of the sets is a strict subset of another is called a Sperner family, or an antichain of sets, or a clutter. For example, the family of k-element subsets of an n-element set is a Sperner family. No set in this family can contain any of the others, because a containing set has to be strictly bigger than the set it contains, and in this family all sets have equal size. The value of k that makes this example have as many sets as possible is n/2 if n is even, or either of the nearest integers to n/2 if n is odd. For this choice, the number of sets in the family is (n⌊n/2⌋)n/2⌋.
+Sperner's theorem states that these examples  are the largest possible Sperner families over an n-element set.
+Formally, the theorem states that, 
+
+for every Sperner family S whose union has a total of n elements, |S|≤(n⌊n/2⌋),|S|≤n/2⌋, and
+equality holds if and only if S consists of all subsets of an n-element set that have size ⌊n/2⌋/2⌋ or all that have size ⌈n/2⌉/2⌉.
+Partial orders[edit]
+Sperner's theorem can also be stated in terms of partial order width. The family of all subsets of an n-element set (its power set) can be partially ordered by set inclusion; in this partial order, two distinct elements are said to be incomparable when neither of them contains the other. The width of a partial order is the largest number of elements in an antichain, a set of pairwise incomparable elements. Translating this terminology into the language of sets, an antichain is just a Sperner family, and the width of the partial order is the maximum number of sets in a Sperner family.
+Thus, another way of stating Sperner's theorem is that the width of the inclusion order on a power set is (n⌊n/2⌋)n/2⌋.
+A graded partially ordered set is said to have the Sperner property when one of its largest antichains is formed by a set of elements that all have the same rank. In this terminology, Sperner's theorem states that the partially ordered set of all subsets of a finite set, partially ordered by set inclusion, has the Sperner property.
+
+Proof[edit]
+There are many proofs of Sperner's theorem, each leading to different generalizations (see Anderson (1987)).
+The following proof is due to Lubell (1966). Let sk denote the number of k-sets in S. For all 0 ≤ k ≤ n,
+
+(n⌊n/2⌋)≥(nk)n⌊n/2⌋≥n
+and, thus,
+
+sk(n⌊n/2⌋)≤sk(nk).s_kn⌊n/2⌋≤s_kn.
+Since S is an antichain, we can sum over the above inequality from k = 0 to n and then apply the LYM inequality to obtain
+
+∑k=0nsk(n⌊n/2⌋)≤∑k=0nsk(nk)≤1,∑_k=0^ns_kn⌊n/2⌋≤∑_k=0^ns_kn≤1,
+which means
+
+|S|=∑k=0nsk≤(n⌊n/2⌋).|S|=∑_k=0^ns_k≤n⌊n/2⌋.
+This completes the proof of part 1.
+To have equality, all the inequalities in the preceding proof must be equalities.  Since 
+
+(n⌊n/2⌋)=(nk)n⌊n/2⌋=n
+if and only if k=⌊n/2⌋=⌊n/2⌋ or ⌈n/2⌉,⌈n/2⌉, we conclude that equality implies that S consists only of sets of sizes ⌊n/2⌋⌊n/2⌋ or ⌈n/2⌉.⌈n/2⌉.  For even n that concludes the proof of part 2.
+For odd n there is more work to do, which we omit here because it is complicated.  See Anderson (1987), pp. 3–4.
+
+Generalizations[edit]
+There are several generalizations of Sperner's theorem for subsets of P(E),𝒫(E), the poset of all subsets of E.
+
+No long chains[edit]
+A chain is a subfamily S0,S1,…,Sr⊆P(E){S_0,S_1,…,S_r}⊆𝒫(E) that is totally ordered, i.e., S0⊂S1⊂⋯⊂Sr_0_1⊂…_r (possibly after renumbering).  The chain has r + 1 members and length r.  An r-chain-free family (also called an r-family) is a family of subsets of E that contains no chain of length r.  Erdős (1945) proved that the largest size of an r-chain-free family is the sum of the r largest binomial coefficients (ni)ni.  The case r = 1 is Sperner's theorem.
+
+p-compositions of a set[edit]
+In the set P(E)p𝒫(E)^p of p-tuples of subsets of E, we say a p-tuple (S1,…,Sp)(S_1,…,S_p) is ≤ another one, (T1,…,Tp),(T_1,…,T_p), if Si⊆Ti_i_i for each i = 1,2,...,p.  We call  (S1,…,Sp)(S_1,…,S_p) a p-composition of E if the sets S1,…,Sp_1,…,S_p form a partition of E.  Meshalkin (1963) proved that the maximum size of an antichain of p-compositions is the largest p-multinomial coefficient (nn1n2…np),nn_1_2
+dots_p, that is, the coefficient in which all ni are as nearly equal as possible (i.e., they differ by at most 1).  Meshalkin proved this by proving a generalized LYM inequality.
+The case p = 2 is Sperner's theorem, because then S2=E∖S1_2=E_1 and the assumptions reduce to the sets S1_1 being a Sperner family.
+
+No long chains in p-compositions of a set[edit]
+Beck & Zaslavsky (2002) combined the Erdös and Meshalkin theorems by adapting Meshalkin's proof of his generalized LYM inequality.  They showed that the largest size of a family of p-compositions such that the sets in the i-th position of the p-tuples, ignoring duplications, are r-chain-free, for every i=1,2,…,p−1=1,2,…,p-1 (but not necessarily for i = p), is not greater than the sum of the rp−1^p-1 largest p-multinomial coefficients.
+
+Projective geometry analog[edit]
+In the finite projective geometry PG(d, Fq) of dimension d over a finite field of order q, let L(p,Fq)ℒ(p,F_q) be the family of all subspaces.  When partially ordered by set inclusion, this family is a lattice.  Rota & Harper (1971) proved that the largest size of an antichain in L(p,Fq)ℒ(p,F_q) is the largest Gaussian coefficient [d+1k];[ d+1;   k ]; this is the projective-geometry analog, or q-analog, of Sperner's theorem.
+They further proved that the largest size of an r-chain-free family in L(p,Fq)ℒ(p,F_q) is the sum of the r largest Gaussian coefficients.  Their proof is by a projective analog of the LYM inequality.
+
+No long chains in p-compositions of a projective space[edit]
+Beck & Zaslavsky (2003) obtained a Meshalkin-like generalization of the Rota–Harper theorem.  In PG(d, Fq), a Meshalkin sequence of length p is a sequence (A1,…,Ap)(A_1,…,A_p) of projective subspaces such that no proper subspace of PG(d, Fq) contains them all and their dimensions sum to d−p+1-p+1.  The theorem is that a family of Meshalkin sequences of length p in PG(d, Fq), such that the subspaces appearing in position i of the sequences contain no chain of length r for each i=1,2,…,p−1,=1,2,…,p-1, is not more than the sum of the largest rp−1^p-1 of the quantities 
+
+[d+1n1n2…np]qs2(n1,…,np),[    d+1;  n_1_2; dots_p ]q^s_2(n_1,…,n_p),
+where [d+1n1n2…np][    d+1;  n_1_2; dots_p ] (in which we assume that d+1=n1+⋯+np+1=n_1+⋯+n_p) denotes the p-Gaussian coefficient 
+
+[d+1n1][d+1−n1n2]⋯[d+1−(n1+⋯+np−1)np][ d+1; n_1 ][ d+1-n_1;     n_2 ]⋯[ d+1-(n_1+⋯+n_p-1);               n_p ]
+and 
+
+s2(n1,…,np):=n1n2+n1n3+n2n3+n1n4+⋯+np−1np,_2(n_1,…,n_p):=n_1n_2+n_1n_3+n_2n_3+n_1n_4+⋯+n_p-1n_p,
+the second elementary symmetric function of the numbers n1,n2,…,np._1,n_2,…,n_p.
+
+See also[edit]
+
+Mathematics portal
+Dilworth's theorem
+Erdős–Ko–Rado theorem
+References[edit]
+Anderson, Ian (1987), Combinatorics of Finite Sets, Oxford University Press.
+Beck, Matthias; Zaslavsky, Thomas (2002), "A shorter, simpler, stronger proof of the Meshalkin-Hochberg-Hirsch bounds on componentwise antichains", Journal of Combinatorial Theory, Series A, 100 (1): 196–199, arXiv:math/0112068, doi:10.1006/jcta.2002.3295, MR 1932078, S2CID 8136773.
+Beck, Matthias; Zaslavsky, Thomas (2003), "A Meshalkin theorem for projective geometries", Journal of Combinatorial Theory, Series A, 102 (2): 433–441, arXiv:math/0112069, doi:10.1016/S0097-3165(03)00049-9, MR 1979545, S2CID 992137.
+Engel, Konrad (1997), Sperner theory, Encyclopedia of Mathematics and its Applications, vol. 65, Cambridge: Cambridge University Press, p. x+417, doi:10.1017/CBO9780511574719, ISBN 0-521-45206-6, MR 1429390.
+Engel, K. (2001) [1994], "Sperner theorem", Encyclopedia of Mathematics, EMS Press
+Erdős, P. (1945), "On a lemma of Littlewood and Offord" (PDF), Bulletin of the American Mathematical Society, 51 (12): 898–902, doi:10.1090/S0002-9904-1945-08454-7, MR 0014608
+Lubell, D. (1966), "A short proof of Sperner's lemma", Journal of Combinatorial Theory, 1 (2): 299, doi:10.1016/S0021-9800(66)80035-2, MR 0194348.
+Meshalkin, L.D. (1963), "Generalization of Sperner's theorem on the number of subsets of a finite set", Theory of Probability and Its Applications (in Russian), 8 (2): 203–204, doi:10.1137/1108023.
+Rota, Gian-Carlo; Harper, L. H. (1971), "Matching theory, an introduction", Advances in Probability and Related Topics, Vol. 1, New York: Dekker, pp. 169–215, MR 0282855.
+Sperner, Emanuel (1928), "Ein Satz über Untermengen einer endlichen Menge", Mathematische Zeitschrift (in German), 27 (1): 544–548, doi:10.1007/BF01171114, hdl:10338.dmlcz/127405, JFM 54.0090.06, S2CID 123451223.
+External links[edit]
+Sperner's Theorem at cut-the-knot
+Sperner's theorem on the polymath1 wiki
+
+
+

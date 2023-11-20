@@ -1,0 +1,194 @@
+Grothendieck–Riemann–Roch theoremGrothendieck's comment on the Grothendieck–Riemann–Roch theoremFieldAlgebraic geometryFirst proof byAlexander GrothendieckFirst proof in1957GeneralizationsAtiyah–Singer index theoremConsequencesHirzebruch–Riemann–Roch theoremRiemann–Roch theorem for surfacesRiemann–Roch theorem
+In mathematics, specifically in algebraic geometry, the Grothendieck–Riemann–Roch theorem is a far-reaching result on coherent cohomology. It is a generalisation of the Hirzebruch–Riemann–Roch theorem, about complex manifolds, which is itself a generalisation of the classical Riemann–Roch theorem for line bundles on compact Riemann surfaces.
+Riemann–Roch type theorems relate Euler characteristics of the cohomology of a vector bundle with their topological degrees, or more generally their characteristic classes in (co)homology or algebraic analogues thereof. The classical Riemann–Roch theorem does this for curves and line bundles, whereas the Hirzebruch–Riemann–Roch theorem generalises this to vector bundles over manifolds. The Grothendieck–Riemann–Roch theorem sets both theorems in a relative situation of a morphism between two manifolds (or more general schemes) and changes the theorem from a statement about a single bundle, to one applying to chain complexes of sheaves.
+The theorem has been very influential, not least for the development of the Atiyah–Singer index theorem. Conversely, complex analytic analogues of the Grothendieck–Riemann–Roch theorem can be proved using the index theorem for families. Alexander Grothendieck gave a first proof in a 1957 manuscript, later published.[1] Armand Borel and Jean-Pierre Serre wrote up and published Grothendieck's proof in 1958.[2] Later, Grothendieck and his collaborators simplified and generalized the proof.[3]
+
+
+Formulation[edit]
+Let X be a smooth quasi-projective scheme over a field. Under these assumptions, the Grothendieck group K0(X)_0(X) of bounded complexes of coherent sheaves is canonically isomorphic to the Grothendieck group of bounded complexes of finite-rank vector bundles. Using this isomorphism, consider the Chern character (a rational combination of Chern classes) as a functorial transformation:
+
+ch:K0(X)→A(X,Q),ch_0(X)(X,ℚ),
+where Ad(X,Q)_d(X,ℚ) is the Chow group of cycles on X of dimension d modulo rational equivalence, tensored with the rational numbers. In case X is defined over the complex numbers, the latter group maps to the topological cohomology group:
+
+H2dim⁡(X)−2d(X,Q).^2(X)-2d(X,ℚ).
+Now consider a proper morphism f:X→Y between smooth quasi-projective schemes and a bounded complex of sheaves F∙ℱ^∙ on X..
+The Grothendieck–Riemann–Roch theorem relates the pushforward map
+
+f!=∑(−1)iRif∗:K0(X)→K0(Y)_!=∑(-1)^iR^if_*_0(X)_0(Y)
+(alternating sum of higher direct images) and the pushforward
+
+f∗:A(X)→A(Y),_*(X)(Y),
+by the formula
+
+ch(f!F∙)td(Y)=f∗(ch(F∙)td(X)).ch(f_!ℱ^∙)td(Y)=f_*(ch(ℱ^∙)td(X)).
+Here td(X)td(X) is the Todd genus of (the tangent bundle of) X. Thus the theorem gives a precise measure for the lack of commutativity of taking the push forwards in the above senses and the Chern character and shows that the needed correction factors depend on X and Y only. In fact, since the Todd genus is functorial and multiplicative in exact sequences, we can rewrite the Grothendieck–Riemann–Roch formula as
+
+ch(f!F∙)=f∗(ch(F∙)td(Tf)),ch(f_!ℱ^∙)=f_*(ch(ℱ^∙)td(T_f)),
+where Tf_f is the relative tangent sheaf of f, defined as the element TX−f∗(TY)-f^*(TY) in K0(X)_0(X). For example, when f is a smooth morphism, Tf_f is simply a vector bundle, known as the tangent bundle along the fibers of f.
+Using A1-homotopy theory, the Grothendieck–Riemann–Roch theorem has been extended by Navarro & Navarro (2017) to the situation where f is a proper map between two smooth schemes.
+
+Generalising and specialising[edit]
+Generalisations of the theorem can be made to the non-smooth case by considering an appropriate generalisation of the combination ch(−)td(X)ch(-)td(X) and to the non-proper case by considering cohomology with compact support. 
+The arithmetic Riemann–Roch theorem extends the Grothendieck–Riemann–Roch theorem to arithmetic schemes.
+The Hirzebruch–Riemann–Roch theorem is (essentially) the special case where Y is a point and the field is the field of complex numbers.
+A version of Riemann–Roch theorem for oriented cohomology theories was proven by Ivan Panin and Alexander Smirnov.[4] It is concerned with multiplicative operations between algebraic oriented cohomology theories (such as algebraic cobordism). The Grothendieck-Riemann-Roch is a particular case of this result, and the Chern character comes up naturally in this setting.[5]
+
+Examples[edit]
+Vector bundles on a curve[edit]
+A vector bundle E→C of rank n and degree d (defined as the degree of its determinant; or equivalently the degree of its first Chern class) on a smooth projective curve over a field k has a formula similar to Riemann–Roch for line bundles. If we take X=C=C and Y=∗={*} a point, then the Grothendieck–Riemann–Roch formula can be read as
+
+ch(f!F∙)=h0(C,E)−h1(C,E)f∗(ch(E)td(X))=f∗((n+c1(E))(1+(1/2)c1(TC)))=f∗(n+c1(E)+(n/2)c1(TC))=f∗(c1(E)+(n/2)c1(TC))=d+n(1−g);ch(f_!ℱ^∙)   =h^0(C,E)-h^1(C,E)
+f_*(ch(E)td(X))   =f_*((n+c_1(E))(1+(1/2)c_1(T_C)))
+   =f_*(n+c_1(E)+(n/2)c_1(T_C))
+   =f_*(c_1(E)+(n/2)c_1(T_C))
+   =d+n(1-g);
+hence,
+
+χ(C,E)=d+n(1−g).χ(C,E)=d+n(1-g).[6]
+This formula also holds for coherent sheaves of rank n and degree d.
+
+Smooth proper maps[edit]
+One of the advantages of the Grothendieck–Riemann–Roch formula is it can be interpreted as a relative version of the Hirzebruch–Riemann–Roch formula. For example, a smooth morphism f:X→Y has fibers which are all equi-dimensional (and isomorphic as topological spaces when base changing to Cℂ). This fact is useful in moduli-theory when considering a moduli space Mℳ parameterizing smooth proper spaces. For example, David Mumford used this formula to deduce relationships of the Chow ring on the moduli space of algebraic curves.[7]
+
+Moduli of curves[edit]
+For the moduli stack of genus g curves (and no marked points) M¯gℳ_g there is a universal curve π:C¯g→M¯gπ𝒞_g→ℳ_g where C¯g=M¯g,1𝒞_g=ℳ_g,1 (is the moduli stack of curves of genus g and one marked point. Then, he defines the tautological classes
+
+KC¯g/M¯g=c1(ωC¯g/M¯g)κl=π∗(KC¯g/M¯gl+1)E=π∗(ωC¯g/M¯g)λl=cl(E)K_𝒞_g/ℳ_g   =c_1(ω_𝒞_g/ℳ_g)
+κ_l   =π_*(K_𝒞_g/ℳ_g^l+1)
+𝔼   =π_*(ω_𝒞_g/ℳ_g)
+λ_l   =c_l(𝔼)
+where 1≤l≤g1 and ωC¯g/M¯gω_𝒞_g/ℳ_g is the relative dualizing sheaf. Note the fiber of ωC¯g/M¯gω_𝒞_g/ℳ_gover a point [C]∈M¯g[C]∈ℳ_g this is the dualizing sheaf ωCω_C. He was able to find relations between the λiλ_i and κiκ_i describing the λiλ_i in terms of a sum of κiκ_i[7] (corollary 6.2) on the chow ring A∗(Mg)^*(ℳ_g) of the smooth locus using Grothendieck–Riemann–Roch. Because M¯gℳ_g is a smooth Deligne–Mumford stack, he considered a covering by a scheme M g→M¯gℳ̃_g→ℳ_g which presents M¯g=[M g/G]ℳ_g=[ℳ̃_g/G] for some finite group G. He uses Grothendieck–Riemann–Roch on ωC g/M gω_𝒞̃_g/ℳ̃_g to get
+
+ch(π!(ωC /M ))=π∗(ch(ωC /M )Td∨(ΩC /M 1))ch(π_!(ω_𝒞̃/ℳ̃))=π_*(ch(ω_𝒞̃/ℳ̃)Td^∨(Ω_𝒞̃/ℳ̃^1))
+Because
+
+R1π!(ωC g/M g)≅OM ,𝐑^1π_!(ω_𝒞̃_g/ℳ̃_g)≅𝒪_M̃,
+this gives the formula
+
+ch(E)=1+π∗(ch(ωC /M )Td∨(ΩC /M 1)).ch(𝔼)=1+π_*(ch(ω_𝒞̃/ℳ̃)Td^∨(Ω_𝒞̃/ℳ̃^1)).
+The computation of ch(E)ch(𝔼) can then be reduced even further. In even dimensions 2k2k,
+
+ch(E)2k=0.ch(𝔼)_2k=0.
+Also, on dimension 1,
+
+λ1=c1(E)=112(κ1+δ),λ_1=c_1(𝔼)=1/12(κ_1+δ),
+where δδ is a class on the boundary. In the case g=2=2 and on the smooth locus Mgℳ_g there are the relations
+
+λ1=112κ1λ2=λ122=κ12288λ_1   =1/12κ_1
+λ_2   =λ_1^2/2=κ_1^2/288
+which can be deduced by analyzing the Chern character of E𝔼.
+
+Closed embedding[edit]
+Closed embeddings f:Y→X have a description using the Grothendieck–Riemann–Roch formula as well, showing another non-trivial case where the formula holds.[8] For a smooth variety X of dimension n and a subvariety Y of codimension k, there is the formula
+
+ck(OY)=(−1)k−1(k−1)![Y]_k(𝒪_Y)=(-1)^k-1(k-1)![Y]
+Using the short exact sequence
+
+0→IY→OX→OY→00→ℐ_Y→𝒪_X→𝒪_Y→0,
+there is the formula
+
+ck(IY)=(−1)k(k−1)![Y]_k(ℐ_Y)=(-1)^k(k-1)![Y]
+for the ideal sheaf since 1=c(OX)=c(OY)c(IY)1=c(𝒪_X)=c(𝒪_Y)c(ℐ_Y).
+
+Applications[edit]
+Quasi-projectivity of moduli spaces[edit]
+Grothendieck–Riemann–Roch can be used in proving that a coarse moduli space M, such as the moduli space of pointed algebraic curves Mg,n_g,n, admits an embedding into a projective space, hence is a quasi-projective variety. This can be accomplished by looking at canonically associated sheaves on M and studying the degree of associated line bundles. For instance, Mg,n_g,n[9] has the family of curves
+
+π:Cg,n→Mg,nπ_g,n_g,n
+with sections
+
+si:Mg,n→Cg,n_i_g,n_g,n
+corresponding to the marked points. Since each fiber has the canonical bundle ωCω_C, there are the associated line bundles
+Λg,n(π)=det(Rπ∗(ωCg,n/Mg,n))Λ_g,n(π)=(𝐑π_*(ω_C_g,n/M_g,n))
+and
+χg,n(i)=si∗(ωCg,n/Mg,n).χ_g,n^(i)=s_i^*(ω_C_g,n/M_g,n).
+It turns out that
+
+Λg,n(π)⊗(⨂i=1nχg,n(i))Λ_g,n(π)⊗(⊗_i=1^nχ_g,n^(i))
+is an ample line bundle[9]pg 209, hence the coarse moduli space Mg,n_g,n is quasi-projective.
+
+History[edit]
+Alexander Grothendieck's version of the Riemann–Roch theorem was originally conveyed in a letter to Jean-Pierre Serre around 1956–1957. It was made public at the initial Bonn Arbeitstagung, in 1957. Serre and Armand Borel subsequently organized a seminar at Princeton University to understand it. The final published paper was in effect the Borel–Serre exposition.
+The significance of Grothendieck's approach rests on several points. First, Grothendieck changed the statement itself: the theorem was, at the time, understood to be a theorem about a variety, whereas Grothendieck saw it as a theorem about a morphism between varieties. By finding the right generalization, the proof became simpler while the conclusion became more general. In short, Grothendieck applied a strong categorical approach to a hard piece of analysis. Moreover, Grothendieck introduced K-groups, as discussed above, which paved the way for algebraic K-theory.
+
+See also[edit]
+Kawasaki's Riemann–Roch formula
+Notes[edit]
+
+
+^ A. Grothendieck. Classes de faisceaux et théorème de Riemann–Roch (1957). Published in SGA 6, Springer-Verlag (1971), 20-71.
+
+^ Borel, Armand; Serre, Jean-Pierre (1958). "Le théorème de Riemann-Roch". Bulletin de la Société Mathématique de France. 86: 97–136. doi:10.24033/bsmf.1500. MR 0116022.
+
+^ SGA 6, Springer-Verlag (1971).
+
+^ Panin, Ivan; Smirnov, Alexander (2002). "Push-forwards in oriented cohomology theories of algebraic varieties".
+
+^ Morel, Fabien; Levine, Marc, Algebraic cobordism (PDF), Springer, see 4.2.10 and 4.2.11
+
+^ Morrison; Harris. Moduli of curves. p. 154.
+
+^ a b Mumford, David (1983). "Towards an Enumerative Geometry of the Moduli Space of Curves". Arithmetic and Geometry. pp. 271–328. doi:10.1007/978-1-4757-9286-7_12. ISBN 978-0-8176-3133-8.
+
+^ Fulton. Intersection Theory. p. 297.
+
+^ a b Knudsen, Finn F. (1983-12-01). "The projectivity of the moduli space of stable curves, III: The line bundles on Mg,n_g,n, and a proof of the projectivity of M¯g,nM̅_g,n in characteristic 0". Mathematica Scandinavica. 52: 200–212. doi:10.7146/math.scand.a-12002. ISSN 1903-1807.
+
+
+References[edit]
+Berthelot, Pierre (1971). Alexandre Grothendieck; Luc Illusie (eds.). Séminaire de Géométrie Algébrique du Bois Marie - 1966-67 - Théorie des intersections et théorème de Riemann-Roch - (SGA 6) (Lecture notes in mathematics 225). Lecture Notes in Mathematics (in French). Vol. 225. Berlin; New York: Springer-Verlag. xii+700. doi:10.1007/BFb0066283. ISBN 978-3-540-05647-8.
+Borel, Armand; Serre, Jean-Pierre (1958), "Le théorème de Riemann–Roch", Bulletin de la Société Mathématique de France (in French), 86: 97–136, doi:10.24033/bsmf.1500, ISSN 0037-9484, MR 0116022
+Fulton, William (1998), Intersection theory, Ergebnisse der Mathematik und ihrer Grenzgebiete. 3. Folge., vol. 2 (2nd ed.), Berlin, New York: Springer-Verlag, ISBN 3-540-62046-X, MR 1644323, Zbl 0885.14002
+Navarro, Alberto; Navarro, José (2017), On the Riemann-Roch formula without projective hypothesis, arXiv:1705.10769, Bibcode:2017arXiv170510769N
+Panin, Ivan; Smirnov, Alexander (2000). "Push-forwards in oriented cohomology theories of algebraic varieties".
+"The Grothendieck Riemann–Roch theorem". 3264 and All That. 2016. pp. 481–510. doi:10.1017/CBO9781139062046.016. ISBN 9781107017085.
+External links[edit]
+The Grothendieck-Riemann-Roch Theorem
+The thread "Applications of Grothendieck-Riemann-Roch?" on MathOverflow.
+The thread "how does one understand GRR? (Grothendieck Riemann Roch)" on MathOverflow.
+The thread "Chern class of ideal sheaf" on Stack Exchange.
+vteBernhard Riemann
+Cauchy–Riemann equations
+Generalized Riemann hypothesis
+Grand Riemann hypothesis
+Grothendieck–Hirzebruch–Riemann–Roch theorem
+Hirzebruch–Riemann–Roch theorem
+Local zeta function
+Measurable Riemann mapping theorem
+Riemann (crater)
+Riemann Xi function
+Riemann curvature tensor
+Riemann hypothesis
+Riemann integral
+Riemann invariant
+Riemann mapping theorem
+Riemann form
+Riemann problem
+Riemann series theorem
+Riemann solver
+Riemann sphere
+Riemann sum
+Riemann surface
+Riemann zeta function
+Riemann's differential equation
+Riemann's minimal surface
+Riemannian circle
+Riemannian connection on a surface
+Riemannian geometry
+Riemann–Hilbert correspondence
+Riemann–Hilbert problems
+Riemann–Lebesgue lemma
+Riemann–Liouville integral
+Riemann–Roch theorem
+Riemann–Roch theorem for smooth manifolds
+Riemann–Siegel formula
+Riemann–Siegel theta function
+Riemann–Silberstein vector
+Riemann–Stieltjes integral
+Riemann–von Mangoldt formula
+
+ Category
+
+
+
+

@@ -1,0 +1,427 @@
+Existence and cardinality of models of logical theories
+In mathematical logic, the Löwenheim–Skolem theorem is a theorem on the existence and cardinality of models, named after Leopold Löwenheim and Thoralf Skolem.
+The precise formulation is given below. It implies that if a countable first-order theory has an infinite model, then for every infinite cardinal number κ it has a model of size κ, and that no first-order theory with an infinite model can have a unique model up to isomorphism.  
+As a consequence, first-order theories are unable to control the cardinality of their infinite models.
+The (downward) Löwenheim–Skolem theorem is one of the two key properties, along with the compactness theorem, that are used in Lindström's theorem to characterize first-order logic. 
+In general, the Löwenheim–Skolem theorem does not hold in stronger logics such as second-order logic.
+
+
+Theorem[edit]
+Illustration of the Löwenheim–Skolem theorem
+In its general form, the Löwenheim–Skolem Theorem states that for every signature σ, every infinite σ-structure M and every infinite cardinal number κ ≥ |σ|, there is a σ-structure N such that |N| = κ and such that
+
+if κ < |M| then N is an elementary substructure of M;
+if κ > |M| then N is an elementary extension of M.
+The theorem is often divided into two parts corresponding to the two cases above. The part of the theorem asserting that a structure has elementary substructures of all smaller infinite cardinalities is known as the downward Löwenheim–Skolem Theorem.[1]: 160–161  The part of the theorem asserting that a structure has elementary extensions of all larger cardinalities is known as the upward Löwenheim–Skolem Theorem.[2]
+
+Discussion[edit]
+Below we elaborate on the general concept of signatures and structures.
+
+Concepts[edit]
+Signatures[edit]
+A signature consists of a set of function symbols Sfunc, a set of relation symbols Srel, and a function ar:Sfunc∪Srel→N0ar:S_func_rel→ℕ_0  representing the arity of function and relation symbols. (A nullary function symbol is called a constant symbol.) In the context of first-order logic, a signature is sometimes called a language. It is called countable if the set of function and relation symbols in it is countable, and in general the cardinality of a signature is the cardinality of the set of all the symbols it contains.
+A first-order theory consists of a fixed signature and a fixed set of sentences (formulas with no free variables) in that signature.[3]: 40  Theories are often specified by giving a list of axioms that generate the theory, or by giving a structure and taking the theory to consist of the sentences satisfied by the structure.
+
+Structures / Models[edit]
+Given a signature σ, a σ-structure M
+is a concrete interpretation of the symbols in σ. It consists of an underlying set (often also denoted by "M") together with  an interpretation of the function and relation symbols of σ.  An interpretation of a constant symbol of σ in M is simply an element of M.  More generally, an interpretation of an n-ary function symbol f is a function from Mn to M. Similarly, an interpretation of a relation symbol R is an n-ary relation on M, i.e. a subset of Mn.
+A substructure of a σ-structure M is obtained by taking a subset N of M which is closed under the interpretations of all the function symbols in σ (hence includes the interpretations of all constant symbols in σ), and then restricting the interpretations of the relation symbols to N. An elementary substructure is a very special case of this; in particular an elementary substructure satisfies exactly the same first-order sentences as the original structure (its elementary extension).
+
+Consequences[edit]
+The statement given in the introduction follows immediately by taking M to be an infinite model of the theory. The proof of the upward part of the theorem also shows that a theory with arbitrarily large finite models must have an infinite model; sometimes this is considered to be part of the theorem.[1]
+A theory is called categorical if it has only one model, up to isomorphism. This term was introduced by Veblen (1904), and for some time thereafter mathematicians hoped they could put mathematics on a solid foundation by describing a categorical first-order theory of some version of set theory. The Löwenheim–Skolem theorem dealt a first blow to this hope, as it implies that a first-order theory which has an infinite model cannot be categorical. Later, in 1931, the hope was shattered completely by Gödel's incompleteness theorem.
+Many consequences of the Löwenheim–Skolem theorem seemed counterintuitive to logicians in the early 20th century, as the distinction between first-order and non-first-order properties was not yet understood. One such consequence is the existence of uncountable models of true arithmetic, which satisfy every first-order induction axiom but have non-inductive subsets.
+Let N denote the natural numbers and R the reals. It follows from the theorem that the theory of (N, +, ×, 0, 1) (the theory of true first-order arithmetic) has uncountable models, and that the theory of  (R, +, ×, 0, 1) (the theory of real closed fields) has a countable model. There are, of course, axiomatizations characterizing (N, +, ×, 0, 1) and (R, +, ×, 0, 1) up to isomorphism. 
+The Löwenheim–Skolem theorem shows that these axiomatizations cannot be first-order. 
+For example, in the theory of the real numbers, the completeness of a linear order used to characterize R as a complete ordered field, is a non-first-order property.
+Another consequence that was considered particularly troubling is the existence of a countable model of set theory, which nevertheless must satisfy the sentence saying the real numbers are uncountable. Cantor's theorem states that some sets are uncountable. This counterintuitive situation came to be known as Skolem's paradox; it shows that the notion of countability is not absolute.[4]
+
+Proof sketch[edit]
+Downward part[edit]
+For each first-order σσ-formula φ(y,x1,…,xn),φ(y,x_1,…,x_n) , the axiom of choice implies the existence of a function
+
+fφ:Mn→M_φ:M^n
+such that, for all a1,…,an∈M_1,…,a_n, either
+
+M⊨φ(fφ(a1,…,an),a1,…,an)φ(f_φ(a_1,…,a_n),a_1,…,a_n)
+or
+
+M⊨¬∃yφ(y,a1,…,an). φ(y,a_1,…,a_n) .
+Applying the axiom of choice again we get a function from the first-order formulas φφ to such functions fφ._φ .
+The family of functions fφ_φ gives rise to a preclosure operator F on the power set of M
+
+F(A)=fφ(a1,…,an)∈M∣φ∈σ;a1,…,an∈A(A)={f_φ(a_1,…,a_n)|φ∈σ; a_1,…,a_n}
+for A⊆M. .
+Iterating F countably many times results in a closure operator Fω.^ω . Taking an arbitrary subset A⊆M such that |A|=κ|=κ, and having defined N=Fω(A),=F^ω(A) , one can see that also |N|=κ.|=κ . Then N is an elementary substructure of M by the Tarski–Vaught test.
+The trick used in this proof is essentially due to Skolem, who introduced function symbols for the Skolem functions fφ_φ into the language. One could also define the fφ_φ as partial functions such that fφ_φ is defined if and only if M⊨∃yφ(y,a1,…,an). φ(y,a_1,…,a_n) . The only important point is that F is a preclosure operator such that F(A)(A) contains a solution for every formula with parameters in A which has a solution in M and that 
+
+|F(A)|≤|A|+|σ|+ℵ0.(A)|≤|+|σ|+ℵ_0 .
+Upward part[edit]
+First, one extends the signature by adding a new constant symbol for every element of M. The complete theory of M for the extended signature σ' is called the elementary diagram of M. In the next step one adds κ many new constant symbols to the signature and adds to the elementary diagram of M the sentences c ≠ c' for any two distinct new constant symbols c and c'. Using the compactness theorem, the resulting theory is easily seen to be consistent. Since its models must have cardinality at least κ, the downward part of this theorem guarantees the existence of a model N which has cardinality exactly κ. It contains an isomorphic copy of M as an elementary substructure.[5][6]: 100–102 
+
+In other logics[edit]
+Main article: Löwenheim number
+Although the (classical) Löwenheim–Skolem theorem is tied very closely to first-order logic, variants hold for other logics.  For example, every consistent theory in second-order logic has a model smaller than the first supercompact cardinal (assuming one exists).  The minimum size at which a (downward) Löwenheim–Skolem–type theorem applies in a logic is known as the Löwenheim number, and can be used to characterize that logic's strength. Moreover, if we go beyond first-order logic, we must give up one of three things: countable compactness, the downward Löwenheim–Skolem Theorem, or the properties of an abstract logic.[7]: 134 
+
+Historical notes[edit]
+This account is based mainly on Dawson (1993). To understand the early history of model theory one must distinguish between syntactical consistency (no contradiction can be derived using the deduction rules for first-order logic) and satisfiability (there is a model). Somewhat surprisingly, even before the completeness theorem made the distinction unnecessary, the term consistent was used sometimes in one sense and sometimes in the other.
+The first significant result in what later became model theory was Löwenheim's theorem in Leopold Löwenheim's publication "Über Möglichkeiten im Relativkalkül" (1915):
+
+For every countable signature σ, every σ-sentence that is satisfiable is satisfiable in a countable model.
+Löwenheim's paper was actually concerned with the more general Peirce–Schröder calculus of relatives (relation algebra with quantifiers).[1] He also used the now antiquated notations of Ernst Schröder. For a summary of the paper in English and using modern notations see Brady (2000, chapter 8).
+According to the received historical view, Löwenheim's proof was faulty because it implicitly used Kőnig's lemma without proving it, although the lemma was not yet a published result at the time. In a revisionist account, Badesa (2004) considers that Löwenheim's proof was complete.
+Skolem (1920) gave a (correct) proof using formulas in what would later be called Skolem normal form and relying on the axiom of choice:
+
+Every countable theory which is satisfiable in a model M, is satisfiable in a countable substructure of M.
+Skolem (1922) also proved the following weaker version without the axiom of choice: 
+
+Every countable theory which is satisfiable in a model is also satisfiable in a countable model.
+Skolem (1929) simplified Skolem (1920). Finally, Anatoly Ivanovich Maltsev (Анато́лий Ива́нович Ма́льцев, 1936) proved the Löwenheim–Skolem theorem in its full generality (Maltsev 1936). He cited a note by Skolem, according to which the theorem had been proved by Alfred Tarski in a seminar in 1928. Therefore, the general theorem is sometimes known as the Löwenheim–Skolem–Tarski theorem. But Tarski did not remember his proof, and it remains a mystery how he could do it without the compactness theorem.
+It is somewhat ironic that Skolem's name is connected with the upward direction of the theorem as well as with the downward direction:
+
+"I follow custom in calling Corollary 6.1.4 the upward Löwenheim-Skolem theorem. But in fact Skolem didn't even believe it, because he didn't believe in the existence of uncountable sets." – Hodges (1993).
+"Skolem [...] rejected the result as meaningless; Tarski [...] very reasonably responded that Skolem's formalist viewpoint ought to reckon the downward Löwenheim-Skolem theorem meaningless just like the upward." – Hodges (1993).
+"Legend has it that Thoralf Skolem, up until the end of his life, was scandalized by the association of his name to a result of this type, which he considered an absurdity, nondenumerable sets being, for him, fictions without real existence." – Poizat (2000).
+References[edit]
+
+
+^ a b c Nourani, C. F., A Functorial Model Theory: Newer Applications to Algebraic Topology, Descriptive Sets, and Computing Categories Topos (Toronto: Apple Academic Press; Boca Raton: CRC Press, 2014), pp. 160–161.
+
+^ Sheppard, B., The Logic of Infinity (Cambridge: Cambridge University Press, 2014), p. 372.
+
+^ Haan, R. de, Parameterized Complexity in the Polynomial Hierarchy: Extending Parameterized Complexity Theory to Higher Levels of the Hierarchy (Berlin/Heidelberg: Springer, 2019), p. 40.
+
+^ Bays, T., "Skolem’s Paradox", Stanford Encyclopedia of Philosophy, Winter 2014.
+
+^ Church, A., & Langford, C. H., eds., The Journal of Symbolic Logic (Storrs, CT: Association for Symbolic Logic, 1981), p. 529.
+
+^ Leary, C. C., & Kristiansen, L., A Friendly Introduction to Mathematical Logic (Geneseo, NY: Milne Library, 2015), pp. 100–102.
+
+^ Chang, C. C., & Keisler, H. J., Model Theory, 3rd ed. (Mineola & New York: Dover Publications, 1990), p. 134.
+
+
+Sources[edit]
+The Löwenheim–Skolem theorem is treated in all introductory texts on model theory or mathematical logic.
+
+Historical publications[edit]
+Löwenheim, Leopold (1915), "Über Möglichkeiten im Relativkalkül" (PDF), Mathematische Annalen, 76 (4): 447–470, doi:10.1007/BF01458217, ISSN 0025-5831, S2CID 116581304
+Löwenheim, Leopold (1977), "On possibilities in the calculus of relatives", From Frege to Gödel: A Source Book in Mathematical Logic, 1879-1931 (3rd ed.), Cambridge, Massachusetts: Harvard University Press, pp. 228–251, ISBN 0-674-32449-8 (online copy, p. 228, at Google Books)
+Maltsev, Anatoly Ivanovich (1936), "Untersuchungen aus dem Gebiete der mathematischen Logik", Matematicheskii Sbornik, Novaya Seriya, 1(43) (3): 323–336
+Skolem, Thoralf (1920), "Logisch-kombinatorische Untersuchungen über die Erfüllbarkeit oder Beweisbarkeit mathematischer Sätze nebst einem Theoreme über dichte Mengen", Videnskapsselskapet Skrifter, I. Matematisk-naturvidenskabelig Klasse, 4: 1–36
+Skolem, Thoralf (1977), "Logico-combinatorical investigations in the satisfiability or provabilitiy of mathematical propositions: A simplified proof of a theorem by L. Löwenheim and generalizations of the theorem", From Frege to Gödel: A Source Book in Mathematical Logic, 1879-1931 (3rd ed.), Cambridge, Massachusetts: Harvard University Press, pp. 252–263, ISBN 0-674-32449-8 (online copy, p. 252, at Google Books)
+Skolem, Thoralf (1922), "Einige Bemerkungen zu axiomatischen Begründung der Mengenlehre", Mathematikerkongressen I Helsingfors den 4–7 Juli 1922, den Femte Skandinaviska Matematikerkongressen, Redogörelse: 217–232
+Skolem, Thoralf (1977), "Some remarks on axiomatized set theory", From Frege to Gödel: A Source Book in Mathematical Logic, 1879-1931 (3rd ed.), Cambridge, Massachusetts: Harvard University Press, pp. 290–301, ISBN 0-674-32449-8 (online copy, p. 290, at Google Books)
+Skolem, Thoralf (1929), "Über einige Grundlagenfragen der Mathematik", Skrifter Utgitt av Det Norske Videnskaps-Akademi I Oslo, I. Matematisk-naturvidenskabelig Klasse, 7: 1–49
+Veblen, Oswald (1904), "A System of Axioms for Geometry", Transactions of the American Mathematical Society, 5 (3): 343–384, doi:10.2307/1986462, ISSN 0002-9947, JSTOR 1986462
+Secondary sources[edit]
+Badesa, Calixto (2004), The Birth of Model Theory: Löwenheim's Theorem in the Frame of the Theory of Relatives, Princeton, NJ: Princeton University Press, ISBN 978-0-691-05853-5; A more concise account appears in chapter 9 of Leila Haaparanta, ed. (2009), The Development of Modern Logic, Oxford University Press, ISBN 978-0-19-513731-6
+Brady, Geraldine (2000), From Peirce to Skolem: A Neglected Chapter in the History of Logic, Elsevier, ISBN 978-0-444-50334-3
+Crossley, J. N.; Ash, C. J.; Brickhill, C. J.; Stillwell, J. C.; Williams, N. H. (1972), What is mathematical logic?, London/Oxford/New York: Oxford University Press, pp. 59–60, ISBN 0-19-888087-1, Zbl 0251.02001
+Dawson, John W. Jr. (1993), "The compactness of First-Order Logic: From Gödel to Lindström", History and Philosophy of Logic, 14: 15–37, doi:10.1080/01445349308837208
+Hodges, Wilfrid (1993), Model theory, Cambridge: Cambridge Univ. Pr., ISBN 978-0-521-30442-9
+Poizat, Bruno (2000), A Course in Model Theory: An Introduction to Contemporary Mathematical Logic, Berlin, New York: Springer, ISBN 978-0-387-98655-5
+External links[edit]
+Sakharov, A.; Weisstein, E. W. "Löwenheim-Skolem Theorem". MathWorld.
+Burris, Stanley N., Contributions of the Logicians, Part II, From Richard Dedekind to Gerhard Gentzen
+Burris, Stanley N., Downward Löwenheim–Skolem theorem
+Simpson, Stephen G. (1998),  Model Theory
+vteMetalogic and metamathematics
+Cantor's theorem
+Entscheidungsproblem
+Church–Turing thesis
+Consistency
+Effective method
+Foundations of mathematics
+of geometry
+Gödel's completeness theorem
+Gödel's incompleteness theorems
+Soundness
+Completeness
+Decidability
+Interpretation
+Löwenheim–Skolem theorem
+Metatheorem
+Satisfiability
+Independence
+Type–token distinction
+Use–mention distinction
+
+vteMathematical logicGeneral
+Axiom
+list
+Cardinality
+First-order logic
+Formal proof
+Formal semantics
+Foundations of mathematics
+Information theory
+Lemma
+Logical consequence
+Model
+Theorem
+Theory
+Type theory
+Theorems (list) & Paradoxes
+Gödel's completeness and incompleteness theorems
+Tarski's undefinability
+Banach–Tarski paradox
+Cantor's theorem, paradox and diagonal argument
+Compactness
+Halting problem
+Lindström's
+Löwenheim–Skolem
+Russell's paradox
+LogicsTraditional
+Classical logic
+Logical truth
+Tautology
+Proposition
+Inference
+Logical equivalence
+Consistency
+Equiconsistency
+Argument
+Soundness
+Validity
+Syllogism
+Square of opposition
+Venn diagram
+Propositional
+Boolean algebra
+Boolean functions
+Logical connectives
+Propositional calculus
+Propositional formula
+Truth tables
+Many-valued logic
+3
+Finite
+∞
+Predicate
+First-order
+list
+Second-order
+Monadic
+Higher-order
+Free
+Quantifiers
+Predicate
+Monadic predicate calculus
+Set theory
+Set
+Hereditary
+Class
+(Ur-)Element
+Ordinal number
+Extensionality
+Forcing
+Relation
+Equivalence
+Partition
+Set operations:
+Intersection
+Union
+Complement
+Cartesian product
+Power set
+Identities
+Types of Sets
+Countable
+Uncountable
+Empty
+Inhabited
+Singleton
+Finite
+Infinite
+Transitive
+Ultrafilter
+Recursive
+Fuzzy
+Universal
+Universe
+Constructible
+Grothendieck
+Von Neumann
+Maps & Cardinality
+Function/Map
+Domain
+Codomain
+Image
+In/Sur/Bi-jection
+Schröder–Bernstein theorem
+Isomorphism
+Gödel numbering
+Enumeration
+Large cardinal
+Inaccessible
+Aleph number
+Operation
+Binary
+Set theories
+Zermelo–Fraenkel
+Axiom of choice
+Continuum hypothesis
+General
+Kripke–Platek
+Morse–Kelley
+Naive
+New Foundations
+Tarski–Grothendieck
+Von Neumann–Bernays–Gödel
+Ackermann
+Constructive
+Formal systems (list),Language & Syntax
+Alphabet
+Arity
+Automata
+Axiom schema
+Expression
+Ground
+Extension
+by definition
+Conservative
+Relation
+Formation rule
+Grammar
+Formula
+Atomic
+Closed
+Ground
+Open
+Free/bound variable
+Language
+Metalanguage
+Logical connective
+¬
+∨
+∧
+→
+↔
+=
+Predicate
+Functional
+Variable
+Propositional variable
+Proof
+Quantifier
+∃
+!
+∀
+rank
+Sentence
+Atomic
+Spectrum
+Signature
+String
+Substitution
+Symbol
+Function
+Logical/Constant
+Non-logical
+Variable
+Term
+Theory
+list
+Example axiomaticsystems (list)
+of arithmetic:
+Peano
+second-order
+elementary function
+primitive recursive
+Robinson
+Skolem
+of the real numbers
+Tarski's axiomatization
+of Boolean algebras
+canonical
+minimal axioms
+of geometry:
+Euclidean:
+Elements
+Hilbert's
+Tarski's
+non-Euclidean
+Principia Mathematica
+Proof theory
+Formal proof
+Natural deduction
+Logical consequence
+Rule of inference
+Sequent calculus
+Theorem
+Systems
+Axiomatic
+Deductive
+Hilbert
+list
+Complete theory
+Independence (from ZFC)
+Proof of impossibility
+Ordinal analysis
+Reverse mathematics
+Self-verifying theories
+Model theory
+Interpretation
+Function
+of models
+Model
+Equivalence
+Finite
+Saturated
+Spectrum
+Submodel
+Non-standard model
+of arithmetic
+Diagram
+Elementary
+Categorical theory
+Model complete theory
+Satisfiability
+Semantics of logic
+Strength
+Theories of truth
+Semantic
+Tarski's
+Kripke's
+T-schema
+Transfer principle
+Truth predicate
+Truth value
+Type
+Ultraproduct
+Validity
+Computability theory
+Church encoding
+Church–Turing thesis
+Computably enumerable
+Computable function
+Computable set
+Decision problem
+Decidable
+Undecidable
+P
+NP
+P versus NP problem
+Kolmogorov complexity
+Lambda calculus
+Primitive recursive function
+Recursion
+Recursive set
+Turing machine
+Type theory
+Related
+Abstract logic
+Category theory
+Concrete/Abstract Category
+Category of sets
+History of logic
+History of mathematical logic
+timeline
+Logicism
+Mathematical object
+Philosophy of mathematics
+Supertask
+ Mathematics portal
+
+
+

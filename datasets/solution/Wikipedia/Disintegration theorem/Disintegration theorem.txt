@@ -1,0 +1,213 @@
+Theorem in measure theory
+
+In mathematics, the disintegration theorem is a result in measure theory and probability theory. It rigorously defines the idea of a non-trivial "restriction" of a measure to a measure zero subset of the measure space in question. It is related to the existence of conditional probability measures. In a sense, "disintegration" is the opposite process to the construction of a product measure.
+
+
+Motivation[edit]
+Consider the unit square in the Euclidean plane R2ℝ^2, S=[0,1]×[0,1]=[0,1]×[0,1]. Consider the probability measure μμ defined on S by the restriction of two-dimensional Lebesgue measure λ2λ^2 to S. That is, the probability of an event E⊆S is simply the area of E. We assume E  is a measurable subset of S.
+Consider a one-dimensional subset of S such as the line segment Lx=x×[0,1]_x={x}×[0,1]. Lx_x has μμ-measure zero; every subset of Lx_x is a μμ-null set; since the Lebesgue measure space is a complete measure space,
+E⊆Lx⟹μ(E)=0._xμ(E)=0.
+While true, this is somewhat unsatisfying. It would be nice to say that μμ "restricted to" Lx_x is the one-dimensional Lebesgue measure λ1λ^1, rather than the zero measure. The probability of a "two-dimensional" event E could then be obtained as an integral of the one-dimensional probabilities of the vertical "slices" E∩Lx_x: more formally, if μxμ_x denotes one-dimensional Lebesgue measure on Lx_x, then
+μ(E)=∫[0,1]μx(E∩Lx)dxμ(E)=∫_[0,1]μ_x(E_x) dx
+for any "nice" E⊆S. The disintegration theorem makes this argument rigorous in the context of measures on metric spaces.
+
+Statement of the theorem[edit]
+(Hereafter, P(X)𝒫(X) will denote the collection of Borel probability measures on a topological space (X,T)(X,T).)
+The assumptions of the theorem are as follows:
+
+Let Y and X be two Radon spaces (i.e. a topological space such that every Borel probability measure on it is inner regular, e.g. separably metrizable spaces; in particular, every probability measure on it is outright a Radon measure).
+Let μ∈P(Y)μ∈𝒫(Y).
+Let π:Y→Xπ:Y be a Borel-measurable function. Here one should think of ππ as a function to "disintegrate" Y, in the sense of partitioning Y into π−1(x)|x∈X{π^-1(x)}. For example, for the motivating example above, one can define π((a,b))=aπ((a,b))=a, (a,b)∈[0,1]×[0,1](a,b)∈[0,1]×[0,1], which gives that π−1(a)=a×[0,1]π^-1(a)=a×[0,1], a slice we want to capture.
+Let ν∈P(X)ν∈𝒫(X) be the pushforward measure ν=π∗(μ)=μ∘π−1ν=π_*(μ)=μ∘π^-1. This measure provides the distribution of x (which corresponds to the events π−1(x)π^-1(x)).
+The conclusion of the theorem: There exists a νν-almost everywhere uniquely determined family of probability measures μxx∈X⊆P(Y){μ_x}_x⊆𝒫(Y), which provides a "disintegration" of μμ into μxx∈X{μ_x}_x, such that:
+
+the function x↦μx↦μ_x is Borel measurable, in the sense that x↦μx(B)↦μ_x(B) is a Borel-measurable function for each Borel-measurable set B⊆Y;
+μxμ_x "lives on" the fiber π−1(x)π^-1(x): for νν-almost all x∈X, μx(Y∖π−1(x))=0,μ_x(Y∖π^-1(x))=0, and so μx(E)=μx(E∩π−1(x))μ_x(E)=μ_x(E∩π^-1(x));
+for every Borel-measurable function f:Y→[0,∞]:Y→[0,∞], ∫Yf(y)dμ(y)=∫X∫π−1(x)f(y)dμx(y)dν(x).∫_Yf(y) dμ(y)=∫_X∫_π^-1(x)f(y) dμ_x(y)dν(x). In particular, for any event E⊆Y, taking f to be the indicator function of E,[1] μ(E)=∫Xμx(E)dν(x).μ(E)=∫_Xμ_x(E) dν(x).
+Applications[edit]
+Product spaces[edit]
+This section needs additional citations for verification. Please help improve this article by adding citations to reliable sources in this section. Unsourced material may be challenged and removed. (May 2022) (Learn how and when to remove this template message)
+The original example was a special case of the problem of product spaces, to which the disintegration theorem applies.
+When Y is written as a Cartesian product Y=X1×X2=X_1_2 and πi:Y→Xiπ_i:Y_i is the natural projection, then each fibre π1−1(x1)π_1^-1(x_1) can be canonically identified with X2_2 and there exists a Borel family of probability measures μx1x1∈X1{μ_x_1}_x_1_1 in P(X2)𝒫(X_2) (which is (π1)∗(μ)(π_1)_*(μ)-almost everywhere uniquely determined) such that
+μ=∫X1μx1μ(π1−1(dx1))=∫X1μx1d(π1)∗(μ)(x1),μ=∫_X_1μ_x_1 μ(π_1^-1(dx_1))=∫_X_1μ_x_1 d(π_1)_*(μ)(x_1),
+which is in particular[clarification needed]
+∫X1×X2f(x1,x2)μ(dx1,dx2)=∫X1(∫X2f(x1,x2)μ(dx2|x1))μ(π1−1(dx1))∫_X_1_2f(x_1,x_2) μ(dx_1,dx_2)=∫_X_1(∫_X_2f(x_1,x_2)μ(dx_2|x_1))μ(π_1^-1(dx_1))
+and
+μ(A×B)=∫Aμ(B|x1)μ(π1−1(dx1)).μ(A)=∫_Aμ(B|x_1) μ(π_1^-1(dx_1)).
+The relation to conditional expectation is given by the identities
+E⁡(f|π1)(x1)=∫X2f(x1,x2)μ(dx2|x1),E(f|π_1)(x_1)=∫_X_2f(x_1,x_2)μ(dx_2|x_1),
+μ(A×B|π1)(x1)=1A(x1)⋅μ(B|x1).μ(A|π_1)(x_1)=1_A(x_1)·μ(B|x_1).
+
+Vector calculus[edit]
+The disintegration theorem can also be seen as justifying the use of a "restricted" measure in vector calculus. For instance, in Stokes' theorem as applied to a vector field flowing through a compact surface Σ⊂R3Σ⊂ℝ^3, it is implicit that the "correct" measure on ΣΣ is the disintegration of three-dimensional Lebesgue measure λ3λ^3 on ΣΣ, and that the disintegration of this measure on ∂Σ is the same as the disintegration of λ3λ^3 on ∂Σ∂Σ.[2]
+
+Conditional distributions[edit]
+The disintegration theorem can be applied to give a rigorous treatment of conditional probability distributions in statistics, while avoiding purely abstract formulations of conditional probability.[3]
+
+See also[edit]
+Ionescu-Tulcea theorem – Probability theorem
+Joint probability distribution – Type of probability distribution
+Copula (statistics) – Statistical distribution for dependence between random variablesPages displaying short descriptions of redirect targets
+Conditional expectation – Expected value of a random variable given that certain conditions are known to occur
+Borel–Kolmogorov paradox
+Regular conditional probability
+References[edit]
+
+
+^ Dellacherie, C.; Meyer, P.-A. (1978). Probabilities and Potential. North-Holland Mathematics Studies. Amsterdam: North-Holland. ISBN 0-7204-0701-X.
+
+^ Ambrosio, L.; Gigli, N.; Savaré, G. (2005). Gradient Flows in Metric Spaces and in the Space of Probability Measures. ETH Zürich, Birkhäuser Verlag, Basel. ISBN 978-3-7643-2428-5.
+
+^ Chang, J.T.; Pollard, D. (1997). "Conditioning as disintegration" (PDF). Statistica Neerlandica. 51 (3): 287. CiteSeerX 10.1.1.55.7544. doi:10.1111/1467-9574.00056. S2CID 16749932.
+
+
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

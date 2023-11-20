@@ -1,0 +1,111 @@
+Theory of probability
+The left diagram illustrates Glivenko–Cantelli theorem for uniform distributions. The right diagram illustrates the Donsker–Skorokhod–Kolmogorov theorem
+The same diagram for normal distributions
+In the theory of probability, the Glivenko–Cantelli theorem (sometimes referred to as the Fundamental Theorem of Statistics), named after Valery Ivanovich Glivenko and Francesco Paolo Cantelli,  determines the asymptotic behaviour of the empirical distribution function as the number of independent and identically distributed observations grows.[1]
+The uniform convergence of  more general empirical measures becomes an important property of the Glivenko–Cantelli classes of functions or sets.[2]  The Glivenko–Cantelli classes arise in Vapnik–Chervonenkis theory, with applications to machine learning. Applications can be found in econometrics making use of M-estimators.
+
+
+Statement[edit]
+Assume that  X1,X2,…_1,X_2,… are independent and identically distributed random variables in Rℝ with common cumulative distribution function F(x)(x). The empirical distribution function for X1,…,Xn_1,…,X_n is defined by
+
+Fn(x)=1n∑i=1nI[Xi,∞)(x)=1n|i∣Xi≤x,1≤i≤n|_n(x)=1n∑_i=1^nI_[X_i,∞)(x)=1n{|{ı
+midX_i,}|
+where IC_C is the indicator function of the set C. . For every (fixed) x,  Fn(x)_n(x)} is a sequence of random variables which converge to F(x)(x) almost surely by the strong law of large numbers. Glivenko and Cantelli strengthened this result by proving uniform convergence of Fn_n} to F. .
+Theorem
+
+‖Fn−F‖∞=supx∈R|Fn(x)−F(x)|⟶0F_n-F_∞=sup_x∈ℝ|F_n(x)-F(x)|⟶0 almost surely.[3](p 265)
+This theorem originates with Valery Glivenko[4] and Francesco Cantelli,[5] in 1933.
+
+Remarks
+
+If Xn_n} is a stationary ergodic process, then Fn(x)_n(x) converges almost surely to F(x)=E⁡[1X1≤x].(x)=𝔼[1_X_1] . The Glivenko–Cantelli theorem gives a stronger mode of convergence than this in the iid case.
+An even stronger uniform convergence result for the empirical distribution function is available in the form of an extended type of law of the iterated logarithm.[3](p 268) See asymptotic properties of the empirical distribution function for this and related results.
+Proof[edit]
+For simplicity, consider a case of continuous random variable X. Fix −∞=x0<x1<⋯<xm−1<xm=∞-∞=x_0<x_1<⋯<x_m-1<x_m=∞ such that F(xj)−F(xj−1)=1m(x_j)-F(x_j-1)=1/m for j=1,…,m=1,…,m. Now for all x∈R∈ℝ there exists j∈1,…,m∈{1,…,m} such that x∈[xj−1,xj]∈[x_j-1,x_j]. Note that
+
+Fn(x)−F(x)≤Fn(xj)−F(xj−1)=Fn(xj)−F(xj)+1m,Fn(x)−F(x)≥Fn(xj−1)−F(xj)=Fn(xj−1)−F(xj−1)−1m.F_n(x)-F(x)   _n(x_j)-F(x_j-1)=F_n(x_j)-F(x_j)+1/m,
+F_n(x)-F(x)   _n(x_j-1)-F(x_j)=F_n(x_j-1)-F(x_j-1)-1/m.
+Therefore,
+
+‖Fn−F‖∞=supx∈R|Fn(x)−F(x)|≤maxj∈1,…,m|Fn(xj)−F(xj)|+1m.F_n-F_∞=sup_x∈ℝ|F_n(x)-F(x)|≤max_j∈{1,…,m}|F_n(x_j)-F(x_j)|+1/m.
+Since maxj∈1,…,m|Fn(xj)−F(xj)|→0a.s.max_j∈{1,…,m}|F_n(x_j)-F(x_j)|→0a.s. by strong law of large numbers, we can guarantee that for any positive εε and any integer m such that 1/m<ε1/m<ε, we can find N such that for all n≥N, we have maxj∈1,…,m|Fn(xj)−F(xj)|≤ε−1/ma.s.max_j∈{1,…,m}|F_n(x_j)-F(x_j)|≤ε-1/ma.s.. Combined with the above result, this further implies that ‖Fn−F‖∞≤εa.s.F_n-F_∞≤εa.s., which is the definition of almost sure convergence.
+
+Empirical measures[edit]
+One can generalize the empirical distribution function by replacing the set (−∞,x](-∞,x] by an arbitrary set C from a class of sets C𝒞 to obtain an empirical measure indexed by sets C∈C.∈𝒞.
+
+Pn(C)=1n∑i=1nIC(Xi),C∈C_n(C)=1/n∑_i=1^nI_C(X_i),C∈𝒞
+Where IC(x)_C(x) is the indicator function of each set C.
+Further generalization is the map induced by Pn_n on measurable real-valued functions f, which is given by
+
+f↦Pnf=∫SfdPn=1n∑i=1nf(Xi),f∈F._nf=∫_Sf dP_n=1/n∑_i=1^nf(X_i),f∈ℱ.
+Then it becomes an important property of these classes whether the strong law of large numbers holds uniformly on Fℱ or C𝒞.
+
+Glivenko–Cantelli class[edit]
+Consider a set S{𝒮} with a sigma algebra of Borel subsets A and a probability measure P.
+mathbbP . For a class of subsets,
+
+C⊂C:CismeasurablesubsetofS𝒞⊂{C:Cismeasurablesubsetof𝒮}
+and a class of functions
+
+F⊂f:S→R,fismeasurableℱ⊂{f:𝒮→ℝ,f{}
+define random variables
+
+‖Pn−P‖C=supC∈C|Pn(C)−P(C)|P_n-P_𝒞=sup_C∈𝒞|ℙ_n(C)-ℙ(C)|
+‖Pn−P‖F=supf∈F|Pnf−Pf|P_n-P_ℱ=sup_f∈ℱ|ℙ_nf-ℙf|
+where Pn(C)
+mathbbP_n(C)} is the empirical measure, Pnf
+mathbbP_nf} is the corresponding map, and
+
+E⁡f=∫SfdP=Pf,
+operatorname𝔼f=∫_𝒮f
+mathrmdℙ=ℙf  assuming that it exists.
+Definitions
+
+A class C{𝒞} is called a  Glivenko–Cantelli class  (or GC class) with respect to a probability measure P if any of the following equivalent statements is true.
+1. ‖Pn−P‖C→0{ℙ_n-ℙ_𝒞→0} almost surely as n→∞.→∞ .
+2. ‖Pn−P‖C→0{ℙ_n-ℙ_𝒞→0} in probability as n→∞.→∞ .
+3. E⁡‖Pn−P‖C→0,
+operatorname𝔼ℙ_n-ℙ_𝒞→0  as n→∞→∞} (convergence in mean).
+The Glivenko–Cantelli classes of functions are defined similarly.
+A class is called a universal Glivenko–Cantelli class if it is a GC class with respect to any probability measure Pℙ on (S,A) .
+A class is called uniformly Glivenko–Cantelli if the convergence occurs uniformly over all probability measures Pℙ on (S,A) :
+supP∈P(S,A)E⁡‖Pn−P‖C→0;sup_ℙ∈ℙ(S,A)𝔼ℙ_n-ℙ_𝒞→0 
+supP∈P(S,A)E⁡‖Pn−P‖F→0.sup_ℙ∈ℙ(S,A)𝔼ℙ_n-ℙ_ℱ→0 .
+Theorem (Vapnik and Chervonenkis, 1968)[6]
+
+A class of sets C{𝒞} is uniformly GC if and only if it is a Vapnik–Chervonenkis class. 
+Examples[edit]
+Let S=R=ℝ and C=(−∞,t]:t∈R𝒞={(-∞,t]:t∈ℝ}. The classical Glivenko–Cantelli theorem implies that this class is a universal GC class. Furthermore, by Kolmogorov's theorem,
+supP∈P(S,A)‖Pn−P‖C∼n−1/2sup_P∈𝒫(S,A)P_n-P_𝒞^-1/2, that is C𝒞 is uniformly Glivenko–Cantelli class.
+Let P be a nonatomic probability measure on S and C𝒞 be a class of all finite subsets in S. Because An=X1,…,Xn∈C_n={X_1,…,X_n}∈𝒞, P(An)=0(A_n)=0, Pn(An)=1_n(A_n)=1, we have that ‖Pn−P‖C=1P_n-P_𝒞=1 and so C𝒞 is not a GC class with respect to P.
+See also[edit]
+Donsker's theorem
+Dvoretzky–Kiefer–Wolfowitz inequality – strengthens the Glivenko–Cantelli theorem by quantifying the rate of convergence.
+References[edit]
+
+
+^ Howard G.Tucker (1959). "A Generalization of the Glivenko–Cantelli Theorem". The Annals of Mathematical Statistics. 30 (3): 828–830. doi:10.1214/aoms/1177706212. JSTOR 2237422.
+
+^ van der Vaart, A. W. (1998). Asymptotic Statistics. Cambridge University Press. p. 279. ISBN 978-0-521-78450-4.
+
+^ a b van der Vaart, A.W. (1998). Asymptotic Statistics. Cambridge University Press. ISBN 978-0-521-78450-4.
+
+^ Glivenko, V. (1933). "Sulla determinazione empirica delle leggi di probabilità". Giorn. Ist. Ital. Attuari (in Italian). 4: 92–99.
+
+^ Cantelli, F.P. (1933). "Sulla determinazione empirica delle leggi di probabilità". Giorn. Ist. Ital. Attuari. 4: 421–424.
+
+^ Vapnik, V.N.; Chervonenkis, A.Ya. (1971). "On the Uniform Convergence of Relative Frequencies of Events to Their Probabilities". Theory of Probability & Its Applications. 16 (2): 264–280. doi:10.1137/1116025.
+
+
+Further reading[edit]
+
+Dudley, R.M. (1999). Uniform Central Limit Theorems. Cambridge University Press. ISBN 0-521-46102-2.
+Pitman, E.J.G. (1979). "The Sample Distribution Function". Some Basic Theory for Statistical Inference. London, UK: Chapman and Hall. p. 79–97. ISBN 0-470-26554-X.
+Shorack, G.R.; Wellner, J.A. (1986). Empirical Processes with Applications to Statistics. Wiley. ISBN 0-471-86725-X.
+van der Vaart, A.W.; Wellner, J.A. (1996). Weak Convergence and Empirical Processes. Springer. ISBN 0-387-94640-3.
+van der Vaart, Aad W.; Wellner, Jon A. (1996). Glivenko-Cantelli Theorems. Springer.
+van der Vaart, Aad W.; Wellner, Jon A. (2000). Preservation Theorems for Glivenko–Cantelli and Uniform Glivenko–Cantelli Classes. Springer.
+
+
+
+

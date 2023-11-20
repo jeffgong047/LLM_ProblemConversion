@@ -1,0 +1,285 @@
+Theorem concerning uniform convergence
+In measure theory, an area of mathematics, Egorov's theorem establishes a condition for the uniform convergence of a pointwise convergent sequence of measurable functions. It is also named Severini–Egoroff theorem or Severini–Egorov theorem, after Carlo Severini, an Italian mathematician, and Dmitri Egorov, a Russian physicist and geometer, who published independent proofs respectively in 1910 and 1911.
+Egorov's theorem can be used along with compactly supported continuous functions to prove Lusin's theorem for integrable functions.
+
+
+Historical note[edit]
+The first proof of the theorem was given by Carlo Severini in 1910:[1][2] he used the result as a tool in his research on series of orthogonal functions. His work remained apparently unnoticed outside Italy, probably due to the fact that it is written in Italian, appeared in a scientific journal with limited diffusion and was considered only as a means to obtain other theorems. A year later Dmitri Egorov published his independently proved results,[3] and the theorem became widely known under his name: however, it is not uncommon to find references to this theorem as the Severini–Egoroff theorem. The first mathematicians to prove independently the theorem in the nowadays common abstract measure space setting were Frigyes Riesz (1922, 1928), and in Wacław Sierpiński (1928):[4] an earlier generalization is due to Nikolai Luzin, who succeeded in slightly relaxing the requirement of finiteness of measure of the domain of convergence of the pointwise converging functions in the ample paper (Luzin 1916).[5] Further generalizations were given much later by Pavel Korovkin, in the paper (Korovkin 1947), and by Gabriel Mokobodzki in the paper (Mokobodzki 1970).
+
+Formal statement and proof[edit]
+Statement[edit]
+Let (fn) be a sequence of M-valued measurable functions, where M is a separable metric space, on some measure space (X,Σ,μ), and suppose there is a measurable subset A ⊆ X, with finite μ-measure, such that (fn) converges μ-almost everywhere on A to a limit function f. The following result holds: for every ε > 0, there exists a measurable subset B of A such that μ(B) < ε, and (fn) converges to f uniformly on A \ B.
+Here, μ(B) denotes the μ-measure of B. In words, the theorem says that pointwise convergence almost everywhere on A implies the apparently much stronger uniform convergence everywhere except on some subset B of arbitrarily small measure. This type of convergence is also called almost uniform convergence.
+
+Discussion of assumptions and a counterexample[edit]
+The hypothesis μ(A) < ∞ is necessary. To see this, it is simple to construct a counterexample when μ is the Lebesgue measure: consider the sequence of real-valued indicator functions fn(x)=1[n,n+1](x),n∈N,x∈R,_n(x)=1_[n,n+1](x),∈ℕ,∈ℝ, defined on the real line. This sequence converges pointwise to the zero function everywhere but does not converge uniformly on R∖Bℝ for any set B of finite measure: a counterexample in the general n-dimensional real vector space Rnℝ^n can be constructed as shown by Cafiero (1959, p. 302).
+The separability of the metric space is needed to make sure that for M-valued, measurable functions f and g, the distance d(f(x), g(x)) is again a measurable real-valued function of x.
+Proof[edit]
+Fix ε>0ε>0.
+For natural numbers n and k, define the set En,k by the union
+
+En,k=⋃m≥nx∈A||fm(x)−f(x)|≥1k._n,k=⋃_m{x | |f_m(x)-f(x)|≥1/k}.
+These sets get smaller as n increases, meaning that En+1,k is always a subset of En,k, because the first union involves fewer sets. A point x, for which the sequence (fm(x)) converges to f(x), cannot be in every En,k for a fixed k, because fm(x) has to stay closer to f(x) than 1/k eventually. Hence by the assumption of μ-almost everywhere pointwise convergence on A,
+
+μ(⋂n∈NEn,k)=0μ(⋂_n∈ℕE_n,k)=0
+for every k. Since A is of finite measure, we have continuity from above; hence there exists, for each k, some natural number nk such that
+
+μ(Enk,k)<ε2k.μ(E_n_k,k)<ε/2^k.
+For x in this set we consider the speed of approach into the 1/k-neighbourhood of f(x) as too slow. Define
+
+B=⋃k∈NEnk,k=⋃_k∈ℕE_n_k,k
+as the set of all those points x in A, for which the speed of approach into at least one of these 1/k-neighbourhoods of f(x) is too slow. On the set difference A∖B we therefore have uniform convergence. Explicitly, for any ϵϵ, let 1k<ϵ1/k<ϵ, then for any n>nk>n_k, we have |fn−f|<ϵ|f_n-f|<ϵ on all of A∖B.
+Appealing to the sigma additivity of μ and using the geometric series, we get
+
+μ(B)≤∑k∈Nμ(Enk,k)<∑k∈Nε2k=ε.μ(B)≤∑_k∈ℕμ(E_n_k,k)<∑_k∈ℕε/2^k=ε.
+Generalizations[edit]
+Luzin's version[edit]
+Nikolai Luzin's generalization of the Severini–Egorov theorem is presented here according to Saks (1937, p. 19).
+
+Statement[edit]
+Under the same hypothesis of the abstract Severini–Egorov theorem suppose that A is the union of a sequence of measurable sets of finite μ-measure, and (fn) is a given sequence of M-valued measurable functions on some measure space (X,Σ,μ), such that (fn) converges μ-almost everywhere on A to a limit function f, then A can be expressed as the union of a sequence of measurable sets H, A1, A2,... such that μ(H) = 0 and (fn) converges to f uniformly on each set Ak.
+
+Proof[edit]
+It is sufficient to consider the case in which the set A is itself of finite μ-measure: using this hypothesis and the standard Severini–Egorov theorem, it is possible to define by mathematical induction a sequence of sets {Ak}k=1,2,... such that
+
+μ(A∖⋃k=1NAk)≤1Nμ(A∖⋃_k=1^NA_k)≤1/N
+and such that (fn) converges to f uniformly on each set Ak for each k. Choosing
+
+H=A∖⋃k=1∞Ak=A∖⋃_k=1^∞A_k
+then obviously μ(H) = 0 and the theorem is proved.
+
+Korovkin's version[edit]
+The proof of the Korovkin version follows closely the version on Kharazishvili (2000, pp. 183–184), which however generalizes it to some extent by considering admissible functionals instead of non-negative measures and inequalities ≤≤ and ≥≥ respectively in conditions 1 and 2.
+
+Statement[edit]
+Let (M,d) denote a separable metric space and (X,Σ) a measurable space: consider a measurable set A and a class A𝔄 containing A and its measurable subsets such that their countable in unions and intersections belong to the same class. Suppose there exists a non-negative measure μ such that μ(A) exists and
+
+μ(∩An)=limμ(An)μ(_n)=limμ(A_n) if A1⊃A2⊃⋯_1_2⊃⋯ with An∈A_n∈𝔄 for all n
+μ(∪An)=limμ(An)μ(_n)=limμ(A_n) if A1⊂A2⊂⋯_1_2⊂⋯ with ∪An∈A_n∈𝔄.
+If (fn) is a sequence of M-valued measurable functions converging μ-almost everywhere on A∈A∈𝔄 to a limit function f, then there exists a subset A′ of A such that 0 < μ(A) − μ(A′) < ε and where the convergence is also uniform.
+
+Proof[edit]
+Consider the indexed family of sets whose index set is the set of natural numbers m∈N,∈ℕ, defined as follows:
+
+A0,m=x∈A|d(fn(x),f(x))≤1∀n≥m_0,m={x|d(f_n(x),f(x))≤1
+foralln}
+Obviously
+
+A0,1⊆A0,2⊆A0,3⊆…_0,1_0,2_0,3⊆…
+and
+
+A=⋃m∈NA0,m=⋃_m∈ℕA_0,m
+therefore there is a natural number m0 such that putting A0,m0=A0 the following relation holds true:
+
+0≤μ(A)−μ(A0)≤ε0≤μ(A)-μ(A_0)≤ε
+Using A0 it is possible to define the following indexed family
+
+A1,m=x∈A0|d(fm(x),f(x))≤12∀n≥m_1,m={x_0|d(f_m(x),f(x))≤1/2
+foralln.}
+satisfying the following two relationships, analogous to the previously found ones, i.e.
+
+A1,1⊆A1,2⊆A1,3⊆…_1,1_1,2_1,3⊆…
+and
+
+A0=⋃m∈NA1,m_0=⋃_m∈ℕA_1,m
+This fact enable us to define the set A1,m1=A1, where m1 is a surely existing natural number such that
+
+0≤μ(A)−μ(A1)≤ε0≤μ(A)-μ(A_1)≤ε
+By iterating the shown construction, another indexed family of set {An} is defined such that it has the following properties:
+
+A0⊇A1⊇A2⊇⋯_0_1_2⊇⋯
+0≤μ(A)−μ(Am)≤ε0≤μ(A)-μ(A_m)≤ε for all m∈N∈ℕ
+for each m∈N∈ℕ there exists km such that for all n≥km_m then d(fn(x),f(x))≤2−m(f_n(x),f(x))≤2^-m for all x∈Am_m
+and finally putting
+
+A′=⋃n∈NAn'=⋃_n∈ℕA_n
+the thesis is easily proved.
+
+Notes[edit]
+
+
+^ Published in (Severini 1910).
+
+^ According to Straneo (1952, p. 101), Severini, while acknowledging his own priority in the publication of the result, was unwilling to disclose it publicly: it was Leonida Tonelli who, in the note (Tonelli 1924), credited him the priority for the first time.
+
+^ In the note (Egoroff 1911)
+
+^ According to Cafiero (1959, p. 315) and Saks (1937, p. 17).
+
+^ According to Saks (1937, p. 19).
+
+
+References[edit]
+
+Historical references[edit]
+Egoroff, D. Th. (1911), "Sur les suites des fonctions mesurables" [On sequences of measurable functions], Comptes rendus hebdomadaires des séances de l'Académie des sciences (in French), 152: 244–246, JFM 42.0423.01, available at Gallica.
+Riesz, F. (1922), "Sur le théorème de M. Egoroff et sur les opérations fonctionnelles linéaires" [On Egorov's theorem and on linear functional operations], Acta Litt. AC Sient. Univ. Hung. Francisco-Josephinae, Sec. Sci. Math. (Szeged) (in French), 1 (1): 18–26, JFM 48.1202.01.
+Riesz, F. (1928), "Elementarer Beweis des Egoroffschen Satzes" [Elementary proof of Egorov's theorem], Monatshefte für Mathematik und Physik (in German), 35 (1): 243–248, doi:10.1007/BF01707444, JFM 54.0271.04, S2CID 121337393.
+Severini, C. (1910), "Sulle successioni di funzioni ortogonali" [On sequences of orthogonal functions], Atti dell'Accademia Gioenia, serie 5a (in Italian), 3 (5): Memoria XIII, 1−7, JFM 41.0475.04. Published by the Accademia Gioenia in Catania.
+Sierpiński, W. (1928), "Remarque sur le théorème de M. Egoroff" [Remarks on Egorov's theorem], Comptes Rendus des Séances de la Société des Sciences et des Lettres de Varsovie (in French), 21: 84–87, JFM 57.1391.03.
+Straneo, Paolo (1952), "Carlo Severini", Bollettino della Unione Matematica Italiana, Serie 3 (in Italian), 7 (3): 98–101, MR 0050531, available from the Biblioteca Digitale Italiana di Matematica. The obituary of Carlo Severini.
+Tonelli, Leonida (1924), "Su una proposizione fondamentale dell'analisi" [Ona fundamental proposition of analysis], Bollettino della Unione Matematica Italiana, Serie 2 (in Italian), 3: 103–104, JFM 50.0192.01. A short note in which Leonida Tonelli credits Severini for the first proof of Severini–Egorov theorem.
+Scientific references[edit]
+Beals, Richard (2004), Analysis: An Introduction, Cambridge: Cambridge University Press, pp. x+261, ISBN 0-521-60047-2, MR 2098699, Zbl 1067.26001
+Cafiero, Federico (1959), Misura e integrazione [Measure and integration], Monografie matematiche del Consiglio Nazionale delle Ricerche (in Italian), vol. 5, Roma: Edizioni Cremonese, pp. VII+451, MR 0215954, Zbl 0171.01503. A definitive monograph on integration and measure theory: the treatment of the limiting behavior of the integral of various kind of sequences of measure-related structures (measurable functions, measurable sets, measures and their combinations) is somewhat conclusive.
+Kharazishvili, A.B. (2000), Strange functions in real analysis, Pure and Applied Mathematics – A Series of Monographs and Textbooks, vol. 229 (1st ed.), New York: Marcel Dekker, pp. viii+297, ISBN 0-8247-0320-0, MR 1748782, Zbl 0942.26001. Contains a section named Egorov type theorems, where the basic Severini–Egorov theorem is given in a form which slightly generalizes that of Korovkin (1947).
+Korovkin, P.P. (1947), "Generalization of a theorem of D.F. Egorov", Doklady Akademii Nauk SSSR (in Russian), 58: 1265–1267, MR 0023322, Zbl 0038.03803
+Luzin, N. (1916), "Интегралъ и тригонометрическій рядъ" [Integral and trigonometric series], Matematicheskii Sbornik (in Russian), 30 (1): 1–242, JFM 48.1368.01
+Mokobodzki, Gabriel (22 June 1970), "Noyaux absolument mesurables et opérateurs nucléaires" [Absolutely measurable kernels and nuclear operators], Comptes Rendus de l'Académie des Sciences, Série A (in French), 270: 1673–1675, MR 0270182, Zbl 0211.44803
+Picone, Mauro; Viola, Tullio (1952), Lezioni sulla teoria moderna dell'integrazione [Lectures on modern integration theory], Manuali Einaudi. Serie di matematica (in Italian), Torino: Edizioni Scientifiche Einaudi, p. 404, MR 0049983, Zbl 0046.28102, reviewed by Cimmino, Gianfranco (1952), "M. Picone – T. Viola, Lezioni sulla teoria Moderna dell'Integrazione", Bollettino dell'Unione Matematica Italiana, Serie 3 (in Italian), 7 (4): 452–454 and by Halmos, Paul R. (January 1953), "Review: M. Picone and T. Viola, Lezioni sulla teoria moderna dell'integrazione", Bulletin of the American Mathematical Society, 59 (1): 94, doi:10.1090/S0002-9904-1953-09666-5.
+Saks, Stanisław (1937), Theory of the Integral, Monografie Matematyczne, vol. 7, translated by Young, L. C., with two additional notes by Stefan Banach (2nd ed.), Warszawa-Lwów: G.E. Stechert & Co., pp. VI+347, JFM 63.0183.05, Zbl 0017.30004 (available at the Polish Virtual Library of Science).
+
+External links[edit]
+Egorov's theorem at PlanetMath.
+Humpreys, Alexis. "Egorov's theorem". MathWorld.
+Kudryavtsev, L.D. (2001) [1994], "Egorov theorem", Encyclopedia of Mathematics, EMS Press
+vteMeasure theoryBasic concepts
+Absolute continuity of measures
+Lebesgue integration
+Lp spaces
+Measure
+Measure space
+Probability space
+Measurable space/function
+Sets
+Almost everywhere
+Atom
+Baire set
+Borel set
+equivalence relation
+Borel space
+Carathéodory's criterion
+Cylindrical σ-algebra
+Cylinder set
+𝜆-system
+Essential range
+infimum/supremum
+Locally measurable
+π-system
+σ-algebra
+Non-measurable set
+Vitali set
+Null set
+Support
+Transverse measure
+Universally measurable
+Types of Measures
+Atomic
+Baire
+Banach
+Besov
+Borel
+Brown
+Complex
+Complete
+Content
+(Logarithmically) Convex
+Decomposable
+Discrete
+Equivalent
+Finite
+Inner
+(Quasi-) Invariant
+Locally finite
+Maximising
+Metric outer
+Outer
+Perfect
+Pre-measure
+(Sub-) Probability
+Projection-valued
+Radon
+Random
+Regular
+Borel regular
+Inner regular
+Outer regular
+Saturated
+Set function
+σ-finite
+s-finite
+Signed
+Singular
+Spectral
+Strictly positive
+Tight
+Vector
+Particular measures
+Counting
+Dirac
+Euler
+Gaussian
+Haar
+Harmonic
+Hausdorff
+Intensity
+Lebesgue
+Infinite-dimensional
+Logarithmic
+Product
+Projections
+Pushforward
+Spherical measure
+Tangent
+Trivial
+Young
+Maps
+Measurable function
+Bochner
+Strongly
+Weakly
+Convergence: almost everywhere
+of measures
+in measure
+of random variables
+in distribution
+in probability
+Cylinder set measure
+Random: compact set
+element
+measure
+process
+variable
+vector
+Projection-valued measure
+Main results
+Carathéodory's extension theorem
+Convergence theorems
+Dominated
+Monotone
+Vitali
+Decomposition theorems
+Hahn
+Jordan
+Maharam's
+Egorov's
+Fatou's lemma
+Fubini's
+Fubini–Tonelli
+Hölder's inequality
+Minkowski inequality
+Radon–Nikodym
+Riesz–Markov–Kakutani representation theorem
+Other results
+Disintegration theorem
+Lifting theory
+Lebesgue's density theorem
+Lebesgue differentiation theorem
+Sard's theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+Applications & related
+Convex analysis
+Descriptive set theory
+Probability theory
+Real analysis
+Spectral theory
+
+
+
+

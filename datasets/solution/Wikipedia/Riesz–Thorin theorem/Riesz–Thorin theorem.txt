@@ -1,0 +1,426 @@
+Theorem on operator interpolation
+For more theorems that are called Riesz's theorem, see Riesz theorem.
+In mathematics, the Riesz–Thorin theorem, often referred to as the Riesz–Thorin interpolation theorem or the Riesz–Thorin convexity theorem, is a result about interpolation of operators.  It is named after Marcel Riesz and his student G. Olof Thorin.
+This theorem bounds the norms of linear maps acting between Lp spaces. Its usefulness stems from the fact that some of these spaces have rather simpler structure than others. Usually that refers to L2 which is a Hilbert space, or to L1 and L∞. Therefore one may prove theorems about the more complicated cases by proving them in two simple cases and then using the Riesz–Thorin theorem to pass from the simple cases to the complicated cases. The Marcinkiewicz theorem is similar but applies also to a class of non-linear maps.
+
+
+Motivation[edit]
+First we need the following definition:
+
+Definition. Let p0, p1 be two numbers such that 0 < p0 < p1 ≤ ∞. Then for 0 < θ < 1 define pθ by:  1/pθ = 1 − θ/p0 + θ/p1.
+By splitting up the function  f  in Lpθ as the product | f | = | f |1−θ | f |θ and applying Hölder's inequality to its pθ power, we obtain the following result, foundational in the study of Lp-spaces:
+
+
+Proposition (log-convexity of Lp-norms) — Each  f  ∈ Lp0 ∩ Lp1 satisfies: 
+
+
+
+
+‖f‖pθ≤‖f‖p01−θ‖f‖p1θ.f_p_θ≤f_p_0^1-θf_p_1^θ.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(1)
+
+
+This result, whose name derives from the convexity of the map 1⁄p ↦ log || f ||p on [0, ∞], implies that Lp0 ∩ Lp1 ⊂ Lpθ.
+On the other hand, if we take the layer-cake decomposition  f  =  f 1{| f |>1} +  f 1{| f |≤1}, then we see that  f 1{| f |>1} ∈ Lp0 and  f 1{| f |≤1} ∈ Lp1, whence we obtain the following result:
+
+
+Proposition — Each  f  in Lpθ can be written as a sum:  f  = g + h, where g ∈ Lp0 and h ∈ Lp1.
+
+
+In particular, the above result implies that Lpθ is included in Lp0 + Lp1, the sumset of Lp0 and Lp1 in the space of all measurable functions. Therefore, we have the following chain of inclusions:
+
+
+Corollary — Lp0 ∩ Lp1 ⊂ Lpθ ⊂ Lp0 + Lp1.
+
+
+In practice, we often encounter operators defined on the sumset Lp0 + Lp1. For example, the Riemann–Lebesgue lemma shows that the Fourier transform maps L1(Rd) boundedly into L∞(Rd), and Plancherel's theorem shows that the Fourier transform maps L2(Rd) boundedly into itself, hence the Fourier transform Fℱ extends to (L1 + L2) (Rd) by setting
+F(f1+f2)=FL1(f1)+FL2(f2)ℱ(f_1+f_2)=ℱ_L^1(f_1)+ℱ_L^2(f_2)
+for all  f1  ∈ L1(Rd) and  f2  ∈ L2(Rd). It is therefore natural to investigate the behavior of such operators on the intermediate subspaces Lpθ.
+To this end, we go back to our example and note that the Fourier transform on the sumset L1 + L2 was obtained by taking the sum of two instantiations of the same operator, namely
+FL1:L1(Rd)→L∞(Rd),ℱ_L^1:L^1(𝐑^d)^∞(𝐑^d),
+FL2:L2(Rd)→L2(Rd).ℱ_L^2:L^2(𝐑^d)^2(𝐑^d).
+These really are the same operator, in the sense that they agree on the subspace (L1 ∩ L2) (Rd). Since the intersection contains simple functions, it is dense in both L1(Rd) and L2(Rd). Densely defined continuous operators admit unique extensions, and so we are justified in considering FL1ℱ_L^1 and FL2ℱ_L^2 to be the same.
+Therefore, the problem of studying operators on the sumset Lp0 + Lp1 essentially reduces to the study of operators that map two natural domain spaces, Lp0 and Lp1, boundedly to two target spaces: Lq0 and Lq1, respectively. Since such operators map the sumset space Lp0 + Lp1 to Lq0 + Lq1, it is natural to expect that these operators map the intermediate space Lpθ to the corresponding intermediate space Lqθ.
+
+Statement of the theorem[edit]
+There are several ways to state the Riesz–Thorin interpolation theorem;[1] to be consistent with the notations in the previous section, we shall use the sumset formulation.
+
+
+Riesz–Thorin interpolation theorem — Let (Ω1, Σ1, μ1) and (Ω2, Σ2, μ2) be σ-finite measure spaces. Suppose 1 ≤ p0 , q0 , p1 , q1 ≤ ∞, and let T : Lp0(μ1) + Lp1(μ1) → Lq0(μ2) + Lq1(μ2) be a linear operator that boundedly maps Lp0(μ1) into Lq0(μ2) and Lp1(μ1) into Lq1(μ2). For 0 < θ < 1, let pθ, qθ be defined as above. Then T boundedly maps Lpθ(μ1) into Lqθ(μ2) and satisfies the operator norm estimate 
+
+
+
+‖T‖Lpθ→Lqθ≤‖T‖Lp0→Lq01−θ‖T‖Lp1→Lq1θ.T_L^p_θ^q_θ≤T_L^p_0^q_0^1-θT_L^p_1^q_1^θ.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(2)
+
+
+In other words, if T is simultaneously of type (p0, q0) and of type (p1, q1), then T is of type (pθ, qθ) for all 0 < θ < 1. In this manner, the interpolation theorem lends itself to a pictorial description. Indeed, the Riesz diagram of T is the collection of all points (1/p, 1/q) in the unit square [0, 1] × [0, 1] such that T is of type (p, q). The interpolation theorem states that the Riesz diagram of T is a convex set: given two points in the Riesz diagram, the line segment that connects them will also be in the diagram.
+The interpolation theorem was originally stated and proved by Marcel Riesz in 1927.[2] The 1927 paper establishes the theorem only for the lower triangle of the Riesz diagram, viz., with the restriction that p0 ≤ q0 and p1 ≤ q1. Olof Thorin extended the interpolation theorem to the entire square, removing the lower-triangle restriction. The proof of Thorin was originally published in 1938 and was subsequently expanded upon in his 1948 thesis.[3]
+
+Proof[edit]
+We will first prove the result for simple functions and eventually show how the argument can be extended by density to all measurable functions.
+
+Simple Functions[edit]
+By symmetry, let us assume p0<p1_0<p_1 (the case p0=p1_0=p_1 trivially follows from (1)). Let f be a simple function, that is f=∑j=1maj1Aj=∑_j=1^ma_j1_A_j for some finite m∈N∈ℕ, aj=|aj|eiαj∈C_j=_j|e^iα_j∈ℂ and Aj∈Σ1_j∈Σ_1, j=1,2,…,m=1,2,…,m. Similarly, let g denote a simple function Ω2→CΩ_2→ℂ, namely g=∑k=1nbk1Bk=∑_k=1^nb_k1_B_k for some finite n∈N∈ℕ, bk=|bk|eiβk∈C_k=_k|e^iβ_k∈ℂ and Bk∈Σ2_k∈Σ_2, k=1,2,…,n=1,2,…,n.
+Note that, since we are assuming Ω1Ω_1 and Ω2Ω_2 to be σσ-finite metric spaces, f∈Lr(μ1)^r(μ_1) and g∈Lr(μ2)^r(μ_2) for all r∈[1,∞]∈[1,∞]. Then, by proper normalization, we can assume ‖f‖pθ=1‖_p_θ=1 and ‖g‖qθ′=1‖_q_θ'=1, with qθ′=qθ(qθ−1)−1_θ'=q_θ(q_θ-1)^-1 and with pθ_θ, qθ_θ as defined by the theorem statement.
+Next, we define the two complex functions u:C→Cv:C→Cz↦u(z)=1−zp0+zp1z↦v(z)=1−zq0+zq1.u:ℂ   →ℂ   v:ℂ   →ℂ
+z   (z)=1-z/p_0+z/p_1   z   (z)=1-z/q_0+z/q_1. Note that, for z=θ=θ, u(θ)=pθ−1(θ)=p_θ^-1 and v(θ)=qθ−1(θ)=q_θ^-1. We then extend f and g to depend on a complex parameter z as follows: fz=∑j=1m|aj|u(z)u(θ)eiαj1Ajgz=∑k=1n|bk|1−v(z)1−v(θ)eiβk1Bkf_z   =∑_j=1^m_j|^u(z)/u(θ)e^iα_j1_A_j
+g_z   =∑_k=1^n_k|^1-v(z)/1-v(θ)e^iβ_k1_B_k so that fθ=f_θ=f and gθ=g_θ=g. Here, we are implicitly excluding the case q0=q1=1_0=q_1=1, which yields v≡1≡1: In that case, one can simply take gz=g_z=g, independently of z, and the following argument will only require minor adaptations.
+
+Let us now introduce the function Φ(z)=∫Ω2(Tfz)gzdμ2=∑j=1m∑k=1n|aj|u(z)u(θ)|bk|1−v(z)1−v(θ)γj,kΦ(z)=∫_Ω_2(Tf_z)g_z dμ_2=∑_j=1^m∑_k=1^n_j|^u(z)/u(θ)_k|^1-v(z)/1-v(θ)γ_j,k where γj,k=ei(αj+βk)∫Ω2(T1Aj)1Bkdμ2γ_j,k=e^i(α_j+β_k)∫_Ω_2(T1_A_j)1_B_k dμ_2 are constants independent of z. We readily see that Φ(z)Φ(z) is an entire function, bounded on the strip 0≤Re⁡z≤10≤ℝez≤1. Then, in order to prove (2), we only need to show that 
+
+
+|Φ(iy)|≤‖T‖Lp0→Lq0and|Φ(1+iy)|≤‖T‖Lp1→Lq1|Φ(iy)|   ≤T_L^p_0^q_0      and   |Φ(1+iy)|   ≤T_L^p_1^q_1
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(3)
+ for all fz_z and gz_z as constructed above. Indeed, if (3) holds true, by Hadamard three-lines theorem, |Φ(θ+i0)|=|∫Ω2(Tf)gdμ2|≤‖T‖Lp0→Lq01−θ‖T‖Lp1→Lq1θ|Φ(θ+i0)|=|∫_Ω_2(Tf)g dμ_2|≤T_L^p_0^q_0^1-θT_L^p_1^q_1^θ for all f and g. This means, by fixing f, that supg|∫Ω2(Tf)gdμ2|≤‖T‖Lp0→Lq01−θ‖T‖Lp1→Lq1θsup_g|∫_Ω_2(Tf)g dμ_2|≤T_L^p_0^q_0^1-θT_L^p_1^q_1^θ where the supremum is taken with respect to all g simple functions with ‖g‖qθ′=1‖_q_θ'=1. The left-hand side can be rewritten by means of the following lemma.[4]
+
+Lemma — Let 1≤p,p′≤∞1,p'≤∞ be conjugate exponents and let f be a function in Lp(μ1)^p(μ_1). Then ‖f‖p=sup|∫Ω1fgdμ1|‖_p=sup|∫_Ω_1fg dμ_1| where the supremum is taken over all simple functions g in Lp′(μ1)^p'(μ_1) such that ‖g‖p′≤1‖_p'≤1.
+
+
+In our case, the lemma above implies ‖Tf‖qθ≤‖T‖Lp0→Lq01−θ‖T‖Lp1→Lq1θ‖_q_θ≤T_L^p_0^q_0^1-θT_L^p_1^q_1^θ for all simple function f with ‖f‖pθ=1‖_p_θ=1. Equivalently, for a generic simple function, ‖Tf‖qθ≤‖T‖Lp0→Lq01−θ‖T‖Lp1→Lq1θ‖f‖pθ.‖_q_θ≤T_L^p_0^q_0^1-θT_L^p_1^q_1^θ‖_p_θ.
+
+Proof of (3)[edit]
+Let us now prove that our claim (3) is indeed certain. The sequence (Aj)j=1m(A_j)_j=1^m consists of disjoint subsets in Σ1Σ_1 and, thus, each ξ∈Ω1ξ∈Ω_1 belongs to (at most) one of them, say Aȷ^_. Then, for z=iy=iy, |fiy(ξ)|=|aȷ^|u(iy)u(θ)=exp⁡(log⁡|aȷ^|pθp0)exp⁡(−iylog⁡|aȷ^|pθ(1p0−1p1))=|aȷ^|pθp0=|f(ξ)|pθp0_iy(ξ)|   =_|^u(iy)/u(θ)
+   =exp(log_|p_θ/p_0)exp(-iylog__θ(1/p_0-1/p_1))
+   =_|^p_θ/p_0
+   =(ξ)|^p_θ/p_0 which implies that ‖fiy‖p0≤‖f‖pθpθp0_iy‖_p_0≤‖_p_θ^p_θ/p_0. With a parallel argument, each ζ∈Ω2ζ∈Ω_2 belongs to (at most) one of the sets supporting g, say Bk^_k̂, and |giy(ζ)|=|bk^|1−1/q01−1/qθ=|g(ζ)|1−1/q01−1/qθ=|g(ζ)|qθ′q0′⟹‖giy‖q0′≤‖g‖qθ′qθ′q0′._iy(ζ)|=_k̂|^1-1/q_0/1-1/q_θ=(ζ)|^1-1/q_0/1-1/q_θ=(ζ)|^q_θ'/q_0'_iy‖_q_0'≤‖_q_θ'^q_θ'/q_0'.
+We can now bound Φ(iy)Φ(iy): By applying Hölder’s inequality with conjugate exponents q0_0 and q0′_0', we have |Φ(iy)|≤‖Tfiy‖q0‖giy‖q0′≤‖T‖Lp0→Lq0‖fiy‖p0‖giy‖q0′=‖T‖Lp0→Lq0‖f‖pθpθp0‖g‖qθ′qθ′q0′=‖T‖Lp0→Lq0.|Φ(iy)|   ≤_iy‖_q_0_iy‖_q_0'
+   ≤T_L^p_0^q_0_iy‖_p_0_iy‖_q_0'
+   =T_L^p_0^q_0‖_p_θ^p_θ/p_0‖_q_θ'^q_θ'/q_0'
+   =T_L^p_0^q_0.
+We can repeat the same process for z=1+iy=1+iy to obtain |f1+iy(ξ)|=|f(ξ)|pθ/p1_1+iy(ξ)|=(ξ)|^p_θ/p_1, |g1+iy(ζ)|=|g(ζ)|qθ′/q1′_1+iy(ζ)|=(ζ)|^q_θ'/q_1' and, finally, |Φ(1+iy)|≤‖T‖Lp1→Lq1‖f1+iy‖p1‖g1+iy‖q1′=‖T‖Lp1→Lq1.|Φ(1+iy)|≤T_L^p_1^q_1_1+iy‖_p_1_1+iy‖_q_1'=T_L^p_1^q_1.
+
+Extension to All Measurable Functions in Lpθ[edit]
+So far, we have proven that 
+
+
+‖Tf‖qθ≤‖T‖Lpθ→Lqθ‖f‖pθ‖_q_θ≤T_L^p_θ^q_θ‖_p_θ
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(4)
+ when f is a simple function. As already mentioned, the inequality holds true for all f∈Lpθ(Ω1)^p_θ(Ω_1) by the density of simple functions in Lpθ(Ω1)^p_θ(Ω_1).
+Formally, let f∈Lpθ(Ω1)^p_θ(Ω_1) and let (fn)n(f_n)_n be a sequence of simple functions such that |fn|≤|f|_n|≤|, for all n, and fn→f_n pointwise. Let E=x∈Ω1:|f(x)|>1={x∈Ω_1:(x)|>1} and define g=f1E=f1_E, gn=fn1E_n=f_n1_E, h=f−g=f1Ec=f-g=f1_E^c and hn=fn−gn_n=f_n-g_n. Note that, since we are assuming p0≤pθ≤p1_0_θ_1, ‖f‖pθpθ=∫Ω1|f|pθdμ1≥∫Ω1|f|pθ1Edμ1≥∫Ω1|f1E|p0dμ1=∫Ω1|g|p0dμ1=‖g‖p0p0‖f‖pθpθ=∫Ω1|f|pθdμ1≥∫Ω1|f|pθ1Ecdμ1≥∫Ω1|f1Ec|p1dμ1=∫Ω1|h|p1dμ1=‖h‖p1p1‖_p_θ^p_θ   =∫_Ω_1|^p_θ dμ_1≥∫_Ω_1|^p_θ1_E dμ_1≥∫_Ω_11_E|^p_0 dμ_1=∫_Ω_1|^p_0 dμ_1=‖_p_0^p_0
+‖_p_θ^p_θ   =∫_Ω_1|^p_θ dμ_1≥∫_Ω_1|^p_θ1_E^c dμ_1≥∫_Ω_11_E^c|^p_1 dμ_1=∫_Ω_1|^p_1 dμ_1=‖_p_1^p_1 and, equivalently, g∈Lp0(Ω1)^p_0(Ω_1) and h∈Lp1(Ω1)^p_1(Ω_1).
+Let us see what happens in the limit for n→∞→∞. Since |fn|≤|f|_n|≤|, |gn|≤|g|_n|≤| and |hn|≤|h|_n|≤|, by the dominated convergence theorem one readily has ‖fn‖pθ→‖f‖pθ‖gn‖p0→‖g‖p0‖hn‖p1→‖h‖p1._n‖_p_θ   →‖_p_θ   _n‖_p_0   →‖_p_0   _n‖_p_1   →‖_p_1. Similarly, |f−fn|≤2|f|-f_n|≤2|, |g−gn|≤2|g|-g_n|≤2| and |h−hn|≤2|h|-h_n|≤2| imply ‖f−fn‖pθ→0‖g−gn‖p0→0‖h−hn‖p1→0-f_n‖_p_θ   →0   -g_n‖_p_0   →0   -h_n‖_p_1   →0 and, by the linearity of T as an operator of types (p0,q0)(p_0,q_0) and (p1,q1)(p_1,q_1) (we have not proven yet that it is of type (pθ,qθ)(p_θ,q_θ) for a generic f) ‖Tg−Tgn‖p0≤‖T‖Lp0→Lq0‖g−gn‖p0→0‖Th−Thn‖p1≤‖T‖Lp1→Lq1‖h−hn‖p1→0.-Tg_n‖_p_0   ≤T_L^p_0^q_0-g_n‖_p_0→0   -Th_n‖_p_1   ≤T_L^p_1^q_1-h_n‖_p_1→0.
+It is now easy to prove that Tgn→Tg_n and Thn→Th_n in measure: For any ϵ>0ϵ>0, Chebyshev’s inequality yields μ2(y∈Ω2:|Tg−Tgn|>ϵ)≤‖Tg−Tgn‖q0q0ϵq0μ_2(y∈Ω_2:-Tg_n|>ϵ)≤-Tg_n‖_q_0^q_0/ϵ^q_0 and similarly for Th−Thn-Th_n. Then, Tgn→Tg_n and Thn→Th_n a.e. for some subsequence and, in turn, Tfn→Tf_n a.e. Then, by Fatou’s lemma and recalling that (4) holds true for simple functions, ‖Tf‖qθ≤liminfn→∞‖Tfn‖qθ≤‖T‖Lpθ→Lqθliminfn→∞‖fn‖pθ=‖T‖Lpθ→Lqθ‖f‖pθ.‖_q_θ≤lim inf_n→∞_n‖_q_θ≤T_L^p_θ^q_θlim inf_n→∞_n‖_p_θ=T_L^p_θ^q_θ‖_p_θ.
+
+Interpolation of analytic families of operators[edit]
+The proof outline presented in the above section readily generalizes to the case in which the operator T is allowed to vary analytically. In fact, an analogous proof can be carried out to establish a bound on the entire function
+φ(z)=∫(Tzfz)gzdμ2,φ(z)=∫(T_zf_z)g_z dμ_2,
+from which we obtain the following theorem of Elias Stein, published in his 1956 thesis:[5]
+
+
+Stein interpolation theorem — Let (Ω1, Σ1, μ1) and (Ω2, Σ2, μ2) be σ-finite measure spaces. Suppose 1 ≤ p0 , p1 ≤ ∞, 1 ≤ q0 , q1 ≤ ∞, and define: 
+
+S = {z ∈ C : 0 < Re(z) < 1},
+S = {z ∈ C : 0 ≤ Re(z) ≤ 1}.
+We take a collection of linear operators {Tz : z ∈ S} on the space of simple functions in L1(μ1) into the space of all μ2-measurable functions on Ω2. We assume the following further properties on this collection of linear operators: 
+
+The mapping z↦∫(Tzf)gdμ2↦∫(T_zf)g dμ_2 is continuous on S and holomorphic on S for all simple functions  f  and g.
+For some constant k < π, the operators satisfy the uniform bound: supz∈Se−k|Im(z)|log⁡|∫(Tzf)gdμ2|<∞sup_ze^-k|Im(z)|log|∫(T_zf)g dμ_2|<∞
+Tz maps Lp0(μ1) boundedly to Lq0(μ2) whenever Re(z) = 0.
+Tz maps Lp1(μ1) boundedly to Lq1(μ2) whenever Re(z) = 1.
+The operator norms satisfy the uniform bound supRe(z)=0,1e−k|Im(z)|log⁡‖Tz‖<∞sup_Re(z)=0,1e^-k|Im(z)|logT_z<∞ for some constant k < π.
+Then, for each 0 < θ < 1, the operator Tθ maps Lpθ(μ1) boundedly into Lqθ(μ2).
+
+
+The theory of real Hardy spaces and the space of bounded mean oscillations permits us to wield the Stein interpolation theorem argument in dealing with operators on the Hardy space H1(Rd) and the space BMO of bounded mean oscillations; this is a result of Charles Fefferman and Elias Stein.[6]
+
+Applications[edit]
+Hausdorff–Young inequality[edit]
+Main article: Hausdorff–Young inequality
+It has been shown in the first section that the Fourier transform Fℱ maps L1(Rd) boundedly into L∞(Rd) and L2(Rd) into itself. A similar argument shows that the Fourier series operator, which transforms periodic functions  f  : T → C into functions f^:Z→Cf̂:𝐙→𝐂 whose values are the Fourier coefficients
+f^(n)=12π∫−ππf(x)e−inxdx,f̂(n)=1/2π∫_-π^πf(x)e^-inx dx,
+maps L1(T) boundedly into ℓ∞(Z) and L2(T) into ℓ2(Z). The Riesz–Thorin interpolation theorem now implies the following:
+‖Ff‖Lq(Rd)≤‖f‖Lp(Rd)‖f^‖ℓq(Z)≤‖f‖Lp(T)ℱf_L^q(𝐑^d)   ≤f_L^p(𝐑^d)
+f̂_ℓ^q(𝐙)   ≤f_L^p(𝐓)
+where 1 ≤ p ≤ 2 and 1/p + 1/q = 1. This is the Hausdorff–Young inequality.
+The Hausdorff–Young inequality can also be established for the Fourier transform on locally compact Abelian groups. The norm estimate of 1 is not optimal. See the main article for references.
+
+Convolution operators[edit]
+Main article: Young's convolution inequality
+Let  f  be a fixed integrable function and let T be the operator of convolution with  f , i.e., for each function g we have Tg =  f  ∗ g.
+It is well known that T is bounded from L1 to L1 and it is trivial that it is bounded from L∞ to L∞ (both bounds are by || f ||1). Therefore the Riesz–Thorin theorem gives
+‖f∗g‖p≤‖f‖1‖g‖p.f*g_p≤f_1g_p.
+We take this inequality and switch the role of the operator and the operand, or in other words, we think of S as the operator of convolution with g, and get that S is bounded from L1 to Lp. Further, since g is in Lp we get, in view of Hölder's inequality, that S is bounded from Lq to L∞, where again 1/p + 1/q = 1. So interpolating we get
+‖f∗g‖s≤‖f‖r‖g‖pf*g_s≤f_rg_p
+where the connection between p, r and s is
+1r+1p=1+1s.1/r+1/p=1+1/s.
+
+The Hilbert transform[edit]
+Main article: Hilbert transform
+The Hilbert transform of  f  : R → C is given by
+Hf(x)=1πp.v.∫−∞∞f(x−t)tdt=(1πp.v.1t∗f)(x),ℋf(x)=1/π p.v.∫_-∞^∞f(x-t)/t dt=(1/π p.v.1/t)(x),
+where p.v. indicates the Cauchy principal value of the integral. The Hilbert transform is a Fourier multiplier operator with a particularly simple multiplier:
+Hf^(ξ)=−isgn⁡(ξ)f^(ξ).ℋf(ξ)=-i sgn(ξ)f̂(ξ).
+It follows from the Plancherel theorem that the Hilbert transform maps L2(R) boundedly into itself.
+Nevertheless, the Hilbert transform is not bounded on L1(R) or L∞(R), and so we cannot use the Riesz–Thorin interpolation theorem directly. To see why we do not have these endpoint bounds, it suffices to compute the Hilbert transform of the simple functions 1(−1,1)(x) and 1(0,1)(x) − 1(0,1)(−x). We can show, however, that
+(Hf)2=f2+2H(fHf)(ℋf)^2=f^2+2ℋ(fℋf)
+for all Schwartz functions  f  : R → C, and this identity can be used in conjunction with the Cauchy–Schwarz inequality to show that the Hilbert transform maps L2n(Rd) boundedly into itself for all n ≥ 2. Interpolation now establishes the bound
+‖Hf‖p≤Ap‖f‖pℋf_p_pf_p
+for all 2 ≤ p < ∞, and the self-adjointness of the Hilbert transform can be used to carry over these bounds to the 1 < p ≤ 2 case.
+
+Comparison with the real interpolation method[edit]
+While the Riesz–Thorin interpolation theorem and its variants are powerful tools that yield a clean estimate on the interpolated operator norms, they suffer from numerous defects: some minor, some more severe. Note first that the complex-analytic nature of the proof of the Riesz–Thorin interpolation theorem forces the scalar field to be C. For extended-real-valued functions, this restriction can be bypassed by redefining the function to be finite everywhere—possible, as every integrable function must be finite almost everywhere. A more serious disadvantage is that, in practice, many operators, such as the Hardy–Littlewood maximal operator and the Calderón–Zygmund operators, do not have good endpoint estimates.[7] In the case of the Hilbert transform in the previous section, we were able to bypass this problem by explicitly computing the norm estimates at several midway points. This is cumbersome and is often not possible in more general scenarios. Since many such operators satisfy the weak-type estimates
+μ(x:Tf(x)>α)≤(Cp,q‖f‖pα)q,μ({x:Tf(x)>α})≤(C_p,qf_p/α)^q,
+real interpolation theorems such as the Marcinkiewicz interpolation theorem are better-suited for them. Furthermore, a good number of important operators, such as the Hardy-Littlewood maximal operator, are only sublinear. This is not a hindrance to applying real interpolation methods, but complex interpolation methods are ill-equipped to handle non-linear operators. On the other hand, real interpolation methods, compared to complex interpolation methods, tend to produce worse estimates on the intermediate operator norms and do not behave as well off the diagonal in the Riesz diagram. The off-diagonal versions of the Marcinkiewicz interpolation theorem require the formalism of Lorentz spaces and do not necessarily produce norm estimates on the Lp-spaces.
+
+Mityagin's theorem[edit]
+B. Mityagin extended the Riesz–Thorin theorem; this extension is formulated here in the special case of spaces of sequences with unconditional bases (cf. below).
+Assume:
+‖A‖ℓ1→ℓ1,‖A‖ℓ∞→ℓ∞≤M.A_ℓ_1→ℓ_1,A_ℓ_∞→ℓ_∞.
+Then
+‖A‖X→X≤MA_X
+for any unconditional Banach space of sequences X, that is, for any (xi)∈X(x_i) and any (εi)∈−1,1∞(ε_i)∈{-1,1}^∞, ‖(εixi)‖X=‖(xi)‖X(ε_ix_i)_X=(x_i)_X.
+The proof is based on the Krein–Milman theorem.
+
+See also[edit]
+Marcinkiewicz interpolation theorem
+Interpolation space
+Notes[edit]
+
+
+^ Stein and Weiss (1971) and Grafakos (2010) use operators on simple functions, and Muscalu and Schlag (2013) uses operators on generic dense subsets of the intersection Lp0 ∩ Lp1. In contrast, Duoanddikoetxea (2001), Tao (2010), and Stein and Shakarchi (2011) use the sumset formulation, which we adopt in this section.
+
+^ Riesz (1927). The proof makes use of convexity results in the theory of bilinear forms. For this reason, many classical references such as Stein and Weiss (1971) refer to the Riesz–Thorin interpolation theorem as the Riesz convexity theorem.
+
+^ Thorin (1948)
+
+^ Bernard, Calista. "Interpolation theorems and applications" (PDF).
+
+^ Stein (1956). As Charles Fefferman points out in his essay in Fefferman, Fefferman, Wainger (1995), the proof of Stein interpolation theorem is essentially that of the Riesz–Thorin theorem with the letter z added to the operator. To compensate for this, a stronger version of the Hadamard three-lines theorem, due to Isidore Isaac Hirschman, Jr., is used to establish the desired bounds. See Stein and Weiss (1971) for a detailed proof, and a blog post of Tao for a high-level exposition of the theorem.
+
+^ Fefferman and Stein (1972)
+
+^ Elias Stein is quoted for saying that interesting operators in harmonic analysis are rarely bounded on L1 and L∞.
+
+
+References[edit]
+Dunford, N.; Schwartz, J.T. (1958), Linear operators, Parts I and II, Wiley-Interscience.
+Fefferman, Charles; Stein, Elias M. (1972), "Hp^p Spaces of Several variables", Acta Mathematica, 129: 137–193, doi:10.1007/bf02392215
+Glazman, I.M.; Lyubich, Yu.I. (1974), Finite-dimensional linear analysis: a systematic presentation in problem form, Cambridge, Mass.: The M.I.T. Press.  Translated from the Russian and edited by G. P. Barker and G. Kuerti.
+Hörmander, L. (1983), The analysis of linear partial differential operators I, Grundl. Math. Wissenschaft., vol. 256, Springer, doi:10.1007/978-3-642-96750-4, ISBN 3-540-12104-8, MR 0717035.
+Mitjagin [Mityagin], B.S. (1965), "An interpolation theorem for modular spaces (Russian)", Mat. Sb., New Series, 66 (108): 473–482.
+Thorin, G. O. (1948), "Convexity theorems generalizing those of M. Riesz and Hadamard with some applications", Comm. Sem. Math. Univ. Lund [Medd. Lunds Univ. Mat. Sem.], 9: 1–58, MR 0025529
+Riesz, Marcel (1927), "Sur les maxima des formes bilinéaires et sur les fonctionnelles linéaires", Acta Mathematica, 49 (3–4): 465–497, doi:10.1007/bf02564121
+Stein, Elias M. (1956), "Interpolation of Linear Operators", Trans. Amer. Math. Soc., 83 (2): 482–492, doi:10.1090/s0002-9947-1956-0082586-0
+Stein, Elias M.; Shakarchi, Rami (2011), Functional Analysis: Introduction to Further Topics in Analysis, Princeton University Press
+Stein, Elias M.; Weiss, Guido (1971), Introduction to Fourier Analysis on Euclidean Spaces, Princeton University Press
+External links[edit]
+"Riesz convexity theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+vteLp spacesBasic concepts
+Banach & Hilbert spaces
+Lp spaces
+Measure
+Lebesgue
+Measure space
+Measurable space/function
+Minkowski distance
+Sequence spaces
+L1 spaces
+Integrable function
+Lebesgue integration
+Taxicab geometry
+L2 spaces
+Bessel's
+Cauchy–Schwarz
+Euclidean distance
+Hilbert space
+Parseval's identity
+Polarization identity
+Pythagorean theorem
+Square-integrable function
+L∞^∞ spaces
+Bounded function
+Chebyshev distance
+Infimum and supremum
+Essential
+Uniform norm
+Maps
+Almost everywhere
+Convergence almost everywhere
+Convergence in measure
+Function space
+Integral transform
+Locally integrable function
+Measurable function
+Symmetric decreasing rearrangement
+Inequalities
+Babenko–Beckner
+Chebyshev's
+Clarkson's
+Hanner's
+Hausdorff–Young
+Hölder's
+Markov's
+Minkowski
+Young's convolution
+Results
+Marcinkiewicz interpolation theorem
+Plancherel theorem
+Riemann–Lebesgue
+Riesz–Fischer theorem
+Riesz–Thorin theorem
+For Lebesgue measure
+Isoperimetric inequality
+Brunn–Minkowski theorem
+Milman's reverse
+Minkowski–Steiner formula
+Prékopa–Leindler inequality
+Vitale's random Brunn–Minkowski inequality
+
+Applications & related
+Bochner space
+Fourier analysis
+Lorentz space
+Probability theory
+Quasinorm
+Real analysis
+Sobolev space
+*-algebra
+C*-algebra
+Von Neumann
+
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

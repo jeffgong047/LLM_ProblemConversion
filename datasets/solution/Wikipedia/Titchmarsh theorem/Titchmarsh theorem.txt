@@ -1,0 +1,547 @@
+Integral transform and linear operator
+In mathematics and signal processing, the Hilbert transform  is a specific singular integral that takes a function, u(t) of a real variable and produces another function of a real variable H(u)(t). The Hilbert transform is given by the Cauchy principal value of the convolution with the function 1/(πt)1/()  (see § Definition).  The Hilbert transform has a particularly simple representation in the frequency domain: It imparts a phase shift of ±90° (π/2 radians) to every frequency component of a function, the sign of the shift depending on the sign of the frequency (see § Relationship with the Fourier transform).  The Hilbert transform is important in signal processing, where it is a component of the analytic representation of a real-valued signal u(t).  The Hilbert transform was first introduced by David Hilbert in this setting, to solve a special case of the Riemann–Hilbert problem for analytic functions.
+
+
+Definition[edit]
+The Hilbert transform of u can be thought of as the convolution of u(t) with the function h(t) = 1/πt, known as the Cauchy kernel. Because 1/t is not integrable across t = 0, the integral defining the convolution does not always converge. Instead, the Hilbert transform is defined using the Cauchy principal value (denoted here by p.v.). Explicitly, the Hilbert transform of a function (or signal) u(t) is given by
+H⁡(u)(t)=1πp.v.⁡∫−∞+∞u(τ)t−τdτ,H(u)(t)=1/π p.v.∫_-∞^+∞u(τ)/t-τ dτ,
+provided this integral exists as a principal value. This is precisely the convolution of u with the tempered distribution p.v. 1/πt.[1] Alternatively, by changing variables, the principal-value integral can be written explicitly[2] as
+H⁡(u)(t)=2πlimε→0∫ε∞u(t−τ)−u(t+τ)2τdτ.H(u)(t)=2/π lim_ε→0∫_ε^∞u(t-τ)-u(t+τ)/2τ dτ.
+When the Hilbert transform is applied twice in succession to a function u, the result is
+H⁡(H⁡(u))(t)=−u(t),H(H(u))(t)=-u(t),
+provided the integrals defining both iterations converge in a suitable sense. In particular, the inverse transform is 
+H3H^3. This fact can most easily be seen by considering the effect of the Hilbert transform on the Fourier transform of u(t) (see § Relationship with the Fourier transform below).
+For an analytic function in the upper half-plane, the Hilbert transform describes the relationship between the real part and the imaginary part of the boundary values. That is, if f(z) is analytic in the upper half complex plane {z : Im{z} > 0}, and u(t) = Re{f (t + 0·i)}, then Im{f(t + 0·i)} = H(u)(t) up to an additive constant, provided this Hilbert transform exists.
+
+Notation[edit]
+In signal processing the Hilbert transform of u(t) is commonly denoted by u^(t)û(t).[3] However, in mathematics, this notation is already extensively used to denote the Fourier transform of u(t).[4] Occasionally, the Hilbert transform may be denoted by u (t)ũ(t). Furthermore, many sources define the Hilbert transform as the negative of the one defined here.[5]
+
+History[edit]
+The Hilbert transform arose in Hilbert's 1905 work on a problem Riemann posed concerning analytic functions,[6][7] which has come to be known as the Riemann–Hilbert problem. Hilbert's work was mainly concerned with the Hilbert transform for functions defined on the circle.[8][9] Some of his earlier work related to the Discrete Hilbert Transform dates back to lectures he gave in Göttingen. The results were later published by Hermann Weyl in his dissertation.[10] Schur improved Hilbert's results about the discrete Hilbert transform and extended them to the integral case.[11] These results were restricted to the spaces L2 and ℓ2. In 1928, Marcel Riesz proved that the Hilbert transform can be defined for u in Lp(R)^p(ℝ) (Lp space) for 1 < p < ∞, that the Hilbert transform is a bounded operator on Lp(R)^p(ℝ) for 1 < p < ∞, and that similar results hold for the Hilbert transform on the circle as well as the discrete Hilbert transform.[12] The Hilbert transform was a motivating example for Antoni Zygmund and Alberto Calderón during their study of singular integrals.[13] Their investigations have played a fundamental role in modern harmonic analysis. Various generalizations of the Hilbert transform, such as the bilinear and trilinear Hilbert transforms are still active areas of research today.
+
+Relationship with the Fourier transform[edit]
+The Hilbert transform is a multiplier operator.[14] The multiplier of H is σH(ω) = −i sgn(ω), where sgn is the signum function. Therefore:
+F(H⁡(u))(ω)=−isgn⁡(ω)⋅F(u)(ω),ℱ(H(u))(ω)=-isgn(ω)·ℱ(u)(ω),
+where Fℱ denotes the Fourier transform. Since sgn(x) = sgn(2πx), it follows that this result applies to the three common definitions of Fℱ.
+By Euler's formula,
+σH(ω)=i=e+iπ2,forω<0,0,forω=0,−i=e−iπ2,forω>0.σ_H(ω)=  i=e^+iπ/2,   forω<0,
+  0,   forω=0,
+-i=e^-iπ/2,   forω>0.
+Therefore, H(u)(t) has the effect of shifting the phase of the negative frequency components of u(t) by +90° (π⁄2 radians) and the phase of the positive frequency components by −90°, and i·H(u)(t) has the effect of restoring the positive frequency components while shifting the negative frequency ones an additional +90°, resulting in their negation (i.e., a multiplication by −1).
+When the Hilbert transform is applied twice, the phase of the negative and positive frequency components of u(t) are respectively shifted by +180° and −180°, which are equivalent amounts. The signal is negated; i.e., H(H(u)) = −u, because
+(σH(ω))2=e±iπ=−1forω≠0.(σ_H(ω))^2=e^π=-1  forω≠0.
+
+Table of selected Hilbert transforms[edit]
+In the following table, the frequency parameter ωω is real.
+
+
+
+Signal u(t)(t)
+
+Hilbert transform[fn 1] H⁡(u)(t)H(u)(t)
+
+
+sin⁡(ωt+ϕ)sin(+ϕ) [fn 2]
+
+sin⁡(ωt+ϕ−π2)=−cos⁡(ωt+ϕ),ω>0sin⁡(ωt+ϕ+π2)=cos⁡(ωt+ϕ),ω<0[ sin(+ϕ-π2)=-cos(+ϕ),  ω>0;  sin(+ϕ+π2)=cos(+ϕ),  ω<0 ]
+
+
+
+cos⁡(ωt+ϕ)cos(+ϕ) [fn 2]
+
+cos⁡(ωt+ϕ−π2)=sin⁡(ωt+ϕ),ω>0cos⁡(ωt+ϕ+π2)=−sin⁡(ωt+ϕ),ω<0[  cos(+ϕ-π2)=sin(+ϕ),  ω>0; cos(+ϕ+π2)=-sin(+ϕ),  ω<0 ]
+
+
+
+eiωt^i
+
+ei(ωt−π2),ω>0ei(ωt+π2),ω<0[ e^i(-π2),  ω>0; e^i(+π2),  ω<0 ]
+
+
+
+e−iωt^-i
+
+e−i(ωt−π2),ω>0e−i(ωt+π2),ω<0[ e^-i(-π2),  ω>0; e^-i(+π2),  ω<0 ]
+
+
+
+1t2+11^2+1
+tt2+1^2+1
+
+
+e−t2^-t^2
+2πF(t)2/√(π )F(t)(see Dawson function)
+
+
+Sinc function  sin⁡(t)tsin(t)
+1−cos⁡(t)t1-cos(t)
+
+
+Dirac delta function δ(t)δ(t)
+1πt1
+
+
+Characteristic function  χ[a,b](t)χ_[a,b](t)
+1πln⁡|t−at−b|1/ π ln|t-a/t-b|
+
+Notes
+
+
+^ Some authors (e.g., Bracewell) use our −H as their definition of the forward transform. A consequence is that the right column of this table would be negated.
+
+^ a b The Hilbert transform of the sin and cos functions can be defined by taking the principal value of the integral at infinity.  This definition agrees with the result of defining the Hilbert transform distributionally.
+
+
+An extensive table of Hilbert transforms is available.[15]
+Note that the Hilbert transform of a constant is zero.
+
+Domain of definition[edit]
+It is by no means obvious that the Hilbert transform is well-defined at all, as the improper integral defining it must converge in a suitable sense. However, the Hilbert transform is well-defined for a broad class of functions, namely those in Lp(R)^p(ℝ) for 1 < p < ∞.
+More precisely, if u is in Lp(R)^p(ℝ) for 1 < p < ∞, then the limit defining the improper integral
+H⁡(u)(t)=2πlimε→0∫ε∞u(t−τ)−u(t+τ)2τdτH(u)(t)=2/πlim_ε→0∫_ε^∞u(t-τ)-u(t+τ)/2τ dτ
+exists for almost every t. The limit function is also in Lp(R)^p(ℝ) and is in fact the limit in the mean of the improper integral as well. That is,
+2π∫ε∞u(t−τ)−u(t+τ)2τdτ→H⁡(u)(t)2/π∫_ε^∞u(t-τ)-u(t+τ)/2τ dτ→H(u)(t)
+as ε → 0 in the Lp norm, as well as pointwise almost everywhere, by the Titchmarsh theorem.[16]
+In the case p = 1, the Hilbert transform still converges pointwise almost everywhere, but may itself fail to be integrable, even locally.[17] In particular, convergence in the mean does not in general happen in this case. The Hilbert transform of an L1 function does converge, however, in L1-weak, and the Hilbert transform is a bounded operator from L1 to L1,w.[18] (In particular, since the Hilbert transform is also a multiplier operator on L2, Marcinkiewicz interpolation and a duality argument furnishes an alternative proof that H is bounded on Lp.)
+
+Properties[edit]
+Boundedness[edit]
+If 1 < p < ∞, then the Hilbert transform on Lp(R)^p(ℝ) is a bounded linear operator, meaning that there exists a constant Cp such that
+‖H⁡u‖p≤Cp‖u‖pHu_p_pu_p
+for all u∈Lp(R)^p(ℝ).[19]
+The best constant Cp_p is given by[20]
+Cp=tan⁡π2pfor1<p≤2cot⁡π2pfor2<p<∞_p=tanπ/2p   for 1<p≤2
+π/2p   for 2<p<∞
+An easy way to find the best Cp_p for p being a power of 2 is through the so-called Cotlar's identity that (H⁡f)2=f2+2H⁡(fH⁡f)(Hf)^2=f^2+2H(fHf) for all real valued f. The same best constants hold for the periodic Hilbert transform.
+The boundedness of the Hilbert transform implies the Lp(R)^p(ℝ) convergence of the symmetric partial sum operator 
+SRf=∫−RRf^(ξ)e2πixξdξ_Rf=∫_-R^Rf̂(ξ)e^2ξ dξ
+to f in Lp(R)^p(ℝ).[21]
+
+Anti-self adjointness[edit]
+The Hilbert transform is an anti-self adjoint operator relative to the duality pairing between Lp(R)^p(ℝ) and the dual space Lq(R)^q(ℝ), where p and q are Hölder conjugates and 1 < p, q < ∞. Symbolically,
+⟨H⁡u,v⟩=⟨u,−H⁡v⟩⟨Hu,v⟩=,-Hv⟩
+for u∈Lp(R)^p(ℝ) and v∈Lq(R)^q(ℝ).[22]
+
+Inverse transform[edit]
+The Hilbert transform is an anti-involution,[23] meaning that
+H⁡(H⁡(u))=−uH(H(u))=-u
+provided each transform is well-defined. Since H preserves the space Lp(R)^p(ℝ), this implies in particular that the Hilbert transform is invertible on Lp(R)^p(ℝ), and that
+H−1=−HH^-1=-H
+
+Complex structure[edit]
+Because H2 = −I  ("I" is the identity operator) on the real Banach space of real-valued functions in Lp(R)^p(ℝ), the Hilbert transform defines a linear complex structure on this Banach space. In particular, when p = 2, the Hilbert transform gives the Hilbert space of real-valued functions in L2(R)^2(ℝ) the structure of a complex Hilbert space.
+The (complex) eigenstates of the Hilbert transform admit representations as holomorphic functions in the upper and lower half-planes in the Hardy space H2 by the Paley–Wiener theorem.
+
+Differentiation[edit]
+Formally, the derivative of the Hilbert transform is the Hilbert transform of the derivative, i.e. these two linear operators commute:
+H⁡(dudt)=ddtH⁡(u)H(du/dt)=d/dtH(u)
+Iterating this identity,
+H⁡(dkudtk)=dkdtkH⁡(u)H(d^ku/dt^k)=d^k/dt^kH(u)
+This is rigorously true as stated provided u and its first k derivatives belong to Lp(R)^p(ℝ).[24] One can check this easily in the frequency domain, where differentiation becomes multiplication by ω.
+
+Convolutions[edit]
+The Hilbert transform can formally be realized as a convolution with the tempered distribution[25]
+h(t)=p.v.⁡1πt(t)=p.v.1/π t
+Thus formally,
+H⁡(u)=h∗uH(u)=h*u
+However, a priori this may only be defined for u a distribution of compact support. It is possible to work somewhat rigorously with this since compactly supported functions (which are distributions a fortiori) are dense in Lp.  Alternatively, one may use the fact that h(t) is the distributional derivative of the function log|t|/π; to wit
+H⁡(u)(t)=ddt(1π(u∗log⁡|⋅|)(t))H(u)(t)=d/dt(1/π(u*log|·|)(t))
+For most operational purposes the Hilbert transform can be treated as a convolution. For example, in a formal sense, the Hilbert transform of a convolution is the convolution of the Hilbert transform applied on only one of either of the factors:
+H⁡(u∗v)=H⁡(u)∗v=u∗H⁡(v)H(u*v)=H(u)*v=u*H(v)
+This is rigorously true if u and v are compactly supported distributions since, in that case,
+h∗(u∗v)=(h∗u)∗v=u∗(h∗v)*(u*v)=(h*u)*v=u*(h*v)
+By passing to an appropriate limit, it is thus also true if u ∈ Lp and v ∈ Lq provided that
+1<1p+1q1<1/p+1/q
+from a theorem due to Titchmarsh.[26]
+
+Invariance[edit]
+The Hilbert transform has the following invariance properties on L2(R)^2(ℝ).
+
+It commutes with translations.  That is, it commutes with the operators Ta f(x) = f(x + a) for all a in R.ℝ.
+It commutes with positive dilations.  That is it commutes with the operators Mλ f (x) = f (λ x) for all λ > 0.
+It anticommutes with the reflection R f (x) = f (−x).
+Up to a multiplicative constant, the Hilbert transform is the only bounded operator on L2 with these properties.[27]
+In fact there is a wider set of operators that commute with the Hilbert transform. The group SL(2,R)SL(2,ℝ) acts by unitary operators Ug on the space L2(R)^2(ℝ) by the formula
+Ug−1⁡f(x)=1cx+df(ax+bcx+d),g=[abcd],forad−bc=±1.U_g^-1f(x)=1/cx+d f(ax+b/cx+d) ,=[ a b; c d ] ,    for ad-bc=±1.
+This unitary representation is an example of a principal series representation of SL(2,R). SL(2,ℝ) . In this case it is reducible, splitting as the orthogonal sum of two invariant subspaces, Hardy space H2(R)^2(ℝ) and its conjugate. These are the spaces of L2 boundary values of holomorphic functions on the upper and lower halfplanes. H2(R)^2(ℝ) and its conjugate consist of exactly those L2 functions with Fourier transforms vanishing on the negative and positive parts of the real axis respectively. Since the Hilbert transform is equal to H = −i (2P − I), with P being the orthogonal projection from L2(R)^2(ℝ) onto H2⁡(R),H^2(ℝ), and I the identity operator, it follows that H2⁡(R)H^2(ℝ) and its orthogonal complement are eigenspaces of H for the eigenvalues ±i. In other words, H commutes with the operators Ug. The restrictions of the operators Ug to H2⁡(R)H^2(ℝ) and its conjugate give irreducible representations of SL(2,R)SL(2,ℝ) – the so-called limit of discrete series representations.[28]
+
+Extending the domain of definition[edit]
+Hilbert transform of distributions[edit]
+It is further possible to extend the Hilbert transform to certain spaces of distributions (Pandey 1996, Chapter 3). Since the Hilbert transform commutes with differentiation, and is a bounded operator on Lp, H restricts to give a continuous transform on the inverse limit of Sobolev spaces:
+DLp=lim⟵n→∞Wn,p(R)𝒟_L^p=n→∞⟵limW^n,p(ℝ)
+The Hilbert transform can then be defined on the dual space of DLp𝒟_L^p, denoted DLp′𝒟_L^p', consisting of Lp distributions. This is accomplished by the duality pairing:
+For u∈DLp′∈𝒟'_L^p, define:
+H⁡(u)∈DLp′=⟨H⁡u,v⟩≜⟨u,−H⁡v⟩,forallv∈DLp.H(u)∈𝒟'_L^p=⟨Hu,v⟩
+triangleq
+langleu,-Hv⟩,{forall∈̌𝒟_L^p.
+It is possible to define the Hilbert transform on the space of tempered distributions as well by an approach due to Gel'fand and Shilov,[29] but considerably more care is needed because of the singularity in the integral.
+
+Hilbert transform of bounded functions[edit]
+The Hilbert transform can be defined for functions in L∞(R)^∞(ℝ) as well, but it requires some modifications and caveats. Properly understood, the Hilbert transform maps L∞(R)^∞(ℝ) to the Banach space of bounded mean oscillation (BMO) classes.
+Interpreted naïvely, the Hilbert transform of a bounded function is clearly ill-defined. For instance, with u = sgn(x), the integral defining H(u) diverges almost everywhere to ±∞. To alleviate such difficulties, the Hilbert transform of an L∞ function is therefore defined by the following regularized form of the integral
+H⁡(u)(t)=p.v.⁡∫−∞∞u(τ)h(t−τ)−h0(−τ)dτH(u)(t)=p.v.∫_-∞^∞u(τ){h(t-τ)-h_0(-τ)} dτ
+where as above h(x) = 1/πx and
+h0(x)=0for|x|<11πxfor|x|≥1_0(x)=0   for |x|<1
+1/π x   for |x|≥1
+The modified transform H agrees with the original transform up to an additive constant on functions of compact support from a general result by Calderón and Zygmund.[30] Furthermore, the resulting integral converges pointwise almost everywhere, and with respect to the BMO norm, to a function of bounded mean oscillation.
+A deep result of Fefferman's work[31] is that a function is of bounded mean oscillation if and only if it has the form  f + H(g)  for some f,g∈L∞(R),g^∞(ℝ).
+
+Conjugate functions[edit]
+The Hilbert transform can be understood in terms of a pair of functions f(x) and g(x) such that the function
+F(x)=f(x)+ig(x)(x)=f(x)+i g(x)
+is the boundary value of a holomorphic function F(z) in the upper half-plane.[32] Under these circumstances, if f and g are sufficiently integrable, then one is the Hilbert transform of the other.
+Suppose that f∈Lp(R).^p(ℝ). Then, by the theory of the Poisson integral, f admits a unique harmonic extension into the upper half-plane, and this extension is given by
+u(x+iy)=u(x,y)=1π∫−∞∞f(s)y(x−s)2+y2ds(x+iy)=u(x,y)=1/π∫_-∞^∞f(s) y/(x-s)^2+y^2 ds
+which is the convolution of f with the Poisson kernel
+P(x,y)=yπ(x2+y2)(x,y)=y/π (x^2+y^2)
+Furthermore, there is a unique harmonic function v defined in the upper half-plane such that F(z) = u(z) + i v(z) is holomorphic and
+limy→∞v(x+iy)=0lim_y→∞v (x+i y)=0
+This harmonic function is obtained from f by taking a convolution with the conjugate Poisson kernel
+Q(x,y)=xπ(x2+y2).(x,y)=x/π (x^2+y^2).
+Thus
+v(x,y)=1π∫−∞∞f(s)x−s(x−s)2+y2ds.(x,y)=1/π∫_-∞^∞f(s) x-s/ (x-s)^2+y^2  ds.
+Indeed, the real and imaginary parts of the Cauchy kernel are
+iπz=P(x,y)+iQ(x,y)i/π z=P(x,y)+i Q(x,y)
+so that F = u + i v is holomorphic by Cauchy's integral formula.
+The function v obtained from u in this way is called the harmonic conjugate of u. The (non-tangential) boundary limit of v(x,y) as y → 0 is the Hilbert transform of f. Thus, succinctly,
+H⁡(f)=limy→0Q(−,y)⋆fH(f)=lim_y→0Q(-,y)
+
+Titchmarsh's theorem[edit]
+Titchmarsh's theorem (named for E. C. Titchmarsh who included it in his 1937 work) makes precise the relationship between the boundary values of holomorphic functions in the upper half-plane and the Hilbert transform.[33] It gives necessary and sufficient conditions for a complex-valued square-integrable function F(x) on the real line to be the boundary value of a function in the Hardy space H2(U) of holomorphic functions in the upper half-plane U.
+The theorem states that the following conditions for a complex-valued square-integrable function F:R→C:ℝ→ℂ are equivalent:
+
+F(x) is the limit as z → x of a holomorphic function F(z) in the upper half-plane such that ∫−∞∞|F(x+iy)|2dx<K∫_-∞^∞|F(x+i y)|^2 dx<K
+The real and imaginary parts of F(x) are Hilbert transforms of each other.
+The Fourier transform F(F)(x)ℱ(F)(x) vanishes for x < 0.
+A weaker result is true for functions of class Lp for p > 1.[34] Specifically, if F(z) is a holomorphic function such that
+∫−∞∞|F(x+iy)|pdx<K∫_-∞^∞|F(x+i y)|^p dx<K
+for all y, then there is a complex-valued function F(x) in Lp(R)^p(ℝ) such that F(x + i y) → F(x) in the Lp norm as y → 0 (as well as holding pointwise almost everywhere).  Furthermore,
+F(x)=f(x)−ig(x)(x)=f(x)-i g(x)
+where f is a real-valued function in Lp(R)^p(ℝ) and g is the Hilbert transform (of class Lp) of f.
+This is not true in the case p = 1. In fact, the Hilbert transform of an L1 function f need not converge in the mean to another L1 function. Nevertheless,[35] the Hilbert transform of f does converge almost everywhere to a finite function g such that
+∫−∞∞|g(x)|p1+x2dx<∞∫_-∞^∞|g(x)|^p/1+x^2 dx<∞
+This result is directly analogous to one by Andrey Kolmogorov for Hardy functions in the disc.[36] Although usually called Titchmarsh's theorem, the result aggregates much work of others, including Hardy, Paley and Wiener (see Paley–Wiener theorem), as well as work by Riesz, Hille, and Tamarkin[37]
+
+Riemann–Hilbert problem[edit]
+One form of the Riemann–Hilbert problem seeks to identify pairs of functions F+ and F− such that F+ is holomorphic on the upper half-plane and F− is holomorphic on the lower half-plane, such that for x along the real axis,
+F+(x)−F−(x)=f(x)_+(x)-F_-(x)=f(x)
+where f(x) is some given real-valued function of x∈R∈ℝ. The left-hand side of this equation may be understood either as the difference of the limits of F± from the appropriate half-planes, or as a hyperfunction distribution. Two functions of this form are a solution of the Riemann–Hilbert problem.
+Formally, if F± solve the Riemann–Hilbert problem
+f(x)=F+(x)−F−(x)(x)=F_+(x)-F_-(x)
+then the Hilbert transform of f(x) is given by[38]
+H(f)(x)=−i(F+(x)+F−(x)).(f)(x)=-i(F_+(x)+F_-(x)).
+
+Hilbert transform on the circle[edit]
+See also: Hardy space
+For a periodic function f the circular Hilbert transform is defined:
+f (x)≜12πp.v.⁡∫02πf(t)cot⁡(x−t2)dtf̃(x)≜1/2πp.v.∫_0^2πf(t) (x-t/2) dt
+The circular Hilbert transform is used in giving a characterization of Hardy space and in the study of the conjugate function in Fourier series. The kernel, 
+cot⁡(x−t2)(x-t/2)
+is known as the Hilbert kernel since it was in this form the Hilbert transform was originally studied.[8]
+The Hilbert kernel (for the circular Hilbert transform) can be obtained by making the Cauchy kernel 1⁄x periodic. More precisely, for x ≠ 0
+12cot⁡(x2)=1x+∑n=1∞(1x+2nπ+1x−2nπ)1/ 2 (x/2)=1/x+∑_n=1^∞(1/x+2nπ+1/ x-2nπ )
+Many results about the circular Hilbert transform may be derived from the corresponding results for the Hilbert transform from this correspondence.
+Another more direct connection is provided by the Cayley transform C(x) = (x – i) / (x + i), which carries the real line onto the circle and the upper half plane onto the unit disk. It induces a unitary map
+Uf(x)=1(x+i)πf(C(x)) f(x)=1/(x+i) √(π) f(C(x))
+of L2(T) onto L2(R).^2(ℝ). The operator U carries the Hardy space H2(T) onto the Hardy space H2(R)^2(ℝ).[39]
+
+Hilbert transform in signal processing[edit]
+Bedrosian's theorem[edit]
+Bedrosian's theorem states that the Hilbert transform of the product of a low-pass and a high-pass signal with non-overlapping spectra is given by the product of the low-pass signal and the Hilbert transform of the high-pass signal, or
+H⁡(fLP(t)⋅fHP(t))=fLP(t)⋅H⁡(fHP(t)),H(f_LP(t)_HP(t))=f_LP(t)·H(f_HP(t)),
+where fLP and fHP are the low- and high-pass signals respectively.[40]  A category of communication signals to which this applies is called the narrowband signal model.  A member of that category is amplitude modulation of a high-frequency sinusoidal "carrier":
+u(t)=um(t)⋅cos⁡(ωt+ϕ),(t)=u_m(t)·cos(+ϕ),
+where um(t) is the narrow bandwidth "message" waveform, such as voice or music.  Then by Bedrosian's theorem:[41]
+H⁡(u)(t)=um(t)⋅sin⁡(ωt+ϕ),ω>0−um(t)⋅sin⁡(ωt+ϕ),ω<0.H(u)(t)=[  u_m(t)·sin(+ϕ),  ω>0; -u_m(t)·sin(+ϕ),  ω<0 ].
+
+Analytic representation[edit]
+Main article: analytic signal
+A specific type of conjugate function is:
+ua(t)≜u(t)+i⋅H(u)(t),_a(t)(t)+i(u)(t),
+known as the analytic representation of u(t).(t).  The name reflects its mathematical tractability, due largely to Euler's formula.  Applying Bedrosian's theorem to the narrowband model, the analytic representation is:[42]
+
+
+
+
+ ua(t)=um(t)⋅cos⁡(ωt+ϕ)+i⋅um(t)⋅sin⁡(ωt+ϕ),ω>0=um(t)⋅[cos⁡(ωt+ϕ)+i⋅sin⁡(ωt+ϕ)],ω>0=um(t)⋅ei(ωt+ϕ),ω>0.u_a(t)   =u_m(t)·cos(+ϕ)+i_m(t)·sin(+ϕ),  ω>0
+   =u_m(t)·[cos(+ϕ)+i·sin(+ϕ)],  ω>0
+   =u_m(t)^i(+ϕ),  ω>0. 
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.1)
+
+
+A Fourier transform property indicates that this complex heterodyne operation can shift all the negative frequency components of um(t) above 0 Hz. In that case, the imaginary part of the result is a Hilbert transform of the real part. This is an indirect way to produce Hilbert transforms.
+
+ Angle (phase/frequency) modulation[edit]
+The form:[43]
+u(t)=A⋅cos⁡(ωt+ϕm(t))(t)=A·cos(+ϕ_m(t))
+is called angle modulation, which includes both phase modulation and frequency modulation. The instantaneous frequency is  ω+ϕm′(t).ω+ϕ_m^'(t).  For sufficiently large ω, compared to ϕm′ϕ_m^':
+H⁡(u)(t)≈A⋅sin⁡(ωt+ϕm(t))H(u)(t)·sin(+ϕ_m(t))
+and:
+ua(t)≈A⋅ei(ωt+ϕm(t))._a(t)^i(+ϕ_m(t)).
+
+Single sideband modulation (SSB)[edit]
+Main article: Single-sideband modulation
+When um(t) in Eq.1 is also an analytic representation (of a message waveform), that is:
+um(t)=m(t)+i⋅m^(t)_m(t)=m(t)+i·m(t)
+the result is single-sideband modulation:
+ua(t)=(m(t)+i⋅m^(t))⋅ei(ωt+ϕ)_a(t)=(m(t)+i·m(t))^i(+ϕ)
+whose transmitted component is:[44][45]
+u(t)=Re⁡ua(t)=m(t)⋅cos⁡(ωt+ϕ)−m^(t)⋅sin⁡(ωt+ϕ)u(t)   =Re{u_a(t)}
+   =m(t)·cos(+ϕ)-m(t)·sin(+ϕ)
+
+Causality[edit]
+The function h(t)=1/(πt)(t)=1/() presents two causality-based challenges to practical implementation in a convolution (in addition to its undefined value at 0):
+
+Its duration is infinite (technically infinite support).  Finite-length windowing reduces the effective frequency range of the transform; shorter windows result in greater losses at low and high frequencies. See also quadrature filter.
+It is a non-causal filter.  So a delayed version, h(t−τ),(t-τ), is required.  The corresponding output is subsequently delayed by τ.τ.  When creating the imaginary part of an analytic signal, the source (real part) must also be delayed by ττ.
+Discrete Hilbert transform[edit]
+Figure 1: Filter whose frequency response is bandlimited to about 95% of the Nyquist frequency
+Figure 2: Hilbert transform filter with a highpass frequency response
+Figure 3.
+Figure 4. The Hilbert transform of cos(ωt) is sin(ωt). This figure shows sin(ωt) and two approximate Hilbert transforms computed by the MATLAB library function, hilbert()
+Figure 5. Discrete Hilbert transforms of a cosine function, using piecewise convolution
+For a discrete function, u[n][n], with discrete-time Fourier transform (DTFT), U(ω)(ω), and discrete Hilbert transform u^[n]û[n], the DTFT of u^[n]û[n] in the region −π < ω < π is given by:
+
+DTFT⁡(u^)=U(ω)⋅(−i⋅sgn⁡(ω)).DTFT(û)=U(ω)·(-i·sgn(ω)).
+The inverse DTFT, using the convolution theorem, is:[46]
+
+u^[n]=DTFT−1(U(ω))∗DTFT−1(−i⋅sgn⁡(ω))=u[n]∗12π∫−ππ(−i⋅sgn⁡(ω))⋅eiωndω=u[n]∗12π[∫−π0i⋅eiωndω−∫0πi⋅eiωndω]⏟h[n],û[n]   =DTFT^-1(U(ω)){DTFT^-1(-i·sgn(ω))
+   =u[n]{1/2π∫_-π^π(-i·sgn(ω))^i dω
+   =u[n]
+underbrace1/2π[∫_-π^0i^i dω-∫_0^πi^i dω]_h[n],
+where
+
+h[n]≜0,forneven2πnfornodd,[n]
+triangleq{0,   forneven
+2/   fornodd,
+which is an infinite impulse response (IIR). When the convolution is performed numerically, an FIR approximation is substituted for h[n], as shown in Figure 1. An FIR filter with an odd number of anti-symmetric coefficients is called Type III, which inherently exhibits responses of zero magnitude at frequencies 0 and Nyquist, resulting in this case in a bandpass filter shape. A Type IV design (even number of anti-symmetric coefficients) is shown in Figure 2. Since the magnitude response at the Nyquist frequency does not drop out, it approximates an ideal Hilbert transformer a little better than the odd-tap filter. However
+
+A typical (i.e. properly filtered and sampled) u[n] sequence has no useful components at the Nyquist frequency.
+The Type IV impulse response requires a 1⁄2 sample shift in the h[n] sequence. That causes the zero-valued coefficients to become non-zero, as seen in Figure 2. So a Type III design is potentially twice as efficient as Type IV.
+The group delay of a Type III design is an integer number of samples, which facilitates aligning u^[n]û[n] with u[n],[n], to create an analytic signal. The group delay of Type IV is halfway between two samples.
+The MATLAB function, hilbert(u,N),[47] convolves a u[n] sequence with the periodic summation:[A]
+
+hN[n]≜∑m=−∞∞h[n−mN]_N[n]
+triangleq∑_m=-∞^∞h[n-mN]   [B][C]
+and returns one cycle (N samples) of the periodic result in the imaginary part of a complex-valued output sequence.  The convolution is implemented in the frequency domain as the product of the array  DFT(u[n])DFT(u[n])  with samples of the −i sgn(ω) distribution (whose real and imaginary components are all just 0 or ±1). Figure 3 compares a half-cycle of hN[n] with an equivalent length portion of h[n]. Given an FIR approximation for h[n],[n], denoted by h [n],h̃[n], substituting DFT(h [n])DFT(h̃[n]) for the −i sgn(ω) samples results in an FIR version of the convolution.
+The real part of the output sequence is the original input sequence, so that the complex output is an analytic representation of u[n]. When the input is a segment of a pure cosine, the resulting convolution for two different values of N is depicted in Figure 4 (red and blue plots). Edge effects prevent the result from being a pure sine function (green plot). Since hN[n] is not an FIR sequence, the theoretical extent of the effects is the entire output sequence. But the differences from a sine function diminish with distance from the edges. Parameter N is the output sequence length. If it exceeds the length of the input sequence, the input is modified by appending zero-valued elements. In most cases, that reduces the magnitude of the differences. But their duration is dominated by the inherent rise and fall times of the h[n] impulse response.
+An appreciation for the edge effects is important when a method called overlap-save is used to perform the convolution on a long u[n] sequence. Segments of length N are convolved with the periodic function:
+
+h N[n]≜∑m=−∞∞h [n−mN].h̃_N[n]
+triangleq∑_m=-∞^∞h̃[n-mN].
+When the duration of non-zero values of h [n]h̃[n] is M<N,<N, the output sequence includes  N − M + 1 samples of u^.û. M − 1 outputs are discarded from each block of N, and the input blocks are overlapped by that amount to prevent gaps.
+Figure 5 is an example of using both the IIR hilbert(·) function and the FIR approximation. In the example, a sine function is created by computing the Discrete Hilbert transform of a cosine function, which was processed in four overlapping segments, and pieced back together. As the FIR result (blue) shows, the distortions apparent in the IIR result (red) are not caused by the difference between h[n] and hN[n] (green and red in Figure 3). The fact that hN[n] is tapered (windowed) is actually helpful in this context. The real problem is that it's not windowed enough. Effectively, M = N, whereas the overlap-save method needs M < N.
+
+Number-theoretic Hilbert transform[edit]
+The number theoretic Hilbert transform is an extension[50] of the discrete Hilbert transform to integers modulo an appropriate prime number. In this it follows the generalization of discrete Fourier transform to number theoretic transforms. The number theoretic Hilbert transform can be used to generate sets of orthogonal discrete sequences.[51]
+
+See also[edit]
+Analytic signal
+Harmonic conjugate
+Hilbert spectroscopy
+Hilbert transform in the complex plane
+Hilbert–Huang transform
+Kramers–Kronig relation
+Riesz transform
+Single-sideband signal
+Singular integral operators of convolution type
+Notes[edit]
+
+
+^ see § Periodic convolution, Eq.4b
+
+^ A closed form version of hN[n]_N[n] for even values of N is:[48]
+hN[n]=2Ncot⁡(πn/N)fornodd,0forneven._N[n]=2/N(/N)   fornodd,
+0   forneven.
+
+^ A closed form version of hN[n]_N[n] for odd values of N is:[49]
+hN[n]=1N(cot⁡(πn/N)−cos⁡(πn)sin⁡(πn/N))._N[n]=1/N((/N)-cos()/sin(/N)).
+
+
+Page citations[edit]
+
+
+^ Due to Schwartz 1950; see Pandey 1996, Chapter 3.
+
+^ Zygmund 1968, §XVI.1.
+
+^ E.g., Brandwood 2003, p. 87.
+
+^ E.g., Stein & Weiss 1971.
+
+^ E.g., Bracewell 2000, p. 359.
+
+^ Kress 1989.
+
+^ Bitsadze 2001.
+
+^ a b Khvedelidze 2001.
+
+^ Hilbert 1953.
+
+^ Hardy, Littlewood & Pólya 1952, §9.1.
+
+^ Hardy, Littlewood & Pólya 1952, §9.2.
+
+^ Riesz 1928.
+
+^ Calderón & Zygmund 1952.
+
+^ Duoandikoetxea 2000, Chapter 3.
+
+^ King 2009b.
+
+^ Titchmarsh 1948, Chapter 5.
+
+^ Titchmarsh 1948, §5.14.
+
+^ Stein & Weiss 1971, Lemma V.2.8.
+
+^ This theorem is due to Riesz 1928, VII; see also Titchmarsh 1948, Theorem 101.
+
+^ This result is due to Pichorides 1972; see also Grafakos 2004, Remark 4.1.8.
+
+^ See for example Duoandikoetxea 2000, p. 59.
+
+^ Titchmarsh 1948, Theorem 102.
+
+^ Titchmarsh 1948, p. 120.
+
+^ Pandey 1996, §3.3.
+
+^ Duistermaat & Kolk 2010, p. 211.
+
+^ Titchmarsh 1948, Theorem 104.
+
+^ Stein 1970, §III.1.
+
+^ See Bargmann 1947, Lang 1985, and Sugiura 1990.
+
+^ Gel'fand & Shilov 1968.
+
+^ Calderón & Zygmund 1952; see Fefferman 1971.
+
+^ Fefferman 1971; Fefferman & Stein 1972
+
+^ Titchmarsh 1948, Chapter V.
+
+^ Titchmarsh 1948, Theorem 95.
+
+^ Titchmarsh 1948, Theorem 103.
+
+^ Titchmarsh 1948, Theorem 105.
+
+^ Duren 1970, Theorem 4.2.
+
+^ see King 2009a, § 4.22.
+
+^ Pandey 1996, Chapter 2.
+
+^ Rosenblum & Rovnyak 1997, p. 92.
+
+^ Schreier & Scharf 2010, 14.
+
+^ Bedrosian 1962.
+
+^ Osgood, p. 320
+
+^ Osgood, p. 320
+
+^ Franks 1969, p. 88
+
+^ Tretter 1995, p. 80 (7.9)
+
+^ Rabiner 1975
+
+^ MathWorks. "hilbert – Discrete-time analytic signal using Hilbert transform". MATLAB Signal Processing Toolbox Documentation. Retrieved 2021-05-06.
+
+^ Johansson, p. 24
+
+^ Johansson, p. 25
+
+^ Kak 1970.
+
+^ Kak 2014.
+
+
+References[edit]
+
+Bargmann, V. (1947). "Irreducible unitary representations of the Lorentz group". Ann. of Math. 48 (3): 568–640. doi:10.2307/1969129. JSTOR 1969129.
+Bedrosian, E. (December 1962). A product theorem for Hilbert transforms (PDF) (Report). Rand Corporation. RM-3439-PR.
+Bitsadze, A. V. (2001) [1994], "Boundary value problems of analytic function theory", Encyclopedia of Mathematics, EMS Press
+Bracewell, R. (2000). The Fourier Transform and Its Applications (3rd ed.). McGraw–Hill. ISBN 0-07-116043-4.
+Brandwood, David (2003). Fourier Transforms in Radar and Signal Processing. Boston: Artech House. ISBN 9781580531740.
+Calderón, A. P.; Zygmund, A. (1952). "On the existence of certain singular integrals". Acta Mathematica. 88 (1): 85–139. doi:10.1007/BF02392130.
+Duoandikoetxea, J. (2000). Fourier Analysis. American Mathematical Society. ISBN 0-8218-2172-5.
+Duistermaat, J. J.; Kolk, J. A. C. (2010). Distributions. Birkhäuser. doi:10.1007/978-0-8176-4675-2. ISBN 978-0-8176-4672-1.
+Duren, P. (1970). Theory of H^p Spaces. New York, NY: Academic Press.
+Fefferman, C. (1971). "Characterizations of bounded mean oscillation". Bulletin of the American Mathematical Society. 77 (4): 587–588. doi:10.1090/S0002-9904-1971-12763-5. MR 0280994.
+Fefferman, C.; Stein, E. M. (1972). "H^p spaces of several variables". Acta Mathematica. 129: 137–193. doi:10.1007/BF02392215. MR 0447953.
+Franks, L.E. (September 1969). Thomas Kailath (ed.). Signal Theory. Information theory. Englewood Cliffs, NJ: Prentice Hall. ISBN 0138100772.
+Gel'fand, I. M.; Shilov, G. E. (1968). Generalized Functions. Vol. 2. Academic Press. pp. 153–154. ISBN 0-12-279502-4.
+Grafakos, Loukas (2004). Classical and Modern Fourier Analysis. Pearson Education. pp. 253–257. ISBN 0-13-035399-X.
+Hardy, G. H.; Littlewood, J. E.; Pólya, G. (1952). Inequalities. Cambridge, UK: Cambridge University Press. ISBN 0-521-35880-9.
+Hilbert, David (1953) [1912]. Grundzüge einer allgemeinen Theorie der linearen Integralgleichungen [Framework for a General Theory of Linear Integral Equations] (in German). Leipzig & Berlin, DE (1912); New York, NY (1953): B.G. Teubner (1912); Chelsea Pub. Co. (1953). ISBN 978-3-322-00681-3. OCLC 988251080. Retrieved 2020-12-18 – via archive.org.{{cite book}}:  CS1 maint: location (link)
+Johansson, Mathias. "The Hilbert transform, Masters Thesis" (PDF). Archived from the original (PDF) on 2012-02-05.; also http://www.fuchs-braun.com/media/d9140c7b3d5004fbffff8007fffffff0.pdf
+Kak, Subhash (1970). "The discrete Hilbert transform". Proc. IEEE. 58 (4): 585–586. doi:10.1109/PROC.1970.7696.
+Kak, Subhash (2014). "Number theoretic Hilbert transform". Circuits, Systems and Signal Processing. 33 (8): 2539–2548. arXiv:1308.1688. doi:10.1007/s00034-014-9759-8. S2CID 21226699.
+Khvedelidze, B. V. (2001) [1994], "Hilbert transform", Encyclopedia of Mathematics, EMS Press
+King, Frederick W. (2009a). Hilbert Transforms. Vol. 1. Cambridge, UK: Cambridge University Press.
+King, Frederick W. (2009b). Hilbert Transforms. Vol. 2. Cambridge, UK: Cambridge University Press. p. 453. ISBN 978-0-521-51720-1.
+Kress, Rainer (1989). Linear Integral Equations. New York, NY: Springer-Verlag. p. 91. ISBN 3-540-50616-0.
+Lang, Serge (1985). SL(2,Rℝ). Graduate Texts in Mathematics. Vol. 105. New York, NY: Springer-Verlag. ISBN 0-387-96198-4.
+Osgood, Brad, The Fourier Transform and its Applications (PDF), Stanford University, retrieved 2021-04-30
+Pandey, J. N. (1996). The Hilbert transform of Schwartz distributions and applications. Wiley-Interscience. ISBN 0-471-03373-1.
+Pichorides, S. (1972). "On the best value of the constants in the theorems of Riesz, Zygmund, and Kolmogorov". Studia Mathematica. 44 (2): 165–179. doi:10.4064/sm-44-2-165-179.
+Rabiner, Lawrence R.; Gold, Bernard (1975). "Chapter 2.27, Eq 2.195". Theory and application of digital signal processing. Englewood Cliffs, N.J.: Prentice-Hall. p. 71. ISBN 0-13-914101-4.
+Riesz, Marcel (1928). "Sur les fonctions conjuguées". Mathematische Zeitschrift (in French). 27 (1): 218–244. doi:10.1007/BF01171098. S2CID 123261514.
+Rosenblum, Marvin; Rovnyak, James (1997). Hardy classes and operator theory. Dover. ISBN 0-486-69536-0.
+Schwartz, Laurent (1950). Théorie des distributions. Paris, FR: Hermann.
+Schreier, P.; Scharf, L. (2010). Statistical signal processing of complex-valued data: The theory of improper and noncircular signals. Cambridge, UK: Cambridge University Press.
+Smith, J. O. (2007). "Analytic Signals and Hilbert Transform Filters, in Mathematics of the Discrete Fourier Transform (DFT) with Audio Applications" (2nd ed.). Retrieved 2021-04-29.; also https://www.dsprelated.com/freebooks/mdft/Analytic_Signals_Hilbert_Transform.html
+Stein, Elias (1970). Singular integrals and differentiability properties of functions. Princeton University Press. ISBN 0-691-08079-8.
+Stein, Elias; Weiss, Guido (1971). Introduction to Fourier Analysis on Euclidean Spaces. Princeton University Press. ISBN 0-691-08078-X.
+Sugiura, Mitsuo (1990). Unitary Representations and Harmonic Analysis: An Introduction. North-Holland Mathematical Library. Vol. 44 (2nd ed.). Elsevier. ISBN 0444885935.
+Titchmarsh, E. (1986) [1948]. Introduction to the theory of Fourier integrals (2nd ed.). Oxford, UK: Clarendon Press. ISBN 978-0-8284-0324-5.
+Tretter, Steven A. (1995). R.W.Lucky (ed.). Communication System Design Using DSP Algorithms. New York: Springer. ISBN 0306450321.
+Zygmund, Antoni (1988) [1968]. Trigonometric Series (2nd ed.). Cambridge, UK: Cambridge University Press. ISBN 978-0-521-35885-9.
+
+Further reading[edit]
+
+Benedetto, John J. (1996). Harmonic Analysis and its Applications. Boca Raton, FL: CRC Press. ISBN 0849378796.
+Carlson; Crilly & Rutledge (2002). Communication Systems (4th ed.). McGraw-Hill. ISBN 0-07-011127-8.
+Gold, B.; Oppenheim, A. V.; Rader, C. M. (1969). "Theory and Implementation of the Discrete Hilbert Transform" (PDF). Proceedings of the 1969 Polytechnic Institute of Brooklyn Symposium. New York. Retrieved 2021-04-13.
+Grafakos, Loukas (1994). "An elementary proof of the square summability of the discrete Hilbert transform". American Mathematical Monthly. Mathematical Association of America. 101 (5): 456–458. doi:10.2307/2974910. JSTOR 2974910.
+Titchmarsh, E. (1926). "Reciprocal formulae involving series and integrals". Mathematische Zeitschrift. 25 (1): 321–347. doi:10.1007/BF01283842. S2CID 186237099.
+
+External links[edit]
+
+
+
+Wikimedia Commons has media related to Hilbert transform.
+
+Derivation of the boundedness of the Hilbert transform
+Mathworld Hilbert transform — Contains a table of transforms
+Weisstein, Eric W. "Titchmarsh theorem". MathWorld.
+"GS256 Lecture 3: Hilbert Transformation" (PDF). Archived from the original (PDF) on 2012-02-27. an entry level introduction to Hilbert transformation.
+
+
+

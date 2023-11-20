@@ -1,0 +1,542 @@
+Topological invariant in mathematics
+This article is about Euler characteristic number. For Euler characteristic class, see Euler class. For Euler number in 3-manifold topology, see Seifert fiber space.
+In mathematics, and more specifically in algebraic topology and polyhedral combinatorics, the Euler characteristic (or Euler number, or Euler–Poincaré characteristic) is a topological invariant, a number that describes a topological space's shape or structure regardless of the way it is bent. It is commonly denoted by χχ (Greek lower-case letter chi).
+The Euler characteristic was originally defined for polyhedra and used to prove various theorems about them, including the classification of the Platonic solids. It was stated for Platonic solids in 1537 in an unpublished manuscript by Francesco Maurolico.[1] Leonhard Euler, for whom the concept is named, introduced it for convex polyhedra more generally but failed to rigorously prove that it is an invariant. In modern mathematics, the Euler characteristic arises from homology and, more abstractly, homological algebra.
+
+
+Polyhedra[edit]
+Vertex, edge and face of a cube
+The Euler characteristic χ was classically defined for the surfaces of polyhedra, according to the formula
+
+χ=V−E+Fχ=V-E+F
+where V, E, and F are respectively the numbers of vertices (corners), edges and faces in the given polyhedron. Any convex polyhedron's surface has Euler characteristic
+
+χ=V−E+F=2.
+chi=V-E+F=2 .
+This equation, stated by Euler in 1758,[2]
+is known as Euler's polyhedron formula.[3] It corresponds to the Euler characteristic of the sphere (i.e. χ=2
+chi=2}), and applies identically to spherical polyhedra. An illustration of the formula on all Platonic polyhedra is given below.
+
+
+
+Name
+Image
+VerticesV
+EdgesE
+FacesF
+
+Euler characteristic:χ=V−E+F
+chi=V-E+F}
+
+
+Tetrahedron
+
+4
+6
+4
+2
+
+
+Hexahedron or cube
+
+8
+12
+6
+2
+
+
+Octahedron
+
+6
+12
+8
+2
+
+
+Dodecahedron
+
+20
+30
+12
+2
+
+
+Icosahedron
+
+12
+30
+20
+2
+
+The surfaces of nonconvex polyhedra can have various Euler characteristics:
+
+
+
+Name
+Image
+VerticesV
+EdgesE
+FacesF
+
+Euler characteristic:χ=V−E+F
+chi=V-E+F}
+
+
+Tetrahemihexahedron
+
+6
+12
+7
+1
+
+
+Octahemioctahedron
+
+12
+24
+12
+0
+
+
+Cubohemioctahedron
+
+12
+24
+10
+−2
+
+
+Small stellated dodecahedron
+
+12
+30
+12
+−6
+
+
+Great stellated dodecahedron
+
+20
+30
+12
+2
+
+For regular polyhedra, Arthur Cayley derived a modified form of Euler's formula using the density D, vertex figure density dv,_̣v  and face density df:_̣f 
+
+dvV−E+dfF=2D._̣vV-E+d_fF=2D .
+This version holds both for convex polyhedra (where the densities are all 1) and the non-convex Kepler–Poinsot polyhedra.
+Projective polyhedra all have Euler characteristic 1, like the real projective plane, while the surfaces of toroidal polyhedra all have Euler characteristic 0, like the torus.
+
+Plane graphs[edit]
+See also: Planar graph § Euler's formula
+The Euler characteristic can be defined for connected plane graphs by the same V−E+F-E+F} formula as for polyhedral surfaces, where F is the number of faces in the graph, including the exterior face.
+The Euler characteristic of any plane connected graph G is 2. This is easily proved by induction on the number of faces determined by G, starting with a tree as the base case. For trees, E=V−1=V-1} and F=1.=1 . If G has C components (disconnected graphs), the same argument by induction on F shows that V−E+F−C=1.-E+F-C=1 . One of the few graph theory papers of Cauchy also proves this result.
+Via stereographic projection the plane maps to the 2-sphere, such that a connected graph maps to a polygonal decomposition of the sphere, which has Euler characteristic 2. This viewpoint is implicit in Cauchy's proof of Euler's formula given below.
+
+Proof of Euler's formula[edit]
+First steps of the proof in the case of a cube
+There are many proofs of Euler's formula. One was given by Cauchy in 1811, as follows. It applies to any convex polyhedron, and more generally to any polyhedron whose boundary is topologically equivalent to a sphere and whose faces are topologically equivalent to disks.
+Remove one face of the polyhedral surface. By pulling the edges of the missing face away from each other, deform all the rest into a planar graph of points and curves, in such a way that the perimeter of the missing face is placed externally, surrounding the graph obtained, as illustrated by the first of the three graphs for the special case of the cube. (The assumption that the polyhedral surface is homeomorphic to the sphere at the beginning is what makes this possible.) After this deformation, the regular faces are generally not regular anymore. The number of vertices and edges has remained the same, but the number of faces has been reduced by 1. Therefore, proving Euler's formula for the polyhedron reduces to proving V−E+F=1-E+F=1} for this deformed, planar object.
+If there is a face with more than three sides, draw a diagonal—that is, a curve through the face connecting two vertices that are not yet connected. Each new diagonal adds one edge and one face and does not change the number of vertices, so it does not change the quantity V−E+F.-E+F . (The assumption that all faces are disks is needed here, to show via the Jordan curve theorem that this operation increases the number of faces by one.) Continue adding edges in this manner until all of the faces are triangular.
+Apply repeatedly either of the following two transformations, maintaining the invariant that the exterior boundary is always a simple cycle:
+
+Remove a triangle with only one edge adjacent to the exterior, as illustrated by the second graph. This decreases the number of edges and faces by one each and does not change the number of vertices, so it preserves V−E+F.-E+F .
+Remove a triangle with two edges shared by the exterior of the network, as illustrated by the third graph. Each triangle removal removes a vertex, two edges and one face, so it preserves V−E+F.-E+F .
+These transformations eventually reduce the planar graph to a single triangle. (Without the simple-cycle invariant, removing a triangle might disconnect the remaining triangles, invalidating the rest of the argument. A valid removal order is an elementary example of a shelling.)
+At this point the lone triangle has V=3,=3 E=3,=3  and F=1,=1  so that V−E+F=1.-E+F=1 . Since each of the two above transformation steps preserved this quantity, we have shown V−E+F=1-E+F=1} for the deformed, planar object thus demonstrating V−E+F=2-E+F=2} for the polyhedron. This proves the theorem.
+For additional proofs, see Eppstein (2013).[4] Multiple proofs, including their flaws and limitations, are used as examples in Proofs and Refutations by Lakatos (1976).[5]
+
+Topological definition[edit]
+The polyhedral surfaces discussed above are, in modern language, two-dimensional finite CW-complexes. (When only triangular faces are used, they are two-dimensional finite simplicial complexes.) In general, for any finite CW-complex, the Euler characteristic can be defined as the alternating sum
+
+χ=k0−k1+k2−k3+⋯,χ=k_0-k_1+k_2-k_3+⋯,
+where kn denotes the number of cells of dimension n in the complex.
+Similarly, for a simplicial complex, the Euler characteristic equals the alternating sum
+
+χ=k0−k1+k2−k3+⋯,χ=k_0-k_1+k_2-k_3+⋯,
+where kn denotes the number of n-simplexes in the complex.
+
+Betti number alternative[edit]
+More generally still, for any topological space, we can define the nth Betti number bn as the rank of the n-th singular homology group. The Euler characteristic can then be defined as the alternating sum
+
+χ=b0−b1+b2−b3+⋯.χ=b_0-b_1+b_2-b_3+⋯.
+This quantity is well-defined if the Betti numbers are all finite and if they are zero beyond a certain index n0. For simplicial complexes, this is not the same definition as in the previous paragraph but a homology computation shows that the two definitions will give the same value for χχ.
+
+Properties[edit]
+The Euler characteristic behaves well with respect to many basic operations on topological spaces, as follows.
+
+Homotopy invariance[edit]
+Homology is a topological invariant, and moreover a homotopy invariant: Two topological spaces that are homotopy equivalent have isomorphic homology groups. It follows that the Euler characteristic is also a homotopy invariant.
+For example, any contractible space (that is, one homotopy equivalent to a point) has trivial homology, meaning that the 0th Betti number is 1 and the others 0. Therefore, its Euler characteristic is 1. This case includes Euclidean space Rnℝ^n of any dimension, as well as the solid unit ball in any Euclidean space — the one-dimensional interval, the two-dimensional disk, the three-dimensional ball, etc.
+For another example, any convex polyhedron is homeomorphic to the three-dimensional ball, so its surface is homeomorphic (hence homotopy equivalent) to the two-dimensional sphere, which has Euler characteristic 2. This explains why convex polyhedra have Euler characteristic 2.
+
+Inclusion–exclusion principle[edit]
+If M and N are any two topological spaces, then the Euler characteristic of their disjoint union is the sum of their Euler characteristics, since homology is additive under disjoint union:
+
+χ(M⊔N)=χ(M)+χ(N).χ(M)=χ(M)+χ(N).
+More generally, if M and N are subspaces of a larger space X, then so are their union and intersection. In some cases, the Euler characteristic obeys a version of the inclusion–exclusion principle:
+
+χ(M∪N)=χ(M)+χ(N)−χ(M∩N).χ(M)=χ(M)+χ(N)-χ(M).
+This is true in the following cases:
+
+if M and N are an excisive couple. In particular, if the interiors of M and N inside the union still cover the union.[6]
+if X is a locally compact space, and one uses Euler characteristics with compact supports, no assumptions on M or N are needed.
+if X is a stratified space all of whose strata are even-dimensional, the inclusion–exclusion principle holds if M and N are unions of strata.  This applies in particular if M and N are subvarieties of a complex algebraic variety.[7]
+In general, the inclusion–exclusion principle is false. A counterexample is given by taking X to be the real line, M a subset consisting of one point and N the complement of M.
+
+Connected sum[edit]
+For two connected closed n-manifolds M,N,N one can obtain a new connected manifold M#N#N
+via the connected sum operation.
+The Euler characteristic is related by the formula [8]
+
+χ(M#N)=χ(M)+χ(N)−χ(Sn).χ(M#N)=χ(M)+χ(N)-χ(S^n).
+Product property[edit]
+Also, the Euler characteristic of any product space M × N is
+
+χ(M×N)=χ(M)⋅χ(N).χ(M)=χ(M)·χ(N).
+These addition and multiplication properties are also enjoyed by cardinality of sets. In this way, the Euler characteristic can be viewed as a generalisation of cardinality; see [1].
+
+Covering spaces[edit]
+Further information: Riemann–Hurwitz formula
+Similarly, for a k-sheeted covering space M →M,M̃, one has
+
+χ(M )=k⋅χ(M).χ(M̃)=k·χ(M).
+More generally, for a ramified covering space, the Euler characteristic of the cover can be computed from the above, with a correction factor for the ramification points, which yields the Riemann–Hurwitz formula.
+
+Fibration property[edit]
+The product property holds much more generally, for fibrations with certain conditions.
+If p:E→B is a fibration with fiber F, with the base B path-connected, and the fibration is orientable over a field K, then the Euler characteristic with coefficients in the field K satisfies the product property:[9]
+
+χ(E)=χ(F)⋅χ(B).χ(E)=χ(F)·χ(B).
+This includes product spaces and covering spaces as special cases,
+and can be proven by the Serre spectral sequence on homology of a fibration.
+For fiber bundles, this can also be understood in terms of a transfer map τ:H∗(B)→H∗(E)τ_*(B)_*(E) – note that this is a lifting and goes "the wrong way" – whose composition with the projection map p∗:H∗(E)→H∗(B)_*_*(E)_*(B) is multiplication by the Euler class of the fiber:[10]
+
+p∗∘τ=χ(F)⋅1._*∘τ=χ(F)·1.
+Examples[edit]
+Surfaces[edit]
+The Euler characteristic can be calculated easily for general surfaces by finding a polygonization of the surface (that is, a description as a CW-complex) and using the above definitions.
+
+
+
+Name
+
+Image
+
+χ
+
+
+Interval
+
+
+
+01
+
+
+Circle
+
+
+
+00
+
+
+Disk
+
+
+
+01
+
+
+Sphere
+
+
+
+02
+
+
+Torus (Product oftwo circles)
+
+
+
+00
+
+
+Double torus
+
+
+
+−2
+
+
+Triple torus
+
+
+
+−4
+
+
+Real projectiveplane
+
+
+
+01
+
+
+Möbius strip
+
+
+
+00
+
+
+Klein bottle
+
+
+
+00
+
+
+Two spheres(not connected) (Disjoint unionof two spheres)
+
+
+
+2 + 2 = 4
+
+
+Three spheres(not connected) (Disjoint unionof three spheres)
+
+
+
+2 + 2 + 2 = 6
+
+
+n spheres(not connected) (Disjoint unionof n spheres)
+
+ . . . 
+
+2 + ... + 2 = 2n
+
+Soccer ball[edit]
+It is common to construct soccer balls by stitching together pentagonal and hexagonal pieces, with three pieces meeting at each vertex (see for example the Adidas Telstar). If P pentagons and H hexagons are used, then there are F=P+H=P+H} faces,  V=13(5P+6H)=13(P+6H
+right)} vertices, and E=12(5P+6H)=12(P+6H
+right)} edges. The Euler characteristic is thus
+
+V−E+F=13(5P+6H)−12(5P+6H)+P+H=16P.-E+F=13(P+6H
+right)-12(P+6H
+right)+P+H=16P .
+Because the sphere has Euler characteristic 2, it follows that P=12.=12 . That is, a soccer ball constructed in this way always has 12 pentagons. The number of hexagons can be any nonnegative integer except 1.[11]
+This result is applicable to fullerenes and Goldberg polyhedra.
+
+Arbitrary dimensions[edit]
+Comparison of Euler characteristics of hypercubes and simplices of dimensions 1 to 4
+
+Euler characteristics of the six 4 dimensional analogues of the regular polyhedra
+
+
+Regular4 polytope
+
+Vk0
+
+Ek1
+
+Fk2
+
+Ck3
+
+ χ=V−E+χ=V-E+F−C+-C
+
+
+5 cell
+5
+10
+10
+5
+0
+
+
+8 cell
+16
+32
+24
+8
+0
+
+
+16 cell
+8
+24
+32
+16
+0
+
+
+24 cell
+24
+96
+96
+24
+0
+
+
+120 cell
+600
+1200
+720
+120
+0
+
+
+600 cell
+120
+720
+1200
+600
+0
+
+The k dimensional sphere has singular homology groups equal to
+
+Hk(Sn)=Zk=0ork=n0otherwise,_k(S^n)=ℤ    k=0  𝗈𝗋  k=n
+{0}   𝗈𝗍𝗁𝖾𝗋𝗐𝗂𝗌𝖾 
+hence has Betti number 1 in dimensions 0 and n, and all other Betti numbers are 0. Its Euler characteristic is then χ = 1 + (−1) n  ; that is, either 0 if n is odd, or 2 if n is even.
+The n dimensional real projective space is the quotient of the n sphere by the antipodal map. It follows that its Euler characteristic is exactly half that of the corresponding sphere – either 0 or 1.
+The n dimensional torus is the product space of n circles. Its Euler characteristic is 0, by the product property. More generally, any compact parallelizable manifold, including any compact Lie group, has Euler characteristic 0.[12]
+The Euler characteristic of any closed odd-dimensional manifold is also 0.[13] The case for orientable examples is a corollary of Poincaré duality. This property applies more generally to any compact stratified space all of whose strata have odd dimension. It also applies to closed odd-dimensional non-orientable manifolds, via the two-to-one orientable double cover.
+
+Relations to other invariants[edit]
+The Euler characteristic of a closed orientable surface can be calculated from its genus g (the number of tori in a connected sum decomposition of the surface; intuitively, the number of "handles") as
+
+χ=2−2g.χ=2-2g .
+The Euler characteristic of a closed non-orientable surface can be calculated from its non-orientable genus k (the number of real projective planes in a connected sum decomposition of the surface) as
+
+χ=2−k.χ=2-k .
+For closed smooth manifolds, the Euler characteristic coincides with the Euler number, i.e., the Euler class of its tangent bundle evaluated on the fundamental class of a manifold. The Euler class, in turn, relates to all other characteristic classes of vector bundles.
+For closed Riemannian manifolds, the Euler characteristic can also be found by integrating the curvature; see the Gauss–Bonnet theorem for the two-dimensional case and the generalized Gauss–Bonnet theorem for the general case.
+A discrete analog of the Gauss–Bonnet theorem is Descartes' theorem that the "total defect" of a polyhedron, measured in full circles, is the Euler characteristic of the polyhedron.
+Hadwiger's theorem characterizes the Euler characteristic as the unique (up to scalar multiplication) translation-invariant, finitely additive, not-necessarily-nonnegative set function defined on finite unions of compact convex sets in  ℝn  that is "homogeneous of degree 0".
+
+Generalizations[edit]
+For every combinatorial cell complex, one defines the Euler characteristic as the number of 0-cells, minus the number of 1-cells, plus the number of 2-cells, etc., if this alternating sum is finite. In particular, the Euler characteristic of a finite set is simply its cardinality, and the Euler characteristic of a graph is the number of vertices minus the number of edges. (Olaf Post calls this a "well-known formula".[14])
+More generally, one can define the Euler characteristic of any chain complex to be the alternating sum of the ranks of the homology groups of the chain complex, assuming that all these ranks are finite.[15]
+A version of Euler characteristic used in algebraic geometry is as follows. For any coherent sheaf Fℱ on a proper scheme X, one defines its Euler characteristic to be
+
+χ(F)=∑i(−1)ihi(X,F),χ(ℱ)=∑_i(-1)^ih^i(X,ℱ) 
+where hi(X,F)^i(X,ℱ)} is the dimension of the i-th sheaf cohomology group of Fℱ. In this case, the dimensions are all finite by Grothendieck's finiteness theorem. This is an instance of the Euler characteristic of a chain complex, where the chain complex is a finite resolution of F{ℱ} by acyclic sheaves.
+Another generalization of the concept of Euler characteristic on manifolds comes from orbifolds (see Euler characteristic of an orbifold). While every manifold has an integer Euler characteristic, an orbifold can have a fractional Euler characteristic. For example, the teardrop orbifold has Euler characteristic 1 + 1/ p  , where p is a prime number corresponding to the cone angle  2π / p .
+The concept of Euler characteristic of the reduced homology of a bounded finite poset is another generalization, important in combinatorics. A poset is "bounded" if it has smallest and largest elements; call them 0 and 1. The Euler characteristic of such a poset is defined as the integer μ(0,1), where μ is the Möbius function in that poset's incidence algebra.
+This can be further generalized by defining a rational valued Euler characteristic for certain finite categories, a notion compatible with the Euler characteristics of graphs, orbifolds and posets mentioned above. In this setting, the Euler characteristic of a finite group or monoid G is 1/ | G | , and the Euler characteristic of a finite groupoid is the sum of 1/ |Gi |, where we picked one representative group Gi for each connected component of the groupoid.[16]
+
+See also[edit]
+Euler calculus
+Euler class
+List of topics named after Leonhard Euler
+List of uniform polyhedra
+References[edit]
+Notes[edit]
+
+
+^ Friedman, Michael (2018). A History of Folding in Mathematics: Mathematizing the Margins. Science Networks. Historical Studies. Vol. 59. Birkhäuser. p. 71. doi:10.1007/978-3-319-72487-4. ISBN 978-3-319-72486-7.
+
+^ 
+Euler, L. (1758). "Elementa doctrinae solidorum" [Elements of rubrics for solids]. Novi Commentarii Academiae Scientiarum Petropolitanae (in Latin): 109–140 – via U. Pacific, Stockton, CA.
+
+^ Richeson (2008)
+
+^ Eppstein, David (2013). "Twenty-one proofs of Euler's formula:  V − E + F = 2  " (acad. pers. wbs.). Retrieved 27 May 2022 – via UC Irvine.
+
+^ Lakatos, I. (1976). Proofs and Refutations. Cambridge Technology Press.
+
+^ Edwin Spanier: Algebraic Topology, Springer 1966, p. 205.
+
+^ William Fulton: Introduction to toric varieties, 1993, Princeton University Press, p. 141.
+
+^ "Homology of connected sum". Retrieved 2016-07-13.
+
+^ Spanier, Edwin Henry (1982), Algebraic Topology, Springer, ISBN 978-0-387-94426-5, Applications of the homology spectral sequence, p. 481
+
+^ Gottlieb, Daniel Henry (1975), "Fibre bundles and the Euler characteristic" (PDF), Journal of Differential Geometry, 10 (1): 39–48, doi:10.4310/jdg/1214432674, S2CID 118905134
+
+^ Fowler, P.W. & Manolopoulos, D.E. (1995). An Atlas of Fullerenes. p. 32.
+
+^ Milnor, J.W. & Stasheff, James D. (1974). Characteristic Classes. Princeton University Press.
+
+^ Richeson (2008), p. 261
+
+^ Post, Olaf (2009). "Spectral analysis of metric graphs and related spaces". Limits of graphs in group theory and computer science. Lausanne, CH: EPFL Press. pp. 109–140. arXiv:0712.1507. Bibcode:2007arXiv0712.1507P.
+
+^ Euler characteristic at the nLab
+
+^ Leinster, Tom (2008). "The Euler characteristic of a category" (PDF). Documenta Mathematica. 13: 21–49. doi:10.4171/dm/240. S2CID 1046313. Archived from the original (PDF) on 2014-06-06 – via U. Illinois, Urbana-Champaign.
+
+
+Bibliography[edit]
+
+Richeson, D.S. (2008). Euler's Gem: The polyhedron formula and the birth of topology. Princeton University Press.
+
+
+
+Further reading[edit]
+Flegg, H. Graham;  From Geometry to Topology, Dover 2001, p. 40.
+External links[edit]
+Weisstein, Eric W. "Euler characteristic". MathWorld.
+Weisstein, Eric W. "Polyhedral formula". MathWorld.
+Matveev, S.V. (2001) [1994], "Euler characteristic", Encyclopedia of Mathematics, EMS Press
+An animated version of a proof of Euler's formula using spherical geometry.
+vteTopologyFields
+General (point-set)
+Algebraic
+Combinatorial
+Continuum
+Differential
+Geometric
+low-dimensional
+Homology
+cohomology
+Set-theoretic
+Digital
+Key concepts
+Open set / Closed set
+Interior
+Continuity
+Space
+compact
+Connected
+Hausdorff
+metric
+uniform
+Homotopy
+homotopy group
+fundamental group
+Simplicial complex
+CW complex
+Polyhedral complex
+Manifold
+Bundle (mathematics)
+Second-countable space
+Cobordism
+Metrics and properties
+Euler characteristic
+Betti number
+Winding number
+Chern number
+Orientability
+Key results
+Banach fixed-point theorem
+De Rham cohomology
+Invariance of domain
+Poincaré conjecture
+Tychonoff's theorem
+Urysohn's lemma
+
+ Category
+ Mathematics portal
+ Wikibook
+ Wikiversity
+ Topics
+general
+algebraic
+geometric
+ Publications
+
+
+
+

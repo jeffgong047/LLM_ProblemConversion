@@ -1,0 +1,794 @@
+Approximation of a function by a truncated power series
+The exponential function y=ex=e^x (red) and the corresponding Taylor polynomial of degree four (dashed green) around the origin.
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vte
+In calculus, Taylor's theorem gives an approximation of a k-times differentiable function around a given point by a polynomial of degree k, called the k-th-order Taylor polynomial. For a smooth function, the Taylor polynomial is the truncation at the order k of the Taylor series of the function. The first-order Taylor polynomial is the linear approximation of the function, and the second-order Taylor polynomial is often referred to as the quadratic approximation.[1] There are several versions of Taylor's theorem, some giving explicit estimates of the approximation error of the function by its Taylor polynomial.
+Taylor's theorem is named after the mathematician Brook Taylor, who stated a version of it in 1715,[2] although an earlier version of the result was already mentioned in 1671 by James Gregory.[3]
+Taylor's theorem is taught in introductory-level calculus courses and is one of the central elementary tools in mathematical analysis. It gives simple arithmetic formulas to accurately compute values of many transcendental functions such as the exponential function and trigonometric functions.
+It is the starting point of the study of analytic functions, and is fundamental in various areas of mathematics, as well as in numerical analysis and mathematical physics. Taylor's theorem also generalizes to multivariate and vector valued functions.
+
+
+Motivation[edit]
+Graph of f(x)=ex(x)=e^x (blue) with its linear approximation P1(x)=1+x_1(x)=1+x  (red) at a=0=0.
+If a real-valued function f(x)(x) is differentiable at the point x=a=a, then it has a linear approximation near this point.  This means that there exists a function h1(x) such that
+f(x)=f(a)+f′(a)(x−a)+h1(x)(x−a),limx→ah1(x)=0.(x)=f(a)+f'(a)(x-a)+h_1(x)(x-a),  lim_xh_1(x)=0.
+Here
+P1(x)=f(a)+f′(a)(x−a)_1(x)=f(a)+f'(a)(x-a)
+is the linear approximation of f(x)(x) for x near the point a, whose graph y=P1(x)=P_1(x) is the tangent line to the graph y=f(x)=f(x) at x = a. The error in the approximation is:
+R1(x)=f(x)−P1(x)=h1(x)(x−a)._1(x)=f(x)-P_1(x)=h_1(x)(x-a).
+As x tends to a, this error goes to zero much faster than f′(a)(x−a)'(a)(x-a), making f(x)≈P1(x)(x)_1(x) a useful approximation.
+
+Graph of f(x)=ex(x)=e^x (blue) with its quadratic approximation  P2(x)=1+x+x22_2(x)=1+x+x^22 (red) at a=0=0. Note the improvement in the approximation.
+For a better approximation to f(x)(x), we can fit a quadratic polynomial instead of a linear function:
+P2(x)=f(a)+f′(a)(x−a)+f″(a)2(x−a)2._2(x)=f(a)+f'(a)(x-a)+f”(a)/2(x-a)^2.
+Instead of just matching one derivative of f(x)(x) at  x=a=a, this polynomial has the same first and second derivatives, as is evident upon differentiation.
+Taylor's theorem ensures that the quadratic approximation is, in a sufficiently small neighborhood of x=a=a, more accurate than the linear approximation.  Specifically,
+f(x)=P2(x)+h2(x)(x−a)2,limx→ah2(x)=0.(x)=P_2(x)+h_2(x)(x-a)^2,  lim_xh_2(x)=0.
+Here the error in the approximation is
+R2(x)=f(x)−P2(x)=h2(x)(x−a)2,_2(x)=f(x)-P_2(x)=h_2(x)(x-a)^2,
+which, given the limiting behavior of h2_2, goes to zero faster than (x−a)2(x-a)^2 as x tends to a.
+
+Approximation of f(x)=11+x2(x)=11+x^2 (blue) by its Taylor polynomials Pk_k of order k=1,…,16=1,…,16 centered at x=0=0 (red) and x=1=1 (green). The approximations do not improve at all outside (−1,1)(-1,1) and (1−2,1+2)(1-√(2),1+√(2)), respectively. Similarly, we might get still better approximations to f if we use polynomials of higher degree, since then we can match even more derivatives with f at the selected base point.
+In general, the error in approximating a function by a polynomial of degree k will go to zero much faster than (x−a)k(x-a)^k as x tends to a. However, there are functions, even infinitely differentiable ones, for which increasing the degree of the approximating polynomial does not increase the accuracy of approximation: we say such a function fails to be analytic at x = a: it is not (locally) determined by its derivatives at this point.
+Taylor's theorem is of asymptotic nature: it only tells us that the error Rk_k in an approximation by a k-th order Taylor polynomial Pk tends to zero faster than any nonzero k-th degree polynomial as x→a. It does not tell us how large the error is in any concrete neighborhood of the center of expansion, but for this purpose there are explicit formulas for the remainder term (given below) which are valid under some additional regularity assumptions on f. These enhanced versions of Taylor's theorem typically lead to uniform estimates for the approximation error in a small neighborhood of the center of expansion, but the estimates do not necessarily hold for neighborhoods which are too large, even if the function f is analytic. In that situation one may have to select several Taylor polynomials with different centers of expansion to have reliable Taylor-approximations of the original function (see animation on the right.)
+There are several ways we might use the remainder term:
+
+Estimate the error for a polynomial Pk(x) of degree k estimating f(x)(x) on a given interval (a – r, a + r). (Given the interval and degree, we find the error.)
+Find the smallest degree k for which the polynomial Pk(x) approximates f(x)(x) to within a given error tolerance on a given interval (a − r, a + r) . (Given the interval and error tolerance, we find the degree.)
+Find the largest interval (a − r, a + r) on which Pk(x) approximates f(x)(x) to within a given error tolerance. (Given the degree and error tolerance, we find the interval.)
+
+Taylor's theorem in one real variable[edit]
+Statement of the theorem[edit]
+The precise statement of the most basic version of Taylor's theorem is as follows:
+
+
+Taylor's theorem[4][5][6] — Let k ≥ 1 be an integer and let the function f : R → R be k times differentiable at the point a ∈ R. Then there exists a function  hk : R → R such that
+f(x)=f(a)+f′(a)(x−a)+f″(a)2!(x−a)2+⋯+f(k)(a)k!(x−a)k+hk(x)(x−a)k,(x)=f(a)+f'(a)(x-a)+f”(a)/2!(x-a)^2+⋯+f^(k)(a)/k!(x-a)^k+h_k(x)(x-a)^k,
+and
+limx→ahk(x)=0.lim_xh_k(x)=0.
+This is called the Peano form of the remainder.
+
+
+The polynomial appearing in Taylor's theorem is the kk-th order Taylor polynomial
+Pk(x)=f(a)+f′(a)(x−a)+f″(a)2!(x−a)2+⋯+f(k)(a)k!(x−a)k_k(x)=f(a)+f'(a)(x-a)+f”(a)/2!(x-a)^2+⋯+f^(k)(a)/k!(x-a)^k
+of the function f at the point a. The Taylor polynomial is the unique "asymptotic best fit" polynomial in the sense that if there exists a function  hk : R → R and a k-th order polynomial p such that
+f(x)=p(x)+hk(x)(x−a)k,limx→ahk(x)=0,(x)=p(x)+h_k(x)(x-a)^k,  lim_xh_k(x)=0,
+then p = Pk. Taylor's theorem describes the asymptotic behavior of the remainder term
+Rk(x)=f(x)−Pk(x),_k(x)=f(x)-P_k(x),
+which is the approximation error when approximating f with its Taylor polynomial. Using the little-o notation, the statement in Taylor's theorem reads as
+Rk(x)=o(|x−a|k),x→a._k(x)=o(|x-a|^k),.
+
+Explicit formulas for the remainder[edit]
+Under stronger regularity assumptions on f there are several precise formulas for the remainder term Rk of the Taylor polynomial, the most common ones being the following.
+
+
+Mean-value forms of the remainder — Let f : R → R  be k + 1 times differentiable on the open interval with f(k) continuous on the closed interval between a and x.[7] Then
+Rk(x)=f(k+1)(ξL)(k+1)!(x−a)k+1_k(x)=f^(k+1)(ξ_L)/(k+1)!(x-a)^k+1
+for some real number ξLξ_L between a and x. This is the Lagrange form[8] of the remainder.
+Similarly,
+Rk(x)=f(k+1)(ξC)k!(x−ξC)k(x−a)_k(x)=f^(k+1)(ξ_C)/k!(x-ξ_C)^k(x-a)
+for some real number ξCξ_C between a and x. This is the Cauchy form[9] of the remainder.
+Both can be thought of as specific cases of the following result: Consider p>0>0
+Rk(x)=f(k+1)(ξS)k!(x−ξC)k+1−p(x−a)pp_k(x)=f^(k+1)(ξ_S)/k!(x-ξ_C)^k+1-p(x-a)^p/p
+for some real number ξSξ_S between a and x. This is the Schlömilch form of the remainder (sometimes called the Schlömilch-Roché). The choice p=k+1=k+1 is the Lagrange form, whilst the choice p=1=1 is the Cauchy form.
+
+
+These refinements of Taylor's theorem are usually proved using the mean value theorem, whence the name. Additionally, notice that this is precisely the mean value theorem when k=0=0. Also other similar expressions can be found. For example, if G(t) is continuous on the closed interval and differentiable with a non-vanishing derivative on the open interval between a and x, then
+Rk(x)=f(k+1)(ξ)k!(x−ξ)kG(x)−G(a)G′(ξ)_k(x)=f^(k+1)(ξ)/k!(x-ξ)^kG(x)-G(a)/G'(ξ)
+for some number ξξ between a and x. This version covers the Lagrange and Cauchy forms of the remainder as special cases, and is proved below using Cauchy's mean value theorem. The Lagrange form is obtained by taking G(t)=(x−t)k+1(t)=(x-t)^k+1 and the Cauchy form is obtained by taking G(t)=t−a(t)=t-a.
+The statement for the integral form of the remainder is more advanced than the previous ones, and requires understanding of Lebesgue integration theory for the full generality. However, it holds also in the sense of Riemann integral provided the (k + 1)th derivative of f is continuous on the closed interval [a,x].
+
+
+Integral form of the remainder[10] — Let f(k)^(k) be absolutely continuous on the closed interval between a and x. Then
+Rk(x)=∫axf(k+1)(t)k!(x−t)kdt._k(x)=∫_a^xf^(k+1)(t)/k!(x-t)^k dt.
+
+
+Due to absolute continuity of f(k) on the closed interval between a and x, its derivative f(k+1) exists as an L1-function, and the result can be proven by a formal calculation using fundamental theorem of calculus and integration by parts.
+
+Estimates for the remainder[edit]
+It is often useful in practice to be able to estimate the remainder term appearing in the Taylor approximation, rather than having an exact formula for it.  Suppose that f is (k + 1)-times continuously differentiable in an interval I containing a. Suppose that there are real constants q and Q such that
+q≤f(k+1)(x)≤Q^(k+1)(x)
+throughout I. Then the remainder term satisfies the inequality[11]
+q(x−a)k+1(k+1)!≤Rk(x)≤Q(x−a)k+1(k+1)!,(x-a)^k+1/(k+1)!_k(x)(x-a)^k+1/(k+1)!,
+if x > a, and a similar estimate if x < a. This is a simple consequence of the Lagrange form of the remainder. In particular, if
+|f(k+1)(x)|≤M|f^(k+1)(x)|
+on an interval I = (a − r,a + r) with some r>0>0 , then
+|Rk(x)|≤M|x−a|k+1(k+1)!≤Mrk+1(k+1)!|R_k(x)||x-a|^k+1/(k+1)!r^k+1/(k+1)!
+for all x∈(a − r,a + r). The second inequality is called a uniform estimate, because it holds uniformly for all x on the interval (a − r,a + r).
+
+Example[edit]
+Approximation of ex^x (blue) by its Taylor polynomials Pk_k of order k=1,…,7=1,…,7 centered at x=0=0 (red). Suppose that we wish to find the approximate value of the function f(x)=ex(x)=e^x on the interval [−1,1][-1,1] while ensuring that the error in the approximation is no more than 10−5. In this example we pretend that we only know the following properties of the exponential function:
+
+
+
+e0=1,ddxex=ex,ex>0,x∈R.^0=1,    d/dxe^x=e^x,^x>0,∈ℝ.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(★)
+
+From these properties it follows that f(k)(x)=ex^(k)(x)=e^x for all k, and in particular, f(k)(0)=1^(k)(0)=1. Hence the k-th order Taylor polynomial of f at 00 and its remainder term in the Lagrange form are given by
+Pk(x)=1+x+x22!+⋯+xkk!,Rk(x)=eξ(k+1)!xk+1,_k(x)=1+x+x^2/2!+⋯+x^k/k!,_k(x)=e^ξ/(k+1)!x^k+1,
+where ξξ is some number between 0 and x. Since ex is increasing by (★), we can simply use ex≤1^x≤1 for x∈[−1,0]∈[-1,0] to estimate the remainder on the subinterval [−1,0][-1,0]. To obtain an upper bound for the remainder on [0,1][0,1], we use the property eξ<ex^ξ<e^x for 0<ξ<x0<ξ<x to estimate
+ex=1+x+eξ2x2<1+x+ex2x2,0<x≤1^x=1+x+e^ξ/2x^2<1+x+e^x/2x^2,    0<x≤1
+using the second order Taylor expansion. Then we solve for ex to deduce that
+ex≤1+x1−x22=21+x2−x2≤4,0≤x≤1^x≤1+x/1-x^2/2=21+x/2-x^2≤4,    0≤1
+simply by maximizing the numerator and minimizing the denominator. Combining these estimates for ex we see that
+|Rk(x)|≤4|x|k+1(k+1)!≤4(k+1)!,−1≤x≤1,|R_k(x)|≤4|x|^k+1/(k+1)!≤4/(k+1)!,    -1≤1,
+so the required precision is certainly reached, when
+4(k+1)!<10−5⟺4⋅105<(k+1)!⟺k≥9.4/(k+1)!<10^-5  ⟺  4·10^5<(k+1)!  ⟺≥9.
+(See factorial or compute by hand the values 9!=3628809!=362880 and 10!=362880010!=3628800.) As a conclusion, Taylor's theorem leads to the approximation
+ex=1+x+x22!+⋯+x99!+R9(x),|R9(x)|<10−5,−1≤x≤1.^x=1+x+x^2/2!+⋯+x^9/9!+R_9(x),    |R_9(x)|<10^-5,    -1≤1.
+For instance, this approximation provides a decimal expression e≈2.71828≈2.71828, correct up to five decimal places.
+
+Relationship to analyticity[edit]
+Taylor expansions of real analytic functions[edit]
+Let I ⊂ R be an open interval. By definition, a function f : I → R is real analytic if it is locally defined by a convergent power series. This means that for every a ∈ I there exists some r > 0 and a sequence of coefficients ck ∈ R such that (a − r, a + r) ⊂ I and
+f(x)=∑k=0∞ck(x−a)k=c0+c1(x−a)+c2(x−a)2+⋯,|x−a|<r.(x)=∑_k=0^∞c_k(x-a)^k=c_0+c_1(x-a)+c_2(x-a)^2+⋯,    |x-a|<r.
+In general, the radius of convergence of a power series can be computed from the Cauchy–Hadamard formula
+1R=limsupk→∞|ck|1k.1/R=lim sup_k→∞|c_k|^1/k.
+This result is based on comparison with a geometric series, and the same method shows that if the power series based on a converges for some b ∈ R, it must converge uniformly on the closed interval [a−rb,a+rb][a-r_b,a+r_b], where rb=|b−a|_b=-a|. Here only the convergence of the power series is considered, and it might well be that (a − R,a + R) extends beyond the domain I of f.
+The Taylor polynomials of the real analytic function f at a are simply the finite truncations
+Pk(x)=∑j=0kcj(x−a)j,cj=f(j)(a)j!_k(x)=∑_j=0^kc_j(x-a)^j,_j=f^(j)(a)/j!
+of its locally defining power series, and the corresponding remainder terms are locally given by the analytic functions
+Rk(x)=∑j=k+1∞cj(x−a)j=(x−a)khk(x),|x−a|<r._k(x)=∑_j=k+1^∞c_j(x-a)^j=(x-a)^kh_k(x),    |x-a|<r.
+Here the functions
+hk:(a−r,a+r)→Rhk(x)=(x−a)∑j=0∞ck+1+j(x−a)j   h_k:(a-r,a+r)→ℝ
+   h_k(x)=(x-a)∑_j=0^∞c_k+1+j(x-a)^j
+are also analytic, since their defining power series have the same radius of convergence as the original series. Assuming that [a − r, a + r] ⊂ I and r < R, all these series converge uniformly on (a − r, a + r). Naturally, in the case of analytic functions one can estimate the remainder term Rk(x)_k(x) by the tail of the sequence of the derivatives f′(a) at the center of the expansion, but using complex analysis also another possibility arises, which is described below.
+
+Taylor's theorem and convergence of Taylor series[edit]
+The Taylor series of f will converge in some interval in which all its derivatives are bounded and do not grow too fast as k goes to infinity. (However, even if the Taylor series converges, it might not converge to f, as explained below; f is then said to be non-analytic.)
+One might think of the Taylor series
+f(x)≈∑k=0∞ck(x−a)k=c0+c1(x−a)+c2(x−a)2+⋯(x)≈∑_k=0^∞c_k(x-a)^k=c_0+c_1(x-a)+c_2(x-a)^2+⋯
+of an infinitely many times differentiable function f : R → R as its "infinite order Taylor polynomial" at a. Now the estimates for the remainder imply that if, for any r, the derivatives of f are known to be bounded over (a − r, a + r), then for any order k and for any r > 0 there exists a constant Mk,r > 0 such that
+
+
+
+
+|Rk(x)|≤Mk,r|x−a|k+1(k+1)!|R_k(x)|_k,r|x-a|^k+1/(k+1)!
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(★★)
+
+for every x ∈ (a − r,a + r). Sometimes the constants Mk,r can be chosen in such way that Mk,r is bounded above, for fixed r and all k. Then the Taylor series of f converges uniformly to some analytic function
+Tf:(a−r,a+r)→RTf(x)=∑k=0∞f(k)(a)k!(x−a)k   T_f:(a-r,a+r)→ℝ
+   T_f(x)=∑_k=0^∞f^(k)(a)/k!(x-a)^k
+(One also gets convergence even if Mk,r is not bounded above as long as it grows slowly enough.)
+The limit function Tf is by definition always analytic, but it is not necessarily equal to the original function f, even if f is infinitely differentiable. In this case, we say f is a non-analytic smooth function, for example a flat function:
+f:R→Rf(x)=e−1x2x>00x≤0.   f:ℝ→ℝ
+   f(x)=e^-1/x^2   x>0
+0   x≤0.
+Using the chain rule repeatedly by mathematical induction, one shows that for any order k,
+f(k)(x)=pk(x)x3k⋅e−1x2x>00x≤0^(k)(x)=p_k(x)/x^3k^-1/x^2   x>0
+0   x≤0
+for some polynomial pk of degree 2(k − 1). The function e−1x2^-1/x^2 tends to zero faster than any polynomial as x→0→0, so f is infinitely many times differentiable and f(k)(0) = 0 for every positive integer k. The above results all hold in this case:
+
+The Taylor series of f converges uniformly to the zero function Tf(x) = 0, which is analytic with all coefficients equal to zero.
+The function f is unequal to this Taylor series, and hence non-analytic.
+For any order k ∈ N and radius r > 0 there exists Mk,r > 0 satisfying the remainder bound (★★) above.
+However, as k increases for fixed r, the value of Mk,r  grows more quickly than rk, and the error does not go to zero.
+
+Taylor's theorem in complex analysis[edit]
+Taylor's theorem generalizes to functions f : C → C which are complex differentiable in an open subset U ⊂ C of the complex plane. However, its usefulness is dwarfed by other general theorems in complex analysis. Namely, stronger versions of related results can be deduced for complex differentiable functions f : U → C using Cauchy's integral formula as follows.
+Let r > 0 such that the closed disk B(z, r) ∪ S(z, r) is contained in U. Then Cauchy's integral formula with a positive parametrization γ(t) = z + reit of the circle S(z, r) with t∈[0,2π]∈[0,2π]  gives
+f(z)=12πi∫γf(w)w−zdw,f′(z)=12πi∫γf(w)(w−z)2dw,…,f(k)(z)=k!2πi∫γf(w)(w−z)k+1dw.(z)=1/2∫_γf(w)/w-z dw,'(z)=1/2∫_γf(w)/(w-z)^2 dw,  …,^(k)(z)=k!/2∫_γf(w)/(w-z)^k+1 dw.
+Here all the integrands are continuous on the circle S(z, r), which justifies differentiation under the integral sign. In particular, if f is once complex differentiable  on the open set U, then it is actually infinitely many times complex differentiable on U. One also obtains the Cauchy's estimates[12]
+|f(k)(z)|≤k!2π∫γMr|w−z|k+1dw=k!Mrrk,Mr=max|w−c|=r|f(w)||f^(k)(z)|≤k!/2π∫_γM_r/|w-z|^k+1 dw=k!M_r/r^k,_r=max_|w-c|=r|f(w)|
+for any z ∈ U and r > 0 such that B(z, r) ∪ S(c, r) ⊂ U. These estimates imply that the complex Taylor series
+Tf(z)=∑k=0∞f(k)(c)k!(z−c)k_f(z)=∑_k=0^∞f^(k)(c)/k!(z-c)^k
+of f converges uniformly on any open disk B(c,r)⊂U(c,r) with S(c,r)⊂U(c,r) into some function Tf. Furthermore, using the contour integral formulas for the derivatives f(k)(c),
+Tf(z)=∑k=0∞(z−c)k2πi∫γf(w)(w−c)k+1dw=12πi∫γf(w)w−c∑k=0∞(z−cw−c)kdw=12πi∫γf(w)w−c(11−z−cw−c)dw=12πi∫γf(w)w−zdw=f(z),T_f(z)   =∑_k=0^∞(z-c)^k/2∫_γf(w)/(w-c)^k+1 dw
+   =1/2∫_γf(w)/w-c∑_k=0^∞(z-c/w-c)^k dw
+   =1/2∫_γf(w)/w-c(1/1-z-c/w-c) dw
+   =1/2∫_γf(w)/w-z dw=f(z),
+so any complex differentiable function f in an open set U ⊂ C is in fact complex analytic. All that is said for real analytic functions here holds also for complex analytic functions with the open interval I replaced by an open subset U ∈ C and a-centered intervals (a − r, a + r) replaced by c-centered disks B(c, r). In particular, the Taylor expansion holds in the form
+f(z)=Pk(z)+Rk(z),Pk(z)=∑j=0kf(j)(c)j!(z−c)j,(z)=P_k(z)+R_k(z),_k(z)=∑_j=0^kf^(j)(c)/j!(z-c)^j,
+where the remainder term Rk is complex analytic. Methods of complex analysis provide some powerful results regarding Taylor expansions. For example, using Cauchy's integral formula for any positively oriented Jordan curve γγ which parametrizes the boundary ∂W⊂U of a region W⊂U, one obtains expressions for the derivatives f(j)(c) as above, and modifying slightly the computation for Tf(z) = f(z), one arrives at the exact formula
+Rk(z)=∑j=k+1∞(z−c)j2πi∫γf(w)(w−c)j+1dw=(z−c)k+12πi∫γf(w)dw(w−c)k+1(w−z),z∈W._k(z)=∑_j=k+1^∞(z-c)^j/2∫_γf(w)/(w-c)^j+1 dw=(z-c)^k+1/2∫_γf(w) dw/(w-c)^k+1(w-z),.
+The important feature here is that the quality of the approximation by a Taylor polynomial on the region W⊂U is dominated by the values of the function f itself on the boundary ∂W⊂U. Similarly, applying Cauchy's estimates to the series expression for the remainder, one obtains the uniform estimates
+|Rk(z)|≤∑j=k+1∞Mr|z−c|jrj=Mrrk+1|z−c|k+11−|z−c|r≤Mrβk+11−β,|z−c|r≤β<1.|R_k(z)|≤∑_j=k+1^∞M_r|z-c|^j/r^j=M_r/r^k+1|z-c|^k+1/1-|z-c|/r≤M_rβ^k+1/1-β,    |z-c|/r≤β<1.
+
+Example[edit]
+Complex plot of f(z)=11+z2(z)=1/1+z^2. Modulus is shown by elevation and argument by coloring: cyan = 00, blue = π3π/3, violet = 2π32π/3, red = ππ, yellow = 4π34π/3, green = 5π35π/3.
+The function
+f:R→Rf(x)=11+x2   f:ℝ→ℝ
+   f(x)=1/1+x^2
+is real analytic, that is, locally determined by its Taylor series. This function was plotted above to illustrate the fact that some elementary functions cannot be approximated by Taylor polynomials in neighborhoods of the center of expansion which are too large. This kind of behavior is easily understood in the framework of complex analysis. Namely, the function f extends into a meromorphic function
+f:C∪∞→C∪∞f(z)=11+z2   f:ℂ∪{∞}→ℂ∪{∞}
+   f(z)=1/1+z^2
+on the compactified complex plane. It has simple poles at z=i=i and z=−i=-i, and it is analytic elsewhere. Now its Taylor series centered at z0 converges on any disc B(z0, r) with r < |z − z0|, where the same Taylor series converges at z ∈ C. Therefore, Taylor series of f centered at 0 converges on B(0, 1) and it does not converge for any z ∈ C with |z| > 1 due to the poles at i and −i. For the same reason the Taylor series of f centered at 1 converges on B(1,2)(1,√(2)) and does not converge for any z ∈ C with |z−1|>2-1|>√(2).
+
+Generalizations of Taylor's theorem[edit]
+Higher-order differentiability[edit]
+A function f: Rn → R is differentiable at a ∈ Rn if and only if there exists a linear functional L : Rn → R and a function h : Rn → R such that
+f(x)=f(a)+L(x−a)+h(x)‖x−a‖,limx→ah(x)=0.(x)=f(a)+L(x-a)+h(x)‖x-a‖,    lim_x→ah(x)=0.
+If this is the case, then L=df(a)=df(a) is the (uniquely defined) differential of f at the point a. Furthermore, then the partial derivatives of f exist at a and the differential of f at a is given by
+df(a)(v)=∂f∂x1(a)v1+⋯+∂f∂xn(a)vn.(a)(v)=/_1(a)v_1+⋯+/_n(a)v_n.
+Introduce the multi-index notation
+|α|=α1+⋯+αn,α!=α1!⋯αn!,xα=x1α1⋯xnαn|α|=α_1+⋯+α_n,  α!=α_1!⋯α_n!,  x^α=x_1^α_1_n^α_n
+for α ∈ Nn and x ∈ Rn.  If all the k-th order partial derivatives of f : Rn → R are continuous at a ∈ Rn, then by Clairaut's theorem, one can change the order of mixed derivatives at a, so the notation
+Dαf=∂|α|f∂x1α1⋯∂xnαn,|α|≤k^αf=∂^|α|f/_1^α_1⋯_n^α_n,    |α|
+for the higher order partial derivatives is justified in this situation. The same is true if all the (k − 1)-th order partial derivatives of f exist in some neighborhood of a and are differentiable at a.[13] Then we say that f is k times differentiable at the point a.
+
+Taylor's theorem for multivariate functions[edit]
+Using notations of the preceding section, one has the following theorem.
+
+
+Multivariate version of Taylor's theorem[14] — Let f : Rn → R be a k-times continuously differentiable function at the point a ∈ Rn. Then there exist functions hα : Rn → R, where |α|=k,|α|=k, such that
+f(x)=∑|α|≤kDαf(a)α!(x−a)α+∑|α|=khα(x)(x−a)α,andlimx→ahα(x)=0.   f(x)=∑_|α|D^αf(a)/α!(x-a)^α+∑_|α|=kh_α(x)(x-a)^α,
+     lim_x→ah_α(x)=0.
+
+
+If the function f : Rn → R is k + 1 times continuously differentiable in a closed ball B=y∈Rn:‖a−y‖≤r={𝐲∈ℝ^n:𝐚-𝐲} for some r>0>0, then one can derive an exact formula for the remainder in terms of (k+1)-th order partial derivatives of f in this neighborhood.[15] Namely,
+f(x)=∑|α|≤kDαf(a)α!(x−a)α+∑|β|=k+1Rβ(x)(x−a)β,Rβ(x)=|β|β!∫01(1−t)|β|−1Dβf(a+t(x−a))dt.   f(x)=∑_|α|D^αf(a)/α!(x-a)^α+∑_|β|=k+1R_β(x)(x-a)^β,
+   R_β(x)=|β|/β!∫_0^1(1-t)^|β|-1D^βf(a+t(x-a)) dt.
+In this case, due to the continuity of (k+1)-th order partial derivatives in the compact set B, one immediately obtains the uniform estimates
+|Rβ(x)|≤1β!max|α|=|β|maxy∈B|Dαf(y)|,x∈B.|R_β(x)|≤1/β!max_|α|=|β|max_y|D^αf(y)|,    x.
+
+Example in two dimensions[edit]
+For example, the third-order Taylor polynomial of a smooth function f:R2→R:ℝ^2→ℝ is, denoting x−a=vx-a=v,
+P3(x)=f(a)+∂f∂x1(a)v1+∂f∂x2(a)v2+∂2f∂x12(a)v122!+∂2f∂x1∂x2(a)v1v2+∂2f∂x22(a)v222!+∂3f∂x13(a)v133!+∂3f∂x12∂x2(a)v12v22!+∂3f∂x1∂x22(a)v1v222!+∂3f∂x23(a)v233!P_3(x)=f(a)+   /_1(a)v_1+/_2(a)v_2+∂^2f/_1^2(a)v_1^2/2!+∂^2f/_1_2(a)v_1v_2+∂^2f/_2^2(a)v_2^2/2!
+   +∂^3f/_1^3(a)v_1^3/3!+∂^3f/_1^2_2(a)v_1^2v_2/2!+∂^3f/_1_2^2(a)v_1v_2^2/2!+∂^3f/_2^3(a)v_2^3/3!
+
+Proofs[edit]
+Proof for Taylor's theorem in one real variable[edit]
+Let[16]
+hk(x)=f(x)−P(x)(x−a)kx≠a0x=a_k(x)=f(x)-P(x)/(x-a)^k   x≠a
+0   x=a
+where, as in the statement of Taylor's theorem,
+P(x)=f(a)+f′(a)(x−a)+f″(a)2!(x−a)2+⋯+f(k)(a)k!(x−a)k.(x)=f(a)+f'(a)(x-a)+f”(a)/2!(x-a)^2+⋯+f^(k)(a)/k!(x-a)^k.
+It is sufficient to show that
+limx→ahk(x)=0.lim_xh_k(x)=0.
+The proof here is based on repeated application of L'Hôpital's rule.  Note that, for each j=0,1,...,k−1=0,1,...,k-1, f(j)(a)=P(j)(a)^(j)(a)=P^(j)(a).  Hence each of the first k−1-1 derivatives of the numerator in hk(x)_k(x) vanishes at x=a=a, and the same is true of the denominator.  Also, since the condition that the function f be k times differentiable at a point requires differentiability up to order k−1-1 in a neighborhood of said point (this is true, because differentiability requires a function to be defined in a whole neighborhood of a point), the numerator and its k−2-2 derivatives are differentiable in a neighborhood of a. Clearly, the denominator also satisfies said condition, and additionally, doesn't vanish unless x=a=a, therefore all conditions necessary for L'Hôpital's rule are fulfilled, and its use is justified. So
+limx→af(x)−P(x)(x−a)k=limx→addx(f(x)−P(x))ddx(x−a)k=⋯=limx→adk−1dxk−1(f(x)−P(x))dk−1dxk−1(x−a)k=1k!limx→af(k−1)(x)−P(k−1)(x)x−a=1k!(f(k)(a)−f(k)(a))=0lim_xf(x)-P(x)/(x-a)^k   =lim_xd/dx(f(x)-P(x))/d/dx(x-a)^k=⋯=lim_xd^k-1/dx^k-1(f(x)-P(x))/d^k-1/dx^k-1(x-a)^k
+   =1/k!lim_xf^(k-1)(x)-P^(k-1)(x)/x-a
+   =1/k!(f^(k)(a)-f^(k)(a))=0
+where the second-to-last equality follows by the definition of the derivative at x=a=a.
+
+Alternate proof for Taylor's theorem in one real variable[edit]
+Let f(x)(x) be any real-valued continuous function to be approximated by the Taylor polynomial.
+Step 1: Let F and G be functions. Set F and G to be
+F(x)=f(x)−∑k=0n−1f(k)(a)k!(x−a)kF(x)=f(x)-∑_k=0^n-1f^(k)(a)/k!(x-a)^k
+G(x)=(x−a)nG(x)=(x-a)^n
+Step 2: Properties of F and G:
+F(a)=f(a)−f(a)−f′(a)(a−a)−...−f(n−1)(a)(a−a)n−1(n−1)!=0G(a)=(a−a)n=0F(a)   =f(a)-f(a)-f'(a)(a-a)-...-f^(n-1)(a)(a-a)^n-1/(n-1)!=0
+G(a)   =(a-a)^n=0
+Similarly, 
+F′(a)=f′(a)−f′(a)−2f″(a)(a−a)1!−...−f(n−2)(a)(n−1)(a−a)n−2(n−1)!=0F'(a)=f'(a)-f'(a)-2f”(a)(a-a)/1!-...-f^(n-2)(a)(n-1)(a-a)^n-2/(n-1)!=0
+G′(a)=n(a−a)n−1=0⋮G(n−1)(a)=F(n−1)(a)=0G'(a)   =n(a-a)^n-1=0
+       ⋮
+G^(n-1)(a)   =F^(n-1)(a)=0
+Step 3: Use Cauchy Mean Value Theorem
+Let f1_1 and g1_1 be continuous functions on [a,b][a,b]. Since a<x<b<x<b so we can work with the interval [a,x][a,x]. Let f1_1 and g1_1 be differentiable on (a,x)(a,x). Assume g1′(x)≠0_1'(x)≠0 for all x∈(a,b)∈(a,b).
+Then there exists c1∈(a,x)_1∈(a,x) such that
+f1(x)−f1(a)g1(x)−g1(a)=f1′(c1)g1′(c1)f_1(x)-f_1(a)/g_1(x)-g_1(a)=f_1'(c_1)/g_1'(c_1)
+Note: G′(x)≠0'(x)≠0 in (a,b)(a,b) and F(a),G(a)=0(a),G(a)=0 so
+F(x)G(x)=F(x)−F(a)G(x)−G(a)=F′(c1)G′(c1)F(x)/G(x)=F(x)-F(a)/G(x)-G(a)=F'(c_1)/G'(c_1)
+for some c1∈(a,x)_1∈(a,x).
+This can also be performed for (a,c1)(a,c_1):
+F′(c1)G′(c1)=F′(c1)−F′(a)G′(c1)−G′(a)=F″(c2)G″(c2)F'(c_1)/G'(c_1)=F'(c_1)-F'(a)/G'(c_1)-G'(a)=F”(c_2)/G”(c_2)
+for some c2∈(a,c1)_2∈(a,c_1).
+This can be continued to cn_n.
+This gives a partition in (a,b)(a,b):
+a<cn<cn−1<...<c1<xa<c_n<c_n-1<...<c_1<x
+with
+F(x)G(x)=F′(c1)G′(c1)=...=F(n)(cn)G(n)(cn).F(x)/G(x)=F'(c_1)/G'(c_1)=...=F^(n)(c_n)/G^(n)(c_n).
+Set c=cn=c_n:
+F(x)G(x)=F(n)(c)G(n)(c)F(x)/G(x)=F^(n)(c)/G^(n)(c)
+Step 4: Substitute back
+F(x)G(x)=f(x)−∑k=0n−1f(k)(a)k!(x−a)k(x−a)n=F(n)(c)G(n)(c)F(x)/G(x)=f(x)-∑_k=0^n-1f^(k)(a)/k!(x-a)^k/(x-a)^n=F^(n)(c)/G^(n)(c)
+By the Power Rule, repeated derivatives of (x−a)n(x-a)^n, G(n)(c)=n(n−1)...1^(n)(c)=n(n-1)...1, so:
+F(n)(c)G(n)(c)=f(n)(c)n(n−1)...1=f(n)(c)n!.F^(n)(c)/G^(n)(c)=f^(n)(c)/n(n-1)...1=f^(n)(c)/n!.
+This leads to:
+f(x)−∑k=0n−1f(k)(a)k!(x−a)k=f(n)(c)n!(x−a)n.f(x)-∑_k=0^n-1f^(k)(a)/k!(x-a)^k=f^(n)(c)/n!(x-a)^n.
+By rearranging, we get:
+f(x)=∑k=0n−1f(k)(a)k!(x−a)k+f(n)(c)n!(x−a)n,f(x)=∑_k=0^n-1f^(k)(a)/k!(x-a)^k+f^(n)(c)/n!(x-a)^n,
+or because cn=a_n=a eventually:
+f(x)=∑k=0nf(k)(a)k!(x−a)k.f(x)=∑_k=0^nf^(k)(a)/k!(x-a)^k.
+
+Derivation for the mean value forms of the remainder[edit]
+Let G be any real-valued function, continuous on the closed interval between a and x and differentiable with a non-vanishing derivative on the open interval between a and x, and define
+F(t)=f(t)+f′(t)(x−t)+f″(t)2!(x−t)2+⋯+f(k)(t)k!(x−t)k.(t)=f(t)+f'(t)(x-t)+f”(t)/2!(x-t)^2+⋯+f^(k)(t)/k!(x-t)^k.
+For t∈[a,x]∈[a,x]. Then, by Cauchy's mean value theorem,
+
+
+
+
+F′(ξ)G′(ξ)=F(x)−F(a)G(x)−G(a)F'(ξ)/G'(ξ)=F(x)-F(a)/G(x)-G(a)
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(★★★)
+
+for some ξξ on the open interval between a and x. Note that here the numerator F(x)−F(a)=Rk(x)(x)-F(a)=R_k(x) is exactly the remainder of the Taylor polynomial for y=f(x)=f(x). Compute
+F′(t)=f′(t)+(f″(t)(x−t)−f′(t))+(f(3)(t)2!(x−t)2−f(2)(t)1!(x−t))+⋯⋯+(f(k+1)(t)k!(x−t)k−f(k)(t)(k−1)!(x−t)k−1)=f(k+1)(t)k!(x−t)k,F'(t)=   f'(t)+(f”(t)(x-t)-f'(t))+(f^(3)(t)/2!(x-t)^2-f^(2)(t)/1!(x-t))+⋯
+   ⋯+(f^(k+1)(t)/k!(x-t)^k-f^(k)(t)/(k-1)!(x-t)^k-1)=f^(k+1)(t)/k!(x-t)^k,
+plug it into (★★★) and rearrange terms to find that
+Rk(x)=f(k+1)(ξ)k!(x−ξ)kG(x)−G(a)G′(ξ)._k(x)=f^(k+1)(ξ)/k!(x-ξ)^kG(x)-G(a)/G'(ξ).
+This is the form of the remainder term mentioned after the actual statement of Taylor's theorem with remainder in the mean value form.
+The Lagrange form of the remainder is found by choosing G(t)=(x−t)k+1(t)=(x-t)^k+1 and the Cauchy form by choosing G(t)=t−a(t)=t-a.
+Remark. Using this method one can also recover the integral form of the remainder by choosing
+G(t)=∫atf(k+1)(s)k!(x−s)kds,(t)=∫_a^tf^(k+1)(s)/k!(x-s)^k ds,
+but the requirements for f needed for the use of mean value theorem are too strong, if one aims to prove the claim in the case that f(k) is only absolutely continuous. However, if one uses Riemann integral instead of Lebesgue integral, the assumptions cannot be weakened.
+
+Derivation for the integral form of the remainder[edit]
+Due to absolute continuity of f(k)^(k) on the closed interval between a and x its derivative f(k+1)^(k+1) exists as an L1^1-function, and we can use fundamental theorem of calculus and integration by parts. This same proof applies for the Riemann integral assuming that f(k)^(k) is continuous on the closed interval and differentiable on the open interval between a and x, and this leads to the same result than using the mean value theorem.
+The fundamental theorem of calculus states that
+f(x)=f(a)+∫axf′(t)dt.(x)=f(a)+∫_a^x f'(t) dt.
+Now we can integrate by parts and use the fundamental theorem of calculus again to see that
+f(x)=f(a)+(xf′(x)−af′(a))−∫axtf″(t)dt=f(a)+x(f′(a)+∫axf″(t)dt)−af′(a)−∫axtf″(t)dt=f(a)+(x−a)f′(a)+∫ax(x−t)f″(t)dt,f(x)   =f(a)+(xf'(x)-af'(a))-∫_a^xtf”(t) dt
+   =f(a)+x(f'(a)+∫_a^xf”(t) dt)-af'(a)-∫_a^xtf”(t) dt
+   =f(a)+(x-a)f'(a)+∫_a^x (x-t)f”(t) dt,
+which is exactly Taylor's theorem with remainder in the integral form in the case k=1=1. The general statement is proved using induction. Suppose that
+
+
+
+
+f(x)=f(a)+f′(a)1!(x−a)+⋯+f(k)(a)k!(x−a)k+∫axf(k+1)(t)k!(x−t)kdt.(x)=f(a)+f'(a)/1!(x-a)+⋯+f^(k)(a)/k!(x-a)^k+∫_a^xf^(k+1)(t)/k!(x-t)^k dt.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(★★★★)
+
+Integrating the remainder term by parts we arrive at
+∫axf(k+1)(t)k!(x−t)kdt=−[f(k+1)(t)(k+1)k!(x−t)k+1]ax+∫axf(k+2)(t)(k+1)k!(x−t)k+1dt=f(k+1)(a)(k+1)!(x−a)k+1+∫axf(k+2)(t)(k+1)!(x−t)k+1dt.∫_a^xf^(k+1)(t)/k!(x-t)^k dt=   -[f^(k+1)(t)/(k+1)k!(x-t)^k+1]_a^x+∫_a^xf^(k+2)(t)/(k+1)k!(x-t)^k+1 dt
+=   {f^(k+1)(a)/(k+1)!(x-a)^k+1+∫_a^xf^(k+2)(t)/(k+1)!(x-t)^k+1 dt.
+Substituting this into the formula in (★★★★) shows that if it holds for the value k, it must also hold for the value k+1+1. Therefore, since it holds for k=1=1, it must hold for every positive integer k.
+
+Derivation for the remainder of multivariate Taylor polynomials[edit]
+We prove the special case, where f:Rn→R:ℝ^n→ℝ has continuous partial derivatives up to the order k+1+1 in some closed ball B with center aa.  The strategy of the proof is to apply the one-variable case of Taylor's theorem to the restriction of f to the line segment adjoining xx and aa.[17]  Parametrize the line segment between aa and xx by u(t)=a+t(x−a)u(t)=a+t(x-a) We apply the one-variable version of Taylor's theorem to the function g(t)=f(u(t))(t)=f(u(t)):
+f(x)=g(1)=g(0)+∑j=1k1j!g(j)(0)+∫01(1−t)kk!g(k+1)(t)dt.(x)=g(1)=g(0)+∑_j=1^k1/j!g^(j)(0)
+int_0^1(1-t)^k/k!g^(k+1)(t) dt.
+Applying the chain rule for several variables gives
+g(j)(t)=djdtjf(u(t))=djdtjf(a+t(x−a))=∑|α|=j(jα)(Dαf)(a+t(x−a))(x−a)αg^(j)(t)   =d^j/dt^jf(u(t))
+   =d^j/dt^jf(a+t(x-a))
+   =∑_|α|=j(j
+α)(D^αf)(a+t(x-a))(x-a)^α
+where (jα)jα is the multinomial coefficient. Since 1j!(jα)=1α!1j!jα=1α!, we get:
+f(x)=f(a)+∑1≤|α|≤k1α!(Dαf)(a)(x−a)α+∑|α|=k+1k+1α!(x−a)α∫01(1−t)k(Dαf)(a+t(x−a))dt.(x)=f(a)+∑_1≤|α|1/α!(D^αf)(a)(x-a)^α+∑_|α|=k+1k+1/α!(x-a)^α∫_0^1(1-t)^k(D^αf)(a+t(x-a)) dt.
+
+See also[edit]
+
+Mathematics portal
+Hadamard's lemma
+Laurent series – Power series with negative powers
+Padé approximant – 'Best' approximation of a function by a rational function of given order
+Newton series – Discrete analog of a derivativePages displaying short descriptions of redirect targets
+Footnotes[edit]
+
+
+^ (2013). "Linear and quadratic approximation" Retrieved December 6, 2018
+
+^ Taylor, Brook (1715). Methodus Incrementorum Directa et Inversa [Direct and Reverse Methods of Incrementation] (in Latin). London. p. 21–23 (Prop. VII, Thm. 3, Cor. 2). Translated into English in Struik, D. J. (1969). A Source Book in Mathematics 1200–1800. Cambridge, Massachusetts: Harvard University Press. pp. 329–332.
+
+^ Kline 1972, pp. 442, 464.
+
+^ Genocchi, Angelo; Peano, Giuseppe (1884), Calcolo differenziale e principii di calcolo integrale, (N. 67, pp. XVII–XIX): Fratelli Bocca ed.{{citation}}:  CS1 maint: location (link)
+
+^ Spivak, Michael (1994), Calculus (3rd ed.), Houston, TX: Publish or Perish, p. 383, ISBN 978-0-914098-89-8
+
+^ "Taylor formula", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+
+^ The hypothesis of f(k) being continuous on the closed interval between a and x is not redundant. Although f being k + 1 times differentiable on the open interval between a and x does imply that f(k) is continuous on the open interval between a and x, it does not imply that f(k) is continuous on the closed interval between a and x, i.e. it does not imply that f(k) is continuous at the endpoints of that interval. Consider, for example, the function f : [0,1] → R defined to equal sin⁡(1/x)sin(1/x) on (0,1](0,1] and with f(0)=0(0)=0. This is not continuous at 0, but is continuous on (0,1)(0,1). Moreover, one can show that this function has an antiderivative. Therefore that antiderivative is differentiable on (0,1)(0,1), its derivative (the function f) is continuous on the open interval (0,1)(0,1), but its derivative f is not continuous on the closed interval [0,1][0,1]. So the theorem would not apply in this case.
+
+^ Kline 1998, §20.3; Apostol 1967, §7.7.
+
+^ Apostol 1967, §7.7.
+
+^ Apostol 1967, §7.5.
+
+^ Apostol 1967, §7.6
+
+^ Rudin 1987, §10.26
+
+^ This follows from iterated application of the theorem that if the partial derivatives of a function f exist in a neighborhood of a and are continuous at a, then the function is differentiable at a.  See, for instance, Apostol 1974, Theorem 12.11.
+
+^ Königsberger Analysis 2, p. 64 ff.
+
+^ https://sites.math.washington.edu/~folland/Math425/taylor2.pdf[bare URL PDF]
+
+^ Stromberg 1981
+
+^ Hörmander 1976, pp. 12–13
+
+
+References[edit]
+Apostol, Tom (1967), Calculus, Wiley, ISBN 0-471-00005-1.
+Apostol, Tom (1974), Mathematical analysis, Addison–Wesley.
+Bartle, Robert G.; Sherbert, Donald R. (2011), Introduction to Real Analysis (4th ed.), Wiley, ISBN 978-0-471-43331-6.
+Hörmander, L. (1976), Linear Partial Differential Operators, Volume 1, Springer, ISBN 978-3-540-00662-6.
+Kline, Morris (1972), Mathematical thought from ancient to modern times, Volume 2, Oxford University Press.
+Kline, Morris (1998), Calculus: An Intuitive and Physical Approach, Dover, ISBN 0-486-40453-6.
+Pedrick, George (1994), A First Course in Analysis, Springer, ISBN 0-387-94108-8.
+Stromberg, Karl (1981), Introduction to classical real analysis, Wadsworth, ISBN 978-0-534-98012-2.
+Rudin, Walter (1987), Real and complex analysis (3rd ed.), McGraw-Hill, ISBN 0-07-054234-1.
+Tao, Terence (2014), Analysis, Volume I (3rd ed.), Hindustan Book Agency, ISBN 978-93-80250-64-9.
+Proof of Taylor's Theorem (PDF), Chinese University of Hong Kong.
+External links[edit]
+Taylor's theorem at ProofWiki
+Taylor Series Approximation to Cosine at cut-the-knot
+Trigonometric Taylor Expansion interactive demonstrative applet
+Taylor Series Revisited at Holistic Numerical Methods Institute
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+Authority control databases: National 
+Germany
+
+
+
+

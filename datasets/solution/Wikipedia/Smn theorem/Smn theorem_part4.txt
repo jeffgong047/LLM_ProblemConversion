@@ -1,0 +1,1 @@
+Example: The following Lisp code implements s11 for Lisp. (defun s11 (f x) (let ((y (gensym))) (list 'lambda (list y) (list f x y)))) For example, (s11 '(lambda (x y) (+ x y)) 3) evaluates to (lambda (g42) ((lambda (x y) (+ x y)) 3 g42)). See

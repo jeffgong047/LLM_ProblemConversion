@@ -1,0 +1,114 @@
+Generalization of the binomial theorem to other polynomials
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Multinomial theorem" – news · newspapers · books · scholar · JSTOR (December 2022) (Learn how and when to remove this template message)
+In mathematics, the multinomial theorem describes how to expand a power of a sum in terms of powers of the terms in that sum. It is the generalization of the binomial theorem from binomials to multinomials.
+
+
+Theorem[edit]
+For any positive integer m and any non-negative integer n, the multinomial formula describes how a sum with m terms expands when raised to an arbitrary power n:
+
+(x1+x2+⋯+xm)n=∑k1+k2+⋯+km=n;k1,k2,⋯,km≥0(nk1,k2,…,km)∏t=1mxtkt,(x_1+x_2+⋯+x_m)^n=∑_k_1+k_2+⋯+k_m=n;_̨1,k_2,⋯,k_m≥0n_1,k_2,…,k_m∏_t=1^mx_t^k_t ,
+where
+
+(nk1,k2,…,km)=n!k1!k2!⋯km!n_1,k_2,…,k_m=n!/k_1! k_2!_m!
+is a multinomial coefficient.  The sum is taken over all combinations of nonnegative integer indices k1 through km such that the sum of all ki is n.  That is, for each term in the expansion, the exponents of the xi must add up to n.  Also, as with the binomial theorem, quantities of the form x0 that appear are taken to equal 1 (even when x equals zero).
+In the case m = 2, this statement reduces to that of the binomial theorem.
+
+Example[edit]
+The third power of the trinomial a + b + c is given by
+
+(a+b+c)3=a3+b3+c3+3a2b+3a2c+3b2a+3b2c+3c2a+3c2b+6abc.(a+b+c)^3=a^3+b^3+c^3+3a^2b+3a^2c+3b^2a+3b^2c+3c^2a+3c^2b+6abc.
+This can be computed by hand using the distributive property of multiplication over addition, but it can also be done (perhaps more easily) with the multinomial theorem. It is possible to "read off" the multinomial coefficients from the terms by using the multinomial coefficient formula. For example:
+
+a2b0c1^2b^0c^1 has the coefficient (32,0,1)=3!2!⋅0!⋅1!=62⋅1⋅1=3.32,0,1=3!/2!·0!·1!=6/2·1·1=3.
+a1b1c1^1b^1c^1 has the coefficient (31,1,1)=3!1!⋅1!⋅1!=61⋅1⋅1=6.31,1,1=3!/1!·1!·1!=6/1·1·1=6.
+Alternate expression[edit]
+The statement of the theorem can be written concisely using multiindices:
+
+(x1+⋯+xm)n=∑|α|=n(nα)xα(x_1+⋯+x_m)^n=∑_|α|=nnαx^α
+where
+
+α=(α1,α2,…,αm)α=(α_1,α_2,…,α_m)
+and
+
+xα=x1α1x2α2⋯xmαm^α=x_1^α_1x_2^α_2_m^α_m
+Proof[edit]
+This proof of the multinomial theorem uses the binomial theorem and induction on m.
+First, for m = 1, both sides equal x1n since there is only one term k1 = n in the sum. For the induction step, suppose the multinomial theorem holds for m.  Then
+
+(x1+x2+⋯+xm+xm+1)n=(x1+x2+⋯+(xm+xm+1))n=∑k1+k2+⋯+km−1+K=n(nk1,k2,…,km−1,K)x1k1x2k2⋯xm−1km−1(xm+xm+1)K   (x_1+x_2+⋯+x_m+x_m+1)^n=(x_1+x_2+⋯+(x_m+x_m+1))^n
+=   ∑_k_1+k_2+⋯+k_m-1+K=nn_1,k_2,…,k_m-1,Kx_1^k_1x_2^k_2_m-1^k_m-1(x_m+x_m+1)^K
+by the induction hypothesis.  Applying the binomial theorem to the last factor,
+
+=∑k1+k2+⋯+km−1+K=n(nk1,k2,…,km−1,K)x1k1x2k2⋯xm−1km−1∑km+km+1=K(Kkm,km+1)xmkmxm+1km+1=∑_k_1+k_2+⋯+k_m-1+K=nn_1,k_2,…,k_m-1,Kx_1^k_1x_2^k_2_m-1^k_m-1∑_k_m+k_m+1=KK_m,k_m+1x_m^k_mx_m+1^k_m+1
+=∑k1+k2+⋯+km−1+km+km+1=n(nk1,k2,…,km−1,km,km+1)x1k1x2k2⋯xm−1km−1xmkmxm+1km+1=∑_k_1+k_2+⋯+k_m-1+k_m+k_m+1=nn_1,k_2,…,k_m-1,k_m,k_m+1x_1^k_1x_2^k_2_m-1^k_m-1x_m^k_mx_m+1^k_m+1
+which completes the induction.  The last step follows because
+
+(nk1,k2,…,km−1,K)(Kkm,km+1)=(nk1,k2,…,km−1,km,km+1),n_1,k_2,…,k_m-1,KK_m,k_m+1=n_1,k_2,…,k_m-1,k_m,k_m+1,
+as can easily be seen by writing the three coefficients using factorials as follows:
+
+n!k1!k2!⋯km−1!K!K!km!km+1!=n!k1!k2!⋯km+1!.n!/k_1!k_2!_m-1!K!K!/k_m!k_m+1!=n!/k_1!k_2!_m+1!.
+Multinomial coefficients[edit]
+The numbers
+
+(nk1,k2,…,km)n_1,k_2,…,k_m
+appearing in the theorem are the multinomial coefficients.  They can be expressed in numerous ways, including as a product of binomial coefficients or of factorials:
+
+(nk1,k2,…,km)=n!k1!k2!⋯km!=(k1k1)(k1+k2k2)⋯(k1+k2+⋯+kmkm)n_1,k_2,…,k_m=n!/k_1! k_2!_m!=k_1_1k_1+k_2_2⋯k_1+k_2+⋯+k_m_m
+Sum of all multinomial coefficients[edit]
+The substitution of xi = 1 for all i into the multinomial theorem
+
+∑k1+k2+⋯+km=n(nk1,k2,…,km)x1k1x2k2⋯xmkm=(x1+x2+⋯+xm)n∑_k_1+k_2+⋯+k_m=nn_1,k_2,…,k_mx_1^k_1x_2^k_2_m^k_m=(x_1+x_2+⋯+x_m)^n
+gives immediately that 
+
+∑k1+k2+⋯+km=n(nk1,k2,…,km)=mn.∑_k_1+k_2+⋯+k_m=nn_1,k_2,…,k_m=m^n.
+Number of multinomial coefficients[edit]
+The number of terms in a multinomial sum, #n,m, is equal to the number of monomials of degree n on the variables x1, …, xm:
+
+#n,m=(n+m−1m−1).#_n,m=n+m-1-1.
+The count can be performed easily using the method of stars and bars.
+
+Valuation of multinomial coefficients[edit]
+The largest power of a prime p that divides a multinomial coefficient may be computed using a generalization of Kummer's theorem.
+
+Asymptotics[edit]
+By Stirling's approximation, or equivalently the log-gamma function's asymptotic expansion, log⁡(knn,n,⋯,n)=knlog⁡(k)+12(log⁡(k)−(k−1)log⁡(2πn))−k2−112kn+k4−1360k3n3−k6−11260k5n5+O(1n6)logknn,n,⋯,n=knlog(k)+1/2(log(k)-(k-1)log(2))-k^2-1/12kn+k^4-1/360k^3n^3-k^6-1/1260k^5n^5+O(1/n^6)so for example,(2nn)∼22nnπ2nn∼2^2n/√(nπ)
+
+Interpretations[edit]
+Ways to put objects into bins[edit]
+The multinomial coefficients have a direct combinatorial interpretation, as the number of ways of depositing n distinct objects into m distinct bins, with k1 objects in the first bin, k2 objects in the second bin, and so on.[1]
+
+Number of ways to select according to a distribution[edit]
+In statistical mechanics and combinatorics, if one has a number distribution of labels, then the multinomial coefficients naturally arise from the binomial coefficients. Given a number distribution  {ni}  on a set of N total items, ni represents the number of items to be given the label i.  (In statistical mechanics i is the label of the energy state.)
+The number of arrangements is found by 
+
+Choosing n1 of the total N to be labeled 1.  This can be done (Nn1)Nn_1 ways.
+From the remaining N − n1 items choose n2 to label 2.  This can be done (N−n1n2)N-n_1n_2 ways.
+From the remaining N − n1 − n2 items choose n3 to label 3.  Again, this can be done (N−n1−n2n3)N-n_1-n_2n_3 ways.
+Multiplying the number of choices at each step results in:
+
+(Nn1)(N−n1n2)(N−n1−n2n3)⋯=N!(N−n1)!n1!⋅(N−n1)!(N−n1−n2)!n2!⋅(N−n1−n2)!(N−n1−n2−n3)!n3!⋯.N_1N-n_1_2N-n_1-n_2_3⋯=N!/(N-n_1)!n_1!·(N-n_1)!/(N-n_1-n_2)!n_2!·(N-n_1-n_2)!/(N-n_1-n_2-n_3)!n_3!⋯.
+Cancellation results in the formula given above.
+
+Number of unique permutations of words[edit]
+Multinomial coefficient as a product of binomial coefficients, counting the permutations of the letters of MISSISSIPPI.
+The multinomial coefficient 
+
+(nk1,…,km)nk_1,…,k_m
+is also the number of distinct ways to permute a multiset of n elements, where ki is the multiplicity of each of the ith element. For example, the number of distinct permutations of the letters of the word MISSISSIPPI, which has 1 M, 4 Is, 4 Ss, and 2 Ps, is
+
+(111,4,4,2)=11!1!4!4!2!=34650.111,4,4,2=11!/1! 4! 4! 2!=34650.
+Generalized Pascal's triangle[edit]
+One can use the multinomial theorem to generalize Pascal's triangle or Pascal's pyramid to Pascal's simplex. This provides a quick way to generate a lookup table for multinomial coefficients.
+
+See also[edit]
+Multinomial distribution
+Stars and bars (combinatorics)
+References[edit]
+
+
+^ National Institute of Standards and Technology (May 11, 2010). "NIST Digital Library of Mathematical Functions". Section 26.4. Retrieved August 30, 2010.
+
+
+
+
+

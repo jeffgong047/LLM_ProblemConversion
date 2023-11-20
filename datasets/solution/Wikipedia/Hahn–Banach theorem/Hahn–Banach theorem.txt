@@ -1,0 +1,936 @@
+Theorem on extension of bounded linear functionals
+The Hahn–Banach theorem is a central tool in functional analysis. 
+It allows the extension of bounded linear functionals defined on a subspace of some vector space to the whole space, and it also shows that there are "enough" continuous linear functionals defined on every normed vector space to make the study of the dual space "interesting". Another version of the Hahn–Banach theorem is known as the Hahn–Banach separation theorem or the hyperplane separation theorem, and has numerous uses in convex geometry.
+
+
+History[edit]
+The theorem is named for the mathematicians Hans Hahn and Stefan Banach, who proved it independently in the late 1920s. 
+The special case of the theorem for the space C[a,b][a,b] of continuous functions on an interval was proved earlier (in 1912) by Eduard Helly,[1] and a more general extension theorem, the M. Riesz extension theorem, from which the Hahn–Banach theorem can be derived, was proved in 1923 by Marcel Riesz.[2]
+The first Hahn–Banach theorem was proved by Eduard Helly in 1921 who showed that certain linear functionals defined on a subspace of a certain type of normed space (CNℂ^ℕ) had an extension of the same norm. Helly did this through the technique of first proving that a one-dimensional extension exists (where the linear functional has its domain extended by one dimension) and then using induction.  In 1927, Hahn defined general Banach spaces and used Helly's technique to prove a norm-preserving version of Hahn–Banach theorem for Banach spaces (where a bounded linear functional on a subspace has a bounded linear extension of the same norm to the whole space).  In 1929, Banach, who was unaware of Hahn's result, generalized it by replacing the norm-preserving version with the dominated extension version that uses sublinear functions.  Whereas Helly's proof used mathematical induction, Hahn and Banach both used transfinite induction.[3]
+The Hahn–Banach theorem arose from attempts to solve infinite systems of linear equations. This is needed to solve problems such as the moment problem, whereby given all the potential moments of a function one must determine if a function having these moments exists, and, if so, find it in terms of those moments. Another such problem is the Fourier cosine series problem, whereby given all the potential Fourier cosine coefficients one must determine if a function having those coefficients exists, and, again, find it if so.
+Riesz and Helly solved the problem for certain classes of spaces (such as Lp([0,1])^p([0,1]) and C([a,b])([a,b]) where they discovered that the existence of a solution was equivalent to the existence and continuity of certain linear functionals.  In effect, they needed to solve the following problem:[3]
+
+(The vector problem) Given a collection (fi)i∈I(f_i)_i of bounded linear functionals on a normed space X and a collection of scalars (ci)i∈I,(c_i)_i, determine if there is an x∈X such that fi(x)=ci_i(x)=c_i for all i∈I..
+If X happens to be a reflexive space then to solve the vector problem, it suffices to solve the following dual problem:[3]
+
+(The functional problem) Given a collection (xi)i∈I(x_i)_i of vectors in a normed space X and a collection of scalars (ci)i∈I,(c_i)_i, determine if there is a bounded linear functional f on X such that f(xi)=ci(x_i)=c_i for all i∈I..
+Riesz went on to define Lp([0,1])^p([0,1]) space (1<p<∞1<p<∞) in 1910 and the ℓpℓ^p spaces in 1913.  While investigating these spaces he proved a special case of the Hahn–Banach theorem.  Helly also proved a special case of the Hahn–Banach theorem in 1912.  In 1910, Riesz solved the functional problem for some specific spaces and in 1912, Helly solved it for a more general class of spaces. It wasn't until 1932 that Banach, in one of the first important applications of the Hahn–Banach theorem, solved the general functional problem.  The following theorem states the general functional problem and characterizes its solution.[3]
+
+
+Theorem[3] (The functional problem) — Let (xi)i∈I(x_i)_i be vectors in a real or complex normed space X and let (ci)i∈I(c_i)_i be scalars also indexed by I≠∅.≠∅.
+There exists a continuous linear functional f on X such that f(xi)=ci(x_i)=c_i for all i∈I if and only if there exists a K>0>0 such that for any choice of scalars (si)i∈I(s_i)_i where all but finitely many si_i are 0,0, the following holds:
+|∑i∈Isici|≤K‖∑i∈Isixi‖.|∑_is_ic_i|∑_is_ix_i.
+
+
+The Hahn–Banach theorem can be deduced from the above theorem.[3] If X is reflexive then this theorem solves the vector problem.
+
+Hahn–Banach theorem[edit]
+A real-valued function f:M→R:M→ℝ defined on a subset M of X is said to be dominated (above) by a function p:X→R:X→ℝ if f(m)≤p(m)(m)(m) for every m∈M.. 
+Hence the reason why the following version of the Hahn-Banach theorem is called the dominated extension theorem. 
+
+
+Hahn–Banach dominated extension theorem (for real linear functionals)[4][5][6] — If p:X→R:X→ℝ is a sublinear function (such as a norm or seminorm for example) defined on a real vector space X then any linear functional defined on a vector subspace of X that is dominated above by p has at least one linear extension to all of X that is also dominated above by p..
+Explicitly, if p:X→R:X→ℝ is a sublinear function, which by definition means that it satisfies 
+p(x+y)≤p(x)+p(y)andp(tx)=tp(x)forallx,y∈Xandallrealt≥0,(x+y)(x)+p(y)  and(tx)=tp(x)    forall x,y andallreal t≥0, 
+and if f:M→R:M→ℝ is a linear functional defined on a vector subspace M of X such that 
+f(m)≤p(m)forallm∈M(m)(m)  forallm 
+then there exists a linear functional F:X→R:X→ℝ such that
+F(m)=f(m)forallm∈M,(m)=f(m)  forallm,
+F(x)≤p(x)forallx∈X.(x)(x)     forallx. 
+Moreover, if p is a seminorm then |F(x)|≤p(x)|F(x)|(x) necessarily holds for all x∈X..
+
+
+The theorem remains true if the requirements on p are relaxed to require only that p be a convex function:[7][8]
+p(tx+(1−t)y)≤tp(x)+(1−t)p(y)forall0<t<1andx,y∈X.(tx+(1-t)y)(x)+(1-t)p(y)    forall0<t<1andx,y. 
+A function p:X→R:X→ℝ is convex and satisfies p(0)≤0(0)≤0 if and only if p(ax+by)≤ap(x)+bp(y)(ax+by)(x)+bp(y) for all vectors x,y∈X,y and all non-negative real a,b≥0,b≥0 such that a+b≤1.+b≤1. Every sublinear function is a convex function. 
+On the other hand, if p:X→R:X→ℝ is convex with p(0)≥0,(0)≥0, then, as it follows plainly from the definitions, the function defined by p0(x)=definft>0p(tx)t_0(x) def= inf_t>0p(tx)/t is sublinear, bounded above by p0≤p,_0, and satisfies F≤p0_0 for every linear functional F≤p.. So the extension of the Hahn–Banach theorem to convex functionals does not have a much larger content than the classical one stated for sublinear functionals.
+If F:X→R:X→ℝ is linear then F≤p if and only if[4] −p(−x)≤F(x)≤p(x)forallx∈X,-p(-x)(x)(x)  forallx, 
+which is the (equivalent) conclusion that some authors[4] write instead of F≤p..
+It follows that if p:X→R:X→ℝ is also symmetric, meaning that p(−x)=p(x)(-x)=p(x) holds for all x∈X,, then F≤p if and only |F|≤p.|F|. 
+Every norm is a seminorm and both are symmetric balanced sublinear functions. A sublinear function is a seminorm if and only if it is a balanced function. On a real vector space (although not on a complex vector space), a sublinear function is a seminorm if and only if it is symmetric. The identity function R→Rℝ→ℝ on X:=R:=ℝ is an example of a sublinear function that is not a seminorm. 
+
+For complex or real vector spaces[edit]
+The dominated extension theorem for real linear functionals implies the following alternative statement of the Hahn–Banach theorem that can be applied to linear functionals on real or complex vector spaces. 
+
+
+Hahn–Banach theorem[3][9] — Suppose p:X→R:X→ℝ a seminorm on a vector space X over the field K,𝐊, which is either Rℝ or C.ℂ. 
+If f:M→K:M→𝐊 is a linear functional on a vector subspace M such that 
+|f(m)|≤p(m)forallm∈M.|f(m)|(m)  forallm.
+then there exists a linear functional F:X→K:X→𝐊 such that
+F(m)=f(m)forallm∈M,(m)=f(m)   forallm,
+|F(x)|≤p(x)forallx∈X.|F(x)|(x)    forallx.
+
+
+The theorem remains true if the requirements on p are relaxed to require only that for all x,y∈X,y and all scalars a and b satisfying |a|+|b|≤1,|a|+|b|≤1,[8]
+p(ax+by)≤|a|p(x)+|b|p(y).(ax+by)≤|a|p(x)+|b|p(y).
+This condition holds if and only if p is a convex and balanced function satisfying p(0)≤0,(0)≤0, or equivalently, if and only if it is convex, satisfies p(0)≤0,(0)≤0, and p(ux)≤p(x)(ux)(x) for all x∈X and all unit length scalars u..
+A complex-valued functional F is said to be dominated by p if |F(x)|≤p(x)|F(x)|(x) for all x in the domain of F.. 
+With this terminology, the above statements of the Hahn–Banach theorem can be restated more succinctly:
+
+Hahn–Banach dominated extension theorem: If p:X→R:X→ℝ is a seminorm defined on a real or complex vector space X,, then every dominated linear functional defined on a vector subspace of X has a dominated linear extension to all of X.. In the case where X is a real vector space and p:X→R:X→ℝ is merely a convex or sublinear function, this conclusion will remain true if both instances of "dominated" (meaning |F|≤p|F|) are weakened to instead mean "dominated above" (meaning F≤p).[7][8]
+Proof
+The following observations allow the Hahn–Banach theorem for real vector spaces to be applied to (complex-valued) linear functionals on complex vector spaces.
+Every linear functional F:X→C:X→ℂ on a complex vector space is completely determined by its real part Re⁡F:X→R ReF:X→ℝ  through the formula[6][proof 1]
+F(x)=Re⁡F(x)−iRe⁡F(ix)forallx∈X(x) = ReF(x)-iReF(ix)    forallx
+and moreover, if ‖⋅‖· is a norm on X then their dual norms are equal: ‖F‖=‖Re⁡F‖.F=ReF.[10] 
+In particular, a linear functional on X extends another one defined on M⊆X if and only if their real parts are equal on M (in other words, a linear functional F extends f if and only if Re⁡FReF extends Re⁡fRef). 
+The real part of a linear functional on X is always a real-linear functional (meaning that it is linear when X is considered as a real vector space) and if R:X→R:X→ℝ is a real-linear functional on a complex vector space then x↦R(x)−iR(ix)(x)-iR(ix) defines the unique linear functional on X whose real part is R..
+If F is a linear functional on a (complex or real) vector space X and if p:X→R:X→ℝ is a seminorm then[6][proof 2]
+|F|≤pifandonlyifRe⁡F≤p.|F| ≤ p  ifandonlyif  ReF ≤ p.
+Stated in simpler language, a linear functional is dominated by a seminorm p if and only if its real part is dominated above by p..
+
+Proof of Hahn–Banach for complex vector spaces by reduction to real vector spaces[3]
+Suppose p:X→R:X→ℝ is a seminorm on a complex vector space X and let f:M→C:M→ℂ be a linear functional defined on a vector subspace M of X that satisfies |f|≤p|f| on M.. 
+Consider X as a real vector space and apply the Hahn–Banach theorem for real vector spaces to the real-linear functional Re⁡f:M→R Ref:M→ℝ  to obtain a real-linear extension R:X→R:X→ℝ that is also dominated above by p,, so that it satisfies R≤p on X and R=Re⁡f=Ref on M.. 
+The map F:X→C:X→ℂ defined by F(x)=R(x)−iR(ix)(x) = R(x)-iR(ix) is a linear functional on X that extends f (because their real parts agree on M) and satisfies |F|≤p|F| on X (because Re⁡F≤pReF and p is a seminorm). 
+◼▪
+
+
+The proof above shows that when p is a seminorm then there is a one-to-one correspondence between dominated linear extensions of f:M→C:M→ℂ and dominated real-linear extensions of Re⁡f:M→R;Ref:M→ℝ; the proof even gives a formula for explicitly constructing a linear extension of f from any given real-linear extension of its real part.
+Continuity
+A linear functional F on a topological vector space  is continuous if and only if this is true of its real part Re⁡F;ReF; if the domain is a normed space then ‖F‖=‖Re⁡F‖F=ReF (where one side is infinite if and only if the other side is infinite).[10] 
+Assume X is a topological vector space and p:X→R:X→ℝ is sublinear function. 
+If p is a continuous sublinear function that dominates a linear functional F then F is necessarily continuous.[6] Moreover, a linear functional F is continuous if and only if its absolute value |F||F| (which is a seminorm that dominates F) is continuous.[6] In particular, a linear functional is continuous if and only if it is dominated by some continuous sublinear function.
+
+Proof[edit]
+The Hahn–Banach theorem for real vector spaces ultimately follows from Helly's initial result for the special case where the linear functional is extended from M to a larger vector space in which M has codimension 1.1.[3]
+
+
+Lemma[6] (One–dimensional dominated extension theorem) — Let p:X→R:X→ℝ be a sublinear function on a real vector space X,, let f:M→R:M→ℝ a linear functional on a proper vector subspace M⊊X such that f≤p on M (meaning f(m)≤p(m)(m)(m) for all m∈M), and let x∈X be a vector not in M (so M⊕Rx=span⁡M,x⊕ℝx=span{M,x}). 
+There exists a linear extension F:M⊕Rx→R:M⊕ℝx→ℝ of f such that F≤p on M⊕Rx.⊕ℝx.
+
+
+Proof[6]
+Given any real number b,, the map Fb:M⊕Rx→R_b:M⊕ℝx→ℝ defined by Fb(m+rx)=f(m)+rb_b(m+rx)=f(m)+rb is always a linear extension of f to M⊕Rx⊕ℝx[note 1] but it might not satisfy Fb≤p._b. 
+It will be shown that b can always be chosen so as to guarantee that Fb≤p,_b, which will complete the proof. 
+If m,n∈M,n then 
+f(m)−f(n)=f(m−n)≤p(m−n)=p(m+x−x−n)≤p(m+x)+p(−x−n)(m)-f(n)=f(m-n)(m-n)=p(m+x-x-n)(m+x)+p(-x-n)
+which implies
+−p(−n−x)−f(n)≤p(m+x)−f(m).-p(-n-x)-f(n) ≤ p(m+x)-f(m).
+So define
+a=supn∈M[−p(−n−x)−f(n)]andc=infm∈M[p(m+x)−f(m)]=sup_n[-p(-n-x)-f(n)]    and=inf_m[p(m+x)-f(m)]
+where a≤c are real numbers. 
+To guarantee Fb≤p,_b, it suffices that a≤b≤c (in fact, this is also necessary[note 2]) because then b satisfies "the decisive inequality"[6]
+−p(−n−x)−f(n)≤b≤p(m+x)−f(m)forallm,n∈M.-p(-n-x)-f(n) ≤ b ≤ p(m+x)-f(m)    forall m,n.
+To see that f(m)+rb≤p(m+rx)(m)+rb(m+rx) follows,[note 3] assume r≠0≠0 and substitute 1rm1rm in for both m and n to obtain
+−p(−1rm−x)−1rf(m)≤b≤p(1rm+x)−1rf(m).-p(-1rm-x)-1rf(m) ≤ b ≤ p(1rm+x)-1rf(m). 
+If r>0>0 (respectively, if r<0<0) then the right (respectively, the left) hand side equals 1r[p(m+rx)−f(m)]1r[p(m+rx)-f(m)] so that multiplying by r gives rb≤p(m+rx)−f(m).(m+rx)-f(m).
+◼▪
+
+
+This lemma remains true if p:X→R:X→ℝ is merely a convex function instead of a sublinear function.[7][8]
+
+
+
+
+Proof
+
+
+
+Assume that p is convex, which means that p(ty+(1−t)z)≤tp(y)+(1−t)p(z)(ty+(1-t)z)(y)+(1-t)p(z) for all 0≤t≤10≤1 and y,z∈X.,z. Let M,, f:M→R,:M→ℝ, and x∈X∖M be as in the lemma's statement. Given any m,n∈M,n and any positive real r,s>0,,s>0, the positive real numbers t:=sr+s:=sr+s and rr+s=1−trr+s=1-t sum to 11 so that the convexity of p on X guarantees
+p(sr+sm+rr+sn)=p(sr+s(m−rx)+rr+s(n+sx))≤sr+sp(m−rx)+rr+sp(n+sx)9p(sr+sm+rr+sn)    = p(sr+s(m-rx)      +rr+s(n+sx))      
+   ≤ sr+s p(m-rx)      +rr+s p(n+sx)      
+
+and hence
+sf(m)+rf(n)=(r+s)f(sr+sm+rr+sn)bylinearityoff≤(r+s)p(sr+sm+rr+sn)f≤ponM≤sp(m−rx)+rp(n+sx)9sf(m)+rf(n)    = (r+s) f(sr+sm+rr+sn)          bylinearityoff
+   ≤ (r+s) p(sr+sm+rr+sn)      onM
+   ≤ sp(m-rx)+rp(n+sx)
+
+thus proving that −sp(m−rx)+sf(m)≤rp(n+sx)−rf(n),-sp(m-rx)+sf(m) ≤ rp(n+sx)-rf(n), which after multiplying both sides by 1rs1rs becomes 
+1r[−p(m−rx)+f(m)]≤1s[p(n+sx)−f(n)].1r[-p(m-rx)+f(m)] ≤ 1s[p(n+sx)-f(n)]. 
+This implies that the values defined by 
+a=supr>0m∈M1r[−p(m−rx)+f(m)]andc=infs>0n∈M1s[p(n+sx)−f(n)]=sup_mr>01r[-p(m-rx)+f(m)]    and=inf_ns>01s[p(n+sx)-f(n)] 
+are real numbers that satisfy a≤c.. As in the above proof of the one–dimensional dominated extension theorem above, for any real b∈R∈ℝ define Fb:M⊕Rx→R_b:M⊕ℝx→ℝ by Fb(m+rx)=f(m)+rb._b(m+rx)=f(m)+rb. 
+It can be verified that if a≤b≤c then Fb≤p_b where rb≤p(m+rx)−f(m)(m+rx)-f(m) follows from b≤c when r>0>0 (respectively, follows from a≤b when r<0<0).
+◼▪
+
+
+The lemma above is the key step in deducing the dominated extension theorem from Zorn's lemma. 
+
+Proof of dominated extension theorem using Zorn's lemma
+The set of all possible dominated linear extensions of f are partially ordered by extension of each other, so there is a maximal extension F..  By the codimension-1 result, if F is not defined on all of X,, then it can be further extended.  Thus F must be defined everywhere, as claimed. 
+◼▪
+
+
+When M has countable codimension, then using induction and the lemma completes the proof of the Hahn–Banach theorem. The standard proof of the general case uses Zorn's lemma although the strictly weaker ultrafilter lemma[11] (which is equivalent to the compactness theorem and to the Boolean prime ideal theorem) may be used instead. Hahn-Banach can also be proved using Tychonoff's theorem for compact Hausdorff spaces[12] (which is also equivalent to the ultrafilter lemma)
+The Mizar project has completely formalized and automatically checked the proof of the Hahn–Banach theorem in the HAHNBAN file.[13]
+
+Continuous extension theorem[edit]
+The Hahn–Banach theorem can be used to guarantee the existence of continuous linear extensions of continuous linear functionals.
+
+
+Hahn–Banach continuous extension theorem[14] — Every continuous linear functional f defined on a vector subspace M of a (real or complex) locally convex topological vector space X has a continuous linear extension F to all of X.. If in addition X is a normed space, then this extension can be chosen so that its dual norm is equal to that of f..
+
+
+In category-theoretic terms, the underlying field of the vector space is an injective object in the category of locally convex vector spaces.
+On a normed (or seminormed) space, a linear extension F of a bounded linear functional f is said to be norm-preserving if it has the same dual norm as the original functional: ‖F‖=‖f‖.F=f.
+Because of this terminology, the second part of the above theorem is sometimes referred to as the "norm-preserving" version of the Hahn–Banach theorem.[15] Explicitly:
+
+
+Norm-preserving Hahn–Banach continuous extension theorem[15] — Every continuous linear functional f defined on a vector subspace M of a (real or complex) normed space X has a continuous linear extension F to all of X that satisfies ‖f‖=‖F‖.f=F.
+
+
+Proof of the continuous extension theorem[edit]
+The following observations allow the continuous extension theorem to be deduced from the Hahn–Banach theorem.[16]
+The absolute value of a linear functional is always a seminorm. A linear functional F on a topological vector space X is continuous if and only if its absolute value |F||F| is continuous, which happens if and only if there exists a continuous seminorm p on X such that |F|≤p|F| on the domain of F..[17] 
+If X is a locally convex space then this statement remains true when the linear functional F is defined on a proper vector subspace of X..
+
+Proof of the continuous extension theorem for locally convex spaces[16]
+Let f be a continuous linear functional defined on a vector subspace M of a locally convex topological vector space X.. 
+Because X is locally convex, there exists a continuous seminorm p:X→R:X→ℝ on X that dominates f (meaning that |f(m)|≤p(m)|f(m)|(m) for all m∈M). 
+By the Hahn–Banach theorem, there exists a linear extension of f to X,, call it F,, that satisfies |F|≤p|F| on X.. 
+This linear functional F is continuous since |F|≤p|F| and p is a continuous seminorm.
+
+
+Proof for normed spaces
+A linear functional f on a normed space is continuous if and only if it is bounded, which means that its dual norm
+‖f‖=sup|f(m)|:‖m‖≤1,m∈domain⁡ff=sup{|f(m)|:m≤1,m∈domainf}
+is finite, in which case |f(m)|≤‖f‖‖m‖|f(m)|≤fm holds for every point m in its domain. 
+Moreover, if c≥0≥0 is such that |f(m)|≤c‖m‖|f(m)|m for all m in the functional's domain, then necessarily ‖f‖≤c.f.
+If F is a linear extension of a linear functional f then their dual norms always satisfy ‖f‖≤‖F‖f≤F[proof 3] 
+so that equality ‖f‖=‖F‖f=F is equivalent to ‖F‖≤‖f‖,F≤f, which holds if and only if |F(x)|≤‖f‖‖x‖|F(x)|≤fx for every point x in the extension's domain. 
+This can be restated in terms of the function ‖f‖‖⋅‖:X→Rf ·:X→ℝ defined by x↦‖f‖‖x‖,↦f x, which is always a seminorm:[note 4]
+
+A linear extension of a bounded linear functional f is norm-preserving if and only if the extension is dominated by the seminorm ‖f‖‖⋅‖.f ·.
+Applying the Hahn–Banach theorem to f with this seminorm ‖f‖‖⋅‖f · thus produces a dominated linear extension whose norm is (necessarily) equal to that of f,, which proves the theorem:
+
+Proof of the norm-preserving Hahn–Banach continuous extension theorem[15]
+Let f be a continuous linear functional defined on a vector subspace M of a normed space X.. 
+Then the function p:X→R:X→ℝ defined by p(x)=‖f‖‖x‖(x)=f x is a seminorm on X that dominates f,, meaning that |f(m)|≤p(m)|f(m)|(m) holds for every m∈M..
+By the Hahn–Banach theorem, there exists a linear functional F on X that extends f (which guarantees ‖f‖≤‖F‖f≤F) and that is also dominated by p,, meaning that |F(x)|≤p(x)|F(x)|(x) for every x∈X.. 
+The fact that ‖f‖f is a real number such that |F(x)|≤‖f‖‖x‖|F(x)|≤fx for every x∈X,, guarantees ‖F‖≤‖f‖.F≤f. 
+Since ‖F‖=‖f‖F=f is finite, the linear functional F is bounded and thus continuous.
+
+
+Non-locally convex spaces[edit]
+The continuous extension theorem might fail if the topological vector space (TVS) X is not locally convex. For example, for 0<p<1,0<p<1, the Lebesgue space Lp([0,1])^p([0,1]) is a complete metrizable TVS (an F-space) that is not locally convex (in fact, its only convex open subsets are itself Lp([0,1])^p([0,1]) and the empty set) and the only continuous linear functional on Lp([0,1])^p([0,1]) is the constant 00 function (Rudin 1991, §1.47). Since Lp([0,1])^p([0,1]) is Hausdorff, every finite-dimensional vector subspace M⊆Lp([0,1])^p([0,1]) is linearly homeomorphic to Euclidean space Rdim⁡Mℝ^ or Cdim⁡Mℂ^ (by F. Riesz's theorem) and so every non-zero linear functional f on M is continuous but none has a continuous linear extension to all of Lp([0,1]).^p([0,1]). 
+However, it is possible for a TVS X to not be locally convex but nevertheless have enough continuous linear functionals that its continuous dual space X∗^* separates points; for such a TVS, a continuous linear functional defined on a vector subspace might have a continuous linear extension to the whole space. 
+If the TVS X is not locally convex then there might not exist any continuous seminorm p:X→R:X→ℝ defined on X (not just on M) that dominates f,, in which case the Hahn–Banach theorem can not be applied as it was in the above proof of the continuous extension theorem. 
+However, the proof's argument can be generalized to give a characterization of when a continuous linear functional has a continuous linear extension: If X is any TVS (not necessarily locally convex), then a continuous linear functional f defined on a vector subspace M has a continuous linear extension F to all of X if and only if there exists some continuous seminorm p on X that dominates f..  Specifically, if given a continuous linear extension F then p:=|F|:=|F| is a continuous seminorm on X that dominates f;; and conversely, if given a continuous seminorm p:X→R:X→ℝ on X that dominates f then any dominated linear extension of f to X (the existence of which is guaranteed by the Hahn–Banach theorem) will be a continuous linear extension.
+
+Geometric Hahn–Banach (the Hahn–Banach separation theorems)[edit]
+See also: Hyperplane separation theorem
+The key element of the Hahn–Banach theorem is fundamentally a result about the separation of two convex sets: −p(−x−n)−f(n):n∈M,{-p(-x-n)-f(n):n}, and p(m+x)−f(m):m∈M.{p(m+x)-f(m):m}.  This sort of argument appears widely in convex geometry,[18] optimization theory, and economics.  Lemmas to this end derived from the original Hahn–Banach theorem are known as the Hahn–Banach separation theorems.[19][20] 
+They are generalizations of the hyperplane separation theorem, which states that two disjoint nonempty convex subsets of a finite-dimensional space Rnℝ^n can be separated by some affine hyperplane, which is a fiber (level set) of the form f−1(s)=x:f(x)=s^-1(s)={x:f(x)=s} where f≠0≠0 is a non-zero linear functional and s is a scalar. 
+
+
+Theorem[19] — Let A and B be non-empty convex subsets of a real locally convex topological vector space X.. 
+If Int⁡A≠∅IntA≠∅ and B∩Int⁡A=∅∩IntA=∅ then there exists a continuous linear functional f on X such that supf(A)≤inff(B)(A)≤(B) and f(a)<inff(B)(a)<(B) for all a∈Int⁡A∈IntA (such an f is necessarily non-zero).
+
+
+When the convex sets have additional properties, such as being open or compact for example, then the conclusion can be substantially strengthened:
+
+
+Theorem[3][21] — Let A and B be convex non-empty disjoint subsets of a real topological vector space X..
+
+If A is open then A and B are separated by a closed hyperplane.  Explicitly, this means that there exists a continuous linear map f:X→K:X→𝐊 and s∈R∈ℝ such that f(a)<s≤f(b)(a)<s(b) for all a∈A,b∈B.,b.  If both A and B are open then the right-hand side may be taken strict as well.
+If X is locally convex, A is compact, and B closed, then A and B are strictly separated: there exists a continuous linear map f:X→K:X→𝐊 and s,t∈R,t∈ℝ such that f(a)<t<s<f(b)(a)<t<s<f(b) for all a∈A,b∈B.,b.
+If X is complex (rather than real) then the same claims hold, but for the real part of f..
+
+
+Then following important corollary is known as the Geometric Hahn–Banach theorem or Mazur's theorem (also known as Ascoli–Mazur theorem[22]). It follows from the first bullet above and the convexity of M..
+
+
+Theorem (Mazur)[23] — Let M be a vector subspace of the topological vector space X and suppose K is a non-empty convex open subset of X with K∩M=∅.=∅. 
+Then there is a closed hyperplane (codimension-1 vector subspace) N⊆X that contains M,, but remains disjoint from K..
+
+
+Mazur's theorem clarifies that vector subspaces (even those that are not closed) can be characterized by linear functionals. 
+
+
+Corollary[24] (Separation of a subspace and an open convex set) — Let M be a vector subspace of a locally convex topological vector space X,, and U be a non-empty open convex subset disjoint from M..  Then there exists a continuous linear functional f on X such that f(m)=0(m)=0 for all m∈M and Re⁡f>0Ref>0 on U..
+
+
+Supporting hyperplanes[edit]
+Since points are trivially convex, geometric Hahn-Banach implies that functionals can detect the boundary of a set.  In particular, let X be a real topological vector space and A⊆X be convex with Int⁡A≠∅.IntA≠∅. If a0∈A∖Int⁡A_0∖IntA then there is a functional that is vanishing at a0,_0, but supported on the interior of A..[19]
+Call a normed space X smooth if at each point x in its unit ball there exists a unique closed hyperplane to the unit ball at x.. Köthe showed in 1983 that a normed space is smooth at a point x if and only if the norm is Gateaux differentiable at that point.[3]
+
+Balanced or disked neighborhoods[edit]
+Let U be a convex balanced neighborhood of the origin in a locally convex topological vector space X and suppose x∈X is not an element of U.. Then there exists a continuous linear functional f on X such that[3]
+sup|f(U)|≤|f(x)|.sup|f(U)|≤|f(x)|.
+
+Applications[edit]
+The Hahn–Banach theorem is the first sign of an important philosophy in functional analysis: to understand a space, one should understand its continuous functionals.
+For example, linear subspaces are characterized by functionals: if X is a normed vector space with linear subspace M (not necessarily closed) and if z is an element of X not in the closure of M, then there exists a continuous linear map f:X→K:X→𝐊 with f(m)=0(m)=0 for all m∈M,, f(z)=1,(z)=1, and ‖f‖=dist⁡(z,M)−1.f=dist(z,M)^-1.  (To see this, note that dist⁡(⋅,M)dist(·,M) is a sublinear function.)  Moreover, if z is an element of X, then there exists a continuous linear map f:X→K:X→𝐊 such that f(z)=‖z‖(z)=z and ‖f‖≤1.f≤1.  This implies that the natural injection J from a normed space X into its double dual V∗∗^** is isometric.
+That last result also suggests that the Hahn–Banach theorem can often be used to locate a "nicer" topology in which to work.  For example, many results in functional analysis assume that a space is Hausdorff or locally convex.  However, suppose X is a topological vector space, not necessarily Hausdorff or locally convex, but with a nonempty, proper, convex, open set M.  Then geometric Hahn-Banach implies that there is a hyperplane separating M from any other point.  In particular, there must exist a nonzero functional on X — that is, the continuous dual space X∗^* is non-trivial.[3][25] Considering X with the weak topology induced by X∗,^*, then X becomes locally convex; by the second bullet of geometric Hahn-Banach, the weak topology on this new space separates points. 
+Thus X with this weak topology becomes Hausdorff.  This sometimes allows some results from locally convex topological vector spaces to be applied to non-Hausdorff and non-locally convex spaces.
+
+Partial differential equations[edit]
+The Hahn–Banach theorem is often useful when one wishes to apply the method of a priori estimates.  Suppose that we wish to solve the linear differential equation Pu=f=f for u,, with f given in some Banach space X.  If we have control on the size of u in terms of ‖f‖Xf_X and we can think of u as a bounded linear functional on some suitable space of test functions g,, then we can view f as a linear functional by adjunction: (f,g)=(u,P∗g).(f,g)=(u,P^*g).  At first, this functional is only defined on the image of P,, but using the Hahn–Banach theorem, we can try to extend it to the entire codomain X.  The resulting functional is often defined to be a weak solution to the equation.
+
+Characterizing reflexive Banach spaces[edit]
+
+Theorem[26] — A real Banach space is reflexive if and only if every pair of non-empty disjoint closed convex subsets, one of which is bounded, can be strictly separated by a hyperplane.
+
+
+Example from Fredholm theory[edit]
+To illustrate an actual application of the Hahn–Banach theorem, we will now prove a result that follows almost entirely from the Hahn–Banach theorem.
+
+
+Proposition — Suppose X is a Hausdorff locally convex TVS over the field K𝐊 and Y is a vector subspace of X that is TVS–isomorphic to KI𝐊^I for some set I.. 
+Then Y is a closed and complemented vector subspace of X..
+
+
+Proof
+Since KI𝐊^I is a complete TVS so is Y,, and since any complete subset of a Hausdorff TVS is closed, Y is a closed subset of X.. 
+Let f=(fi)i∈I:Y→KI=(f_i)_i:Y→𝐊^I be a TVS isomorphism, so that each fi:Y→K_i:Y→𝐊 is a continuous surjective linear functional. 
+By the Hahn–Banach theorem, we may extend each fi_i to a continuous linear functional Fi:X→K_i:X→𝐊 on X.. 
+Let F:=(Fi)i∈I:X→KI:=(F_i)_i:X→𝐊^I so F is a continuous linear surjection such that its restriction to Y is F|Y=(Fi|Y)i∈I=(fi)i∈I=f.|_Y=(F_i|_Y)_i=(f_i)_i=f. 
+Let P:=f−1∘F:X→Y,:=f^-1:X, which is a continuous linear map whose restriction to Y is P|Y=f−1∘F|Y=f−1∘f=1Y,|_Y=f^-1|_Y=f^-1=1_Y, where 1Y1_Y denotes the identity map on Y.. 
+This shows that P is a continuous linear projection onto Y (that is, P∘P=P=P). 
+Thus Y is complemented in X and X=Y⊕ker⁡P=Y⊕ in the category of TVSs. ◼▪
+
+
+The above result may be used to show that every closed vector subspace of RNℝ^ℕ is complemented because any such space is either finite dimensional or else TVS–isomorphic to RN.ℝ^ℕ.
+
+Generalizations[edit]
+General template
+There are now many other versions of the Hahn–Banach theorem. The general template for the various versions of the Hahn–Banach theorem presented in this article is as follows:
+
+p:X→R:X→ℝ is a sublinear function (possibly a seminorm) on a vector space X,, M is a vector subspace of X (possibly closed), and f is a linear functional on M satisfying |f|≤p|f| on M (and possibly some other conditions). One then concludes that there exists a linear extension F of f to X such that |F|≤p|F| on X (possibly with additional properties).
+
+Theorem[3] — If D is an absorbing disk in a real or complex vector space X and if f be a linear functional defined on a vector subspace M of X such that |f|≤1|f|≤1 on M∩D,, then there exists a linear functional F on X extending f such that |F|≤1|F|≤1 on D..
+
+
+For seminorms[edit]
+
+Hahn–Banach theorem for seminorms[27][28] — If p:M→R:M→ℝ is a seminorm defined on a vector subspace M of X,, and if q:X→R:X→ℝ is a seminorm on X such that p≤q|M,≦|_M, then there exists a seminorm P:X→R:X→ℝ on X such that P|M=p|_M=p on M and P≤q≦ on X..
+
+
+Proof of the Hahn–Banach theorem for seminorms
+Let S be the convex hull of m∈M:p(m)≤1∪x∈X:q(x)≤1.{m:p(m)≤1}∪{x:q(x)≤1}. Because S is an absorbing disk in X,, its Minkowski functional P is a seminorm. Then p=P=P on M and P≤q≦ on X..
+
+
+So for example, suppose that f is a bounded linear functional defined on a vector subspace M of a normed space X,, so its the operator norm ‖f‖f is a non-negative real number. 
+Then the linear functional's absolute value p:=|f|:=|f| is a seminorm on M and the map q:X→R:X→ℝ defined by q(x)=‖f‖‖x‖(x)=f x is a seminorm on X that satisfies p≤q|M≦|_M on M.. 
+The Hahn–Banach theorem for seminorms guarantees the existence of a seminorm P:X→R:X→ℝ that is equal to |f||f| on M (since P|M=p=|f||_M=p=|f|) and is bounded above by P(x)≤‖f‖‖x‖(x)≤f x everywhere on X (since P≤q≦).
+
+Geometric separation[edit]
+
+Hahn–Banach sandwich theorem[3] — Let p:X→R:X→ℝ be a sublinear function on a real vector space X,, let S⊆X be any subset of X,, and let f:S→R:S→ℝ be any map. 
+If there exist positive real numbers a and b such that 
+0≥infs∈S[p(s−ax−by)−f(s)−af(x)−bf(y)]forallx,y∈S,0≥inf_s[p(s-ax-by)-f(s)-af(x)-bf(y)]    forallx,y,
+then there exists a linear functional F:X→R:X→ℝ on X such that F≤p on X and f≤F≤p on S..
+
+
+Maximal dominated linear extension[edit]
+
+Theorem[3] (Andenaes, 1970) — Let p:X→R:X→ℝ be a sublinear function on a real vector space X,, let f:M→R:M→ℝ be a linear functional on a vector subspace M of X such that f≤p on M,, and let S⊆X be any subset of X.. 
+Then there exists a linear functional F:X→R:X→ℝ on X that extends f,, satisfies F≤p on X,, and is (pointwise) maximal on S in the following sense: if F^:X→RF:X→ℝ is a linear functional on X that extends f and satisfies F^≤pF on X,, then F≤F^≤F on S implies F=F^=F on S..
+
+
+If S=s={s} is a singleton set (where s∈X is some vector) and if F:X→R:X→ℝ is such a maximal dominated linear extension of f:M→R,:M→ℝ, then F(s)=infm∈M[f(s)+p(s−m)].(s)=inf_m[f(s)+p(s-m)].[3]
+
+Vector valued Hahn–Banach[edit]
+See also: Vector-valued Hahn–Banach theorems
+
+Vector–valued Hahn–Banach theorem[3] — If X and Y are vector spaces over the same field and if f:M→Y:M be a linear map defined on a vector subspace M of X,, then there exists a linear map F:X→Y:X that extends f..
+
+
+Invariant Hahn–Banach[edit]
+See also: Vector-valued Hahn–Banach theorems
+A set ΓΓ of maps X→X is commutative (with respect to function composition ∘ ∘ ) if F∘G=G∘F=G for all F,G∈Γ.,G∈Γ. 
+Say that a function f defined on a subset M of X is ΓΓ-invariant if L(M)⊆M(M) and f∘L=f=f on M for every L∈Γ.∈Γ.
+
+
+An invariant Hahn–Banach theorem[29] — Suppose ΓΓ is a commutative set of continuous linear maps from a normed space X into itself and let f be a continuous linear functional defined some vector subspace M of X that is ΓΓ-invariant, which means that L(M)⊆M(M) and f∘L=f=f on M for every L∈Γ.∈Γ. 
+Then f has a continuous linear extension F to all of X that has the same operator norm ‖f‖=‖F‖f=F and is also ΓΓ-invariant, meaning that F∘L=F=F on X for every L∈Γ.∈Γ.
+
+
+This theorem may be summarized:
+
+Every ΓΓ-invariant continuous linear functional defined on a vector subspace of a normed space X has a ΓΓ-invariant Hahn–Banach extension to all of X..[29]
+For nonlinear functions[edit]
+The following theorem of Mazur–Orlicz (1953) is equivalent to the Hahn–Banach theorem.
+
+
+Mazur–Orlicz theorem[3] — Let p:X→R:X→ℝ be a sublinear function on a real or complex vector space X,, let T be any set, and let R:T→R:T→ℝ and v:T→X:T be any maps. The following statements are equivalent:
+
+there exists a real-valued linear functional F on X such that F≤p on X and R≤F∘v on T;
+for any finite sequence s1,…,sn_1,…,s_n of n>0>0 non-negative real numbers, and any sequence t1,…,tn∈T_1,…,t_n of elements of T,, ∑i=1nsiR(ti)≤p(∑i=1nsiv(ti)).∑_i=1^ns_iR(t_i)(∑_i=1^ns_iv(t_i)).
+
+The following theorem characterizes when any scalar function on X (not necessarily linear) has a continuous linear extension to all of X..
+
+
+Theorem (The extension principle[30]) — Let f a scalar-valued function on a subset S of a topological vector space X..  
+Then there exists a continuous linear functional F on X extending f if and only if there exists a continuous seminorm p on X such that 
+|∑i=1naif(si)|≤p(∑i=1naisi)|∑_i=1^na_if(s_i)|(∑_i=1^na_is_i)
+for all positive integers n and all finite sequences a1,…,an_1,…,a_n of scalars and elements s1,…,sn_1,…,s_n of S..
+
+
+Converse[edit]
+Let X be a topological vector space.  A vector subspace M of X has the extension property if any continuous linear functional on M can be extended to a continuous linear functional on X, and we say that X has the Hahn–Banach extension property (HBEP) if every vector subspace of X has the extension property.[31]
+The Hahn–Banach theorem guarantees that every Hausdorff locally convex space has the HBEP.  For complete metrizable topological vector spaces there is a converse, due to Kalton: every complete metrizable TVS with the Hahn–Banach extension property is locally convex.[31]  On the other hand, a vector space X of uncountable dimension, endowed with the finest vector topology, then this is a topological vector spaces with the Hahn-Banach extension property that is neither locally convex nor metrizable.[31]
+A vector subspace M of a TVS X has the separation property if for every element of X such that x∉M,, there exists a continuous linear functional f on X such that f(x)≠0(x)≠0 and f(m)=0(m)=0 for all m∈M..  Clearly, the continuous dual space of a TVS X separates points on X if and only if 0,{0}, has the separation property.  In 1992, Kakol proved that any infinite dimensional vector space X, there exist TVS-topologies on X that do not have the HBEP despite having enough continuous linear functionals for the continuous dual space to separate points on X.  However, if X is a TVS then every vector subspace of X has the extension property if and only if every vector subspace of X has the separation property.[31]
+
+Relation to axiom of choice and other theorems[edit]
+See also: Krein–Milman theorem § Relation to other statements
+The proof of the Hahn–Banach theorem for real vector spaces (HB) commonly uses Zorn's lemma, which in the axiomatic framework of Zermelo–Fraenkel set theory (ZF) is equivalent to the axiom of choice (AC).  It was discovered by Łoś and Ryll-Nardzewski[12] and independently by Luxemburg[11] that HB can be proved using the ultrafilter lemma (UL), which is equivalent (under ZF) to the Boolean prime ideal theorem (BPI). BPI is strictly weaker than the axiom of choice and it was later shown that HB is strictly weaker than BPI.[32]
+The ultrafilter lemma is equivalent (under ZF) to the Banach–Alaoglu theorem,[33] which is another foundational theorem in functional analysis. Although the Banach–Alaoglu theorem implies HB,[34] it is not equivalent to it (said differently, the Banach–Alaoglu theorem is strictly stronger than HB). 
+However, HB is equivalent to a certain weakened version of the Banach–Alaoglu theorem for normed spaces.[35] 
+The Hahn–Banach theorem is also equivalent to the following statement:[36]
+
+(∗): On every Boolean algebra B there exists a "probability charge", that is: a non-constant finitely additive map from B into [0,1].[0,1].
+(BPI is equivalent to the statement that there are always non-constant probability charges which take only the values 0 and 1.)
+In ZF, the Hahn–Banach theorem suffices to derive the existence of a non-Lebesgue measurable set.[37]  Moreover, the Hahn–Banach theorem implies the Banach–Tarski paradox.[38]
+For separable Banach spaces, D. K. Brown and S. G. Simpson proved that the Hahn–Banach theorem follows from WKL0, a weak subsystem of second-order arithmetic that takes a form of Kőnig's lemma restricted to binary trees as an axiom.  In fact, they prove that under a weak set of assumptions, the two are equivalent, an example of reverse mathematics.[39][40]
+
+See also[edit]
+Farkas' lemma – Solvability theorem for finite systems of linear inequalities
+Fichera's existence principle – Theorem in functional analysis
+M. Riesz extension theorem – theorem in mathematics, proved by Marcel RieszPages displaying wikidata descriptions as a fallback
+Separating axis theorem – On the existence of hyperplanes separating disjoint convex setsPages displaying short descriptions of redirect targets
+Vector-valued Hahn–Banach theorems
+Notes[edit]
+
+
+^ This definition means, for instance, that Fb(x)=Fb(0+1x)=f(0)+1b=b_b(x)=F_b(0+1x)=f(0)+1b=b and if m∈M then Fb(m)=Fb(m+0x)=f(m)+0b=f(m)._b(m)=F_b(m+0x)=f(m)+0b=f(m). In fact, if G:M⊕Rx→R:M⊕ℝx→ℝ is any linear extension of f to M⊕Rx⊕ℝx then G=Fb=F_b for b:=G(x).:=G(x). In other words, every linear extension of f to M⊕Rx⊕ℝx is of the form Fb_b for some (unique) b..
+
+^ Explicitly, for any real number b∈R,∈ℝ, Fb≤p_b on M⊕Rx⊕ℝx if and only if a≤b≤c.. Combined with the fact that Fb(x)=b,_b(x)=b, it follows that the dominated linear extension of f to M⊕Rx⊕ℝx is unique if and only if a=c,=c, in which case this scalar will be the extension's values at x.. Since every linear extension of f to M⊕Rx⊕ℝx is of the form Fb_b for some b,, the bounds a≤b=Fb(x)≤c=F_b(x) thus also limit the range of possible values (at x) that can be taken by any of f's dominated linear extensions. Specifically, if F:X→R:X→ℝ is any linear extension of f satisfying F≤p then for every x∈X∖M,, supm∈M[−p(−m−x)−f(m)]≤F(x)≤infm∈M[p(m+x)−f(m)].sup_m[-p(-m-x)-f(m)] ≤ F(x) ≤ inf_m[p(m+x)-f(m)].
+
+^ Geometric illustration:
+The geometric idea of the above proof can be fully presented in the case of X=R2,M=(x,0):x∈R.=ℝ^2,M={(x,0):x∈ℝ}.
+
+First, define the simple-minded extension f0(x,y)=f(x),_0(x,y)=f(x), It doesn't work, since maybe f0≤p_0. But it is a step in the right direction. p−f0-f_0 is still convex, and p−f0≥f−f0.-f_0-f_0. Further, f−f0-f_0 is identically zero on the x-axis. Thus we have reduced to the case of f=0,p≥0=0,p≥0 on the x-axis.
+
+If p≥0≥0 on R2,ℝ^2, then we are done. Otherwise, pick some v∈R2,∈ℝ^2, such that p(v)<0.(v)<0.
+
+The idea now is to perform a simultaneous bounding of p on v+M+M and −v+M-v+M such that p≥b on v+M+M and p≥−b≥-b on −v+M,-v+M, then defining f (w+rv)=rbf̃(w+rv)=rb would give the desired extension.
+
+Since −v+M,v+M-v+M,v+M are on opposite sides of M,, and p<0<0 at some point on v+M,+M, by convexity of p,, we must have p≥0≥0 on all points on −v+M.-v+M. Thus infu∈−v+Mp(u)inf_u∈-v+Mp(u) is finite.
+
+Geometrically, this works because z:p(z)<0{z:p(z)<0} is a convex set that is disjoint from M,, and thus must lie entirely on one side of M..
+
+Define b=−infu∈−v+Mp(u).=-inf_u∈-v+Mp(u). This satisfies p≥−b≥-b on −v+M.-v+M. It remains to check the other side.
+
+For all v+w∈v+M,+w+M, convexity implies that for all −v+w′∈−v+M,p(v+w)+p(−v+w′)≥2p((w+w′)/2)=0,-v+w'∈-v+M,p(v+w)+p(-v+w')≥2p((w+w')/2)=0, thus 
+p(v+w)≥supu∈−v+M−p(u)=b.(v+w)≥sup_u∈-v+M-p(u)=b.
+
+Since during the proof, we only used convexity of p, we see that the lemma remains true for merely convex p..
+
+^ Like every non-negative scalar multiple of a norm, this seminorm ‖f‖‖⋅‖f · (the product of the non-negative real number ‖f‖f with the norm ‖⋅‖·) is a norm when ‖f‖f is positive, although this fact is not needed for the proof.
+
+
+Proofs
+
+
+
+^ If z=a+ib∈C=a+ib∈ℂ has real part Re⁡z=aRez=a then −Re⁡(iz)=b,-Re(iz)=b, which proves that z=Re⁡z−iRe⁡(iz).=Rez-iRe(iz). Substituting F(x)(x) in for z and using iF(x)=F(ix)(x)=F(ix) gives F(x)=Re⁡F(x)−iRe⁡F(ix).(x)=ReF(x)-iReF(ix). ◼▪
+
+^ Let F be any homogeneous scalar-valued map on X (such as a linear functional) and let p:X→R:X→ℝ be any map that satisfies p(ux)=p(x)(ux)=p(x) for all x and unit length scalars u (such as a seminorm). If |F|≤p|F| then Re⁡F≤|Re⁡F|≤|F|≤p.ReF≤|ReF|≤|F|. For the converse, assume Re⁡F≤pReF and fix x∈X.. Let r=|F(x)|=|F(x)| and pick any θ∈Rθ∈ℝ such that F(x)=reiθ;(x)=re^iθ; it remains to show r≤p(x).(x). Homogeneity of F implies F(e−iθx)=r(e^-iθx)=r is real so that Re⁡F(e−iθx)=F(e−iθx).ReF(e^-iθx)=F(e^-iθx). By assumption, Re⁡F≤pReF and p(e−iθx)=p(x),(e^-iθx)=p(x), so that r=Re⁡F(e−iθx)≤p(e−iθx)=p(x),=ReF(e^-iθx)(e^-iθx)=p(x), as desired. ◼▪
+
+^ The map F being an extension of f means that domain⁡f⊆domain⁡Fdomainf⊆domainF and F(m)=f(m)(m)=f(m) for every m∈domain⁡f.∈domainf. Consequently,
+|f(m)|:‖m‖≤1,m∈domain⁡f=|F(m)|:‖m‖≤1,m∈domain⁡f⊆|F(x)|:‖x‖≤1,x∈domain⁡F{|f(m)|:m≤1,m∈domainf}={|F(m)|:m≤1,m∈domainf}⊆{|F(x) |:x≤1,x∈domainF} and so the supremum of the set on the left hand side, which is ‖f‖,f, does not exceed the supremum of the right hand side, which is ‖F‖.F. In other words, ‖f‖≤‖F‖.f≤F.
+
+
+References[edit]
+
+
+^ O'Connor, John J.; Robertson, Edmund F., "Hahn–Banach theorem", MacTutor History of Mathematics Archive, University of St Andrews
+
+^ See M. Riesz extension theorem. 
+According to Gȧrding, L. (1970). "Marcel Riesz in memoriam". Acta Math. 124 (1): I–XI. doi:10.1007/bf02394565. MR 0256837., the argument was known to Riesz already in 1918.
+
+^ a b c d e f g h i j k l m n o p q r s Narici & Beckenstein 2011, pp. 177–220.
+
+^ a b c Rudin 1991, pp. 56–62.
+
+^ Rudin 1991, Th. 3.2
+
+^ a b c d e f g h Narici & Beckenstein 2011, pp. 177–183.
+
+^ a b c Schechter 1996, pp. 318–319.
+
+^ a b c d Reed & Simon 1980.
+
+^ Rudin 1991, Th. 3.2
+
+^ a b Narici & Beckenstein 2011, pp. 126–128.
+
+^ a b Luxemburg 1962.
+
+^ a b Łoś & Ryll-Nardzewski 1951, pp. 233–237.
+
+^ HAHNBAN file
+
+^ Narici & Beckenstein 2011, pp. 182, 498.
+
+^ a b c Narici & Beckenstein 2011, p. 184.
+
+^ a b Narici & Beckenstein 2011, p. 182.
+
+^ Narici & Beckenstein 2011, p. 126.
+
+^ Harvey, R.; Lawson, H. B. (1983). "An intrinsic characterisation of Kähler manifolds". Invent. Math. 74 (2): 169–198. Bibcode:1983InMat..74..169H. doi:10.1007/BF01394312. S2CID 124399104.
+
+^ a b c Zălinescu, C. (2002). Convex analysis in general vector spaces. River Edge, NJ: World Scientific Publishing Co., Inc. pp. 5–7. ISBN 981-238-067-1. MR 1921556.
+
+^ Gabriel Nagy, Real Analysis lecture notes
+
+^ Brezis, Haim (2011). Functional Analysis, Sobolev Spaces, and Partial Differential Equations. New York: Springer. pp. 6–7.
+
+^ Kutateladze, Semen (1996). Fundamentals of Functional Analysis. Vol. 12. p. 40. doi:10.1007/978-94-015-8755-6. ISBN 978-90-481-4661-1.
+
+^ Trèves 2006, p. 184.
+
+^ Narici & Beckenstein 2011, pp. 195.
+
+^ Schaefer & Wolff 1999, p. 47.
+
+^ Narici & Beckenstein 2011, p. 212.
+
+^ Wilansky 2013, pp. 18–21.
+
+^ Narici & Beckenstein 2011, pp. 150.
+
+^ a b Rudin 1991, p. 141.
+
+^ Edwards 1995, pp. 124–125.
+
+^ a b c d Narici & Beckenstein 2011, pp. 225–273.
+
+^ Pincus 1974, pp. 203–205.
+
+^ Schechter 1996, pp. 766–767.
+
+^ Muger, Michael (2020). Topology for the Working Mathematician.
+
+^ Bell, J.; Fremlin, David (1972). "A Geometric Form of the Axiom of Choice" (PDF). Fundamenta Mathematicae. 77 (2): 167–170. doi:10.4064/fm-77-2-167-170. Retrieved 26 Dec 2021.
+
+^ Schechter, Eric. Handbook of Analysis and its Foundations. p. 620.
+
+^ Foreman, M.; Wehrung, F. (1991). "The Hahn–Banach theorem implies the existence of a non-Lebesgue measurable set" (PDF). Fundamenta Mathematicae. 138: 13–19. doi:10.4064/fm-138-1-13-19.
+
+^ Pawlikowski, Janusz (1991). "The Hahn–Banach theorem implies the Banach–Tarski paradox". Fundamenta Mathematicae. 138: 21–22. doi:10.4064/fm-138-1-21-22.
+
+^ Brown, D. K.; Simpson, S. G. (1986). "Which set existence axioms are needed to prove the separable Hahn–Banach theorem?". Annals of Pure and Applied Logic. 31: 123–144. doi:10.1016/0168-0072(86)90066-7. Source of citation.
+
+^ Simpson, Stephen G. (2009), Subsystems of second order arithmetic, Perspectives in Logic (2nd ed.), Cambridge University Press, ISBN 978-0-521-88439-6, MR2517689
+
+
+Bibliography[edit]
+Adasch, Norbert; Ernst, Bruno; Keim, Dieter (1978). Topological Vector Spaces: The Theory Without Convexity Conditions. Lecture Notes in Mathematics. Vol. 639. Berlin New York: Springer-Verlag. ISBN 978-3-540-08662-8. OCLC 297140003.
+Banach, Stefan (1932). Théorie des Opérations Linéaires [Theory of Linear Operations] (PDF). Monografie Matematyczne (in French). Vol. 1. Warszawa: Subwencji Funduszu Kultury Narodowej. Zbl 0005.20901. Archived from the original (PDF) on 2014-01-11. Retrieved 2020-07-11.
+Berberian, Sterling K. (1974). Lectures in Functional Analysis and Operator Theory. Graduate Texts in Mathematics. Vol. 15. New York: Springer. ISBN 978-0-387-90081-0. OCLC 878109401.
+Bourbaki, Nicolas (1987) [1981]. Topological Vector Spaces: Chapters 1–5. Éléments de mathématique. Translated by Eggleston, H.G.; Madan, S. Berlin New York: Springer-Verlag. ISBN 3-540-13627-4. OCLC 17499190.
+Conway, John (1990). A course in functional analysis. Graduate Texts in Mathematics. Vol. 96 (2nd ed.). New York: Springer-Verlag. ISBN 978-0-387-97245-9. OCLC 21195908.
+Edwards, Robert E. (1995). Functional Analysis: Theory and Applications. New York: Dover Publications. ISBN 978-0-486-68143-6. OCLC 30593138.
+Grothendieck, Alexander (1973). Topological Vector Spaces. Translated by Chaljub, Orlando. New York: Gordon and Breach Science Publishers. ISBN 978-0-677-30020-7. OCLC 886098.
+Jarchow, Hans (1981). Locally convex spaces. Stuttgart: B.G. Teubner. ISBN 978-3-519-02224-4. OCLC 8210342.
+Köthe, Gottfried (1983) [1969]. Topological Vector Spaces I. Grundlehren der mathematischen Wissenschaften. Vol. 159. Translated by Garling, D.J.H. New York: Springer Science & Business Media. ISBN 978-3-642-64988-2. MR 0248498. OCLC 840293704.
+Łoś, Jerzy; Ryll-Nardzewski, Czesław (1951). "On the application of Tychonoff's theorem in mathematical proofs". Fundamenta Mathematicae. 38 (1): 233–237. ISSN 0016-2736. Retrieved 7 July 2022.
+Luxemburg, W. A. J. (1962). "Two Applications of the Method of Construction by Ultrapowers to Analysis". Bulletin of the American Mathematical Society. American Mathematical Society. 68 (4): 416–419. doi:10.1090/s0002-9904-1962-10824-6. ISSN 0273-0979.
+Narici, Lawrence (2007). "On the Hahn-Banach Theorem". Advanced Courses of Mathematical Analysis II (PDF). World Scientific. pp. 87–122. doi:10.1142/9789812708441_0006. Retrieved 7 July 2022.
+Narici, Lawrence; Beckenstein, Edward (1997). "The Hahn–Banach Theorem: The Life and Times". Topology and Its Applications. 77 (2): 193–211. doi:10.1016/s0166-8641(96)00142-3.
+Narici, Lawrence; Beckenstein, Edward (2011). Topological Vector Spaces. Pure and applied mathematics (Second ed.). Boca Raton, FL: CRC Press. ISBN 978-1584888666. OCLC 144216834.
+Pincus, David (1972). "Independence of the prime ideal theorem from the Hahn Banach theorem" (PDF). Bulletin of the American Mathematical Society. American Mathematical Society. 78 (5): 766–770. doi:10.1090/s0002-9904-1972-13025-8. ISSN 0273-0979. Retrieved 7 July 2022.
+Pincus, David (1974). "The strength of the Hahn-Banach theorem". In Hurd, A.; Loeb, P. (eds.). Victoria Symposium on Nonstandard Analysis. Lecture Notes in Mathematics. Vol. 369. Berlin, Heidelberg: Springer. pp. 203–248. doi:10.1007/bfb0066014. ISBN 978-3-540-06656-9. ISSN 0075-8434.
+Reed, Michael and Simon, Barry, Methods of Modern Mathematical Physics, Vol. 1, Functional Analysis, Section III.3. Academic Press, San Diego, 1980. ISBN 0-12-585050-6.
+Reed, Michael; Simon, Barry (1980). Functional Analysis (revised and enlarged ed.). Boston, MA: Academic Press. ISBN 978-0-12-585050-6.
+Robertson, Alex P.; Robertson, Wendy J. (1980). Topological Vector Spaces. Cambridge Tracts in Mathematics. Vol. 53. Cambridge England: Cambridge University Press. ISBN 978-0-521-29882-7. OCLC 589250.
+Rudin, Walter (1991). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 8 (Second ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 978-0-07-054236-5. OCLC 21163277.
+Schaefer, Helmut H.; Wolff, Manfred P. (1999). Topological Vector Spaces. GTM. Vol. 8 (Second ed.). New York, NY: Springer New York Imprint Springer. ISBN 978-1-4612-7155-0. OCLC 840278135.
+Schmitt, Lothar M (1992). "An Equivariant Version of the Hahn–Banach Theorem". Houston J. Of Math. 18: 429–447.
+Schechter, Eric (1996). Handbook of Analysis and Its Foundations. San Diego, CA: Academic Press. ISBN 978-0-12-622760-4. OCLC 175294365.
+Swartz, Charles (1992). An introduction to Functional Analysis. New York: M. Dekker. ISBN 978-0-8247-8643-4. OCLC 24909067.
+Tao, Terence, The Hahn–Banach theorem, Menger's theorem, and Helly's theorem
+Trèves, François (2006) [1967]. Topological Vector Spaces, Distributions and Kernels. Mineola, N.Y.: Dover Publications. ISBN 978-0-486-45352-1. OCLC 853623322.
+Wilansky, Albert (2013). Modern Methods in Topological Vector Spaces. Mineola, New York: Dover Publications, Inc. ISBN 978-0-486-49353-4. OCLC 849801114.
+Wittstock, Gerd, Ein operatorwertiger Hahn-Banach Satz, J. of Functional Analysis 40 (1981), 127–150
+Zeidler, Eberhard, Applied Functional Analysis: main principles and their applications, Springer, 1995.
+"Hahn–Banach theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteTopological vector spaces (TVSs)Basic concepts
+Banach space
+Completeness
+Continuous linear operator
+Linear functional
+Fréchet space
+Linear map
+Locally convex space
+Metrizability
+Operator topologies
+Topological vector space
+Vector space
+Main results
+Anderson–Kadec
+Banach–Alaoglu
+Closed graph theorem
+F. Riesz's
+Hahn–Banach (hyperplane separation
+Vector-valued Hahn–Banach)
+Open mapping (Banach–Schauder)
+Bounded inverse
+Uniform boundedness (Banach–Steinhaus)
+Maps
+Bilinear operator
+form
+Linear map
+Almost open
+Bounded
+Continuous
+Closed
+Compact
+Densely defined
+Discontinuous
+Topological homomorphism
+Functional
+Linear
+Bilinear
+Sesquilinear
+Norm
+Seminorm
+Sublinear function
+Transpose
+Types of sets
+Absolutely convex/disk
+Absorbing/Radial
+Affine
+Balanced/Circled
+Banach disks
+Bounding points
+Bounded
+Complemented subspace
+Convex
+Convex cone (subset)
+Linear cone (subset)
+Extreme point
+Pre-compact/Totally bounded
+Prevalent/Shy
+Radial
+Radially convex/Star-shaped
+Symmetric
+Set operations
+Affine hull
+(Relative) Algebraic interior (core)
+Convex hull
+Linear span
+Minkowski addition
+Polar
+(Quasi) Relative interior
+Types of TVSs
+Asplund
+B-complete/Ptak
+Banach
+(Countably) Barrelled
+BK-space
+(Ultra-) Bornological
+Brauner
+Complete
+Convenient
+(DF)-space
+Distinguished
+F-space
+FK-AK space
+FK-space
+Fréchet
+tame Fréchet
+Grothendieck
+Hilbert
+Infrabarreled
+Interpolation space
+K-space
+LB-space
+LF-space
+Locally convex space
+Mackey
+(Pseudo)Metrizable
+Montel
+Quasibarrelled
+Quasi-complete
+Quasinormed
+(Polynomially
+Semi-) Reflexive
+Riesz
+Schwartz
+Semi-complete
+Smith
+Stereotype
+(B
+Strictly
+Uniformly) convex
+(Quasi-) Ultrabarrelled
+Uniformly smooth
+Webbed
+With the approximation property
+
+ Mathematics portal
+ Category
+Commons
+
+vteBanach space topicsTypes of Banach spaces
+Asplund
+Banach
+list
+Banach lattice
+Grothendieck 
+Hilbert
+Inner product space
+Polarization identity
+(Polynomially) Reflexive
+Riesz
+L-semi-inner product
+(B
+Strictly
+Uniformly) convex
+Uniformly smooth
+(Injective
+Projective) Tensor product (of Hilbert spaces)
+Banach spaces are:
+Barrelled
+Complete
+F-space
+Fréchet
+tame
+Locally convex
+Seminorms/Minkowski functionals
+Mackey
+Metrizable
+Normed
+norm
+Quasinormed
+Stereotype
+Function space Topologies
+Banach–Mazur compactum
+Dual
+Dual space
+Dual norm
+Operator
+Ultraweak
+Weak
+polar
+operator
+Strong
+polar
+operator
+Ultrastrong
+Uniform convergence
+Linear operators
+Adjoint
+Bilinear
+form
+operator
+sesquilinear
+(Un)Bounded
+Closed
+Compact
+on Hilbert spaces
+(Dis)Continuous
+Densely defined
+Fredholm
+kernel
+operator
+Hilbert–Schmidt
+Functionals
+positive
+Pseudo-monotone
+Normal
+Nuclear
+Self-adjoint
+Strictly singular
+Trace class
+Transpose
+Unitary
+Operator theory
+Banach algebras
+C*-algebras
+Operator space
+Spectrum
+C*-algebra
+radius
+Spectral theory
+of ODEs
+Spectral theorem
+Polar decomposition
+Singular value decomposition
+Theorems
+Anderson–Kadec
+Banach–Alaoglu
+Banach–Mazur
+Banach–Saks
+Banach–Schauder (open mapping)
+Banach–Steinhaus (Uniform boundedness)
+Bessel's inequality
+Cauchy–Schwarz inequality
+Closed graph
+Closed range
+Eberlein–Šmulian
+Freudenthal spectral
+Gelfand–Mazur
+Gelfand–Naimark
+Goldstine
+Hahn–Banach
+hyperplane separation
+Kakutani fixed-point
+Krein–Milman
+Lomonosov's invariant subspace
+Mackey–Arens
+Mazur's lemma
+M. Riesz extension
+Parseval's identity
+Riesz's lemma
+Riesz representation
+Robinson-Ursescu
+Schauder fixed-point
+Analysis
+Abstract Wiener space
+Banach manifold
+bundle
+Bochner space
+Convex series
+Differentiation in Fréchet spaces
+Derivatives
+Fréchet
+Gateaux
+functional
+holomorphic
+quasi
+Integrals
+Bochner
+Dunford
+Gelfand–Pettis
+regulated
+Paley–Wiener
+weak
+Functional calculus
+Borel
+continuous
+holomorphic
+Measures
+Lebesgue
+Projection-valued
+Vector
+Weakly / Strongly measurable function
+Types of sets
+Absolutely convex
+Absorbing
+Affine
+Balanced/Circled
+Bounded
+Convex
+Convex cone (subset)
+Convex series related ((cs, lcs)-closed, (cs, bcs)-complete, (lower) ideally convex, (Hx), and (Hwx))
+Linear cone (subset)
+Radial
+Radially convex/Star-shaped
+Symmetric
+Zonotope
+Subsets / set operations
+Affine hull
+(Relative) Algebraic interior (core)
+Bounding points
+Convex hull
+Extreme point
+Interior
+Linear span
+Minkowski addition
+Polar
+(Quasi) Relative interior
+Examples
+Absolute continuity AC
+ba(Σ)(Σ)
+c space
+Banach coordinate BK
+Besov Bp,qs(R)_p,q^s(ℝ)
+Birnbaum–Orlicz
+Bounded variation BV
+Bs space
+Continuous C(K) with K compact Hausdorff
+Hardy Hp
+Hilbert H
+Morrey–Campanato Lλ,p(Ω)^λ,p(Ω)
+ℓp
+ℓ∞ℓ^∞
+Lp
+L∞^∞
+weighted
+Schwartz S(Rn)(ℝ^n)
+Segal–Bargmann F
+Sequence space
+Sobolev Wk,p
+Sobolev inequality
+Triebel–Lizorkin
+Wiener amalgam W(X,Lp)(X,L^p)
+Applications
+Differential operator
+Finite element method
+Mathematical formulation of quantum mechanics
+Ordinary Differential Equations (ODEs)
+Validated numerics
+
+
+
+

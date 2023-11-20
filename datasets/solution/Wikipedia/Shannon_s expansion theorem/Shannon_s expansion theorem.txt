@@ -1,0 +1,78 @@
+
+Boole's expansion theorem, often referred to as the Shannon expansion or decomposition, is the identity: F=x⋅Fx+x′⋅Fx′=x_x+x'_x', where F is any Boolean function, x is a variable, x′' is the complement of x, and Fx_xand Fx′_x' are F with the argument x set equal to 11 and to 00 respectively.
+The terms Fx_x and Fx′_x' are sometimes called the positive and negative Shannon cofactors, respectively, of F with respect to x. These are functions, computed by restrict operator, restrict⁡(F,x,0)restrict(F,x,0) and restrict⁡(F,x,1)restrict(F,x,1) (see valuation (logic) and partial application).
+It has been called the "fundamental theorem of Boolean algebra".[1] Besides its theoretical importance, it paved the way for binary decision diagrams (BDDs), satisfiability solvers, and many other techniques relevant to computer engineering and formal verification of digital circuits.
+In such engineering contexts (especially in BDDs), the expansion is interpreted as a if-then-else, with the variable x being the condition and the cofactors being the branches (Fx_x when x is true and respectively Fx′_x' when x is false).[2]
+
+
+Statement of the theorem[edit]
+A more explicit way of stating the theorem is:
+
+f(X1,X2,…,Xn)=X1⋅f(1,X2,…,Xn)+X1′⋅f(0,X2,…,Xn)(X_1,X_2,…,X_n)=X_1(1,X_2,…,X_n)+X_1'(0,X_2,…,X_n)
+Variations and implications[edit]
+XOR-Form
+The statement also holds when the disjunction "+" is replaced by the XOR operator:
+f(X1,X2,…,Xn)=X1⋅f(1,X2,…,Xn)⊕X1′⋅f(0,X2,…,Xn)(X_1,X_2,…,X_n)=X_1(1,X_2,…,X_n)_1'(0,X_2,…,X_n)
+Dual form
+There is a dual form of the Shannon expansion (which does not have a related XOR form):
+f(X1,X2,…,Xn)=(X1+f(0,X2,…,Xn))⋅(X1′+f(1,X2,…,Xn))(X_1,X_2,…,X_n)=(X_1+f(0,X_2,…,X_n))·(X_1'+f(1,X_2,…,X_n))
+Repeated application for each argument leads to the Sum of Products (SoP) canonical form of the Boolean function f. For example for n=2=2 that would be
+
+f(X1,X2)=X1⋅f(1,X2)+X1′⋅f(0,X2)=X1X2⋅f(1,1)+X1X2′⋅f(1,0)+X1′X2⋅f(0,1)+X1′X2′⋅f(0,0)f(X_1,X_2)   =X_1(1,X_2)+X_1'(0,X_2)
+   =X_1X_2(1,1)+X_1X_2'(1,0)+X_1'X_2(0,1)+X_1'X_2'(0,0)
+Likewise, application of the dual form leads to the Product of Sums (PoS) canonical form (using the distributivity law of ++ over ⋅·):
+
+f(X1,X2)=(X1+f(0,X2))⋅(X1′+f(1,X2))=(X1+X2+f(0,0))⋅(X1+X2′+f(0,1))⋅(X1′+X2+f(1,0))⋅(X1′+X2′+f(1,1))f(X_1,X_2)   =(X_1+f(0,X_2))·(X_1'+f(1,X_2))
+   =(X_1+X_2+f(0,0))·(X_1+X_2'+f(0,1))·(X_1'+X_2+f(1,0))·(X_1'+X_2'+f(1,1))
+Properties of cofactors[edit]
+Linear properties of cofactors:
+For a Boolean function F which is made up of two Boolean functions G and H the following are true:
+If F=H′=H' then Fx=Hx′_x=H'_x
+If F=G⋅H=G then Fx=Gx⋅Hx_x=G_x_x
+If F=G+H=G+H then Fx=Gx+Hx_x=G_x+H_x
+If F=G⊕H=G then Fx=Gx⊕Hx_x=G_x_x
+Characteristics of unate functions:
+If F is a unate function and...
+If F is positive unate then F=x⋅Fx+Fx′=x_x+F_x'
+If F is negative unate then F=Fx+x′⋅Fx′=F_x+x'_x'
+Operations with cofactors[edit]
+Boolean difference:
+The Boolean difference or Boolean derivative of the function F with respect to the literal x is defined as:
+∂F∂x=Fx⊕Fx′/=F_x_x'
+Universal quantification:
+The universal quantification of F is defined as:
+∀xF=Fx⋅Fx′=F_x_x'
+Existential quantification:
+The existential quantification of F is defined as:
+∃xF=Fx+Fx′=F_x+F_x'
+History[edit]
+George Boole presented this expansion as his Proposition II, "To expand or develop a function involving any number of logical symbols", in his Laws of Thought (1854),[3] and it was "widely applied by Boole and other nineteenth-century logicians".[4]
+Claude Shannon mentioned this expansion, among other Boolean identities, in a 1949 paper,[5] and showed the switching network interpretations of the identity.  In the literature of computer design and switching theory, the identity is often incorrectly attributed to Shannon.[6][4]
+
+Application to switching circuits[edit]
+Binary decision diagrams follow from systematic use of this theorem
+Any Boolean function can be implemented directly in a switching circuit using a hierarchy of basic multiplexer by repeated application of this theorem.
+References[edit]
+
+
+^ Rosenbloom, Paul Charles (1950). The Elements of Mathematical Logic. p. 5.
+
+^ G. D. Hachtel and F. Somezi (1996), Logic Synthesis and Verification Algorithms, p. 234
+
+^ Boole, George (1854). An Investigation of the Laws of Thought: On which are Founded the Mathematical Theories of Logic and Probabilities. p. 72.
+
+^ a b Brown, Frank Markham (2012) [2003, 1990]. Boolean Reasoning - The Logic of Boolean Equations (reissue of 2nd ed.). Mineola, New York: Dover Publications, Inc. p. 42. ISBN 978-0-486-42785-0. [1]
+
+^ Shannon, Claude (January 1949). "The Synthesis of Two-Terminal Switching Circuits" (PDF). Bell System Technical Journal. 28: 59–98 [62]. doi:10.1002/j.1538-7305.1949.tb03624.x. ISSN 0005-8580.
+
+^ Perkowski, Marek A.; Grygiel, Stanislaw (1995-11-20), "6. Historical Overview of the Research on Decomposition", A Survey of Literature on Function Decomposition, Version IV, Functional Decomposition Group, Department of Electrical Engineering, Portland University, Portland, Oregon, USA, p. 21, CiteSeerX 10.1.1.64.1129 (188 pages)
+
+
+See also[edit]
+Reed–Muller expansion
+External links[edit]
+Shannon’s Decomposition Example with multiplexers.
+Optimizing Sequential Cycles Through Shannon Decomposition and Retiming (PDF) Paper on application.
+
+
+

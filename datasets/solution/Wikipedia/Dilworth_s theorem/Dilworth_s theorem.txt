@@ -1,0 +1,178 @@
+"Chain decomposition" redirects here. For the path decomposition, see Heavy path decomposition.
+In mathematics, in the areas of order theory and combinatorics, Dilworth's theorem characterizes the width of any finite partially ordered set in terms of a partition of the order into a minimum number of chains. It is named for the mathematician Robert P. Dilworth (1950).
+An antichain in a partially ordered set is a set of elements no two of which are comparable to each other, and a chain is a set of elements every two of which are comparable. A chain decomposition is a partition of the elements of the order into disjoint chains.  Dilworth's theorem states that, in any finite partially ordered set, the largest antichain has the same size as the smallest chain decomposition. Here, the size of the antichain is its number of elements, and the size of the chain decomposition is its number of chains. The width of the partial order is defined as the common size of the antichain and chain decomposition.
+A version of the theorem for infinite partially ordered sets states that, when there exists a decomposition into finitely many chains, or when there exists a finite upper bound on the size of an antichain, the sizes of the largest antichain and of the smallest chain decomposition are again equal.
+
+
+Inductive proof[edit]
+The following proof by induction on the size of the partially ordered set P is based on that of Galvin (1994).
+Let P be a finite partially ordered set. The theorem holds trivially if P is empty. So, assume that P has at least one element, and let a be a maximal element of P.
+By induction, we assume that for some integer k the partially ordered set P′:=P∖a':=P∖{a} can be covered by k disjoint chains C1,…,Ck_1,…,C_k and has at least one antichain A0_0 of size k. Clearly, A0∩Ci≠∅_0_i≠∅ for i=1,2,…,k=1,2,…,k. For i=1,2,…,k=1,2,…,k, let xi_i be the maximal element in Ci_i that belongs to an antichain of size k in P′', and set A:=x1,x2,…,xk:={x_1,x_2,…,x_k}. 
+We claim that A is an antichain. 
+Let Ai_i be an antichain of size k that contains xi_i. Fix arbitrary distinct indices i and j. Then Ai∩Cj≠∅_i_j≠∅. Let y∈Ai∩Cj_i_j. Then y≤xj_j, by the definition of xj_j. This implies that xi≱xj_i_j, since xi≱y_i. By interchanging the roles of i and j in this argument we also have xj≱xi_j_i. This verifies that A is an antichain.
+We now return to P. Suppose first that a≥xi_i for some i∈1,2,…,k∈{1,2,…,k}. Let K be the chain a∪z∈Ci:z≤xi{a}∪{z_i:z_i}. Then by the choice of xi_i, P∖K does not have an antichain of size k. Induction then implies that P∖K can be covered by k−1-1 disjoint chains since A∖xi∖{x_i} is an antichain of size k−1-1 in P∖K. 
+Thus, P can be covered by k disjoint chains, as required. Next, if a≱xi_i for each i∈1,2,…,k∈{1,2,…,k}, then A∪a∪{a} is an antichain of size k+1+1 in P (since a is maximal in P). Now P can be covered by the k+1+1 chains a,C1,C2,…,Ck{a},C_1,C_2,…,C_k, completing the proof.
+
+Proof via Kőnig's theorem[edit]
+Proof of Dilworth's theorem via Kőnig's theorem: constructing a bipartite graph from a partial order, and partitioning into chains according to a matching
+Like a number of other results in combinatorics, Dilworth's theorem is equivalent to Kőnig's theorem on bipartite graph matching and several other related theorems including Hall's marriage theorem (Fulkerson 1956).
+To prove Dilworth's theorem for a partial order S with n elements, using Kőnig's theorem, define a bipartite graph G = (U,V,E) where U = V = S and where (u,v) is an edge in G when u < v in S.  By Kőnig's theorem, there exists a matching M in G, and a set of vertices C in G, such that each edge in the graph contains at least one vertex in C and such that M and C have the same cardinality m.  Let A be the set of elements of S that do not correspond to any vertex in C; then A has at least n - m elements (possibly more if C contains vertices corresponding to the same element on both sides of the bipartition) and no two elements of A are comparable to each other. Let P be a family of chains formed by including x and y in the same chain whenever there is an edge (x,y) in M; then P has n - m chains. Therefore, we have constructed an antichain and a partition into chains with the same cardinality.
+To prove Kőnig's theorem from Dilworth's theorem, for a bipartite graph G = (U,V,E), form a partial order on the vertices of G in which u < v exactly when u is in U, v is in V, and there exists an edge in E from u to v. By Dilworth's theorem, there exists an antichain A and a partition into chains P both of which have the same size. But the only nontrivial chains in the partial order are pairs of elements corresponding to the edges in the graph, so the nontrivial chains in P form a matching in the graph. The complement of A forms a vertex cover in G with the same cardinality as this matching.
+This connection to bipartite matching allows the width of any partial order to be computed in polynomial time. More precisely, n-element partial orders of width k can be recognized in time O(kn2) (Felsner, Raghavan & Spinrad 2003).
+
+Extension to infinite partially ordered sets[edit]
+Dilworth's theorem for infinite partially ordered sets states that a partially ordered set has finite width w if and only if it may be partitioned into w chains.  For, suppose that an infinite partial order P has width w, meaning that there are at most a finite number w of elements in any antichain. For any subset S of P, a decomposition into w chains (if it exists) may be described as a coloring of the incomparability graph of S (a graph that has the elements of S as vertices, with an edge between every two incomparable elements) using w colors; every color class in a proper coloring of the incomparability graph must be a chain. By the assumption that P has width w, and by the finite version of Dilworth's theorem, every finite subset S of P has a w-colorable incomparability graph. Therefore, by the De Bruijn–Erdős theorem, P itself also has a w-colorable incomparability graph, and thus has the desired partition into chains (Harzheim 2005).
+However, the theorem does not extend so simply to partially ordered sets in which the width, and not just the cardinality of the set, is infinite. In this case the size of the largest antichain and the minimum number of chains needed to cover the partial order may be very different from each other. In particular, for every infinite cardinal number κ there is an infinite partially ordered set of width ℵ0 whose partition into the fewest chains has κ chains (Harzheim 2005).
+Perles (1963) discusses analogues of Dilworth's theorem in the infinite setting.
+
+Dual of Dilworth's theorem (Mirsky's theorem)[edit]
+Main article: Mirsky's theorem
+A dual of Dilworth's theorem states that the size of the largest chain in a partial order (if finite) equals the smallest number of antichains into which the order may be partitioned (Mirsky 1971).  The proof of this is much simpler than the proof of Dilworth's theorem itself: for any element x, consider the chains that have x as their largest element, and let N(x) denote the size of the largest of these x-maximal chains. Then each set N−1(i), consisting of elements that have equal values of N, is an antichain, and these antichains partition the partial order into a number of antichains equal to the size of the largest chain.
+
+Perfection of comparability graphs[edit]
+A comparability graph is an undirected graph formed from a partial order by creating a vertex per element of the order, and an edge connecting any two comparable elements. Thus, a clique in a comparability graph corresponds to a chain, and an independent set in a comparability graph corresponds to an antichain. Any induced subgraph of a comparability graph is itself a comparability graph, formed from the restriction of the partial order to a subset of its elements.
+An undirected graph is perfect if, in every induced subgraph, the chromatic number equals the size of the largest clique. Every comparability graph is perfect: this is essentially just Mirsky's theorem, restated in graph-theoretic terms (Berge & Chvátal 1984). By the perfect graph theorem of Lovász (1972), the complement of any perfect graph is also perfect. Therefore, the complement of any comparability graph is perfect; this is essentially just Dilworth's theorem itself, restated in graph-theoretic terms (Berge & Chvátal 1984). Thus, the complementation property of perfect graphs can provide an alternative proof of Dilworth's theorem.
+
+Width of special partial orders[edit]
+The Boolean lattice Bn is the power set of an n-element set X—essentially {1, 2, …, n}—ordered by inclusion or, notationally, (2[n], ⊆). Sperner's theorem states that a maximum antichain of Bn has size at most
+
+width⁡(Bn)=(n⌊n/2⌋).width(B_n)=n⌊n/2⌋.
+In other words, a largest family of incomparable subsets of X is obtained by selecting the subsets of X that have median size. The Lubell–Yamamoto–Meshalkin inequality also concerns antichains in a power set and can be used to prove Sperner's theorem.
+If we order the integers in the interval [1, 2n] by divisibility, the subinterval [n + 1, 2n] forms an antichain with cardinality n. A partition of this partial order into n chains is easy to achieve: for each odd integer m in [1,2n], form a chain of the numbers of the form m2i. Therefore, by Dilworth's theorem, the width of this partial order is n.
+The Erdős–Szekeres theorem on monotone subsequences can be interpreted as an application of Dilworth's theorem to partial orders of order dimension two (Steele 1995).
+The "convex dimension" of an antimatroid is defined as the minimum number of chains needed to define the antimatroid, and Dilworth's theorem can be used to show that it equals the width of an associated partial order; this connection leads to a polynomial time algorithm for convex dimension (Edelman & Saks 1988).
+
+References[edit]
+Berge, Claude; Chvátal, Václav (1984), Topics on Perfect Graphs, Annals of Discrete Mathematics, vol. 21, Elsevier, p. viii, ISBN 978-0-444-86587-8
+Dilworth, Robert P. (1950), "A Decomposition Theorem for Partially Ordered Sets", Annals of Mathematics, 51 (1): 161–166, doi:10.2307/1969503, JSTOR 1969503.
+Edelman, Paul H.; Saks, Michael E. (1988), "Combinatorial representation and convex dimension of convex geometries", Order, 5 (1): 23–32, doi:10.1007/BF00143895, S2CID 119826035.
+Felsner, Stefan; Raghavan, Vijay; Spinrad, Jeremy (2003), "Recognition algorithms for orders of small width and graphs of small Dilworth number", Order, 20 (4): 351–364 (2004), doi:10.1023/B:ORDE.0000034609.99940.fb, MR 2079151, S2CID 1363140.
+Fulkerson, D. R. (1956), "Note on Dilworth's decomposition theorem for partially ordered sets", Proceedings of the American Mathematical Society, 7 (4): 701–702, doi:10.2307/2033375, JSTOR 2033375.
+Galvin, Fred (1994), "A proof of Dilworth's chain decomposition theorem", The American Mathematical Monthly, 101 (4): 352–353, doi:10.2307/2975628, JSTOR 2975628, MR 1270960.
+Greene, Curtis; Kleitman, Daniel J. (1976), "The structure of Sperner k-families", Journal of Combinatorial Theory, Series A, 20 (1): 41–68, doi:10.1016/0097-3165(76)90077-7.
+Harzheim, Egbert (2005), Ordered sets, Advances in Mathematics (Springer), vol. 7, New York: Springer, Theorem 5.6, p. 60, ISBN 0-387-24219-8, MR 2127991.
+Lovász, László (1972), "Normal hypergraphs and the perfect graph conjecture", Discrete Mathematics, 2 (3): 253–267, doi:10.1016/0012-365X(72)90006-4.
+Mirsky, Leon (1971), "A dual of Dilworth's decomposition theorem", American Mathematical Monthly, 78 (8): 876–877, doi:10.2307/2316481, JSTOR 2316481.
+Nešetřil, Jaroslav; Ossona de Mendez, Patrice (2012), "Theorem 3.13", Sparsity: Graphs, Structures, and Algorithms, Algorithms and Combinatorics, vol. 28, Heidelberg: Springer, p. 42, doi:10.1007/978-3-642-27875-4, ISBN 978-3-642-27874-7, MR 2920058.
+Perles, Micha A. (1963), "On Dilworth's theorem in the infinite case", Israel Journal of Mathematics, 1 (2): 108–109, doi:10.1007/BF02759806, MR 0168497, S2CID 120943065.
+Steele, J. Michael (1995), "Variations on the monotone subsequence theme of Erdős and Szekeres", in Aldous, David; Diaconis, Persi; Spencer, Joel; et al. (eds.), Discrete Probability and Algorithms (PDF), IMA Volumes in Mathematics and its Applications, vol. 72, Springer-Verlag, pp. 111–131.
+External links[edit]
+Equivalence of seven major theorems in combinatorics
+"Dual of Dilworth's Theorem", PlanetMath, archived from the original on 2007-07-14
+Babai, László (2005), Lecture Notes in Combinatorics and Probability, Lecture 10: Perfect Graphs (PDF), archived from the original (PDF) on 2011-07-20
+Felsner, S.; Raghavan, V. & Spinrad, J. (1999), Recognition Algorithms for Orders of Small Width and Graphs of Small Dilworth Number
+Weisstein, Eric W. "Dilworth's Lemma". MathWorld.
+vteOrder theory
+Topics
+Glossary
+Category
+Key concepts
+Binary relation
+Boolean algebra
+Cyclic order
+Lattice
+Partial order
+Preorder
+Total order
+Weak ordering
+Results
+Boolean prime ideal theorem
+Cantor–Bernstein theorem
+Cantor's isomorphism theorem
+Dilworth's theorem
+Dushnik–Miller theorem
+Hausdorff maximal principle
+Knaster–Tarski theorem
+Kruskal's tree theorem
+Laver's theorem
+Mirsky's theorem
+Szpilrajn extension theorem
+Zorn's lemma
+Properties & Types (list)
+Antisymmetric
+Asymmetric
+Boolean algebra
+topics
+Completeness
+Connected
+Covering
+Dense
+Directed
+(Partial) Equivalence
+Foundational
+Heyting algebra
+Homogeneous
+Idempotent
+Lattice
+Bounded
+Complemented
+Complete
+Distributive
+Join and meet
+Reflexive
+Partial order
+Chain-complete
+Graded
+Eulerian
+Strict
+Prefix order
+Preorder
+Total
+Semilattice
+Semiorder
+Symmetric
+Total
+Tolerance
+Transitive
+Well-founded
+Well-quasi-ordering (Better)
+(Pre) Well-order
+Constructions
+Composition
+Converse/Transpose
+Lexicographic order
+Linear extension
+Product order
+Reflexive closure
+Series-parallel partial order
+Star product
+Symmetric closure
+Transitive closure
+Topology & Orders
+Alexandrov topology & Specialization preorder
+Ordered topological vector space
+Normal cone
+Order topology
+Order topology
+Topological vector lattice
+Banach
+Fréchet
+Locally convex
+Normed
+Related
+Antichain
+Cofinal
+Cofinality
+Comparability
+Graph
+Duality
+Filter
+Hasse diagram
+Ideal
+Net
+Subnet
+Order morphism
+Embedding
+Isomorphism
+Order type
+Ordered field
+Ordered vector space
+Partially ordered
+Positive cone
+Riesz space
+Upper set
+Young's lattice
+
+
+
+

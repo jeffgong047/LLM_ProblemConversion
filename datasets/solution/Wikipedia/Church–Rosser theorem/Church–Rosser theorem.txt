@@ -1,0 +1,73 @@
+
+In lambda calculus, the Church–Rosser theorem states that, when applying reduction rules to terms,  the ordering in which the reductions are chosen does not make a difference to the eventual result.
+More precisely, if there are two distinct reductions or sequences of reductions that can be applied to the same term, then there exists a term that is reachable from both results, by applying (possibly empty) sequences of additional reductions.[1] The theorem was proved in 1936 by Alonzo Church and J. Barkley Rosser, after whom it is named.
+The theorem is symbolized by the adjacent diagram: If term a can be reduced to both b and c, then there must be a further term d (possibly equal to either b or c) to which both b and c can be reduced.
+Viewing the lambda calculus as an abstract rewriting system, the Church–Rosser theorem states that the reduction rules of the lambda calculus are confluent.  As a consequence of the theorem, a term in the lambda calculus has at most one normal form, justifying reference to "the normal form" of a given normalizable term.
+
+
+History[edit]
+In 1936, Alonzo Church and J. Barkley Rosser proved that the theorem holds for β-reduction in the λI-calculus (in which every abstracted variable must appear in the term's body). The proof method is known as "finiteness of developments", and it has additional consequences such as the Standardization Theorem, which relates to a method in which reductions can be performed from left to right to reach a normal form (if one exists). The result for the pure untyped lambda calculus was proved by D. E. Shroer in 1965.[2]
+
+Pure untyped lambda calculus[edit]
+One type of reduction in the pure untyped lambda calculus for which the Church–Rosser theorem applies is β-reduction, in which a subterm of the form (λx.t)s(.t)s is contracted by the substitution t[x:=s][x:=s]. If β-reduction is denoted by →β→_β and its reflexive, transitive closure by ↠β↠_β then the Church–Rosser theorem is that:[3]
+
+∀M,N1,N2∈Λ:ifM↠βN1andM↠βN2then∃X∈Λ:N1↠βXandN2↠βX,N_1,N_2∈Λ:if↠_βN_1{and↠_βN_2{then
+existsX∈Λ:N_1↠_βX{and_2↠_βX
+A consequence of this property is that two terms equal in λβλβ must reduce to a common term:[4]
+
+∀M,N∈Λ:ifλβ⊢M=Nthen∃X:M↠βXandN↠βX,N∈Λ:if
+lambdaβ=N{then
+existsX:M↠_βX{and↠_βX
+The theorem also applies to η-reduction, in which a subterm λx.Sx.Sx is replaced by S. It also applies to βη-reduction, the union of the two reduction rules.
+
+Proof[edit]
+For β-reduction, one proof method originates from William W. Tait and Per Martin-Löf.[5] Say that a binary relation →→ satisfies the diamond property if:
+
+∀M,N1,N2∈Λ:ifM→N1andM→N2then∃X∈Λ:N1→XandN2→X,N_1,N_2∈Λ:if_1{and_2{then
+existsX∈Λ:N_1{and_2
+Then the Church–Rosser property is the statement that ↠β↠_β satisfies the diamond property. We introduce a new reduction →‖→_ whose reflexive transitive closure is ↠β↠_β and which satisfies the diamond property. By induction on the number of steps in the reduction, it thus follows that ↠β↠_β satisfies the diamond property.
+The relation →‖→_ has the formation rules:
+
+M→‖M→_M
+If M→‖M′→_M' and N→‖N′→_N' then λx.M→‖λx.M′.M→_.M' and MN→‖M′N′→_M'N' and (λx.M)N→‖M′[x:=N′](.M)N→_M'[x:=N']
+The η-reduction rule can be proved to be Church–Rosser directly. Then, it can be proved that β-reduction and η-reduction commute in the sense that:[6]
+
+If M→βN1→_βN_1 and M→ηN2→_ηN_2 then there exists a term X such that N1→ηX_1→_ηX and N2→βX_2→_βX.
+Hence we can conclude that βη-reduction is Church–Rosser.[7]
+
+Normalisation[edit]
+A reduction rule that satisfies the Church–Rosser property has the property that every term M can have at most one distinct normal form, as follows: if X and Y are normal forms of M then by the Church–Rosser property, they both reduce to an equal term Z. Both terms are already normal forms so X=Z=Y=Z=Y.[4]
+If a reduction is strongly normalising (there are no infinite reduction paths) then a weak form of the Church–Rosser property implies the full property (see Newman's lemma). The weak property, for a relation →→, is:[8]
+
+∀M,N1,N2∈Λ:,N_1,N_2∈Λ: if M→N1_1 and M→N2_2 then there exists a term X such that N1↠X_1 and N2↠X_2.
+Variants[edit]
+The Church–Rosser theorem also holds for many variants of the lambda calculus, such as the simply-typed lambda calculus, many calculi with advanced type systems, and Gordon Plotkin's beta-value calculus. Plotkin also used a Church–Rosser theorem to prove that the evaluation of functional programs (for both lazy evaluation and eager evaluation) is a function from programs to values (a subset of the lambda terms).
+In older research papers, a rewriting system is said to be Church–Rosser, or to have the Church–Rosser property, when it is confluent.
+
+Notes[edit]
+
+
+^ Alama (2017).
+
+^ Barendregt (1984), p. 283.
+
+^ Barendregt (1984), p. 53–54.
+
+^ a b Barendregt (1984), p. 54.
+
+^ Barendregt (1984), p. 59-62.
+
+^ Barendregt (1984), p. 64–65.
+
+^ Barendregt (1984), p. 66.
+
+^ Barendregt (1984), p. 58.
+
+
+References[edit]
+Alama, Jesse (2017). Zalta, Edward N. (ed.). The Stanford Encyclopedia of Philosophy (Fall 2017 ed.). Metaphysics Research Lab, Stanford University.
+Church, Alonzo; Rosser, J. Barkley (May 1936), "Some properties of conversion" (PDF), Transactions of the American Mathematical Society, 39 (3): 472–482, doi:10.2307/1989762, JSTOR 1989762.
+Barendregt, Hendrik Pieter (1984), The Lambda Calculus: Its Syntax and Semantics, Studies in Logic and the Foundations of Mathematics, vol. 103 (Revised ed.), North Holland, Amsterdam, ISBN 0-444-87508-5, archived from the original on 2004-08-23. Errata.
+
+
+

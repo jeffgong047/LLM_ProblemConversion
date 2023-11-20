@@ -1,0 +1,43 @@
+Description of degree sequences of graphs
+The Erdős–Gallai theorem is a result in graph theory, a branch of combinatorial mathematics. It provides one of two known approaches to solving the graph realization problem, i.e. it gives a necessary and sufficient condition for a finite sequence of natural numbers to be the degree sequence of a simple graph. A sequence obeying these conditions is called "graphic". The theorem was published in 1960 by Paul Erdős and Tibor Gallai, after whom it is named.
+
+
+Statement[edit]
+A sequence of non-negative integers d1≥⋯≥dn_1≥⋯_n can be represented as the degree sequence of a finite simple graph on n vertices if and only if d1+⋯+dn_1+⋯+d_n is even and
+
+∑i=1kdi≤k(k−1)+∑i=k+1nmin(di,k)∑_i=1^kd_i(k-1)+∑_i=k+1^nmin(d_i,k)
+holds for every k in 1≤k≤n1.
+
+Proofs[edit]
+It is not difficult to show that the conditions of the Erdős–Gallai theorem are necessary for a sequence of numbers to be graphic. The requirement that the sum of the degrees be even is the handshaking lemma, already used by Euler in his 1736 paper on the bridges of Königsberg. The inequality between the sum of the k largest degrees and the sum of the remaining degrees can be established by double counting: the left side gives the numbers of edge-vertex adjacencies among the k highest-degree vertices, each such adjacency must either be on an edge with one or two high-degree endpoints, the k(k−1)(k-1) term on the right gives the maximum possible number of edge-vertex adjacencies in which both endpoints have high degree, and the remaining term on the right upper bounds the number of edges that have exactly one high degree endpoint. Thus, the more difficult part of the proof is to show that, for any sequence of numbers obeying these conditions, there exists a graph for which it is the degree sequence.
+The original proof of Erdős & Gallai (1960) was long and involved. Choudum (1986) cites a shorter proof by Claude Berge, based on ideas of network flow. Choudum instead provides a proof by mathematical induction on the sum of the degrees: he lets t be the first index of a number in the sequence for which dt>dt+1_t>d_t+1 (or the penultimate number if all are equal), uses a case analysis to show that the sequence formed by subtracting one from dt_t and from the last number in the sequence (and removing the last number if this subtraction causes it to become zero) is again graphic, and forms a graph representing the original sequence by adding an edge between the two positions from which one was subtracted.
+Tripathi, Venugopalan & West (2010) consider a sequence of "subrealizations", graphs whose degrees are upper bounded by the given degree sequence. They show that, if G is a subrealization, and i is the smallest index of a vertex in G whose degree is not equal to di, then G may be modified in a way that produces another subrealization, increasing the degree of vertex i without changing the degrees of the earlier vertices in the sequence. Repeated steps of this kind must eventually reach a realization of the given sequence, proving the theorem.
+
+Relation to integer partitions[edit]
+Aigner & Triesch (1994) describe close connections between the Erdős–Gallai theorem and the theory of integer partitions.
+Let m=∑di=_i; then the sorted integer sequences summing to m may be interpreted as the partitions of m. Under majorization of their prefix sums, the partitions form a lattice, in which the minimal change between an individual partition and another partition lower in the partition order is to subtract one from one of the numbers di_i and add it to a number dj_j that is smaller by at least two (dj_j could be zero). As Aigner and Triesch show, this operation preserves the property of being graphic, so to prove the Erdős–Gallai theorem it suffices to characterize the graphic sequences that are maximal in this majorization order. They provide such a characterization, in terms of the Ferrers diagrams of the corresponding partitions, and show that it is equivalent to the Erdős–Gallai theorem.
+
+Graphic sequences for other types of graphs[edit]
+Similar theorems describe the degree sequences of simple directed graphs, simple directed graphs with loops, and simple bipartite graphs (Berger 2012). The first problem is characterized by the Fulkerson–Chen–Anstee theorem. The latter two cases, which are equivalent, are characterized by the Gale–Ryser theorem.
+
+Stronger version[edit]
+Tripathi & Vijay (2003) proved that it suffices to consider the kth inequality such that 1≤k<n1<n with dk>dk+1_k>d_k+1 and for k=n=n. Barrus et al. (2012) restrict the set of inequalities for graphs in an opposite thrust. If an even-summed positive sequence d has no repeated entries other than the maximum and the minimum (and the length exceeds
+the largest entry), then it suffices to check only the lth inequality, where l=maxk∣dk≥k=max{k_k}.
+
+Generalization[edit]
+A finite sequences of nonnegative integers (d1,⋯,dn)(d_1,⋯,d_n) with d1≥⋯≥dn_1≥⋯_n is graphic if ∑i=1ndi∑_i=1^nd_i is even and there exists a sequence (c1,⋯,cn)(c_1,⋯,c_n) that is graphic and majorizes (d1,⋯,dn)(d_1,⋯,d_n). This result was given by Aigner & Triesch (1994). Mahadev & Peled (1995) reinvented it and gave a more direct proof.
+
+See also[edit]
+Havel–Hakimi algorithm
+References[edit]
+Aigner, Martin; Triesch, Eberhard (1994), "Realizability and uniqueness in graphs", Discrete Mathematics, 136 (1–3): 3–20, doi:10.1016/0012-365X(94)00104-Q, MR 1313278.
+Barrus, M. D.; Hartke, S. G.; Jao, Kyle F.; West, D. B. (2012), "Length thresholds for graphic lists given fixed largest and smallest entries and bounded gaps", Discrete Mathematics, 312 (9): 1494–1501, doi:10.1016/j.disc.2011.05.001
+Berger, Annabell (2012), The connection between the number of realizations for degree sequences and majorization, arXiv:1212.5443, Bibcode:2012arXiv1212.5443B
+Choudum, S. A. (1986), "A simple proof of the Erdős–Gallai theorem on graph sequences", Bulletin of the Australian Mathematical Society, 33 (1): 67–70, doi:10.1017/S0004972700002872, MR 0823853.
+Erdős, P.; Gallai, T. (1960), "Gráfok előírt fokszámú pontokkal" (PDF), Matematikai Lapok, 11: 264–274
+Mahadev, N. V. R.; Peled, U. N. (1995), Threshold graphs and related topics, Elsevier
+Tripathi, Amitabha; Vijay, Sujith (2003), "A note on a theorem of Erdős & Gallai", Discrete Mathematics, 265 (1–3): 417–420, doi:10.1016/s0012-365x(02)00886-5, MR 1969393
+Tripathi, Amitabha; Venugopalan, Sushmita; West, Douglas B. (2010), "A short constructive proof of the Erdős–Gallai characterization of graphic lists", Discrete Mathematics, 310 (4): 843–844, doi:10.1016/j.disc.2009.09.023, MR 2574834
+
+
+

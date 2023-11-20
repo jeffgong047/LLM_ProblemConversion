@@ -1,0 +1,138 @@
+Combinatorial and geometric result used in measure theory of Euclidean spaces
+In mathematics, the Vitali covering lemma is a combinatorial and geometric result commonly used in measure theory of Euclidean spaces. This lemma is an intermediate step, of independent interest, in the proof of the Vitali covering theorem. The covering theorem is credited to the Italian mathematician Giuseppe Vitali.[1] The theorem states that it is possible to cover, up to a Lebesgue-negligible set, a given subset E of Rd by a disjoint family extracted from a Vitali covering of E.
+
+
+Vitali covering lemma[edit]
+Visualization of the lemma in R1ℝ^1.
+On the top: a collection of balls; the green balls are the disjoint subcollection. On the bottom: the subcollection with three times the radius covers all the balls.There are two basic version of the lemma, a finite version and an infinite version. Both lemmas can be proved in the general setting of a metric space, typically these results are applied to the special case of the Euclidean space Rdℝ^d. In both theorems we will use the following notation: if B=B(x,r)=B(x,r) is a ball and c∈R∈ℝ, we will write cB for the ball B(x,cr)(x,cr).
+Finite version[edit]
+Theorem (Finite Covering Lemma). Let B1,…,Bn_1,…,B_n be any finite collection of balls  contained in an arbitrary metric space. Then there exists a subcollection Bj1,Bj2,…,Bjm_j_1,B_j_2,…,B_j_m of these balls which are disjoint and satisfy B1∪B2∪⋯∪Bn⊆3Bj1∪3Bj2∪⋯∪3Bjm._1_2∪…_n⊆3B_j_1∪3B_j_2∪…∪3B_j_m.Proof: Without loss of generality, we assume that the collection of balls is not empty; that is, n > 0. Let Bj1_j_1 be the ball of largest radius. Inductively, assume that Bj1,…,Bjk_j_1,…,B_j_k have been chosen. If there is some ball in B1,…,Bn_1,…,B_n that is disjoint from Bj1∪Bj2∪⋯∪Bjk_j_1_j_2∪…_j_k, let Bjk+1_j_k+1 be such ball with maximal radius (breaking ties arbitrarily), otherwise, we set m := k and terminate the inductive definition.
+Now set X:=⋃k=1m3Bjk:=⋃_k=1^m3 B_j_k. It remains to show that Bi⊂X_i for every i=1,2,…,n=1,2,…,n. This is clear if i∈j1,…,jm∈{j_1,…,j_m}. Otherwise, there necessarily is some k∈1,…,m∈{1,…,m} such that Bi_i intersects Bjk_j_k and the radius of Bjk_j_k is at least as large as that of Bi_i. The triangle inequality then easily implies that Bi⊂3Bjk⊂X_i⊂3 B_j_k, as needed. This completes the proof of the finite version.
+
+Infinite version[edit]
+Theorem (Infinite Covering Lemma). Let F𝐅 be an arbitrary collection of balls in a separable metric space such that R:=suprad(B):B∈F<∞:=sup {rad(B):B∈𝐅}<∞ where rad(B)rad(B) denotes the radius of the ball B. Then there exists a countable sub-collection G⊂F𝐆⊂𝐅 such that the balls of G𝐆 are pairwise disjoint, and satisfy⋃B∈FB⊆⋃C∈G5C.⋃_B∈𝐅B⊆⋃_C∈𝐆5 C.And moreover, each B∈F∈𝐅 intersects some C∈G∈𝐆 with B⊂5C⊂5C.
+Proof: Consider the partition of F into subcollections Fn, n ≥ 0, defined by
+Fn=B∈F:2−n−1R<rad(B)≤2−nR.𝐅_n={B∈𝐅:2^-n-1R<rad(B)≤2^-nR}.
+That is, Fn𝐅_n consists of the balls B whose radius is in (2−n−1R, 2−nR].  A sequence Gn, with Gn ⊂ Fn, is defined inductively as follows.  First, set H0 = F0 and let G0 be a maximal disjoint subcollection of H0 (such a subcollection exists by Zorn's lemma). Assuming that G0,...,Gn have been selected, let
+
+Hn+1=B∈Fn+1:B∩C=∅,∀C∈G0∪G1∪⋯∪Gn,𝐇_n+1={B∈𝐅_n+1:=∅,
+∈𝐆_0∪𝐆_1∪…∪𝐆_n},
+and let Gn+1 be a maximal disjoint subcollection of  Hn+1. The subcollection
+
+G:=⋃n=0∞Gn𝐆:=⋃_n=0^∞𝐆_n
+of F satisfies the requirements of the theorem: G is a disjoint collection, and is thus countable since the given metric space is separable. Moreover, every ball B ∈ F intersects a ball C ∈ G such that B ⊂ 5 C.
+Indeed, if we are given some B∈F∈𝐅, there must be some n be such that B belongs to Fn.  Either B does not belong to Hn, which implies n > 0 and means that B intersects a ball from the union of G0, ..., Gn−1, or B ∈ Hn and by maximality of Gn, B intersects a ball in  Gn.  In any case, B intersects a ball C that belongs to the union of G0, ..., Gn.  Such a ball C must have a radius larger than 2−n−1R.  Since the radius of B is less than or equal to 2−nR, we can conclude by the triangle inequality that B ⊂ 5 C, as claimed. From this ⋃B∈FB⊆⋃C∈G5C⋃_B∈𝐅B⊆⋃_C∈𝐆5 C immediately follows, completing the proof.[2]
+Remarks
+
+In the infinite version, the initial collection of balls can be countable or uncountable. In a separable metric space, any pairwise disjoint collection of balls must be countable. In a non-separable space, the same argument shows a pairwise disjoint subfamily exists, but that family need not be countable.
+The result may fail if the radii are not bounded: consider the family of all balls centered at 0 in Rd; any disjoint subfamily consists of only one ball B, and 5 B does not contain all the balls in this family.
+The constant 5 is not optimal. If the scale c−n, c > 1, is used instead of 2−n for defining Fn, the final value is 1 + 2c instead of 5. Any constant larger than 3 gives a correct statement of the lemma, but not 3.
+Using a finer analysis, when the original collection F is a Vitali covering of a subset E of Rd, one shows that the subcollection G, defined in the above proof, covers E up to a Lebesgue-negligible set.[3]
+Applications and method of use[edit]
+An application of the Vitali lemma is in proving the Hardy–Littlewood maximal inequality. As in this proof, the Vitali lemma is frequently used when we are, for instance, considering the d-dimensional Lebesgue measure, λdλ_d, of a set E ⊂ Rd, which we know is contained in the union of a certain collection of balls Bj:j∈J{B_j:j}, each of which has a measure we can more easily compute, or has a special property one would like to exploit. Hence, if we compute the measure of this union, we will have an upper bound on the measure of E. However, it is difficult to compute the measure of the union of all these balls if they overlap. By the Vitali lemma, we may choose a subcollection Bj:j∈J′{B_j:j'} which is disjoint and such that ⋃j∈J′5Bj⊃⋃j∈JBj⊃E⋃_j'5B_j⊃⋃_jB_j. Therefore,
+
+λd(E)≤λd(⋃j∈JBj)≤λd(⋃j∈J′5Bj)≤∑j∈J′λd(5Bj).λ_d(E)≤λ_d(⋃_jB_j)≤λ_d(⋃_j'5B_j)≤∑_j'λ_d(5B_j).
+Now, since increasing the radius of a d-dimensional ball by a factor of five increases its volume by a factor of 5d, we know that
+
+∑j∈J′λd(5Bj)=5d∑j∈J′λd(Bj)∑_j'λ_d(5B_j)=5^d∑_j'λ_d(B_j)
+and thus
+
+λd(E)≤5d∑j∈J′λd(Bj).λ_d(E)≤5^d∑_j'λ_d(B_j).
+Vitali covering theorem[edit]
+In the covering theorem, the aim is to cover, up to a "negligible set", a given set E ⊆ Rd by a disjoint subcollection extracted from a Vitali covering for E : a Vitali class or Vitali covering V𝒱 for E is a collection of sets such that, for every x ∈ E and δ > 0, there is a set U in the collection V𝒱 such that x ∈ U and the diameter of U is non-zero and less than δ.
+In the classical setting of Vitali,[1] the negligible set is a Lebesgue negligible set, but measures other than the Lebesgue measure, and spaces other than Rd have also been considered, as is shown in the relevant section below.
+The following observation is useful: if V𝒱 is a Vitali covering for E and if E is contained in an open set Ω ⊆ Rd, then the subcollection of sets U in V𝒱 that are contained in Ω is also a Vitali covering for E.
+
+Vitali's covering theorem for the Lebesgue measure[edit]
+The next covering theorem for the Lebesgue measure λd is due to Lebesgue (1910). A collection V𝒱 of measurable subsets of Rd is a regular family (in the sense of Lebesgue) if there exists a constant C such that
+
+diam⁡(V)d≤Cλd(V)diam(V)^d λ_d(V)
+for every set V in the collection V𝒱.
+The family of cubes is an example of regular family V𝒱, as is the family V(m)𝒱(m) of rectangles in R2 such that the ratio of sides stays between m−1 and m, for some fixed m ≥ 1. If an arbitrary norm is given on Rd, the family of balls for the metric associated to the norm is another example. To the contrary, the family of all rectangles in R2 is not regular.
+
+
+Theorem —  Let E ⊆ Rd be a measurable set with finite Lebesgue measure, and let V𝒱 be a regular family of closed subsets of Rd that is a Vitali covering for E. Then there exists a finite or countably infinite disjoint subcollection Uj⊆V{U_j}⊆𝒱 such that
+λd(E∖⋃jUj)=0.λ_d(E∖⋃_jU_j)=0.
+
+
+The original result of Vitali (1908) is a special case of this theorem, in which d = 1 and V𝒱 is a collection of intervals that is a Vitali covering for a measurable subset E of the real line having finite measure.
+
+The theorem above remains true without assuming that E has finite measure. This is obtained by applying the covering result in the finite measure case, for every integer n ≥ 0, to the portion of E contained in the open annulus Ωn of points x such that n < |x| < n+1.[4]
+A somewhat related covering theorem is the Besicovitch covering theorem. To each point a of a subset A ⊆ Rd, a Euclidean ball B(a, ra) with center a and positive radius ra is assigned. Then, as in the Vitali theorem, a subcollection of these balls is selected in order to cover A in a specific way. The main differences with the Vitali covering theorem are that on one hand, the disjointness requirement of Vitali is relaxed to the fact that the number Nx of the selected balls containing an arbitrary point x ∈ Rd is bounded by a constant Bd depending only upon the dimension d; on the other hand, the selected balls do cover the set A of all the given centers.[5]
+
+Vitali's covering theorem for the Hausdorff measure[edit]
+One may have a similar objective when considering Hausdorff measure instead of Lebesgue measure. The following theorem applies in that case.[6]
+
+
+Theorem —  Let Hs denote s-dimensional Hausdorff measure, let E ⊆ Rd be an Hs-measurable set and V𝒱 a Vitali class
+of closed sets for E. Then there exists a (finite or countably infinite) disjoint subcollection Uj⊆V{U_j}⊆𝒱 such that either
+Hs(E∖⋃jUj)=0^s(E∖⋃_jU_j)=0 or ∑jdiam⁡(Uj)s=∞.∑_jdiam(U_j)^s=∞.
+
+
+Furthermore, if E has finite s-dimensional Hausdorff measure, then for any ε > 0, we may choose this subcollection {Uj} such that
+
+Hs(E)≤∑jdiam(Uj)s+ε.^s(E)≤∑_jdiam(U_j)^s+ε.
+This theorem implies the result of Lebesgue given above. Indeed, when s = d, the Hausdorff measure Hs on Rd coincides with a multiple of the d-dimensional Lebesgue measure. If a disjoint collection Uj{U_j} is regular and contained in a measurable region B with finite Lebesgue measure, then
+
+∑jdiam⁡(Uj)d≤C∑jλd(Uj)≤Cλd(B)<+∞∑_jdiam(U_j)^d∑_jλ_d(U_j) λ_d(B)<+∞
+which excludes the second possibility in the first assertion of the previous theorem. It follows that E is covered, up to a Lebesgue-negligible set, by the selected disjoint subcollection.
+
+From the covering lemma to the covering theorem[edit]
+The covering lemma can be used as intermediate step in the proof of the following basic form of the Vitali covering theorem.
+
+
+Theorem — For every subset E of Rd and every Vitali cover of E by a collection F of closed balls, there exists a disjoint subcollection G which covers E up to a Lebesgue-negligible set.
+
+
+Proof: Without loss of generality, one can assume that all balls in F are nondegenerate and have radius less than or equal to 1. By the infinite form of the covering lemma, there exists a countable disjoint subcollection G𝐆 of F such that every ball B ∈ F intersects a ball C ∈ G for which B ⊂ 5 C. Let r > 0 be given, and let Z denote the set of points z ∈ E that are not contained in any ball from G and belong to the open ball B(r) of radius r, centered at 0. It is enough to show that Z is Lebesgue-negligible, for every given r.
+Let Gr=Cnn𝐆_r={C_n}_n denote the subcollection of those balls in G that meet B(r). Note that Gr𝐆_r may be finite or countably infinite. Let z ∈ Z be fixed. For each N, z does not belong to the closed set K=⋃n≤NCn=⋃_nC_n by the definition of Z. But by the Vitali cover property, one can find a ball B ∈ F containing z, contained in B(r), and disjoint from K. By the property of G, the ball B intersects some ball Ci∈G_i∈𝐆 and is contained in 5Ci5C_i. But because K and B are disjoint, we must have i > N. So z∈5Ci∈5C_i for some i > N, and therefore
+
+Z⊂⋃n>N5Cn.⊂⋃_n>N5C_n.
+This gives for every N the inequality
+
+λd(Z)≤∑n>Nλd(5Cn)=5d∑n>Nλd(Cn).λ_d(Z)≤∑_n>Nλ_d(5C_n)=5^d∑_n>Nλ_d(C_n).
+But since the balls of Gr𝐆_r are contained in B(r+2), and these balls are disjoint we see
+
+∑nλd(Cn)<∞.∑_nλ_d(C_n)<∞.
+Therefore, the term on the right side of the above inequality converges to 0 as N goes to infinity, which shows that Z is negligible as needed.[7]
+
+Infinite-dimensional spaces[edit]
+The Vitali covering theorem is not valid in infinite-dimensional settings. The first result in this direction was given by David Preiss in 1979:[8] there exists a Gaussian measure γ on an (infinite-dimensional) separable Hilbert space H so that the Vitali covering theorem fails for (H, Borel(H), γ). This result was strengthened in 2003 by Jaroslav Tišer: the Vitali covering theorem in fact fails for every infinite-dimensional Gaussian measure on any (infinite-dimensional) separable Hilbert space.[9]
+
+See also[edit]
+Besicovitch covering theorem
+Notes[edit]
+
+
+^ a b (Vitali 1908).
+
+^ The proof given is based on (Evans & Gariepy 1992, section 1.5.1)
+
+^ See the "From the covering lemma to the covering theorem" section of this entry.
+
+^ See (Evans & Gariepy 1992).
+
+^ Vitali (1908) allowed a negligible error.
+
+^ (Falconer 1986).
+
+^ The proof given is based on (Natanson 1955), with some notation taken from (Evans & Gariepy 1992).
+
+^ (Preiss 1979).
+
+^ (Tišer 2003).
+
+
+References[edit]
+Evans, Lawrence C.; Gariepy, Ronald F. (1992), Measure Theory and Fine Properties of Functions, Studies in Advanced Mathematics, Boca Raton, FL: CRC Press, pp. viii+268, ISBN 0-8493-7157-0, MR 1158660, Zbl 0804.28001
+Falconer, Kenneth J. (1986), The geometry of fractal sets, Cambridge Tracts in Mathematics, vol. 85, Cambridge: Cambridge University Press, pp. xiv+162, ISBN 0-521-25694-1, MR 0867284, Zbl 0587.28004
+"Vitali theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Lebesgue, Henri (1910), "Sur l'intégration des fonctions discontinues", Annales Scientifiques de l'École Normale Supérieure, 27: 361–450, doi:10.24033/asens.624, JFM 41.0457.01
+Natanson, I. P (1955), Theory of functions of a real variable, New York: Frederick Ungar Publishing Co., p. 277, MR 0067952, Zbl 0064.29102
+Preiss, David (1979), "Gaussian measures and covering theorems", Commentatione Mathematicae Universitatis Carolinae, 20 (1): 95–99, ISSN 0010-2628, MR 0526149, Zbl 0386.28015
+Stein, Elias M.; Shakarchi, Rami (2005), Real analysis. Measure theory, integration, and Hilbert spaces, Princeton Lectures in Analysis, III, Princeton, NJ: Princeton University Press, pp. xx+402, ISBN 0-691-11386-6, MR 2129625, Zbl 1081.28001
+Tišer, Jaroslav (2003), "Vitali covering theorem in Hilbert space", Transactions of the American Mathematical Society, 355 (8): 3277–3289 (electronic), doi:10.1090/S0002-9947-03-03296-3, MR 1974687, Zbl 1042.28014
+Vitali, Giuseppe (1908) [17 December 1907], "Sui gruppi di punti e sulle funzioni di variabili reali", Atti dell'Accademia delle Scienze di Torino (in Italian), 43: 75–92, JFM 39.0101.05 (Title translation) "On groups of points and functions of real variables" is the paper containing the first proof of Vitali covering theorem.
+
+
+

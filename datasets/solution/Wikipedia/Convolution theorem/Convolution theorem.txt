@@ -1,0 +1,359 @@
+Theorem in mathematics
+In mathematics, the convolution theorem states that under suitable conditions the Fourier transform of a convolution of two functions (or signals) is the pointwise product of their Fourier transforms. More generally, convolution in one domain (e.g., time domain) equals point-wise multiplication in the other domain (e.g., frequency domain). Other versions of the convolution theorem are applicable to various Fourier-related transforms.
+
+
+Functions of a continuous variable[edit]
+Consider two functions g(x)(x) and h(x)(x) with Fourier transforms G and H:
+G(s)≜Fg(s)=∫−∞∞g(x)e−i2πsxdx,s∈RH(s)≜Fh(s)=∫−∞∞h(x)e−i2πsxdx,s∈RG(s)   ≜ℱ{g}(s)=∫_-∞^∞g(x)e^-i2 dx,∈ℝ
+H(s)   ≜ℱ{h}(s)=∫_-∞^∞h(x)e^-i2 dx,∈ℝ
+where Fℱ denotes the Fourier transform operator.  The transform may be normalized in other ways, in which case constant scaling factors (typically 2π2π or 2π√(2π)) will appear in the convolution theorem below.  The convolution of g and h is defined by:
+r(x)=g∗h(x)≜∫−∞∞g(τ)h(x−τ)dτ=∫−∞∞g(x−τ)h(τ)dτ.(x)={g*h}(x)≜∫_-∞^∞g(τ)h(x-τ) dτ=∫_-∞^∞g(x-τ)h(τ) dτ.
+In this context the asterisk denotes convolution, instead of standard multiplication. The tensor product symbol ⊗⊗ is sometimes used instead.
+The convolution theorem states that:[1][2]: eq.8 
+
+
+
+R(s)≜Fr(s)=G(s)H(s).s∈R(s)≜ℱ{r}(s)=G(s)H(s).∈ℝ
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.1a)
+
+Applying the inverse Fourier transform F−1ℱ^-1, produces the corollary:[2]: eqs.7, 10 
+
+
+
+
+r(s)=g∗h(s)=F−1G⋅H,(s)={g*h}(s)=ℱ^-1{G},
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.1b)
+
+where ⋅· denotes point-wise multiplication
+
+
+The theorem also generally applies to multi-dimensional functions.
+
+Proof
+Consider functions g,h,h in Lp-space L1(Rn)^1(ℝ^n), with Fourier transforms G,H,H:
+G(s)≜Fg(s)=∫Rng(x)e−i2πs⋅xdx,s∈RnH(s)≜Fh(s)=∫Rnh(x)e−i2πs⋅xdx,G(s)   ≜ℱ{g}(s)=∫_ℝ^ng(x)e^-i2 dx,∈ℝ^n
+H(s)   ≜ℱ{h}(s)=∫_ℝ^nh(x)e^-i2 dx,
+where s⋅x indicates the inner product of Rnℝ^n:   s⋅x=∑j=1nsjxj,=∑_j=1^ns_jx_j,   and   dx=∏j=1ndxj.=∏_j=1^ndx_j.
+The convolution of g and h is defined by:
+r(x)≜∫Rng(τ)h(x−τ)dτ.(x)≜∫_ℝ^ng(τ)h(x-τ) dτ.
+Also:
+∬|g(τ)h(x−τ)|dxdτ=∫(|g(τ)|∫|h(x−τ)|dx)dτ=∫|g(τ)|‖h‖1dτ=‖g‖1‖h‖1.∬|g(τ)h(x-τ)| dx dτ=∫(|g(τ)|∫|h(x-τ)| dx) dτ=∫|g(τ)| h_1 dτ=g_1h_1.
+Hence by Fubini's theorem we have that r∈L1(Rn)^1(ℝ^n) so its Fourier transform R is defined by the integral formula:
+R(s)≜Fr(s)=∫Rnr(x)e−i2πs⋅xdx=∫Rn(∫Rng(τ)h(x−τ)dτ)e−i2πs⋅xdx.R(s)≜ℱ{r}(s)   =∫_ℝ^nr(x)e^-i2 dx
+   =∫_ℝ^n(∫_ℝ^ng(τ)h(x-τ) dτ) e^-i2 dx.
+Note that |g(τ)h(x−τ)e−i2πs⋅x|=|g(τ)h(x−τ)||g(τ)h(x-τ)e^-i2|=|g(τ)h(x-τ)| and hence by the argument above we may apply Fubini's theorem again (i.e. interchange the order of integration):
+R(s)=∫Rng(τ)(∫Rnh(x−τ)e−i2πs⋅xdx)⏟H(s)e−i2πs⋅τdτ=(∫Rng(τ)e−i2πs⋅τdτ)⏟G(s)H(s).R(s)   =∫_ℝ^ng(τ)(∫_ℝ^nh(x-τ)^-i2 dx)_H(s)^-i2·τ dτ
+   =(∫_ℝ^ng(τ)^-i2·τ dτ)_G(s)(̋s).
+
+
+This theorem also holds for the Laplace transform, the two-sided Laplace transform and, when suitably modified, for the Mellin transform and Hartley transform (see Mellin inversion theorem).  It can be extended to the Fourier transform of abstract harmonic analysis defined over locally compact abelian groups.
+
+Periodic convolution (Fourier series coefficients)[edit]
+Consider P-periodic functions gP__P and hP,__P, which can be expressed as periodic summations:
+gP(x)≜∑m=−∞∞g(x−mP)__P(x)
+triangleq∑_m=-∞^∞g(x-mP)   and   hP(x)≜∑m=−∞∞h(x−mP).__P(x)
+triangleq∑_m=-∞^∞h(x-mP).
+In practice the non-zero portion of components g and h are often limited to duration P,, but nothing in the theorem requires that.  The Fourier series coefficients are:
+G[k]≜FgP[k]=1P∫PgP(x)e−i2πkx/Pdx,k∈Z;integrationoveranyintervaloflengthPH[k]≜FhP[k]=1P∫PhP(x)e−i2πkx/Pdx,k∈ZG[k]   ≜ℱ{g__P}[k]=1/P∫_Pg__P(x)e^-i2/P dx,∈ℤ;    integrationoveranyintervaloflengthP
+H[k]   ≜ℱ{h__P}[k]=1/P∫_Ph__P(x)e^-i2/P dx,∈ℤ
+where Fℱ denotes the Fourier series integral.
+
+The pointwise product:  gP(x)⋅hP(x)__P(x)__P(x) is also P-periodic, and its Fourier series coefficients are given by the discrete convolution of the G and H sequences: FgP⋅hP[k]=G∗H[k].ℱ{g__P__P}[k]={G*H}[k].
+The convolution: gP∗h(x)≜∫−∞∞gP(x−τ)⋅h(τ)dτ≡∫PgP(x−τ)⋅hP(τ)dτ;integrationoveranyintervaloflengthP{g__P*h}(x)&≜∫_-∞^∞g__P(x-τ)(τ)τ̣
+   ≡∫_Pg__P(x-τ)__P(τ)τ̣;    integrationoveranyintervaloflengthPis also P-periodic,[A] and is called a periodic convolution.  The corresponding convolution theorem is:
+
+
+FgP∗h[k]=P⋅G[k]H[k].ℱ{g__P*h}[k]=[k][̋k].
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.2)
+
+Derivation of Eq.2
+FgP∗h[k]≜1P∫P(∫PgP(τ)⋅hP(x−τ)dτ)e−i2πkx/Pdx=∫PgP(τ)(1P∫PhP(x−τ)e−i2πkx/Pdx)dτ=∫PgP(τ)e−i2πkτ/P(1P∫PhP(x−τ)e−i2πk(x−τ)/Pdx)⏟H[k],duetoperiodicitydτ=(∫PgP(τ)e−i2πkτ/Pdτ)⏟P⋅G[k]H[k].ℱ{g__P*h}[k]   ≜1/P∫_P(∫_Pg__P(τ)__P(x-τ)τ̣)e^-i2/P dx
+   =∫_Pg__P(τ)(1/P∫_Ph__P(x-τ)^-i2/Pdx) dτ
+   =∫_Pg__P(τ)^-i2τ/P(1/P∫_Ph__P(x-τ)^-i2(x-τ)/Pdx)_H[k],  duetoperiodicity dτ
+   =(∫_P__P(τ)^-i2τ/Pdτ)_P[k][̋k].
+
+
+Functions of a discrete variable (sequences)[edit]
+By a derivation similar to Eq.1, there is an analogous theorem for sequences, such as samples of two continuous functions, where now Fℱ denotes the discrete-time Fourier transform (DTFT) operator.  Consider two sequences g[n][n] and h[n][n] with transforms G and H:
+G(s)≜Fg(s)=∑n=−∞∞g[n]⋅e−i2πsn,s∈R,H(s)≜Fh(s)=∑n=−∞∞h[n]⋅e−i2πsn,s∈R.G(s)   ≜ℱ{g}(s)=∑_n=-∞^∞g[n]^-i2 ,∈ℝ,
+H(s)   ≜ℱ{h}(s)=∑_n=-∞^∞h[n]^-i2 ,∈ℝ.
+The § Discrete convolution of g and h is defined by:
+r[n]≜(g∗h)[n]=∑m=−∞∞g[m]⋅h[n−m]=∑m=−∞∞g[n−m]⋅h[m].[n]≜(g*h)[n]=∑_m=-∞^∞g[m][n-m]=∑_m=-∞^∞g[n-m][m].
+The convolution theorem for discrete sequences is:[3][4]: p. 60 (2.169) 
+
+
+
+R(s)=Fg∗h(s)=G(s)H(s).(s)=ℱ{g*h}(s)=(s)H(s).
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.3)
+
+Periodic convolution[edit]
+G(s)(s) and H(s),(s), as defined above, are periodic, with a period of 1.  Consider N-periodic sequences gN__N and hN__N:
+gN[n]≜∑m=−∞∞g[n−mN]__N[n]
+triangleq∑_m=-∞^∞g[n-mN]   and   hN[n]≜∑m=−∞∞h[n−mN],n∈Z.__N[n]
+triangleq∑_m=-∞^∞h[n-mN],∈ℤ.
+These functions occur as the result of sampling G and H at intervals of 1/N1/N and performing an inverse discrete Fourier transform (DFT) on N samples (see § Sampling the DTFT).  The discrete convolution:
+gN∗h[n]≜∑m=−∞∞gN[m]⋅h[n−m]≡∑m=0N−1gN[m]⋅hN[n−m]{g__N*h}[n]
+triangleq∑_m=-∞^∞g__N[m][n-m]≡∑_m=0^N-1g__N[m]__N[n-m]
+is also N-periodic, and is called a periodic convolution. Redefining the Fℱ operator as the N-length DFT, the corresponding theorem is:[5][4]: p. 548 
+
+
+
+FgN∗h[k]=FgN[k]⏟G(k/N)⋅FhN[k]⏟H(k/N),k∈Z.ℱ{g__N*h}[k]=
+underbraceℱ{g__N}[k]_G(k/N)·ℱ{h__N}[k]_H(k/N),∈ℤ.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.4a)
+
+And therefore:
+
+
+
+gN∗h[n]=F−1FgN⋅FhN.{g__N*h}[n]={ℱ^-1{ℱ{g__N}·ℱ{h__N}}.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.4b)
+
+Under the right conditions, it is possible for this N-length sequence to contain a distortion-free segment of a g∗h*h convolution.  But when the non-zero portion of the g(n)(n) or h(n)(n) sequence is equal or longer than N,, some distortion is inevitable.  Such is the case when the H(k/N)(k/N) sequence is obtained by directly sampling the DTFT of the infinitely long § Discrete Hilbert transform impulse response.[B]
+For g and h sequences whose non-zero duration is less than or equal to N,, a final simplification is:
+
+Circular convolution
+
+
+gN∗h[n]=F−1Fg⋅Fh.{g__N*h}[n]={ℱ^-1{ℱ{g}·ℱ{h}}.
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(Eq.4c)
+
+
+This form is often used to efficiently implement numerical convolution by computer.  (see § Fast convolution algorithms and § Example)
+As a partial reciprocal, it has been shown [6] that any linear transform that turns convolution into pointwise product is the DFT (up to a permutation of coefficients).
+
+Proof
+A time-domain derivation proceeds as follows:
+DFTgN∗h[k]≜∑n=0N−1(∑m=0N−1gN[m]⋅hN[n−m])e−i2πkn/N=∑m=0N−1gN[m](∑n=0N−1hN[n−m]⋅e−i2πkn/N)=∑m=0N−1gN[m]⋅e−i2πkm/N(∑n=0N−1hN[n−m]⋅e−i2πk(n−m)/N)⏟DFThN[k]duetoperiodicity=(∑m=0N−1gN[m]⋅e−i2πkm/N)⏟DFTgN[k](DFThN[k]).DFT{g__N*h}[k]   ≜∑_n=0^N-1(∑_m=0^N-1g__N[m]__N[n-m])e^-i2/N
+   =∑_m=0^N-1g__N[m](∑_n=0^N-1h__N[n-m]^-i2/N)
+   =∑_m=0^N-1g__N[m]^-i2/N(∑_n=0^N-1h__N[n-m]^-i2(n-m)/N)_DFT{h__N}[k]  duetoperiodicity
+   =(∑_m=0^N-1g__N[m]^-i2/N)_DFT{g__N}[k](DFT{h__N}[k]).
+A frequency-domain derivation follows from § Periodic data, which indicates that the DTFTs can be written as:
+
+
+
+FgN∗h(s)=1N∑k=−∞∞(DFTgN∗h[k])⋅δ(s−k/N).ℱ{g__N*h}(s)=1/N∑_k=-∞^∞(DFT{g__N*h}[k])·δ(s-k/N).
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+(5a)
+
+FgN(s)=1N∑k=−∞∞(DFTgN[k])⋅δ(s−k/N).ℱ{g__N}(s)=1/N∑_k=-∞^∞(DFT{g__N}[k])·δ(s-k/N).
+The product with H(s)(s) is thereby reduced to a discrete-frequency function:
+FgN∗h(s)=GN(s)H(s)=1N∑k=−∞∞(DFTgN[k])⋅H(s)⋅δ(s−k/N)=1N∑k=−∞∞(DFTgN[k])⋅H(k/N)⋅δ(s−k/N)=1N∑k=−∞∞(DFTgN[k])⋅(DFThN[k])⋅δ(s−k/N),(Eq.5b)ℱ{g__N*h}(s)   =G__N(s)H(s)
+   =1/N∑_k=-∞^∞(DFT{g__N}[k])(s)·δ(s-k/N)
+   =1/N∑_k=-∞^∞(DFT{g__N}[k])(k/N)·δ(s-k/N)
+   =1/N∑_k=-∞^∞(DFT{g__N}[k])·(DFT{h__N}[k])·δ(s-k/N),  (𝖤𝗊.5𝖻)
+where the equivalence of H(k/N)(k/N) and (DFThN[k])(DFT{h__N}[k]) follows from § Sampling the DTFT.  Therefore, the equivalence of (5a) and (5b) requires:
+DFTgN∗h[k]=(DFTgN[k])⋅(DFThN[k]).DFT{g__N*h}[k]=(DFT{g__N}[k])·(DFT{h__N}[k]).
+We can also verify the inverse DTFT of (5b):
+(gN∗h)[n]=∫01(1N∑k=−∞∞DFTgN[k]⋅DFThN[k]⋅δ(s−k/N))⋅ei2πsnds=1N∑k=−∞∞DFTgN[k]⋅DFThN[k]⋅(∫01δ(s−k/N)⋅ei2πsnds)⏟0,fork∉[0,N)=1N∑k=0N−1(DFTgN[k]⋅DFThN[k])⋅ei2πnNk=DFT−1(DFTgN⋅DFThN).(g__N*h)[n]   =∫_0^1(1/N∑_k=-∞^∞DFT{g__N}[k]·DFT{h__N}[k]·δ(s-k/N))^i2ds
+   =1/N∑_k=-∞^∞DFT{g__N}[k]·DFT{h__N}[k]·(∫_0^1δ(s-k/N)^i2ds)_0,fornotin
+    0,)
+       =1/N∑_k=0^N-1(DFT{g__N}[k]·DFT{h__N}[k])^i2πn/Nk
+       ={DFT^-1(DFT{g__N}·DFT{h__N}).
+
+
+
+Convolution theorem for inverse Fourier transform[edit]
+Note that in the example below "⋅·" represents the Hadamard product, and "∗*" represents a convolution between the two matrices. There is also a convolution theorem for the inverse Fourier transform
+Fg∗h=Fg⋅Fhℱ{g*h}=ℱ{g}·ℱ{h}
+Fg⋅h=Fg∗Fhℱ{g}=ℱ{g}*ℱ{h}
+so that
+g∗h=F−1Fg⋅Fh*h=ℱ^-1{ℱ{g}·ℱ{h}}
+g⋅h=F−1Fg∗Fh=ℱ^-1{ℱ{g}*ℱ{h}}
+
+Convolution theorem for tempered distributions[edit]
+The convolution theorem extends to tempered distributions. 
+Here, g is an arbitrary tempered distribution
+Ff∗g=Ff⋅Fgℱ{f*g}=ℱ{f}·ℱ{g}
+Fα⋅g=Fα∗Fgℱ{α}=ℱ{α}*ℱ{g}
+but f=Fα=F{α} must be "rapidly decreasing" towards −∞-∞ and +∞+∞ in order to guarantee the existence of both, convolution and multiplication product. Equivalently, if α=F−1fα=F^-1{f} is a smooth "slowly growing" ordinary function, it guarantees the existence of both, multiplication and convolution product.[7][8][9]
+In particular, every compactly supported tempered distribution, such as the Dirac delta, is "rapidly decreasing". Equivalently, bandlimited functions, such as the function that is constantly 11 are smooth "slowly growing" ordinary functions. If, for example, g≡Ш≡Ш is the Dirac comb both equations yield the Poisson summation formula and if, furthermore, f≡δ≡δ is the Dirac delta then α≡1α≡1 is constantly one and these equations yield the Dirac comb identity.
+
+See also[edit]
+Moment-generating function of a random variable
+Notes[edit]
+
+
+^ Proof:
+∫−∞∞gP(x−τ)⋅h(τ)dτ=∑k=−∞∞[∫xo+kPxo+(k+1)PgP(x−τ)⋅h(τ)dτ]x0isanarbitraryparameter=∑k=−∞∞[∫xoxo+PgP(x−τ−kP)⏟gP(x−τ),byperiodicity⋅h(τ+kP)dτ]substitutingτ→τ+kP=∫xoxo+PgP(x−τ)⋅[∑k=−∞∞h(τ+kP)]⏟≜hP(τ)dτ∫_-∞^∞g__P(x-τ)(τ) dτ   =∑_k=-∞^∞[∫_x_o+kP^x_o+(k+1)Pg__P(x-τ)(τ)τ̣]_0isanarbitraryparameter
+   =∑_k=-∞^∞[∫_x_o^x_o+Pg__P(x-τ-kP)_g__P(x-τ),byperiodicity(τ+kP)τ̣]  substitutingτ→τ+kP
+   =∫_x_o^x_o+Pg__P(x-τ)·[∑_k=-∞^∞h(τ+kP)]_≜__P(τ)τ̣
+
+^ An example is the MATLAB function, hilbert(g,N).
+
+
+References[edit]
+
+
+^ 
+McGillem, Clare D.; Cooper, George R. (1984). Continuous and Discrete Signal and System Analysis (2 ed.). Holt, Rinehart and Winston. p. 118 (3-102). ISBN 0-03-061703-0.
+
+^ a b 
+Weisstein, Eric W. "Convolution Theorem". From MathWorld--A Wolfram Web Resource. Retrieved 8 February 2021.
+
+^ 
+Proakis, John G.; Manolakis, Dimitri G. (1996), Digital Signal Processing: Principles, Algorithms and Applications (3 ed.), New Jersey: Prentice-Hall International, p. 297, Bibcode:1996dspp.book.....P, ISBN 9780133942897, sAcfAQAAIAAJ
+
+^ a b 
+Oppenheim, Alan V.; Schafer, Ronald W.; Buck, John R. (1999). Discrete-time signal processing (2nd ed.). Upper Saddle River, N.J.: Prentice Hall. ISBN 0-13-754920-2.
+
+^ 
+Rabiner, Lawrence R.; Gold, Bernard (1975). Theory and application of digital signal processing. Englewood Cliffs, NJ: Prentice-Hall, Inc. p. 59 (2.163). ISBN 978-0139141010.
+
+^ Amiot, Emmanuel (2016). Music through Fourier Space. Computational Music Science. Zürich: Springer. p. 8. doi:10.1007/978-3-319-45581-5. ISBN 978-3-319-45581-5. S2CID 6224021.
+
+^ Horváth, John (1966). Topological Vector Spaces and Distributions. Reading, MA: Addison-Wesley Publishing Company.
+
+^ Barros-Neto, José (1973). An Introduction to the Theory of Distributions. New York, NY: Dekker.
+
+^ Petersen, Bent E. (1983). Introduction to the Fourier Transform and Pseudo-Differential Operators. Boston, MA: Pitman Publishing.
+
+
+
+Further reading[edit]
+Katznelson, Yitzhak (1976), An introduction to Harmonic Analysis, Dover, ISBN 0-486-63331-4
+Li, Bing; Babu, G. Jogesh (2019), "Convolution Theorem and Asymptotic Efficiency", A Graduate Course on Statistical Inference, New York: Springer, pp. 295–327, ISBN 978-1-4939-9759-6
+Crutchfield, Steve (October 9, 2010), "The Joy of Convolution", Johns Hopkins University, retrieved November 19, 2010
+
+Additional resources[edit]
+For a visual representation of the use of the convolution theorem in signal processing, see:
+
+Johns Hopkins University's Java-aided simulation: http://www.jhu.edu/signals/convolve/index.html
+
+
+

@@ -1,0 +1,57 @@
+Links the homology groups of a product space with those of the individual spaces
+In mathematics, specifically in algebraic topology, the Eilenberg–Zilber theorem is an important result in establishing the link between the homology groups of a product space X×Y and those of the spaces X and Y. The theorem first appeared in a 1953 paper in the American Journal of Mathematics by Samuel Eilenberg and Joseph A. Zilber.  One possible route to a proof is the acyclic model theorem.
+
+
+Statement of the theorem[edit]
+The theorem can be formulated as follows. Suppose X and Y are topological spaces, Then we have the three chain complexes C∗(X)_*(X), C∗(Y)_*(Y), and C∗(X×Y)_*(X). (The argument applies equally to the simplicial or singular chain complexes.) We also have the tensor product complex C∗(X)⊗C∗(Y)_*(X)_*(Y), whose differential is, by definition, 
+
+∂C∗(X)⊗C∗(Y)(σ⊗τ)=∂Xσ⊗τ+(−1)pσ⊗∂Yτ∂_C_*(X)_*(Y)(σ⊗τ)=∂_Xσ⊗τ+(-1)^pσ⊗∂_Yτ
+for σ∈Cp(X)σ_p(X) and ∂X∂_X, ∂Y∂_Y the differentials on C∗(X)_*(X),C∗(Y)_*(Y).
+Then the theorem says that we have chain maps
+
+F:C∗(X×Y)→C∗(X)⊗C∗(Y),G:C∗(X)⊗C∗(Y)→C∗(X×Y)_*(X)_*(X)_*(Y),_*(X)_*(Y)_*(X)
+such that FG is the identity and GF is chain-homotopic to the identity. Moreover, the maps are natural in X and Y. Consequently the two complexes must have the same homology:
+
+H∗(C∗(X×Y))≅H∗(C∗(X)⊗C∗(Y))._*(C_*(X))_*(C_*(X)_*(Y)).
+Statement in terms of composite maps[edit]
+The original theorem was proven in terms of acyclic models but more mileage was gotten in a phrasing by Eilenberg and Mac Lane using explicit maps. The standard map F they produce is traditionally referred to as the Alexander–Whitney map and G the Eilenberg–Zilber map. The maps are natural in both X and Y and inverse up to homotopy: one has
+
+FG=idC∗(X)⊗C∗(Y),GF−idC∗(X×Y)=∂C∗(X)⊗C∗(Y)H+H∂C∗(X)⊗C∗(Y)=id_C_*(X)_*(Y),-id_C_*(X)=∂_C_*(X)_*(Y)H+H∂_C_*(X)_*(Y)
+for a homotopy H natural in both X and Y such that further, each of HH, FH, and HG is zero. This is what would come to be known as a contraction or a homotopy retract datum.
+
+The coproduct[edit]
+The diagonal map Δ:X→X×XΔ induces a map of cochain complexes C∗(X)→C∗(X×X)_*(X)_*(X) which, followed by the Alexander–Whitney F yields a coproduct C∗(X)→C∗(X)⊗C∗(X)_*(X)_*(X)_*(X) inducing the standard coproduct on H∗(X)_*(X). With respect to these coproducts on 
+X and Y, the map 
+
+H∗(X)⊗H∗(Y)→H∗(C∗(X)⊗C∗(Y))→∼H∗(X×Y)_*(X)_*(Y)_*(C_*(X)_*(Y)){∼→_̋*(X),
+also called the Eilenberg–Zilber map, becomes a map of differential graded coalgebras. The composite C∗(X)→C∗(X)⊗C∗(X)_*(X)_*(X)_*(X) itself is not a map of coalgebras.
+
+Statement in cohomology[edit]
+The Alexander–Whitney and Eilenberg–Zilber maps dualize (over any choice of commutative coefficient ring k with unity) to a pair of maps
+
+G∗:C∗(X×Y)→(C∗(X)⊗C∗(Y))∗,F∗:(C∗(X)⊗C∗(Y))∗→C∗(X×Y)^*^*(X)→(C_*(X)_*(Y))^*,^*(C_*(X)_*(Y))^*^*(X)
+which are also homotopy equivalences, as witnessed by the duals of the preceding equations, using the dual homotopy H∗^*. The coproduct does not dualize straightforwardly, because dualization does not distribute over tensor products of infinitely-generated modules, but there is a natural injection of differential graded algebras i:C∗(X)⊗C∗(Y)→(C∗(X)⊗C∗(Y))∗^*(X)^*(Y)→(C_*(X)_*(Y))^* given by α⊗β↦(σ⊗τ↦α(σ)β(τ))α⊗β↦(σ⊗τ↦α(σ)β(τ)), the product being taken in the coefficient ring k. This i induces an isomorphism in cohomology, so one does have the zig-zag of differential graded algebra maps 
+
+C∗(X)⊗C∗(X)→i(C∗(X)⊗C∗(X))∗←G∗C∗(X×X)→C∗(Δ)C∗(X)^*(X)^*(X){i→{(C_*(X)_*(X))^*{G^*←^*(X)C^*(Δ)→C^*(X)
+inducing a product ⌣:H∗(X)⊗H∗(X)→H∗(X)⌣^*(X)^*(X)^*(X) in cohomology, known as the cup product, because H∗(i)^*(i) and H∗(G)^*(G) are isomorphisms. Replacing G∗^* with F∗^* so the maps all go the same way, one gets the standard cup product on cochains, given explicitly by 
+
+α⊗β↦(σ↦(α⊗β)(F∗Δ∗σ)=∑p=0dim⁡σα(σ|Δ[0,p])⋅β(σ|Δ[p,dim⁡σ]))α⊗β↦(σ↦(α⊗β)(F^*Δ^*σ)=∑_p=0^σα(σ|_Δ^[0,p])·β(σ|_Δ^[p,σ])),
+which, since cochain evaluation Cp(X)⊗Cq(X)→k^p(X)_q(X) vanishes unless p=q=q, reduces to the more familiar expression.
+Note that if this direct map C∗(X)⊗C∗(X)→C∗(X)^*(X)^*(X)^*(X) of cochain complexes were in fact a map of differential graded algebras, then the cup product would make C∗(X)^*(X) a commutative graded algebra, which it is not. This failure of the Alexander–Whitney map to be a coalgebra map is an example the unavailability of commutative cochain-level models for cohomology over fields of nonzero characteristic, and thus is in a way responsible for much of the subtlety and complication in stable homotopy theory.
+
+Generalizations[edit]
+An important generalisation to the non-abelian case using crossed complexes is given in the paper by Andrew Tonks below. This give full details of a result on the (simplicial) classifying space of a crossed complex stated but not proved in the paper by Ronald Brown and Philip J. Higgins on classifying spaces.
+
+Consequences[edit]
+The Eilenberg–Zilber theorem is a key ingredient in establishing the Künneth theorem, which expresses the homology groups H∗(X×Y)_*(X) in terms of H∗(X)_*(X) and H∗(Y)_*(Y). In light of the Eilenberg–Zilber theorem, the content of the Künneth theorem consists in analysing how the homology of the tensor product complex relates to the homologies of the factors.
+
+See also[edit]
+Acyclic model
+References[edit]
+Eilenberg, Samuel; Zilber, Joseph A. (1953), "On Products of Complexes", American Journal of Mathematics, vol. 75, no. 1, pp. 200–204, doi:10.2307/2372629, JSTOR 2372629, MR 0052767.
+Hatcher, Allen (2002), Algebraic Topology, Cambridge University Press, ISBN 978-0-521-79540-1.
+Tonks, Andrew (2003), "On the Eilenberg–Zilber theorem for crossed complexes", Journal of Pure and Applied Algebra, vol. 179, no. 1–2, pp. 199–230, doi:10.1016/S0022-4049(02)00160-3, MR 1958384.
+Brown, Ronald; Higgins, Philip J. (1991), "The classifying space of a crossed complex", Mathematical Proceedings of the Cambridge Philosophical Society, vol. 110, pp. 95–120, CiteSeerX 10.1.1.145.9813, doi:10.1017/S0305004100070158.
+
+
+

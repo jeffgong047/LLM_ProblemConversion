@@ -1,0 +1,320 @@
+Every impartial game position is equivalent to a position in the game of nim
+This article has multiple issues. Please help improve it or discuss these issues on the talk page. (Learn how and when to remove these template messages)
+
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (June 2014) (Learn how and when to remove this template message)
+This article may be too technical for most readers to understand. Please help improve it to make it understandable to non-experts, without removing the technical details. (June 2014) (Learn how and when to remove this template message)
+
+ (Learn how and when to remove this template message)
+In combinatorial game theory, the Sprague–Grundy theorem states that every impartial game under the normal play convention is equivalent to a one-heap game of nim, or to an infinite generalization of nim. It can therefore be represented as a natural number, the size of the heap in its equivalent game of nim, as an ordinal number in the infinite generalization, or alternatively as a nimber, the value of that one-heap game in an algebraic system whose addition operation combines multiple heaps to form a single equivalent heap in nim.
+The Grundy value or nim-value of any impartial game is the unique nimber that the game is equivalent to.  In the case of a game whose positions are indexed by the natural numbers (like nim itself, which is indexed by its heap sizes), the sequence of nimbers for successive positions of the game is called the nim-sequence of the game.
+The Sprague–Grundy theorem and its proof encapsulate the main results of a theory discovered independently by R. P. Sprague (1936)[1] and P. M. Grundy (1939).[2]
+
+
+Definitions[edit]
+For the purposes of the Sprague–Grundy theorem, a game is a two-player sequential game of perfect information satisfying the ending condition (all games come to an end: there are no infinite lines of play) and the normal play condition (a player who cannot move loses).
+At any given point in the game, a player's position is the set of moves they are allowed to make.  As an example, we can define the zero game to be the two-player game where neither player has any legal moves.  Referring to the two players as A (for Alice) and B (for Bob), we would denote their positions as (A,B)=(,)(A,B)=({},{}), since the set of moves each player can make is empty.
+An impartial game is one in which at any given point in the game, each player is allowed exactly the same set of moves. Normal-play nim is an example of an impartial game. In nim, there are one or more heaps of objects, and two players (we'll call them Alice and Bob), take turns choosing a heap and removing 1 or more objects from it. The winner is the player who removes the final object from the final heap.  The game is impartial because for any given configuration of pile sizes, the moves Alice can make on her turn are exactly the same moves Bob would be allowed to make if it were his turn.  In contrast, a game such as checkers is not impartial because, supposing Alice were playing red and Bob were playing black, for any given arrangement of pieces on the board, if it were Alice's turn, she would only be allowed to move the red pieces, and if it were Bob's turn, he would only be allowed to move the black pieces.
+Note that any configuration of an impartial game can therefore be written as a single position, because the moves will be the same no matter whose turn it is. For example, the position of the zero game can simply be written {}, because if it's Alice's turn, she has no moves to make, and if it's Bob's turn, he has no moves to make either.
+A move can be associated with the position it leaves the next player in. 
+Doing so allows positions to be defined recursively.  For example, consider the following game of Nim played by Alice and Bob.
+
+Example Nim Game[edit]
+Sizes of heaps  Moves
+ A B C
+  
+ 1 2 2           Alice takes 1 from A
+ 0 2 2           Bob   takes 1 from B 
+ 0 1 2           Alice takes 1 from C 
+ 0 1 1           Bob   takes 1 from B 
+ 0 0 1           Alice takes 1 from C
+ 0 0 0           Bob   has no moves, so Alice wins
+At step 6 of the game (when all of the heaps are empty) the position is {}, because Bob has no valid moves to make.  We name this position ∗0*0.
+At step 5, Alice had exactly one option: to remove one object from heap C, leaving Bob with no moves.  Since her move leaves Bob in position ∗0*0, her position is written ∗0{*0}.  We name this position ∗1*1.
+At step 4, Bob had two options: remove one from B or remove one from C.  Note, however, that it didn't really matter which heap Bob removed the object from: Either way, Alice would be left with exactly one object in exactly one pile. So, using our recursive definition, Bob really only has one move: ∗1*1.   Thus, Bob's position is ∗1{*1}.
+At step 3, Alice had 3 options: remove two from C, remove one from C, or remove one from B.  Removing two from C leaves Bob in position ∗1*1.  Removing one from C leaves Bob with two piles, each of size one, i.e., position ∗1{*1}, as described in step 4. However, removing 1 from B would leave Bob with two objects in a single pile. His moves would then be ∗0*0 and  ∗1*1, so her move would result in the position ∗0,∗1{*0,*1}.  We call this position ∗2*2.  Alice's position is then the set of all her moves: ∗1,∗1,∗2{*1,{*1},*2}.
+Following the same recursive logic, at step 2, Bob's position is ∗1,∗1,∗2,∗2.{{*1,{*1},*2},*2}.
+Finally, at step 1, Alice's position is ∗1,∗1,∗2,∗2,∗1,∗1,∗2,∗1,∗1,∗1,∗1,∗2.{{*1,{*1},*2},{*2,{*1,{*1},*2}},{{*1},{{*1}},{*1,{*1},*2}}}.
+Nimbers[edit]
+The special names ∗0*0, ∗1*1, and ∗2*2 referenced in our example game are called nimbers.  In general, the nimber ∗n*n corresponds to the position in a game of nim where there are exactly n objects in exactly one heap.  
+Formally, nimbers are defined inductively as follows:  ∗0*0 is {}, ∗1=∗0*1={*0}, ∗2=∗0,∗1*2={*0,*1} and  for all n≥0≥0, ∗(n+1)=∗n∪∗n*(n+1)=*n∪{*n}.
+While the word nimber comes from the game nim, nimbers can be used to describe the positions of any finite, impartial game, and in fact, the Sprague–Grundy theorem states that every  instance of a finite, impartial game can be associated with a single nimber.
+
+Combining Games[edit]
+Two games can be combined by adding their positions together.
+For example, consider another game of nim with heaps A′', B′', and C′'.
+
+Example Game 2[edit]
+Sizes of heaps    Moves
+ 
+A' B' C'
+1  1  1           Alice takes 1 from A'
+0  1  1           Bob takes one from B'
+0  0  1           Alice takes one from C'
+0  0  0           Bob has no moves, so Alice wins.
+We can combine it with our first example to get a combined game with six heaps: A, B, C, A′', B′', and C′':
+
+Combined Game[edit]
+Sizes of heaps     Moves
+ A  B  C  A' B' C'  
+  
+ 1  2  2  1  1  1   Alice takes 1 from A
+ 0  2  2  1  1  1   Bob takes 1 from A'
+ 0  2  2  0  1  1   Alice takes 1 from B'
+ 0  2  2  0  0  1   Bob takes 1 from C'
+ 0  2  2  0  0  0   Alice takes 2 from B
+ 0  0  2  0  0  0   Bob takes 2 from C
+ 0  0  0  0  0  0   Alice has no moves, so Bob wins.
+To differentiate between the two games, for the first example game, we'll label its starting position SS, and color it blue:
+S=∗1,∗1,∗2,∗2,∗1,∗1,∗2,∗1,∗1,∗1,∗1,∗2S={{*1,{*1},*2},{*2,{*1,{*1},*2}},{{*1},{{*1}},{*1,{*1},*2}}}
+For the second example game, we'll label the starting position S′S' and color it red:
+S′=∗1.S'={{*1}}.
+To compute the starting position of the combined game, remember that a player can either make a move in the first game, leaving the second game untouched, or make a move in the second game, leaving the first game untouched.  So the combined game's starting position is:
+S+S′=S+∗1∪S′+∗1,∗1,∗2,S′+∗2,∗1,∗1,∗2,S′+∗1,∗1,∗1,∗1,∗2S+S'={S+{*1}}∪{S'+{*1,{*1},*2},S'+{*2,{*1,{*1},*2}},S'+{{*1},{{*1}},{*1,{*1},*2}}}
+The explicit formula for adding positions is: S+S′=S+s′∣s′∈S′∪s+S′∣s∈S+S'={S+s'''}∪{s+S'}, which means that addition is both commutative and associative.
+
+Equivalence[edit]
+Positions in impartial games fall into two outcome classes: either the next player (the one whose turn it is) wins (an N𝒩- position), or the previous player wins (a P𝒫- position).  So, for example, ∗0*0 is a P𝒫-position, while ∗1*1 is an N𝒩-position.
+Two positions G and G′' are equivalent if, no matter what position H is added to them, they are always in the same outcome class.  
+Formally,
+G≈G′' if and only if ∀H, G+H+H is in the same outcome class as G′+H'+H.
+To use our running examples, notice that in both the first and second games above, we can show that on every turn, Alice has a move that forces Bob into a P𝒫-position. Thus, both SS and  S′S' are N𝒩-positions.  (Notice that in the combined game, Bob is the player with the N𝒩-positions. In fact, S+S′S+S' is a P𝒫-position, which as we will see in Lemma 2, means S≈S′S≈S'.)
+
+First Lemma[edit]
+As an intermediate step to proving the main theorem, we show that for every position G and every P𝒫-position A, the equivalence G≈A+G+G holds.  By the above definition of equivalence, this amounts to showing that G+H+H and A+G+H+G+H share an outcome class for all H.
+Suppose that G+H+H is a P𝒫-position.  Then the previous player has a winning strategy for A+G+H+G+H: respond to moves in A according to their winning strategy for A (which exists by virtue of A being a P𝒫-position), and respond to moves in G+H+H according to their winning strategy for G+H+H (which exists for the analogous reason).  So A+G+H+G+H must also be a P𝒫-position.
+On the other hand, if G+H+H is an N𝒩-position, then A+G+H+G+H is also an N𝒩-position, because the next player has a winning strategy: choose a P𝒫-position from among the G+H+H options, and we conclude from the previous paragraph that adding A to that position is still a P𝒫-position.  Thus, in this case, A+G+H+G+H must be a N𝒩-position, just like G+H+H.
+As these are the only two cases, the lemma holds.
+
+Second Lemma[edit]
+As a further step, we show that G≈G′' if and only if G+G′+G' is a P𝒫-position.
+In the forward direction, suppose that G≈G′'.  Applying the definition of equivalence with H=G=G, we find that G′+G'+G (which is equal to G+G′+G' by commutativity of addition) is in the same outcome class as G+G+G.  But G+G+G must be a P𝒫-position: for every move made in one copy of G, the previous player can respond with the same move in the other copy, and so always make the last move.
+In the reverse direction, since A=G+G′=G+G' is a P𝒫-position by hypothesis, it follows from the first lemma, G≈G+A+A, that G≈G+(G+G′)+(G+G').   Similarly, since B=G+G=G+G is also a P𝒫-position, it follows from the first lemma in the form  G′≈G′+B''+B that G′≈G′+(G+G)''+(G+G).  By associativity and commutativity, the right-hand sides of these results are equal.  Furthermore, ≈≈ is an equivalence relation because equality is an equivalence relation on outcome classes.  Via the transitivity of ≈≈, we can conclude that G≈G′'.
+
+Proof[edit]
+We prove that all positions are equivalent to a nimber by structural induction.  The more specific result, that the given game's initial position must be equivalent to a nimber, shows that the game is itself equivalent to a nimber.
+Consider a position G=G1,G2,…,Gk={G_1,G_2,…,G_k}. By the  induction hypothesis, all of the options are equivalent to nimbers, say Gi≈∗ni_i≈*n_i. So let G′=∗n1,∗n2,…,∗nk'={*n_1,*n_2,…,*n_k}.  We will show that G≈∗m≈*m, where m is the mex (minimum exclusion) of the numbers n1,n2,…,nk_1,n_2,…,n_k, that is, the smallest non-negative integer not equal to some ni_i.
+The first thing we need to note is that G≈G′', by way of the second lemma. If k is zero, the claim is trivially true.  Otherwise, consider G+G′+G'. If the next player makes a move to Gi_i in G, then the previous player can move to ∗ni*n_i in G′', and conversely if the next player makes a move in G′'. After this, the position is a P𝒫-position by the lemma's forward implication. Therefore, G+G′+G' is a P𝒫-position, and, citing the lemma's reverse implication, G≈G′'.
+Now let us show that G′+∗m'+*m is a P𝒫-position, which, using the second lemma once again, means that G′≈∗m'≈*m. We do so by giving an explicit strategy for the previous player.
+Suppose that G′' and ∗m*m are empty.  Then G′+∗m'+*m is the null set, clearly a P𝒫-position.
+Or consider the case that the next player moves in the component ∗m*m to the option ∗m′*m' where m′<m'<m. Because m was the minimum excluded number, the previous player can move in G′' to ∗m′*m'.  And, as shown before, any position plus itself is a P𝒫-position.
+Finally, suppose instead that the next player moves in the component G′' to the option ∗ni*n_i. If ni<m_i<m then the previous player moves in ∗m*m to ∗ni*n_i; otherwise, if ni>m_i>m, the previous player moves in ∗ni*n_i to ∗m*m; in either case the result is a position plus itself. (It is not possible that ni=m_i=m because m was defined to be different from all the ni_i.)
+In summary, we have G≈G′' and G′≈∗m'≈*m.  By transitivity, we conclude that G≈∗m≈*m, as desired.
+
+Development[edit]
+If G is a position of an impartial game, the unique integer m such that G≈∗m≈*m is called its Grundy value, or Grundy number, and the function that assigns this value to each such position is called the Sprague–Grundy function.  R. L. Sprague and P. M. Grundy independently gave an explicit definition of this function, not based on any concept of equivalence to nim positions, and showed that it had the following properties:
+
+The Grundy value of a single nim pile of size m (i.e. of the position ∗m*m) is m;
+A position is a loss for the next player to move (i.e. a P𝒫-position) if and only if its Grundy value is zero; and
+The Grundy value of the sum of a finite set of positions is just the nim-sum of the Grundy values of its summands.
+It follows straightforwardly from these results that if a position G has a Grundy value of m, then G+H+H has the same Grundy value as  ∗m+H*m+H, and therefore belongs to the same outcome class, for any position H.   Thus, although Sprague and Grundy never explicitly stated the theorem described in this article, it follows directly from their results and is credited to them.[3][4]
+These results have subsequently been developed into the field of combinatorial game theory, notably by Richard Guy, Elwyn Berlekamp, John Horton Conway and others, where they are now encapsulated in the Sprague–Grundy theorem and its proof in the form described here. The field is presented in the books Winning Ways for your Mathematical Plays and On Numbers and Games.
+
+See also[edit]
+Genus theory
+Indistinguishability quotient
+References[edit]
+
+
+^ Sprague, R. P. (1936). "Über mathematische Kampfspiele". Tohoku Mathematical Journal (in German). 41: 438–444. JFM 62.1070.03. Zbl 0013.29004.
+
+^ Grundy, P. M. (1939). "Mathematics and games". Eureka. 2: 6–8. Archived from the original on 2007-09-27. Reprinted, 1964, 27: 9–11.
+
+^ Smith, Cedric A.B. (1960), "Patrick Michael Grundy, 1917–1959", Journal of the Royal Statistical Society, Series A, 123 (2): 221–22
+
+^ Schleicher, Dierk; Stoll, Michael (2006). "An introduction to Conway's games and numbers". Moscow Mathematical Journal. 6 (2): 359–388. arXiv:math.CO/0410026. doi:10.17323/1609-4514-2006-6-2-359-388. S2CID 7175146.
+
+
+External links[edit]
+Grundy's game at cut-the-knot
+Easily readable, introductory account from the UCLA Math Department
+The Game of Nim at sputsoft.com
+Milvang-Jensen, Brit C. A. (2000), Combinatorial Games, Theory and Applications (PDF), CiteSeerX 10.1.1.89.805
+vteTopics in game theoryDefinitions
+Congestion game
+Cooperative game
+Determinacy
+Escalation of commitment
+Extensive-form game
+First-player and second-player win
+Game complexity
+Graphical game
+Hierarchy of beliefs
+Information set
+Normal-form game
+Preference
+Sequential game
+Simultaneous game
+Simultaneous action selection
+Solved game
+Succinct game
+Equilibriumconcepts
+Bayesian Nash equilibrium
+Berge equilibrium
+ Core
+Correlated equilibrium
+Epsilon-equilibrium
+Evolutionarily stable strategy
+Gibbs equilibrium
+Mertens-stable equilibrium
+Markov perfect equilibrium
+Nash equilibrium
+Pareto efficiency
+Perfect Bayesian equilibrium
+Proper equilibrium
+Quantal response equilibrium
+Quasi-perfect equilibrium
+Risk dominance
+Satisfaction equilibrium
+Self-confirming equilibrium
+Sequential equilibrium
+Shapley value
+Strong Nash equilibrium
+Subgame perfection
+Trembling hand
+Strategies
+Backward induction
+Bid shading
+Collusion
+Forward induction
+Grim trigger
+Markov strategy
+Dominant strategies
+Pure strategy
+Mixed strategy
+Strategy-stealing argument
+Tit for tat
+Classesof games
+Bargaining problem
+Cheap talk
+Global game
+Intransitive game
+Mean-field game
+Mechanism design
+n-player game
+Perfect information
+Large Poisson game
+Potential game
+Repeated game
+Screening game
+Signaling game
+Stackelberg competition
+Strictly determined game
+Stochastic game
+Symmetric game
+Zero-sum game
+Games
+Go
+Chess
+Infinite chess
+Checkers
+Tic-tac-toe
+Prisoner's dilemma
+Gift-exchange game
+Optional prisoner's dilemma
+Traveler's dilemma
+Coordination game
+Chicken
+Centipede game
+Lewis signaling game
+Volunteer's dilemma
+Dollar auction
+Battle of the sexes
+Stag hunt
+Matching pennies
+Ultimatum game
+Rock paper scissors
+Pirate game
+Dictator game
+Public goods game
+Blotto game
+War of attrition
+El Farol Bar problem
+Fair division
+Fair cake-cutting
+Cournot game
+Deadlock
+Diner's dilemma
+Guess 2/3 of the average
+Kuhn poker
+Nash bargaining game
+Induction puzzles
+Trust game
+Princess and monster game
+Rendezvous problem
+Theorems
+Arrow's impossibility theorem
+Aumann's agreement theorem
+Folk theorem
+Minimax theorem
+Nash's theorem
+Negamax theorem
+Purification theorem
+Revelation principle
+Sprague–Grundy theorem
+Zermelo's theorem
+Keyfigures
+Albert W. Tucker
+Amos Tversky
+Antoine Augustin Cournot
+Ariel Rubinstein
+Claude Shannon
+Daniel Kahneman
+David K. Levine
+David M. Kreps
+Donald B. Gillies
+Drew Fudenberg
+Eric Maskin
+Harold W. Kuhn
+Herbert Simon
+Hervé Moulin
+John Conway
+Jean Tirole
+Jean-François Mertens
+Jennifer Tour Chayes
+John Harsanyi
+John Maynard Smith
+John Nash
+John von Neumann
+Kenneth Arrow
+Kenneth Binmore
+Leonid Hurwicz
+Lloyd Shapley
+Melvin Dresher
+Merrill M. Flood
+Olga Bondareva
+Oskar Morgenstern
+Paul Milgrom
+Peyton Young
+Reinhard Selten
+Robert Axelrod
+Robert Aumann
+Robert B. Wilson
+Roger Myerson
+ Samuel Bowles
+Suzanne Scotchmer
+Thomas Schelling
+William Vickrey
+Miscellaneous
+All-pay auction
+Alpha–beta pruning
+Bertrand paradox
+Bounded rationality
+Combinatorial game theory
+Confrontation analysis
+Coopetition
+Evolutionary game theory
+First-move advantage in chess
+Game Description Language
+Game mechanics
+Glossary of game theory
+List of game theorists
+List of games in game theory
+No-win situation
+Solving chess
+Topological game
+Tragedy of the commons
+Tyranny of small decisions
+
+
+
+

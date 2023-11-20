@@ -1,0 +1,92 @@
+Theorem about linear relations in ideals and modules over polynomial rings
+In mathematics, Hilbert's syzygy theorem is one of the three fundamental theorems about polynomial rings over fields, first proved by David Hilbert in 1890, which were introduced for solving important open questions in invariant theory, and are at the basis of modern algebraic geometry. The two other theorems are Hilbert's basis theorem that asserts that all ideals of polynomial rings over a field are finitely generated, and Hilbert's Nullstellensatz, which establishes a bijective correspondence between affine algebraic varieties and prime ideals of polynomial rings.
+Hilbert's syzygy theorem concerns the relations, or  syzygies in Hilbert's terminology, between the generators of an ideal, or, more generally, a module. As the relations form a module, one may consider the relations between the relations; the theorem asserts that, if one continues in this way, starting with a module over a polynomial ring in n indeterminates over a field, one eventually finds a zero module of relations, after at most n steps.
+Hilbert's syzygy theorem is now considered to be an early result of homological algebra. It is the starting point of the use of homological methods in commutative algebra and algebraic geometry.
+
+
+History[edit]
+The syzygy theorem first appeared in Hilbert's seminal paper "Über die Theorie der algebraischen Formen" (1890).[1] The paper is split into five parts: part I proves Hilbert's basis theorem over a field, while part II proves it over the integers. Part III contains the syzygy theorem (Theorem III), which is used in part IV to discuss the Hilbert polynomial. The last part, part V, proves finite generation of certain rings of invariants. Incidentally part III also contains a special case of the Hilbert–Burch theorem.
+
+Syzygies (relations)[edit]
+Main article: syzygy (mathematics)
+Originally, Hilbert defined syzygies for ideals in polynomial rings, but the concept generalizes trivially to (left) modules over any ring.
+Given a generating set g1,…,gk_1,…,g_k of a module M over a ring R, a relation or first syzygy between the generators is a k-tuple (a1,…,ak)(a_1,…,a_k) of elements of R such that[2]
+
+a1g1+⋯+akgk=0._1g_1+⋯+a_kg_k=0.
+Let L0_0 be a free module with basis (G1,…,Gk).(G_1,…,G_k). The k-tuple (a1,…,ak)(a_1,…,a_k) may be identified with the element 
+
+a1G1+⋯+akGk,_1G_1+⋯+a_kG_k,
+and the relations form the kernel R1_1 of the linear map L0→M_0 defined by Gi↦gi._i_i. In other words, one has an exact sequence
+
+0→R1→L0→M→0.0_1_0→0.
+This first syzygy module R1_1 depends on the choice of a generating set, but, if S1_1 is the module which is obtained with another generating set, there exist two free modules F1_1 and F2_2 such that 
+
+R1⊕F1≅S1⊕F2_1_1_1_2
+where ⊕⊕ denote the direct sum of modules.
+The second syzygy module is the module of the relations between generators of the first syzygy module. By continuing in this way, one may define the kth syzygy module for every positive integer k.
+If the kth syzygy module is free for some k, then by taking a basis as a generating set, the next syzygy module (and every subsequent one) is the zero module. If one does not take a basis as a generating set, then all subsequent syzygy modules are free.
+Let n be the smallest integer, if any, such that the nth syzygy module of a module M is free or projective. The above property of invariance, up to the sum direct with free modules, implies that n does not depend on the choice of generating sets. The projective dimension of M is this integer, if it exists, or ∞ if not. This is equivalent with the existence of an exact sequence
+
+0⟶Rn⟶Ln−1⟶⋯⟶L0⟶M⟶0,0_n_n-1⟶⋯_0⟶0,
+where the modules Li_i are free and Rn_n is projective. It can be shown that one may always choose the generating sets for Rn_n being free, that is for the above exact sequence to be a free resolution.
+
+Statement[edit]
+Hilbert's syzygy theorem states that, if M is a finitely generated module over a polynomial ring k[x1,…,xn][x_1,…,x_n] in n indeterminates over a field k, then the nth syzygy module of M is always a free module.
+In modern language, this implies that the projective dimension of M is at most n, and thus that there exists a free resolution
+
+0⟶Lk⟶Lk−1⟶⋯⟶L0⟶M⟶00_k_k-1⟶⋯_0⟶0
+of length k ≤ n.
+This upper bound on the projective dimension is sharp, that is, there are modules of projective dimension exactly n. The standard example is the field k, which may be considered as a k[x1,…,xn][x_1,…,x_n]-module by setting xic=0_ic=0 for every i and every c ∈ k. For this module, the nth syzygy module is free, but not the (n − 1)th one (for a proof, see § Koszul complex, below).
+The theorem is also true for modules that are not finitely generated. As the global dimension of a ring is the supremum of the projective dimensions of all modules, Hilbert's syzygy theorem may be restated as: the global dimension of k[x1,…,xn][x_1,…,x_n] is n.
+
+Low dimension[edit]
+In the case of zero indeterminates, Hilbert's syzygy theorem is simply the fact that every vector space has a basis.
+In the case of a single indeterminate, Hilbert's syzygy theorem is an instance of the theorem asserting that over a principal ideal ring, every submodule of a free module is itself free.
+
+Koszul complex[edit]
+The Koszul complex, also called "complex of exterior algebra", allows, in some cases, an explicit description of all syzygy modules.
+Let g1,…,gk_1,…,g_k be a generating system of an ideal I in a polynomial ring R=k[x1,…,xn]=k[x_1,…,x_n], and let L1_1 be a free module of basis G1,…,Gk._1,…,G_k. The exterior algebra of L1_1 is the direct sum
+
+Λ(L1)=⨁t=0kLt,Λ(L_1)=⊕_t=0^kL_t,
+where Lt_t is the free module, which has, as a basis, the exterior products
+
+Gi1∧⋯∧Git,_i_1∧⋯_i_t,
+such that i1<i2<⋯<it._1<i_2<⋯<i_t. In particular, one has L0=R_0=R (because of the definition of the empty product), the two definitions of L1_1 coincide, and Lt=0_t=0 for t > k. For every positive t, one may define a linear map Lt→Lt−1_t_t-1 by
+
+Gi1∧⋯∧Git↦∑j=1t(−1)j+1gijGi1∧⋯∧G^ij∧⋯∧Git,_i_1∧⋯_i_t↦∑_j=1^t(-1)^j+1g_i_jG_i_1∧⋯∧G_i_j∧⋯_i_t,
+where the hat means that the factor is omitted. A straightforward computation shows that the composition of two consecutive such maps is zero, and thus that one has a complex
+
+0→Lt→Lt−1→⋯→L1→L0→R/I.0_t_t-1→⋯_1_0/I.
+This is the Koszul complex. In general the Koszul complex is not an exact sequence, but it is an exact sequence if one works with a polynomial ring R=k[x1,…,xn]=k[x_1,…,x_n] and an ideal generated by a regular sequence of homogeneous polynomials.
+In particular, the sequence x1,…,xn_1,…,x_n is regular, and the Koszul complex is thus a projective resolution of k=R/⟨x1,…,xn⟩.=R/_1,…,x_n⟩. In this case, the nth syzygy module is free of dimension one (generated by the product of all Gi_i); the (n − 1)th syzygy module is thus the quotient of a free module of dimension n by the submodule generated by (x1,−x2,…,±xn).(x_1,-x_2,…,_n). This quotient may not be a projective module, as otherwise, there would exist polynomials pi_i such that p1x1+⋯+pnxn=1,_1x_1+⋯+p_nx_n=1, which is impossible (substituting 0 for the  xi_i in the latter equality provides 1 = 0). This proves that the projective dimension of k=R/⟨x1,…,xn⟩=R/_1,…,x_n⟩ is exactly n.
+The same proof applies for proving that the projective dimension of k[x1,…,xn]/⟨g1,…,gt⟩[x_1,…,x_n]/_1,…,g_t⟩ is exactly t if the gi_i form a regular sequence of homogeneous polynomials.
+
+Computation[edit]
+At Hilbert's time, there were no method available for computing syzygies. It was only known that an algorithm may be deduced from any upper bound of the degree of the generators of the module of syzygies. In fact, the coefficients of the syzygies are unknown polynomials. If the degree of these polynomials is bounded, the number of their monomials is also bounded.  Expressing that one has a syzygy provides a system of linear equations whose unknowns are the coefficients of these monomials. Therefore, any algorithm for linear systems implies an algorithm for syzygies, as soon as a bound of the degrees is known.
+The first bound for syzygies (as well as for ideal membership problem) was given in 1926 by Grete Hermann:[3] Let M a submodule of a free module L of dimension t over k[x1,…,xn];[x_1,…,x_n]; if the coefficients over a basis of L of a generating system of M have a total degree at most d, then there is a constant c such that the degrees occurring in a generating system of the first syzygy module is at most (td)2cn.(td)^2^cn. The same bound applies for testing the membership to M of an element of L.[4]
+On the other hand, there are examples where a double exponential degree necessarily occurs. However such examples are extremely rare, and this sets the question of an algorithm that is efficient when the output is not too large. At the present time, the best algorithms for computing syzygies are Gröbner basis algorithms. They allow the computation of the first syzygy module, and also, with almost no extra cost, all syzygies modules.
+
+Syzygies and regularity[edit]
+One might wonder which ring-theoretic property of A=k[x1,…,xn]=k[x_1,…,x_n] causes the Hilbert syzygy theorem to hold. It turns out that 
+this is regularity, which is an algebraic formulation of the fact that affine n-space is a variety without singularities. In fact the following generalization holds: Let A be a Noetherian ring. Then A has finite global dimension if and only if A is regular and the Krull dimension of A is finite; in that case the global dimension of A is equal to the Krull dimension. This result may be proven using Serre's theorem on regular local rings.
+
+See also[edit]
+Quillen–Suslin theorem
+Hilbert series and Hilbert polynomial
+References[edit]
+
+
+^ D. Hilbert, Über die Theorie der algebraischen Formen, Mathematische Annalen 36, 473–530.
+
+^ The theory is presented for finitely generated modules, but extends easily to arbitrary modules.
+
+^ Grete Hermann: Die Frage der endlich vielen Schritte in der Theorie der Polynomideale. Unter Benutzung nachgelassener Sätze von K. Hentzelt, Mathematische Annalen, Volume 95, Number 1, 736-788, doi:10.1007/BF01206635 (abstract in German language) — The question of finitely many steps in polynomial ideal theory (review and English-language translation)
+
+^ G. Hermann claimed c = 1, but did not prove this.
+
+
+David Eisenbud, Commutative algebra. With a view toward algebraic geometry. Graduate Texts in Mathematics, 150. Springer-Verlag, New York, 1995. xvi+785 pp. ISBN 0-387-94268-8; ISBN 0-387-94269-6 MR1322960
+"Hilbert theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+
+
+

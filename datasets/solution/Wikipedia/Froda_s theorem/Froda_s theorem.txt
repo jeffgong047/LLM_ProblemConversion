@@ -1,0 +1,200 @@
+Monotone maps have countable discontinuities
+
+In the mathematical field of analysis, a well-known theorem describes the set of discontinuities of a monotone real-valued function of a real variable; all discontinuities of such a (monotone) function are necessarily jump discontinuities and there are at most countably many of them.
+Usually, this theorem appears in literature without a name. It is called Froda's theorem in some recent works; in his 1929 dissertation, Alexandru Froda stated that the result was previously well-known and had provided his own elementary proof for the sake of convenience.[1] Prior work on discontinuities had already been discussed in the 1875 memoir of the French mathematician Jean Gaston Darboux.[2]
+
+
+Definitions[edit]
+Denote the limit from the left by
+f(x−):=limz↗xf(z)=limh>0h→0f(x−h)(x^-):=lim_zf(z)=lim_h→0h>0f(x-h)
+and denote the limit from the right by
+f(x+):=limz↘xf(z)=limh>0h→0f(x+h).(x^+):=lim_zf(z)=lim_h→0h>0f(x+h).
+If f(x+)(x^+) and f(x−)(x^-) exist and are finite then the difference f(x+)−f(x−)(x^+)-f(x^-) is called the  jump[3] of f at x..
+Consider a real-valued function f of real variable x defined in a neighborhood of a point x.. If f is discontinuous at the point x then the discontinuity will be a removable discontinuity, or an essential discontinuity, or a jump discontinuity (also called a discontinuity of the first kind).[4]
+If the function is continuous at x then the jump at x is zero. Moreover, if f is not continuous at x,, the jump can be zero at x if f(x+)=f(x−)≠f(x).(x^+)=f(x^-)(x).
+
+Precise statement[edit]
+Let f be a real-valued monotone function defined on an interval I.. Then the set of discontinuities of the first kind is at most countable.
+One can prove[5][3] that all points of discontinuity of a monotone real-valued function defined on an interval are jump discontinuities and hence, by our definition, of the first kind. With this remark the theorem takes the stronger form:
+Let f be a monotone function defined on an interval I.. Then the set of discontinuities is at most countable.
+
+Proofs[edit]
+This proof starts by proving the special case where the function's domain is a closed and bounded interval [a,b].[a,b].[6][7] The proof of the general case follows from this special case.
+
+Proof when the domain is closed and bounded[edit]
+Two proofs of this special case are given.
+
+Proof 1[edit]
+Let I:=[a,b]:=[a,b] be an interval and let f:I→R:I→ℝ be a non-decreasing function (such as an increasing function).
+Then for any a<x<b,<x<b,
+f(a)≤f(a+)≤f(x−)≤f(x+)≤f(b−)≤f(b).(a) ≤ f(a^+) ≤ f(x^-) ≤ f(x^+) ≤ f(b^-) ≤ f(b).
+Let α>0α>0 and let x1<x2<⋯<xn_1<x_2<⋯<x_n be n points inside I at which the jump of f is greater or equal to αα:
+f(xi+)−f(xi−)≥α,i=1,2,…,n(x_i^+)-f(x_i^-)≥α,ı=1,2,…,n
+For any i=1,2,…,n,=1,2,…,n, f(xi+)≤f(xi+1−)(x_i^+)(x_i+1^-) so that f(xi+1−)−f(xi+)≥0.(x_i+1^-)-f(x_i^+)≥0.
+Consequently,
+f(b)−f(a)≥f(xn+)−f(x1−)=∑i=1n[f(xi+)−f(xi−)]+∑i=1n−1[f(xi+1−)−f(xi+)]≥∑i=1n[f(xi+)−f(xi−)]≥nα9f(b)-f(a)   (x_n^+)-f(x_1^-)
+   =∑_i=1^n[f(x_i^+)-f(x_i^-)]+∑_i=1^n-1[f(x_i+1^-)-f(x_i^+)]
+   ≥∑_i=1^n[f(x_i^+)-f(x_i^-)]
+   α
+and hence n≤f(b)−f(a)α.≤f(b)-f(a)/α.
+Since f(b)−f(a)<∞(b)-f(a)<∞ we have that the number of points at which the jump is greater than αα is finite (possibly even zero).
+Define the following sets:
+S1:=x:x∈I,f(x+)−f(x−)≥1,_1:={x:x,f(x^+)-f(x^-)≥1},
+Sn:=x:x∈I,1n≤f(x+)−f(x−)<1n−1,n≥2._n:={x:x,1/n(x^+)-f(x^-)<1/n-1},≥2.
+Each set Sn_n is finite or the empty set. The union
+S=⋃n=1∞Sn=⋃_n=1^∞S_n contains all points at which the jump is positive and hence contains all points of discontinuity. Since every Si,i=1,2,…_i,ı=1,2,… is at most countable, their union S is also at most countable.
+If f is non-increasing (or decreasing) then the proof is similar. This completes the proof of the special case where the function's domain is a closed and bounded interval.
+◼▪
+
+Proof 2[edit]
+So let f:[a,b]→R:[a,b]→ℝ is a monotone function and let D denote the set of all points d∈[a,b]∈[a,b] in the domain of f at which f is discontinuous (which is necessarily a jump discontinuity).
+Because f has a jump discontinuity at d∈D,, f(d−)≠f(d+)(d^-)(d^+) so there exists some rational number yd∈Q_d∈ℚ that lies strictly in between f(d−)andf(d+)(d^-)andf(d^+) (specifically, if f↗↗ then pick yd∈Q_d∈ℚ so that f(d−)<yd<f(d+)(d^-)<y_d<f(d^+) while if f↘↘ then pick yd∈Q_d∈ℚ so that f(d−)>yd>f(d+)(d^-)>y_d>f(d^+) holds).
+It will now be shown that if d,e∈D,e are distinct, say with d<e,<e, then yd≠ye._d_e.
+If f↗↗ then d<e<e implies f(d+)≤f(e−)(d^+)(e^-) so that yd<f(d+)≤f(e−)<ye._d<f(d^+)(e^-)<y_e.
+If on the other hand f↘↘ then d<e<e implies f(d+)≥f(e−)(d^+)(e^-) so that yd>f(d+)≥f(e−)>ye._d>f(d^+)(e^-)>y_e.
+Either way, yd≠ye._d_e.
+Thus every d∈D is associated with a unique rational number (said differently, the map D→Q→ℚ defined by d↦yd_d is injective).
+Since Qℚ is countable, the same must be true of D..
+◼▪
+
+Proof of general case[edit]
+Suppose that the domain of f (a monotone real-valued function) is equal to a union of countably many closed and bounded intervals; say its domain is ⋃n[an,bn]⋃_n[a_n,b_n] (no requirements are placed on these closed and bounded intervals[a]).
+It follows from the special case proved above that for every index n,, the restriction f|[an,bn]:[an,bn]→R|_[a_n,b_n]:[a_n,b_n]→ℝ of f to the interval [an,bn][a_n,b_n] has at most countably many discontinuities; denote this (countable) set of discontinuities by Dn._n.
+If f has a discontinuity at a point x0∈⋃n[an,bn]_0∈⋃_n[a_n,b_n] in its domain then either x0_0 is equal to an endpoint of one of these intervals (that is, x0∈a1,b1,a2,b2,…_0∈{a_1,b_1,a_2,b_2,…}) or else there exists some index n such that an<x0<bn,_n<x_0<b_n, in which case x0_0 must be a point of discontinuity for f|[an,bn]|_[a_n,b_n] (that is, x0∈Dn_0_n).
+Thus the set D of all points of at which f is discontinuous is a subset of a1,b1,a2,b2,…∪⋃nDn,{a_1,b_1,a_2,b_2,…}∪⋃_nD_n, which is a countable set (because it is a union of countably many countable sets) so that its subset D must also be countable (because every subset of a countable set is countable).
+In particular, because every interval (including open intervals and half open/closed intervals) of real numbers can be written as a countable union of closed and bounded intervals, it follows that any monotone real-valued function defined on an interval has at most countable many discontinuities.
+To make this argument more concrete, suppose that the domain of f is an interval I that is not closed and bounded (and hence by Heine–Borel theorem not compact).
+Then the interval can be written as a countable union of closed and bounded intervals In_n with the property that any two consecutive intervals have an endpoint in common: I=∪n=1∞In.=∪_n=1^∞I_n.
+If I=(a,b]witha≥−∞=(a,b]witha≥-∞ then I1=[α1,b],I2=[α2,α1],…,In=[αn,αn−1],…_1=[α_1,b],_2=[α_2,α_1],…,I_n=[α_n,α_n-1],… where (αn)n=1∞(α_n)_n=1^∞ is a strictly decreasing sequence such that αn→a.α_n. In a similar way if I=[a,b),withb≤+∞=[a,b),withb≤+∞ or if I=(a,b)with−∞≤a<b≤∞.=(a,b)with-∞<b≤∞.
+In any interval In,_n, there are at most countable many points of discontinuity, and since a countable union of at most countable sets is at most countable, it follows that the set of all discontinuities is at most countable.
+◼▪
+
+Jump functions[edit]
+Examples. Let x1 < x2 < x3 < ⋅⋅⋅ be a countable subset of the compact interval [a,b] and let μ1, μ2, μ3, ... be a positive sequence with finite sum. Set
+
+f(x)=∑n=1∞μnχ[xn,b](x)(x)=∑_n=1^∞μ_nχ_[x_n,b](x)
+where χA denotes the characteristic function of a compact interval A. Then f is a non-decreasing function on [a,b], which is continuous except for jump discontinuities at xn for n ≥ 1. In the case of finitely many jump discontinuities, f is a step function. The examples above are generalised step functions; they are very special cases of what are called jump functions or saltus-functions.[8][9]
+More generally, the analysis of monotone functions has been studied by many mathematicians, starting from Abel, Jordan and Darboux. Following Riesz & Sz.-Nagy (1990), replacing a function by its negative if necessary, only the case of non-negative non-decreasing functions has to be considered. The domain [a,b] can be finite or have ∞ or −∞ as endpoints.
+The main task is to construct monotone functions — generalising step functions — with discontinuities at a given denumerable set of points and with prescribed left and right discontinuities at each of these points.
+Let xn (n ≥ 1) lie in (a, b) and take λ1, λ2, λ3, ... and μ1, μ2, μ3, ... non-negative with finite sum and with λn + μn > 0 for each n. Define
+
+fn(x)=0_n(x)=0   for x<xn,fn(xn)=λn,fn(x)=λn+μn  x<x_n,  f_n(x_n)=λ_n,  f_n(x)=λ_n+μ_n   for x>xn.  x>x_n.
+Then the jump function, or saltus-function, defined by
+
+f(x)=∑n=1∞fn(x)=∑xn≤xλn+∑xn<xμn,(x)=  ∑_n=1^∞f_n(x)=  ∑_x_nλ_n+∑_x_n<xμ_n,
+is non-decreasing on [a, b] and is continuous except for jump discontinuities at xn for n ≥ 1.[10][11][12][13]
+To prove this, note that sup |fn| = λn + μn, so that Σ fn converges uniformly to f. Passing to the limit, it follows that
+
+f(xn)−f(xn−0)=λn,f(xn+0)−f(xn)=μn,(x_n)-f(x_n-0)=λ_n,   f(x_n+0)-f(x_n)=μ_n,    and f(x±0)=f(x)  f(x±0)=f(x)
+if x is not one of the xn's.[10]
+Conversely, by a differentiation theorem of Lebesgue, the jump function f is uniquely determined by the properties:[14] (1) being non-decreasing and non-positive; (2) having given jump data at its points of discontinuity xn; (3) satisfying the boundary condition f(a) = 0; and (4) having zero derivative almost everywhere.
+
+
+
+
+Proof that a jump function has zero derivative almost everywhere.
+
+
+
+Property (4) can be checked following Riesz & Sz.-Nagy (1990), Rubel (1963) and Komornik (2016). Without loss of generality, it can be assumed that f is a non-negative jump function defined on the compact [a,b], with discontinuities only in (a,b). 
+Note that an open set U of (a,b) is canonically the disjoint union of at most countably many open intervals Im; that allows the total length to be computed ℓ(U)= Σ ℓ(Im). Recall that a null set A is a subset such that, for any arbitrarily small ε' > 0, there is an open U containing A with ℓ(U) < ε'. A crucial property of length is that, if U and V are open in (a,b), then ℓ(U) + ℓ(V) = ℓ(U ∪ V) + ℓ(U ∩ V).[15] It implies immediately that the union of two null sets is null; and that a finite or countable set is null.[16][17]
+Proposition 1. For c > 0 and a normalised non-negative jump function f, let Uc(f) be the set of points x such that 
+
+f(t)−f(s)t−s>cf(t)-f(s)-s>c
+for some s, t with s < x < t. Then
+Uc(f) is open and has total length ℓ(Uc(f)) ≤ 4 c–1 (f(b) – f(a)).
+Note that Uc(f) consists the points x where the slope of h is greater that c near x. By definition Uc(f) is an open subset of (a, b), so can be written as a disjoint union of at most countably many open intervals Ik = (ak, bk). Let Jk be an interval with closure in Ik and ℓ(Jk) = ℓ(Ik)/2. By compactness, there are finitely many open intervals of the form (s,t) covering the closure of Jk. On the other hand, it is elementary that, if three fixed bounded open intervals have a common point of intersection, then their union contains one of the three intervals: indeed just take the supremum and infimum points to identify the endpoints. As a result, the finite cover can be taken as adjacent open intervals (sk,1,tk,1), (sk,2,tk,2), ... only intersecting at consecutive intervals.[18] Hence
+
+ℓ(Jk)≤∑m(tk,m−sk,m)≤∑mc−1(f(tk,m)−f(sk,m))≤2c−1(f(bk)−f(ak)).ℓ(J_k)≤∑_m(t_k,m-s_k,m)≤∑_mc^-1(f(t_k,m)-f(s_k,m))≤2c^-1(f(b_k)-f(a_k)).
+Finally sum both sides over k.[16][17]
+Proposition 2. If f is a jump function, then f '(x) = 0 almost everywhere.
+To prove this, define 
+
+Df(x)=limsups,t→x,s<x<tf(t)−f(s)t−s,(x)=lim sup_s,t,  s<x<tf(t)-f(s)-s,
+a variant of the Dini derivative of f. It will suffice to prove that for any fixed c > 0, the Dini derivative satisfies Df(x) ≤ c almost everywhere, i.e. on a null set. 
+Choose ε > 0, arbitrarily small. Starting from the definition of the jump function f = Σ fn, write f = g + h with g = Σn≤N fn and h = Σn>N fn where N ≥ 1. Thus g is a step function having only finitely many discontinuities at xn for n ≤ N and h is a non-negative jump function. It follows that Df = g' +Dh = Dh except at the N points of discontinuity of g. Choosing N sufficiently large so that Σn>N λn + μn < ε, it follows that h is a jump function such that h(b) − h(a) < ε and Dh ≤ c off an open set with length less than 4ε/c.
+By construction Df ≤ c off an open set with length less than 4ε/c. Now set ε' = 4ε/c — then ε' and c are arbitrarily small and Df ≤ c off an open set of length less than ε'. Thus Df ≤ c almost everywhere. Since c could be taken arbitrarily small, Df and hence also f ' must vanish almost everywhere.[16][17]
+
+
+As explained in Riesz & Sz.-Nagy (1990), every non-decreasing non-negative function F can be decomposed uniquely as a sum of a jump function f and a continuous monotone function g: the jump function f is constructed by using the jump data of the original monotone function F and it is easy to check that g = F − f is continuous and monotone.[10]
+
+See also[edit]
+Continuous function – Mathematical function with no sudden changes
+Bounded variation – Real function with finite total variation
+Monotone function
+Notes[edit]
+
+
+^ So for instance, these intervals need not be pairwise disjoint nor is it required that they intersect only at endpoints. It is even possible that [an,bn]⊆[an+1,bn+1][a_n,b_n]⊆[a_n+1,b_n+1] for all n
+
+
+References[edit]
+
+
+^ Froda, Alexandre (3 December 1929). Sur la distribution des propriétés de voisinage des functions de variables réelles (PDF) (Thesis). Paris: Hermann. JFM 55.0742.02.
+
+^ Jean Gaston Darboux, Mémoire sur les fonctions discontinues, Annales Scientifiques de l'École Normale Supérieure, 2-ème série, t. IV, 1875, Chap VI.
+
+^ a b Nicolescu, Dinculeanu & Marcus 1971, p. 213.
+
+^ Rudin 1964, Def. 4.26, pp. 81–82.
+
+^ Rudin 1964, Corollary, p. 83.
+
+^ Apostol 1957, pp. 162–3.
+
+^ Hobson 1907, p. 245.
+
+^ Apostol 1957.
+
+^ Riesz & Sz.-Nagy 1990.
+
+^ a b c Riesz & Sz.-Nagy 1990, pp. 13–15
+
+^ Saks 1937.
+
+^ Natanson 1955.
+
+^ Łojasiewicz 1988.
+
+^ For more details, see
+Riesz & Sz.-Nagy 1990
+Young & Young 1911
+von Neumann 1950
+Boas 1961
+Lipiński 1961
+Rubel 1963
+Komornik 2016
+
+^ Burkill 1951, pp. 10−11.
+
+^ a b c Rubel 1963
+
+^ a b c Komornik 2016
+
+^ This is a simple example of how Lebesgue covering dimension applies in one real dimension; see for example Edgar (2008).
+
+
+Bibliography[edit]
+Apostol, Tom M. (1957). Mathematical Analysis: a Modern Approach to Advanced Calculus. Addison-Wesley. pp. 162–163. MR 0087718.
+Boas, Ralph P., Jr. (1961). "Differentiability of jump functions" (PDF). Colloq. Math. 8: 81–82. doi:10.4064/cm-8-1-81-82. MR 0126513.{{cite journal}}:  CS1 maint: multiple names: authors list (link)
+Boas, Ralph P., Jr. (1996). "22. Monotonic functions". A Primer of Real Functions. Carus Mathematical Monographs. Vol. 13 (Fourth ed.). MAA. pp. 158–174. ISBN 9781614440130.{{cite book}}:  CS1 maint: multiple names: authors list (link) (subscription required)
+Burkill, J. C. (1951). The Lebesgue integral. Cambridge Tracts in Mathematics and Mathematical Physics. Vol. 40. Cambridge University Press. MR 0045196.
+Edgar, Gerald A. (2008). "Topological Dimension". Measure, topology, and fractal geometry. Undergraduate Texts in Mathematics (Second ed.). Springer-Verlag. pp. 85–114. ISBN 978-0-387-74748-4. MR 2356043.
+Gelbaum, Bernard R.; Olmsted, John M. H. (1964), "18: A monotonic function whose points of discontinuity form an arbitrary countable (possibly dense) set", Counterexamples in Analysis, The Mathesis Series, San Francisco, London, Amsterdam: Holden-Day, p. 28, MR 0169961; reprinted by Dover, 2003
+Hobson, Ernest W. (1907). The Theory of Functions of a Real Variable and their Fourier's Series. Cambridge University Press. p. 245.
+Komornik, Vilmos (2016). "4. Monotone Functions". Lectures on functional analysis and the Lebesgue integral. Universitext. Springer-Verlag. pp. 151–164. ISBN 978-1-4471-6810-2. MR 3496354.
+Lipiński, J. S. (1961). "Une simple démonstration du théorème sur la dérivée d'une fonction de sauts" (PDF). Colloq. Math. (in French). 8 (2): 251–255. doi:10.4064/cm-8-2-251-255. MR 0158036.
+Łojasiewicz, Stanisław (1988). "1. Functions of bounded variation". An introduction to the theory of real functions. Translated by G. H. Lawden (Third ed.). Chichester: John Wiley & Sons. pp. 10–30. ISBN 0-471-91414-2. MR 0952856.
+Natanson, Isidor P. (1955), "III. Functions of finite variation. The Stieltjes integral", Theory of functions of a real variable, vol. 1, translated by Leo F. Boron, New York: Frederick Ungar, pp. 204–206, MR 0067952
+Nicolescu, M.; Dinculeanu, N.; Marcus, S. (1971), Analizǎ Matematică (in Romanian), vol. I (4th ed.), Bucharest: Editura Didactică şi Pedagogică, p. 783, MR 0352352
+Olmsted, John M. H. (1959), Real Variables: An Introduction to the Theory of Functions, The Appleton-Century Mathematics Series, New York: Appleton-Century-Crofts, Exercise 29, p. 59, MR 0117304
+Riesz, Frigyes; Sz.-Nagy, Béla (1990). "Saltus Functions". Functional analysis. Translated by Leo F. Boron. Dover Books. pp. 13–15. ISBN 0-486-66289-6. MR 1068530. Reprint of the 1955 original.
+Saks, Stanisław (1937). "III. Functions of bounded variation and the Lebesgue-Stieltjes integral" (PDF). Theory of the integral. Monografie Matematyczne. Vol. VII. Translated by L. C. Young. New York: G. E. Stechert. pp. 96–98.
+Rubel, Lee A. (1963). "Differentiability of monotonic functions" (PDF). Colloq. Math. 10 (2): 277–279. doi:10.4064/cm-10-2-277-279. MR 0154954.
+Rudin, Walter (1964), Principles of Mathematical Analysis (2nd ed.), New York: McGraw-Hill, MR 0166310
+von Neumann, John (1950). "IX. Monotonic Functions". Functional Operators. I. Measures and Integrals. Annals of Mathematics Studies. Vol. 21. Princeton University Press. pp. 63–82. doi:10.1515/9781400881895. ISBN 9781400881895. MR 0032011.
+Young, William Henry; Young, Grace Chisholm (1911). "On the Existence of a Differential Coefficient". Proc. London Math. Soc. 2. 9 (1): 325–335. doi:10.1112/plms/s2-9.1.325.
+
+
+

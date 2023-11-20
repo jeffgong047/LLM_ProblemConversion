@@ -1,0 +1,83 @@
+Weak formulations are important tools for the analysis of mathematical equations that permit the transfer of concepts of linear algebra to solve problems in other fields such as partial differential equations. In a weak formulation, equations or conditions are no longer required to hold absolutely (and this is not even well defined) and has instead weak solutions only with respect to certain "test vectors" or "test functions".  In a strong formulation, the solution space is constructed such that these equations or conditions are already fulfilled.
+The Lax–Milgram theorem, named after Peter Lax and Arthur Milgram who proved it in 1954, provides weak formulations for certain systems on Hilbert spaces.
+
+
+General concept[edit]
+Let V be a Banach space, let V′' be the dual space of V, let A:V→V′',[clarification needed] and let f∈V′'. 
+A vector u∈V is a solution of the equation
+Au=f=f
+if and only if for all v∈V,
+[Au](v)=f(v).[Au](v)=f(v).
+Here, v is called a test vector (in general) or a test function (if V is a function space).
+To bring this into the generic form of a weak formulation, find u∈V such that
+a(u,v)=f(v)∀v∈V,(u,v)=f(v)  ,
+by defining the bilinear form
+a(u,v):=[Au](v).(u,v):=[Au](v).
+
+Example 1: linear system of equations[edit]
+Now, let V=Rn=ℝ^n and A:V→V:V be a linear mapping. Then, the weak formulation of the equation
+Au=f=f
+involves finding u∈V such that for all v∈V the following equation holds:
+⟨Au,v⟩=⟨f,v⟩,,v⟩=,v⟩,
+where ⟨⋅,⋅⟩⟨·,·⟩ denotes an inner product.
+Since A is a linear mapping, it is sufficient to test with basis vectors, and we get
+⟨Au,ei⟩=⟨f,ei⟩,i=1,…,n.,e_i⟩=,e_i⟩,=1,…,n.
+Actually, expanding u=∑j=1nujej=∑_j=1^nu_je_j, we obtain the matrix form of the equation
+Au=f,𝐀𝐮=𝐟,
+where aij=⟨Aej,ei⟩_ij=_j,e_i⟩ and fi=⟨f,ei⟩_i=,e_i⟩.
+The bilinear form associated to this weak formulation is
+a(u,v)=vTAu.(u,v)=𝐯^T𝐀𝐮.
+
+Example 2: Poisson's equation[edit]
+To solve Poisson's equation
+−∇2u=f,-∇^2u=f,
+on a domain Ω⊂RdΩ⊂ℝ^d with u=0=0 on its boundary, and to specify the solution space V later, one can use the L2^2-scalar product
+⟨u,v⟩=∫Ωuvdx,v⟩=∫_Ωuv dx
+to derive the weak formulation. Then, testing with differentiable functions v yields
+−∫Ω(∇2u)vdx=∫Ωfvdx.-∫_Ω(∇^2u)v dx=∫_Ωfv dx.
+The left side of this equation can be made more symmetric by integration by parts using Green's identity and assuming that v=0=0 on ∂Ω∂Ω:
+∫Ω∇u⋅∇vdx=∫Ωfvdx.∫_Ω· dx=∫_Ωfv dx.
+This is what is usually called the weak formulation of Poisson's equation.  Functions in the solution space V must be zero on the boundary, and have square-integrable derivatives. The appropriate space to satisfy these requirements is the Sobolev space H01(Ω)_0^1(Ω) of functions with weak derivatives in L2(Ω)^2(Ω) and with zero boundary conditions, so V=H01(Ω)=H_0^1(Ω).
+The generic form is obtained by assigning
+a(u,v)=∫Ω∇u⋅∇vdx(u,v)=∫_Ω· dx
+and
+f(v)=∫Ωfvdx.(v)=∫_Ωfv dx.
+
+The Lax–Milgram theorem[edit]
+This is a formulation of the Lax–Milgram theorem which relies on properties of the symmetric part of the bilinear form. It is not the most general form.
+Let V be a Hilbert space and a(⋅,⋅)(·,·) a bilinear form on V, which is
+
+bounded: |a(u,v)|≤C‖u‖‖v‖;|a(u,v)|uv ; and
+coercive: a(u,u)≥c‖u‖2.(u,u)u^2 .
+Then, for any f∈V′', there is a unique solution u∈V to the equation
+a(u,v)=f(v)∀v∈V(u,v)=f(v)  
+and it holds
+‖u‖≤1c‖f‖V′.u≤1/cf_V' .
+
+Application to example 1[edit]
+Here, application of the Lax–Milgram theorem is a stronger result than is needed.
+
+Boundedness: all bilinear forms on Rnℝ^n are bounded. In particular, we have |a(u,v)|≤‖A‖‖u‖‖v‖|a(u,v)|≤A u v
+Coercivity: this actually means that the real parts of the eigenvalues of A are not smaller than c. Since this implies in particular that no eigenvalue is zero, the system is solvable.
+Additionally, this yields the estimate
+‖u‖≤1c‖f‖,u≤1/cf,
+where c is the minimal real part of an eigenvalue of A.
+
+Application to example 2[edit]
+Here, choose V=H01(Ω)=H_0^1(Ω) with the norm
+‖v‖V:=‖∇v‖,v_V:=,
+where the norm on the right is the L2^2-norm on ΩΩ (this provides a true norm on V by the Poincaré inequality).
+But, we see that |a(u,u)|=‖∇u‖2|a(u,u)|=^2 and by the Cauchy–Schwarz inequality, |a(u,v)|≤‖∇u‖‖∇v‖|a(u,v)|≤ .
+Therefore, for any f∈[H01(Ω)]′∈[H_0^1(Ω)]', there is a unique solution u∈V of Poisson's equation and we have the estimate
+‖∇u‖≤‖f‖[H01(Ω)]′.≤f_[H_0^1(Ω)]'.
+
+See also[edit]
+Babuška–Lax–Milgram theorem
+Lions–Lax–Milgram theorem
+References[edit]
+Lax, Peter D.; Milgram, Arthur N. (1954), "Parabolic equations", Contributions to the theory of partial differential equations, Annals of Mathematics Studies, vol. 33, Princeton, N. J.: Princeton University Press, pp. 167–190, doi:10.1515/9781400882182-010, ISBN 9781400882182, MR 0067317, Zbl 0058.08703
+External links[edit]
+MathWorld page on Lax–Milgram theorem
+
+
+

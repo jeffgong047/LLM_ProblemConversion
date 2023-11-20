@@ -1,0 +1,373 @@
+Mathematical construction
+The ultraproduct is a mathematical construction that appears mainly in abstract algebra and mathematical logic, in particular in model theory and set theory. An ultraproduct is a quotient of the direct product of a family of structures. All factors need to have the same signature. The ultrapower is the special case of this construction in which all factors are equal.
+For example, ultrapowers can be used to construct new fields from given ones. The hyperreal numbers, an ultrapower of the real numbers, are a special case of this.
+Some striking applications of ultraproducts include very elegant proofs of the compactness theorem and the completeness theorem, Keisler's ultrapower theorem, which gives an algebraic characterization of the semantic notion of elementary equivalence, and the Robinson–Zakon presentation of the use of superstructures and their monomorphisms to construct nonstandard models of analysis, leading to the growth of the area of nonstandard analysis, which was pioneered (as an application of the compactness theorem) by Abraham Robinson.
+
+
+Definition[edit]
+The general method for getting ultraproducts uses an index set I,, a structure Mi_i (assumed to be non-empty in this article) for each element i∈I (all of the same signature), and an ultrafilter U𝒰 on I..
+For any two elements a∙=(ai)i∈I_∙=(a_i)_i and b∙=(bi)i∈I_∙=(b_i)_i of the Cartesian product
+∏i∈IMi,∏_iM_i, 
+declare them to be U𝒰-equivalent, written a∙∼b∙_∙_∙ or a∙=Ub∙,_∙=_𝒰b_∙, if and only if the set of indices i∈I:ai=bi{i:a_i=b_i} on which they agree is an element of U;𝒰; in symbols,
+a∙∼b∙⟺i∈I:ai=bi∈U,_∙_∙  {i:a_i=b_i}∈𝒰,
+which compares components only relative to the ultrafilter U.𝒰.  
+This binary relation ∼ ∼  is an equivalence relation[proof 1] on the Cartesian product ∏i∈IMi.∏_iM_i.
+The ultraproduct of M∙=(Mi)i∈I_∙=(M_i)_i modulo U𝒰 is the quotient set of ∏i∈IMi∏_iM_i with respect to ∼∼ and is therefore sometimes denoted by
+∏i∈IMi/U∏_iM_i / 𝒰 or ∏UM∙.∏_𝒰 M_∙.
+Explicitly, if the U𝒰-equivalence class of an element a∈∏i∈IMi∈∏_iM_i is denoted by
+aU:=x∈∏i∈IMi:x∼a_𝒰:={x∈∏_iM_i : x}
+then the ultraproduct is the set of all U𝒰-equivalence classes
+∏UM∙=∏i∈IMi/U:=aU:a∈∏i∈IMi.∏_𝒰 M_∙ = ∏_iM_i / 𝒰 := {a_𝒰 : a∈∏_iM_i}.
+Although U𝒰 was assumed to be an ultrafilter, the construction above can be carried out more generally whenever U𝒰 is merely a filter on I,, in which case the resulting quotient set ∏i∈IMi/U∏_iM_i/ 𝒰 is called a reduced product.
+When U𝒰 is a principal ultrafilter (which happens if and only if U𝒰 contains its kernel ∩U∩ 𝒰) then the ultraproduct is isomorphic to one of the factors. 
+And so usually, U𝒰 is not a principal ultrafilter, which happens if and only if U𝒰 is free (meaning ∩U=∅∩ 𝒰=∅), or equivalently, if every cofinite subsets of I is an element of U.𝒰. 
+Since every ultrafilter on a finite set is principal, the index set I is consequently also usually infinite.
+The ultraproduct acts as a filter product space where elements are equal if they are equal only at the filtered components (non-filtered components are ignored under the equivalence). 
+One may define a finitely additive measure m on the index set I by saying m(A)=1(A)=1 if A∈U∈𝒰 and m(A)=0(A)=0 otherwise.  Then two members of the Cartesian product are equivalent precisely if they are equal almost everywhere on the index set.  The ultraproduct is the set of equivalence classes thus generated.
+Finitary operations on the Cartesian product ∏i∈IMi∏_iM_i are defined pointwise (for example, if ++ is a binary function then ai+bi=(a+b)i_i+b_i=(a+b)_i). 
+Other relations can be extended the same way:
+R(aU1,…,aUn)⟺i∈I:RMi(ai1,…,ain)∈U,(a_𝒰^1,…,a_𝒰^n)  {i:R^M_i(a_i^1,…,a_i^n)}∈𝒰,
+where aU_𝒰 denotes the U𝒰-equivalence class of a with respect to ∼.∼. 
+In particular, if every Mi_i is an ordered field then so is the ultraproduct.
+
+Ultrapower[edit]
+An ultrapower is an ultraproduct for which all the factors Mi_i are equal. 
+Explicitly, the ultrapower of a set M modulo U𝒰 is the ultraproduct ∏i∈IMi/U=∏UM∙∏_iM_i / 𝒰=∏_𝒰 M_∙ of the indexed family M∙:=(Mi)i∈I_∙:=(M_i)_i defined by Mi:=M_i:=M for every index i∈I.. 
+The ultrapower may be denoted by ∏UM∏_𝒰 M or (since ∏i∈IM∏_iM is often denoted by MI^I) by
+MI/U:=∏i∈IM/U^I/𝒰 := ∏_iM / 𝒰 
+For every m∈M,, let (m)i∈I(m)_i denote the constant map I→M that is identically equal to m.. This constant map/tuple is an element of the Cartesian product MI=∏i∈IM^I=∏_iM and so the assignment m↦(m)i∈I↦(m)_i defines a map M→∏i∈IM.→∏_iM. 
+The natural embedding of M into ∏UM∏_𝒰 M is the map M→∏UM→∏_𝒰 M that sends an element m∈M to the U𝒰-equivalence class of the constant tuple (m)i∈I.(m)_i.
+
+Examples[edit]
+The hyperreal numbers are the ultraproduct of one copy of the real numbers for every natural number, with regard to an ultrafilter over the natural numbers containing all cofinite sets. Their order is the extension of the order of the real numbers. For example, the sequence ωω given by ωi=iω_i=i defines an equivalence class representing a hyperreal number that is greater than any real number.
+Analogously, one can define nonstandard integers, nonstandard complex numbers, etc., by taking the ultraproduct of copies of the corresponding structures.
+As an example of the carrying over of relations into the ultraproduct, consider the sequence ψψ defined by ψi=2i.ψ_i=2i. Because ψi>ωi=iψ_i>ω_i=i for all i,, it follows that the equivalence class of ψi=2iψ_i=2i is greater than the equivalence class of ωi=i,ω_i=i, so that it can be interpreted as an infinite number which is greater than the one originally constructed. However, let χi=iχ_i=i for i not equal to 7,7, but χ7=8.χ_7=8. The set of indices on which ωω and χχ agree is a member of any ultrafilter (because ωω and χχ agree almost everywhere), so ωω and χχ belong to the same equivalence class.
+In the theory of large cardinals, a standard construction is to take the ultraproduct of the whole set-theoretic universe with respect to some carefully chosen ultrafilter U.𝒰. Properties of this ultrafilter U𝒰 have a strong influence on (higher order) properties of the ultraproduct; for example, if U𝒰 is σσ-complete, then the ultraproduct will again be well-founded.  (See measurable cardinal for the prototypical example.)
+
+Łoś's theorem[edit]
+Łoś's theorem, also called the fundamental theorem of ultraproducts, is due to Jerzy Łoś (the surname is pronounced [ˈwɔɕ], approximately "wash"). It states that any first-order formula is true in the ultraproduct if and only if the set of indices i such that the formula is true in Mi_i is a member of U.𝒰. More precisely:
+Let σσ be a signature, U𝒰 an ultrafilter over a set I,, and for each i∈I let Mi_i be a σσ-structure. 
+Let ∏UM∙∏_𝒰 M_∙ or ∏i∈IMi/U∏_iM_i/𝒰 be the ultraproduct of the Mi_i with respect to U.𝒰. 
+Then, for each a1,…,an∈∏i∈IMi,^1,…,a^n∈∏_iM_i, where ak=(aik)i∈I,^k=(a_i^k)_i, and for every σσ-formula ϕ,ϕ,
+∏UM∙⊨ϕ[aU1,…,aUn]⟺i∈I:Mi⊨ϕ[ai1,…,ain]∈U.∏_𝒰 M_∙ϕ[a_𝒰^1,…,a_𝒰^n]  {i:M_iϕ[a_i^1,…,a_i^n]}∈𝒰.
+The theorem is proved by induction on the complexity of the formula ϕ.ϕ. The fact that U𝒰 is an ultrafilter (and not just a filter) is used in the negation clause, and the axiom of choice is needed at the existential quantifier step.  As an application, one obtains the transfer theorem for hyperreal fields.
+
+Examples[edit]
+Let R be a unary relation in the structure M,, and form the ultrapower of M.. Then the set S=x∈M:Rx={x:Rx} has an analog ∗S^*S in the ultrapower, and first-order formulas involving S are also valid for ∗S.^*S. For example, let M be the reals, and let Rx hold if x is a rational number. Then in M we can say that for any pair of rationals x and y,, there exists another number z such that z is not rational, and x<z<y.<z<y. Since this can be translated into a first-order logical formula in the relevant formal language, Łoś's theorem implies that ∗S^*S has the same property. That is, we can define a notion of the hyperrational numbers, which are a subset of the hyperreals, and they have the same first-order properties as the rationals.
+Consider, however, the Archimedean property of the reals, which states that there is no real number x such that x>1,x>1+1,x>1+1+1,…>1, x>1+1, x>1+1+1,… for every inequality in the infinite list. Łoś's theorem does not apply to the Archimedean property, because the Archimedean property cannot be stated in first-order logic. In fact, the Archimedean property is false for the hyperreals, as shown by the construction of the hyperreal number ωω above.
+
+Direct limits of ultrapowers (ultralimits)[edit]
+For the ultraproduct of a sequence of metric spaces, see Ultralimit.
+In model theory and set theory, the direct limit of a sequence of ultrapowers is often considered. In model theory, this construction can be referred to as an ultralimit or limiting ultrapower.
+Beginning with a structure, A0_0 and an ultrafilter, D0,𝒟_0, form an ultrapower, A1._1. Then repeat the process to form A2,_2, and so forth. For each n there is a canonical diagonal embedding An→An+1._n_n+1. At limit stages, such as Aω,_ω, form the direct limit of earlier stages. One may continue into the transfinite.
+
+Ultraproduct monad[edit]
+The ultrafilter monad is the codensity monad of the inclusion of the category of finite sets into the category of all sets.[1]
+Similarly, the ultraproduct monad is the codensity monad of the inclusion of the category FinFam𝐅𝐢𝐧𝐅𝐚𝐦 of finitely-indexed families of sets into the category Fam𝐅𝐚𝐦 of all indexed families of sets. So in this sense, ultraproducts are categorically inevitable.[1] 
+Explicitly, an object of Fam𝐅𝐚𝐦 consists of a non-empty index set I and an indexed family (Mi)i∈I(M_i)_i of sets. 
+A morphism (Ni)j∈J→(Mi)i∈I(N_i)_j→(M_i)_i between two objects consists of a function ϕ:I→Jϕ:I between the index sets and a J-indexed family (ϕj)j∈J(ϕ_j)_j of function ϕj:Mϕ(j)→Nj.ϕ_j:M_ϕ(j)_j. 
+The category FinFam𝐅𝐢𝐧𝐅𝐚𝐦 is a full subcategory of this category of Fam𝐅𝐚𝐦 consisting of all objects (Mi)i∈I(M_i)_i whose index set I is finite. 
+The codensity monad of the inclusion map FinFam↪Fam𝐅𝐢𝐧𝐅𝐚𝐦↪𝐅𝐚𝐦 is then, in essence, given by
+(Mi)i∈I↦(∏i∈IMi/U)U∈U(I).(M_i)_i ↦ (∏_iM_i / 𝒰)_𝒰(I) .
+
+See also[edit]
+Compactness theorem
+Extender (set theory) – in set theory, a system of ultrafilters representing an elementary embedding witnessing large cardinal propertiesPages displaying wikidata descriptions as a fallback
+Löwenheim–Skolem theorem – Existence and cardinality of models of logical theories
+Transfer principle – That all statements of some language that are true for some structure are true for another structure
+Ultrafilter – Maximal proper filter
+Notes[edit]
+
+
+^ a b Leinster, Tom (2013). "Codensity and the ultrafilter monad" (PDF). Theory and Applications of Categories. 28: 332–370. arXiv:1209.3606. Bibcode:2012arXiv1209.3606L.
+
+
+Proofs
+
+
+
+^ Although U𝒰 is assumed to be an ultrafilter over I,, this proof only requires that U𝒰 be a filter on I.. Throughout, let a∙=(ai)i∈I,b∙=(bi)i∈I,_∙=(a_i)_i,b_∙=(b_i)_i, and c∙=(ci)i∈I_∙=(c_i)_i be elements of ∏i∈IMi.∏_iM_i. The relation a∙∼a∙_∙ ∼ a_∙ always holds since i∈I:ai=ai=I{i:a_i=a_i}=I is an element of filter U.𝒰. Thus the reflexivity of ∼ ∼  follows from that of equality =. =.  Similarly, ∼ ∼  is symmetric since equality is symmetric. For transitivity, assume that R=i:ai:=bi={i:a_i:=b_i} and S:=i:bi=ci:={i:b_i=c_i} are elements of U;𝒰; it remains to show that T:=i:ai=ci:={i:a_i=c_i} also belongs to U.𝒰. The transitivity of equality guarantees R∩S⊆T (since if i∈R∩S then ai=bi_i=b_i and bi=ci_i=c_i). Because U𝒰 is closed under binary intersections, R∩S∈U.∈𝒰. Since U𝒰 is upward closed in I,, it contains every superset of R∩S (that consists of indices); in particular, U𝒰 contains T.. ◼▪
+
+
+References[edit]
+Bell, John Lane; Slomson, Alan B. (2006) [1969]. Models and Ultraproducts: An Introduction (reprint of 1974 ed.). Dover Publications. ISBN 0-486-44979-3.
+Burris, Stanley N.; Sankappanavar, H.P. (2000) [1981]. A Course in Universal Algebra (Millennium ed.).
+vteMathematical logicGeneral
+Axiom
+list
+Cardinality
+First-order logic
+Formal proof
+Formal semantics
+Foundations of mathematics
+Information theory
+Lemma
+Logical consequence
+Model
+Theorem
+Theory
+Type theory
+Theorems (list) & Paradoxes
+Gödel's completeness and incompleteness theorems
+Tarski's undefinability
+Banach–Tarski paradox
+Cantor's theorem, paradox and diagonal argument
+Compactness
+Halting problem
+Lindström's
+Löwenheim–Skolem
+Russell's paradox
+LogicsTraditional
+Classical logic
+Logical truth
+Tautology
+Proposition
+Inference
+Logical equivalence
+Consistency
+Equiconsistency
+Argument
+Soundness
+Validity
+Syllogism
+Square of opposition
+Venn diagram
+Propositional
+Boolean algebra
+Boolean functions
+Logical connectives
+Propositional calculus
+Propositional formula
+Truth tables
+Many-valued logic
+3
+Finite
+∞
+Predicate
+First-order
+list
+Second-order
+Monadic
+Higher-order
+Free
+Quantifiers
+Predicate
+Monadic predicate calculus
+Set theory
+Set
+Hereditary
+Class
+(Ur-)Element
+Ordinal number
+Extensionality
+Forcing
+Relation
+Equivalence
+Partition
+Set operations:
+Intersection
+Union
+Complement
+Cartesian product
+Power set
+Identities
+Types of Sets
+Countable
+Uncountable
+Empty
+Inhabited
+Singleton
+Finite
+Infinite
+Transitive
+Ultrafilter
+Recursive
+Fuzzy
+Universal
+Universe
+Constructible
+Grothendieck
+Von Neumann
+Maps & Cardinality
+Function/Map
+Domain
+Codomain
+Image
+In/Sur/Bi-jection
+Schröder–Bernstein theorem
+Isomorphism
+Gödel numbering
+Enumeration
+Large cardinal
+Inaccessible
+Aleph number
+Operation
+Binary
+Set theories
+Zermelo–Fraenkel
+Axiom of choice
+Continuum hypothesis
+General
+Kripke–Platek
+Morse–Kelley
+Naive
+New Foundations
+Tarski–Grothendieck
+Von Neumann–Bernays–Gödel
+Ackermann
+Constructive
+Formal systems (list),Language & Syntax
+Alphabet
+Arity
+Automata
+Axiom schema
+Expression
+Ground
+Extension
+by definition
+Conservative
+Relation
+Formation rule
+Grammar
+Formula
+Atomic
+Closed
+Ground
+Open
+Free/bound variable
+Language
+Metalanguage
+Logical connective
+¬
+∨
+∧
+→
+↔
+=
+Predicate
+Functional
+Variable
+Propositional variable
+Proof
+Quantifier
+∃
+!
+∀
+rank
+Sentence
+Atomic
+Spectrum
+Signature
+String
+Substitution
+Symbol
+Function
+Logical/Constant
+Non-logical
+Variable
+Term
+Theory
+list
+Example axiomaticsystems (list)
+of arithmetic:
+Peano
+second-order
+elementary function
+primitive recursive
+Robinson
+Skolem
+of the real numbers
+Tarski's axiomatization
+of Boolean algebras
+canonical
+minimal axioms
+of geometry:
+Euclidean:
+Elements
+Hilbert's
+Tarski's
+non-Euclidean
+Principia Mathematica
+Proof theory
+Formal proof
+Natural deduction
+Logical consequence
+Rule of inference
+Sequent calculus
+Theorem
+Systems
+Axiomatic
+Deductive
+Hilbert
+list
+Complete theory
+Independence (from ZFC)
+Proof of impossibility
+Ordinal analysis
+Reverse mathematics
+Self-verifying theories
+Model theory
+Interpretation
+Function
+of models
+Model
+Equivalence
+Finite
+Saturated
+Spectrum
+Submodel
+Non-standard model
+of arithmetic
+Diagram
+Elementary
+Categorical theory
+Model complete theory
+Satisfiability
+Semantics of logic
+Strength
+Theories of truth
+Semantic
+Tarski's
+Kripke's
+T-schema
+Transfer principle
+Truth predicate
+Truth value
+Type
+Ultraproduct
+Validity
+Computability theory
+Church encoding
+Church–Turing thesis
+Computably enumerable
+Computable function
+Computable set
+Decision problem
+Decidable
+Undecidable
+P
+NP
+P versus NP problem
+Kolmogorov complexity
+Lambda calculus
+Primitive recursive function
+Recursion
+Recursive set
+Turing machine
+Type theory
+Related
+Abstract logic
+Category theory
+Concrete/Abstract Category
+Category of sets
+History of logic
+History of mathematical logic
+timeline
+Logicism
+Mathematical object
+Philosophy of mathematics
+Supertask
+ Mathematics portal
+
+
+

@@ -1,0 +1,211 @@
+Theorem that gives the probability that an election winner will lead the loser throughout the count
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (June 2012) (Learn how and when to remove this template message)
+In combinatorics, Bertrand's ballot problem is the question: "In an election where candidate A receives p votes and candidate B receives q votes with p > q, what is the probability that A will be strictly ahead of B throughout the count?"  The answer is
+
+p−qp+q.p-q/p+q.
+The result was first published by W. A. Whitworth in 1878, but is named after Joseph Louis François Bertrand who rediscovered it in 1887.[1][2]
+In Bertrand's original paper, he sketches a proof based on a general formula for the number of favourable sequences using a recursion relation.  He remarks that it seems probable that such a simple result could be proved by a more direct method. Such a proof was given by Désiré André,[3] based on the observation that the unfavourable sequences can be divided into two equally probable cases, one of which (the case where B receives the first vote) is easily computed; he proves the equality by an explicit bijection. A variation of his method is popularly known as André's reflection method, although André did not use any reflections.[4]
+Bertrand's ballot theorem is related to the cycle lemma.  They give similar formulas, but the cycle lemma considers circular shifts of a given ballot counting order rather than all permutations.
+
+
+Example[edit]
+Suppose there are 5 voters, of whom 3 vote for candidate A and 2 vote for candidate B (so p = 3 and q = 2).  There are ten equally likely orders in which the votes could be counted:
+
+AAABB
+AABAB
+ABAAB
+BAAAB
+AABBA
+ABABA
+BAABA
+ABBAA
+BABAA
+BBAAA
+For the order AABAB, the tally of the votes as the election progresses is:
+
+
+
+Candidate
+
+A
+
+A
+
+B
+
+A
+
+B
+
+
+A
+
+1
+
+2
+
+2
+
+3
+
+3
+
+
+B
+
+0
+
+0
+
+1
+
+1
+
+2
+
+For each column the tally for A is always larger than the tally for B, so A is always strictly ahead of B. For the order AABBA the tally of the votes as the election progresses is:
+
+
+
+Candidate
+
+A
+
+A
+
+B
+
+B
+
+A
+
+
+A
+
+1
+
+2
+
+2
+
+2
+
+3
+
+
+B
+
+0
+
+0
+
+1
+
+2
+
+2
+
+For this order, B is tied with A after the fourth vote, so A is not always strictly ahead of B.
+Of the 10 possible orders, A is always ahead of B only for AAABB and AABAB. So the probability that A will always be strictly ahead is
+
+210=15,2/10=1/5,
+and this is indeed equal to 3−23+23-2/3+2 as the theorem predicts.
+
+Equivalent problems[edit]
+Favourable orders[edit]
+Rather than computing the probability that a random vote counting order has the desired property, one can instead compute the number of favourable counting orders, then divide by the total number of ways in which the votes could have been counted.  (This is the method used by Bertrand.)  The total number of ways is the binomial coefficient (p+qp)p+qp; Bertrand's proof shows that the number of favourable orders in which to count the votes is (p+q−1p−1)−(p+q−1p)p+q-1p-1-p+q-1p (though he does not give this number explicitly).  And indeed after division this gives pp+q−qp+q=p−qp+qpp+q-qp+q=p-qp+q.
+
+Random walks[edit]
+Another equivalent problem is to calculate the number of random walks on the integers that consist of n steps of unit length, beginning at the origin and ending at the point m, that never become negative. As n and m have the same parity and n≥m≥0≥0, this number is
+
+(nn+m2)−(nn+m2+1)=m+1n+m2+1(nn+m2).nn+m2-nn+m2+1=m+1/n+m2+1nn+m2.
+When m=0=0 and n is even, this gives the Catalan number 1n2+1(nn2)1/n2+1nn2. Thus the probability that the a random walk is never negative and returns to origin at time n is 2−n1n2+1(nn2)2^-n1/n2+1nn2. By Stirling's formula, when n→∞→∞, this probability is ∼2n3/2∼√(2)/n^3/2.
+[Note that m,n,n have the same parity as follows: let P be the number of "positive" moves, i.e., to the right, and let N be the number of "negative" moves, i.e., to the left. Since P+N=n+N=n and P−N=m-N=m, we have P=n+m2=n+m/2 and N=n−m2=n-m/2. Since P and N are integers,m,n,n have the same parity]
+
+Proof by reflection[edit]
+For A to be strictly ahead of B throughout the counting of the votes, there can be no ties.  Separate the counting sequences according to the first vote.  Any sequence that begins with a vote for B must reach a tie at some point, because A eventually wins.  For any sequence that begins with A and reaches a tie, reflect the votes up to the point of the first tie (so any A becomes a B, and vice versa) to obtain a sequence that begins with B.  Hence every sequence that begins with A and reaches a tie is in one-to-one correspondence with a sequence that begins with B, and the probability that a sequence begins with B is q/(p+q)/(p+q), so the probability that A always leads the vote is
+
+=1−=1- the probability of sequences that tie at some point
+=1−=1- the probability of sequences that tie at some point and begin with A or B
+=1−2×(=1-2×( the probability of sequences that tie at some point and begin with B ))
+=1−2×(=1-2×( the probability that a sequence begins with B ))
+=1−2qp+q=p−qp+q=1-2q/p+q=p-q/p+q
+Proof by induction[edit]
+Another method of proof is by mathematical induction:
+
+We loosen the condition p>q>q to p≥q≧. Clearly, the theorem is correct when p=q=q, since in this case the first candidate will not be strictly ahead after all the votes have been counted (so the probability is 0).
+Clearly the theorem is true if p > 0 and q = 0 when the probability is 1, given that the first candidate receives all the votes; it is also true when p = q > 0 as we have just seen.
+Assume it is true both when p = a − 1 and q = b, and when p = a and q = b − 1, with a > b > 0. (We don't need to consider the case a=b=b here, since we have already disposed of it before.) Then considering the case with p = a and q = b, the last vote counted is either for the first candidate with probability  a/(a + b), or for the second with probability b/(a + b).  So the  probability of the first being ahead throughout the count to the penultimate vote counted (and also after the final vote) is:
+a(a+b)(a−1)−b(a+b−1)+b(a+b)a−(b−1)(a+b−1)=a−ba+b.a(a+b)(a-1)-b(a+b-1)+b(a+b)a-(b-1)(a+b-1)=a-b+b.
+And so it is true for all p and q with p > q > 0.
+Proof by the cycle lemma[edit]
+A simple proof is based on the cycle lemma of Dvoretzky and Motzkin.[5]
+Call a ballot sequence dominating if A is strictly ahead of B throughout the counting of the votes. The cycle lemma asserts that any sequence of p A's and q B's, where p>q>q, has precisely p−q-q dominating cyclic permutations. To see this, just arrange the given sequence of p+q+q A's and B's in a circle and repeatedly remove adjacent pairs AB until only p−q-q A's remain. Each of these A's was the start of a dominating cyclic permutation before anything was removed. So p−q-q out of the p+q+q cyclic permutations of any arrangement of p A votes and q B votes are dominating.
+
+Proof by martingales[edit]
+Let n=p+q=p+q. Define the "backwards counting" stochastic process
+Xk=Sn−kn−k;k=0,1,...,n−1_k=S_n-k/n-k;=0,1,...,n-1
+where Sn−k_n-k is the lead of candidate A over B, after n−k-k votes have come in.
+
+Claim: Xk_k is a martingale  process.   Given Xk_k, we know that Sn−k=(n−k)Xk_n-k=(n-k)X_k, so of the first n−k-k votes, Xk+12(n−k)X_k+1/2(n-k) were for candidate A, and −Xk+12(n−k)-X_k+1/2(n-k) were for candidate B.  So, with probability Xk+12X_k+1/2, we have Sn−k−1=Sn−k−1_n-k-1=S_n-k-1, and Xk+1=n−kn−k−1Xk−1n−k−1_k+1=n-k/n-k-1X_k-1/n-k-1. Similarly for the other one. Then compute to find E[Xk+1|Xk]=Xk[X_k+1|X_k]=X_k.  Define the stopping time T as either the minimum k such that Xk=0_k=0, or n−1-1 if there's no such k. Then the probability that candidate A leads all the time is just E[XT][X_T], which by the optional stopping theorem is E[XT]=E[X0]=p−qp+q[X_T]=E[X_0]=p-q/p+q
+Bertrand's and André's proofs[edit]
+Bertrand expressed the solution as
+
+2m−μμ2m-μ/μ
+where μ=p+qμ=p+q is the total number of voters and m=p=p is the number of voters for the first candidate.  He states that the result follows from the formula
+
+Pm+1,μ+1=Pm,μ+Pm+1,μ,_m+1,μ+1=P_m,μ+P_m+1,μ,
+where Pm,μ_m,μ is the number of favourable sequences, but "it seems probable that such a simple result could be shown in a more direct way".  Indeed, a more direct proof was soon produced by Désiré André.  His approach is often mistakenly labelled "the reflection principle" by modern authors but in fact uses a permutation.  He shows that the "unfavourable" sequences (those that reach an intermediate tie) consist of an equal number of sequences that begin with A as those that begin with B.  Every sequence that begins with B is unfavourable, and there are (p+q−1q−1)p+q-1q-1 such sequences with a B followed by an arbitrary sequence of (q-1) B's and p A's.  Each unfavourable sequence that begins with A can be transformed to an arbitrary sequence of (q-1) B's and p A's by finding the first B that violates the rule (by causing the vote counts to tie) and deleting it, and interchanging the order of the remaining parts.  To reverse the process, take any sequence of (q-1) B's and p A's and search from the end to find where the number of A's first exceeds the number of B's, and then interchange the order of the parts and place a B in between.  For example, the unfavourable sequence AABBABAA corresponds uniquely to the arbitrary sequence ABAAAAB.  From this, it follows that the number of favourable sequences of p A's and q B's is
+
+(p+qq)−2(p+q−1q−1)=(p+qq)p−qp+qp+qq-2p+q-1q-1=p+qqp-q/p+q
+and thus the required probability is
+
+p−qp+qp-q/p+q
+as expected.
+
+Variant: ties allowed[edit]
+The original problem is to find the probability that the first candidate is always strictly ahead in the vote count.  One may instead consider the problem of finding the probability that the second candidate is never ahead (that is, with ties are allowed).  In this case, the answer is
+
+p+1−qp+1.p+1-q/p+1.
+The variant problem can be solved by the reflection method in a similar way to the original problem.  The number of possible vote sequences is (p+qq)p+qq.  Call a sequence "bad" if the second candidate is ever ahead, and if the number of bad sequences can be enumerated then the number of "good" sequences can be found by subtraction and the probability can be computed.
+Represent a voting sequence as a lattice path on the Cartesian plane as follows:
+
+Start the path at (0, 0)
+Each time a vote for the first candidate is received move right 1 unit.
+Each time a vote for the second candidate is received move up 1 unit.
+Each such path corresponds to a unique sequence of votes and will end at (p, q). A sequence is 'good' exactly when the corresponding path never goes above the diagonal line y = x; equivalently, a sequence is 'bad' exactly when the corresponding path touches the line y = x + 1.
+
+'Bad' path (blue) and its reflected path (red)
+For each 'bad' path P, define a new path P′ by reflecting the part of P up to the first point it touches the line across it. P′ is a path from (−1, 1) to (p, q). The same operation applied again restores the original P. This produces a one-to-one correspondence between the 'bad' paths and the paths from (−1, 1) to (p, q). The number of these paths is (p+qq−1)p+qq-1 and so that is the number of 'bad' sequences. This leaves the number of 'good' sequences as
+
+(p+qq)−(p+qq−1)=(p+qq)p+1−qp+1.p+qq-p+qq-1=p+qqp+1-q/p+1.
+Since there are (p+qq)p+qq altogether, the probability of a sequence being good is p+1−qp+1p+1-qp+1.
+In fact, the solutions to the original problem and the variant problem are easily related.  For candidate A to be strictly ahead throughout the vote count, they must receive the first vote and for the remaining votes (ignoring the first) they must be either strictly ahead or tied throughout the count.  Hence the solution to the original problem is
+
+pp+qp−1+1−qp−1+1=p−qp+qp/p+qp-1+1-q/p-1+1=p-q/p+q
+as required.
+Conversely, the tie case can be derived from the non-tie case.  Note that the number of non-tie sequences with p+1 votes for A is equal to the number of tie sequences with p votes for A.  The number of non-tie votes with p + 1 votes for A votes is p+1−qp+1+q(p+1+qq)p+1-qp+1+qp+1+qq, which by algebraic manipulation is  p+1−qp+1(p+qq)p+1-qp+1p+qq, so the fraction of sequences with p votes for A votes is p+1−qp+1p+1-qp+1.
+
+Notes[edit]
+
+
+^ Feller, William (1968), An Introduction to Probability Theory and its Applications, Volume I (3rd ed.), Wiley, p. 69.
+
+^ J. Bertrand, Solution d'un problème, Comptes Rendus de l'Académie des Sciences de Paris 105 (1887), 369.
+
+^ D. André, Solution directe du problème résolu par M. Bertrand, Comptes Rendus de l’Académie des Sciences, Paris 105 (1887) 436–437.
+
+^ Renault, Marc, Lost (and found) in translation: André's actual method and its application to the generalized ballot problem. Amer. Math. Monthly 115 (2008), no. 4, 358--363.
+
+^ Dvoretzky, Aryeh; Motzkin, Theodore (1947), "A problem of arrangements", Duke Mathematical Journal, 14 (2): 305–313, doi:10.1215/s0012-7094-47-01423-3
+
+
+References[edit]
+Ballot theorems, old and new, L. Addario-Berry, B.A. Reed, 2007, in Horizons of combinatorics, Editors Ervin Győri, G. Katona, Gyula O. H. Katona, László Lovász, Springer, 2008, ISBN 978-3-540-77199-9
+External links[edit]
+The Ballot Problem (includes scans of the original French articles and English translations)
+Bernard Bru, Les leçons de calcul des probabilités de Joseph Bertrand, history of the problem (in French)
+Weisstein, Eric W. "Ballot Problem". MathWorld.
+
+
+

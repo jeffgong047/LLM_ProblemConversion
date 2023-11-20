@@ -1,0 +1,54 @@
+In mathematics, the Bourbaki–Witt theorem in order theory, named after Nicolas Bourbaki and Ernst Witt, is a basic fixed point theorem for partially ordered sets. It states that if X is a non-empty chain complete poset, and 
+f:X→X:X 
+such that 
+f(x)≥x(x) for all x,,
+then f has a fixed point. Such a function f is called inflationary or progressive.
+
+
+Special case of a finite poset[edit]
+If the poset X is finite then the statement of the theorem has a clear interpretation that leads to the proof. The sequence of successive iterates, 
+
+xn+1=f(xn),n=0,1,2,…,_n+1=f(x_n),n=0,1,2,…,
+where x0 is any element of X, is monotone increasing. By the finiteness of X, it stabilizes:
+
+xn=x∞,_n=x_∞, for n sufficiently large.
+It follows that x∞ is a fixed point of f.
+
+Proof of the theorem[edit]
+Pick some y∈X. Define a function K recursively on the ordinals as follows:
+
+K(0)=y K(0)=y
+K(α+1)=f(K(α)). K(α+1)=f(K(α)).
+If ββ is a limit ordinal, then by construction 
+K(α):α<β{K(α) 
+alpha<β} 
+is a chain in X. Define 
+K(β)=supK(α):α<β.(β)=sup{K(α) 
+alpha<β}.
+This is now an increasing function from the ordinals into X. It cannot be strictly increasing, as if it were we would have an injective function from the ordinals into a set, violating Hartogs' lemma. Therefore the function must be eventually constant, so for some 
+α,K(α+1)=K(α);α,
+K(α+1)=K(α);
+that is,
+f(K(α))=K(α). f(K(α))=K(α).
+So letting 
+x=K(α), x=K(α), 
+we have our desired fixed point. Q.E.D.
+
+Applications[edit]
+The Bourbaki–Witt theorem has various important applications. One of the most common is in the proof that the axiom of choice implies Zorn's lemma. We first prove it for the case where X is chain complete and has no maximal element. Let g be a choice function on 
+P(X)−∅.(X)-{∅}.
+Define a function 
+f:X→X:X 
+by 
+f(x)=g(y:y>x).(x)=g({y >x}).
+This is allowed as, by assumption, the set is non-empty. Then f(x) > x, so f is an inflationary function with no fixed point, contradicting the theorem.
+This special case of Zorn's lemma is then used to prove the Hausdorff maximality principle, that every poset has a maximal chain, which is easily seen to be equivalent to Zorn's Lemma.
+Bourbaki–Witt has other applications.  In particular in computer science, it is used in the theory of computable functions.
+It is also used to define recursive data types, e.g. linked lists, in domain theory.
+
+References[edit]
+Nicolas Bourbaki (1949). "Sur le théorème de Zorn". Archiv der Mathematik. 2 (6): 434–437. doi:10.1007/bf02036949. S2CID 117826806.
+Ernst Witt (1951). "Beweisstudien zum Satz von M. Zorn". Mathematische Nachrichten. 4: 434–438. doi:10.1002/mana.3210040138.
+
+
+

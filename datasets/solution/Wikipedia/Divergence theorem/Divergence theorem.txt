@@ -1,0 +1,653 @@
+Theorem in calculus which relates the flux of closed surfaces to divergence over their volume
+"Gauss's theorem" redirects here. For the theorem concerning the electric field, see Gauss's law.
+"Ostrogradsky's theorem" redirects here. For the theorem concerning the linear instability of the Hamiltonian associated with a Lagrangian dependent on higher time derivatives than the first, see Ostrogradsky instability.
+Part of a series of articles aboutCalculus
+Fundamental theorem
+
+Limits
+Continuity
+
+Rolle's theorem
+Mean value theorem
+Inverse function theorem
+
+Differential
+Definitions
+Derivative (generalizations)
+Differential
+infinitesimal
+of a function
+total
+
+Concepts
+Differentiation notation
+Second derivative
+Implicit differentiation
+Logarithmic differentiation
+Related rates
+Taylor's theorem
+
+Rules and identities
+Sum
+Product
+Chain
+Power
+Quotient
+L'Hôpital's rule
+Inverse
+General Leibniz
+Faà di Bruno's formula
+Reynolds
+
+
+Integral
+Lists of integrals
+Integral transform
+Leibniz integral rule
+
+Definitions
+Antiderivative
+Integral (improper)
+Riemann integral
+Lebesgue integration
+Contour integration
+Integral of inverse functions
+
+Integration by
+Parts
+Discs
+Cylindrical shells
+Substitution (trigonometric, tangent half-angle, Euler)
+Euler's formula
+Partial fractions
+Changing order
+Reduction formulae
+Differentiating under the integral sign
+Risch algorithm
+
+
+Series
+Geometric (arithmetico-geometric)
+Harmonic
+Alternating
+Power
+Binomial
+Taylor
+
+Convergence tests
+Summand limit (term test)
+Ratio
+Root
+Integral
+Direct comparison
+Limit comparison
+Alternating series
+Cauchy condensation
+Dirichlet
+Abel
+
+
+Vector
+Gradient
+Divergence
+Curl
+Laplacian
+Directional derivative
+Identities
+
+Theorems
+Gradient
+Green's
+Stokes'
+Divergence
+generalized Stokes
+
+
+Multivariable
+Formalisms
+Matrix
+Tensor
+Exterior
+Geometric
+
+Definitions
+Partial derivative
+Multiple integral
+Line integral
+Surface integral
+Volume integral
+Jacobian
+Hessian
+
+
+Advanced
+Calculus on Euclidean space
+Generalized functions
+Limit of distributions
+
+
+Specialized
+Fractional
+Malliavin
+Stochastic
+Variations
+
+Miscellaneous
+Precalculus
+History
+Glossary
+List of topics
+Integration Bee
+Mathematical analysis
+Nonstandard analysis
+vte
+In vector calculus, the divergence theorem, also known as Gauss's theorem or Ostrogradsky's theorem,[1] is a theorem which relates the flux of a vector field through a closed surface to the divergence of the field in the volume enclosed.
+More precisely, the divergence theorem states that the surface integral of a vector field over a closed surface, which is called the "flux" through the surface, is equal to the volume integral of the divergence over the region inside the surface. Intuitively, it states that "the sum of all sources of the field in a region (with sinks regarded as negative sources) gives the net flux out of the region".
+The divergence theorem is an important result for the mathematics of physics and engineering, particularly in electrostatics and fluid dynamics. In these fields, it is usually applied in three dimensions. However, it generalizes to any number of dimensions. In one dimension, it is equivalent to integration by parts. In two dimensions, it is equivalent to Green's theorem.
+
+
+Explanation using liquid flow[edit]
+Vector fields are often illustrated using the example of the velocity field of a fluid, such as a gas or liquid. A moving liquid has a velocity—a speed and a direction—at each point, which can be represented by a vector, so that the velocity of the liquid at any moment forms a vector field.  Consider an imaginary closed surface S inside a body of liquid, enclosing a volume of liquid.  The flux of liquid out of the volume at any time is equal to the volume rate of fluid crossing this surface, i.e., the surface integral of the velocity over the surface.
+Since liquids are incompressible, the amount of liquid inside a closed volume is constant; if there are no sources or sinks inside the volume then the flux of liquid out of S is zero.  If the liquid is moving, it may flow into the volume at some points on the surface S and out of the volume at other points, but the amounts flowing in and out at any moment are equal, so the net flux of liquid out of the volume is zero.
+However if a source of liquid is inside the closed surface, such as a pipe through which liquid is introduced, the additional liquid will exert pressure on the surrounding liquid, causing an outward flow in all directions.  This will cause a net outward flow through the surface S.  The flux outward through S equals the volume rate of flow of fluid into S from the pipe.  Similarly if there is a sink or drain inside S, such as a pipe which drains the liquid off, the external pressure of the liquid will cause a velocity throughout the liquid directed inward toward the location of the drain.  The volume rate of flow of liquid inward through the surface S equals the rate of liquid removed by the sink.
+If there are multiple sources and sinks of liquid inside S, the flux through the surface can be calculated by adding up the volume rate of liquid added by the sources and subtracting the rate of liquid drained off by the sinks.  The volume rate of flow of liquid through a source or sink (with the flow through a sink given a negative sign) is equal to the divergence of the velocity field at the pipe mouth, so adding up (integrating) the divergence of the liquid throughout the volume enclosed by S equals the volume rate of flux through S.   This is the divergence theorem.[2]
+The divergence theorem is employed in any conservation law which states that the total volume of all sinks and sources, that is the volume integral of the divergence, is equal to the net flow across the volume's boundary.[3]
+
+Mathematical statement[edit]
+A region V bounded by the surface S=∂V= with the surface normal n
+Suppose V is a subset of Rnℝ^n (in the case of n = 3, V represents a volume in three-dimensional space) which is compact and has a piecewise smooth boundary S (also indicated with ∂V=S=S). If F is a continuously differentiable vector field defined on a neighborhood of V, then:[4][5]
+
+∭V(∇⋅F)dV=∭_V(∇·𝐅) dV= S (F⋅n^)dS.(𝐅·𝐧̂) dS.
+The left side is a volume integral over the volume V, the right side is the surface integral over the boundary of the volume V. The closed manifold ∂V is oriented by outward-pointing normals, and n^𝐧̂ is the outward pointing unit normal at each point on the boundary ∂V. (dSd𝐒 may be used as a shorthand for ndS𝐧dS.)  In terms of the intuitive description above, the left-hand side of the equation represents the total of the sources in the volume V, and the right-hand side represents the total flow across the boundary S.
+
+
+Informal derivation[edit]
+The divergence theorem follows from the fact that if a volume V is partitioned into separate parts, the flux out of the original volume is equal to the sum of the flux out of each component volume.[6][7]  This is true despite the fact that the new subvolumes have surfaces that were not part of the original volume's surface, because these surfaces are just partitions between two of the subvolumes and the flux through them just passes from one volume to the other and so cancels out when the flux out of the subvolumes is summed.
+
+A volume divided into two subvolumes. At right the two subvolumes are separated to show the flux out of the different surfaces.
+See the diagram.  A closed, bounded volume V is divided into two volumes V1 and V2 by a surface S3 (green).  The flux Φ(Vi) out of each component region Vi is equal to the sum of the flux through its two faces, so the sum of the flux out of the two parts is
+
+Φ(V1)+Φ(V2)=Φ1+Φ31+Φ2+Φ32Φ(V_1)+Φ(V_2)=Φ_1+Φ_31+Φ_2+Φ_32
+where Φ1 and Φ2 are the flux out of surfaces S1 and S2,  Φ31 is the flux through S3 out of volume 1, and Φ32 is the flux through S3 out of volume 2.  The point is that surface S3 is part of the surface of both volumes.  The "outward" direction of the normal vector n^𝐧̂ is opposite for each volume, so the flux out of one through S3 is equal to the negative of the flux out of the other
+
+Φ31=∬S3F⋅n^dS=−∬S3F⋅(−n^)dS=−Φ32Φ_31=∬_S_3𝐅·𝐧̂ dS=-∬_S_3𝐅·(-𝐧̂) dS=-Φ_32
+so these two fluxes cancel in the sum.  Therefore
+
+Φ(V1)+Φ(V2)=Φ1+Φ2Φ(V_1)+Φ(V_2)=Φ_1+Φ_2
+Since the union of surfaces S1 and S2 is S
+
+Φ(V1)+Φ(V2)=Φ(V)Φ(V_1)+Φ(V_2)=Φ(V)
+
+
+
+The volume can be divided into any number of subvolumes and the flux out of V is equal to the sum of the flux out of each subvolume, because the flux through the green surfaces cancels out in the sum. In (b) the volumes are shown separated slightly, illustrating that each green partition is part of the boundary of two adjacent volumes
+This principle applies to a volume divided into any number of parts, as shown in the diagram.[7]  Since the integral over each internal partition (green surfaces) appears with opposite signs in the flux of the two adjacent volumes they cancel out, and the only contribution to the flux is the integral over the external surfaces (grey).  Since the external surfaces of all the component volumes equal the original surface.
+
+Φ(V)=∑Vi⊂VΦ(Vi)Φ(V)=∑_V_iΦ(V_i)
+
+
+
+As the volume is subdivided into smaller parts, the ratio of the flux Φ(Vi)Φ(V_i) out of each volume to the volume |Vi||V_i| approaches div⁡Fdiv𝐅
+The flux Φ out of each volume is the surface integral of the vector field F(x) over the surface
+
+∬S(V)F⋅n^dS=∑Vi⊂V∬S(Vi)F⋅n^dS∬_S(V)𝐅·𝐧̂ dS=∑_V_i∬_S(V_i)𝐅·𝐧̂ dS
+The goal is to divide the original volume into infinitely many infinitesimal volumes.  As the volume is divided into smaller and smaller parts, the surface integral on the right, the flux out of each subvolume, approaches zero because the surface area S(Vi) approaches zero. However, from the definition of divergence, the ratio of flux to volume, Φ(Vi)|Vi|=1|Vi|∬S(Vi)F⋅n^dSΦ(V_i)/|V_i|=1/|V_i|∬_S(V_i)𝐅·𝐧̂ dS, the part in parentheses below, does not in general vanish but approaches the divergence div F as the volume approaches zero.[7]
+
+∬S(V)F⋅n^dS=∑Vi⊂V(1|Vi|∬S(Vi)F⋅n^dS)|Vi|∬_S(V)𝐅·𝐧̂ dS=∑_V_i(1/|V_i|∬_S(V_i)𝐅·𝐧̂ dS)|V_i|
+As long as the vector field F(x) has continuous derivatives, the sum above holds even in the limit when the volume is divided into infinitely small increments
+
+∬S(V)F⋅n^dS=lim|Vi|→0∑Vi⊂V(1|Vi|∬S(Vi)F⋅n^dS)|Vi|∬_S(V)𝐅·𝐧̂ dS=lim_|V_i|→0∑_V_i(1/|V_i|∬_S(V_i)𝐅·𝐧̂ dS)|V_i|
+As |Vi||V_i| approaches zero volume, it becomes the infinitesimal dV, the part in parentheses becomes the divergence, and the sum becomes a volume integral over V
+
+
+∬S(V)F⋅n^dS=∭Vdiv⁡FdV ∬_S(V)𝐅·𝐧̂ dS=∭_Vdiv𝐅 dV 
+
+
+Since this derivation is coordinate free, it shows that the divergence does not depend on the coordinates used.
+
+Proofs[edit]
+For bounded open subsets of Euclidean space[edit]
+We are going to prove the following:
+
+
+Theorem — Let Ω⊂RnΩ⊂ℝ^n be open and bounded with C1^1 boundary. If u is C1^1 on an open neighborhood O of Ω¯Ω, that is, u∈C1(O)^1(O), then for each i∈1,…,n∈{1,…,n},
+∫ΩuxidV=∫∂ΩuνidS,∫_Ωu_x_i dV=∫_∂Ωuν_i dS,
+where ν:∂Ω→Rnν:∂Ω→ℝ^n is the outward pointing unit normal vector to ∂Ω∂Ω.
+Equivalently,
+∫Ω∇udV=∫∂ΩuνdS.∫_Ω dV=∫_∂Ωuν dS.
+
+
+Proof of Theorem.
+[8]
+(1) The first step is to reduce to the case where u∈Cc1(Rn)_c^1(ℝ^n). Pick ϕ∈Cc∞(O)ϕ_c^∞(O) such that ϕ=1ϕ=1 on Ω¯Ω. Note that ϕu∈Cc1(O)⊂Cc1(Rn)_c^1(O)_c^1(ℝ^n) and ϕu=u=u on Ω¯Ω. Hence it suffices to prove the theorem for ϕu. Hence we may assume that u∈Cc1(Rn)_c^1(ℝ^n).
+(2) Let x0∈∂Ω_0∈∂Ω be arbitrary. The assumption that Ω¯Ω has C1^1 boundary means that there is an open neighborhood U of x0_0 in Rnℝ^n such that ∂Ω∩U∂Ω is the graph of a C1^1 function with Ω∩UΩ lying on one side of this graph. More precisely, this means that after a translation and rotation of ΩΩ, there are r>0>0 and h>0>0 and a C1^1 function g:Rn−1→R:ℝ^n-1→ℝ, such that with the notation
+x′=(x1,…,xn−1),'=(x_1,…,x_n-1),
+it holds that
+U=x∈Rn:|x′|<rand|xn−g(x′)|<h={x∈ℝ^n:|x'|<rand|x_n-g(x')|<h}
+and for x∈U,
+xn=g(x′)⟹x∈∂Ω,−h<xn−g(x′)<0⟹x∈Ω,0<xn−g(x′)<h⟹x∉Ω.x_n=g(x')   ∈∂Ω,
+-h<x_n-g(x')<0   ∈Ω,
+0<x_n-g(x')<h   ∉Ω.
+
+Since ∂Ω∂Ω is compact, we can cover ∂Ω∂Ω with finitely many neighborhoods U1,…,UN_1,…,U_N of the above form. Note that Ω,U1,…,UN{Ω,U_1,…,U_N} is an open cover of Ω¯=Ω∪∂ΩΩ=Ω∪∂Ω. By using a C∞^∞ partition of unity subordinate to this cover, it suffices to prove the theorem in the case where either u has compact support in ΩΩ or u has compact support in some Uj_j. If u has compact support in ΩΩ, then for all i∈1,…,n∈{1,…,n}, ∫ΩuxidV=∫RnuxidV=∫Rn−1∫−∞∞uxi(x)dxidx′=0∫_Ωu_x_i dV=∫_ℝ^nu_x_i dV=∫_ℝ^n-1∫_-∞^∞u_x_i(x) dx_i dx'=0 by the fundamental theorem of calculus, and ∫∂ΩuνidS=0∫_∂Ωuν_i dS=0 since u vanishes on a neighborhood of ∂Ω∂Ω. Thus the theorem holds for u with compact support in ΩΩ. Thus we have reduced to the case where u has compact support in some Uj_j.
+(3) So assume u has compact support in some Uj_j. The last step now is to show that the theorem is true by direct computation. Change notation to U=Uj=U_j, and bring in the notation from (2) used to describe U. Note that this means that we have rotated and translated ΩΩ. This is a valid reduction since the theorem is invariant under rotations and translations of coordinates.  Since u(x)=0(x)=0 for |x′|≥r|x'| and for |xn−g(x′)|≥h|x_n-g(x')|, we have for each i∈1,…,n∈{1,…,n} that
+∫ΩuxidV=∫|x′|<r∫g(x′)−hg(x′)uxi(x′,xn)dxndx′=∫Rn−1∫−∞g(x′)uxi(x′,xn)dxndx′.∫_Ωu_x_i dV   =∫_|x'|<r∫_g(x')-h^g(x')u_x_i(x',x_n) dx_n dx'
+   =∫_ℝ^n-1∫_-∞^g(x')u_x_i(x',x_n) dx_n dx'.
+For i=n=n we have by the fundamental theorem of calculus that
+∫Rn−1∫−∞g(x′)uxn(x′,xn)dxndx′=∫Rn−1u(x′,g(x′))dx′.∫_ℝ^n-1∫_-∞^g(x')u_x_n(x',x_n) dx_n dx'=∫_ℝ^n-1u(x',g(x')) dx'.
+Now fix i∈1,…,n−1∈{1,…,n-1}. Note that
+∫Rn−1∫−∞g(x′)uxi(x′,xn)dxndx′=∫Rn−1∫−∞0uxi(x′,g(x′)+s)dsdx′∫_ℝ^n-1∫_-∞^g(x')u_x_i(x',x_n) dx_n dx'=∫_ℝ^n-1∫_-∞^0u_x_i(x',g(x')+s) ds dx'
+Define v:Rn→R:ℝ^n→ℝ by v(x′,s)=u(x′,g(x′)+s)(x',s)=u(x',g(x')+s). By the chain rule,
+vxi(x′,s)=uxi(x′,g(x′)+s)+uxn(x′,g(x′)+s)gxi(x′)._x_i(x',s)=u_x_i(x',g(x')+s)+u_x_n(x',g(x')+s)g_x_i(x').
+But since v has compact support, we can integrate out dxi_i first to deduce that
+∫Rn−1∫−∞0vxi(x′,s)dsdx′=0.∫_ℝ^n-1∫_-∞^0v_x_i(x',s) ds dx'=0.
+Thus
+∫Rn−1∫−∞0uxi(x′,g(x′)+s)dsdx′=∫Rn−1∫−∞0−uxn(x′,g(x′)+s)gxi(x′)dsdx′=∫Rn−1−u(x′,g(x′))gxi(x′)dx′.∫_ℝ^n-1∫_-∞^0u_x_i(x',g(x')+s) ds dx'   =∫_ℝ^n-1∫_-∞^0-u_x_n(x',g(x')+s)g_x_i(x') ds dx'
+   =∫_ℝ^n-1-u(x',g(x'))g_x_i(x') dx'.
+In summary, with ∇u=(ux1,…,uxn)=(u_x_1,…,u_x_n) we have
+∫Ω∇udV=∫Rn−1∫−∞g(x′)∇udV=∫Rn−1u(x′,g(x′))(−∇g(x′),1)dx′.∫_Ω dV=∫_ℝ^n-1∫_-∞^g(x') dV=∫_ℝ^n-1u(x',g(x'))(-(x'),1) dx'.
+Recall that the outward unit normal to the graph ΓΓ of g at a point (x′,g(x′))∈Γ(x',g(x'))∈Γ is ν(x′,g(x′))=11+|∇g(x′)|2(−∇g(x′),1)ν(x',g(x'))=1/√(1+|(x')|^2)(-(x'),1) and that the surface element dS is given by dS=1+|∇g(x′)|2dx′=√(1+|(x')|^2) dx'. Thus
+∫Ω∇udV=∫∂ΩuνdS.∫_Ω dV=∫_∂Ωuν dS.
+This completes the proof.
+
+For compact Riemannian manifolds with boundary[edit]
+We are going to prove the following:
+
+
+Theorem — Let Ω¯Ω be a C2^2 compact manifold with boundary with C1^1 metric tensor g. Let ΩΩ denote the manifold interior of Ω¯Ω and let ∂Ω∂Ω denote the manifold boundary of Ω¯Ω. Let (⋅,⋅)(·,·) denote L2(Ω¯)^2(Ω) inner products of functions and ⟨⋅,⋅⟩⟨·,·⟩ denote inner products of vectors. Suppose u∈C1(Ω¯,R)^1(Ω,ℝ) and X is a C1^1 vector field on Ω¯Ω. Then
+(grad⁡u,X)=−(u,div⁡X)+∫∂Ωu⟨X,N⟩dS,(gradu,X)=-(u,divX)+∫_∂Ωu,N⟩ dS,
+where N is the outward-pointing unit normal vector to ∂Ω∂Ω.
+
+
+Proof of Theorem.
+[9]
+We use the Einstein summation convention. By using a partition of unity, we may assume that u and X have compact support in a coordinate patch O⊂Ω¯⊂Ω. First consider the case where the patch is disjoint from ∂Ω∂Ω. Then O is identified with an open subset of Rnℝ^n and integration by parts produces no boundary terms:
+(grad⁡u,X)=∫O⟨grad⁡u,X⟩gdx=∫O∂juXjgdx=−∫Ou∂j(gXj)dx=−∫Ou1g∂j(gXj)gdx=(u,−1g∂j(gXj))=(u,−div⁡X).(gradu,X)   =∫_O⟨gradu,X⟩√(g) dx
+   =∫_O∂_juX^j√(g) dx
+   =-∫_Ou∂_j(√(g)X^j) dx
+   =-∫_Ou1/√(g)∂_j(√(g)X^j)√(g) dx
+   =(u,-1/√(g)∂_j(√(g)X^j))
+   =(u,-divX).
+In the last equality we used the Voss-Weyl coordinate formula for the divergence, although the preceding identity could be used to define −div-div as the formal adjoint of gradgrad. Now suppose O intersects ∂Ω∂Ω. Then O is identified with an open set in R+n=x∈Rn:xn≥0ℝ_+^n={x∈ℝ^n:x_n≥0}. We zero extend u and X to R+nℝ_+^n and perform integration by parts to obtain
+(grad⁡u,X)=∫O⟨grad⁡u,X⟩gdx=∫R+n∂juXjgdx=(u,−div⁡X)−∫Rn−1u(x′,0)Xn(x′,0)g(x′,0)dx′,(gradu,X)   =∫_O⟨gradu,X⟩√(g) dx
+   =∫_ℝ_+^n∂_juX^j√(g) dx
+   =(u,-divX)-∫_ℝ^n-1u(x',0)X^n(x',0)√(g(x',0)) dx',
+where dx′=dx1…dxn−1'=dx_1_n-1.
+By a variant of the straightening theorem for vector fields, we may choose O so that ∂∂xn∂/_n is the inward unit normal −N-N at ∂Ω∂Ω. In this case g(x′,0)dx′=g∂Ω(x′)dx′=dS√(g(x',0)) dx'=√(g_∂Ω(x')) dx'=dS is the volume element on ∂Ω∂Ω and the above formula reads
+(grad⁡u,X)=(u,−div⁡X)+∫∂Ωu⟨X,N⟩dS.(gradu,X)=(u,-divX)+∫_∂Ωu,N⟩ dS.
+This completes the proof.
+
+Corollaries[edit]
+By replacing F in the divergence theorem with specific forms, other useful identities can be derived (cf. vector identities).[10]
+
+With F→Fg𝐅→𝐅g for a scalar function g and a vector field F,
+∭V[F⋅(∇g)+g(∇⋅F)]dV=∭_V[𝐅·()+g(∇·𝐅)]dV= S gF⋅ndS.𝐅·𝐧dS.
+A special case of this is F=∇f𝐅=, in which case the theorem is the basis for Green's identities.
+With F→F×G𝐅→𝐅×𝐆 for two vector fields F and G, where ×× denotes a cross product,
+∭V∇⋅(F×G)dV=∭V[G⋅(∇×F)−F⋅(∇×G)]dV=∭_V∇·(𝐅×𝐆)dV=∭_V[𝐆·(∇×𝐅)-𝐅·(∇×𝐆)] dV= S (F×G)⋅ndS.(𝐅×𝐆)·𝐧dS.
+With F→F⋅G𝐅→𝐅·𝐆 for two vector fields F and G, where ⋅· denotes a dot product,
+∭V∇(F⋅G)dV=∭V[F⋅(∇⋅G)+(∇⋅F)⋅G]dV=∭_V∇(𝐅·𝐆)dV=∭_V[𝐅·(∇·𝐆)+(∇·𝐅)·𝐆] dV= S (F⋅G)⋅ndS.(𝐅·𝐆)·𝐧dS.
+With F→fc𝐅𝐜 for a scalar function  f  and vector field c:[11]
+∭Vc⋅∇fdV=∭_V𝐜· dV= S (cf)⋅ndS−∭Vf(∇⋅c)dV.(𝐜f)·𝐧dS-∭_Vf(∇·𝐜) dV.
+The last term on the right vanishes for constant c𝐜 or any divergence free (solenoidal) vector field,  e.g. Incompressible flows without sources or sinks such as phase change or chemical reactions etc. In particular, taking c𝐜 to be constant:
+∭V∇fdV=∭_V dV= S fndS.𝐧dS.
+With F→c×F𝐅→𝐜×𝐅 for vector field F and constant vector c:[11]
+∭Vc⋅(∇×F)dV=∭_V𝐜·(∇×𝐅) dV= S (F×c)⋅ndS.(𝐅×𝐜)·𝐧dS.
+By reordering the triple product on the right hand side and taking out the constant vector of the integral,
+∭V(∇×F)dV⋅c=∭_V(∇×𝐅) dV·𝐜= S (dS×F)⋅c.(d𝐒×𝐅)·𝐜.
+Hence,
+∭V(∇×F)dV=∭_V(∇×𝐅) dV= S n×FdS.𝐧×𝐅dS.
+Example[edit]
+The vector field corresponding to the example shown. Vectors may point into or out of the sphere.
+The divergence theorem can be used to calculate a flux through a closed surface that fully encloses a volume, like any of the surfaces on the left. It can not directly be used to calculate the flux through surfaces with boundaries, like those on the right. (Surfaces are blue, boundaries are red.)
+Suppose we wish to evaluate
+
+ S F⋅ndS,𝐅·𝐧 dS,
+where S is the unit sphere defined by
+
+S=(x,y,z)∈R3:x2+y2+z2=1,={(x,y,z)∈ℝ^3 ^2+y^2+z^2=1},
+and F is the vector field
+
+F=2xi+y2j+z2k.𝐅=2x𝐢+y^2𝐣+z^2𝐤.
+The direct computation of this integral is quite difficult, but we can simplify the derivation of the result using the divergence theorem, because the divergence theorem says that the integral is equal to:
+
+∭W(∇⋅F)dV=2∭W(1+y+z)dV=2∭WdV+2∭WydV+2∭WzdV,∭_W(∇·𝐅) dV=2∭_W(1+y+z) dV=2∭_WdV+2∭_Wy dV+2∭_Wz dV,
+where W is the unit ball:
+
+W=(x,y,z)∈R3:x2+y2+z2≤1.={(x,y,z)∈ℝ^3 ^2+y^2+z^2≤1}.
+Since the function y is positive in one hemisphere of W and negative in the other, in an equal and opposite way, its total integral over W is zero. The same is true for z:
+
+∭WydV=∭WzdV=0.∭_Wy dV=∭_Wz dV=0.
+Therefore,
+
+ S F⋅ndS=2∭WdV=8π3,𝐅·𝐧 dS=2∭_W dV=8π/3,
+because the unit ball W has volume 4π/3.
+
+Applications[edit]
+Differential and integral forms of physical laws[edit]
+As a result of the divergence theorem, a host of physical laws can be written in both a differential form (where one quantity is the divergence of another) and an integral form (where the flux of one quantity through a closed surface is equal to another quantity). Three examples are Gauss's law (in electrostatics), Gauss's law for magnetism, and Gauss's law for gravity.
+
+Continuity equations[edit]
+Main article: continuity equation
+Continuity equations offer more examples of laws with both differential and integral forms, related to each other by the divergence theorem. In fluid dynamics, electromagnetism, quantum mechanics, relativity theory, and a number of other fields, there are continuity equations that describe the conservation of mass, momentum, energy, probability, or other quantities. Generically, these equations state that the divergence of the flow of the conserved quantity is equal to the distribution of sources or sinks of that quantity. The divergence theorem states that any such continuity equation can be written in a differential form (in terms of a divergence) and an integral form (in terms of a flux).[12]
+
+Inverse-square laws[edit]
+Any inverse-square law can instead be written in a Gauss's law-type form (with a differential and integral form, as described above). Two examples are Gauss's law (in electrostatics), which follows from the inverse-square Coulomb's law, and Gauss's law for gravity, which follows from the inverse-square Newton's law of universal gravitation. The derivation of the Gauss's law-type equation from the inverse-square formulation or vice versa is exactly the same in both cases; see either of those articles for details.[12]
+
+History[edit]
+Joseph-Louis Lagrange introduced the notion of surface integrals in 1760 and again in more general terms in 1811, in the second edition of his Mécanique Analytique. Lagrange employed surface integrals in his work on fluid mechanics.[13] He discovered the divergence theorem in 1762.[14]
+Carl Friedrich Gauss was also using surface integrals while working on the gravitational attraction of an elliptical spheroid in 1813, when he proved special cases of the divergence theorem.[15][13] He proved additional special cases in 1833 and 1839.[16] But it was Mikhail Ostrogradsky, who gave the first proof of the general theorem, in 1826, as part of his investigation of heat flow.[17] Special cases were proven by George Green in 1828 in An Essay on the Application of Mathematical Analysis to the Theories of Electricity and Magnetism,[18][16] Siméon Denis Poisson in 1824 in a paper on elasticity, and Frédéric Sarrus in 1828 in his work on floating bodies.[19][16]
+
+Worked examples[edit]
+Example 1[edit]
+To verify the planar variant of the divergence theorem for a region R:
+
+R=(x,y)∈R2:x2+y2≤1,={(x,y)∈ℝ^2 ^2+y^2≤1},
+and the vector field:
+
+F(x,y)=2yi+5xj.𝐅(x,y)=2y𝐢+5x𝐣.
+The boundary of R is the unit circle, C, that can be represented parametrically by:
+
+x=cos⁡(s),y=sin⁡(s)=cos(s),=sin(s)
+such that 0≤s≤2π0≤2π where s units is the length arc from the point s=0=0 to the point P on C. Then a vector equation of C is
+
+C(s)=cos⁡(s)i+sin⁡(s)j.(s)=cos(s)𝐢+sin(s)𝐣.
+At a point P on C:
+
+P=(cos⁡(s),sin⁡(s))⇒F=2sin⁡(s)i+5cos⁡(s)j.=(cos(s), sin(s)) ⇒ 𝐅=2sin(s)𝐢+5cos(s)𝐣.
+Therefore,
+
+∮CF⋅nds=∫02π(2sin⁡(s)i+5cos⁡(s)j)⋅(cos⁡(s)i+sin⁡(s)j)ds=∫02π(2sin⁡(s)cos⁡(s)+5sin⁡(s)cos⁡(s))ds=7∫02πsin⁡(s)cos⁡(s)ds=0.∮_C𝐅·𝐧 ds   =∫_0^2π(2sin(s)𝐢+5cos(s)𝐣)·(cos(s)𝐢+sin(s)𝐣) ds
+   =∫_0^2π(2sin(s)cos(s)+5sin(s)cos(s)) ds
+   =7∫_0^2πsin(s)cos(s) ds
+   =0.
+Because M=2y=2y, we can evaluate ∂M∂x=0/=0, and because N=5x=5x, ∂N∂y=0/=0. Thus
+
+∬R∇⋅FdA=∬R(∂M∂x+∂N∂y)dA=0.∬_R ∇·𝐅 dA=∬_R(/+/) dA=0.
+Example 2[edit]
+Let's say we wanted to evaluate the flux of the following vector field defined by F=2x2i+2y2j+2z2k𝐅=2x^2i+2y^2j+2z^2k bounded by the following inequalities:
+
+0≤x≤3−2≤y≤20≤z≤2π{0≤3}{-2≤2}{0≤2π}
+By the divergence theorem,
+
+∭V(∇⋅F)dV=∭_V(∇·𝐅)dV= S (F⋅n)dS.(𝐅·𝐧) dS.
+We now need to determine the divergence of FF. If F𝐅 is a three-dimensional vector field, then the divergence of FF is given by ∇⋅F=(∂∂xi+∂∂yj+∂∂zk)⋅F∇·F=(∂/i+∂/j+∂/k)·F.
+Thus, we can set up the following flux integral I== S F⋅ndS,𝐅·𝐧 dS,
+as follows:
+
+I=∭V∇⋅FdV=∭V(∂Fx∂x+∂Fy∂y+∂Fz∂z)dV=∭V(4x+4y+4z)dV=∫03∫−22∫02π(4x+4y+4z)dVI   =∭_V∇·𝐅 dV
+   =∭_V(∂𝐅_𝐱/+∂𝐅_𝐲/+∂𝐅_𝐳/)dV
+   =∭_V(4x+4y+4z) dV
+   =∫_0^3∫_-2^2∫_0^2π(4x+4y+4z) dV
+Now that we have set up the integral, we can evaluate it.
+
+∫03∫−22∫02π(4x+4y+4z)dV=∫−22∫02π(12y+12z+18)dydz=∫02π24(2z+3)dz=48π(2π+3)∫_0^3∫_-2^2∫_0^2π(4x+4y+4z) dV   =∫_-2^2∫_0^2π(12y+12z+18) dy dz
+   =∫_0^2π24(2z+3) dz
+   =48π(2π+3)
+Generalizations[edit]
+Multiple dimensions[edit]
+One can use the generalised Stokes' theorem to equate the n-dimensional volume integral of the divergence of a vector field F over a region U to the (n − 1)-dimensional surface integral of F over the boundary of U:
+
+∫⋯∫U⏟n∇⋅FdV=∮⋯∮∂U⏟n−1F⋅ndS∫⋯∫_U_n∇·𝐅 dV=∮_⋯∮__n-1𝐅·𝐧 dS
+This equation is also known as the divergence theorem.
+When n = 2, this is equivalent to Green's theorem.
+When n = 1, it reduces to the fundamental theorem of calculus, part 2.
+
+Tensor fields[edit]
+Main article: Tensor field
+Writing the theorem in Einstein notation:
+
+∭V∂Fi∂xidV=∭_V∂𝐅_i_idV= S FinidS𝐅_in_i dS
+suggestively, replacing the vector field F with a rank-n tensor field T, this can be generalized to:[20]
+
+∭V∂Ti1i2⋯iq⋯in∂xiqdV=∭_V_i_1i_2_q_n_i_qdV= S Ti1i2⋯iq⋯inniqdS._i_1i_2_q_nn_i_q dS.
+where on each side, tensor contraction occurs for at least one index. This form of the theorem is still in 3d, each index takes values 1, 2, and 3. It can be generalized further still to higher (or lower) dimensions (for example to 4d spacetime in general relativity[21]).
+
+See also[edit]
+Kelvin–Stokes theorem
+References[edit]
+
+
+^ Katz, Victor J. (1979). "The history of Stokes's theorem". Mathematics Magazine. 52 (3): 146–156. doi:10.2307/2690275. JSTOR 2690275. reprinted in Anderson, Marlow (2009). Who Gave You the Epsilon?: And Other Tales of Mathematical History. Mathematical Association of America. pp. 78–79. ISBN 978-0883855690.
+
+^ R. G. Lerner; G. L. Trigg (1994). Encyclopaedia of Physics (2nd ed.). VHC. ISBN 978-3-527-26954-9.
+
+^ Byron, Frederick; Fuller, Robert (1992), Mathematics of Classical and Quantum Physics, Dover Publications, p. 22, ISBN 978-0-486-67164-2
+
+^ Wiley, C. Ray, Jr. Advanced Engineering Mathematics, 3rd Ed. McGraw-Hill. pp. 372–373.{{cite book}}:  CS1 maint: multiple names: authors list (link)
+
+^ Kreyszig, Erwin; Kreyszig, Herbert; Norminton, Edward J. (2011). Advanced Engineering Mathematics (10 ed.). John Wiley and Sons. pp. 453–456. ISBN 9780470458365.
+
+^ Benford, Frank A. (May 2007). "Notes on Vector Calculus" (PDF). Course materials for Math 105: Multivariable Calculus. Prof. Steven Miller's webpage, Williams College. Retrieved 14 March 2022.
+
+^ a b c Purcell, Edward M.; David J. Morin (2013). Electricity and Magnetism. Cambridge Univ. Press. pp. 56–58. ISBN 978-1107014022.
+
+^ Alt, Hans Wilhelm (2016). "Linear Functional Analysis". Universitext. London: Springer London. pp. 259–261, 270–272. doi:10.1007/978-1-4471-7280-2. ISBN 978-1-4471-7279-6. ISSN 0172-5939.
+
+^ 
+Taylor, Michael E. (2011). "Partial Differential Equations I". Applied Mathematical Sciences. New York, NY: Springer New York. pp. 178–179. doi:10.1007/978-1-4419-7055-8. ISBN 978-1-4419-7054-1. ISSN 0066-5452.
+
+^ M. R. Spiegel; S. Lipschutz; D. Spellman (2009). Vector Analysis. Schaum’s Outlines (2nd ed.). USA: McGraw Hill. ISBN 978-0-07-161545-7.
+
+^ a b MathWorld
+
+^ a b C.B. Parker (1994). McGraw Hill Encyclopaedia of Physics (2nd ed.). McGraw Hill. ISBN 978-0-07-051400-3.
+
+^ a b Katz, Victor (2009). "Chapter 22: Vector Analysis". A History of Mathematics: An Introduction. Addison-Wesley. pp. 808–9. ISBN 978-0-321-38700-4.
+
+^ In his 1762 paper on sound, Lagrange treats a special case of the divergence theorem: Lagrange (1762) "Nouvelles recherches sur la nature et la propagation du son" (New researches on the nature and propagation of sound), Miscellanea Taurinensia (also known as: Mélanges de Turin ), 2: 11 – 172.  This article is reprinted as: "Nouvelles recherches sur la nature et la propagation du son"  in: J.A. Serret, ed., Oeuvres de Lagrange, (Paris, France: Gauthier-Villars, 1867), vol. 1, pages 151–316; on pages 263–265, Lagrange transforms triple integrals into double integrals using integration by parts.
+
+^ C. F. Gauss (1813) "Theoria attractionis corporum sphaeroidicorum ellipticorum homogeneorum methodo nova tractata," Commentationes societatis regiae scientiarium Gottingensis recentiores, 2: 355–378; Gauss considered a special case of the theorem; see the 4th, 5th, and 6th pages of his article.
+
+^ a b c Katz, Victor (May 1979). "A History of Stokes' Theorem". Mathematics Magazine. 52 (3): 146–156. doi:10.1080/0025570X.1979.11976770. JSTOR 2690275.
+
+^ Mikhail Ostragradsky presented his proof of the divergence theorem to the Paris Academy in 1826; however, his work was not published by the Academy.  He returned to St. Petersburg, Russia, where in 1828–1829 he read the work that he'd done in France, to the St. Petersburg Academy, which published his work in abbreviated form in 1831.
+His proof of the divergence theorem – "Démonstration d'un théorème du calcul intégral" (Proof of a theorem in integral calculus) – which he had read to the Paris Academy on February 13, 1826, was translated, in 1965, into Russian together with another article by him.  See:   Юшкевич А.П. (Yushkevich A.P.) and Антропова В.И. (Antropov V.I.) (1965) "Неопубликованные работы М.В. Остроградского" (Unpublished works of MV Ostrogradskii), Историко-математические исследования (Istoriko-Matematicheskie Issledovaniya / Historical-Mathematical Studies), 16: 49–96; see the section titled:  "Остроградский М.В. Доказательство одной теоремы интегрального исчисления" (Ostrogradskii M. V. Dokazatelstvo odnoy teoremy integralnogo ischislenia / Ostragradsky M.V.  Proof of a theorem in integral calculus).
+M. Ostrogradsky (presented:  November 5, 1828 ; published: 1831)  "Première note sur la théorie de la chaleur" (First note on the theory of heat) Mémoires de l'Académie impériale des sciences de St. Pétersbourg, series 6, 1: 129–133; for an abbreviated version of his proof of the divergence theorem, see pages 130–131.
+Victor J. Katz (May1979) "The history of Stokes' theorem," Archived April 2, 2015, at the Wayback Machine Mathematics Magazine, 52(3): 146–156;  for Ostragradsky's proof of the divergence theorem, see pages 147–148.
+
+^ George Green, An Essay on the Application of Mathematical Analysis to the Theories of Electricity and Magnetism (Nottingham, England:  T. Wheelhouse, 1838).  A form of the "divergence theorem" appears on pages 10–12.
+
+^ Other early investigators who used some form of the divergence theorem include:
+Poisson (presented: February 2, 1824 ; published: 1826) "Mémoire sur la théorie du magnétisme" (Memoir on the theory of magnetism), Mémoires de l'Académie des sciences de l'Institut de France, 5: 247–338; on pages 294–296, Poisson transforms a volume integral (which is used to evaluate a quantity Q) into a surface integral.  To make this transformation, Poisson follows the same procedure that is used to prove the divergence theorem.
+Frédéric Sarrus (1828) "Mémoire sur les oscillations des corps flottans" (Memoir on the oscillations of floating bodies), Annales de mathématiques pures et appliquées (Nismes), 19: 185–211.
+
+^ K.F. Riley; M.P. Hobson; S.J. Bence (2010). Mathematical methods for physics and engineering. Cambridge University Press. ISBN 978-0-521-86153-3.
+
+^ see for example: J.A. Wheeler; C. Misner; K.S. Thorne (1973). Gravitation. W.H. Freeman & Co. pp. 85–86, §3.5. ISBN 978-0-7167-0344-0., and R. Penrose (2007). The Road to Reality. Vintage books. ISBN 978-0-679-77631-4.
+
+
+External links[edit]
+
+
+
+Wikiversity has a lesson on  Divergence theorem
+
+"Ostrogradski formula", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Differential Operators and the Divergence Theorem at MathPages
+The Divergence (Gauss) Theorem by Nick Bykov, Wolfram Demonstrations Project.
+Weisstein, Eric W. "Divergence Theorem". MathWorld. – This article was originally based on the GFDL article from PlanetMath at https://web.archive.org/web/20021029094728/http://planetmath.org/encyclopedia/Divergence.html
+vteCalculusPrecalculus
+Binomial theorem
+Concave function
+Continuous function
+Factorial
+Finite difference
+Free variables and bound variables
+Graph of a function
+Linear function
+Radian
+Rolle's theorem
+Secant
+Slope
+Tangent
+Limits
+Indeterminate form
+Limit of a function
+One-sided limit
+Limit of a sequence
+Order of approximation
+(ε, δ)-definition of limit
+Differential calculus
+Derivative
+Second derivative
+Partial derivative
+Differential
+Differential operator
+Mean value theorem
+Notation
+Leibniz's notation
+Newton's notation
+Rules of differentiation
+linearity
+Power
+Sum
+Chain
+L'Hôpital's
+Product
+General Leibniz's rule
+Quotient
+Other techniques
+Implicit differentiation
+Inverse functions and differentiation
+Logarithmic derivative
+Related rates
+Stationary points
+First derivative test
+Second derivative test
+Extreme value theorem
+Maximum and minimum
+Further applications
+Newton's method
+Taylor's theorem
+Differential equation
+Ordinary differential equation
+Partial differential equation
+Stochastic differential equation
+Integral calculus
+Antiderivative
+Arc length
+Riemann integral
+Basic properties
+Constant of integration
+Fundamental theorem of calculus
+Differentiating under the integral sign
+Integration by parts
+Integration by substitution
+trigonometric
+Euler
+Tangent half-angle substitution
+Partial fractions in integration
+Quadratic integral
+Trapezoidal rule
+Volumes
+Washer method
+Shell method
+Integral equation
+Integro-differential equation
+Vector calculus
+Derivatives
+Curl
+Directional derivative
+Divergence
+Gradient
+Laplacian
+Basic theorems
+Line integrals
+Green's
+Stokes'
+Gauss'
+Multivariable calculus
+Divergence theorem
+Geometric
+Hessian matrix
+Jacobian matrix and determinant
+Lagrange multiplier
+Line integral
+Matrix
+Multiple integral
+Partial derivative
+Surface integral
+Volume integral
+Advanced topics
+Differential forms
+Exterior derivative
+Generalized Stokes' theorem
+Tensor calculus
+Sequences and series
+Arithmetico-geometric sequence
+Types of series
+Alternating
+Binomial
+Fourier
+Geometric
+Harmonic
+Infinite
+Power
+Maclaurin
+Taylor
+Telescoping
+Tests of convergence
+Abel's
+Alternating series
+Cauchy condensation
+Direct comparison
+Dirichlet's
+Integral
+Limit comparison
+Ratio
+Root
+Term
+Special functionsand numbers
+Bernoulli numbers
+e (mathematical constant)
+Exponential function
+Natural logarithm
+Stirling's approximation
+History of calculus
+Adequality
+Brook Taylor
+Colin Maclaurin
+Generality of algebra
+Gottfried Wilhelm Leibniz
+Infinitesimal
+Infinitesimal calculus
+Isaac Newton
+Fluxion
+Law of Continuity
+Leonhard Euler
+Method of Fluxions
+The Method of Mechanical Theorems
+Lists
+Differentiation rules
+List of integrals of exponential functions
+List of integrals of hyperbolic functions
+List of integrals of inverse hyperbolic functions
+List of integrals of inverse trigonometric functions
+List of integrals of irrational functions
+List of integrals of logarithmic functions
+List of integrals of rational functions
+List of integrals of trigonometric functions
+Secant
+Secant cubed
+List of limits
+Lists of integrals
+Miscellaneous topics
+Complex calculus
+Contour integral
+Differential geometry
+Manifold
+Curvature
+of curves
+of surfaces
+Tensor
+Euler–Maclaurin formula
+Gabriel's horn
+Integration Bee
+Proof that 22/7 exceeds π
+Regiomontanus' angle maximization problem
+Steinmetz solid
+
+
+
+

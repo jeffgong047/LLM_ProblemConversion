@@ -1,0 +1,1686 @@
+Family of probability distributions related to the normal distribution
+Not to be confused with the exponential distribution.
+"Natural parameter" redirects here. For use of this term in differential geometry, see Natural parametrization.
+In probability and statistics, an exponential family is a parametric set of probability distributions of a certain form, specified below. This special form is chosen for mathematical convenience, including the enabling of the user to calculate expectations, covariances using differentiation based on some useful algebraic properties, as well as for generality, as exponential families are in a sense very natural sets of distributions to consider. The term exponential class is sometimes used in place of "exponential family",[1] or the older term Koopman–Darmois family. The terms "distribution" and "family" are often used loosely: specifically, an exponential family is a set of distributions, where the specific distribution varies with the parameter;[a] however, a parametric family of distributions is often referred to as "a distribution" (like "the normal distribution", meaning "the family of normal distributions"), and the set of all exponential families is sometimes loosely referred to as "the" exponential family. They are distinct because they possess a variety of desirable properties, most importantly the existence of a sufficient statistic.
+The concept of exponential families is credited to[2] E. J. G. Pitman,[3] G. Darmois,[4] and B. O. Koopman[5] in 1935–1936. Exponential families of distributions provide a general framework for selecting a possible alternative parameterisation of a parametric family of distributions, in terms of natural parameters, and for defining useful sample statistics, called the natural sufficient statistics of the family.
+
+
+Definition[edit]
+Most of the commonly used distributions form an exponential family or subset of an exponential family, listed in the subsection below. The subsections following it are a sequence of increasingly more general mathematical definitions of an exponential family. A casual reader may wish to restrict attention to the first and simplest definition, which corresponds to a single-parameter family of discrete or continuous probability distributions.
+
+Examples of exponential family distributions[edit]
+Exponential families include many of the most common distributions. Among many others, exponential families includes the following:[6]
+
+
+normal
+exponential
+gamma
+chi-squared
+beta
+Dirichlet
+Bernoulli
+categorical
+Poisson
+Wishart
+inverse Wishart
+geometric
+
+A number of common distributions are exponential families, but only when certain parameters are fixed and known. For example:
+
+binomial (with fixed number of trials)
+multinomial (with fixed number of trials)
+negative binomial (with fixed number of failures)
+Notice that in each case, the parameters which must be fixed determine a limit on the size of observation values.
+Examples of common distributions that are not exponential families are Student's t, most mixture distributions, and even the family of uniform distributions when the bounds are not fixed. See the section below on examples for more discussion.
+
+Scalar parameter[edit]
+A single-parameter exponential family is a set of probability distributions whose probability density function (or probability mass function, for the case of a discrete distribution) can be expressed in the form
+
+fX(x∣θ)=h(x)exp[η(θ)⋅T(x)−A(θ)]_X(x|θ)=h(x) exp[ η(θ)(x)-A(θ) ]
+where T(x), h(x), η(θ), and A(θ) are known functions.
+The function h(x) must of course be non-negative.
+An alternative, equivalent form often given is
+
+fX(x∣θ)=h(x)g(θ)exp[η(θ)⋅T(x)]_X(x|θ)=h(x) g(θ) exp[ η(θ)(x) ]
+or equivalently
+
+fX(x∣θ)=exp[η(θ)⋅T(x)−A(θ)+B(x)]_X(x|θ)=exp[ η(θ)(x)-A(θ)+B(x) ]
+The value θ is called the parameter of the family.
+In addition, the support of fX(x∣θ)_X(x|θ) (i.e. the set of all x for which fX(x∣θ)_X(x|θ) is greater than 0) does not depend on θθ.[7] This can be used to exclude a parametric family distribution from being an exponential family. For example, the Pareto distribution has a pdf which is defined for x≥xm_m (xm_m being the scale parameter) and its support, therefore, has a lower limit of xm_m. Since the support of fα,xm(x)_α,x_m(x) is dependent on the value of the parameter, the family of Pareto distributions does not form an exponential family of distributions (at least when xm_m is unknown).
+Often x is a vector of measurements, in which case T(x) may be a function from the space of possible values of x to the real numbers. More generally, η(θ) and T(x) can each be vector-valued such that η′(θ)⋅T(x)η'(θ)(x) is real-valued. However, see the discussion below on vector parameters, regarding the curved exponential family.
+If η(θ) = θ, then the exponential family is said to be in canonical form. By defining a transformed parameter η = η(θ), it is always possible to convert an exponential family to canonical form. The canonical form is non-unique, since η(θ) can be multiplied by any nonzero constant, provided that T(x) is multiplied by that constant's reciprocal, or a constant c can be added to η(θ) and h(x) multiplied by exp[−c⋅T(x)]exp[-c(x) ] to offset it.  In the special case that η(θ) = θ and T(x) = x then the family is called a natural exponential family.
+Even when x is a scalar, and there is only a single parameter, the functions η(θ) and T(x) can still be vectors, as described below.
+The function A(θ), or equivalently g(θ), is automatically determined once the other functions have been chosen, since it must assume a form that causes the distribution to be normalized (sum or integrate to one over the entire domain).  Furthermore, both of these functions can always be written as functions of η, even when η(θ) is not a one-to-one function, i.e. two or more different values of θ map to the same value of η(θ), and hence η(θ) cannot be inverted. In such a case, all values of θ mapping to the same η(θ) will also have the same value for A(θ) and g(θ).
+
+Factorization of the variables involved[edit]
+What is important to note, and what characterizes all exponential family variants, is that the parameter(s) and the observation variable(s) must factorize (can be separated into products each of which involves only one type of variable), either directly or within either part (the base or exponent) of an exponentiation operation.  Generally, this means that all of the factors constituting the density or mass function must be of one of the following forms:
+
+f(x),g(θ),cf(x),cg(θ),[f(x)]c,[g(θ)]c,[f(x)]g(θ),[g(θ)]f(x),[f(x)]h(x)g(θ),or[g(θ)]h(x)j(θ),(x),g(θ),c^f(x),c^g(θ),[f(x)]^c,[g(θ)]^c,[f(x)]^g(θ),[g(θ)]^f(x),[f(x)]^h(x)g(θ),or[g(θ)]^h(x)j(θ),
+where f and h are arbitrary functions of x; g and j are arbitrary functions of θ; and c is an arbitrary "constant" expression (i.e. an expression not involving x or θ).
+There are further restrictions on how many such factors can occur.  For example, the two expressions:
+
+[f(x)g(θ)]h(x)j(θ),[f(x)]h(x)j(θ)[g(θ)]h(x)j(θ),[f(x)g(θ)]^h(x)j(θ),    [f(x)]^h(x)j(θ)[g(θ)]^h(x)j(θ),
+are the same, i.e. a product of two "allowed" factors.  However, when rewritten into the factorized form,
+
+[f(x)g(θ)]h(x)j(θ)=[f(x)]h(x)j(θ)[g(θ)]h(x)j(θ)=e[h(x)log⁡f(x)]j(θ)+h(x)[j(θ)log⁡g(θ)],[f(x)g(θ)]^h(x)j(θ)=[f(x)]^h(x)j(θ)[g(θ)]^h(x)j(θ)=e^[h(x)(x)]j(θ)+h(x)[j(θ)(θ)],
+it can be seen that it cannot be expressed in the required form. (However, a form of this sort is a member of a curved exponential family, which allows multiple factorized terms in the exponent.[citation needed])
+To see why an expression of the form
+
+[f(x)]g(θ)[f(x)]^g(θ)
+qualifies,
+
+[f(x)]g(θ)=eg(θ)log⁡f(x)[f(x)]^g(θ)=e^g(θ)(x)
+and hence factorizes inside of the exponent. Similarly,
+
+[f(x)]h(x)g(θ)=eh(x)g(θ)log⁡f(x)=e[h(x)log⁡f(x)]g(θ)[f(x)]^h(x)g(θ)=e^h(x)g(θ)(x)=e^[h(x)(x)]g(θ)
+and again factorizes inside of the exponent.
+A factor consisting of a sum where both types of variables are involved (e.g. a factor of the form 1+f(x)g(θ)1+f(x)g(θ)) cannot be factorized in this fashion (except in some cases where occurring directly in an exponent); this is why, for example, the Cauchy distribution and Student's t distribution are not exponential families.
+
+Vector parameter[edit]
+The definition in terms of one real-number parameter can be extended to one real-vector parameter
+
+θ≡[θ1,θ2,…,θs]T.θ≡[ θ_1, θ_2, …, θ_s ]^𝖳 .
+A family of distributions is said to belong to a vector exponential family if the probability density function (or probability mass function, for discrete distributions) can be written as
+
+fX(x∣θ)=h(x)exp⁡(∑i=1sηi(θ)Ti(x)−A(θ)),_X(x|θ)=h(x) exp(∑_i=1^sη_i(θ)T_i(x)-A(θ)) ,
+or in a more compact form,
+
+fX(x∣θ)=h(x)exp⁡(η(θ)⋅T(x)−A(θ))_X(x|θ)=h(x) exp(η(θ)·𝐓(x)-A(θ))
+This form writes the sum as a dot product of vector-valued functions η(θ)η(θ) and T(x)𝐓(x) .
+An alternative, equivalent form often seen is
+
+fX(x∣θ)=h(x)g(θ)exp⁡(η(θ)⋅T(x))_X(x|θ)=h(x) g(θ) exp(η(θ)·𝐓(x))
+As in the scalar valued case, the exponential family is said to be in canonical form if
+
+ηi(θ)=θi∀i.  η_i(θ)=θ_i   .
+A vector exponential family is said to be curved if the dimension of
+
+θ≡[θ1,θ2,…,θd]Tθ≡[ θ_1, θ_2, …, θ_d  ]^𝖳
+is less than the dimension of the vector
+
+η(θ)≡[η1(θ),η2(θ),…,ηs(θ)]T.η(θ)≡[ η_1(θ), η_2(θ), …, η_s(θ) ]^𝖳 .
+That is, if the dimension, d, of the parameter vector is less than the number of functions, s, of the parameter vector in the above representation of the probability density function. Most common distributions in the exponential family are not curved, and many algorithms designed to work with any exponential family implicitly or explicitly assume that the distribution is not curved.
+Just as in the case of a scalar-valued parameter, the function A(θ)(θ) or equivalently g(θ)(θ) is automatically determined by the normalization constraint, once the other functions have been chosen. Even if η(θ)η(θ) is not one-to-one, functions A(η)(η) and g(η)(η) can be defined by requiring that the distribution is normalized for each value of the natural parameter ηη. This yields the canonical form
+
+fX(x∣η)=h(x)exp⁡(η⋅T(x)−A(η)),_X(x|η)=h(x) exp(η·𝐓(x)-A(η)),
+or equivalently
+
+fX(x∣η)=h(x)g(η)exp⁡(η⋅T(x))._X(x|η)=h(x) g(η) exp(η·𝐓(x)).
+The above forms may sometimes be seen with ηTT(x)η^𝖳𝐓(x) in place of η⋅T(x)η·𝐓(x) . These are exactly equivalent formulations, merely using different notation for the dot product.
+
+Vector parameter, vector variable[edit]
+The vector-parameter form over a single scalar-valued random variable can be trivially expanded to cover a joint distribution over a vector of random variables. The resulting distribution is simply the same as the above distribution for a scalar-valued random variable with each occurrence of the scalar x replaced by the vector
+
+x=(x1,x2,⋯,xk)T.𝐱=(x_1,x_2,⋯,x_k)^𝖳 .
+The dimensions k of the random variable need not match the dimension d of the parameter vector, nor (in the case of a curved exponential function) the dimension s of the natural parameter ηη and sufficient statistic T(x) .
+The distribution in this case is written as
+
+fX(x∣θ)=h(x)exp(∑i=1sηi(θ)Ti(x)−A(θ))_X(𝐱|θ)=h(𝐱) exp( ∑_i=1^sη_i(θ)T_i(𝐱)-A(θ) )
+Or more compactly as
+
+fX(x∣θ)=h(x)exp(η(θ)⋅T(x)−A(θ))_X( 𝐱|θ )=h(𝐱) exp( η(θ)·𝐓(𝐱)-A(θ) )
+Or alternatively as
+
+fX(x∣θ)=g(θ)h(x)exp(η(θ)⋅T(x))_X( 𝐱|θ )=g(θ) h(𝐱) exp( η(θ)·𝐓(𝐱) )
+Measure-theoretic formulation[edit]
+We use cumulative distribution functions (CDF) in order to encompass both discrete and continuous distributions.
+Suppose H is a non-decreasing function of a real variable. Then Lebesgue–Stieltjes integrals with respect to dH(x)d H(𝐱) are integrals with respect to the reference measure of the exponential family generated by H .
+Any member of that exponential family has cumulative distribution function
+
+dF(x∣θ)=exp⁡(η(θ)⋅T(x)−A(θ))dH(x).d F( 𝐱|θ )=exp( η(θ)·𝐓(𝐱) - A(θ) ) d H(𝐱) .
+H(x) is a Lebesgue–Stieltjes integrator for the reference measure. When the reference measure is finite, it can be normalized and H is actually the cumulative distribution function of a probability distribution. If F is absolutely continuous with a density f(x)(x) with respect to a reference measure dx d x  (typically Lebesgue measure), one can write dF(x)=f(x)dx d F(x)=f(x) d x .
+In this case, H is also absolutely continuous and can be written dH(x)=h(x)dx d H(x)=h(x) d x  so the formulas reduce to that of the previous paragraphs. If F is discrete, then H is a step function (with steps on the support of F).
+Alternatively, we can write the probability measure directly as
+
+P(dx∣θ)=exp⁡(η(θ)⋅T(x)−A(θ))μ(dx).( d 𝐱|θ )=exp( η(θ)·𝐓(𝐱)-A(θ) ) μ(d 𝐱) .
+for some reference measure μμ .
+
+Interpretation[edit]
+In the definitions above, the functions T(x), η(θ), and A(η) were arbitrary. However, these functions have important interpretations in the resulting probability distribution.
+
+T(x) is a sufficient statistic of the distribution. For exponential families, the sufficient statistic is a function of the data that holds all information the data x provides with regard to the unknown parameter values. This means that, for any data sets x and y, the likelihood ratio is the same, that is f(x;θ1)f(x;θ2)=f(y;θ1)f(y;θ2)f(x;θ_1)/f(x;θ_2)=f(y;θ_1)/f(y;θ_2) if  T(x) = T(y) . This is true even if x and y are not equal to each other. The dimension of T(x) equals the number of parameters of θ and encompasses all of the information regarding the data related to the parameter θ. The sufficient statistic of a set of independent identically distributed data observations is simply the sum of individual sufficient statistics, and encapsulates all the information needed to describe the posterior distribution of the parameters, given the data (and hence to derive any desired estimate of the parameters). (This important property is discussed further below.)
+η is called the natural parameter. The set of values of η for which the function fX(x;η)_X(x;η) is integrable is called the natural parameter space. It can be shown that the natural parameter space is always convex.
+A(η) is called the log-partition function[b] because it is the logarithm of a normalization factor, without which fX(x;θ)_X(x;θ) would not be a probability distribution:
+A(η)=log⁡(∫Xh(x)exp⁡(η(θ)⋅T(x))dx)(η)=log(∫_Xh(x) exp(η(θ)(x)) dx)
+The function A is important in its own right, because the mean, variance and other moments of the sufficient statistic T(x) can be derived simply by differentiating A(η). For example, because log(x) is one of the components of the sufficient statistic of the gamma distribution, E⁡[log⁡x]ℰ[] can be easily determined for this distribution using A(η). Technically, this is true because 
+
+K(u∣η)=A(η+u)−A(η),(u|η)=A(η+u)-A(η) ,
+is the cumulant generating function of the sufficient statistic.
+
+Properties[edit]
+Exponential families have a large number of properties that make them extremely useful for statistical analysis. In many cases, it can be shown that only exponential families have these properties.  Examples:
+
+Exponential families are the only families with sufficient statistics that can summarize arbitrary amounts of independent identically distributed data using a fixed number of values. (Pitman–Koopman–Darmois theorem)
+Exponential families have conjugate priors, an important property in Bayesian statistics.
+The posterior predictive distribution of an exponential-family random variable with a conjugate prior can always be written in closed form (provided that the normalizing factor of the exponential-family distribution can itself be written in closed form).[c]
+In the mean-field approximation in variational Bayes (used for approximating the posterior distribution in large Bayesian networks), the best approximating posterior distribution of an exponential-family node (a node is a random variable in the context of Bayesian networks) with a conjugate prior is in the same family as the node.[8]
+Given an exponential family defined by fX(x∣θ)=h(x)exp[θ⋅T(x)−A(θ)]_X(x|θ)=h(x) exp[ θ(x)-A(θ) ], where ΘΘ is the parameter space, such that θ∈Θ⊂Rkθ∈Θ⊂ℝ^k. Then
+
+If ΘΘ has nonempty interior in Rkℝ^k, then given any IID samples X1,...,Xn∼fX_1,...,X_n_X, the statistic T(X1,...,Xn):=∑i=1nT(Xi)(X_1,...,X_n):=∑_i=1^nT(X_i) is a complete statistic for θθ.[9][10]
+T is a minimal statistic for θθ iff for all θ1,θ2∈Θθ_1,θ_2∈Θ, and x1,x2_1,x_2 in the support of X, if (θ1−θ2)⋅(T(x1)−T(x2))=0(θ_1-θ_2)·(T(x_1)-T(x_2))=0, then θ1=θ2θ_1=θ_2 or x1=x2_1=x_2.[11]
+Examples[edit]
+It is critical, when considering the examples in this section, to remember the discussion above about what it means to say that a "distribution" is an exponential family, and in particular to keep in mind that the set of parameters that are allowed to vary is critical in determining whether a "distribution" is or is not an exponential family.
+The normal, exponential, log-normal, gamma, chi-squared, beta, Dirichlet, Bernoulli, categorical, Poisson, geometric, inverse Gaussian, ALAAM, von Mises, and von Mises-Fisher distributions are all exponential families.
+Some distributions are exponential families only if some of their parameters are held fixed.  The family of Pareto distributions with a fixed minimum bound xm form an exponential family.  The families of binomial and multinomial distributions with fixed number of trials n but unknown probability parameter(s) are exponential families.  The family of negative binomial distributions with fixed number of failures (a.k.a. stopping-time parameter) r is an exponential family.  However, when any of the above-mentioned fixed parameters are allowed to vary, the resulting family is not an exponential family.
+As mentioned above, as a general rule, the support of an exponential family must remain the same across all parameter settings in the family. This is why the above cases (e.g. binomial with varying number of trials, Pareto with varying minimum bound) are not exponential families — in all of the cases, the parameter in question affects the support (particularly, changing the minimum or maximum possible value). For similar reasons, neither the discrete uniform distribution nor continuous uniform distribution are exponential families as one or both bounds vary.
+The Weibull distribution with fixed shape parameter k is an exponential family. Unlike in the previous examples, the shape parameter does not affect the support; the fact that allowing it to vary makes the Weibull non-exponential is due rather to the particular form of the Weibull's probability density function (k appears in the exponent of an exponent).
+In general, distributions that result from a finite or infinite mixture of other distributions, e.g. mixture model densities and compound probability distributions, are not exponential families. Examples are typical Gaussian mixture models as well as many heavy-tailed distributions that result from compounding (i.e. infinitely mixing) a distribution with a prior distribution over one of its parameters, e.g. the Student's t-distribution (compounding a normal distribution over a gamma-distributed precision prior), and the beta-binomial and Dirichlet-multinomial distributions.  Other examples of distributions that are not exponential families are the F-distribution, Cauchy distribution, hypergeometric distribution and logistic distribution.
+Following are some detailed examples of the representation of some useful distribution as exponential families.
+
+Normal distribution: unknown mean, known variance[edit]
+As a first example, consider a random variable distributed normally with unknown mean μ and known variance σ2. The probability density function is then
+
+fσ(x;μ)=12πσ2e−(x−μ)2/(2σ2)._σ(x;μ)=1/√(2πσ^2)e^-(x-μ)^2/(2σ^2).
+This is a single-parameter exponential family, as can be seen by setting
+
+hσ(x)=12πσ2e−x2/(2σ2)Tσ(x)=xσAσ(μ)=μ22σ2ησ(μ)=μσ.h_σ(x)   =1/√(2πσ^2)e^-x^2/(2σ^2)
+T_σ(x)   =x/σ
+A_σ(μ)   =μ^2/2σ^2
+η_σ(μ)   =μ/σ.
+If σ = 1 this is in canonical form, as then η(μ) = μ.
+
+Normal distribution: unknown mean and unknown variance[edit]
+Next, consider the case of a normal distribution with unknown mean and unknown variance. The probability density function is then
+
+f(y;μ,σ)=12πσ2e−(y−μ)2/2σ2.(y;μ,σ)=1/√(2πσ^2)e^-(y-μ)^2/2σ^2.
+This is an exponential family which can be written in canonical form by defining
+
+η=[μσ2,−12σ2]h(y)=12πT(y)=(y,y2)TA(η)=μ22σ2+log⁡|σ|=−η124η2+12log⁡|12η2|η   =[ μ/σ^2, -1/2σ^2 ]
+h(y)   =1/√(2π)
+T(y)   =(y,y^2)^T
+A(η)   =μ^2/2σ^2+log|σ|=-η_1^2/4η_2+1/2log|1/2η_2|
+Binomial distribution[edit]
+As an example of a discrete exponential family, consider the binomial distribution with known number of trials n. The probability mass function for this distribution is
+
+f(x)=(nx)px(1−p)n−x,x∈0,1,2,…,n.(x)=np^x(1-p)^n-x,∈{0,1,2,…,n}.
+This can equivalently be written as
+
+f(x)=(nx)exp⁡(xlog⁡(p1−p)+nlog⁡(1−p)),(x)=nexp(xlog(p/1-p)+nlog(1-p)),
+which shows that the binomial distribution is an exponential family, whose natural parameter is
+
+η=log⁡p1−p.η=logp/1-p.
+This function of p is known as logit.
+
+Table of distributions[edit]
+The following table shows how to rewrite a number of common distributions as exponential-family distributions with natural parameters. Refer  to the flashcards[12] for main exponential families.
+For a scalar variable and scalar parameter, the form is as follows:
+
+fX(x∣θ)=h(x)exp⁡(η(θ)T(x)−A(η))_X(x|θ)=h(x)exp(η(θ)T(x)-A(η))
+For a scalar variable and vector parameter:
+
+fX(x∣θ)=h(x)exp⁡(η(θ)⋅T(x)−A(η))_X(x|θ)=h(x)exp(η(θ)·𝐓(x)-A(η))
+fX(x∣θ)=h(x)g(θ)exp⁡(η(θ)⋅T(x))_X(x|θ)=h(x)g(θ)exp(η(θ)·𝐓(x))
+For a vector variable and vector parameter:
+
+fX(x∣θ)=h(x)exp⁡(η(θ)⋅T(x)−A(η))_X(𝐱|θ)=h(𝐱)exp(η(θ)·𝐓(𝐱)-A(η))
+The above formulas choose the functional form of the exponential-family with a log-partition function A(η)(η). The reason for this is so that the moments of the sufficient statistics can be calculated easily, simply by differentiating this function.  Alternative forms involve either parameterizing this function in terms of the normal parameter θθ instead of the natural parameter, and/or using a factor g(η)(η) outside of the exponential. The relation between the latter and the former is:
+
+A(η)=−log⁡g(η)(η)=-(η)
+g(η)=e−A(η)(η)=e^-A(η)
+To convert between the representations involving the two types of parameter, use the formulas below for writing one type of parameter in terms of the other.
+
+
+
+Distribution
+
+Parameter(s) θθ
+
+Natural parameter(s) ηη
+
+Inverse parameter mapping
+
+Base measure h(x)(x)
+
+Sufficient statistic T(x)(x)
+
+Log-partition A(η)(η)
+
+Log-partition A(θ)(θ)
+
+
+Bernoulli distribution
+p
+
+log⁡p1−plogp/1-p
+This is the logit function.
+
+11+e−η=eη1+eη1/1+e^-η=e^η/1+e^η
+This is the logistic function.
+
+11
+
+x
+
+log⁡(1+eη)log(1+e^η)
+
+−log⁡(1−p)-log(1-p)
+
+
+binomial distributionwith known number of trials n
+p
+
+log⁡p1−plogp/1-p
+
+11+e−η=eη1+eη1/1+e^-η=e^η/1+e^η
+
+(nx)n
+
+x
+
+nlog⁡(1+eη)log(1+e^η)
+
+−nlog⁡(1−p)-nlog(1-p)
+
+
+Poisson distribution
+λλ
+
+log⁡λlogλ
+
+eη^η
+
+1x!1/x!
+
+x
+
+eη^η
+
+λλ
+
+
+negative binomial distributionwith known number of failures r
+p
+
+log⁡p
+
+eη^η
+
+(x+r−1x)x+r-1
+
+x
+
+−rlog⁡(1−eη)-rlog(1-e^η)
+
+−rlog⁡(1−p)-rlog(1-p)
+
+
+exponential distribution
+λλ
+
+−λ-λ
+
+−η-η
+
+11
+
+x
+
+−log⁡(−η)-log(-η)
+
+−log⁡λ-logλ
+
+
+Pareto distributionwith known minimum value xm_m
+αα
+
+−α−1-α-1
+
+−1−η-1-η
+
+11
+
+log⁡x
+
+−log⁡(−1−η)+(1+η)log⁡xm-log(-1-η)+(1+η)_m
+
+−log⁡α−αlog⁡xm-logα-α_m
+
+
+Weibull distributionwith known shape k
+λλ
+
+−1λk-1/λ^k
+
+(−η)−1/k(-η)^-1/k
+
+xk−1^k-1
+
+xk^k
+
+−log⁡(−η)−log⁡k-log(-η)-
+
+klog⁡λ−log⁡klogλ-
+
+
+Laplace distributionwith known mean μμ
+b
+
+−1b-1/b
+
+−1η-1/η
+
+11
+
+|x−μ||x-μ|
+
+log⁡(−2η)log(-2/η)
+
+log⁡2blog2b
+
+
+chi-squared distribution
+νν
+
+ν2−1ν/2-1
+
+2(η+1)2(η+1)
+
+e−x/2^-x/2
+
+log⁡x
+
+log⁡Γ(η+1)+(η+1)log⁡2logΓ(η+1)+(η+1)log2
+
+log⁡Γ(ν2)+ν2log⁡2logΓ(ν/2)+ν/2log2
+
+
+normal distributionknown variance
+μμ
+
+μσμ/σ
+
+σηση
+
+e−x2/(2σ2)2πσe^-x^2/(2σ^2)/√(2π)σ
+
+xσx/σ
+
+η22η^2/2
+
+μ22σ2μ^2/2σ^2
+
+
+continuous Bernoulli distribution
+λλ
+
+log⁡λ1−λlogλ/1-λ
+
+eη1+eηe^η/1+e^η
+
+11
+
+x
+
+log⁡eη−1ηloge^η-1/η
+
+log⁡(1−2λ(1−λ)log⁡(1−λλ))log(1-2λ/(1-λ)log(1-λ/λ))
+
+
+normal distribution
+μ,σ2μ,
+sigma^2
+
+[μσ2−12σ2][   μσ^2; -12σ^2 ]
+
+[−η12η2−12η2][ -η_12η_2;   -12η_2 ]
+
+12π1/√(2π)
+
+[xx2][   x; x^2 ]
+
+−η124η2−12log⁡(−2η2)-η_1^2/4η_2-1/2log(-2η_2)
+
+μ22σ2+log⁡σμ^2/2σ^2+logσ
+
+
+log-normal distribution
+μ,σ2μ,
+sigma^2
+
+[μσ2−12σ2][   μσ^2; -12σ^2 ]
+
+[−η12η2−12η2][ -η_12η_2;   -12η_2 ]
+
+12πx1/√(2π)x
+
+[log⁡x(log⁡x)2][     ; ()^2 ]
+
+−η124η2−12log⁡(−2η2)-η_1^2/4η_2-1/2log(-2η_2)
+
+μ22σ2+log⁡σμ^2/2σ^2+logσ
+
+
+inverse Gaussian distribution
+μ,λμ,
+lambda
+
+[−λ2μ2−λ2][ -λ2μ^2;    -λ2 ]
+
+[η2η1−2η2][ √(η_2η_1);     -2η_2 ]
+
+12πx3/21/√(2π)x^3/2
+
+[x1x][  x; 1x ]
+
+−2η1η2−12log⁡(−2η2)-2√(η_1η_2)-1/2log(-2η_2)
+
+−λμ−12log⁡λ-λ/μ-1/2logλ
+
+
+gamma distribution
+α,βα,
+beta
+
+[α−1−β][ α-1;  -β ]
+
+[η1+1−η2][ η_1+1;  -η_2 ]
+
+11
+
+[log⁡xx][  ; x ]
+
+log⁡Γ(η1+1)−(η1+1)log⁡(−η2)logΓ(η_1+1)-(η_1+1)log(-η_2)
+
+log⁡Γ(α)−αlog⁡βlogΓ(α)-αlogβ
+
+
+k,θ,
+theta
+
+[k−1−1θ][ k-1; -1θ ]
+
+[η1+1−1η2][ η_1+1; -1η_2 ]
+
+log⁡Γ(k)+klog⁡θlogΓ(k)+klogθ
+
+
+inverse gamma distribution
+α,βα,
+beta
+
+[−α−1−β][ -α-1;   -β ]
+
+[−η1−1−η2][ -η_1-1;   -η_2 ]
+
+11
+
+[log⁡x1x][    ; 1/x ]
+
+log⁡Γ(−η1−1)−(−η1−1)log⁡(−η2)logΓ(-η_1-1)-(-η_1-1)log(-η_2)
+
+log⁡Γ(α)−αlog⁡βlogΓ(α)-αlogβ
+
+
+generalized inverse Gaussian distribution
+p,a,b,,
+
+[p−1−a/2−b/2][  p-1; -a/2; -b/2 ]
+
+[η1+1−2η2−2η3][ η_1+1; -2η_2; -2η_3 ]
+
+11
+
+[log⁡xx1x][    ;   x; 1/x ]
+
+log⁡2Kη1+1(4η2η3)−η1+12log⁡η2η3log2K_η_1+1(√(4η_2η_3))-η_1+1/2logη_2/η_3
+
+log⁡2Kp(ab)−p2log⁡ablog2K_p(√(ab))-p/2loga/b
+
+
+scaled inverse chi-squared distribution
+ν,σ2ν,
+sigma^2
+
+[−ν2−1−νσ22][  -ν2-1; -νσ^22 ]
+
+[−2(η1+1)η2η1+1][ -2(η_1+1);  η_2η_1+1 ]
+
+11
+
+[log⁡x1x][    ; 1/x ]
+
+log⁡Γ(−η1−1)−(−η1−1)log⁡(−η2)logΓ(-η_1-1)-(-η_1-1)log(-η_2)
+
+log⁡Γ(ν2)−ν2log⁡νσ22logΓ(ν/2)-ν/2logνσ^2/2
+
+
+beta distribution(variant 1)
+α,βα,
+beta
+
+[αβ][ α; β ]
+
+[η1η2][ η_1; η_2 ]
+
+1x(1−x)1/x(1-x)
+
+[log⁡xlog⁡(1−x)][         ; log(1-x) ]
+
+log⁡Γ(η1)+log⁡Γ(η2)−log⁡Γ(η1+η2)logΓ(η_1)+logΓ(η_2)-logΓ(η_1+η_2)
+
+log⁡Γ(α)+log⁡Γ(β)−log⁡Γ(α+β)logΓ(α)+logΓ(β)-logΓ(α+β)
+
+
+beta distribution(variant 2)
+α,βα,
+beta
+
+[α−1β−1][ α-1; β-1 ]
+
+[η1+1η2+1][ η_1+1; η_2+1 ]
+
+11
+
+[log⁡xlog⁡(1−x)][         ; log(1-x) ]
+
+log⁡Γ(η1+1)+log⁡Γ(η2+1)−log⁡Γ(η1+η2+2)logΓ(η_1+1)+logΓ(η_2+1)-logΓ(η_1+η_2+2)
+
+log⁡Γ(α)+log⁡Γ(β)−log⁡Γ(α+β)logΓ(α)+logΓ(β)-logΓ(α+β)
+
+
+multivariate normal distribution
+μ,Σμ,{Σ
+
+[Σ−1μ−12Σ−1][    Σ^-1μ; -1/2Σ^-1 ]
+
+[−12η2−1η1−12η2−1][ -1/2η_2^-1η_1;    -1/2η_2^-1 ]
+
+(2π)−k2(2π)^-k/2
+
+[xxxT][    𝐱; 𝐱𝐱^𝖳 ]
+
+−14η1Tη2−1η1−12log⁡|−2η2|-1/4η_1^𝖳η_2^-1η_1-1/2log|-2η_2|
+
+12μTΣ−1μ+12log⁡|Σ|1/2μ^𝖳Σ^-1μ+1/2log|Σ|
+
+
+categorical distribution(variant 1)
+p1,…,pk_1,
+ldots, p_kwhere ∑i=1kpi=1∑_i=1^kp_i=1
+
+[log⁡p1⋮log⁡pk][ _1;  ⋮; _k ]
+
+[eη1⋮eηk][ e^η_1;     ⋮; e^η_k ] where ∑i=1keηi=1∑_i=1^ke^η_i=1
+
+11
+
+[[x=1]⋮[x=k]][ [x=1];     ⋮; [x=k] ]
+[x=i][x=i] is the Iverson bracket*
+
+00
+
+00
+
+
+categorical distribution(variant 2)
+p1,…,pk_1,
+ldots, p_kwhere ∑i=1kpi=1∑_i=1^kp_i=1
+
+[log⁡p1+C⋮log⁡pk+C][ _1+C;    ⋮; _k+C ]
+
+[1Ceη1⋮1Ceηk]=[ 1Ce^η_1;       ⋮; 1Ce^η_k ]=
+[eη1∑i=1keηi⋮eηk∑i=1keηi][ e^η_1∑_i=1^ke^η_i;                 ⋮; e^η_k∑_i=1^ke^η_i ]
+where ∑i=1keηi=C∑_i=1^ke^η_i=C
+
+
+11
+
+[[x=1]⋮[x=k]][ [x=1];     ⋮; [x=k] ]
+[x=i][x=i] is the Iverson bracket*
+
+00
+
+00
+
+
+categorical distribution(variant 3)
+p1,…,pk_1,
+ldots, p_kwhere pk=1−∑i=1k−1pi_k=1-∑_i=1^k-1p_i
+
+[log⁡p1pk⋮log⁡pk−1pk0]=[   logp_1p_k;           ⋮; logp_k-1p_k;           0 ]=[log⁡p11−∑i=1k−1pi⋮log⁡pk−11−∑i=1k−1pi0][   logp_11-∑_i=1^k-1p_i;                      ⋮; logp_k-11-∑_i=1^k-1p_i;                      0 ]
+This is the inverse softmax function, a generalization of the logit function.
+
+[eη1∑i=1keηi⋮eηk∑i=1keηi]=[ e^η_1∑_i=1^ke^η_i;                 ⋮; e^η_k∑_i=1^ke^η_i ]=
+[eη11+∑i=1k−1eηi⋮eηk−11+∑i=1k−1eηi11+∑i=1k−1eηi][   e^η_11+∑_i=1^k-1e^η_i;                       ⋮; e^η_k-11+∑_i=1^k-1e^η_i;       11+∑_i=1^k-1e^η_i ]
+
+This is the softmax function, a generalization of the logistic function.
+
+11
+
+[[x=1]⋮[x=k]][ [x=1];     ⋮; [x=k] ]
+[x=i][x=i] is the Iverson bracket*
+
+log⁡(∑i=1keηi)=log⁡(1+∑i=1k−1eηi)log(∑_i=1^ke^η_i)=log(1+∑_i=1^k-1e^η_i)
+
+−log⁡pk=−log⁡(1−∑i=1k−1pi)-_k=-log(1-∑_i=1^k-1p_i)
+
+
+multinomial distribution(variant 1)with known number of trials n
+p1,…,pk_1,
+ldots, p_kwhere ∑i=1kpi=1∑_i=1^kp_i=1
+
+[log⁡p1⋮log⁡pk][ _1;  ⋮; _k ]
+
+[eη1⋮eηk][ e^η_1;     ⋮; e^η_k ]where ∑i=1keηi=1∑_i=1^ke^η_i=1
+
+n!∏i=1kxi!n!/∏_i=1^kx_i!
+
+[x1⋮xk][ x_1;   ⋮; x_k ]
+
+00
+
+00
+
+
+multinomial distribution(variant 2)with known number of trials n
+p1,…,pk_1,
+ldots, p_kwhere ∑i=1kpi=1∑_i=1^kp_i=1
+
+[log⁡p1+C⋮log⁡pk+C][ _1+C;    ⋮; _k+C ]
+
+[1Ceη1⋮1Ceηk]=[ 1Ce^η_1;       ⋮; 1Ce^η_k ]=
+[eη1∑i=1keηi⋮eηk∑i=1keηi][ e^η_1∑_i=1^ke^η_i;                 ⋮; e^η_k∑_i=1^ke^η_i ]
+where ∑i=1keηi=C∑_i=1^ke^η_i=C
+
+
+n!∏i=1kxi!n!/∏_i=1^kx_i!
+
+[x1⋮xk][ x_1;   ⋮; x_k ]
+
+00
+
+00
+
+
+multinomial distribution(variant 3)with known number of trials n
+
+p1,…,pk_1,
+ldots, p_kwhere pk=1−∑i=1k−1pi_k=1-∑_i=1^k-1p_i
+
+[log⁡p1pk⋮log⁡pk−1pk0]=[   logp_1p_k;           ⋮; logp_k-1p_k;           0 ]=[log⁡p11−∑i=1k−1pi⋮log⁡pk−11−∑i=1k−1pi0][   logp_11-∑_i=1^k-1p_i;                      ⋮; logp_k-11-∑_i=1^k-1p_i;                      0 ]
+
+[eη1∑i=1keηi⋮eηk∑i=1keηi]=[ e^η_1∑_i=1^ke^η_i;                 ⋮; e^η_k∑_i=1^ke^η_i ]=
+[eη11+∑i=1k−1eηi⋮eηk−11+∑i=1k−1eηi11+∑i=1k−1eηi][   e^η_11+∑_i=1^k-1e^η_i;                       ⋮; e^η_k-11+∑_i=1^k-1e^η_i;       11+∑_i=1^k-1e^η_i ]
+
+
+n!∏i=1kxi!n!/∏_i=1^kx_i!
+
+[x1⋮xk][ x_1;   ⋮; x_k ]
+
+nlog⁡(∑i=1keηi)=nlog⁡(1+∑i=1k−1eηi)log(∑_i=1^ke^η_i)=nlog(1+∑_i=1^k-1e^η_i)
+
+−nlog⁡pk=−nlog⁡(1−∑i=1k−1pi)-n_k=-nlog(1-∑_i=1^k-1p_i)
+
+
+Dirichlet distribution(variant 1)
+α1,…,αkα_1,
+ldots, α_k
+
+[α1⋮αk][ α_1;   ⋮; α_k ]
+
+[η1⋮ηk][ η_1;   ⋮; η_k ]
+
+1∏i=1kxi1/∏_i=1^kx_i
+
+[log⁡x1⋮log⁡xk][ _1;  ⋮; _k ]
+
+∑i=1klog⁡Γ(ηi)−log⁡Γ(∑i=1kηi)∑_i=1^klogΓ(η_i)-logΓ(∑_i=1^kη_i)
+
+∑i=1klog⁡Γ(αi)−log⁡Γ(∑i=1kαi)∑_i=1^klogΓ(α_i)-logΓ(∑_i=1^kα_i)
+
+
+Dirichlet distribution(variant 2)
+α1,…,αkα_1,
+ldots, α_k
+
+[α1−1⋮αk−1][ α_1-1;     ⋮; α_k-1 ]
+
+[η1+1⋮ηk+1][ η_1+1;     ⋮; η_k+1 ]
+
+11
+
+[log⁡x1⋮log⁡xk][ _1;  ⋮; _k ]
+
+∑i=1klog⁡Γ(ηi+1)−log⁡Γ(∑i=1k(ηi+1))∑_i=1^klogΓ(η_i+1)-logΓ(∑_i=1^k(η_i+1))
+
+∑i=1klog⁡Γ(αi)−log⁡Γ(∑i=1kαi)∑_i=1^klogΓ(α_i)-logΓ(∑_i=1^kα_i)
+
+
+Wishart distribution
+V,n𝐕,
+
+[−12V−1n−p−12][ -1/2𝐕^-1;   n-p-12 ]
+
+[−12η1−12η2+p+1][ -1/2η_1^-1;   2η_2+p+1 ]
+
+11
+
+[Xlog⁡|X|][      𝐗; log|𝐗| ]
+
+−(η2+p+12)log⁡|−η1|-(η_2+p+1/2)log|-η_1|
+      +log⁡Γp(η2+p+12)=+logΓ_p(η_2+p+1/2)=
+−n2log⁡|−η1|+log⁡Γp(n2)=-n/2log|-η_1|+logΓ_p(n/2)=
+(η2+p+12)(plog⁡2+log⁡|V|)(η_2+p+1/2)(plog2+log|𝐕|)
+      +log⁡Γp(η2+p+12)+logΓ_p(η_2+p+1/2)
+
+Three variants with different parameterizations are given, to facilitate computing moments of the sufficient statistics.
+
+n2(plog⁡2+log⁡|V|)+log⁡Γp(n2)n/2(plog2+log|𝐕|)+logΓ_p(n/2)
+
+
+Note: Uses the fact that tr(ATB)=vec⁡(A)⋅vec⁡(B),tr(𝐀^𝖳𝐁)=vec(𝐀)·vec(𝐁), i.e. the trace of a matrix product is much like a dot product. The matrix parameters are assumed to be vectorized (laid out in a vector) when inserted into the exponential form. Also, V𝐕 and X𝐗 are symmetric, so e.g. VT=V.𝐕^𝖳=𝐕
+
+
+inverse Wishart distribution
+Ψ,mΨ, m
+
+[−12Ψ−m+p+12][   -1/2Ψ; -m+p+12 ]
+
+[−2η1−(2η2+p+1)][       -2η_1; -(2η_2+p+1) ]
+
+11
+
+[X−1log⁡|X|][   𝐗^-1; log|𝐗| ]
+
+(η2+p+12)log⁡|−η1|(η_2+p+1/2)log|-η_1|
+      +log⁡Γp(−(η2+p+12))=+logΓ_p(-(η_2+p+1/2))=
+−m2log⁡|−η1|+log⁡Γp(m2)=-m/2log|-η_1|+logΓ_p(m/2)=
+−(η2+p+12)(plog⁡2−log⁡|Ψ|)-(η_2+p+1/2)(plog2-log|Ψ|)
+      +log⁡Γp(−(η2+p+12))+logΓ_p(-(η_2+p+1/2))
+
+
+m2(plog⁡2−log⁡|Ψ|)+log⁡Γp(m2)m/2(plog2-log|Ψ|)+logΓ_p(m/2)
+
+
+normal-gamma distribution
+α,β,μ,λα,
+beta,
+mu,
+lambda
+
+[α−12−β−λμ22λμ−λ2][    α-1/2; -β-λμ^22;       λμ;      -λ2 ]
+
+[η1+12−η2+η324η4−η32η4−2η4][        η_1+1/2; -η_2+η_3^24η_4;       -η_32η_4;          -2η_4 ]
+
+12π1√(2π)
+
+[log⁡τττxτx2][ logτ;    τ;     ;   ^2 ]
+
+log⁡Γ(η1+12)−12log⁡(−2η4)logΓ(η_1+1/2)-1/2log(-2η_4)
+      −(η1+12)log⁡(−η2+η324η4)-(η_1+1/2)log(-η_2+η_3^24η_4)
+
+
+log⁡Γ(α)−αlog⁡β−12log⁡λlogΓ(α)-αlogβ-1/2logλ
+
+* The Iverson bracket is a generalization of the discrete delta-function: If the bracketed expression is true, the bracket has value 1; if the enclosed statement is false, the Iverson bracket is zero. There are many variant notations, e.g. wavey brackets: ⧙a=b⧘ is equivalent to the [a=b] notation used above.
+The three variants of the categorical distribution and multinomial distribution are due to the fact that the parameters pi_i are constrained, such that
+
+∑i=1kpi=1.∑_i=1^kp_i=1 .
+Thus, there are only k−1-1 independent parameters.
+
+Variant 1 uses k natural parameters with a simple relation between the standard and natural parameters; however, only k−1-1 of the natural parameters are independent, and the set of k natural parameters is nonidentifiable.  The constraint on the usual parameters translates to a similar constraint on the natural parameters.
+Variant 2 demonstrates the fact that the entire set of natural parameters is nonidentifiable: Adding any constant value to the natural parameters has no effect on the resulting distribution. However, by using the constraint on the natural parameters, the formula for the normal parameters in terms of the natural parameters can be written in a way that is independent on the constant that is added.
+Variant 3 shows how to make the parameters identifiable in a convenient way by setting C=−log⁡pk.=-_k This effectively "pivots" around pk_k and causes the last natural parameter to have the constant value of 0. All the remaining formulas are written in a way that does not access pk_k}, so that effectively the model has only k−1-1 parameters, both of the usual and natural kind.
+Variants 1 and 2 are not actually standard exponential families at all. Rather they are curved exponential families, i.e. there are k−1-1 independent parameters embedded in a k-dimensional parameter space.[13] Many of the standard results for exponential families do not apply to curved exponential families. An example is the log-partition function A(x)(x)}, which has the value of 0 in the curved cases. In standard exponential families, the derivatives of this function correspond to the moments (more technically, the cumulants) of the sufficient statistics, e.g. the mean and variance. However, a value of 0 suggests that the mean and variance of all the sufficient statistics are uniformly 0, whereas in fact the mean of the ith sufficient statistic should be pi_i}. (This does emerge correctly when using the form of A(x)(x)} shown in variant 3.)
+
+Moments and cumulants of the sufficient statistic[edit]
+Normalization of the distribution[edit]
+We start with the normalization of the probability distribution. In general, any non-negative function f(x) that serves as the kernel of a probability distribution (the part encoding all dependence on x) can be made into a proper distribution by normalizing: i.e.
+
+p(x)=1Zf(x)(x)=1/Zf(x)
+where
+
+Z=∫xf(x)dx.=∫_xf(x) dx.
+The factor Z is sometimes termed the normalizer or partition function, based on an analogy to statistical physics.
+In the case of an exponential family where 
+
+p(x;η)=g(η)h(x)eη⋅T(x),(x;η)=g(η)h(x)e^η·𝐓(x),
+the kernel is
+
+K(x)=h(x)eη⋅T(x)(x)=h(x)e^η·𝐓(x)
+and the partition function is
+
+Z=∫xh(x)eη⋅T(x)dx.=∫_xh(x)e^η·𝐓(x) dx.
+Since the distribution must be normalized, we have
+
+1=∫xg(η)h(x)eη⋅T(x)dx=g(η)∫xh(x)eη⋅T(x)dx=g(η)Z.1=∫_xg(η)h(x)e^η·𝐓(x) dx=g(η)∫_xh(x)e^η·𝐓(x) dx=g(η)Z.
+In other words,
+
+g(η)=1Z(η)=1/Z
+or equivalently
+
+A(η)=−log⁡g(η)=log⁡Z.(η)=-(η)=.
+This justifies calling A the log-normalizer or log-partition function.
+
+Moment-generating function of the sufficient statistic[edit]
+Now, the moment-generating function of T(x) is
+
+MT(u)≡E[eu⊤T(x)∣η]=∫xh(x)e(η+u)⊤T(x)−A(η)dx=eA(η+u)−A(η)_T(u)[e^u^⊤T(x)|η]=∫_xh(x)e^(η+u)^⊤T(x)-A(η) dx=e^A(η+u)-A(η)
+proving the earlier statement that
+
+K(u∣η)=A(η+u)−A(η)(u|η)=A(η+u)-A(η)
+is the cumulant generating function for T.
+An important subclass of exponential families are the natural exponential families, which have a similar form for the moment-generating function for the distribution of x.
+
+Differential identities for cumulants[edit]
+In particular, using the properties of the cumulant generating function,
+
+E⁡(Tj)=∂A(η)∂ηjE(T_j)=(η)/∂η_j
+and
+
+cov⁡(Ti,Tj)=∂2A(η)∂ηi∂ηj.cov(T_i,_j)=∂^2A(η)/∂η_i ∂η_j.
+The first two raw moments and all mixed second moments can be recovered from these two identities. Higher-order moments and cumulants are obtained by higher derivatives. This technique is often useful when T is a complicated function of the data, whose moments are difficult to calculate by integration.
+Another way to see this that does not rely on the theory of cumulants is to begin from the fact that the distribution of an exponential family must be normalized, and differentiate.  We illustrate using the simple case of a one-dimensional parameter, but an analogous derivation holds more generally.
+In the one-dimensional case, we have
+
+p(x)=g(η)h(x)eηT(x).(x)=g(η)h(x)e^(x).
+This must be normalized, so
+
+1=∫xp(x)dx=∫xg(η)h(x)eηT(x)dx=g(η)∫xh(x)eηT(x)dx.1=∫_xp(x) dx=∫_xg(η)h(x)e^(x) dx=g(η)∫_xh(x)e^(x) dx.
+Take the derivative of both sides with respect to η:
+
+0=g(η)ddη∫xh(x)eηT(x)dx+g′(η)∫xh(x)eηT(x)dx=g(η)∫xh(x)(ddηeηT(x))dx+g′(η)∫xh(x)eηT(x)dx=g(η)∫xh(x)eηT(x)T(x)dx+g′(η)∫xh(x)eηT(x)dx=∫xT(x)g(η)h(x)eηT(x)dx+g′(η)g(η)∫xg(η)h(x)eηT(x)dx=∫xT(x)p(x)dx+g′(η)g(η)∫xp(x)dx=E⁡[T(x)]+g′(η)g(η)=E⁡[T(x)]+ddηlog⁡g(η)0   =g(η)d/dη∫_xh(x)e^(x) dx+g'(η)∫_xh(x)e^(x) dx
+   =g(η)∫_xh(x)(d/dηe^(x)) dx+g'(η)∫_xh(x)e^(x) dx
+   =g(η)∫_xh(x)e^(x)T(x) dx+g'(η)∫_xh(x)e^(x) dx
+   =∫_xT(x)g(η)h(x)e^(x) dx+g'(η)/g(η)∫_xg(η)h(x)e^(x) dx
+   =∫_xT(x)p(x) dx+g'(η)/g(η)∫_xp(x) dx
+   =E[T(x)]+g'(η)/g(η)
+   =E[T(x)]+d/dη(η)
+Therefore,
+
+E⁡[T(x)]=−ddηlog⁡g(η)=ddηA(η).E[T(x)]=-d/dη(η)=d/dηA(η).
+Example 1[edit]
+As an introductory example, consider the gamma distribution, whose distribution is defined by
+
+p(x)=βαΓ(α)xα−1e−βx.(x)=β^α/Γ(α)x^α-1e^-.
+Referring to the above table, we can see that the natural parameter is given by
+
+η1=α−1,η_1=α-1,
+η2=−β,η_2=-β,
+the reverse substitutions are
+
+α=η1+1,α=η_1+1,
+β=−η2,β=-η_2,
+the sufficient statistics are (log⁡x,x),(,x), and the log-partition function is
+
+A(η1,η2)=log⁡Γ(η1+1)−(η1+1)log⁡(−η2).(η_1,η_2)=logΓ(η_1+1)-(η_1+1)log(-η_2).
+We can find the mean of the sufficient statistics as follows.  First, for η1:
+
+E⁡[log⁡x]=∂A(η1,η2)∂η1=∂∂η1(log⁡Γ(η1+1)−(η1+1)log⁡(−η2))=ψ(η1+1)−log⁡(−η2)=ψ(α)−log⁡β,E[]   =(η_1,η_2)/∂η_1=∂/∂η_1(logΓ(η_1+1)-(η_1+1)log(-η_2))
+   =ψ(η_1+1)-log(-η_2)
+   =ψ(α)-logβ,
+Where ψ(x)ψ(x) is the digamma function (derivative of log gamma), and we used the reverse substitutions in the last step.
+Now, for η2:
+
+E⁡[x]=∂A(η1,η2)∂η2=∂∂η2(log⁡Γ(η1+1)−(η1+1)log⁡(−η2))=−(η1+1)1−η2(−1)=η1+1−η2=αβ,E[x]   =(η_1,η_2)/∂η_2=∂/∂η_2(logΓ(η_1+1)-(η_1+1)log(-η_2))
+   =-(η_1+1)1/-η_2(-1)=η_1+1/-η_2
+   =α/β,
+again making the reverse substitution in the last step.
+To compute the variance of x, we just differentiate again:
+
+Var⁡(x)=∂2A(η1,η2)∂η22=∂∂η2η1+1−η2=η1+1η22=αβ2.Var(x)   =∂^2A(η_1,η_2)/∂η_2^2=∂/∂η_2η_1+1/-η_2
+   =η_1+1/η_2^2
+   =α/β^2.
+All of these calculations can be done using integration, making use of various properties of the gamma function, but this requires significantly more work.
+
+Example 2[edit]
+As another example consider a real valued random variable X with density
+
+pθ(x)=θe−x(1+e−x)θ+1_θ(x)=^-x/(1+e^-x)^θ+1
+indexed by shape parameter θ∈(0,∞)θ∈(0,∞) (this is called the skew-logistic distribution). The density can be rewritten as
+
+e−x1+e−xexp⁡(−θlog⁡(1+e−x)+log⁡(θ))e^-x/1+e^-xexp(-θlog(1+e^-x)+log(θ))
+Notice this is an exponential family with natural parameter
+
+η=−θ,η=-θ,
+sufficient statistic
+
+T=log⁡(1+e−x),=log(1+e^-x),
+and log-partition function
+
+A(η)=−log⁡(θ)=−log⁡(−η)(η)=-log(θ)=-log(-η)
+So using the first identity,
+
+E⁡(log⁡(1+e−X))=E⁡(T)=∂A(η)∂η=∂∂η[−log⁡(−η)]=1−η=1θ,E(log(1+e^-X))=E(T)=(η)/∂η=∂/∂η[-log(-η)]=1/-η=1/θ,
+and using the second identity
+
+var⁡(log⁡(1+e−X))=∂2A(η)∂η2=∂∂η[1−η]=1(−η)2=1θ2.var(log(1+e^-X))=∂^2A(η)/∂η^2=∂/∂η[1/-η]=1/(-η)^2=1/θ^2.
+This example illustrates a case where using this method is very simple, but the direct calculation would be nearly impossible.
+
+Example 3[edit]
+The final example is one where integration would be extremely difficult.  This is the case of the Wishart distribution, which is defined over matrices.  Even taking derivatives is a bit tricky, as it involves matrix calculus, but the respective identities are listed in that article.
+From the above table, we can see that the natural parameter is given by
+
+η1=−12V−1,η_1=-1/2𝐕^-1,
+η2=n−p−12,η_2=n-p-1/2,
+the reverse substitutions are
+
+V=−12η1−1,𝐕=-1/2η_1^-1,
+n=2η2+p+1,=2η_2+p+1,
+and the sufficient statistics are (X,log⁡|X|).(𝐗,log|𝐗|).
+The log-partition function is written in various forms in the table, to facilitate differentiation and back-substitution.  We use the following forms:
+
+A(η1,n)=−n2log⁡|−η1|+log⁡Γp(n2),(η_1,n)=-n/2log|-η_1|+logΓ_p(n/2),
+A(V,η2)=(η2+p+12)(plog⁡2+log⁡|V|)+log⁡Γp(η2+p+12).(𝐕,η_2)=(η_2+p+1/2)(plog2+log|𝐕|)+logΓ_p(η_2+p+1/2).
+Expectation of X (associated with η1)
+To differentiate with respect to η1, we need the following matrix calculus identity:
+
+∂log⁡|aX|∂X=(X−1)T∂log|a𝐗|/∂𝐗=(𝐗^-1)^T
+Then:
+
+E⁡[X]=∂A(η1,…)∂η1=∂∂η1[−n2log⁡|−η1|+log⁡Γp(n2)]=−n2(η1−1)T=n2(−η1−1)T=n(V)T=nVE[𝐗]   =(η_1,…)/∂η_1
+   =∂/∂η_1[-n/2log|-η_1|+logΓ_p(n/2)]
+   =-n/2(η_1^-1)^T
+   =n/2(-η_1^-1)^T
+   =n(𝐕)^T
+   =n𝐕
+The last line uses the fact that V is symmetric, and therefore it is the same when transposed.
+
+Expectation of log |X| (associated with η2)
+Now, for η2, we first need to expand the part of the log-partition function that involves the multivariate gamma function:
+
+log⁡Γp(a)=log⁡(πp(p−1)4∏j=1pΓ(a+1−j2))=p(p−1)4log⁡π+∑j=1plog⁡Γ[a+1−j2]logΓ_p(a)=log(π^p(p-1)/4∏_j=1^pΓ(a+1-j/2))=p(p-1)/4logπ+∑_j=1^plogΓ[a+1-j/2]
+We also need the digamma function:
+
+ψ(x)=ddxlog⁡Γ(x).ψ(x)=d/dxlogΓ(x).
+Then:
+
+E⁡[log⁡|X|]=∂A(…,η2)∂η2=∂∂η2[−(η2+p+12)(plog⁡2+log⁡|V|)+log⁡Γp(η2+p+12)]=∂∂η2[(η2+p+12)(plog⁡2+log⁡|V|)+p(p−1)4log⁡π+∑j=1plog⁡Γ(η2+p+12+1−j2)]=plog⁡2+log⁡|V|+∑j=1pψ(η2+p+12+1−j2)=plog⁡2+log⁡|V|+∑j=1pψ(n−p−12+p+12+1−j2)=plog⁡2+log⁡|V|+∑j=1pψ(n+1−j2)E[log|𝐗|]   =(…,η_2)/∂η_2
+   =∂/∂η_2[-(η_2+p+1/2)(plog2+log|𝐕|)+logΓ_p(η_2+p+1/2)]
+   =∂/∂η_2[(η_2+p+1/2)(plog2+log|𝐕|)+p(p-1)/4logπ+∑_j=1^plogΓ(η_2+p+1/2+1-j/2)]
+   =plog2+log|𝐕|+∑_j=1^pψ(η_2+p+1/2+1-j/2)
+   =plog2+log|𝐕|+∑_j=1^pψ(n-p-1/2+p+1/2+1-j/2)
+   =plog2+log|𝐕|+∑_j=1^pψ(n+1-j/2)
+This latter formula is listed in the Wishart distribution article.  Both of these expectations are needed when deriving the variational Bayes update equations in a Bayes network involving a Wishart distribution (which is the conjugate prior of the multivariate normal distribution).
+Computing these formulas using integration would be much more difficult.  The first one, for example, would require matrix integration.
+
+Entropy[edit]
+Relative entropy[edit]
+The relative entropy (Kullback–Leibler divergence, KL divergence) of two distributions in an exponential family has a simple expression as the Bregman divergence between the natural parameters with respect to the log-normalizer.[14] The relative entropy is defined in terms of an integral, while the Bregman divergence is defined in terms of a derivative and inner product, and thus is easier to calculate and has a closed-form expression (assuming the derivative has a closed-form expression). Further, the Bregman divergence in terms of the natural parameters and the log-normalizer equals the Bregman divergence of the dual parameters (expectation parameters), in the opposite order, for the convex conjugate function.[15]
+Fixing an exponential family with log-normalizer A (with convex conjugate A∗^*), writing PA,θ_A,θ for the distribution in this family corresponding a fixed value of the natural parameter θθ (writing θ′θ' for another value, and with η,η′η,η' for the corresponding dual expectation/moment parameters), writing KL for the KL divergence, and BA_A for the Bregman divergence, the divergences are related as:
+
+KL(PA,θ∥PA,θ′)=BA(θ′∥θ)=BA∗(η∥η′).KL(P_A,θ_A,θ')=B_A(θ'∥θ)=B_A^*(η∥η').
+The KL divergence is conventionally written with respect to the first parameter, while the Bregman divergence is conventionally written with respect to the second parameter, and thus this can be read as "the relative entropy is equal to the Bregman divergence defined by the log-normalizer on the swapped natural parameters", or equivalently as "equal to the Bregman divergence defined by the dual to the log-normalizer on the expectation parameters".
+
+Maximum-entropy derivation[edit]
+Exponential families arise naturally as the answer to the following question: what is the maximum-entropy distribution consistent with given constraints on expected values?
+The information entropy of a probability distribution dF(x) can only be computed with respect to some other probability distribution (or, more generally, a positive measure), and both measures must be mutually absolutely continuous. Accordingly, we need to pick a reference measure dH(x) with the same support as dF(x).
+The entropy of dF(x) relative to dH(x) is
+
+S[dF∣dH]=−∫dFdHlog⁡dFdHdH[dF]=-∫dF/dHlogdF/dH dH
+or
+
+S[dF∣dH]=∫log⁡dHdFdF[dF]=∫logdH/dF dF
+where dF/dH and dH/dF are Radon–Nikodym derivatives. The ordinary definition of entropy for a discrete distribution supported on a set I, namely
+
+S=−∑i∈Ipilog⁡pi=-∑_ip_i_i
+assumes, though this is seldom pointed out, that dH is chosen to be the counting measure on I.
+Consider now a collection of observable quantities (random variables) Ti. The probability distribution dF whose entropy with respect to dH is greatest, subject to the conditions that the expected value of Ti be equal to ti, is an exponential family with dH as reference measure and (T1, ..., Tn) as sufficient statistic.
+The derivation is a simple variational calculation using Lagrange multipliers. Normalization is imposed by letting T0 = 1 be one of the constraints. The natural parameters of the distribution are the Lagrange multipliers, and the normalization factor is the Lagrange multiplier associated to T0.
+For examples of such derivations, see Maximum entropy probability distribution.
+
+Role in statistics[edit]
+Classical estimation: sufficiency[edit]
+According to the Pitman–Koopman–Darmois theorem, among families of probability distributions whose domain does not vary with the parameter being estimated, only in exponential families is there a sufficient statistic whose dimension remains bounded as sample size increases.
+Less tersely, suppose Xk, (where k = 1, 2, 3, ... n) are independent, identically distributed random variables. Only if their distribution is one of the exponential family of distributions is there a sufficient statistic T(X1, ..., Xn) whose number of scalar components does not increase as the sample size n increases; the statistic T may be a vector or a single scalar number, but whatever it is, its size will neither grow nor shrink when more data are obtained.
+As a counterexample if these conditions are relaxed, the family of uniform distributions (either discrete or continuous, with either or both bounds unknown) has a sufficient statistic, namely the sample maximum, sample minimum, and sample size, but does not form an exponential family, as the domain varies with the parameters.
+
+Bayesian estimation: conjugate distributions[edit]
+Exponential families are also important in Bayesian statistics. In Bayesian statistics a prior distribution is multiplied by a likelihood function and then normalised to produce a posterior distribution. In the case of a likelihood which belongs to an exponential family there exists a conjugate prior, which is often also in an exponential family. A conjugate prior π for the parameter ηη of an exponential family
+
+f(x∣η)=h(x)exp⁡(ηTT(x)−A(η))(x|η)=h(x)exp(η^T𝐓(x)-A(η))
+is given by
+
+pπ(η∣χ,ν)=f(χ,ν)exp⁡(ηTχ−νA(η)),_π(η|χ,ν)=f(χ,ν)exp(η^Tχ-(η)),
+or equivalently
+
+pπ(η∣χ,ν)=f(χ,ν)g(η)νexp⁡(ηTχ),χ∈Rs_π(η|χ,ν)=f(χ,ν)g(η)^νexp(η^Tχ),    χ∈ℝ^s
+where s is the dimension of ηη and ν>0ν>0 and χχ are hyperparameters (parameters controlling parameters). νν corresponds to the effective number of observations that the prior distribution contributes, and χχ corresponds to the total amount that these pseudo-observations contribute to the sufficient statistic over all observations and pseudo-observations. f(χ,ν)(χ,ν) is a normalization constant that is automatically determined by the remaining functions and serves to ensure that the given function is a probability density function (i.e. it is normalized). A(η)(η) and equivalently g(η)(η) are the same functions as in the definition of the distribution over which π is the conjugate prior.
+A conjugate prior is one which, when combined with the likelihood and normalised, produces a posterior distribution which is of the same type as the prior. For example, if one is estimating the success probability of a binomial distribution, then if one chooses to use a beta distribution as one's prior, the posterior is another beta distribution. This makes the computation of the posterior particularly simple. Similarly, if one is estimating the parameter of a Poisson distribution the use of a gamma prior will lead to another gamma posterior. Conjugate priors are often very flexible and can be very convenient. However, if one's belief about the likely value of the theta parameter of a binomial is represented by (say) a bimodal (two-humped) prior distribution, then this cannot be represented by a beta distribution. It can however be represented by using a mixture density as the prior, here a combination of two beta distributions; this is a form of hyperprior.
+An arbitrary likelihood will not belong to an exponential family, and thus in general no conjugate prior exists. The posterior will then have to be computed by numerical methods.
+To show that the above prior distribution is a conjugate prior, we can derive the posterior.
+First, assume that the probability of a single observation follows an exponential family, parameterized using its natural parameter:
+
+pF(x∣η)=h(x)g(η)exp⁡(ηTT(x))_F(x|η)=h(x)g(η)exp(η^T𝐓(x))
+Then, for data X=(x1,…,xn)𝐗=(x_1,…,x_n), the likelihood is computed as follows:
+
+p(X∣η)=(∏i=1nh(xi))g(η)nexp⁡(ηT∑i=1nT(xi))(𝐗|η)=(∏_i=1^nh(x_i))g(η)^nexp(η^T∑_i=1^n𝐓(x_i))
+Then, for the above conjugate prior:
+
+pπ(η∣χ,ν)=f(χ,ν)g(η)νexp⁡(ηTχ)∝g(η)νexp⁡(ηTχ)p_π(η|χ,ν)   =f(χ,ν)g(η)^νexp(η^Tχ)(η)^νexp(η^Tχ)
+We can then compute the posterior as follows:
+
+p(η∣X,χ,ν)∝p(X∣η)pπ(η∣χ,ν)=(∏i=1nh(xi))g(η)nexp⁡(ηT∑i=1nT(xi))f(χ,ν)g(η)νexp⁡(ηTχ)∝g(η)nexp⁡(ηT∑i=1nT(xi))g(η)νexp⁡(ηTχ)∝g(η)ν+nexp⁡(ηT(χ+∑i=1nT(xi)))p(η|𝐗,χ,ν)   (𝐗|η)p_π(η|χ,ν)
+   =(∏_i=1^nh(x_i))g(η)^nexp(η^T∑_i=1^n𝐓(x_i))f(χ,ν)g(η)^νexp(η^Tχ)
+   (η)^nexp(η^T∑_i=1^n𝐓(x_i))g(η)^νexp(η^Tχ)
+   (η)^ν+nexp(η^T(χ+∑_i=1^n𝐓(x_i)))
+The last line is the kernel of the posterior distribution, i.e.
+
+p(η∣X,χ,ν)=pπ(η|χ+∑i=1nT(xi),ν+n)(η|𝐗,χ,ν)=p_π(η| χ+∑_i=1^n𝐓(x_i),ν+n.)
+This shows that the posterior has the same form as the prior.
+The data X enters into this equation only in the expression
+
+T(X)=∑i=1nT(xi),𝐓(𝐗)=∑_i=1^n𝐓(x_i),
+which is termed the sufficient statistic of the data.  That is, the value of the sufficient statistic is sufficient to completely determine the posterior distribution.  The actual data points themselves are not needed, and all sets of data points with the same sufficient statistic will have the same distribution.  This is important because the dimension of the sufficient statistic does not grow with the data size — it has only as many components as the components of ηη (equivalently, the number of parameters of the distribution of a single data point).
+The update equations are as follows:
+
+χ′=χ+T(X)=χ+∑i=1nT(xi)ν′=ν+nχ'   =χ+𝐓(𝐗)
+   =χ+∑_i=1^n𝐓(x_i)
+ν'   =ν+n
+This shows that the update equations can be written simply in terms of the number of data points and the sufficient statistic of the data.  This can be seen clearly in the various examples of update equations shown in the conjugate prior page. Because of the way that the sufficient statistic is computed, it necessarily involves sums of components of the data (in some cases disguised as products or other forms — a product can be written in terms of a sum of logarithms). The cases where the update equations for particular distributions don't exactly match the above forms are cases where the conjugate prior has been expressed using a different parameterization than the one that produces a conjugate prior of the above form — often specifically because the above form is defined over the natural parameter ηη while conjugate priors are usually defined over the actual parameter θ.θ.
+
+Unbiased estimation[edit]
+If the likelihood z|η∼eηzf1(η)f0(z)|η^f_1(η)f_0(z) is an exponential family, then the unbiased estimator of ηη is −ddzln⁡f0(z)-d/dz_0(z).[16]
+
+Hypothesis testing: uniformly most powerful tests[edit]
+Further information: Uniformly most powerful test
+A one-parameter exponential family has a monotone non-decreasing likelihood ratio in the sufficient statistic T(x), provided that η(θ) is non-decreasing. As a consequence, there exists a uniformly most powerful test for testing the hypothesis H0: θ ≥ θ0 vs. H1: θ < θ0.
+
+Generalized linear models[edit]
+Exponential families form the basis for the distribution functions used in generalized linear models (GLM), a class of model that encompasses many of the commonly used regression models in statistics.  Examples include logistic regression using the binomial family and Poisson regression.
+
+See also[edit]
+Exponential dispersion model
+Gibbs measure
+Modified half-normal distribution
+Natural exponential family
+Footnotes[edit]
+
+
+^ For example, the family of normal distributions includes the standard normal distribution N(0, 1) with mean 0 and variance 1, as well as other normal distributions with different mean and variance.
+
+^ "Partition function" is often used in statistics as a synonym of "normalization factor".
+
+^ These distributions are often not themselves exponential families. Common examples of non-exponential families arising from exponential ones are the Student's t-distribution, beta-binomial distribution and Dirichlet-multinomial distribution.
+
+
+References[edit]
+Citations[edit]
+
+
+^ Kupperman, M. (1958). "Probabilities of hypotheses and information-statistics in sampling from exponential-class populations". Annals of Mathematical Statistics. 9 (2): 571–575. doi:10.1214/aoms/1177706633. JSTOR 2237349.
+
+^ Andersen, Erling (September 1970). "Sufficiency and Exponential Families for Discrete Sample Spaces". Journal of the American Statistical Association. Journal of the American Statistical Association. 65 (331): 1248–1255. doi:10.2307/2284291. JSTOR 2284291. MR 0268992.
+
+^ Pitman, E.; Wishart, J. (1936). "Sufficient statistics and intrinsic accuracy". Mathematical Proceedings of the Cambridge Philosophical Society. 32 (4): 567–579. Bibcode:1936PCPS...32..567P. doi:10.1017/S0305004100019307. S2CID 120708376.
+
+^ Darmois, G. (1935). "Sur les lois de probabilites a estimation exhaustive". C. R. Acad. Sci. Paris (in French). 200: 1265–1266.
+
+^ Koopman, B. (1936). "On distribution admitting a sufficient statistic". Transactions of the American Mathematical Society. American Mathematical Society. 39 (3): 399–409. doi:10.2307/1989758. JSTOR 1989758. MR 1501854.
+
+^ "General Exponential Families". www.randomservices.org. Retrieved 2022-08-30.
+
+^ Abramovich & Ritov (2013). Statistical Theory: A Concise Introduction. Chapman & Hall. ISBN 978-1439851845.
+
+^ Blei, David. "Variational Inference" (PDF). Princeton U.
+
+^ Casella, George (2002). Statistical inference. Roger L. Berger (2nd ed.). Australia: Thomson Learning. Theorem 6.2.25. ISBN 0-534-24312-6. OCLC 46538638.
+
+^ Brown, Lawrence D. (1986). Fundamentals of statistical exponential families : with applications in statistical decision theory. Hayward, Calif.: Institute of Mathematical Statistics. Theorem 2.12. ISBN 0-940600-10-2. OCLC 15986663.
+
+^ Keener, Robert W. (2010). Theoretical statistics : topics for a core course. New York. pp. 47, Example 3.12. ISBN 978-0-387-93839-4. OCLC 676700036.{{cite book}}:  CS1 maint: location missing publisher (link)
+
+^ Nielsen, Frank; Garcia, Vincent (2009). "Statistical exponential families: A digest with flash cards". arXiv:0911.4863 [cs.LG].
+
+^ van Garderen, Kees Jan (1997). "Curved Exponential Models in Econometrics". Econometric Theory. 13 (6): 771–790. doi:10.1017/S0266466600006253. S2CID 122742807.
+
+^ Nielsen & Nock 2010, 4. Bregman Divergences and Relative Entropy of Exponential Families.
+
+^ Barndorff-Nielsen 1978, 9.1 Convex duality and exponential families.
+
+^ Efron, Bradley (December 2011). "Tweedie's Formula and Selection Bias". Journal of the American Statistical Association. 106 (496): 1602–1614. doi:10.1198/jasa.2011.tm11181. ISSN 0162-1459. PMC 3325056. PMID 22505788.
+
+
+This article includes a list of general references, but it lacks sufficient corresponding inline citations. Please help to improve this article by introducing more precise citations. (November 2010) (Learn how and when to remove this template message)
+Sources[edit]
+
+Barndorff-Nielsen, Ole (1978). Information and exponential families in statistical theory. Wiley Series in Probability and Mathematical Statistics. Chichester: John Wiley & Sons, Ltd. pp. ix+238 pp. ISBN 0-471-99545-2. MR 0489333.
+Reprinted as Barndorff-Nielsen, Ole (2014). Information and exponential families in statistical theory. John Wiley & Sons, Ltd. doi:10.1002/9781118857281. ISBN 978-111885750-2.
+Nielsen, Frank; Garcia, Vincent (2009). "Statistical exponential families: A digest with flash cards". arXiv:0911.4863. Bibcode:2009arXiv0911.4863N.
+Nielsen, Frank; Nock, Richard (2010). Entropies and cross-entropies of exponential families (PDF). IEEE International Conference on Image Processing. doi:10.1109/ICIP.2010.5652054. Archived from the original (PDF) on 2019-03-31.
+
+Further reading[edit]
+Fahrmeir, Ludwig; Tutz, G. (1994). Multivariate Statistical Modelling based on Generalized Linear Models. Springer. pp. 18–22, 345–349. ISBN 0-387-94233-5.
+Keener, Robert W. (2006). Theoretical Statistics: Topics for a Core Course. Springer. pp. 27–28, 32–33. ISBN 978-0-387-93838-7.
+Lehmann, E. L.; Casella, G. (1998). Theory of Point Estimation (2nd ed.). sec. 1.5. ISBN 0-387-98502-6.
+External links[edit]
+A primer on the exponential family of distributions
+Exponential family of distributions on the Earliest known uses of some of the words of mathematics
+jMEF: A Java library for exponential families Archived 2013-04-11 at archive.today
+vteStatistics
+Outline
+Index
+Descriptive statisticsContinuous dataCenter
+Mean
+Arithmetic
+Arithmetic-Geometric
+Cubic
+Generalized/power
+Geometric
+Harmonic
+Heronian
+Heinz
+Lehmer
+Median
+Mode
+Dispersion
+Average absolute deviation
+Coefficient of variation
+Interquartile range
+Percentile
+Range
+Standard deviation
+Variance
+Shape
+Central limit theorem
+Moments
+Kurtosis
+L-moments
+Skewness
+Count data
+Index of dispersion
+Summary tables
+Contingency table
+Frequency distribution
+Grouped data
+Dependence
+Partial correlation
+Pearson product-moment correlation
+Rank correlation
+Kendall's τ
+Spearman's ρ
+Scatter plot
+Graphics
+Bar chart
+Biplot
+Box plot
+Control chart
+Correlogram
+Fan chart
+Forest plot
+Histogram
+Pie chart
+Q–Q plot
+Radar chart
+Run chart
+Scatter plot
+Stem-and-leaf display
+Violin plot
+Data collectionStudy design
+Effect size
+Missing data
+Optimal design
+Population
+Replication
+Sample size determination
+Statistic
+Statistical power
+Survey methodology
+Sampling
+Cluster
+Stratified
+Opinion poll
+Questionnaire
+Standard error
+Controlled experiments
+Blocking
+Factorial experiment
+Interaction
+Random assignment
+Randomized controlled trial
+Randomized experiment
+Scientific control
+Adaptive designs
+Adaptive clinical trial
+Stochastic approximation
+Up-and-down designs
+Observational studies
+Cohort study
+Cross-sectional study
+Natural experiment
+Quasi-experiment
+Statistical inferenceStatistical theory
+Population
+Statistic
+Probability distribution
+Sampling distribution
+Order statistic
+Empirical distribution
+Density estimation
+Statistical model
+Model specification
+Lp space
+Parameter
+location
+scale
+shape
+Parametric family
+Likelihood (monotone)
+Location–scale family
+Exponential family
+Completeness
+Sufficiency
+Statistical functional
+Bootstrap
+U
+V
+Optimal decision
+loss function
+Efficiency
+Statistical distance
+divergence
+Asymptotics
+Robustness
+Frequentist inferencePoint estimation
+Estimating equations
+Maximum likelihood
+Method of moments
+M-estimator
+Minimum distance
+Unbiased estimators
+Mean-unbiased minimum-variance
+Rao–Blackwellization
+Lehmann–Scheffé theorem
+Median unbiased
+Plug-in
+Interval estimation
+Confidence interval
+Pivot
+Likelihood interval
+Prediction interval
+Tolerance interval
+Resampling
+Bootstrap
+Jackknife
+Testing hypotheses
+1- & 2-tails
+Power
+Uniformly most powerful test
+Permutation test
+Randomization test
+Multiple comparisons
+Parametric tests
+Likelihood-ratio
+Score/Lagrange multiplier
+Wald
+Specific tests
+Z-test (normal)
+Student's t-test
+F-test
+Goodness of fit
+Chi-squared
+G-test
+Kolmogorov–Smirnov
+Anderson–Darling
+Lilliefors
+Jarque–Bera
+Normality (Shapiro–Wilk)
+Likelihood-ratio test
+Model selection
+Cross validation
+AIC
+BIC
+Rank statistics
+Sign
+Sample median
+Signed rank (Wilcoxon)
+Hodges–Lehmann estimator
+Rank sum (Mann–Whitney)
+Nonparametric anova
+1-way (Kruskal–Wallis)
+2-way (Friedman)
+Ordered alternative (Jonckheere–Terpstra)
+Van der Waerden test
+Bayesian inference
+Bayesian probability
+prior
+posterior
+Credible interval
+Bayes factor
+Bayesian estimator
+Maximum posterior estimator
+CorrelationRegression analysisCorrelation
+Pearson product-moment
+Partial correlation
+Confounding variable
+Coefficient of determination
+Regression analysis
+Errors and residuals
+Regression validation
+Mixed effects models
+Simultaneous equations models
+Multivariate adaptive regression splines (MARS)
+Linear regression
+Simple linear regression
+Ordinary least squares
+General linear model
+Bayesian regression
+Non-standard predictors
+Nonlinear regression
+Nonparametric
+Semiparametric
+Isotonic
+Robust
+Heteroscedasticity
+Homoscedasticity
+Generalized linear model
+Exponential families
+Logistic (Bernoulli) / Binomial / Poisson regressions
+Partition of variance
+Analysis of variance (ANOVA, anova)
+Analysis of covariance
+Multivariate ANOVA
+Degrees of freedom
+Categorical / Multivariate / Time-series / Survival analysisCategorical
+Cohen's kappa
+Contingency table
+Graphical model
+Log-linear model
+McNemar's test
+Cochran–Mantel–Haenszel statistics
+Multivariate
+Regression
+Manova
+Principal components
+Canonical correlation
+Discriminant analysis
+Cluster analysis
+Classification
+Structural equation model
+Factor analysis
+Multivariate distributions
+Elliptical distributions
+Normal
+Time-seriesGeneral
+Decomposition
+Trend
+Stationarity
+Seasonal adjustment
+Exponential smoothing
+Cointegration
+Structural break
+Granger causality
+Specific tests
+Dickey–Fuller
+Johansen
+Q-statistic (Ljung–Box)
+Durbin–Watson
+Breusch–Godfrey
+Time domain
+Autocorrelation (ACF)
+partial (PACF)
+Cross-correlation (XCF)
+ARMA model
+ARIMA model (Box–Jenkins)
+Autoregressive conditional heteroskedasticity (ARCH)
+Vector autoregression (VAR)
+Frequency domain
+Spectral density estimation
+Fourier analysis
+Least-squares spectral analysis
+Wavelet
+Whittle likelihood
+SurvivalSurvival function
+Kaplan–Meier estimator (product limit)
+Proportional hazards models
+Accelerated failure time (AFT) model
+First hitting time
+Hazard function
+Nelson–Aalen estimator
+Test
+Log-rank test
+ApplicationsBiostatistics
+Bioinformatics
+Clinical trials / studies
+Epidemiology
+Medical statistics
+Engineering statistics
+Chemometrics
+Methods engineering
+Probabilistic design
+Process / quality control
+Reliability
+System identification
+Social statistics
+Actuarial science
+Census
+Crime statistics
+Demography
+Econometrics
+Jurimetrics
+National accounts
+Official statistics
+Population statistics
+Psychometrics
+Spatial statistics
+Cartography
+Environmental statistics
+Geographic information system
+Geostatistics
+Kriging
+
+Category
+ Mathematics portal
+Commons
+ WikiProject
+
+vteProbability distributions (list)Discrete univariatewith finite support
+Benford
+Bernoulli
+beta-binomial
+binomial
+categorical
+hypergeometric
+negative
+Poisson binomial
+Rademacher
+soliton
+discrete uniform
+Zipf
+Zipf–Mandelbrot
+with infinite support
+beta negative binomial
+Borel
+Conway–Maxwell–Poisson
+discrete phase-type
+Delaporte
+extended negative binomial
+Flory–Schulz
+Gauss–Kuzmin
+geometric
+logarithmic
+mixed Poisson
+negative binomial
+Panjer
+parabolic fractal
+Poisson
+Skellam
+Yule–Simon
+zeta
+Continuous univariatesupported on a bounded interval
+arcsine
+ARGUS
+Balding–Nichols
+Bates
+beta
+beta rectangular
+continuous Bernoulli
+Irwin–Hall
+Kumaraswamy
+logit-normal
+noncentral beta
+PERT
+raised cosine
+reciprocal
+triangular
+U-quadratic
+uniform
+Wigner semicircle
+supported on a semi-infinite interval
+Benini
+Benktander 1st kind
+Benktander 2nd kind
+beta prime
+Burr
+chi
+chi-squared
+noncentral
+inverse
+scaled
+Dagum
+Davis
+Erlang
+hyper
+exponential
+hyperexponential
+hypoexponential
+logarithmic
+F
+noncentral
+folded normal
+Fréchet
+gamma
+generalized
+inverse
+gamma/Gompertz
+Gompertz
+shifted
+half-logistic
+half-normal
+Hotelling's T-squared
+inverse Gaussian
+generalized
+Kolmogorov
+Lévy
+log-Cauchy
+log-Laplace
+log-logistic
+log-normal
+log-t
+Lomax
+matrix-exponential
+Maxwell–Boltzmann
+Maxwell–Jüttner
+Mittag-Leffler
+Nakagami
+Pareto
+phase-type
+Poly-Weibull
+Rayleigh
+relativistic Breit–Wigner
+Rice
+truncated normal
+type-2 Gumbel
+Weibull
+discrete
+Wilks's lambda
+supported on the whole real line
+Cauchy
+exponential power
+Fisher's z
+Kaniadakis κ-Gaussian
+Gaussian q
+generalized normal
+generalized hyperbolic
+geometric stable
+Gumbel
+Holtsmark
+hyperbolic secant
+Johnson's SU
+Landau
+Laplace
+asymmetric
+logistic
+noncentral t
+normal (Gaussian)
+normal-inverse Gaussian
+skew normal
+slash
+stable
+Student's t
+Tracy–Widom
+variance-gamma
+Voigt
+with support whose type varies
+generalized chi-squared
+generalized extreme value
+generalized Pareto
+Marchenko–Pastur
+Kaniadakis κ-exponential
+Kaniadakis κ-Gamma
+Kaniadakis κ-Weibull
+Kaniadakis κ-Logistic
+Kaniadakis κ-Erlang
+q-exponential
+q-Gaussian
+q-Weibull
+shifted log-logistic
+Tukey lambda
+Mixed univariatecontinuous-discrete
+Rectified Gaussian
+Multivariate (joint)
+Discrete: 
+Ewens
+multinomial
+Dirichlet
+negative
+Continuous: 
+Dirichlet
+generalized
+multivariate Laplace
+multivariate normal
+multivariate stable
+multivariate t
+normal-gamma
+inverse
+Matrix-valued: 
+LKJ
+matrix normal
+matrix t
+matrix gamma
+inverse
+Wishart
+normal
+inverse
+normal-inverse
+complex
+Directional
+Univariate (circular) directional
+Circular uniform
+univariate von Mises
+wrapped normal
+wrapped Cauchy
+wrapped exponential
+wrapped asymmetric Laplace
+wrapped Lévy
+Bivariate (spherical)
+Kent
+Bivariate (toroidal)
+bivariate von Mises
+Multivariate
+von Mises–Fisher
+Bingham
+Degenerate and singular
+Degenerate
+Dirac delta function
+Singular
+Cantor
+Families
+Circular
+compound Poisson
+elliptical
+exponential
+natural exponential
+location–scale
+maximum entropy
+mixture
+Pearson
+Tweedie
+wrapped
+
+ Category
+ Commons
+
+
+
+

@@ -1,0 +1,148 @@
+Limit on data transfer rate
+Information theory
+Entropy
+Differential entropy
+Conditional entropy
+Joint entropy
+Mutual information
+Directed information
+Conditional mutual information
+Relative entropy
+Entropy rate
+Limiting density of discrete points
+
+Asymptotic equipartition property
+Rate–distortion theory
+
+Shannon's source coding theorem
+Channel capacity
+Noisy-channel coding theorem
+Shannon–Hartley theorem
+vte
+"Shannon's theorem" redirects here. Shannon's name is also associated with the sampling theorem.
+In information theory, the noisy-channel coding theorem (sometimes Shannon's theorem or Shannon's limit), establishes that for any given degree of noise contamination of a communication channel, it is possible to communicate discrete data (digital information) nearly error-free up to a computable maximum rate through the channel.  This result was presented by Claude Shannon in 1948 and was based in part on earlier work and ideas of Harry Nyquist and Ralph Hartley.
+The Shannon limit or Shannon capacity of a communication channel refers to the maximum rate of error-free data that can theoretically be transferred over the channel if the link is subject to random data transmission errors, for a particular noise level.  It was first described by Shannon (1948), and shortly after published in a book by Shannon and Warren Weaver entitled The Mathematical Theory of Communication (1949). This founded the modern discipline of information theory.
+
+
+Overview[edit]
+Stated by Claude Shannon in 1948, the theorem describes the maximum possible efficiency of error-correcting methods versus levels of noise interference and data corruption.  Shannon's theorem has wide-ranging applications in both communications and data storage.  This theorem is of foundational importance to the modern field of information theory. Shannon only gave an outline of the proof. The first rigorous proof for the discrete case is given in (Feinstein 1954).
+The Shannon theorem states that given a noisy channel with channel capacity C and information transmitted at a rate R, then if R<C<C there exist codes that allow the probability of error at the receiver to be made arbitrarily small. This means that, theoretically, it is possible to transmit information nearly without error at any rate below a limiting rate, C.
+The converse is also important. If R>C>C, an arbitrarily small probability of error is not achievable. All codes will have a probability of error greater than a certain positive minimal level, and this level increases as the rate increases. So, information cannot be guaranteed to be transmitted reliably across a channel at rates beyond the channel capacity.  The theorem does not address the rare situation in which rate and capacity are equal.
+The channel capacity C can be calculated from the physical properties of a channel; for a band-limited channel with Gaussian noise, using the Shannon–Hartley theorem.
+Simple schemes such as "send the message 3 times and use a best 2 out of 3 voting scheme if the copies differ" are inefficient error-correction methods, unable to asymptotically guarantee that a block of data can be communicated free of error.  Advanced techniques such as Reed–Solomon codes and, more recently,  low-density parity-check (LDPC) codes and turbo codes, come much closer to reaching the theoretical Shannon limit, but at a cost of high computational complexity. Using these highly efficient codes and with the computing power in today's digital signal processors, it is now possible to reach very close to the Shannon limit. In fact, it was shown that LDPC codes can reach within 0.0045 dB of the Shannon limit (for binary additive white Gaussian noise (AWGN) channels, with very long block lengths).[1]
+
+Mathematical statement[edit]
+The basic mathematical model for a communication system is the following:
+
+→MessageWEncoderfn→EncodedsequenceXnChannelp(y|x)→ReceivedsequenceYnDecodergn→EstimatedmessageW^[ Encoder;     f_n;         ][ Channel;  p(y|x);         ][ Decoder;     g_n;         ]
+A message W is transmitted through a noisy channel by using encoding and decoding functions. An encoder maps W into a pre-defined sequence of channel symbols of length n. In its most basic model, the channel distorts each of these symbols independently of the others. The output of the channel –the received sequence– is fed into a decoder which maps the sequence into an estimate of the message. In this setting, the probability of error is defined as:
+
+Pe=PrW^≠W._e=Pr{Ŵ}.
+Theorem (Shannon, 1948):
+
+1. For every discrete memoryless channel, the channel capacity, defined in terms of the mutual information I(X;Y)(X;Y) as
+C=suppXI(X;Y)=sup_p_XI(X;Y)[2]
+has the following property.  For any ϵ>0ϵ>0 and R<C<C, for large enough N, there exists a code of length N and rate ≥R and a decoding algorithm, such that the maximal probability of block error is ≤ϵ≤ϵ.
+2. If a probability of bit error pb_b is acceptable, rates up to R(pb)(p_b) are achievable, where
+R(pb)=C1−H2(pb).(p_b)=C/1-H_2(p_b).
+and H2(pb)_2(p_b) is the binary entropy function
+H2(pb)=−[pblog2⁡pb+(1−pb)log2⁡(1−pb)]_2(p_b)=-[p_blog_2p_b+(1-p_b)log_2(1-p_b)]
+3. For any pb_b, rates greater than R(pb)(p_b) are not achievable.
+(MacKay (2003), p. 162; cf Gallager (1968), ch.5; Cover and Thomas (1991), p. 198; Shannon (1948) thm. 11)
+
+Outline of proof[edit]
+As with the several other major results in information theory, the proof of the noisy channel coding theorem includes an achievability result and a matching converse result.  These two components serve to bound, in this case, the set of possible rates at which one can communicate over a noisy channel, and matching serves to show that these bounds are tight bounds.
+The following outlines are only one set of many different styles available for study in information theory texts.
+
+Achievability for discrete memoryless channels[edit]
+This particular proof of achievability follows the style of proofs that make use of the asymptotic equipartition property (AEP).  Another style can be found in information theory texts using error exponents.
+Both types of proofs make use of a random coding argument where the codebook used across a channel is randomly constructed - this serves to make the analysis simpler while still proving the existence of a code satisfying a desired low probability of error at any data rate below the channel capacity.
+By an AEP-related argument, given a channel, length n strings of source symbols X1n_1^n, and length n strings of channel outputs Y1n_1^n, we can define a jointly typical set by the following:
+
+Aε(n)=(xn,yn)∈Xn×Yn_ε^(n)={(x^n,y^n)∈𝒳^n×𝒴^n
+2−n(H(X)+ε)≤p(X1n)≤2−n(H(X)−ε)2^-n(H(X)+ε)(X_1^n)≤2^-n(H(X)-ε)
+2−n(H(Y)+ε)≤p(Y1n)≤2−n(H(Y)−ε)2^-n(H(Y)+ε)(Y_1^n)≤2^-n(H(Y)-ε)
+2−n(H(X,Y)+ε)≤p(X1n,Y1n)≤2−n(H(X,Y)−ε)2^-n(H(X,Y)+ε)(X_1^n,Y_1^n)≤2^-n(H(X,Y)-ε)}
+We say that two sequences X1nX_1^n and Y1n_1^n are jointly typical if they lie in the jointly typical set defined above.
+Steps
+
+In the style of the random coding argument, we randomly generate 2nR2^nR codewords of length n from a probability distribution Q.
+This code is revealed to the sender and receiver.  It is also assumed that one knows the transition matrix p(y|x)(y|x) for the channel being used.
+A message W is chosen according to the uniform distribution on the set of codewords.  That is, Pr(W=w)=2−nR,w=1,2,…,2nR(W=w)=2^-nR,w=1,2,…,2^nR.
+The message W is sent across the channel.
+The receiver receives a sequence according to P(yn|xn(w))=∏i=1np(yi|xi(w))(y^n|x^n(w))=∏_i=1^np(y_i|x_i(w))
+Sending these codewords across the channel, we receive Y1n_1^n, and decode to some source sequence if there exists exactly 1 codeword that is jointly typical with Y.  If there are no jointly typical codewords, or if there are more than one, an error is declared.  An error also occurs if a decoded codeword doesn't match the original codeword.  This is called typical set decoding.
+The probability of error of this scheme is divided into two parts:
+
+First, error can occur if no jointly typical X sequences are found for a received Y sequence
+Second, error can occur if an incorrect X sequence is jointly typical with a received Y sequence.
+By the randomness of the code construction, we can assume that the average probability of error averaged over all codes does not depend on the index sent.  Thus, without loss of generality, we can assume W = 1.
+From the joint AEP, we know that the probability that no jointly typical X exists goes to 0 as n grows large.  We can bound this error probability by εε.
+Also from the joint AEP, we know the probability that a particular X1n(i)_1^n(i) and the Y1n_1^n resulting from W = 1 are jointly typical is ≤2−n(I(X;Y)−3ε)≤2^-n(I(X;Y)-3ε).
+Define: Ei=(X1n(i),Y1n)∈Aε(n),i=1,2,…,2nR_i={(X_1^n(i),Y_1^n)_ε^(n)},i=1,2,…,2^nR
+as the event that message i is jointly typical with the sequence received when message 1 is sent.
+
+P(error)=P(error|W=1)≤P(E1c)+∑i=22nRP(Ei)≤P(E1c)+(2nR−1)2−n(I(X;Y)−3ε)≤ε+2−n(I(X;Y)−R−3ε).P(error)   =P(error|W=1)(E_1^c)+∑_i=2^2^nRP(E_i)
+   (E_1^c)+(2^nR-1)2^-n(I(X;Y)-3ε)
+   ≤ε+2^-n(I(X;Y)-R-3ε).
+We can observe that as n goes to infinity, if R<I(X;Y)<I(X;Y) for the channel, the probability of error will go to 0.
+Finally, given that the average codebook is shown to be "good," we know that there exists a codebook whose performance is better than the average, and so satisfies our need for arbitrarily low error probability communicating across the noisy channel.
+
+Weak converse for discrete memoryless channels[edit]
+Suppose a code of 2nR2^nR codewords.  Let W be drawn uniformly over this set as an index.  Let Xn^n and Yn^n be the transmitted codewords and received codewords, respectively.
+
+nR=H(W)=H(W|Yn)+I(W;Yn)=H(W)=H(W|Y^n)+I(W;Y^n) using identities involving entropy and mutual information
+≤H(W|Yn)+I(Xn(W);Yn)(W|Y^n)+I(X^n(W);Y^n) since X is a function of W
+≤1+Pe(n)nR+I(Xn(W);Yn)≤1+P_e^(n)nR+I(X^n(W);Y^n) by the use of Fano's Inequality
+≤1+Pe(n)nR+nC≤1+P_e^(n)nR+nC by the fact that capacity is maximized mutual information.
+The result of these steps is that Pe(n)≥1−1nR−CR_e^(n)≥1-1/nR-C/R.  As the block length n goes to infinity, we obtain Pe(n)_e^(n) is bounded away from 0 if R is greater than C - we can get arbitrarily low rates of error only if R is less than C.
+
+Strong converse for discrete memoryless channels[edit]
+A strong converse theorem, proven by Wolfowitz in 1957,[3] states that,
+
+Pe≥1−4An(R−C)2−e−n(R−C)2_e≥1-4A/n(R-C)^2-e^-n(R-C)/2
+for some finite positive constant A. While the weak converse states that the error probability is bounded away from zero as n goes to infinity, the strong converse states that the error goes to 1. Thus, C is a sharp threshold between perfectly reliable and completely unreliable communication.
+
+Channel coding theorem for non-stationary memoryless channels[edit]
+We assume that the channel is memoryless, but its transition probabilities change with time, in a fashion known at the transmitter as well as the receiver.
+Then the channel capacity is given by
+
+C=liminfmaxp(X1),p(X2),...1n∑i=1nI(Xi;Yi).=liminfmax_p^(X_1),p^(X_2),...1/n∑_i=1^nI(X_i;Y_i).
+The maximum is attained at the capacity achieving distributions for each respective channel. That is,
+C=liminf1n∑i=1nCi=liminf1/n∑_i=1^nC_i
+where Ci_i is the capacity of the ith channel.
+
+Outline of the proof[edit]
+The proof runs through in almost the same way as that of channel coding theorem. Achievability follows from random coding with each symbol chosen randomly from the capacity achieving distribution for that particular channel. Typicality arguments use the definition of typical sets for non-stationary sources defined in the asymptotic equipartition property article.
+The technicality of lim inf comes into play when 1n∑i=1nCi1/n∑_i=1^nC_i does not converge.
+
+See also[edit]
+Asymptotic equipartition property (AEP)
+Fano's inequality
+Rate–distortion theory
+Shannon's source coding theorem
+Shannon–Hartley theorem
+Turbo code
+Notes[edit]
+
+
+^ Sae-Young Chung; Forney, G. D.; Richardson, T.J.; Urbank, R. (February 2001). "On the Design of Low-Density Parity-Check Codes within 0.0045 dB of the Shannon Limit" (PDF). IEEE Communications Letters. 5 (2): 58–60. doi:10.1109/4234.905935. S2CID 7381972.
+
+^ For a description of the "sup" function, see Supremum
+
+^ Gallager, Robert (1968). Information Theory and Reliable Communication. Wiley. ISBN 0-471-29048-3.
+
+
+References[edit]
+Aazhang, B. (2004). "Shannon's Noisy Channel Coding Theorem" (PDF). Connections.
+Cover, T.M.; Thomas, J.A. (1991). Elements of Information Theory. Wiley. ISBN 0-471-06259-6.
+Fano, R.M. (1961). Transmission of information; a statistical theory of communications. MIT Press. ISBN 0-262-06001-9.
+Feinstein, Amiel (September 1954). "A new basic theorem of information theory". Transactions of the IRE Professional Group on Information Theory. 4 (4): 2–22. Bibcode:1955PhDT........12F. doi:10.1109/TIT.1954.1057459. hdl:1721.1/4798.
+Lundheim, Lars (2002). "On Shannon and Shannon's Formula" (PDF). Telektronik. 98 (1): 20–29.
+MacKay, David J.C. (2003). Information Theory, Inference, and Learning Algorithms. Cambridge University Press. ISBN 0-521-64298-1.  [free online]
+Shannon, C. E. (1948). "A Mathematical Theory of Communication". Bell System Technical Journal. 27 (3): 379–423. doi:10.1002/j.1538-7305.1948.tb01338.x.
+Shannon, C.E. (1998) [1948]. A Mathematical Theory of Communication. University of Illinois Press.
+Wolfowitz, J. (1957). "The coding of messages subject to chance errors". Illinois J. Math. 1 (4): 591–606. doi:10.1215/ijm/1255380682.
+
+
+

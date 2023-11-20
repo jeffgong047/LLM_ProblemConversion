@@ -1,0 +1,106 @@
+Theorem in computability theory
+In computability theory Post's theorem, named after Emil Post, describes the connection between the arithmetical hierarchy and the Turing degrees. 
+
+
+Background[edit]
+See also: Arithmetical hierarchy § Relation to Turing machines
+The statement of Post's theorem uses several concepts relating to definability and recursion theory.  This section gives a brief overview of these concepts, which are covered in depth in their respective articles. 
+The arithmetical hierarchy classifies certain sets of natural numbers that are definable in the language of Peano arithmetic.   A formula  is said to be Σm0Σ_m^0 if it is an existential statement in prenex normal form (all quantifiers at the front) with m alternations between existential and universal quantifiers applied to a formula with bounded quantifiers only.  Formally a formula ϕ(s)ϕ(s) in the language of Peano arithmetic is a Σm0Σ_m^0 formula if it is of the form
+
+(∃n11∃n21⋯∃nj11)(∀n12⋯∀nj22)(∃n13⋯)⋯(Qn1m⋯)ρ(n11,…njmm,x1,…,xk)(_1^1_2^1⋯_j_1^1)(_1^2⋯_j_2^2)(_1^3⋯)⋯(Qn_1^m⋯)ρ(n_1^1,_j_m^m,x_1,…,x_k)
+where ρρ contains only bounded quantifiers and Q is ∀∀ if m is even and ∃∃ if m is odd.
+A set of natural numbers A is said to be Σm0Σ_m^0 if it is definable by a Σm0Σ_m^0 formula, that is, if there is a Σm0Σ_m^0 formula ϕ(s)ϕ(s) such that each number n is in A if and only if ϕ(n)ϕ(n) holds.   It is known that if a set is Σm0Σ_m^0 then it is Σn0Σ_n^0 for any n>m>m, but for each m there is a Σm+10Σ_m+1^0 set that is not Σm0Σ_m^0.  Thus the number of quantifier alternations required to define a set gives a measure of the complexity of the set.
+Post's theorem uses the relativized arithmetical hierarchy as well as the unrelativized hierarchy just defined.   A set A of natural numbers is said to be Σm0Σ_m^0 relative to a set B, written Σm0,BΣ_m^0,B, if A is definable by a Σm0Σ_m^0 formula in an extended language that includes a predicate for membership in B.
+While the arithmetical hierarchy measures definability of sets of natural numbers, Turing degrees measure the level of uncomputability of sets of natural numbers.  A set A is said to be Turing reducible to a set B, written A≤TB≤_TB, if there is an oracle Turing machine that, given an oracle for B, computes the characteristic function of A.
+The Turing jump of a set A is a form of the Halting problem relative to A.  Given a set A, the Turing jump A′' is the set of indices  of oracle Turing machines that halt on input 00 when run with oracle A.  It is known that every set A is Turing reducible to its Turing jump, but the Turing jump of a set is never Turing reducible to the original set.  
+Post's theorem uses finitely iterated Turing jumps.  For any set A of natural numbers, the notation A(n)^(n) indicates the n–fold iterated Turing jump of A.  Thus A(0)^(0) is just A, and A(n+1)^(n+1) is the Turing jump of A(n)^(n).
+
+Post's theorem and corollaries[edit]
+Post's theorem establishes a close connection between the arithmetical hierarchy and the Turing degrees of the form ∅(n)∅^(n), that is, finitely iterated Turing jumps of the empty set.  (The empty set could be replaced with any other computable set without changing the truth of the theorem.)
+Post's theorem states:
+
+A set B is Σn+10Σ_n+1^0 if and only if B is recursively enumerable by an oracle Turing machine with an oracle for ∅(n)∅^(n), that is, if and only if B is Σ10,∅(n)Σ_1^0,∅^(n).
+The set ∅(n)∅^(n) is Σn0Σ_n^0-complete for every n>0>0.  This means that every Σn0Σ_n^0 set is many-one reducible to ∅(n)∅^(n).
+Post's theorem has many corollaries that expose additional relationships between the arithmetical
+hierarchy and the Turing degrees.  These include:
+
+Fix a set C. A set B is Σn+10,CΣ_n+1^0,C if and only if B is Σ10,C(n)Σ_1^0,C^(n).  This is the relativization of the first part of Post's theorem to the oracle C.
+A set B is Δn+1Δ_n+1 if and only if B≤T∅(n)≤_T∅^(n). More generally, B is Δn+1CΔ_n+1^C if and only if B≤TC(n)≤_TC^(n).
+A set is defined to be arithmetical if it is Σn0Σ_n^0 for some n.  Post's theorem shows that, equivalently, a set is arithmetical if and only if it is Turing reducible to ∅(m)∅^(m) for some m.
+Proof of Post's theorem[edit]
+Formalization of Turing machines in first-order arithmetic[edit]
+The operation of a Turing machine T on input n can be formalized logically in first-order arithmetic. For example, we may use symbols Ak_k, Bk_k, and Ck_k for the tape configuration, machine state and location along the tape after k steps, respectively. T's transition system determines the relation between (Ak,Bk,Ck)(A_k,B_k,C_k) and (Ak+1,Bk+1,Ck+1)(A_k+1,B_k+1,C_k+1); their initial values (for k=0=0) are the input, the initial state and zero, respectively. The machine halts if and only if there is a number k such that Bk_k is the halting state.
+The exact relation depends on the specific implementation of the notion of Turing machine (e.g. their alphabet, allowed mode of motion along the tape, etc.)
+In case T halts at time n1_1, the relation between (Ak,Bk,Ck)(A_k,B_k,C_k) and (Ak+1,Bk+1,Ck+1)(A_k+1,B_k+1,C_k+1) must be satisfied only for k bounded from above by n1_1.
+Thus there is a formula φ(n,n1)φ(n,n_1) in first-order arithmetic with no unbounded quantifiers, such that T halts on input n at time n1_1 at most if and only if φ(n,n1)φ(n,n_1) is satisfied.
+
+Implementation example[edit]
+For example, for a prefix-free Turing machine with binary alphabet and no blank symbol, we may use the following notations:
+
+Ak_k is the 1-ary symbol for the configuration of the whole tape after k steps (which we may write as a number with LSB first, the value of the m-th location on the tape being its m-th least significant bit). In particular A0_0 is the initial configuration of the tape, which corresponds the input to the machine.
+Bk_k is the 1-ary symbol for the Turing machine state after k steps. In particular, B0=qI_0=q_I, the initial state of the Turing machine.
+Ck_k is the 1-ary symbol for the Turing machine location on the tape after k steps. In particular C0=0_0=0.
+M(q,b)(q,b) is the transition function of the Turing machine, written as a function from a doublet (machine state, bit read by the machine) to a triplet (new machine state, bit written by the machine, +1 or -1 machine movement along the tape).
+bit(j,m)(j,m) is the j-th bit of a number m. This can be written as a first-order arithmetic formula with no unbounded quantifiers.
+For a prefix-free Turing machine we may use, for input n, the initial tape configuration t(n)=cat(2ceil(log2n)−1,0,n)(n)=cat(2^ceil(log_2n)-1,0,n) where cat stands for concatenation; thus t(n)(n) is a log⁡(n)−log(n)-length string of 1−s1-s followed by 00 and then by n. 
+The operation of the Turing machine at the first n1_1 steps can thus be written as the conjunction of the initial conditions and the following formulas, quantified over k for all k<n1<n_1:
+
+(Bk+1,bit(Ck,Ak+1),D)=M(Bk,bit(Ck,Ak))(B_k+1,bit(C_k,A_k+1),D)=M(B_k,bit(C_k,A_k)). Since M has a finite domain, this can be replaced by a first-order quantifier-free arithmetic formula. The exact formula obviously depends on M.
+Ck+1=Ck+D_k+1=C_k+D
+∀j:j≠Ck→bit(j,Ak+1)=bit(j,Ak):j_k(j,A_k+1)=bit(j,A_k). Note that at the first n1_1 steps, T never arrives at a location along the tape greater than n1_1. Thus the universal quantifier over j can be bounded by n1_1+1, as bits beyond this location have no relevance for the machine's operation.
+T halts on input n at time n1_1 at most if and only if φ(n,n1)φ(n,n_1) is satisfied, where:
+
+φ(n,n1)=(A0=t(n))∧(B0=qI)∧(C0=0)∧(Bn1=qH)∧∀k<n1:((Bk+1,bit(Ck,Ak+1),1)=M(Bk,bit(Ck,Ak))∧Ck+1=Ck+1)∨((Bk+1,bit(Ck,Ak+1),−1)=M(Bk,bit(Ck,Ak))∧Ck+1=Ck−1))∧∀j<n1+1:j≠Ck→(bit(j,Ak+1)=bit(j,Ak))φ(n,n_1)=   (A_0=t(n))(B_0=q_I)(C_0=0)(B_n_1=q_H)
+   <n_1:((B_k+1,bit(C_k,A_k+1),1)=M(B_k,bit(C_k,A_k))_k+1=C_k+1)   
+   ((B_k+1,bit(C_k,A_k+1),-1)=M(B_k,bit(C_k,A_k))_k+1=C_k-1))   
+   <n_1+1:j_k→(bit(j,A_k+1)=bit(j,A_k))   
+This is a first-order arithmetic formula with no unbounded quantifiers, i.e. it is in Σ00Σ_0^0.
+
+Recursively enumerable sets[edit]
+Let S be a set that can be recursively enumerated by a Turing machine. Then there is a Turing machine T that for every n in S, T halts when given n as an input.
+This can be formalized by the first-order arithmetical formula presented above. The members of S are the numbers n satisfying the following formula:
+∃n1:φ(n,n1)_1:φ(n,n_1)
+This formula is in Σ10Σ_1^0. Therefore, S is in Σ10Σ_1^0.
+Thus every recursively enumerable set is in Σ10Σ_1^0. 
+The converse is true as well: for every formula φ(n)φ(n) in Σ10Σ_1^0 with k existential quantifiers, we may enumerate the k–tuples of natural numbers and run a Turing machine that goes through all of them until it finds the formula is satisfied. This Turing machine halts on precisely the set of natural numbers satisfying φ(n)φ(n), and thus enumerates its corresponding set.
+
+Oracle machines[edit]
+Similarly, the operation of an oracle machine T with an oracle O that halts after at most n1_1 steps on input n can be described by a first-order formula φO(n,n1)φ_O(n,n_1), except that the formula φ1(n,n1)φ_1(n,n_1) now includes:
+
+A new predicate, Om_m, giving the oracle answer. This predicate must satisfy some formula to be discussed below.
+An additional tape - the oracle tape - on which T has to write the number m for every call O(m) to the oracle; writing on this tape can be logically formalized in a similar manner to writing on the machine's tape. Note that an oracle machine that halts after at most n1_1 steps has time to write at most n1_1 digits on the oracle tape. So the oracle can only be called with numbers m satisfying m<2n1<2^n_1.
+If the oracle is for a decision problem, Om_m is always "Yes" or "No", which we may formalize as 0 or 1. Suppose the decision problem itself can be formalized by a first-order arithmetic formula ψO(m)ψ^O(m).
+Then T halts on n after at most n1_1 steps if and only if the following formula is satisfied:
+φO(n,n1)=∀m<2n1:((ψO(m)→(Om=1))∧(¬ψO(m)→(Om=0)))∧φO1(n,n1)φ_O(n,n_1)=<2^n_1:((ψ^O(m)→(O_m=1))(¬ψ^O(m)→(O_m=0)))φ_O_1(n,n_1)
+where φO1(n,n1)φ_O_1(n,n_1) is a first-order formula with no unbounded quantifiers.
+
+Turing jump[edit]
+If O is an oracle to the halting problem of a machine T′', then ψO(m)ψ^O(m) is the same as "there exists m1_1 such that T′' starting with input m is at the halting state after m1_1 steps". 
+Thus:
+ψO(m)=∃m1:ψH(m,m1)ψ^O(m)=_1:ψ_H(m,m_1)
+where ψH(m,m1)ψ_H(m,m_1) is a first-order formula that formalizes T′'. If T′' is a Turing machine (with no oracle), ψH(m,m1)ψ_H(m,m_1) is in Σ00=Π00Σ_0^0=Π_0^0 (i.e. it has no unbounded quantifiers).
+Since there is a finite number of numbers m satisfying m<2n1<2^n_1, we may choose the same number of steps for all of them: there is a number m1_1, such that T′' halts after m1_1 steps precisely on those inputs m<2n1<2^n_1 for which it halts at all.
+Moving to prenex normal form, we get that the oracle machine halts on input n if and only if the following formula is satisfied:
+φ(n)=∃n1∃m1∀m2:(ψH(m,m2)→(Om=1))∧(¬ψH(m,m1)→(Om=0)))∧φO1(n,n1)φ(n)=_1_1_2:(ψ_H(m,m_2)→(O_m=1))(¬ψ_H(m,m_1)→(O_m=0)))φ_O_1(n,n_1)
+(informally, there is a "maximal number of steps"m1_1 such every oracle that does not halt within the first m1_1 steps does not stop at all; however, for everym2_2, each oracle that halts after m2_2 steps does halt).
+Note that we may replace both n1_1 and m1_1 by a single number - their maximum - without changing the truth value of φ(n)φ(n). Thus we may write:
+φ(n)=∃n1∀m2:(ψH(m,m2)→(Om=1))∧(¬ψH(m,n1)→(Om=0)))∧φO1(n,n1)φ(n)=_1_2:(ψ_H(m,m_2)→(O_m=1))(¬ψ_H(m,n_1)→(O_m=0)))φ_O_1(n,n_1)
+For the oracle to the halting problem over Turing machines, ψH(m,m1)ψ_H(m,m_1) is in Π00Π_0^0 and φ(n)φ(n) is in Σ20Σ_2^0. Thus every set that is recursively enumerable by an oracle machine with an oracle for ∅(1)∅^(1), is in Σ20Σ_2^0.
+The converse is true as well: Suppose φ(n)φ(n) is a formula in Σ20Σ_2^0 with k1_1 existential quantifiers followed by k2_2 universal quantifiers. Equivalently, φ(n)φ(n) has k1_1> existential quantifiers followed by a negation of a formula in Σ10Σ_1^0; the latter formula can be enumerated by a Turing machine and can thus be checked immediately by an oracle for ∅(1)∅^(1).
+We may thus enumerate the k1_1–tuples of natural numbers and run an oracle machine with an oracle for ∅(1)∅^(1) that goes through all of them until it finds a satisfaction for the formula. This oracle machine halts on precisely the set of natural numbers satisfying φ(n)φ(n), and thus enumerates its corresponding set.
+
+Higher Turing jumps[edit]
+More generally, suppose every set that is recursively enumerable by an oracle machine with an oracle for ∅(p)∅^(p) is in Σp+10Σ_p+1^0. Then for an oracle machine with an oracle for ∅(p+1)∅^(p+1), ψO(m)=∃m1:ψH(m,m1)ψ^O(m)=_1:ψ_H(m,m_1) is in Σp+10Σ_p+1^0.
+Since ψO(m)ψ^O(m) is the same as φ(n)φ(n) for the previous Turing jump, it can be constructed (as we have just done with φ(n)φ(n) above) so that ψH(m,m1)ψ_H(m,m_1) in Πp0Π_p^0. After moving to prenex formal form the new φ(n)φ(n) is in Σp+20Σ_p+2^0.
+By induction, every set that is recursively enumerable by an oracle machine with an oracle for ∅(p)∅^(p), is in Σp+10Σ_p+1^0.
+The other direction can be proven by induction as well: Suppose every formula in Σp+10Σ_p+1^0 can be enumerated by an oracle machine with an oracle for ∅(p)∅^(p).
+Now Suppose φ(n)φ(n) is a formula in Σp+20Σ_p+2^0 with k1_1 existential quantifiers followed by k2_2 universal quantifiers etc. Equivalently, φ(n)φ(n) has k1_1> existential quantifiers followed by a negation of a formula in Σp+10Σ_p+1^0; the latter formula can be enumerated by an oracle machine with an oracle for ∅(p)∅^(p) and can thus be checked immediately by an oracle for ∅(p+1)∅^(p+1).
+We may thus enumerate the k1_1–tuples of natural numbers and run an oracle machine with an oracle for ∅(p+1)∅^(p+1) that goes through all of them until it finds a satisfaction for the formula. This oracle machine halts on precisely the set of natural numbers satisfying φ(n)φ(n), and thus enumerates its corresponding set.
+
+References[edit]
+Rogers, H.   The Theory of Recursive Functions and Effective Computability, MIT Press. ISBN 0-262-68052-1;  ISBN 0-07-053522-1
+Soare, R. Recursively enumerable sets and degrees. Perspectives in Mathematical Logic.  Springer-Verlag, Berlin, 1987. ISBN 3-540-15299-7
+
+
+
+

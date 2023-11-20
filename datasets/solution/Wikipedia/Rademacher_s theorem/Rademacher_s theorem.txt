@@ -1,0 +1,66 @@
+In mathematical analysis, Rademacher's theorem, named after Hans Rademacher, states the following: If U is an open subset of Rn and f: U → Rm is Lipschitz continuous, then f is differentiable almost everywhere in U; that is, the points in U at which f is not differentiable form a set of Lebesgue measure zero. Differentiability here refers to infinitesimal approximability by a linear map, which in particular asserts the existence of the coordinate-wise partial derivatives.
+
+
+Sketch of proof[edit]
+The one-dimensional case of Rademacher's theorem is a standard result in introductory texts on measure-theoretic analysis.[1] In this context, it is natural to prove the more general statement that any single-variable function of bounded variation is differentiable almost everywhere. (This one-dimensional generalization of Rademacher's theorem fails to extend to higher dimensions.)
+One of the standard proofs of the general Rademacher theorem was found by Charles Morrey.[2] In the following, let u denote a Lipschitz-continuous function on Rn. The first step of the proof is to show that, for any fixed unit vector v, the v-directional derivative of u exists almost everywhere. This is a consequence of a special case of the Fubini theorem: a measurable set in Rn has Lebesgue measure zero if its restriction to every line parallel to v has (one-dimensional) Lebesgue measure zero. Considering in particular the set in Rn where the v-directional derivative of u fails to exist (which must be proved to be measurable), the latter condition is met due to the one-dimensional case of Rademacher's theorem.
+The second step of Morrey's proof establishes the linear dependence of the v-directional derivative of u upon v. This is based upon the following identity:
+
+∫Rnu(x+hν)−u(x)hζ(z)dLn(x)=−∫Rnζ(x)−ζ(x−hν)hf(x)dLn(x).∫_𝐑^nu(x+hν)-u(x)/hζ(z) dℒ^n(x)=-∫_𝐑^nζ(x)-ζ(x-hν)/hf(x) dℒ^n(x).
+Using the Lipschitz assumption on u, the dominated convergence theorem can be applied to replace the two difference quotients in the above expression by the corresponding v-directional derivatives. Then, based upon the known linear dependence of the v-directional derivative of ζ upon v, the same can be proved of u via the fundamental lemma of calculus of variations.
+At this point in the proof, the existence of the gradient (defined as the n-tuple of partial derivatives) is guaranteed to exist almost everywhere; for each v, the dot product with v equals the v-directional derivative almost everywhere (although perhaps on a smaller set). Hence, for any countable collection of unit vectors v1, v2, ..., there is a single set E of measure zero such that the gradient and each vi-directional derivative exist everywhere on the complement of E, and are linked by the dot product. By selecting v1, v2, ... to be dense in the unit sphere, it is possible to use the Lipschitz condition to prove the existence of every directional derivative everywhere on the complement of E, together with its representation as the dot product of the gradient with the direction.
+Morrey's proof can also be put into the context of generalized derivatives.[3] Another proof, also via a reduction to the one-dimensional case, uses the technology of approximate limits.[4]
+
+Applications[edit]
+Rademacher's theorem can be used to prove that, for any p ≥ 1, the Sobolev space W1,p(Ω) is preserved under a bi-Lipschitz transformation of the domain, with the chain rule holding in its standard form.[5] With appropriate modification, this also extends to the more general Sobolev spaces Wk,p(Ω).[6]
+Rademacher's theorem is also significant in the study of geometric measure theory and rectifiable sets, as it allows the analysis of first-order differential geometry, specifically tangent planes and normal vectors.[7] Higher-order concepts such as curvature remain more subtle, since their usual definitions require more differentiability than is achieved by the Rademacher theorem. In the presence of convexity, second-order differentiability is achieved by the Alexandrov theorem, the proof of which can be modeled on that of the Rademacher theorem. In some special cases, the Rademacher theorem is even used as part of the proof.[8]
+
+Generalizations[edit]
+Alberto Calderón proved the more general fact that if Ω is an open bounded set in Rn then every function in the Sobolev space W1,p(Ω) is differentiable almost everywhere, provided that p > n.[9] Calderón's theorem is a relatively direct corollary of the Lebesgue differentiation theorem and Sobolev embedding theorem. Rademacher's theorem is a special case, due to the fact that any Lipschitz function on Ω is an element of the space W1,∞(Ω).[9]
+There is a version of Rademacher's theorem that holds for Lipschitz functions from a Euclidean space into an arbitrary metric space in terms of metric differentials instead of the usual derivative.
+
+See also[edit]
+Pansu derivative
+References[edit]
+
+
+^ Federer 1969, Theorem 2.9.19; Folland 1999, Section 3.5; Rudin 1987, Chapter 7.
+
+^ Evans & Gariepy 2015, Section 3.1; Simon 1983, Section 2.1; Villani 2009, Theorem 10.8(ii); Ziemer 1989, Section 2.2.
+
+^ Morrey 1966, Theorem 3.1.6.
+
+^ Federer 1969, Section 3.1.
+
+^ Ziemer 1989, Theorem 2.2.2.
+
+^ Morrey 1966, Theorem 3.1.7.
+
+^ Evans & Gariepy 2015, p. 151; Ziemer 1989, pp. 243, 249, 281.
+
+^ Villani 2009, Theorem 14.25.
+
+^ a b Evans & Gariepy 2015, Section 6.2; Heinonen 2001, Section 6.
+
+
+Sources
+
+
+Evans, Lawrence C.; Gariepy, Ronald F. (2015). Measure theory and fine properties of functions. Textbooks in Mathematics (Revised edition of 1992 original ed.). Boca Raton, FL: CRC Press. doi:10.1201/b18333. ISBN 978-1-4822-4238-6. MR 3409135. Zbl 1310.28001.
+Federer, Herbert (1969). Geometric measure theory. Die Grundlehren der mathematischen Wissenschaften. Vol. 153. Berlin–Heidelberg–New York: Springer-Verlag. doi:10.1007/978-3-642-62010-2. ISBN 978-3-540-60656-7. MR 0257325. Zbl 0176.00801.
+Folland, Gerald B. (1999). Real analysis. Modern techniques and their applications. Pure and Applied Mathematics (Second edition of 1984 original ed.). New York: John Wiley & Sons, Inc. ISBN 0-471-31716-0. MR 1681462. Zbl 0924.28001.
+Heinonen, Juha (2001). Lectures on analysis on metric spaces. Universitext. New York: Springer-Verlag. doi:10.1007/978-1-4613-0131-8. ISBN 0-387-95104-0. MR 1800917. Zbl 0985.46008.
+Morrey, Charles B., Jr. (1966). Multiple integrals in the calculus of variations. Die Grundlehren der mathematischen Wissenschaften. Vol. 130. New York: Springer-Verlag. doi:10.1007/978-3-540-69952-1. MR 0202511. Zbl 1213.49002.{{cite book}}:  CS1 maint: multiple names: authors list (link)
+Rademacher, Hans (1919). "Über partielle und totale Differenzierbarkeit von Funktionen mehrerer Variabeln und über die Transformation der Doppelintegrale". Mathematische Annalen. 79 (4): 340–359. doi:10.1007/BF01498415. JFM 47.0243.01. MR 1511935.
+Rudin, Walter (1987). Real and complex analysis (Third edition of 1966 original ed.). New York: McGraw-Hill Book Co. ISBN 0-07-054234-1. MR 0924157. Zbl 0925.00005.
+Simon, Leon (1983). Lectures on geometric measure theory (PDF). Proceedings of the Centre for Mathematical Analysis, Australian National University. Vol. 3. Canberra: Australian National University, Centre for Mathematical Analysis. ISBN 0-86784-429-9. MR 0756417. Zbl 0546.49019.
+Villani, Cédric (2009). Optimal transport. Old and new. Grundlehren der mathematischen Wissenschaften. Vol. 338. Berlin: Springer-Verlag. doi:10.1007/978-3-540-71050-9. ISBN 978-3-540-71049-3. MR 2459454. Zbl 1156.53003.
+Ziemer, William P. (1989). Weakly differentiable functions. Sobolev spaces and functions of bounded variation. Graduate Texts in Mathematics. Vol. 120. New York: Springer-Verlag. doi:10.1007/978-1-4612-1015-3. ISBN 0-387-97017-7. MR 1014685. Zbl 0692.46022.
+
+External links[edit]
+Heinonen, Juha (2004). "Lectures on Lipschitz Analysis" (PDF). Lectures at the 14th Jyväskylä Summer School in August 2004. (Rademacher's theorem with a proof is on page 18 and further.)
+
+
+
+
+

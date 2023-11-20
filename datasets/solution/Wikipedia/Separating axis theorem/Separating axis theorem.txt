@@ -1,0 +1,395 @@
+On the existence of hyperplanes separating disjoint convex sets
+Hyperplane separation theoremIllustration of the hyperplane separation theorem.TypeTheoremField
+Convex geometry
+Topological vector spaces
+Collision detection
+Conjectured byHermann MinkowskiOpen problemNoGeneralizationsHahn–Banach separation theorem
+In geometry, the hyperplane separation theorem is a theorem about disjoint convex sets in n-dimensional Euclidean space. There are several rather similar versions. In one version of the theorem, if both these sets are closed and at least one of them is compact, then there is a hyperplane in between them and even two parallel hyperplanes in between them separated by a gap. In another version, if both disjoint convex sets are open, then there is a hyperplane in between them, but not necessarily any gap.  An axis which is orthogonal to a separating hyperplane is a separating axis, because the orthogonal projections of the convex bodies onto the axis are disjoint.
+The hyperplane separation theorem is due to Hermann Minkowski. The Hahn–Banach separation theorem generalizes the result to topological vector spaces.
+A related result is the supporting hyperplane theorem.
+In the context of support-vector machines, the optimally separating hyperplane or maximum-margin hyperplane is a hyperplane which separates two convex hulls of points and is equidistant from the two.[1][2][3]
+
+
+
+Statements and proof[edit]
+
+Hyperplane separation theorem[4] — Let A and B be two disjoint nonempty convex subsets of Rnℝ^n. Then there exist a nonzero vector v and a real number c such that
+
+⟨x,v⟩≥cand⟨y,v⟩≤c,v⟩ and,v⟩
+for all x in A and y in B; i.e., the hyperplane ⟨⋅,v⟩=c⟨·,v⟩=c, v the normal vector, separates A and B.
+If both sets are closed, and at least one of them is compact, then the separation can be strict, that is, ⟨x,v⟩>c1and⟨y,v⟩<c2,v⟩>c_1 and,v⟩<c_2 for some c1>c2_1>c_2
+
+
+In all cases, assume A,B,B to be disjoint, nonempty, and convex subsets of Rnℝ^n. The summary of the results are as follows:
+
+
+summary table
+
+
+A
+
+B
+
+⟨x,v⟩,v⟩
+
+⟨y,v⟩,v⟩
+
+
+
+
+
+
+≥c
+
+≤c
+
+
+closed compact
+
+closed
+
+>c1>c_1
+
+<c2<c_2 with c2<c1_2<c_1
+
+
+closed
+
+closed compact
+
+>c1>c_1
+
+<c2<c_2 with c2<c1_2<c_1
+
+
+open
+
+
+
+>c>c
+
+≤c
+
+
+open
+
+open
+
+>c>c
+
+<c<c
+
+The number of dimensions must be finite. In infinite-dimensional spaces there are examples of two closed, convex, disjoint sets which cannot be separated by a closed hyperplane (a hyperplane where a continuous linear functional equals some constant) even in the weak sense where the inequalities are not strict.[5]
+Here, the compactness in the hypothesis cannot be relaxed; see an example in the section Counterexamples and uniqueness. This version of the separation theorem does generalize to infinite-dimension; the generalization is more commonly known as the Hahn–Banach separation theorem.
+The proof is based on the following lemma:
+
+
+Lemma — Let A and B be two disjoint closed subsets of Rnℝ^n, and assume A is compact. Then there exist points a0∈A_0 and b0∈B_0 minimizing the distance ‖a−b‖a-b over a∈A and b∈B.
+
+
+Proof of lemma
+Let a∈A and b∈B be any pair of points, and let r1=‖b−a‖_1=b-a.  Since A is compact, it is contained in some ball centered on a; let the radius of this ball be r2_2.  Let S=B∩Br1+r2(a)¯=B∩B_r_1+r_2(a) be the intersection of B with a closed ball of radius r1+r2_1+r_2 around a.  Then S is compact and nonempty because it contains b.  Since the distance function is continuous, there exist points a0_0 and b0_0 whose distance ‖a0−b0‖a_0-b_0 is the minimum over all pairs of points in A×S.  It remains to show that a0_0 and b0_0 in fact have the minimum distance over all pairs of points in A×B. Suppose for contradiction that there exist points a′' and b′' such that ‖a′−b′‖<‖a0−b0‖a'-b'<a_0-b_0.  Then in particular, ‖a′−b′‖<r1a'-b'<r_1, and by the triangle inequality, ‖a−b′‖≤‖a′−b′‖+‖a−a′‖<r1+r2a-b'≤a'-b'+a-a'<r_1+r_2.  Therefore b′' is contained in S, which contradicts the fact that a0_0 and b0_0 had minimum distance over A×S. ◻□
+
+
+
+
+Proof illustration.
+Proof of theorem
+We first prove the second case. (See the diagram.)
+WLOG, A is compact. By the lemma, there exist points a0∈A_0 and b0∈B_0 of minimum distance to each other.
+Since A and B are disjoint, we have a0≠b0_0_0. Now, construct two hyperplanes LA,LB_A,L_B perpendicular to line segment [a0,b0][a_0,b_0], with LA_A across a0_0 and LB_B across b0_0. We claim that neither A nor B enters the space between LA,LB_A,L_B, and thus the perpendicular hyperplanes to (a0,b0)(a_0,b_0) satisfy the requirement of the theorem.  
+Algebraically, the hyperplanes LA,LB_A,L_B are defined by the vector v:=b0−a0:=b_0-a_0, and two constants cA:=⟨v,a0⟩<cB:=⟨v,b0⟩_A:=,a_0⟩<c_B:=,b_0⟩, such that LA=x:⟨v,x⟩=cA,LB=x:⟨v,x⟩=cB_A={x:,x⟩=c_A},L_B={x:,x⟩=c_B}. Our claim is that ∀a∈A,⟨v,a⟩≤cA,,a⟩_A and ∀b∈B,⟨v,b⟩≥cB,,b⟩_B.  
+Suppose there is some a∈A such that ⟨v,a⟩>cA,a⟩>c_A, then let a′' be the foot of perpendicular from b0_0 to the line segment [a0,a][a_0,a]. Since A is convex, a′' is inside A, and by planar geometry, a′' is closer to b0_0 than a0_0, contradiction. Similar argument applies to B.
+Now for the first case.
+Approach both A,B,B from the inside by A1⊆A2⊆⋯⊆A_1_2⊆⋯ and B1⊆B2⊆⋯⊆B_1_2⊆⋯, such that each Ak,Bk_k,B_k is closed and compact, and the unions are the relative interiors relint(A),relint(B)relint(A),relint(B). (See relative interior page for details.)
+Now by the second case, for each pair Ak,Bk_k,B_k there exists some unit vector vk_k and real number ck_k, such that ⟨vk,Ak⟩<ck<⟨vk,Bk⟩_k,A_k⟩<c_k<_k,B_k⟩. 
+Since the unit sphere is compact, we can take a convergent subsequence, so that vk→v_k. Let cA:=supa∈A⟨v,a⟩,cB:=infb∈B⟨v,b⟩_A:=sup_a,a⟩,c_B:=inf_b,b⟩. We claim that cA≤cB_A_B, thus separating A,B,B.
+Assume not, then there exists some a∈A,b∈B,b such that ⟨v,a⟩>⟨v,b⟩,a⟩>,b⟩, then since vk→v_k, for large enough k, we have ⟨vk,a⟩>⟨vk,b⟩_k,a⟩>_k,b⟩, contradiction.
+
+
+
+Since a separating hyperplane cannot intersect the interiors of open convex sets, we have a corollary:
+
+
+Separation theorem I — Let A and B be two disjoint nonempty convex sets. If A is open, then there exist a nonzero vector v and real number c such that
+
+⟨x,v⟩>cand⟨y,v⟩≤c,v⟩>c and,v⟩
+for all x in A and y in B. If both sets are open, then there exist a nonzero vector v and real number c such that
+
+⟨x,v⟩>cand⟨y,v⟩<c,v⟩>c and,v⟩<c
+for all x in A and y in B.
+
+
+Case with possible intersections[edit]
+If the sets A,B,B have possible intersections, but their relative interiors are disjoint, then the proof of the first case still applies with no change, thus yielding:
+
+
+Separation theorem II — Let A and B be two nonempty convex subsets of Rnℝ^n with disjoint relative interiors. Then there exist a nonzero vector v and a real number c such that
+
+⟨x,v⟩≥cand⟨y,v⟩≤c,v⟩ and,v⟩
+
+in particular, we have the supporting hyperplane theorem.
+
+
+Supporting hyperplane theorem — if A is a convex set in Rn,ℝ^n, and a0_0 is a point on the boundary of A, then there exists a supporting hyperplane of A containing a0_0.
+
+
+Proof
+If the affine span of A is not all of Rnℝ^n, then extend the affine span to a supporting hyperplane. Else, relint(A)=int(A)relint(A)=int(A) is disjoint from relint(a0)=a0relint({a_0})={a_0}, so apply the above theorem.
+
+
+Converse of theorem[edit]
+Note that the existence of a hyperplane that only "separates" two convex sets in the weak sense of both inequalities being non-strict obviously does not imply that the two sets are disjoint. Both sets could have points located on the hyperplane.
+
+Counterexamples and uniqueness[edit]
+The theorem does not apply if one of the bodies is not convex.
+If one of A or B is not convex, then there are many possible counterexamples.  For example, A and B could be concentric circles.  A more subtle counterexample is one in which A and B are both closed but neither one is compact.  For example, if A is a closed half plane and B is bounded by one arm of a hyperbola, then there is no strictly separating hyperplane:
+
+A=(x,y):x≤0={(x,y):x≤0}
+B=(x,y):x>0,y≥1/x.={(x,y):x>0,y≥1/x}.}
+(Although, by an instance of the second theorem, there is a hyperplane that separates their interiors.)  Another type of counterexample has A compact and B open.  For example, A can be a closed square and B can be an open square that touches A.
+In the first version of the theorem, evidently the separating hyperplane is never unique.  In the second version, it may or may not be unique.  Technically a separating axis is never unique because it can be translated; in the second version of the theorem, a separating axis can be unique up to translation.
+The horn angle provides a good counterexample to many hyperplane separations. For example, in R2ℝ^2, the unit disk is disjoint from the open interval ((1,0),(1,1))((1,0),(1,1)), but the only line separating them contains the entirety of ((1,0),(1,1))((1,0),(1,1)). This shows that if A is closed and B is relatively open, then there does not necessarily exist a separation that is strict for B. However, if A is closed polytope then such a separation exists.[6]
+
+More variants[edit]
+Farkas' lemma and related results can be understood as hyperplane separation theorems when the convex bodies are defined by finitely many linear inequalities.
+More results may be found.[6]
+
+Use in collision detection[edit]
+In collision detection, the hyperplane separation theorem is usually used in the following form:
+
+
+Separating axis theorem — Two closed convex objects are disjoint if there exists a line ("separating axis") onto which the two objects' projections are disjoint.
+
+
+Regardless of dimensionality, the separating axis is always a line.
+For example, in 3D, the space is separated by planes, but the separating axis is perpendicular to the separating plane.
+The separating axis theorem can be applied for fast collision detection between polygon meshes. Each face's normal or other feature direction is used as a separating axis. Note that this yields possible separating axes, not separating lines/planes.
+In 3D, using face normals alone will fail to separate some edge-on-edge non-colliding cases. Additional axes, consisting of the cross-products of pairs of edges, one taken from each object, are required.[7]
+For increased efficiency, parallel axes may be calculated as a single axis.
+
+See also[edit]
+Dual cone
+Farkas's lemma
+Kirchberger's theorem
+Optimal control
+Notes[edit]
+
+
+^ Hastie, Trevor; Tibshirani, Robert; Friedman, Jerome (2008). The Elements of Statistical Learning : Data Mining, Inference, and Prediction (PDF) (Second ed.). New York: Springer. pp. 129–135.
+
+^ Witten, Ian H.; Frank, Eibe; Hall, Mark A.; Pal, Christopher J. (2016). Data Mining: Practical Machine Learning Tools and Techniques (Fourth ed.). Morgan Kaufmann. pp. 253–254. ISBN 9780128043578.
+
+^ Deisenroth, Marc Peter; Faisal, A. Aldo; Ong, Cheng Soon (2020). Mathematics for Machine Learning. Cambridge University Press. pp. 337–338. ISBN 978-1-108-45514-5.
+
+^ Boyd & Vandenberghe 2004, Exercise 2.22.
+
+^ Haïm Brezis, Analyse fonctionnelle : théorie et applications, 1983, remarque 4, p. 7.
+
+^ a b Stoer, Josef; Witzgall, Christoph (1970). Convexity and Optimization in Finite Dimensions I. Springer Berlin, Heidelberg. (2.12.9). doi:10.1007/978-3-642-46216-0. ISBN 978-3-642-46216-0.
+
+^ "Advanced vector math".
+
+
+References[edit]
+Boyd, Stephen P.; Vandenberghe, Lieven (2004). Convex Optimization (PDF). Cambridge University Press. ISBN 978-0-521-83378-3.
+Golshtein, E. G.; Tretyakov, N.V. (1996). Modified Lagrangians and monotone maps in optimization. New York: Wiley. p. 6. ISBN 0-471-54821-9.
+Shimizu, Kiyotaka; Ishizuka, Yo; Bard, Jonathan F. (1997). Nondifferentiable and two-level mathematical programming. Boston: Kluwer Academic Publishers. p. 19. ISBN 0-7923-9821-1.
+Soltan, V. (2021). Support and separation properties of convex sets in finite dimension. Extracta Math. Vol. 36, no. 2, 241-278.
+External links[edit]
+Collision detection and response
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+vteTopological vector spaces (TVSs)Basic concepts
+Banach space
+Completeness
+Continuous linear operator
+Linear functional
+Fréchet space
+Linear map
+Locally convex space
+Metrizability
+Operator topologies
+Topological vector space
+Vector space
+Main results
+Anderson–Kadec
+Banach–Alaoglu
+Closed graph theorem
+F. Riesz's
+Hahn–Banach (hyperplane separation
+Vector-valued Hahn–Banach)
+Open mapping (Banach–Schauder)
+Bounded inverse
+Uniform boundedness (Banach–Steinhaus)
+Maps
+Bilinear operator
+form
+Linear map
+Almost open
+Bounded
+Continuous
+Closed
+Compact
+Densely defined
+Discontinuous
+Topological homomorphism
+Functional
+Linear
+Bilinear
+Sesquilinear
+Norm
+Seminorm
+Sublinear function
+Transpose
+Types of sets
+Absolutely convex/disk
+Absorbing/Radial
+Affine
+Balanced/Circled
+Banach disks
+Bounding points
+Bounded
+Complemented subspace
+Convex
+Convex cone (subset)
+Linear cone (subset)
+Extreme point
+Pre-compact/Totally bounded
+Prevalent/Shy
+Radial
+Radially convex/Star-shaped
+Symmetric
+Set operations
+Affine hull
+(Relative) Algebraic interior (core)
+Convex hull
+Linear span
+Minkowski addition
+Polar
+(Quasi) Relative interior
+Types of TVSs
+Asplund
+B-complete/Ptak
+Banach
+(Countably) Barrelled
+BK-space
+(Ultra-) Bornological
+Brauner
+Complete
+Convenient
+(DF)-space
+Distinguished
+F-space
+FK-AK space
+FK-space
+Fréchet
+tame Fréchet
+Grothendieck
+Hilbert
+Infrabarreled
+Interpolation space
+K-space
+LB-space
+LF-space
+Locally convex space
+Mackey
+(Pseudo)Metrizable
+Montel
+Quasibarrelled
+Quasi-complete
+Quasinormed
+(Polynomially
+Semi-) Reflexive
+Riesz
+Schwartz
+Semi-complete
+Smith
+Stereotype
+(B
+Strictly
+Uniformly) convex
+(Quasi-) Ultrabarrelled
+Uniformly smooth
+Webbed
+With the approximation property
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

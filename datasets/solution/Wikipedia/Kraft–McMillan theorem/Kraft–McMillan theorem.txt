@@ -1,0 +1,102 @@
+In coding theory, the Kraft–McMillan inequality gives a necessary and sufficient condition for the existence of a prefix code[1] (in Leon G. Kraft's version) or a uniquely decodable code (in Brockway McMillan's version) for a given set of codeword lengths. Its applications to prefix codes and trees often find use in computer science and information theory.
+Kraft's inequality was published in Kraft (1949). However, Kraft's paper discusses only prefix codes, and attributes the analysis leading to the inequality to Raymond Redheffer. The result was independently discovered in McMillan (1956). McMillan proves the result for the general case of uniquely decodable codes, and attributes the version for prefix codes to a spoken observation in 1955 by Joseph Leo Doob.
+
+
+Applications and intuitions[edit]
+Kraft's inequality limits the lengths of codewords in a prefix code: if one takes an exponential of the length of each valid codeword, the resulting set of values must look like a probability mass function, that is, it must have total measure less than or equal to one. Kraft's inequality can be thought of in terms of a constrained budget to be spent on codewords, with shorter codewords being more expensive. Among the useful properties following from the inequality are the following statements:
+
+If Kraft's inequality holds with strict inequality, the code has some redundancy.
+If Kraft's inequality holds with equality, the code in question is a complete code.[2]
+If Kraft's inequality does not hold, the code is not uniquely decodable.
+For every uniquely decodable code, there exists a prefix code with the same length distribution.
+Formal statement[edit]
+Let each source symbol from the alphabet
+
+S=s1,s2,…,sn={ s_1,s_2,…,s_n }
+be encoded into a uniquely decodable code over an alphabet of size r with codeword lengths
+
+ℓ1,ℓ2,…,ℓn.ℓ_1,ℓ_2,…,ℓ_n.
+Then
+
+∑i=1nr−ℓi⩽1.∑_i=1^nr^-ℓ_i⩽1.
+Conversely, for a given set of natural numbers ℓ1,ℓ2,…,ℓnℓ_1,ℓ_2,…,ℓ_n satisfying the above inequality, there exists a uniquely decodable code over an alphabet of size r with those codeword lengths.
+
+Example: binary trees[edit]
+9, 14, 19, 67 and 76 are leaf nodes at depths of 3, 3, 3, 3 and 2, respectively.
+Any binary tree can be viewed as defining a prefix code for the leaves of the tree. Kraft's inequality states that
+
+∑ℓ∈leaves2−depth(ℓ)⩽1.∑_ℓ∈leaves2^-depth(ℓ)⩽1.
+Here the sum is taken over the leaves of the tree, i.e. the nodes without any children. The depth is the distance to the root node. In the tree to the right, this sum is
+
+14+4(18)=34⩽1.1/4+4(1/8)=3/4⩽1.
+Proof[edit]
+Proof for prefix codes[edit]
+Example for binary tree. Red nodes represent a prefix tree. The method for calculating the number of descendant leaf nodes in the full tree is shown.
+First, let us show that the Kraft inequality holds whenever the code for S is a prefix code.
+Suppose that ℓ1⩽ℓ2⩽⋯⩽ℓnℓ_1⩽ℓ_2⩽⋯⩽ℓ_n. Let A be the full r-ary tree of depth ℓnℓ_n (thus, every node of A at level <ℓn<ℓ_n has r children, while the nodes at level ℓnℓ_n are leaves). Every word of length ℓ⩽ℓnℓ⩽ℓ_n over an r-ary alphabet corresponds to a node in this tree at depth ℓℓ. The ith word in the prefix code corresponds to a node vi_i; let Ai_i be the set of all leaf nodes (i.e. of nodes at depth ℓnℓ_n) in the subtree of A rooted at vi_i. That subtree being of height ℓn−ℓiℓ_n-ℓ_i, we have
+
+|Ai|=rℓn−ℓi.|A_i|=r^ℓ_n-ℓ_i.
+Since the code is a prefix code, those subtrees cannot share any leaves, which means that
+
+Ai∩Aj=∅,i≠j._i_j=∅,.
+Thus, given that the total number of nodes at depth ℓnℓ_n is rℓn^ℓ_n, we have
+
+|⋃i=1nAi|=∑i=1n|Ai|=∑i=1nrℓn−ℓi⩽rℓn|⋃_i=1^nA_i|=∑_i=1^n|A_i|=∑_i=1^nr^ℓ_n-ℓ_i^ℓ_n
+from which the result follows.
+Conversely, given any ordered sequence of n natural numbers,
+
+ℓ1⩽ℓ2⩽⋯⩽ℓnℓ_1⩽ℓ_2⩽⋯⩽ℓ_n
+satisfying the Kraft inequality, one can construct a prefix code with codeword lengths equal to each ℓiℓ_i by choosing a word of length ℓiℓ_i arbitrarily, then ruling out all words of greater length that have it as a prefix. There again, we shall interpret this in terms of leaf nodes of an r-ary tree of depth ℓnℓ_n.  First choose any node from the full tree at depth ℓ1ℓ_1; it corresponds to the first word of our new code. Since we are building a prefix code, all the descendants of this node (i.e., all words that have this first word as a prefix) become unsuitable for inclusion in the code. We consider the descendants at depth ℓnℓ_n (i.e., the leaf nodes among the descendants); there are  rℓn−ℓ1^ℓ_n-ℓ_1 such descendant nodes that are removed from consideration. The next iteration picks a (surviving) node at depth ℓ2ℓ_2 and removes rℓn−ℓ2^ℓ_n-ℓ_2 further leaf nodes, and so on.  After n iterations, we have removed a total of
+
+∑i=1nrℓn−ℓi∑_i=1^nr^ℓ_n-ℓ_i
+nodes. The question is whether we need to remove more leaf nodes than we actually have available — rℓn^ℓ_n in all — in the process of building the code. Since the Kraft inequality holds, we have indeed
+
+∑i=1nrℓn−ℓi⩽rℓn∑_i=1^nr^ℓ_n-ℓ_i^ℓ_n
+and thus a prefix code can be built. Note that as the choice of nodes at each step is largely arbitrary, many different suitable prefix codes can be built, in general.
+
+Proof of the general case[edit]
+Now we will prove that the Kraft inequality holds whenever S is a uniquely decodable code. (The converse needs not be proven, since we have already proven it for prefix codes, which is a stronger claim.)
+Denote C=∑i=1nr−li=∑_i=1^nr^-l_i. The idea of the proof is to get an upper bound on Cm^m for m∈N∈ℕ and show that it can only hold for all m if C≤1≤1. Rewrite Cm^m as
+
+Cm=(∑i=1nr−li)m=∑i1=1n∑i2=1n⋯∑im=1nr−(li1+li2+⋯+lim)C^m   =(∑_i=1^nr^-l_i)^m
+   =∑_i_1=1^n∑_i_2=1^n⋯∑_i_m=1^nr^-(l_i_1+l_i_2+⋯+l_i_m)
+
+Consider all m-powers Sm^m, in the form of words si1si2…sim_i_1s_i_2_i_m, where i1,i2,…,im_1,i_2,…,i_m are indices between 1 and n. Note that, since S was assumed to uniquely decodable,
+si1si2…sim=sj1sj2…sjm_i_1s_i_2_i_m=s_j_1s_j_2_j_m implies i1=j1,i2=j2,…,im=jm_1=j_1,i_2=j_2,…,i_m=j_m. This means that each summand corresponds to exactly one word in Sm^m. This allows us to rewrite the equation to
+
+Cm=∑ℓ=1m⋅ℓmaxqℓr−ℓ^m=∑_ℓ=1^m·ℓ_maxq_ℓ r^-ℓ
+where qℓ_ℓ is the number of codewords in Sm^m of length ℓℓ and ℓmaxℓ_max is the length of the longest codeword in S. For an r-letter alphabet there are only rℓ^ℓ possible words of length ℓℓ, so qℓ≤rℓ_ℓ^ℓ. Using this, we upper bound Cm^m:
+
+Cm=∑ℓ=1m⋅ℓmaxqℓr−ℓ≤∑ℓ=1m⋅ℓmaxrℓr−ℓ=m⋅ℓmaxC^m   =∑_ℓ=1^m·ℓ_maxq_ℓ r^-ℓ
+   ≤∑_ℓ=1^m·ℓ_maxr^ℓ r^-ℓ=m·ℓ_max
+Taking the m-th root, we get
+
+C=∑i=1nr−li≤(m⋅ℓmax)1m=∑_i=1^nr^-l_i≤(m·ℓ_max)^1/m
+This bound holds for any m∈N∈ℕ. The right side is 1 asymptotically, so ∑i=1nr−li≤1∑_i=1^nr^-l_i≤1 must hold (otherwise the inequality would be broken for a large enough m).
+
+Alternative construction for the converse[edit]
+Given a sequence of n natural numbers,
+
+ℓ1⩽ℓ2⩽⋯⩽ℓnℓ_1⩽ℓ_2⩽⋯⩽ℓ_n
+satisfying the Kraft inequality, we can construct a prefix code as follows.  Define the ith codeword, Ci, to be the first ℓiℓ_i digits after the radix point (e.g. decimal point) in the base r representation of
+
+∑j=1i−1r−ℓj.∑_j=1^i-1r^-ℓ_j.
+Note that by Kraft's inequality, this sum is never more than 1.  Hence the codewords capture the entire value of the sum.  Therefore, for j > i, the first ℓiℓ_i digits of Cj form a larger number than Ci, so the code is prefix free.
+
+Notes[edit]
+
+
+^ Cover, Thomas M.; Thomas, Joy A. (2006), "Data Compression", Elements of Information Theory (2nd ed.), John Wiley & Sons, Inc, pp. 108–109, doi:10.1002/047174882X.ch5, ISBN 978-0-471-24195-9
+
+^ De Rooij, Steven; Grünwald, Peter D. (2011), "LUCKINESS AND REGRET IN MINIMUM DESCRIPTION LENGTH INFERENCE", Philosophy of Statistics (1st ed.), Elsevier, p. 875, ISBN 978-0-080-93096-1
+
+
+References[edit]
+Kraft, Leon G. (1949), A device for quantizing, grouping, and coding amplitude modulated pulses, Cambridge, MA: MS Thesis, Electrical Engineering Department, Massachusetts Institute of Technology, hdl:1721.1/12390.
+McMillan, Brockway (1956), "Two inequalities implied by unique decipherability", IEEE Trans. Inf. Theory, 2 (4): 115–116, doi:10.1109/TIT.1956.1056818.
+See also[edit]
+Chaitin's constant
+Canonical Huffman code
+
+
+

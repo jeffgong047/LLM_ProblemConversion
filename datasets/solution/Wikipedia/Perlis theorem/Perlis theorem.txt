@@ -1,0 +1,139 @@
+Linear algebra aspects of graph theory
+In mathematics, spectral graph theory is the study of the properties of a graph in relationship to the characteristic polynomial, eigenvalues, and eigenvectors of matrices associated with the graph, such as its adjacency matrix or Laplacian matrix.
+The adjacency matrix of a simple undirected graph is a real symmetric matrix and is therefore orthogonally diagonalizable; its eigenvalues are real algebraic integers.
+While the adjacency matrix depends on the vertex labeling, its spectrum is a graph invariant, although not a complete one.
+Spectral graph theory is also concerned with graph parameters that are defined via multiplicities of eigenvalues of matrices associated to the graph, such as the Colin de Verdière number.
+
+
+Cospectral graphs[edit]
+Two graphs are called cospectral or isospectral if the adjacency matrices of the graphs are isospectral, that is, if the adjacency matrices have equal multisets of eigenvalues.
+
+Two cospectral enneahedra, the smallest possible cospectral polyhedral graphs
+Cospectral graphs need not be isomorphic, but isomorphic graphs are always cospectral.
+
+Graphs determined by their spectrum[edit]
+A graph G is said to be determined by its spectrum if any other graph with the same spectrum as G is isomorphic to G.
+Some first examples of families of graphs that are determined by their spectrum include:
+
+The complete graphs.
+The finite starlike trees.
+Cospectral mates[edit]
+A pair of graphs are said to be cospectral mates if they have the same spectrum, but are non-isomorphic.
+The smallest pair of cospectral mates is {K1,4, C4 ∪ K1}, comprising the 5-vertex star and the graph union of the 4-vertex cycle and the single-vertex graph, as reported by Collatz and Sinogowitz[1][2] in 1957.
+The smallest pair of polyhedral cospectral mates are enneahedra with eight vertices each.[3]
+
+Finding cospectral graphs[edit]
+Almost all trees are cospectral, i.e., as the number of vertices grows, the fraction of trees for which there exists a cospectral tree goes to 1.[4]
+A pair of regular graphs are cospectral if and only if their complements are cospectral.[5]
+A pair of distance-regular graphs are cospectral if and only if they have the same intersection array.
+Cospectral graphs can also be constructed by means of the Sunada method.[6]
+Another important source of cospectral graphs are the point-collinearity graphs and the line-intersection graphs of point-line geometries. These graphs are always cospectral but are often non-isomorphic.[7]
+
+Cheeger inequality[edit]
+The famous Cheeger's inequality from Riemannian geometry has a discrete analogue involving the Laplacian matrix; this is perhaps the most important theorem in spectral graph theory and one of the most useful facts in algorithmic applications. It approximates the sparsest cut of a graph through the second eigenvalue of its Laplacian.
+
+Cheeger constant[edit]
+Main article: Cheeger constant (graph theory)
+The Cheeger constant (also Cheeger number or isoperimetric number) of a graph is a numerical measure of whether or not a graph has a "bottleneck". The Cheeger constant as a measure of "bottleneckedness" is of great interest in many areas: for example, constructing well-connected networks of computers, card shuffling, and low-dimensional topology (in particular, the study of hyperbolic 3-manifolds).
+More formally, the Cheeger constant h(G) of a graph G on n vertices is defined as
+
+h(G)=min0<|S|≤n2|∂(S)||S|,(G)=min_0<|S|≤n/2|∂(S)|/|S|,
+where the minimum is over all nonempty sets S of at most n/2 vertices and ∂(S) is the edge boundary of S, i.e., the set of edges with exactly one endpoint in S.[8]
+
+Cheeger inequality[edit]
+When the graph G is d-regular, there is a relationship between h(G) and the spectral gap d − λ2 of G. An inequality due to Dodziuk[9] and independently Alon and Milman[10] states that[11]
+
+12(d−λ2)≤h(G)≤2d(d−λ2).1/2(d-λ_2)(G)≤√(2d(d-λ_2)).
+This inequality is closely related to the Cheeger bound for Markov chains and can be seen as a discrete version of Cheeger's inequality in Riemannian geometry.
+For general connected graphs that are not necessarily regular, an alternative inequality is given by Chung[12]: 35 
+
+12λ≤h(G)≤2λ,1/2λ≤𝐡(G)≤√(2λ),
+where λλ is the least nontrivial eigenvalue of the normalized Laplacian, and h(G)𝐡(G) is the (normalized) Cheeger constant  
+
+h(G)=min∅≠S⊂V(G)|∂(S)|min(vol(S),vol(S¯))𝐡(G)=min_∅≠S(G)|∂(S)|/min(vol(S),vol(S̅))
+where vol(Y)vol(Y) is the sum of degrees of vertices in Y.
+
+Hoffman–Delsarte inequality[edit]
+There is an eigenvalue bound for independent sets in regular graphs, originally due to Alan J. Hoffman and Philippe Delsarte.[13]
+Suppose that G is a k-regular graph on n vertices with least eigenvalue λminλ_min. Then:α(G)≤n1−kλminα(G)≤n/1-k/λ_minwhere α(G)α(G) denotes its independence number.
+This bound has been applied to establish e.g. algebraic proofs of the Erdős–Ko–Rado theorem and its analogue for intersecting families of subspaces over finite fields.[14]
+For general graphs which are not necessarily regular, a similar upper bound for the independence number can be derived by using the maximum eigenvalue
+λmax′λ'_max of the normalized Laplacian[12] of G:
+α(G)≤n(1−1λmax′)maxdegmindegα(G)(1-1/λ'_max)maxdeg/mindeg
+where maxdegmaxdeg and mindegmindeg denote the maximum and minimum degree in G, respectively. This a consequence of a more general inequality (pp. 109 in
+[12]):
+vol(X)≤(1−1λmax′)vol(V(G))vol(X)≤(1-1/λ'_max)vol(V(G)) 
+where X is an independent set of vertices and vol(Y)vol(Y) denotes the sum of degrees of vertices in Y .
+
+Historical outline[edit]
+Spectral graph theory emerged in the 1950s and 1960s. Besides graph theoretic research on the relationship between structural and spectral properties of graphs, another major source was research in quantum chemistry, but the connections between these two lines of work were not discovered until much later.[15] The 1980 monograph Spectra of Graphs[16] by Cvetković, Doob, and Sachs summarised nearly all research to date in the area. In 1988 it was updated by the survey Recent Results in the Theory of Graph Spectra.[17] The 3rd edition of Spectra of Graphs (1995) contains a summary of the further recent contributions to the subject.[15] Discrete geometric analysis created and developed by Toshikazu Sunada in the 2000s deals with spectral graph theory in terms of discrete Laplacians associated with weighted graphs,[18] and finds application in various fields, including shape analysis. In most recent years, the spectral graph theory has expanded to vertex-varying graphs often encountered in many real-life applications.[19][20][21][22]
+
+See also[edit]
+Strongly regular graph
+Algebraic connectivity
+Algebraic graph theory
+Spectral clustering
+Spectral shape analysis
+Estrada index
+Lovász theta
+Expander graph
+References[edit]
+
+
+^ Collatz, L. and Sinogowitz, U. "Spektren endlicher Grafen." Abh. Math. Sem. Univ. Hamburg 21, 63–77, 1957.
+
+^ Weisstein, Eric W. "Cospectral Graphs". MathWorld.
+
+^ Hosoya, Haruo; Nagashima, Umpei; Hyugaji, Sachiko (1994), "Topological twin graphs. Smallest pair of isospectral polyhedral graphs with eight vertices", Journal of Chemical Information and Modeling, 34 (2): 428–431, doi:10.1021/ci00018a033.
+
+^ Schwenk (1973), pp. 275–307.
+
+^ Godsil, Chris (November 7, 2007). "Are Almost All Graphs Cospectral?" (PDF).
+
+^ Sunada, Toshikazu (1985), "Riemannian coverings and isospectral manifolds", Ann. of Math., 121 (1): 169–186, doi:10.2307/1971195, JSTOR 1971195.
+
+^ Brouwer & Haemers 2011
+
+^ Definition 2.1 in Hoory, Linial & Wigderson (2006)
+
+^ J.Dodziuk, Difference Equations, Isoperimetric inequality and Transience of Certain Random Walks, Trans. Amer. Math. Soc. 284 (1984), no. 2, 787-794.
+
+^ Alon & Spencer 2011.
+
+^ Theorem 2.4 in Hoory, Linial & Wigderson (2006)
+
+^ a b c Chung, Fan (1997). American Mathematical Society (ed.). Spectral Graph Theory. Providence, R. I. ISBN 0821803158. MR 1421568[first 4 chapters are available in the website]{{cite book}}:  CS1 maint: postscript (link)
+
+^ Godsil, Chris (May 2009). "Erdős-Ko-Rado Theorems" (PDF).
+
+^ Godsil, C. D.; Meagher, Karen (2016). Erdős-Ko-Rado theorems : algebraic approaches. Cambridge, United Kingdom. ISBN 9781107128446. OCLC 935456305.{{cite book}}:  CS1 maint: location missing publisher (link)
+
+^ a b Eigenspaces of Graphs, by Dragoš Cvetković, Peter Rowlinson, Slobodan Simić (1997) ISBN 0-521-57352-1
+
+^ Dragoš M. Cvetković, Michael Doob, Horst Sachs, Spectra of Graphs (1980)
+
+^ Cvetković, Dragoš M.; Doob, Michael; Gutman, Ivan; Torgasev, A. (1988). Recent Results in the Theory of Graph Spectra. Annals of Discrete mathematics. ISBN 0-444-70361-6.
+
+^ Sunada, Toshikazu (2008), "Discrete geometric analysis", Proceedings of Symposia in Pure Mathematics, 77: 51–86, doi:10.1090/pspum/077/2459864, ISBN 9780821844717.
+
+^ Shuman, David I; Ricaud, Benjamin; Vandergheynst, Pierre (March 2016). "Vertex-frequency analysis on graphs". Applied and Computational Harmonic Analysis. 40 (2): 260–291. arXiv:1307.5708. doi:10.1016/j.acha.2015.02.005. ISSN 1063-5203. S2CID 16487065.
+
+^ Stankovic, Ljubisa; Dakovic, Milos; Sejdic, Ervin (July 2017). "Vertex-Frequency Analysis: A Way to Localize Graph Spectral Components [Lecture Notes]". IEEE Signal Processing Magazine. 34 (4): 176–182. Bibcode:2017ISPM...34..176S. doi:10.1109/msp.2017.2696572. ISSN 1053-5888. S2CID 19969572.
+
+^ Sakiyama, Akie; Watanabe, Kana; Tanaka, Yuichi (September 2016). "Spectral Graph Wavelets and Filter Banks With Low Approximation Error". IEEE Transactions on Signal and Information Processing over Networks. 2 (3): 230–245. doi:10.1109/tsipn.2016.2581303. ISSN 2373-776X. S2CID 2052898.
+
+^ Behjat, Hamid; Richter, Ulrike; Van De Ville, Dimitri; Sornmo, Leif (2016-11-15). "Signal-Adapted Tight Frames on Graphs". IEEE Transactions on Signal Processing. 64 (22): 6017–6029. Bibcode:2016ITSP...64.6017B. doi:10.1109/tsp.2016.2591513. ISSN 1053-587X. S2CID 12844791.
+
+
+Alon; Spencer (2011), The probabilistic method, Wiley.
+Brouwer, Andries; Haemers, Willem H. (2011), Spectra of Graphs (PDF), Springer
+Hoory; Linial; Wigderson (2006), Expander graphs and their applications (PDF)
+Chung, Fan (1997). American Mathematical Society (ed.). Spectral Graph Theory. Providence, R. I. ISBN 0821803158. MR 1421568[first 4 chapters are available in the website]{{cite book}}:  CS1 maint: postscript (link)
+Schwenk, A. J. (1973). "Almost All Trees are Cospectral". In Harary, Frank (ed.). New Directions in the Theory of Graphs. New York: Academic Press. ISBN 012324255X. OCLC 890297242.
+External links[edit]
+Spielman, Daniel (2011). "Spectral Graph Theory" (PDF). [chapter from Combinatorial Scientific Computing]
+Spielman, Daniel (2007). "Spectral Graph Theory and its Applications". [presented at FOCS 2007 Conference]
+Spielman, Daniel (2004). "Spectral Graph Theory and its Applications". [course page and lecture notes]
+
+
+

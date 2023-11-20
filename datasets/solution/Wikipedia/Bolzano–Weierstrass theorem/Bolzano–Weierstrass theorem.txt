@@ -1,0 +1,118 @@
+Bounded sequence in finite-dimensional Euclidean space has a convergent subsequence
+In mathematics, specifically in real analysis, the Bolzano–Weierstrass theorem, named after Bernard Bolzano and Karl Weierstrass, is a fundamental result about convergence in a finite-dimensional Euclidean space Rnℝ^n. The theorem states that each infinite bounded sequence in Rnℝ^n has a convergent subsequence.[1] An equivalent formulation is that a subset of Rnℝ^n is sequentially compact if and only if it is closed and bounded.[2] The theorem is sometimes called the sequential compactness theorem.[3]
+
+
+History and significance[edit]
+The Bolzano–Weierstrass theorem is named after mathematicians Bernard Bolzano and Karl Weierstrass.  It was actually first proved by Bolzano in 1817 as a lemma in the proof of the intermediate value theorem.  Some fifty years later the result was identified as significant in its own right, and proved again by Weierstrass. It has since become an essential theorem of analysis.
+
+Proof[edit]
+First we prove the theorem for R1ℝ^1 (set of all real numbers), in which case the ordering on R1ℝ^1 can be put to good use.  Indeed, we have the following result:
+Lemma: Every infinite sequence (xn)(x_n) in R1ℝ^1 has a monotone subsequence (a subsequence that is either non-decreasing or non-increasing).
+Proof[4]: Let us call a positive integer-valued index n of a sequence a "peak" of the sequence when xm≤xn_m_n for every m>n>n. Suppose first that the sequence has infinitely many peaks, which means there is a subsequence with the following indices n1<n2<n3<⋯<nj<…_1<n_2<n_3<…<n_j<… and the following terms xn1≥xn2≥xn3≥⋯≥xnj≥…_n_1_n_2_n_3≥…_n_j≥…. So, the infinite sequence (xn)(x_n) in R1ℝ^1 has a monotone (non-increasing) subsequence, which is (xnj)(x_n_j). But suppose now that there are only finitely many peaks, let N be the final peak if one exists (let N=0=0 otherwise) and let the first index of a new subsequence (xnj)(x_n_j) be set to n1=N+1_1=N+1.  Then n1_1 is not a peak, since n1_1 comes after the final peak, which implies the existence of n2_2 with n1<n2_1<n_2 and xn1≤xn2_n_1_n_2. Again, n2_2 comes after the final peak, hence there is an n3_3 where n2<n3_2<n_3 with xn2≤xn3_n_2_n_3. Repeating this process leads to an infinite non-decreasing  subsequence  xn1≤xn2≤xn3≤…_n_1_n_2_n_3≤…, thereby proving that every infinite sequence (xn)(x_n) in R1ℝ^1 has a monotone subsequence.
+Now suppose one has a bounded sequence in R1ℝ^1; by the lemma proven above there exists a monotone subsequence, likewise also bounded. It follows from the monotone convergence theorem that this subsequence converges.
+Finally, the general case (Rnℝ^n), can be reduced to the case of R1ℝ^1 as follows: given a bounded sequence in Rnℝ^n, the sequence of first coordinates is a bounded real sequence, hence it has a convergent subsequence. One can then extract a sub-subsequence on which the second coordinates converge, and so on, until in the end we have passed from the original sequence to a subsequence n times—which is still a subsequence of the original sequence—on which each coordinate sequence converges, hence the subsequence itself is convergent.
+
+Alternative proof[edit]
+There is also an alternative proof of the Bolzano–Weierstrass theorem using nested intervals. We start with a bounded sequence (xn)(x_n):
+
+
+
+
+
+Because (xn)n∈N(x_n)_n∈ℕ is bounded, this sequence has a lower bound s and an upper bound S.
+
+
+
+
+
+
+We take I1=[s,S]_1=[s,S] as the first interval for the sequence of nested intervals.
+
+
+
+
+
+
+Then we split I1_1 at the mid into two equally sized subintervals.
+
+
+
+
+
+
+Because each sequence has infinitely many members, there must be (at least) one of these subintervals that contains infinitely many members of (xn)n∈N(x_n)_n∈ℕ. We take this subinterval as the second interval I2_2 of the sequence of nested intervals.
+
+
+
+
+
+
+Then we split I2_2 again at the mid into two equally sized subintervals.
+
+
+
+
+
+
+Again, one of these subintervals contains infinitely many members of (xn)n∈N(x_n)_n∈ℕ. We take this subinterval as the third subinterval I3_3 of the sequence of nested intervals.
+
+
+
+
+
+
+We continue this process infinitely many times. Thus we get a sequence of nested intervals.
+
+
+
+
+Because we halve the length of an interval at each step, the limit of the interval's length is zero. Also, by the nested intervals theorem, which states that if each In_n is a closed and bounded interval, say
+
+In=[an,bn]_n=[a_n, b_n]
+with
+
+an≤bn_n_n
+then under the assumption of nesting, the intersection of the In_n is not empty. Thus there is a number x that is in each interval In_n. Now we show, that x is an accumulation point of (xn)(x_n).
+Take a neighbourhood U of x. Because the length of the intervals converges to zero, there is an interval IN_N that is a subset of U. Because IN_N contains by construction infinitely many members of (xn)(x_n) and IN⊆U_N, also U contains infinitely many members of (xn)(x_n). This proves that x is an accumulation point of (xn)(x_n). Thus, there is a subsequence of (xn)(x_n) that converges to x.
+
+Sequential compactness in Euclidean spaces[edit]
+Definition: A set A⊆Rn⊆ℝ^n is sequentially compact if every sequence xn{x_n} in A has a convergent subsequence converging to an element of A.
+Theorem: A⊆Rn⊆ℝ^n is sequentially compact if and only if A is closed and bounded.
+Proof: (sequential compactness implies closed and bounded)
+Suppose A is a subset of Rnℝ^n with the property that every sequence in A has a subsequence converging to an element of A. Then A must be bounded, since otherwise the following unbounded sequence xn∈A{x_n} can be constructed. For every n∈N∈ℕ, define xn_n to be any arbitrary point such that ||xn||≥n||x_n||. Then, every subsequence of xn{x_n} is unbounded and therefore not convergent. Moreover, A must be closed, since any limit point of A, which has a sequence of points in A converging to itself, must also lie in A.
+Proof: (closed and bounded implies sequential compactness)
+Since A is bounded, any sequence xn∈A{x_n} is also bounded. From the Bolzano-Weierstrass theorem, xn{x_n} contains a subsequence converging to some point x∈Rn∈ℝ^n. Since x is a limit point of A and A is a closed set, x must be an element of A.
+Thus the subsets A of Rnℝ^n for which every sequence in A has a subsequence converging to an element of A – i.e., the subsets that are sequentially compact in the subspace topology – are precisely the closed and bounded subsets.
+This form of the theorem makes especially clear the analogy to the Heine–Borel theorem, which asserts that a subset of Rnℝ^n is compact if and only if it is closed and bounded.  In fact, general topology tells us that a metrizable space is compact if and only if it is sequentially compact, so that the Bolzano–Weierstrass and Heine–Borel theorems are essentially the same.
+
+Application to economics[edit]
+There are different important equilibrium concepts in economics, the proofs of the existence of which often require variations of the Bolzano–Weierstrass theorem. One example is the existence of a Pareto efficient allocation. An allocation is a matrix of consumption bundles for agents in an economy, and an allocation is Pareto efficient if no change can be made to it that makes no agent worse off and at least one agent better off (here rows of the allocation matrix must be rankable by a preference relation). The Bolzano–Weierstrass theorem allows one to prove that if the set of allocations is compact and non-empty, then the system has a Pareto-efficient allocation.
+
+See also[edit]
+Sequentially compact space
+Heine–Borel theorem
+Completeness of the real numbers
+Ekeland's variational principle
+Notes[edit]
+
+
+^ Bartle and Sherbert 2000, p. 78 (for R).
+
+^ Fitzpatrick 2006, p. 52 (for R), p. 300 (for Rn).
+
+^ Fitzpatrick 2006, p. xiv.
+
+^ Bartle and Sherbert 2000, pp. 78-79.
+
+
+References[edit]
+Bartle, Robert G.; Sherbert, Donald R. (2000). Introduction to Real Analysis (3rd ed.). New York: J. Wiley. ISBN 9780471321484.
+Fitzpatrick, Patrick M. (2006). Advanced Calculus (2nd ed.). Belmont, CA: Thomson Brooks/Cole. ISBN 0-534-37603-7.
+External links[edit]
+"Bolzano-Weierstrass theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+A proof of the Bolzano–Weierstrass theorem
+PlanetMath: proof of Bolzano–Weierstrass Theorem
+The Bolzano-Weierstrass Rap
+
+
+

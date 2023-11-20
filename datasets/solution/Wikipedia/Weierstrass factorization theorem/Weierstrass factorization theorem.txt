@@ -1,0 +1,93 @@
+In mathematics, and particularly in the field of complex analysis, the Weierstrass factorization theorem asserts that every entire function can be represented as a (possibly infinite) product involving its zeroes.  The theorem may be viewed as an extension of the fundamental theorem of algebra, which asserts that every polynomial may be factored into linear factors, one for each root.
+The theorem, which is named for Karl Weierstrass, is closely related to a second result that every sequence tending to infinity has an associated entire function with zeroes at precisely the points of that sequence.
+A generalization of the theorem extends it to meromorphic functions and allows one to consider a given meromorphic function as a product of three factors: terms depending on the function's zeros and poles, and an associated non-zero holomorphic function.[citation needed]
+
+
+Motivation[edit]
+It is clear that any finite set cn{c_n} of points in the complex plane has an associated polynomial p(z)=∏n(z−cn)(z)=∏_n(z-c_n) whose zeroes are precisely at the points of that set. The converse is a consequences of the fundamental theorem of algebra: any polynomial function p(z)(z) in the complex plane has a factorization
+p(z)=a∏n(z−cn),(z)=a∏_n(z-c_n), 
+where a is a non-zero constant and cn{c_n} is the set of zeroes of p(z)(z).[1]
+The two forms of the Weierstrass factorization theorem can be thought of as extensions of the above to entire functions. The necessity of additional terms in the product is demonstrated when one considers ∏n(z−cn)∏_n(z-c_n) where the sequence cn{c_n} is not finite. It can never define an entire function, because the infinite product does not converge. Thus one cannot, in general, define an entire function from a sequence of prescribed zeroes or represent an entire function by its zeroes using the expressions yielded by the fundamental theorem of algebra.
+A necessary condition for convergence of the infinite product in question is that for each z, the factors (z−cn)(z-c_n) must approach 1 as n→∞→∞. So it stands to reason that one should seek a function that could be 0 at a prescribed point, yet remain near 1 when not at that point and furthermore introduce no more zeroes than those prescribed. 
+Weierstrass' elementary factors have these properties and serve the same purpose as the factors (z−cn)(z-c_n) above.
+
+The elementary factors[edit]
+Consider the functions of the form exp⁡(−zn+1n+1)exp(-z^n+1n+1) for n∈N∈ℕ. At z=0=0, they evaluate to 11 and have a flat slope at order up to n. Right after z=1=1, they sharply fall to some small positive value. In contrast, consider the function 1−z1-z which has no flat slope but, at z=1=1, evaluates to exactly zero. Also note that for |z| < 1,
+
+(1−z)=exp⁡(ln⁡(1−z))=exp⁡(−z11−z22−z33+⋯).(1-z)=exp(ln(1-z))=exp(-z^11-z^22-z^33+⋯).
+Plot of En(x)_n(x) for n = 0,...,4 and x in the interval [-1,1].
+The elementary factors,[2] 
+also referred to as primary factors,[3] 
+are functions that combine the properties of zero slope and zero value (see graphic):
+
+En(z)=(1−z)ifn=0,(1−z)exp⁡(z11+z22+⋯+znn)otherwise._n(z)=(1-z)   ifn=0,
+(1-z)exp(z^1/1+z^2/2+⋯+z^n/n)   otherwise.
+For |z| < 1 and n>0>0, one may express it as 
+En(z)=exp⁡(−zn+1n+1∑k=0∞zk1+k/(n+1))_n(z)=exp(-z^n+1n+1∑_k=0^∞z^k1+k/(n+1)) and one can read off how those properties are enforced.
+The utility of the elementary factors En(z)_n(z) lies in the following lemma:[2]
+Lemma (15.8, Rudin) for |z| ≤ 1, n∈N∈ℕ
+
+|1−En(z)|≤|z|n+1.|1-E_n(z)|≤|^n+1.
+The two forms of the theorem[edit]
+Existence of entire function with specified zeroes[edit]
+Let an{a_n} be a sequence of non-zero complex numbers such that |an|→∞|a_n|→∞.
+If pn{p_n} is any sequence of nonnegative integers such that for all r>0>0,
+
+∑n=1∞(r/|an|)1+pn<∞,∑_n=1^∞(r/|a_n|)^1+p_n<∞,
+then the function
+
+f(z)=∏n=1∞Epn(z/an)(z)=∏_n=1^∞E_p_n(z/a_n)
+is entire with zeros only at points an_n. If a number z0_0 occurs in the sequence an{a_n} exactly m times, then function f has a zero at z=z0=z_0 of multiplicity m.
+
+The sequence pn{p_n} in the statement of the theorem always exists. For example, we could always take pn=n_n=n and have the convergence. Such a sequence is not unique: changing it at finite number of positions, or taking another sequence p′n ≥ pn, will not break the convergence.
+The theorem generalizes to the following: sequences in open subsets (and hence regions) of the Riemann sphere have associated functions that are holomorphic in those subsets and have zeroes at the points of the sequence.[2]
+Also the case given by the fundamental theorem of algebra is incorporated here. If the sequence an{a_n} is finite then we can take pn=0_n=0 and obtain: f(z)=c∏n(z−an) f(z)=c ∏_n(z-a_n).
+The Weierstrass factorization theorem[edit]
+Let ƒ be an entire function, and let an{a_n} be the non-zero zeros of ƒ repeated according to multiplicity; suppose also that ƒ has a zero at z = 0 of order m ≥ 0.[a]
+Then there exists an entire function g and a sequence of integers pn{p_n} such that
+
+f(z)=zmeg(z)∏n=1∞Epn(zan).(z)=z^me^g(z)∏_n=1^∞E_p_n(z/a_n).[4]
+Examples of factorization[edit]
+The trigonometric functions sine and cosine have the factorizations
+sin⁡πz=πz∏n≠0(1−zn)ez/n=πz∏n=1∞(1−(zn)2)sin=∏_n≠0(1-z/n)e^z/n=∏_n=1^∞(1-(z/n)^2)
+cos⁡πz=∏q∈Z,qodd(1−2zq)e2z/q=∏n=0∞(1−(zn+12)2)cos=∏_q∈ℤ, q odd(1-2z/q)e^2z/q=∏_n=0^∞(1-(z/n+12)^2)
+while the gamma function ΓΓ has factorization 
+1Γ(z)=eγzz∏n=1∞(1+zn)e−z/n,1/Γ(z)=e^z∏_n=1^∞(1+z/n)e^-z/n,
+where γγ is the Euler–Mascheroni constant.[citation needed] The cosine identity can be seen as special case of
+1Γ(s−z)Γ(s+z)=1Γ(s)2∏n=0∞(1−(zn+s)2)1/Γ(s-z)Γ(s+z)=1/Γ(s)^2∏_n=0^∞(1-(z/n+s)^2)
+for s=12=12.[citation needed]
+
+Hadamard factorization theorem[edit]
+Main article: Hadamard factorization theorem
+
+Define the Hadamard canonical factors En(z):=(1−z)∏k=1nezk/k_n(z):=(1-z)∏_k=1^ne^z^k/kEntire functions of finite order have Hadamard's canonical representation[4]:f(z)=zmeP(z)∏k=1∞Ep(z/ak)(z)=z^me^P(z)∏_k=1^∞E_p(z/a_k)where ak_k are those roots of f that are not zero (ak≠0_k≠0), m is the order of the zero of f at z=0=0 (the case m=0=0 being taken to mean f(0)≠0(0)≠0), P a polynomial (whose degree we shall call q), and p is the smallest non-negative integer such that the series∑n=1∞1|an|p+1∑_n=1^∞1/|a_n|^p+1converges. The non-negative integer g=maxp,q=max{p,q} is called the genus of the entire function f. In this notation, g≤ρ≤g+1≤ρ+1
+In other words: If the order ρρ is not an integer, then g=[ρ]=[ρ] is the integer part of ρρ. If the order is a positive integer, then there are two possibilities: g=ρ−1=ρ-1 or g=ρ=ρ.
+For example, sinsin, coscos and expexp are entire functions of genus g=ρ=1=ρ=1.
+
+See also[edit]
+Mittag-Leffler's theorem
+Wallis product, which can be derived from this theorem applied to the sine function
+Blaschke product
+Notes[edit]
+
+
+^ A zero of order m = 0 at z = 0 is taken to mean ƒ(0) ≠ 0 — that is, f does not have a zero at 00.
+
+
+
+
+^ Knopp, K. (1996), "Weierstrass's Factor-Theorem", Theory of Functions, Part II, New York: Dover, pp. 1–7.
+
+^ a b c Rudin, W. (1987), Real and Complex Analysis (3rd ed.), Boston: McGraw Hill, pp. 301–304, ISBN 0-07-054234-1, OCLC 13093736
+
+^ Boas, R. P. (1954), Entire Functions, New York: Academic Press Inc., ISBN 0-8218-4505-5, OCLC 6487790, chapter 2.
+
+^ a b Conway, J. B. (1995), Functions of One Complex Variable I, 2nd ed., springer.com: Springer, ISBN 0-387-90328-3
+
+
+External links[edit]
+"Weierstrass theorem", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Visualization of the Weierstrass factorization of the sine function due to Euler at the Wayback Machine (archived 30 November 2018)
+
+
+

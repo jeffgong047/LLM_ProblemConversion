@@ -1,0 +1,57 @@
+Not to be confused with Herbrand–Ribet theorem or Herbrand's theorem on ramification groups.
+Herbrand's theorem is a fundamental result of mathematical logic obtained by Jacques Herbrand (1930).[1] It essentially allows a certain kind of reduction of first-order logic to propositional logic. Herbrand's theorem is the logical foundation for most automatic theorem provers. Although Herbrand originally proved his theorem for arbitrary formulas of first-order logic,[2] the simpler version shown here, restricted to formulas in prenex form containing only existential quantifiers, became more popular.
+
+
+Statement[edit]
+Let 
+
+(∃y1,…,yn)F(y1,…,yn)(_1,…,y_n)F(y_1,…,y_n)
+be a formula of first-order logic with F(y1,…,yn)(y_1,…,y_n) quantifier-free,
+though it may contain additional free variables.
+This version of Herbrand's theorem states that the above formula is valid 
+if and only if there exists a finite sequence of terms tij_ij, 
+possibly in an expansion of the language, with 
+
+1≤i≤r1 and 1≤j≤n1,
+such that 
+
+F(t11,…,t1n)∨…∨F(tr1,…,trn)(t_11,…,t_1n)∨…(t_r1,…,t_rn)
+is valid. If it is valid, it is called a Herbrand disjunction for 
+
+(∃y1,…,yn)F(y1,…,yn).(_1,…,y_n)F(y_1,…,y_n).
+Informally: a formula A in prenex form containing only existential quantifiers is provable (valid) in first-order logic if and only if a disjunction composed of substitution instances of the quantifier-free subformula of A is a tautology (propositionally derivable).
+The restriction to formulas in prenex form containing only existential quantifiers does not limit the generality of the theorem, because formulas can be converted to prenex form and their universal quantifiers can be removed by Herbrandization. Conversion to prenex form can be avoided, if structural Herbrandization is performed. Herbrandization can be avoided by imposing additional restrictions on the variable dependencies allowed in the Herbrand disjunction.
+
+Proof sketch[edit]
+A proof of the non-trivial direction of the theorem can be constructed according to the following steps:
+
+If the formula (∃y1,…,yn)F(y1,…,yn)(_1,…,y_n)F(y_1,…,y_n) is valid, then by completeness of cut-free sequent calculus, which follows from Gentzen's cut-elimination theorem, there is a cut-free proof of ⊢(∃y1,…,yn)F(y1,…,yn)⊢(_1,…,y_n)F(y_1,…,y_n).
+Starting from leaves and working downwards, remove the inferences that introduce existential quantifiers.
+Remove contraction inferences on previously existentially quantified formulas, since the formulas (now with terms substituted for previously quantified variables) might not be identical anymore after the removal of the quantifier inferences.
+The removal of contractions accumulates all the relevant substitution instances of F(y1,…,yn)(y_1,…,y_n) in the right side of the sequent, thus resulting in a proof of ⊢F(t11,…,t1n),…,F(tr1,…,trn)(t_11,…,t_1n),…,F(t_r1,…,t_rn), from which the Herbrand disjunction can be obtained.
+However, sequent calculus and cut-elimination were not known at the time of Herbrand's proof, and Herbrand had to prove his theorem in a more complicated way.
+
+Generalizations of Herbrand's theorem[edit]
+Herbrand's theorem has been extended to higher-order logic by using expansion-tree proofs.[3] The deep representation of expansion-tree proofs corresponds to a Herbrand disjunction, when restricted to first-order logic.
+Herbrand disjunctions and expansion-tree proofs have been extended with a notion of cut. Due to the complexity of cut-elimination, Herbrand disjunctions with cuts can be non-elementarily smaller than a standard Herbrand disjunction.
+Herbrand disjunctions have been generalized to Herbrand sequents, allowing Herbrand's theorem to be stated for sequents: "a Skolemized sequent is derivable if and only if it has a Herbrand sequent".
+See also[edit]
+Herbrand structure
+Herbrand interpretation
+Herbrand universe
+Compactness theorem
+Notes[edit]
+
+
+^ J. Herbrand: Recherches sur la théorie de la démonstration. Travaux de la société des Sciences et des Lettres de Varsovie, Class III, Sciences Mathématiques et Physiques, 33, 1930.
+
+^ Samuel R. Buss: "Handbook of Proof Theory". Chapter 1, "An Introduction to Proof Theory". Elsevier, 1998.
+
+^ Dale Miller: A Compact Representation of Proofs. Studia Logica, 46(4), pp. 347--370, 1987.
+
+
+References[edit]
+Buss, Samuel R. (1995), "On Herbrand's Theorem", in Maurice, Daniel; Leivant, Raphaël (eds.), Logic and Computational Complexity, Lecture Notes in Computer Science, Berlin, New York: Springer-Verlag, pp. 195–209, ISBN 978-3-540-60178-4.
+
+
+

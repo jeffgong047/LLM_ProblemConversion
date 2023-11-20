@@ -1,0 +1,151 @@
+In the mathematical subject of group theory, the Grushko theorem or the Grushko–Neumann theorem is a theorem stating that the rank (that is, the smallest cardinality of a generating set) of a free product of two groups is equal to the sum of the ranks of the two free factors. The theorem was first obtained in a 1940 article of Grushko[1] and then, independently, in a 1943 article of Neumann.[2]
+
+
+Statement of the theorem[edit]
+Let A and B be finitely generated groups and let A∗B be the free product of A and B.  Then
+
+rank(A∗B) = rank(A) + rank(B).
+It is obvious that rank(A∗B) ≤ rank(A) + rank(B) since if X is a finite generating set of A and Y is a finite generating set of B then X∪Y is a generating set for A∗B and that |X ∪ Y|  ≤  |X| + |Y|. The opposite inequality, rank(A∗B) ≥ rank(A) + rank(B), requires proof.
+Grushko, but not Neumann, proved a more precise version of Grushko's theorem in terms of Nielsen equivalence. It states that if M = (g1, g2, ..., gn) is an n-tuple of elements of G = A∗B  such that M generates G, <g1, g2, ..., gn> = G, then M is Nielsen equivalent in G to an n-tuple of the form  
+
+M' = (a1, ..., ak, b1, ..., bn−k) where {a1, ..., ak}⊆A is a generating set for A and where {b1, ..., bn−k}⊆B is a generating set for B. In particular, rank(A) ≤ k, rank(B) ≤ n − k and rank(A) + rank(B) ≤ k + (n − k) = n. If one takes M to be the minimal generating tuple for G, that is, with n = rank(G), this implies that rank(A) + rank(B) ≤ rank(G). Since the opposite inequality, rank(G) ≤ rank(A) + rank(B), is obvious, it follows that rank(G)=rank(A) + rank(B), as required.
+History and generalizations[edit]
+After the original proofs of Grushko (1940) and Neumann(1943), there were many subsequent alternative proofs, simplifications and generalizations of Grushko's theorem. A close version of Grushko's original proof is given in the 1955 book of Kurosh.[3]
+Like the original proofs, Lyndon's proof (1965)[4] relied on length-functions considerations but with substantial simplifications.  A 1965 paper of Stallings
+[5] gave a greatly simplified topological proof of Grushko's theorem.
+A 1970 paper of Zieschang[6] gave a Nielsen equivalence version of Grushko's theorem (stated above) and provided some generalizations of Grushko's theorem for amalgamated free products. Scott (1974) gave another topological proof of Grushko's theorem, inspired by the methods of 3-manifold topology[7] Imrich (1984)[8] gave a version of Grushko's theorem for free products with infinitely many factors.
+A 1976 paper of Chiswell[9]  gave a relatively straightforward proof of Grushko's theorem, modelled on Stallings' 1965 proof, that used the techniques of Bass–Serre theory. The argument directly inspired the machinery of foldings for group actions on trees and for graphs of groups and  Dicks' even more straightforward proof of Grushko's theorem (see, for example,
+[10][11][12]).
+Grushko's theorem is, in a sense, a starting point in Dunwoody's theory of accessibility for finitely generated and finitely presented groups. Since the ranks of the free factors are smaller than the rank of a free product, Grushko's theorem implies that the process of iterated splitting of a finitely generated group G as a free product must terminate in a finite number of steps (more precisely, in at most rank(G) steps). There is a natural similar question for iterating splittings of  finitely generated groups over finite subgroups. Dunwoody proved that such a process must always terminate if a group G is finitely presented[13] but may go on forever if G is finitely generated but not finitely presented.[14]
+An algebraic proof of a substantial generalization of Grushko's theorem using the machinery of groupoids was given by Higgins (1966).[15] Higgins' theorem starts with groups G and B with free decompositions G = ∗i Gi, B = ∗i Bi and f : G → B a morphism such that f(Gi) = Bi for all i. Let H be a subgroup of G such that f(H) = B. Then H has a decomposition H = ∗i Hi such that f(Hi) = Bi for all i. Full details of the proof and applications may also be found in 
+.[10][16]
+
+Grushko decomposition theorem[edit]
+A useful consequence of the original Grushko theorem is the so-called Grushko decomposition theorem. It asserts that any nontrivial finitely generated group G can be decomposed as a free product
+
+G = A1∗A2∗...∗Ar∗Fs, where s ≥ 0, r ≥ 0,
+where each of the groups Ai is nontrivial, freely indecomposable (that is, it cannot be decomposed as a free product) and not infinite cyclic, and where  Fs is a free group of rank s;
+moreover, for a given G,  the groups A1, ..., Ar are unique up to a permutation of their conjugacy classes in G (and, in particular, the sequence of isomorphism types of these groups is unique up to a permutation) and the numbers s and r are unique as well.
+More precisely, if G = B1∗...∗Bk∗Ft is another such decomposition then k = r, s = t, and there exists a permutation σ∈Sr such that for each i=1,...,r the subgroups Ai and Bσ(i) are conjugate in G.
+The existence of the above decomposition, called the Grushko decomposition of G, is an immediate corollary of the original Grushko theorem, while the uniqueness statement requires additional arguments (see, for example[17]).
+Algorithmically computing the Grushko decomposition for specific classes of groups is a difficult problem which primarily requires being able to determine if a given group is freely decomposable. Positive results are available for some classes of groups such as torsion-free word-hyperbolic groups, certain classes of relatively hyperbolic groups,[18] fundamental groups of finite graphs of finitely generated free groups[19] and others.
+Grushko decomposition theorem is a group-theoretic analog of the Kneser prime decomposition theorem for 3-manifolds which says that a closed 3-manifold can be uniquely decomposed as a connected sum of irreducible 3-manifolds.[20]
+
+Sketch of the proof using Bass–Serre theory[edit]
+The following is a sketch of the proof of Grushko's theorem based on the use of foldings techniques for groups acting on trees (see [10][11][12] for complete proofs using this argument).
+Let S={g1,....,gn} be a finite generating set for G=A∗B  of size |S|=n=rank(G). Realize G as the fundamental group of a graph of groups Y which is a single non-loop edge with vertex groups A and B and with the trivial edge group. Let Y 𝐘̃ be the Bass–Serre covering tree for Y. Let F=F(x1,....,xn) be the free group with free basis x1,....,xn and let φ0:F → G be the homomorphism such that φ0(xi)=gi for i=1,...,n. Realize F as the fundamental group of a graph Z0 which is the wedge of n circles that correspond to the elements x1,....,xn. We also think of Z0 as a graph of groups with the underlying graph Z0 and the trivial vertex and edge groups. Then the universal cover Z 0Z̃_0 of Z0  and the Bass–Serre covering tree for Z0 coincide. Consider a φ0-equivariant map r0:Z 0→Y _0:Z̃_0→𝐘̃ so that it sends vertices to vertices and edges to edge-paths. This map is non-injective and, since both the source and the target of the map are trees, this map "folds" some edge-pairs in the source. The graph of groups Z0 serves as an initial approximation for Y.
+We now start performing a sequence of "folding moves" on Z0 (and on its Bass-Serre covering tree) to construct a sequence of graphs of groups Z0, Z1, Z2, ...., that form better and better approximations for Y. Each of the graphs of groups Zj has trivial edge groups and comes with the following additional structure: for each nontrivial vertex group of it there assigned a finite generating set of that vertex group. The complexity c(Zj) of Zj is the sum of the sizes of the generating sets of its vertex groups and the rank of the free group π1(Zj). For the initial approximation graph we have c(Z0)=n.
+The folding moves that take Zj to Zj+1 can be of one of two types:
+
+folds that identify two edges of the underlying graph with a common initial vertex but distinct end-vertices into a single edge; when such a fold is performed, the generating sets of the vertex groups and the terminal edges are "joined" together into a generating set of the new vertex group; the rank of the fundamental group of the underlying graph does not change under such a move.
+folds that identify two edges, that already had common initial vertices and common terminal vertices, into a single edge; such a move decreases the rank of the fundamental group of the underlying graph by 1 and an element that corresponded to the loop in the graph that is being collapsed is "added" to the generating set of one of the vertex groups.
+One sees that the folding moves do not increase complexity but they do decrease the number of edges in Zj. Therefore, the folding process must terminate in a finite number of steps with a graph of groups Zk that cannot be folded any more. It follows from the basic Bass–Serre theory considerations that Zk must in fact be equal to the edge of groups Y and that Zk comes equipped with finite generating sets for the vertex groups A and B. The sum of the sizes of these generating sets is the complexity of  Zk which is therefore less than or equal to c(Z0)=n. This implies that the sum of the ranks of the vertex groups A and B is at most n, that is 
+rank(A)+rank(B)≤rank(G), as required.
+
+Sketch of Stalling's proof[edit]
+Stallings' proof of Grushko Theorem follows from the following lemma.
+
+Lemma[edit]
+Let F be a finitely generated free group, with n generators. Let G1 and G2 be two finitely presented groups. Suppose there exists a surjective homomorphism ϕ:F→G1∗G2ϕ:F_1_2. Then there exists two subgroups F1 and F2 of F with ϕ(F1)=G1ϕ(F_1)=G_1 and ϕ(F2)=G2ϕ(F_2)=G_2, such that F=F1∗F2.=F_1_2.
+Proof: 
+We give the proof assuming that F has no generator which is mapped to the identity of G1∗G2_1_2, for if there are such generators, they may be added to any of F1_1 or F2_2.
+The following general results are used in the proof.
+1. There is a one or two dimensional CW complex, Z with fundamental group F. By Van Kampen theorem, the wedge of n circles is one such space.
+2. There exists a two complex X=X1∪X2=X_1_2 where p=X1∩X2{p}=X_1_2 is a point on a one cell of X such that X1 and X2 are two complexes  with fundamental groups  G1 and G2  respectively. Note that by the Van Kampen theorem, this implies that the fundamental group of X is G1∗G2_1_2.
+3. There exists a map f:Z→X:Z such that the induced map f∗_∗ on the fundamental groups is same as ϕϕ
+For the sake of convenience, let us denote f−1(X1)=:Z1^-1(X_1)=:Z_1 and  f−1(X2)=:Z2^-1(X_2)=:Z_2. 
+Since no generator of F maps to identity, the set Z1∩Z2_1_2 has no loops, for if it does, these will correspond to circles of Z which map to p∈X, which in turn correspond to generators of F which go to the identity.  So, the components of Z1∩Z2_1_2 are contractible.
+In the case where Z1∩Z2_1_2 has only one component, by Van Kampen's theorem, we are done, as in that case, :F=Π1(Z1)∗Π1(Z2)=Π_1(Z_1)∗Π_1(Z_2).
+The general proof follows by reducing Z to a space homotopically equivalent to it, but with fewer components in Z1∩Z2_1_2, and thus by induction on the components of Z1∩Z2_1_2.
+Such a reduction of Z is done by attaching discs along  binding ties.
+We call a map γ:[0,1]→Zγ:[0,1] a binding tie if it satisfies the following properties
+1. It is monochromatic i.e. γ([0,1])⊆Z1γ([0,1])_1 or γ([0,1])⊆Z2γ([0,1])_2
+2. It is a tie i.e. γ(0)γ(0) and γ(1)γ(1) lie in different components of Z1∩Z2_1_2.
+3. It is null i.e. f∘γ([0,1])∘γ([0,1]) is null homotopic in X.
+Let us assume that such a binding tie exists. Let γγ be the binding tie.
+Consider the map g:[0,1]→D2:[0,1]^2 given by g(t)=eit(t)=e^it. This map is a homeomorphism onto its image. Define the space Z′' as 
+
+Z′=Z∐D2/∼'=Z∐D^2/∼ where :x∼yiffx=y,orx=γ(t)andy=g(t)forsomet∈[0,1]orx=g(t)andy=γ(t)forsomet∈[0,1]iffx=y,
+x=γ(t)andy=g(t)forsomet∈[0,1]
+x=g(t)andy=γ(t)forsomet∈[0,1]
+Note that the space Z'  deformation retracts to Z  
+We first extend f to a function f″:Z∐∂D2/∼”:Z∐^2/∼ as 
+
+f″(x)=f(x),x∈Zpotherwise.”(x)=f(x),
+potherwise.
+Since the f(γ)(γ) is null homotopic, f″” further extends to the interior of the disc, and therefore, to Z′' .
+Let Zi′=f′−1(Xi)_i'=f'^-1(X_i) i = 1,2.
+As γ(0)γ(0) and γ(1)γ(1) lay in different components of Z1∩Z2_1_2, Z1′∩Z2′_1'_2' has one less component than Z1∩Z2_1_2.
+
+Construction of binding tie[edit]
+The binding tie is constructed in two steps.
+Step 1: Constructing a null tie:
+Consider a map γ′:[0,1]→Zγ':[0,1] with γ′(0)γ'(0) and γ′(1)γ'(1) in different components of Z1∩Z2_1_2. Since f∗_∗ is surjective, there exits a loop λλ based at γ'(1) such that f(γ′)f(γ') and  f(λ)f(λ) are homotopically equivalent in X.
+If we define a curve γ:[0,1]→Zγ:[0,1] as γ(t)=γ′∗λ(t)γ(t)=γ'∗λ(t) for all t∈[0,1]∈[0,1], then γγ is a null tie.
+Step 2: Making the null tie monochromatic:
+The tie γγ may be written as γ1∗γ2∗⋯∗γmγ_1∗γ_2∗⋯∗γ_m where each γiγ_i is a curve in Z1_1 or Z2_2 such that if γiγ_i is in Z1_1, then γi+1γ_i+1 is in Z2_2 and vice versa. This also implies that f(γi)(γ_i) is a loop based at p in X. So,
+
+[e]=[f(γ)]=[f(γ1)]∗⋯∗[f(γm)][e]=[f(γ)]=[f(γ_1)]∗⋯∗[f(γ_m)]
+Hence, [f(γj)]=[e][f(γ_j)]=[e] for some j. 
+If this   γjγ_j is a tie, then we have a monochromatic, null tie. 
+If γjγ_j is not a tie, then the end points of γjγ_j are in the same component of Z1∩Z2_1_2. In this case, we replace γjγ_j by a path in Z1∩Z2_1_2, say γj′γ_j'. This path may be appended to γj−1γ_j-1 and we get a new null tie
+γ″=γ1∗⋯∗γj−1′∗γj+1⋯γmγ”=γ_1∗⋯∗γ_j-1'∗γ_j+1⋯γ_m, where γj−1′=γj−1∗γj′γ_j-1'=γ_j-1∗γ_j'.
+Thus, by induction on m, we prove the existence of a binding tie.
+
+Proof of Grushko theorem[edit]
+Suppose that G=A∗B=A*B is generated by g1,g2,…,gn{g_1,g_2,…,g_n}. Let F be the free group with n-generators, viz. f1,f2,…,fn{f_1,f_2,…,f_n}. Consider the homomorphism h:F→G:F given by h(fi)=gi(f_i)=g_i, where i=1,…,n=1,…,n.
+By the lemma, there exists free groups F1_1 and F2_2 with F=F1∗F2=F_1_2 such that h(F1)=A(F_1)=A and h(F2)=B(F_2)=B. Therefore, Rank(A)≤Rank(F1)Rank(A)≤Rank(F_1) and Rank(B)≤Rank(F2)Rank(B)≤Rank(F_2).
+Therefore, Rank(A)+Rank(B)≤Rank(F1)+Rank(F2)=Rank(F)=Rank(A∗B).Rank(A)+Rank(B)≤Rank(F_1)+Rank(F_2)=Rank(F)=Rank(A).
+
+See also[edit]
+Bass–Serre theory
+Generating set of a group
+Notes[edit]
+
+
+^ I. A. Grushko, On the bases of a free product of groups, Matematicheskii Sbornik, vol 8 (1940), pp. 169–182.
+
+^ B. H. Neumann. On the number of generators of a free product.  Journal of the London Mathematical Society, vol 18, (1943), pp. 12–20.
+
+^ A. G. Kurosh, The theory of groups. Vol. I. Translated and edited by K. A. Hirsch. Chelsea Publishing Co., New York, N.Y., 1955
+
+^ Roger C. Lyndon, "Grushko's theorem." Proceedings of the American Mathematical Society, vol. 16 (1965), pp. 822–826.
+
+^ John R. Stallings. "A topological proof of Grushko's theorem on free products." Mathematische Zeitschrift, vol. 90 (1965), pp. 1–8.
+
+^ Heiner Zieschang. "Über die Nielsensche Kürzungsmethode in freien Produkten mit Amalgam." Inventiones Mathematicae, vol. 10 (1970), pp. 4–37
+
+^ Scott, Peter. An introduction to 3-manifolds. Department of Mathematics, University of Maryland, Lecture Note, No. 11. Department of Mathematics, University of Maryland, College Park, Maryland, 1974
+
+^ Wilfried Imrich "Grushko's theorem." Archiv der Mathematik (Basel), vol. 43 (1984), no. 5, pp. 385-387
+
+^ I. M. Chiswell,  The Grushko-Neumann theorem. Proc. London Math. Soc. (3) 33 (1976), no. 3, 385–400.
+
+^ a b c Warren Dicks. Groups, trees and projective modules. Lecture Notes in Mathematics 790, Springer, 
+1980
+
+^ a b John R. Stallings. "Foldings of G-trees." Arboreal group theory (Berkeley, California, 1988), pp. 355–368, Mathematical Sciences Research Institute Publications, 19. Springer, New York, 1991; ISBN 0-387-97518-7
+
+^ a b Ilya Kapovich, Richard Weidmann, and Alexei Miasnikov. Foldings, graphs of groups and the membership problem. International Journal of Algebra and Computation, vol. 15 (2005), no. 1, pp. 95–128
+
+^ Martin J. Dunwoody. "The accessibility of finitely presented groups." Inventiones Mathematicae, vol. 81 (1985), no. 3, pp. 449–457
+
+^ Martin J. Dunwoody. "An inaccessible group". Geometric group theory, Vol. 1 (Sussex, 1991), pp. 75–78, London Mathematical Society Lecture Notes Series, 181, Cambridge University Press, Cambridge, 1993. ISBN 0-521-43529-3
+
+^ P. J. Higgins. "Grushko's theorem." Journal of Algebra, vol. 4 (1966),  pp. 365–372
+
+^ Higgins, Philip J., Notes on categories and groupoids. Van Nostrand Rienhold Mathematical Studies, No. 32. Van Nostrand Reinhold Co., London-New York-Melbourne, 1971. Reprinted as 
+Theory and Applications of Categories Reprint No 7, 2005.
+
+^ John Stallings. Coherence of 3-manifold fundamental groups. Archived 2011-06-05 at the Wayback Machine Séminaire Bourbaki, 18 (1975-1976), Exposé No. 481.
+
+^ François Dahmani and Daniel Groves. "Detecting free splittings in relatively hyperbolic groups". Transactions of the American Mathematical Society. Posted online July 21, 2008.
+
+^ Guo-An Diao and Mark Feighn. "The Grushko decomposition of a finite graph of finite rank free groups: an algorithm". Geometry & Topology. vol. 9 (2005), pp. 1835–1880
+
+^ H. Kneser, Geschlossene Flächen in dreidimensionalen Mannigfaltigkeiten. Jahresber. Deutsch. Math. Verein., vol. 38 (1929), pp. 248–260
+
+
+
+
+

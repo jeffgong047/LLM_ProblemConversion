@@ -1,0 +1,183 @@
+Existence and uniqueness theorem for certain partial differential equations
+Differential equations
+Scope
+Fields
+Natural sciencesEngineering
+Astronomy
+Physics
+Chemistry
+Biology
+Geology
+
+Applied mathematics
+Continuum mechanics
+Chaos theory
+Dynamical systems
+
+Social sciences
+Economics
+Population dynamics
+
+
+List of named differential equations
+
+Classification
+Types
+
+Ordinary
+Partial
+Differential-algebraic
+Integro-differential
+Fractional
+Linear
+Non-linear
+
+
+By variable type
+Dependent and independent variables
+
+Autonomous
+Coupled / Decoupled
+Exact
+Homogeneous / Nonhomogeneous
+
+
+Features
+
+Order
+Operator
+
+Notation
+
+
+Relation to processes
+Difference (discrete analogue)
+
+Stochastic
+Stochastic partial
+Delay
+
+
+Solution
+Existence and uniqueness
+Picard–Lindelöf theorem 
+Peano existence theorem
+Carathéodory's existence theorem
+Cauchy–Kowalevski theorem
+
+General topics
+Initial conditions
+Boundary values
+Dirichlet
+Neumann
+Robin
+Cauchy problem
+Wronskian
+Phase portrait
+Lyapunov / Asymptotic / Exponential stability
+Rate of convergence
+Series / Integral solutions
+Numerical integration
+Dirac delta function
+
+
+Solution methods
+Inspection
+Method of characteristics
+Euler
+Exponential response formula
+Finite difference (Crank–Nicolson)
+Finite element
+Infinite element
+Finite volume
+Galerkin
+Petrov–Galerkin
+Green's function
+Integrating factor
+Integral transforms
+Perturbation theory
+Runge–Kutta
+
+Separation of variables
+Undetermined coefficients
+Variation of parameters
+
+People
+List
+Isaac Newton
+Gottfried Leibniz
+Jacob Bernoulli
+Leonhard Euler
+Józef Maria Hoene-Wroński
+Joseph Fourier
+Augustin-Louis Cauchy
+George Green
+Carl David Tolmé Runge
+Martin Kutta
+Rudolf Lipschitz
+Ernst Lindelöf
+Émile Picard
+Phyllis Nicolson
+John Crank
+
+vte
+In mathematics, the Cauchy–Kovalevskaya theorem (also written as the Cauchy–Kowalevski theorem) is the main local existence and uniqueness theorem for analytic partial differential equations associated with Cauchy initial value problems. A special case was proven by Augustin Cauchy (1842), and the full result by Sofya Kovalevskaya (1874).
+
+
+First order Cauchy–Kovalevskaya theorem[edit]
+This theorem is about the existence of solutions to a system of m differential equations in n dimensions when the coefficients are analytic functions. The theorem and its proof are valid for analytic functions of either real or complex variables.
+Let K denote either the fields of real or complex numbers, and let V = Km and W = Kn. Let A1, ..., An−1 be analytic functions defined on some neighbourhood of (0, 0) in W × V and taking values in the m × m matrices, and let b be an analytic function with values in V defined on the same neighbourhood. Then there is a neighbourhood of 0 in W on which the quasilinear Cauchy problem
+
+∂xnf=A1(x,f)∂x1f+⋯+An−1(x,f)∂xn−1f+b(x,f)∂_x_nf=A_1(x,f)∂_x_1f+⋯+A_n-1(x,f)∂_x_n-1f+b(x,f)
+with initial condition
+
+f(x)=0(x)=0
+on the hypersurface
+
+xn=0_n=0
+has a unique analytic solution ƒ : W → V near 0.
+Lewy's example shows that the theorem is not more generally valid for all smooth functions.
+The theorem can also be stated in abstract (real or complex) vector spaces. Let V and W be finite-dimensional real or complex vector spaces, with n = dim W. Let A1, ..., An−1 be analytic functions with values in End (V) and b an analytic function with values in V, defined on some neighbourhood of (0, 0) in W × V. In this case, the same result holds.
+
+Proof by analytic majorization[edit]
+Both sides of the partial differential equation can be expanded as formal power series and give recurrence relations for the coefficients of the formal power series for f that uniquely determine the coefficients. The Taylor series coefficients of the Ai's and b are majorized in matrix and vector norm by a simple scalar rational analytic function. The corresponding scalar Cauchy problem involving this function instead of the Ai's and b has an explicit local analytic solution. The absolute values of its coefficients majorize the norms of those of the original problem; so the formal power series solution must converge
+where the scalar solution converges.
+
+Higher-order Cauchy–Kovalevskaya theorem[edit]
+If F and fj are analytic functions near 0, then the non-linear Cauchy problem
+
+∂tkh=F(x,t,∂tj∂xαh),wherej<kand|α|+j≤k,∂_t^kh=F(x,t,∂_t^j ∂_x^αh),wherej<kand|α|+j,
+with initial conditions
+
+∂tjh(x,0)=fj(x),0≤j<k,∂_t^jh(x,0)=f_j(x),    0<k,
+has a unique analytic solution near 0.
+This follows from the first order problem by considering the derivatives of h appearing on the right hand side as components of a vector-valued function.
+
+Example[edit]
+The heat equation
+
+∂th=∂x2h∂_th=∂_x^2h
+with the condition
+
+h(0,x)=11+x2fort=0(0,x)=11+x^2fort=0
+has a unique formal power series solution (expanded around (0, 0)). However this formal power series does not converge for any non-zero values of t, so there are no analytic solutions in a neighborhood of the origin. This shows that the condition |α| + j ≤ k above cannot be dropped.  (This example is due to Kowalevski.)
+
+Cauchy–Kovalevskaya–Kashiwara theorem[edit]
+There is a wide generalization of the Cauchy–Kovalevskaya theorem for systems of linear partial differential equations with analytic coefficients, the Cauchy–Kovalevskaya–Kashiwara theorem, due to
+Masaki Kashiwara (1983). This theorem involves a cohomological formulation, presented in the language of D-modules. The existence condition involves a compatibility condition among the non homogeneous parts of each equation and the vanishing of a derived functor Ext1^1.
+
+Example[edit]
+Let n≤m. Set Y=x1=⋯=xn={x_1=⋯=x_n}. The system ∂xif=gi,i=1,…,n,∂_x_if=g_i,i=1,…,n, has a solution f∈Cx1,…,xm∈ℂ{x_1,…,x_m} if and only if the compatibility conditions  ∂xigj=∂xjgi∂_x_ig_j=∂_x_jg_i are verified. In order to have a unique solution we must include an initial condition  f|Y=h|_Y=h, where h∈Cxn+1,…,xm∈ℂ{x_n+1,…,x_m}.
+
+References[edit]
+Cauchy, Augustin (1842), "Mémoire sur l'emploi du calcul des limites dans l'intégration des équations aux dérivées partielles", Comptes rendus, 15 Reprinted in Oeuvres completes, 1 serie, Tome VII, pages 17–58.
+Folland, Gerald B. (1995), Introduction to Partial Differential Equations, Princeton University Press, ISBN 0-691-04361-2
+Hörmander, L. (1983), The analysis of linear partial differential operators I, Grundl. Math. Wissenschaft., vol. 256, Springer, doi:10.1007/978-3-642-96750-4, ISBN 3-540-12104-8, MR 0717035 (linear case)
+Kashiwara, M. (1983), Systems of microdifferential equations, Progress in Mathematics, vol. 34, Birkhäuser, ISBN 0817631380
+von Kowalevsky, Sophie (1875), "Zur Theorie der partiellen Differentialgleichung", Journal für die reine und angewandte Mathematik, 80: 1–32 (German spelling of her surname used at that time.)
+Nakhushev, A.M. (2001) [1994], "Cauchy–Kovalevskaya theorem", Encyclopedia of Mathematics, EMS Press
+External links[edit]
+PlanetMath
+
+
+

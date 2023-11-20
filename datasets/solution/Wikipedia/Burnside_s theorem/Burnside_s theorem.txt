@@ -1,0 +1,61 @@
+Mathematic group theory
+For the counting result sometimes called "Burnside's theorem", see Burnside's lemma.
+William Burnside.
+In mathematics, Burnside's theorem in group theory states that if G is a finite group of order paqb^aq^b where p and q are prime numbers, and a and b are non-negative integers, then G is solvable. Hence each
+non-Abelian finite simple group has order divisible by at least three distinct primes.
+
+History[edit]
+The theorem was proved by William Burnside (1904) using the representation theory of finite groups. Several special cases of the theorem had previously been proved by Burnside, Jordan, and Frobenius.[when?]  John Thompson pointed out that a proof avoiding the use of representation theory could be extracted from his work on the N-group theorem, and this was done explicitly by Goldschmidt (1970) for groups of odd order, and by Bender (1972) for groups of even order. Matsuyama (1973) simplified the proofs.
+
+Proof[edit]
+The following proof — using more background than Burnside's — is by contradiction. Let paqb be the smallest product of two prime powers, such that there is a non-solvable group G whose order is equal to this number.
+
+G is a simple group with trivial center and a is not zero.
+If G had a nontrivial proper normal subgroup H, then (because of the minimality of G), H and G/H would be solvable, so G as well, which would contradict our assumption. So G is simple.
+If a were zero, G would be a finite q-group, hence nilpotent, and therefore solvable.
+Similarly, G cannot be abelian, otherwise it would be solvable. As G is simple, its center must therefore be trivial.
+
+There is an element g of G which has qd conjugates, for some d > 0.
+By the first statement of Sylow's theorem, G has a subgroup S of order pa. Because S is a nontrivial p-group, its center Z(S) is nontrivial. Fix a nontrivial element g∈Z(S)(S). The number of conjugates of g is equal to the index of its stabilizer subgroup Gg, which divides the index qb of S (because S is a subgroup of Gg). Hence this number is of the form qd. Moreover, the integer d is strictly positive, since g is nontrivial and therefore not central in G.
+
+There exists a nontrivial irreducible representation ρ with character χ, such that its dimension n is not divisible by q and the complex number χ(g) is not zero.
+Let (χi)1 ≤ i ≤ h be the family of irreducible characters of G over Cℂ (here χ1 denotes the trivial character). Because g is not in the same conjugacy class as 1, the orthogonality relation for the columns of the group's character table gives:
+
+0=∑i=1hχi(1)χi(g)=1+∑i=2hχi(1)χi(g).0=∑_i=1^hχ_i(1)χ_i(g)=1+∑_i=2^hχ_i(1)χ_i(g).
+Now the χi(g) are algebraic integers, because they are sums of roots of unity. If all the nontrivial irreducible characters which don't vanish at g take a value divisible by q at 1, we deduce that
+
+−1q=∑i≥2,χi(g)≠0χi(1)qχi(g)-1/q=∑_i≥2, χ_i(g)≠0χ_i(1)/qχ_i(g)
+is an algebraic integer (since it is a sum of integer multiples of algebraic integers), which is absurd. This proves the statement.
+
+The complex number qdχ(g)/n is an algebraic integer.
+The set of integer-valued class functions on G, Z(Zℤ[G]), is a commutative ring, finitely generated over Zℤ. All of its elements are thus integral over Zℤ, in particular the mapping u which takes the value 1 on the conjugacy class of g and 0 elsewhere.
+The mapping A:Z(Z[G])→End⁡(Cn):Z(ℤ[G])→End(ℂ^n) which sends a class function f to
+
+∑s∈Gf(s)ρ(s)∑_sf(s)ρ(s)
+is a ring homomorphism. Because ρ(s)−1A(u)ρ(s) = A(u) for all s, Schur's lemma implies that A(u) is a homothety λIn. Its trace nλ is equal to
+
+∑s∈Gf(s)χ(s)=qdχ(g).∑_sf(s)χ(s)=q^dχ(g).
+Because the homothety λIn is the homomorphic image of an integral element, this proves that the complex number λ = qdχ(g)/n is an algebraic integer.
+
+The complex number χ(g)/n is an algebraic integer.
+Since q is relatively prime to n, by Bézout's identity there are two integers x and y such that:
+
+xqd+yn=1thereforeχ(g)n=xqdχ(g)n+yχ(g).^d+yn=1  therefore  χ(g)/n=xq^dχ(g)/n+yχ(g).
+Because a linear combination with integer coefficients of algebraic integers is again an algebraic integer, this proves the statement.
+
+The image of g, under the representation ρ, is a homothety.
+Let ζ be the complex number χ(g)/n. It is an algebraic integer, so its norm N(ζ) (i.e. the product of its conjugates, that is the roots of its minimal polynomial over Qℚ) is a nonzero integer. Now ζ is the average of roots of unity (the eigenvalues of ρ(g)), hence so are its conjugates, so they all have an absolute value less than or equal to 1. Because the absolute value of their product N(ζ) is greater than or equal to 1, their absolute value must all be 1, in particular ζ, which means that the eigenvalues of ρ(g) are all equal, so ρ(g) is a homothety.
+
+Conclusion
+Let N be the kernel of ρ. The homothety ρ(g) is central in Im(ρ) (which is canonically isomorphic to G/N), whereas g is not central in G. Consequently, the normal subgroup N of the simple group G is nontrivial, hence it is equal to G, which contradicts the fact that ρ is a nontrivial representation.
+This contradiction proves the theorem.
+
+References[edit]
+Bender, Helmut (1972), "A group theoretic proof of Burnside's paqb-theorem.", Math. Z., 126 (4): 327–338, doi:10.1007/bf01110337, MR 0322048, S2CID 119821947
+Burnside, W. (1904), "On Groups of Order pαqβ", Proc. London Math. Soc. (s2-1 (1)): 388–392, doi:10.1112/plms/s2-1.1.388
+Goldschmidt, David M. (1970), "A group theoretic proof of the paqb theorem for odd primes", Math. Z., 113 (5): 373–375, doi:10.1007/bf01110506, MR 0276338, S2CID 123625253
+James, Gordon; and Liebeck, Martin (2001). Representations and Characters of Groups (2nd ed.). Cambridge University Press. ISBN 0-521-00392-X.  See chapter 31.
+Matsuyama, Hiroshi (1973), "Solvability of groups of order 2aqb.", Osaka J. Math., 10: 375–378, MR 0323890
+
+
+

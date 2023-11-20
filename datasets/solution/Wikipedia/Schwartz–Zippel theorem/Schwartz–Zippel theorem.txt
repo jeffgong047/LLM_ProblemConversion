@@ -1,0 +1,140 @@
+Tool used in probabilistic polynomial identity testing
+In mathematics, the Schwartz–Zippel lemma (also called the DeMillo–Lipton–Schwartz–Zippel lemma) is a tool commonly used in probabilistic polynomial identity testing, i.e. in the problem of determining whether a given multivariate polynomial is the
+0-polynomial[clarification needed] (or identically equal to 0). It was discovered independently by Jack Schwartz,[1] Richard Zippel,[2] and Richard DeMillo and Richard J. Lipton, although DeMillo and Lipton's version was shown a year prior to Schwartz and Zippel's result.[3] The finite field version of this bound was proved by Øystein Ore in 1922.[4]
+
+
+Statement and proof of the lemma[edit]
+Theorem 1 (Schwartz, Zippel). Let
+
+P∈R[x1,x2,…,xn][x_1,x_2,…,x_n]
+be a non-zero polynomial of total degree d ≥ 0 over an integral domain R. Let S be a finite subset of R and let r1, r2, ..., rn be selected at random independently and uniformly from S. Then
+
+Pr[P(r1,r2,…,rn)=0]≤d|S|.[P(r_1,r_2,…,r_n)=0]≤d/|S|.
+Equivalently, the Lemma states that for any finite subset S of R, if Z(P) is the zero set of P, then
+
+|Z(P)∩Sn|≤d⋅|S|n−1.|Z(P)^n|·|S|^n-1.
+Proof.  The proof is by mathematical induction on n. For n = 1, as was mentioned before, P can have at most d roots.  This gives us the base case.
+Now, assume that the theorem holds for all polynomials in n − 1 variables. We can then consider P to be a polynomial in x1 by writing it as
+
+P(x1,…,xn)=∑i=0dx1iPi(x2,…,xn).(x_1,…,x_n)=∑_i=0^dx_1^iP_i(x_2,…,x_n).
+Since P is not identically 0, there is some i such that Pi_i is not identically 0. Take the largest such i. Then deg⁡Pi≤d−i_i-i, since the degree of x1iPi_1^iP_i is at most d.
+Now we randomly pick r2,…,rn_2,…,r_n from S. By the induction hypothesis, Pr[Pi(r2,…,rn)=0]≤d−i|S|.[P_i(r_2,…,r_n)=0]≤d-i/|S|.
+If Pi(r2,…,rn)≠0_i(r_2,…,r_n)≠0, then P(x1,r2,…,rn)(x_1,r_2,…,r_n) is of degree i (and thus not identically zero) so
+
+Pr[P(r1,r2,…,rn)=0|Pi(r2,…,rn)≠0]≤i|S|.[P(r_1,r_2,…,r_n)=0|P_i(r_2,…,r_n)≠0]≤i/|S|.
+If we denote the event P(r1,r2,…,rn)=0(r_1,r_2,…,r_n)=0 by A, the event Pi(r2,…,rn)=0_i(r_2,…,r_n)=0 by B, and the complement of B by Bc^c, we have
+
+Pr[A]=Pr[A∩B]+Pr[A∩Bc]=Pr[B]Pr[A|B]+Pr[Bc]Pr[A|Bc]≤Pr[B]+Pr[A|Bc]≤d−i|S|+i|S|=d|S|[A]   =[A]+[A^c]
+   =[B][A|B]+[B^c][A|B^c]
+   ≤[B]+[A|B^c]
+   ≤d-i/|S|+i/|S|=d/|S|
+Applications[edit]
+The importance of the Schwartz–Zippel Theorem and Testing Polynomial Identities follows
+from algorithms which are obtained to problems that can be reduced to the problem
+of polynomial identity testing.
+
+Zero testing[edit]
+For example, is
+
+(x1+3x2−x3)(3x1+x4−1)⋯(x7−x2)≡0?(x_1+3x_2-x_3)(3x_1+x_4-1)⋯(x_7-x_2)≡0
+To solve this, we can multiply it out and check that all the coefficients are 0.  However, this takes exponential time. In general, a polynomial can be algebraically represented by an arithmetic formula or circuit.
+
+Comparison of two polynomials[edit]
+Given a pair of polynomials p1(x)_1(x) and p2(x)_2(x), is
+
+p1(x)≡p2(x)_1(x)_2(x)?
+This problem can be solved by reducing it to the problem of polynomial identity testing. It is equivalent to checking if
+
+[p1(x)−p2(x)]≡0.[p_1(x)-p_2(x)]≡0.
+Hence if we can determine that
+
+p(x)≡0,(x)≡0,
+where
+
+p(x)=p1(x)−p2(x),(x)=p_1(x) - p_2(x),
+then we can determine whether the two polynomials are equivalent.
+Comparison of polynomials has applications for branching programs (also called binary decision diagrams). A read-once branching program can be represented by a multilinear polynomial which computes (over any field) on {0,1}-inputs the same Boolean function as the branching program, and two branching programs compute the same function if and only if the corresponding polynomials are equal. Thus, identity of Boolean functions computed by read-once branching programs can be reduced to polynomial identity testing.
+Comparison of two polynomials (and therefore testing polynomial identities) also has
+applications in 2D-compression, where the problem of finding the equality of two
+2D-texts A and B is reduced to the problem
+of comparing equality of two polynomials pA(x,y)_A(x,y) and pB(x,y)_B(x,y).
+
+Primality testing[edit]
+Given n∈N∈ℕ, is n a prime number?
+A simple randomized algorithm developed by Manindra Agrawal and Somenath Biswas can determine probabilistically
+whether n is prime and uses polynomial identity testing to do so.
+They propose that all prime numbers n (and only prime numbers) satisfy the following
+polynomial identity:
+
+(1+z)n=1+zn(modn).(1+z)^n=1+z^n( n).
+This is a consequence of the Frobenius endomorphism.
+Let
+
+Pn(z)=(1+z)n−1−zn.𝒫_n(z)=(1+z)^n-1-z^n.
+Then Pn(z)=0(modn)𝒫_n(z)=0 ( n) iff n is prime.  The proof can be found in [4].  However, 
+since this polynomial has degree n, where n may or may not be a prime, 
+the Schwartz–Zippel method would not work.   Agrawal and Biswas use a more sophisticated technique, which divides 
+Pn𝒫_n by a random monic polynomial of small degree.
+Prime numbers are used in a number of applications such as hash table sizing, pseudorandom number
+generators and in key generation for cryptography.  Therefore, finding very large prime numbers
+(on the order of (at least) 10350≈2102410^350≈2^1024) becomes very important and efficient primality testing algorithms
+are required.
+
+Perfect matching[edit]
+Let G=(V,E)=(V,E) be a graph of n vertices where n is even. Does G contain a perfect matching?
+Theorem 2 (Tutte 1947): A Tutte matrix determinant is not a 0-polynomial if and only if there exists a perfect matching.
+A subset D of E is called a matching if each vertex in V is incident with at most one edge in D.  A matching is perfect if each vertex in V has exactly one edge that is incident to it in D. Create a Tutte matrix A in the following way:
+
+A=[a11a12⋯a1na21a22⋯a2n⋮⋮⋱⋮an1an2…ann]=[ a_11 a_12    ⋯ a_1𝑛; a_21 a_22    ⋯ a_2𝑛;    ⋮    ⋮    ⋱    ⋮; a_𝑛1 a_𝑛2    … a_𝑛𝑛 ]
+where
+
+aij=xijif(i,j)∈Eandi<j−xjiif(i,j)∈Eandi>j0otherwise._ij=x_ij   (i,j)i<j
+-x_ji   (i,j)i>j
+0    .
+The Tutte matrix determinant (in the variables xij, i<j<j ) is then defined as the determinant of this skew-symmetric matrix which coincides with the square of the pfaffian of the matrix A and is non-zero (as polynomial) if and only if a perfect matching exists.
+One can then use polynomial identity testing to find whether G contains a perfect matching. There exists a deterministic black-box algorithm for graphs with polynomially bounded permanents (Grigoriev & Karpinski 1987).[5]
+In the special case of a balanced bipartite graph on n=m+m=m+m vertices this matrix takes the form of a block matrix
+
+A=(0X−Xt0)=[    0    X; -X^t    0 ]
+if the first m rows (resp. columns) are indexed with the first subset of the bipartition and the last m rows with the complementary subset. In this case the pfaffian coincides with the usual determinant of the m × m matrix X (up to sign).  Here X is the Edmonds matrix.
+
+Determinant of a matrix with polynomial entries[edit]
+Let
+
+p(x1,x2,…,xn)(x_1,x_2,…,x_n)
+be the determinant of the polynomial matrix.
+Currently, there is no known sub-exponential time algorithm that can solve this problem deterministically. However, there are randomized polynomial algorithms whose analysis requires a bound on the probability that a non-zero polynomial will have roots at randomly selected test points.
+
+Notes[edit]
+
+
+^ Schwartz 1980.
+
+^ Zippel 1979.
+
+^ DeMillo & Lipton 1978.
+
+^ Ö. Ore, Über höhere Kongruenzen. Norsk Mat. Forenings Skrifter Ser. I (1922), no. 7, 15 pages.
+
+^ Grigoriev & Karpinski 1987.
+
+
+References[edit]
+
+Agrawal, Manindra; Biswas, Somenath (2003-02-21). "Primality and Identity Testing via Chinese Remaindering". Journal of the ACM. 50 (4): 429–443. doi:10.1145/792538.792540. S2CID 13145079. Retrieved 2008-06-15.
+Berman, Piotr; Karpinski, Marek; Larmore, Lawrence L.; Plandowski, Wojciech; Rytter, Wojciech (2002). "On the Complexity of Pattern Matching for Highly Compressed Two-Dimensional Texts" (ps). Journal of Computer and System Sciences. 65 (2): 332–350. doi:10.1006/jcss.2002.1852. Retrieved 2008-06-15.
+Grigoriev, Dima; Karpinski, Marek (1987). "The matching problem for bipartite graphs with polynomially bounded permanents is in NC". Proceedings of the 28th Annual Symposium on Foundations of Computer Science (FOCS 1987), Los Angeles, California, USA, 27-29 October 1987. IEEE Computer Society. pp. 166–172. doi:10.1109/SFCS.1987.56. ISBN 978-0-8186-0807-0. S2CID 14476361.
+Moshkovitz, Dana (2010). An Alternative Proof of The Schwartz-Zippel Lemma. ECCC TR10-096
+DeMillo, Richard A.; Lipton, Richard J. (1978). "A probabilistic remark on algebraic program testing". Information Processing Letters. 7 (4): 193–195. doi:10.1016/0020-0190(78)90067-4.
+Rudich, Steven (2004). AMS (ed.). Computational Complexity Theory. IAS/Park City Mathematics Series. Vol. 10. ISBN 978-0-8218-2872-4.
+Schwartz, Jacob T. (October 1980). "Fast probabilistic algorithms for verification of polynomial identities" (PDF). Journal of the ACM. 27 (4): 701–717. CiteSeerX 10.1.1.391.1254. doi:10.1145/322217.322225. S2CID 8314102. Retrieved 2008-06-15.
+Tutte, W.T. (April 1947). "The factorization of linear graphs". J. London Math. Soc. 22 (2): 107–111. doi:10.1112/jlms/s1-22.2.107. hdl:10338.dmlcz/128215.
+Zippel, Richard (1979). "Probabilistic algorithms for sparse polynomials". In Ng, Edward W. (ed.). Symbolic and Algebraic Computation, EUROSAM '79, An International Symposiumon Symbolic and Algebraic Computation, Marseille, France, June 1979, Proceedings. Lecture Notes in Computer Science. Vol. 72. Springer. pp. 216–226. doi:10.1007/3-540-09519-5_73. ISBN 978-3-540-09519-4.
+Zippel, Richard (February 1989). "An Explicit Separation of Relativised Random Polynomial Time and Relativised Deterministic Polynomial Time" (ps). Retrieved 2008-06-15.
+Zippel, Richard (1993). Springer (ed.). Effective Polynomial Computation. The Springer International Series in Engineering and Computer Science. Vol. 241. ISBN 978-0-7923-9375-7.
+
+External links[edit]
+The Curious History of the Schwartz–Zippel Lemma, by Richard J. Lipton
+
+
+

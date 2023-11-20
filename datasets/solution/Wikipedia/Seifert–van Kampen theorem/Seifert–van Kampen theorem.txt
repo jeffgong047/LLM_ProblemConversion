@@ -1,0 +1,200 @@
+Describes the fundamental group in terms of a cover by two open path-connected subspaces
+In mathematics, the Seifert–Van Kampen theorem of algebraic topology (named after Herbert Seifert and Egbert van Kampen), sometimes just called Van Kampen's theorem,  expresses the structure of the fundamental group of a topological space X in terms of the fundamental groups of two open, path-connected subspaces that cover X. It can therefore be used for computations of the fundamental group of spaces that are constructed out of simpler ones.
+
+
+Van Kampen's theorem for fundamental groups[edit]
+Let X be a topological space which is the union of two open and path connected subspaces U1, U2. Suppose U1 ∩ U2 is path connected and nonempty, and let x0 be a point in U1 ∩ U2 that will be used as the base of all fundamental groups. The inclusion maps of U1 and U2 into X induce group homomorphisms j1:π1(U1,x0)→π1(X,x0)_1:π_1(U_1,x_0)→π_1(X,x_0) and j2:π1(U2,x0)→π1(X,x0)_2:π_1(U_2,x_0)→π_1(X,x_0). Then X is path connected and j1_1 and j2_2 form a commutative pushout diagram:
+
+
+The natural morphism k is an isomorphism. That is, the fundamental group of X is the free product of the fundamental groups of U1 and U2 with amalgamation of π1(U1∩U2,x0)π_1(U_1_2,x_0).[1]
+Usually the morphisms induced by inclusion in this theorem are not themselves injective, and the more precise version of the statement is in terms of pushouts of groups.
+
+Van Kampen's theorem for fundamental groupoids[edit]
+Unfortunately, the theorem as given above does not compute the fundamental group of the circle – which is the most important basic example in algebraic topology – because the circle cannot be realised as the union of two open sets with connected intersection. This problem can be resolved by working with the fundamental groupoid π1(X,A)π_1(X,A) on a set A of base points, chosen according to the geometry of the situation. Thus for the circle, one uses two base points.[2]
+This groupoid consists of homotopy classes relative to the end points of paths in X joining points of A ∩ X. In particular, if X is a contractible space, and A consists of two distinct points of X, then π1(X,A)π_1(X,A) is easily seen to be isomorphic to the groupoid often written Iℐ with two vertices and exactly one morphism between any two vertices. This groupoid plays a role in the theory of groupoids analogous to that of the group of integers in the theory of groups.[3] The groupoid Iℐ also allows for groupoids a notion of homotopy: it is a unit interval object in the category of groupoids.
+
+A connected union of two non connected spaces, with set of base points
+The category of groupoids admits all colimits, and in particular all pushouts.
+
+Theorem. Let the topological space X be covered by the interiors of two subspaces X1, X2 and let A be a set which meets each path component of X1, X2 and X0 = X1 ∩ X2. Then A meets each path component of X and the diagram P of morphisms induced by inclusion
+
+is a pushout diagram in the category of groupoids.[4]
+This theorem gives the transition from topology to algebra, in determining completely the fundamental groupoid π1(X,A)π_1(X,A); one then has to use algebra and combinatorics to determine a fundamental group at some basepoint.
+One interpretation of the theorem is that it computes homotopy 1-types. To see its utility, one can easily find cases where X is connected but is the union of the interiors of two subspaces, each with say 402 path components and whose intersection has say 1004 path components. The interpretation of this theorem as a calculational tool for "fundamental groups" needs some development of 'combinatorial groupoid theory'.[5][6] This theorem implies the calculation of the  fundamental group of the circle as the group of integers, since the group of integers is obtained from the groupoid Iℐ by identifying, in the category of groupoids, its two vertices.
+There is a version of the last theorem when X is covered by the union of the interiors of a family Uλ:λ∈Λ{U_λ:λ∈Λ} of subsets.[7][8]
+The conclusion is that if A meets each path component of all 1,2,3-fold intersections of the sets Uλ_λ, then A meets all path components of X and the diagram
+
+⨆(λ,μ)∈Λ2π1(Uλ∩Uμ,A)⇉⨆λ∈Λπ1(Uλ,A)→π1(X,A)_(λ,μ)∈Λ^2π_1(U_λ_μ,A)⇉_λ∈Λπ_1(U_λ,A)→π_1(X,A)
+of morphisms induced by inclusions is a coequaliser in the category of groupoids.
+
+[...] people still obstinately persist, when calculating with fundamental groups, in fixing a single base point, instead of cleverly choosing a whole packet of points which is invariant under the symmetries of the situation, which thus get lost on the way. In certain situations (such as descent theorems for fundamental groups à la Van Kampen) it is much more elegant, even indispensable for understanding something, to work with fundamental groupoids with respect to a suitable packet of base points [...]— Alexander Grothendieck, Esquisse d'un Programme (Section 2, English translation)
+Equivalent formulations[edit]
+In the language of combinatorial group theory, if X is a topological space; U and V are open, path connected subspaces of X; U∩V is nonempty and path-connected; and w∈U∩V; then π1(X,w)π_1(X,w) is the free product with amalgamation of π1(U,w)π_1(U,w) and π1(V,w)π_1(V,w), with respect to the (not necessarily injective) homomorphisms I:π1(U∩V,w)→π1(U,w):π_1(U,w)→π_1(U,w) and J:π1(U∩V,w)→π1(V,w):π_1(U,w)→π_1(V,w).  Given group presentations:
+
+π1(U,w)=⟨u1,…,uk∣α1,…,αl⟩π1(V,w)=⟨v1,…,vm∣β1,…,βn⟩π1(U∩V,w)=⟨w1,…,wp∣γ1,…,γq⟩π_1(U,w)   =_1,…,u_k|α_1,…,α_l⟩
+π_1(V,w)   =_1,…,v_m|β_1,…,β_n⟩
+π_1(U,w)   =_1,…,w_p|γ_1,…,γ_q⟩
+the amalgamation can be presented[9] as
+
+π1(X,w)=⟨u1,…,uk,v1,…,vm|α1,…,αl,β1,…,βn,I(w1)J(w1)−1,…,I(wp)J(wp)−1⟩.π_1(X,w)=_1,…,u_k,v_1,…,v_m|α_1,…,α_l,β_1,…,β_n,I(w_1)J(w_1)^-1,…,I(w_p)J(w_p)^-1.⟩.
+In category theory, π1(X,w)π_1(X,w) is the pushout, in the category of groups, of the diagram:
+
+π1(U,w)←π1(U∩V,w)→π1(V,w).π_1(U,w)π_1(U,w)→π_1(V,w).
+Examples[edit]
+2-sphere[edit]
+One can use Van Kampen's theorem to calculate fundamental groups for topological spaces that can be decomposed into simpler spaces. For example, consider the sphere S2^2. Pick open sets A=S2∖n=S^2∖{n} and B=S2∖s=S^2∖{s} where n and s denote the north and south poles respectively. Then we have the property that A, B and A ∩ B are open path connected sets. Thus we can see that there is a commutative diagram including A ∩ B into A and B and then another inclusion from A and B into S2^2 and that there is a corresponding diagram of homomorphisms between the fundamental groups of each subspace. Applying Van Kampen's theorem gives the result
+
+π1(S2)=π1(A)⋅π1(B)/ker⁡(Φ).π_1(S^2)=π_1(A)·π_1(B)/(Φ).
+However, A and B are both homeomorphic to R2 which is simply connected, so both A and B have trivial fundamental groups. It is clear from this that the fundamental group of S2^2 is trivial.
+
+Wedge sum of spaces[edit]
+Given two pointed spaces (X,x)(X,x) and (Y,y)(Y,y) we can form their wedge sum, (X∨Y,p)(X,p), by taking the quotient of X∐Y by identifying their two basepoints.
+If x admits a contractible open neighborhood U⊂X and y admits a contractible open neighborhood V⊂Y (which is the case if, for instance, X and Y are CW complexes), then we can apply the Van Kampen theorem to X∨Y by taking X∨V and U∨Y as the two open sets and we conclude that the fundamental group of the wedge is the free product 
+of the fundamental groups of the two spaces we started with:
+
+π1(X∨Y,p)≅π1(X,x)∗π1(Y,y)π_1(X,p)≅π_1(X,x)*π_1(Y,y).
+Orientable genus-g surfaces[edit]
+A more complicated example is the calculation of the fundamental group of a genus-n orientable surface S, otherwise known as the genus-n surface group. One can construct S using its standard fundamental polygon. For the first open set A, pick a disk within the center of the polygon. Pick B to be the complement in S of the center point of A. Then the intersection of A and B is an annulus, which is known to be homotopy equivalent to (and so has the same fundamental group as) a circle. Then π1(A∩B)=π1(S1)π_1(A)=π_1(S^1), which is the integers, and π1(A)=π1(D2)=1π_1(A)=π_1(D^2)=1. Thus the inclusion of π1(A∩B)π_1(A) into π1(A)π_1(A) sends any generator to the trivial element. However, the inclusion of π1(A∩B)π_1(A) into π1(B)π_1(B) is not trivial. In order to understand this, first one must calculate π1(B)π_1(B). This is easily done as one can deformation retract B (which is S with one point deleted) onto the edges labeled by
+
+A1B1A1−1B1−1A2B2A2−1B2−1⋯AnBnAn−1Bn−1._1B_1A_1^-1B_1^-1A_2B_2A_2^-1B_2^-1_nB_nA_n^-1B_n^-1.
+This space is known to be the wedge sum of 2n circles (also called a bouquet of circles), which further is known to have fundamental group isomorphic to the free group with 2n generators, which in this case can be represented by the edges themselves: A1,B1,…,An,Bn{A_1,B_1,…,A_n,B_n}. We now have enough information to apply Van Kampen's theorem. The generators are the loops A1,B1,…,An,Bn{A_1,B_1,…,A_n,B_n} (A is simply connected, so it contributes no generators) and there is exactly one relation:
+
+A1B1A1−1B1−1A2B2A2−1B2−1⋯AnBnAn−1Bn−1=1._1B_1A_1^-1B_1^-1A_2B_2A_2^-1B_2^-1_nB_nA_n^-1B_n^-1=1.
+Using generators and relations, this group is denoted
+
+⟨A1,B1,…,An,Bn|A1B1A1−1B1−1⋯AnBnAn−1Bn−1⟩._1,B_1,…,A_n,B_n|A_1B_1A_1^-1B_1^-1_nB_nA_n^-1B_n^-1.⟩.
+Simple-connectedness[edit]
+If X is space that can be written as the  union of two open simply connected sets U and V with U ∩ V non-empty and path-connected, then X is simply connected.[10]
+
+Generalizations[edit]
+As explained above, this theorem was  extended by Ronald Brown to the non-connected case by using the fundamental groupoid π1(X,A)π_1(X,A) on a set A of base points.  The theorem for arbitrary covers, with the restriction that A meets all threefold intersections of the sets of the cover, is given in the paper by Brown and Abdul Razak Salleh.[11]  The theorem and proof for the fundamental group, but using some groupoid methods, are also given in  J. Peter May's book.[12]   The version that allows more than two overlapping sets but with A a singleton is also given in Allen Hatcher's book below, theorem 1.20.
+Applications of the fundamental groupoid on a set of base points to the Jordan curve theorem, covering spaces, and orbit spaces are given in Ronald Brown's book.[13] In the case of orbit spaces, it is convenient to take A to include all the fixed points of the action. An example here is the conjugation action on the circle.
+References to higher-dimensional versions of the theorem which yield some information on homotopy types are given in an article on higher-dimensional group theories and groupoids.[14] Thus a 2-dimensional Van Kampen theorem which computes nonabelian second relative homotopy groups was given by Ronald Brown and Philip J. Higgins.[15] A full account and extensions to all dimensions are given by Brown, Higgins, and Rafael Sivera,[16] while an extension to n-cubes of spaces is given by Ronald Brown and Jean-Louis Loday.[17]
+Fundamental groups also appear in algebraic geometry and are the main topic of Alexander Grothendieck's first Séminaire de géométrie algébrique (SGA1). A version of Van Kampen's theorem appears there, and is proved along quite different lines than in algebraic topology, namely by descent theory. A similar proof works in algebraic topology.[18]
+
+See also[edit]
+Higher-dimensional algebra
+Higher category theory
+Pseudocircle
+Ronald Brown (mathematician)
+Notes[edit]
+
+
+^ Lee, John M. (2011). Introduction to topological manifolds (2nd ed.). New York: Springer. ISBN 978-1-4419-7939-1. OCLC 697506452. pg. 252, Theorem 10.1.
+
+^ R. Brown, Groupoids and Van Kampen's theorem, Proc. London Math. Soc. (3) 17 (1967) 385–401.
+
+^ Ronald Brown. "Groupoids in Mathematics". http://groupoids.org.uk/gpdsweb.html
+
+^ R. Brown. Topology and Groupoids., Booksurge PLC (2006). http://groupoids.org.uk/topgpds.html
+
+^ P.J. Higgins, Categories and Groupoids, Van Nostrand, 1971, Reprints of Theory and Applications of Categories, No. 7 (2005),pp 1–195.
+
+^ R. Brown, Topology and Groupoids., Booksurge PLC (2006).
+
+^ Ronald Brown, Philip J. Higgins and Rafael Sivera. Nonabelian Algebraic Topology: filtered spaces, crossed complexes, cubical homotopy groupoids, European Mathematical Society Tracts vol 15, August, 2011.
+
+^ "Higher-dimensional, generalized Van Kampen theorems (HD-GVKT)".
+
+^ Lee 2011, p. 253, Theorem 10.3.
+
+^ Greenberg & Harper 1981
+
+^ Brown, Ronald; Salleh, Abdul Razak (1984). "A Van Kampen theorem for unions of nonconnected spaces". Archiv der Mathematik. Basel. 42 (1): 85–88. doi:10.1007/BF01198133.
+
+^ May, J. Peter (1999). A Concise Introduction to Algebraic Topology. chapter 2.
+
+^ Brown, Ronald, "Topology and Groupoids", Booksurge, (2006)
+
+^ Ronald Brown. "Higher-dimensional group theory" . 2007. http://www.bangor.ac.uk/~mas010/hdaweb2.htm
+
+^ Brown, Ronald; Higgins, Philip J. (1978). "On the connection between the second relative homotopy groups of some related spaces". Proceedings of the London Mathematical Society. 3. 36: 193–212. doi:10.1112/plms/s3-36.2.193.
+
+^ Brown, Ronald, Higgins, Philip J., and Sivera, Rafael, "Nonabelian algebraic topology: filtered spaces, crossed complexes, cubical homotopy groupoids", EMS Tracts in Mathematics vol 15, 20011. http://groupoids.org.uk/nonab-a-t.html
+
+^ Brown, Ronald; Loday, Jean-Louis (1987). "Van Kampen theorems for diagrams of spaces". Topology. 26: 311–334. doi:10.1016/0040-9383(87)90004-8.
+
+^ Douady, Adrien and Douady, Régine, "Algèbre et théories galoisiennes", Cassini (2005)
+
+
+References[edit]
+Allen Hatcher, Algebraic topology. (2002) Cambridge University Press, Cambridge, xii+544 pp. ISBN 0-521-79160-X and ISBN 0-521-79540-0
+Peter May, A Concise Course in Algebraic Topology. (1999) University of Chicago Press, ISBN 0-226-51183-9 (Section 2.7 provides a category-theoretic presentation of the theorem as a colimit in the category of groupoids).
+Ronald Brown, Groupoids and Van Kampen's theorem, Proc. London Math. Soc. (3) 17 (1967) 385–401.
+Mathoverflow discussion on many base points
+Ronald Brown, Topology and groupoids (2006) Booksurge LLC ISBN 1-4196-2722-8
+R. Brown and A. Razak, A Van Kampen theorem for unions of non-connected  spaces, Archiv. Math. 42 (1984) 85–88. (This paper gives probably the optimal version of the theorem, namely  the groupoid version of the theorem for an arbitrary open cover and a set of base points which meets every path component of every 1-.2-3-fold intersections of the sets of the cover.)
+P.J. Higgins, Categories and groupoids (1971) Van Nostrand Reinhold
+Ronald Brown, Higher-dimensional group theory (2007) (Gives a broad view of higher-dimensional Van Kampen theorems involving multiple groupoids).
+Greenberg, Marvin J.; Harper, John R. (1981), Algebraic topology. A first course, Mathematics Lecture Note Series, vol. 58, Benjamin/Cummings, ISBN 0805335579
+Seifert, H., Konstruction drei dimensionaler geschlossener Raume. Berichte Sachs. Akad. Leipzig, Math.-Phys. Kl.  (83) (1931) 26–66.
+E. R. van Kampen. On the connection between the fundamental groups of some related spaces. American Journal of Mathematics, vol. 55 (1933), pp. 261–267.
+Brown, R., Higgins, P. J, On the connection between the second relative homotopy groups of some related spaces,  Proc. London Math.  Soc. (3) 36 (1978) 193–212.
+Brown, R., Higgins, P. J. and  Sivera, R.. 2011, EMS Tracts in Mathematics Vol.15 (2011) Nonabelian Algebraic Topology: filtered spaces, crossed complexes, cubical homotopy groupoids; (The first of three Parts discusses the applications of the 1- and 2-dimensional versions of the Seifert–van Kampen Theorem. The latter allows calculations of nonabelian second relative homotopy groups, and in fact of homotopy 2-types. The second part applies a Higher Homotopy van Kampen Theorem for crossed complexes, proved in Part III.)
+"Van Kampen's theorem result". PlanetMath.
+R. Brown,  H. Kamps, T. Porter : A homotopy double groupoid of a Hausdorff space II: a Van Kampen theorem', Theory and Applications of Categories,  14 (2005) 200–220.
+Dylan G.L. Allegretti, Simplicial Sets and Van Kampen's Theorem (Discusses generalized versions of Van Kampen's theorem applied to topological spaces and simplicial sets).
+R. Brown and J.-L. Loday, "Van Kampen theorems for diagrams of spaces",  Topology 26 (1987) 311–334.
+This article incorporates material from Van Kampen's theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+External links[edit]
+ Media related to Seifert–Van Kampen theorem at Wikimedia Commons
+vteTopologyFields
+General (point-set)
+Algebraic
+Combinatorial
+Continuum
+Differential
+Geometric
+low-dimensional
+Homology
+cohomology
+Set-theoretic
+Digital
+Key concepts
+Open set / Closed set
+Interior
+Continuity
+Space
+compact
+Connected
+Hausdorff
+metric
+uniform
+Homotopy
+homotopy group
+fundamental group
+Simplicial complex
+CW complex
+Polyhedral complex
+Manifold
+Bundle (mathematics)
+Second-countable space
+Cobordism
+Metrics and properties
+Euler characteristic
+Betti number
+Winding number
+Chern number
+Orientability
+Key results
+Banach fixed-point theorem
+De Rham cohomology
+Invariance of domain
+Poincaré conjecture
+Tychonoff's theorem
+Urysohn's lemma
+
+ Category
+ Mathematics portal
+ Wikibook
+ Wikiversity
+ Topics
+general
+algebraic
+geometric
+ Publications
+
+
+
+

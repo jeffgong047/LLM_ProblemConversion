@@ -1,0 +1,712 @@
+Characterization of how many integers are prime
+
+
+This article utilizes technical mathematical notation for logarithms. All instances of log(x) without a subscript base should be interpreted as a natural logarithm, commonly notated as ln(x) or loge(x).
+
+In mathematics, the prime number theorem (PNT) describes the asymptotic distribution of the prime numbers among the positive integers. It formalizes the intuitive idea that primes become less common as they become larger by precisely quantifying the rate at which this occurs.  The theorem was proved independently by Jacques Hadamard[1] and Charles Jean de la Vallée Poussin[2] in 1896 using ideas introduced by Bernhard Riemann (in particular, the Riemann zeta function).
+The first such distribution found is π(N) ~ N/log(N), where π(N) is the prime-counting function (the number of primes less than or equal to N) and log(N) is the natural logarithm of N. This means that for large enough N, the probability that a random integer not greater than N is prime is very close to 1 / log(N). Consequently, a random integer with at most 2n digits (for large enough n) is about half as likely to be prime as a random integer with at most n digits. For example, among the positive integers of at most 1000 digits, about one in 2300 is prime (log(101000) ≈ 2302.6), whereas among positive integers of at most 2000 digits, about one in 4600 is prime (log(102000) ≈ 4605.2). In other words, the average gap between consecutive prime numbers among the first N integers is roughly log(N).[3]
+
+
+Statement[edit]
+Graph showing ratio of the prime-counting function π(x) to two of its approximations, x / log x and Li(x). As x increases (note x axis is logarithmic), both ratios tend towards 1. The ratio for x / log x converges from above very slowly, while the ratio for Li(x) converges more quickly from below.
+Log-log plot showing absolute error of x / log x and Li(x), two approximations to the prime-counting function π(x). Unlike the ratio, the difference between π(x) and x / log x increases without bound as x increases. On the other hand, Li(x) − π(x) switches sign infinitely many times.
+Let π(x) be the prime-counting function defined to be the number of primes less than or equal to x, for any real number x. For example, π(10) = 4 because there are four prime numbers (2, 3, 5 and 7) less than or equal to 10. The prime number theorem then states that x / log x is a good approximation to π(x) (where log here means the natural logarithm), in the sense that the limit of the quotient of the two functions π(x) and x / log x as x increases without bound is 1:
+
+limx→∞π(x)[xlog⁡(x)]=1,lim_x→∞ π(x) / [x/log(x)] =1,
+known as the asymptotic law of distribution of prime numbers. Using asymptotic notation this result can be restated as
+
+π(x)∼xlog⁡x.π(x)∼x/.
+This notation (and the theorem) does not say anything about the limit of the difference of the two functions as x increases without bound. Instead, the theorem states that x / log x approximates π(x) in the sense that the relative error of this approximation approaches 0 as x increases without bound.
+The prime number theorem is equivalent to the statement that the nth prime number pn satisfies
+
+pn∼nlog⁡(n),_nlog(n),
+the asymptotic notation meaning, again, that the relative error of this approximation approaches 0 as n increases without bound. For example, the 2×1017th prime number is 8512677386048191063,[4] and (2×1017)log(2×1017) rounds to 7967418752291744388, a relative error of about 6.4%.
+On the other hand, the following asymptotic relations are logically equivalent:[5]
+
+limx→∞π(x)log⁡xx=1,limx→∞π(x)log⁡π(x)x=1.lim_x→∞π(x)/x   =1,
+lim_x→∞π(x)logπ(x)/x   =1.
+As outlined below, the prime number theorem is also equivalent to
+
+limx→∞ϑ(x)x=limx→∞ψ(x)x=1,lim_x→∞ϑ(x)/x=lim_x→∞ψ(x)/x=1,
+where ϑ and ψ are the first and the second Chebyshev functions respectively, and to
+
+limx→∞M(x)x=0,lim_x→∞M(x)/x=0,[6]
+where M(x)=∑n≤xμ(n)(x)=∑_nμ(n) is the Mertens function.
+
+History of the proof of the asymptotic law of prime numbers[edit]
+Based on the tables by Anton Felkel and Jurij Vega, Adrien-Marie Legendre conjectured in 1797 or 1798 that π(a) is approximated by the function a / (A log a + B), where A and B are unspecified constants. In the second edition of his book on number theory (1808) he then made a more precise conjecture, with A = 1 and B = −1.08366. Carl Friedrich Gauss considered the same question at age 15 or 16 "in the year 1792 or 1793", according to his own recollection in 1849.[7] In 1838 Peter Gustav Lejeune Dirichlet came up with his own approximating function, the logarithmic integral li(x) (under the slightly different form of a series, which he communicated to Gauss). Both Legendre's and Dirichlet's formulas imply the same conjectured asymptotic equivalence of π(x) and x / log(x) stated above, although it turned out that Dirichlet's approximation is considerably better if one considers the differences instead of quotients.
+In two papers from 1848 and 1850, the Russian mathematician Pafnuty Chebyshev attempted to prove the asymptotic law of distribution of prime numbers. His work is notable for the use of the zeta function ζ(s), for real values of the argument "s", as in works of Leonhard Euler, as early as 1737. Chebyshev's papers predated Riemann's celebrated memoir of 1859, and he succeeded in proving a slightly weaker form of the asymptotic law, namely, that if the limit as x goes to infinity of π(x) / (x / log(x))  exists at all, then it is necessarily equal to one.[8] He was able to prove unconditionally that this ratio is bounded above and below by two explicitly given constants near 1, for all sufficiently large x.[9] Although Chebyshev's paper did not prove the Prime Number Theorem, his estimates for π(x) were strong enough for him to prove Bertrand's postulate that there exists a prime number between n and 2n for any integer n ≥ 2.
+An important paper concerning the distribution of prime numbers was Riemann's 1859 memoir "On the Number of Primes Less Than a Given Magnitude", the only paper he ever wrote on the subject. Riemann introduced new ideas into the subject, chiefly that the distribution of prime numbers is intimately connected with the zeros of the analytically extended Riemann zeta function of a complex variable. In particular, it is in this paper that the idea to apply methods of complex analysis to the study of the real function π(x) originates. Extending Riemann's ideas, two proofs of the asymptotic law of the distribution of prime numbers were found independently by Jacques Hadamard[1] and Charles Jean de la Vallée Poussin[2] and appeared in the same year (1896). Both proofs used methods from complex analysis, establishing as a main step of the proof that the Riemann zeta function ζ(s) is nonzero for all complex values of the variable s that have the form s = 1 + it with t > 0.[10]
+During the 20th century, the theorem of Hadamard and de la Vallée Poussin also became known as the Prime Number Theorem. Several different proofs of it were found, including the "elementary" proofs of Atle Selberg[11] and Paul Erdős[12] (1949). Hadamard's and de la Vallée Poussin's original proofs are long and elaborate; later proofs introduced various simplifications through the use of Tauberian theorems but remained difficult to digest. A short proof was discovered in 1980 by the American mathematician Donald J. Newman.[13][14] Newman's proof is arguably the simplest known proof of the theorem, although it is non-elementary in the sense that it uses Cauchy's integral theorem from complex analysis.
+
+Proof sketch[edit]
+Here is a sketch of the proof referred to in one of Terence Tao's lectures.[15] Like most proofs of the PNT, it starts out by reformulating the problem in terms of a less intuitive, but better-behaved, prime-counting function. The idea is to count the primes (or a related set such as the set of prime powers) with weights to arrive at a function with smoother asymptotic behavior. The most common such generalized counting function is the Chebyshev function ψ(x), defined by
+
+ψ(x)=∑pisprimepk≤x,log⁡p.ψ(x)=∑_p^k,pisprime .
+This is sometimes written as
+
+ψ(x)=∑n≤xΛ(n),ψ(x)=∑_nΛ(n) ,
+where Λ(n) is the von Mangoldt function, namely
+
+Λ(n)=log⁡pifn=pkforsomeprimepandintegerk≥1,0otherwise.Λ(n)=   ifn=p^kforsomeprimepandintegerk≥1,
+0   otherwise.
+It is now relatively easy to check that the PNT is equivalent to the claim that
+
+limx→∞ψ(x)x=1.lim_x→∞ψ(x)/x=1 .
+Indeed, this follows from the easy estimates
+
+ψ(x)=∑pisprimep≤xlog⁡p⌊log⁡xlog⁡p⌋≤∑pisprimep≤xlog⁡x=π(x)log⁡xψ(x)=∑_ppisprime⌊/⌋≤∑_ppisprime=π(x)
+and (using big O notation) for any ε > 0,
+
+ψ(x)≥∑pisprimex1−ε≤p≤xlog⁡p≥∑pisprimex1−ε≤p≤x(1−ε)log⁡x=(1−ε)(π(x)+O(x1−ε))log⁡x.ψ(x)≥∑_x^1-εpisprime≥∑_x^1-εpisprime(1-ε)=(1-ε)(π(x)+O(x^1-ε)) .
+The next step is to find a useful representation for ψ(x). Let ζ(s) be the Riemann zeta function. It can be shown that ζ(s) is related to the von Mangoldt function Λ(n), and hence to ψ(x), via the relation
+
+−ζ′(s)ζ(s)=∑n=1∞Λ(n)n−s.-ζ'(s)/ζ(s)=∑_n=1^∞Λ(n) n^-s .
+A delicate analysis of this equation and related properties of the zeta function, using the Mellin transform and Perron's formula, shows that for non-integer x the equation
+
+ψ(x)=x−log⁡(2π)−∑ρ:ζ(ρ)=0xρρψ(x)=x - log(2π) -∑_ρ: ζ(ρ)=0x^ρ/ρ
+holds, where the sum is over all zeros (trivial and nontrivial) of the zeta function. This striking formula is one of the so-called explicit formulas of number theory, and is already suggestive of the result we wish to prove, since the term x (claimed to be the correct asymptotic order of ψ(x)) appears on the right-hand side, followed by (presumably) lower-order asymptotic terms.
+The next step in the proof involves a study of the zeros of the zeta function. The trivial zeros −2, −4, −6, −8, ... can be handled separately:
+
+∑n=1∞12nx2n=−12log⁡(1−1x2),∑_n=1^∞1/2n x^2n=-1/2log(1-1/x^2),
+which vanishes for large x. The nontrivial zeros, namely those on the critical strip 0 ≤ Re(s) ≤ 1, can potentially be of an asymptotic order comparable to the main term x if Re(ρ) = 1, so we need to show that all zeros have real part strictly less than 1.
+
+Non-vanishing on Re(s) = 1[edit]
+To do this, we take for granted that ζ(s) is meromorphic in the half-plane Re(s) > 0, and is analytic there except for a simple pole at s = 1, and that there is a product formula
+
+ζ(s)=∏p11−p−sζ(s)=∏_p1/1-p^-s
+for Re(s) > 1. This product formula follows from the existence of unique prime factorization of integers, and shows that ζ(s) is never zero in this region, so that its logarithm is defined there and
+
+log⁡ζ(s)=−∑plog⁡(1−p−s)=∑p,np−nsn.logζ(s)=-∑_plog(1-p^-s)=∑_p,np^-ns/n .
+Write s = x + iy ; then
+
+|ζ(x+iy)|=exp⁡(∑n,pcos⁡nylog⁡pnpnx).|ζ(x+iy)|=exp(∑_n,p/np^nx) .
+Now observe the identity
+
+3+4cos⁡ϕ+cos⁡2ϕ=2(1+cos⁡ϕ)2≥0,3+4cosϕ+cos2ϕ=2(1+cosϕ)^2≥0 ,
+so that
+
+|ζ(x)3ζ(x+iy)4ζ(x+2iy)|=exp⁡(∑n,p3+4cos⁡(nylog⁡p)+cos⁡(2nylog⁡p)npnx)≥1|ζ(x)^3ζ(x+iy)^4ζ(x+2iy)|=exp(∑_n,p3+4cos(ny)+cos(2ny)/np^nx)≥1
+for all x > 1. Suppose now that ζ(1 + iy) = 0. Certainly y is not zero, since ζ(s) has a simple pole at s = 1. Suppose that x > 1 and let x tend to 1 from above. Since ζ(s)ζ(s) has a simple pole at s = 1 and ζ(x + 2iy) stays analytic, the left hand side in the previous inequality tends to 0, a contradiction.
+Finally, we can conclude that the PNT is heuristically true. To rigorously complete the proof there are still serious technicalities to overcome, due to the fact that the summation over zeta zeros in the explicit formula for ψ(x) does not converge absolutely but only conditionally and in a "principal value" sense. There are several ways around this problem but many of them require rather delicate complex-analytic estimates. Edwards's book[16] provides the details. Another method is to use Ikehara's Tauberian theorem, though this theorem is itself quite hard to prove. D.J. Newman observed that the full strength of Ikehara's theorem is not needed for the prime number theorem, and one can get away with a special case that is much easier to prove.
+
+Newman's proof of the prime number theorem[edit]
+D. J. Newman gives a quick proof of the prime number theorem (PNT). The proof is "non-elementary" by virtue of relying on complex analysis, but uses only elementary techniques from a first course in the subject: Cauchy's integral formula, Cauchy's integral theorem and estimates of complex integrals. Here is a brief sketch of this proof.  See [14] for the complete details.
+The proof uses the same preliminaries as in the previous section except instead of the function ψψ, the  Chebyshev functionϑ(x)=∑p≤xlog⁡p  ϑ(x)=∑_p is used, which is obtained by dropping some of the terms from the series for ψψ.  It is easy to show that the PNT is equivalent to limx→∞ϑ(x)/x=1lim_x→∞ϑ(x)/x=1.  Likewise instead of −ζ′(s)ζ(s)-ζ'(s)/ζ(s) the function Φ(s)=∑p≤xlog⁡pp−sΦ(s)=∑_p  p^-s  is used, which is obtained by dropping some terms in the series for −ζ′(s)ζ(s)-ζ'(s)/ζ(s).  The functions Φ(s)Φ(s)  and −ζ′(s)/ζ(s)-ζ'(s)/ζ(s) differ by a function holomorphic on ℜs=1=1.  Since, as was shown in the previous section,  ζ(s)ζ(s)  has no zeroes on the line ℜs=1=1 , Φ(s)−1s−1Φ(s)-1/s-1 has no singularities on ℜs=1=1.
+One further piece of information needed in Newman's proof, and which is the key to the estimates in his simple method, is that ϑ(x)/xϑ(x)/x  is bounded. This is proved using an ingenious and easy method due to Chebyshev.
+Integration by parts  shows how ϑ(x)ϑ(x) and  Φ(s)Φ(s) are related.  For ℜs>1>1, 
+
+Φ(s)=∫1∞x−sdϑ(x)=s∫1∞ϑ(x)x−s−1dx=s∫0∞ϑ(et)e−stdt.Φ(s)=∫_1^∞x^-sdϑ(x)=s∫_1^∞ϑ(x)x^-s-1 dx=s∫_0^∞ϑ(e^t)e^-st dt.
+Newman's method proves the PNT by showing the integral 
+
+I=∫0∞(ϑ(et)et−1)dt.=∫_0^∞(ϑ(e^t)/e^t-1) dt.
+converges, and therefore the integrand goes to zero as t→∞→∞, which is  the PNT. In general, the convergence of the improper integral does not imply that the integrand goes to zero at infinity, since it may oscillate, but since ϑϑ  is increasing, it is easy to show in this case.
+To show the convergence of I, for ℜz>0>0  let 
+
+gT(z)=∫0Tf(t)e−ztdt_T(z)=∫_0^Tf(t)e^-zt dt  and  g(z)=∫0∞f(t)e−ztdt(z)=∫_0^∞f(t)e^-zt dt where f(t)=ϑ(et)et−1(t)=ϑ(e^t)/e^t-1
+then
+
+limT→∞gT(z)=g(z)=Φ(s)s−1s−1wherez=s−1lim_T→∞g_T(z)=g(z)=Φ(s)/s-1/s-1    where=s-1
+which is equal to a function holomorphic on the line ℜz=0=0 .
+The convergence of the integral I, and thus the PNT, is proved by showing that limT→∞gT(0)=g(0)lim_T→∞g_T(0)=g(0). This involves change of order of limits since it can be written limT→∞limz→0gT(z)=limz→0limT→∞gT(z)lim_T→∞lim_z→0g_T(z)=lim_z→0lim_T→∞g_T(z) and therefore classified as a Tauberian theorem.
+The difference g(0)−gT(0)(0)-g_T(0)  is expressed using Cauchy's integral formula and then shown to be small for T large by estimating the integrand. Fix R>0>0  and δ>0δ>0  such that g(z)(z)  is holomorphic in the region  where |z|≤Randℜz≥−δ|z|and≥-δ,  and let C  be the boundary of this region.  Since 0 is in the interior of the region, Cauchy's integral formula gives 
+
+g(0)−gT(0)=12πi∫C(g(z)−gT(z))dzz=12πi∫C(g(z)−gT(z))F(z)dzz(0)-g_T(0)=1/2∫_C(g(z)-g_T(z))dz/z=1/2∫_C(g(z)-g_T(z))F(z)dz/z
+where F(z)=ezT(1+z2R2)(z)=e^zT(1+z^2/R^2) is the factor introduced by Newman, which does not change the integral since F  is entire and F(0)=1(0)=1.
+To estimate the integral, break the contour C into two parts, C=C++C−=C_++C_- where  C+=C∩z|ℜz>0_+=C∩{z | >0}  and C−∩ℜz≤0_-∩{≤0}.  Then g(0)−gT(0)=∫C+∫T∞H(t,z)dtdz−∫C−∫0TH(t,z)dtdz+∫C−g(z)F(z)dz2πiz(0)-g_T(0)=∫_C_+∫_T^∞H(t,z)dtdz-∫_C_-∫_0^TH(t,z)dtdz+∫_C_-g(z)F(z)dz/2where H(t,z)=f(t)e−tzF(z)/2πi(t,z)=f(t)e^-tzF(z)/2.  Since ϑ(x)/xϑ(x)/x, and hence  f(t)(t), is bounded, let B  be an upper bound for the absolute value of f(t)(t). This bound together with the estimate  |F|≤2exp⁡(Tℜz)|ℜz|/R|F|≤2exp(T)||/R for |z|=R|z|=R gives that the first integral in absolute value is ≤B/R/R.  The integrand over C−_- in the second integral is entire, so by Cauchy's integral theorem, the contour C−_-  can be modified to a semicircle of radius R  in the left half-plane without changing the integral, and the same argument as for the first integral gives the absolute value of the second integral is ≤B/R/R.  Finally, letting T→∞→∞ , the third integral goes to zero since ezT^zT  and hence F goes to zero on the contour. Combining the two estimates and the limit get
+
+limsupT→∞|g(0)−gT(0)|≤2BR.lim sup_T→∞|g(0)-g_T(0)|≤2B/R.
+This holds for any R  so limT→∞gT(0)=g(0)lim_T→∞g_T(0)=g(0), and the PNT follows.
+
+Prime-counting function in terms of the logarithmic integral[edit]
+In a handwritten note on a reprint of his 1838 paper "Sur l'usage des séries infinies dans la théorie des nombres", which he mailed to Gauss, Dirichlet conjectured (under a slightly different form appealing to a series rather than an integral) that an even better approximation to π(x) is given by the offset logarithmic integral function Li(x), defined by
+
+Li⁡(x)=∫2xdtlog⁡t=li⁡(x)−li⁡(2).Li(x)=∫_2^xdt/=li(x)-li(2).
+Indeed, this integral is strongly suggestive of the notion that the "density" of primes around t should be 1 / log t. This function is related to the logarithm by the asymptotic expansion
+
+Li⁡(x)∼xlog⁡x∑k=0∞k!(log⁡x)k=xlog⁡x+x(log⁡x)2+2x(log⁡x)3+⋯Li(x)∼x/∑_k=0^∞k!/()^k=x/+x/()^2+2x/()^3+⋯
+So, the prime number theorem can also be written as π(x) ~ Li(x). In fact, in another paper[17] in 1899 de la Vallée Poussin proved that
+
+π(x)=Li⁡(x)+O(xe−alog⁡x)asx→∞π(x)=Li(x)+O(xe^-a√())  asx→∞
+for some positive constant a, where O(...) is the big O notation. This has been improved to
+
+π(x)=li⁡(x)+O(xexp⁡(−A(log⁡x)35(log⁡log⁡x)15))π(x)=li(x)+O(xexp(-A()^3/5/(log)^1/5)) where A=0.2098=0.2098.[18]
+In 2016, Trudgian proved an explicit upper bound for the difference between π(x)π(x) and li⁡(x)li(x):
+
+|π(x)−li⁡(x)|≤0.2795x(log⁡x)3/4exp⁡(−log⁡x6.455)|π(x)-li(x)|≤0.2795x/()^3/4exp(-√(/6.455))
+for x≥229≥229.[19]
+The connection between the Riemann zeta function and π(x) is one reason the Riemann hypothesis has considerable importance in number theory: if established, it would yield a far better estimate of the error involved in the prime number theorem than is available today. More specifically, Helge von Koch showed in 1901[20] that if the Riemann hypothesis is true, the error term in the above relation can be improved to
+
+π(x)=Li⁡(x)+O(xlog⁡x)π(x)=Li(x)+O(√(x))
+(this last estimate is in fact equivalent to the Riemann hypothesis). The constant involved in the big O notation was estimated in 1976 by Lowell Schoenfeld:[21] assuming the Riemann hypothesis,
+
+|π(x)−li⁡(x)|<xlog⁡x8π|π(x)-li(x)|<√(x)/8π
+for all x ≥ 2657. He also derived a similar bound for the Chebyshev prime-counting function ψ:
+
+|ψ(x)−x|<x(log⁡x)28π|ψ(x)-x|<√(x)()^2/8π
+for all x ≥ 73.2 . This latter bound has been shown to express a variance to mean power law (when regarded as a random function over the integers) and 1/ f  noise and to also correspond to the Tweedie compound Poisson distribution. (The Tweedie distributions represent a family of scale invariant distributions that serve as foci of convergence for a generalization of the central limit theorem.[22])
+The logarithmic integral li(x) is larger than π(x) for "small" values of x. This is because it is (in some sense) counting not primes, but prime powers, where a power pn of a prime p is counted as 1/ n  of a prime. This suggests that li(x) should usually be larger than π(x) by roughly 12li⁡(x),{12li(√(x))  and in particular should always be larger than π(x). However, in 1914, J. E. Littlewood proved that π(x)−li⁡(x)
+pi(x)-li(x)} changes sign infinitely often.[23] The first value of x where π(x) exceeds li(x) is probably around x ~ 10316 ; see the article on Skewes' number for more details. (On the other hand, the offset logarithmic integral Li(x) is smaller than π(x) already for x = 2; indeed, Li(2) = 0, while π(2) = 1.)
+
+Elementary proofs[edit]
+In the first half of the twentieth century, some mathematicians (notably G. H. Hardy) believed that there exists a hierarchy of proof methods in mathematics depending on what sorts of numbers (integers, reals, complex) a proof requires, and that the prime number theorem (PNT) is a "deep" theorem by virtue of requiring complex analysis.[24] This belief was somewhat shaken by a proof of the PNT based on Wiener's tauberian theorem, though this could be set aside if Wiener's theorem were deemed to have a "depth" equivalent to that of complex variable methods.
+In March 1948, Atle Selberg established, by "elementary" means, the asymptotic formula
+
+ϑ(x)log⁡(x)+∑p≤xlog⁡(p)ϑ(xp)=2xlog⁡(x)+O(x)ϑ(x)log(x)+∑_plog(p)
+vartheta(x/p)=2xlog(x)+O(x)
+where
+
+ϑ(x)=∑p≤xlog⁡(p)ϑ(x)=∑_plog(p)
+for primes p.[11] By July of that year, Selberg and Paul Erdős[12] had each obtained elementary proofs of the PNT, both using Selberg's asymptotic formula as a starting point.[24][25] These proofs effectively laid to rest the notion that the PNT was "deep" in that sense, and showed that technically "elementary" methods were more powerful than had been believed to be the case. On the history of the elementary proofs of the PNT, including the Erdős–Selberg priority dispute, see an article by Dorian Goldfeld.[24]
+There is some debate about the significance of Erdős and Selberg's result. There is no rigorous and widely accepted definition of the notion of elementary proof in number theory, so it is not clear exactly in what sense their proof is "elementary". Although it does not use complex analysis, it is in fact much more technical than the standard proof of PNT. One possible definition of an "elementary" proof is "one that can be carried out in first-order Peano arithmetic." There are number-theoretic statements (for example, the Paris–Harrington theorem) provable using second order but not first-order methods, but such theorems are rare to date. Erdős and Selberg's proof can certainly be formalized in Peano arithmetic, and in 1994, Charalambos Cornaros and Costas Dimitracopoulos proved that their proof can be formalized in a very weak fragment of PA, namely IΔ0 + exp.[26] However, this does not address the question of whether or not the standard proof of PNT can be formalized in PA.
+
+Computer verifications[edit]
+In 2005, Avigad et al. employed the Isabelle theorem prover to devise a computer-verified variant of the Erdős–Selberg proof of the PNT.[27] This was the first machine-verified proof of the PNT. Avigad chose to formalize the Erdős–Selberg proof rather than an analytic one because while Isabelle's library at the time could implement the notions of limit, derivative, and transcendental function, it had almost no theory of integration to speak of.[27]: 19 
+In 2009, John Harrison employed HOL Light to formalize a proof employing complex analysis.[28] By developing the necessary analytic machinery, including the Cauchy integral formula, Harrison was able to formalize "a direct, modern and elegant proof instead of the more involved 'elementary' Erdős–Selberg argument".
+
+Prime number theorem for arithmetic progressions[edit]
+Let πd,a(x) denote the number of primes in the arithmetic progression a, a + d, a + 2d, a + 3d, ... that are less than x. Dirichlet and Legendre conjectured, and de la Vallée Poussin proved, that if a and d are coprime, then
+
+πd,a(x)∼Li⁡(x)φ(d),π_d,a(x)∼Li(x)/φ(d) 
+where φ is Euler's totient function. In other words, the primes are distributed evenly among the residue classes [a] modulo d with gcd(a, d) = 1 . This is stronger than Dirichlet's theorem on arithmetic progressions (which only states that there is an infinity of primes in each class) and can be proved using similar methods used by Newman for his proof of the prime number theorem.[29]
+The Siegel–Walfisz theorem gives a good estimate for the distribution of primes in residue classes.
+Bennett et al. [30]
+proved the following estimate that has explicit constants A and B (Theorem 1.3):
+Let d ≥3≥3 be an integer and let a be an integer that is coprime to d. Then there are positive constants A and B such that
+
+|πd,a(x)−Li⁡(x)φ(d)|<Ax(log⁡x)2forallx≥B,|π_d,a(x)-%s/%s
+operatornameLi(x)}
+varphi(d)}|<A/)^2}  forall
+where
+
+A=1840if3≤d≤104andA=1160ifd>104,=1/40}  if  3≤10^4  and=1/60}  if>10^4 ,
+and
+
+B=8⋅109if3≤d≤105andB=exp⁡(0.03d(log⁡d)3)ifd>105.=8·10^9  if  3≤10^5  and=exp(.03{√(d})logd)^3  if>10^5
+Prime number race[edit]
+Plot of the function π(x;4,3)−π(x;4,1)
+pi(x;4,3)-π(x;4,1)} for n ≤ 30000
+Although we have in particular
+
+π4,1(x)∼π4,3(x),π_4,1(x)∼π_4,3(x) 
+empirically the primes congruent to 3 are more numerous and are nearly always ahead in this "prime number race"; the first reversal occurs at x = 26861.[31]: 1–2  However Littlewood showed in 1914[31]: 2  that there are infinitely many sign changes for the function
+
+π4,1(x)−π4,3(x),π_4,1(x)-π_4,3(x) ,
+so the lead in the race switches back and forth infinitely many times. The phenomenon that π4,3(x) is ahead most of the time is called Chebyshev's bias. The prime number race generalizes to other moduli and is the subject of much research; Pál Turán asked whether it is always the case that π(x;a,c) and π(x;b,c) change places when a and b are coprime to c.[32] Granville and Martin give a thorough exposition and survey.[31]
+
+Non-asymptotic bounds on the prime-counting function[edit]
+The prime number theorem is an asymptotic result. It gives an ineffective bound on π(x) as a direct consequence of the definition of the limit: for all ε > 0, there is an S such that for all x > S,
+
+(1−ε)xlog⁡x<π(x)<(1+ε)xlog⁡x.(1-ε)x/ < π(x) < (1+ε)x/ .
+However, better bounds on π(x) are known, for instance Pierre Dusart's
+
+xlog⁡x(1+1log⁡x)<π(x)<xlog⁡x(1+1log⁡x+2.51(log⁡x)2).x/(1+1/) < π(x) < x/(1+1/+2.51/()^2) .
+The first inequality holds for all x ≥ 599 and the second one for x ≥ 355991.[33]
+A weaker but sometimes useful bound for x ≥ 55 is[34]
+
+xlog⁡x+2<π(x)<xlog⁡x−4.x/+2 < π(x) < x/-4 .
+In Pierre Dusart's thesis there are stronger versions of this type of inequality that are valid for larger x. Later in 2010, Dusart proved:[35]
+
+xlog⁡x−1<π(x)forx≥5393,andπ(x)<xlog⁡x−1.1forx≥60184.x/-1    < π(x)      forx≥5393 ,and
+π(x)    < x/-1.1      forx≥60184 .
+The proof by de la Vallée Poussin implies the following: For every ε > 0, there is an S such that for all x > S,
+
+xlog⁡x−(1−ε)<π(x)<xlog⁡x−(1+ε).x/-(1-ε) < π(x) < x/-(1+ε) .
+Approximations for the nth prime number[edit]
+As a consequence of the prime number theorem, one gets an asymptotic expression for the nth prime number, denoted by pn:
+
+pn∼nlog⁡n._n.
+A better approximation is[36]
+
+pnn=log⁡n+log⁡log⁡n−1+log⁡log⁡n−2log⁡n−(log⁡log⁡n)2−6log⁡log⁡n+112(log⁡n)2+o(1(log⁡n)2).p_n/n=+log-1+log-2/-(log)^2-6log+11/2()^2+o(1/()^2).
+Again considering the 2×1017th prime number 8512677386048191063, this gives an estimate of 8512681315554715386; the first 5 digits match and relative error is about 0.00005%.
+Rosser's theorem states that 
+
+pn>nlog⁡n._n>n.
+This can be improved by the following pair of bounds:[34]
+[37]
+
+log⁡n+log⁡log⁡n−1<pnn<log⁡n+log⁡log⁡nforn≥6.+log-1<p_n/n<+log  forn≥6.
+Table of π(x), x / log x, and li(x)[edit]
+The table compares exact values of π(x) to the two approximations x / log x and li(x). The last column, x / π(x), is the average prime gap below x.
+
+
+
+x
+
+π(x)
+
+π(x) − x/log x
+
+π(x)/x / log x
+
+li(x) − π(x)
+
+x/π(x)
+
+
+10
+
+4
+
+−0.3
+
+0.921
+
+2.2
+
+2.500
+
+
+102
+
+25
+
+3.3
+
+1.151
+
+5.1
+
+4.000
+
+
+103
+
+168
+
+23.0
+
+1.161
+
+10.0
+
+5.952
+
+
+104
+
+1229
+
+143.0
+
+1.132
+
+17.0
+
+8.137
+
+
+105
+
+9592
+
+906.0
+
+1.104
+
+38.0
+
+10.425
+
+
+106
+
+78498
+
+6116.0
+
+1.084
+
+130.0
+
+12.740
+
+
+107
+
+664579
+
+44158.0
+
+1.071
+
+339.0
+
+15.047
+
+
+108
+
+5761455
+
+332774.0
+
+1.061
+
+754.0
+
+17.357
+
+
+109
+
+50847534
+
+2592592.0
+
+1.054
+
+1701.0
+
+19.667
+
+
+1010
+
+455052511
+
+20758029.0
+
+1.048
+
+3104.0
+
+21.975
+
+
+1011
+
+4118054813
+
+169923159.0
+
+1.043
+
+11588.0
+
+24.283
+
+
+1012
+
+37607912018
+
+1416705193.0
+
+1.039
+
+38263.0
+
+26.590
+
+
+1013
+
+346065536839
+
+11992858452.0
+
+1.034
+
+108971.0
+
+28.896
+
+
+1014
+
+3204941750802
+
+102838308636.0
+
+1.033
+
+314890.0
+
+31.202
+
+
+1015
+
+29844570422669
+
+891604962452.0
+
+1.031
+
+1052619.0
+
+33.507
+
+
+1016
+
+279238341033925
+
+7804289844393.0
+
+1.029
+
+3214632.0
+
+35.812
+
+
+1017
+
+2623557157654233
+
+68883734693281.0
+
+1.027
+
+7956589.0
+
+38.116
+
+
+1018
+
+24739954287740860
+
+612483070893536.0
+
+1.025
+
+21949555.0
+
+40.420
+
+
+1019
+
+234057667276344607
+
+5481624169369960.0
+
+1.024
+
+99877775.0
+
+42.725
+
+
+1020
+
+2220819602560918840
+
+49347193044659701.0
+
+1.023
+
+222744644.0
+
+45.028
+
+
+1021
+
+21127269486018731928
+
+446579871578168707.0
+
+1.022
+
+597394254.0
+
+47.332
+
+
+1022
+
+201467286689315906290
+
+4060704006019620994.0
+
+1.021
+
+1932355208.0
+
+49.636
+
+
+1023
+
+1925320391606803968923
+
+37083513766578631309.0
+
+1.020
+
+7250186216.0
+
+51.939
+
+
+1024
+
+18435599767349200867866
+
+339996354713708049069.0
+
+1.019
+
+17146907278.0
+
+54.243
+
+
+1025
+
+176846309399143769411680
+
+3128516637843038351228.0
+
+1.018
+
+55160980939.0
+
+56.546
+
+
+OEIS
+
+A006880
+
+A057835
+
+
+
+A057752
+
+
+
+The value for π(1024) was originally computed assuming the Riemann hypothesis;[38] it has since been verified unconditionally.[39]
+
+Analogue for irreducible polynomials over a finite field[edit]
+There is an analogue of the prime number theorem that describes the "distribution" of irreducible polynomials over a finite field; the form it takes is strikingly similar to the case of the classical prime number theorem.
+To state it precisely, let F = GF(q) be the finite field with q elements, for some fixed q, and let Nn be the number of monic irreducible polynomials over F whose degree is equal to n. That is, we are looking at polynomials with coefficients chosen from F, which cannot be written as products of polynomials of smaller degree. In this setting, these polynomials play the role of the prime numbers, since all other monic polynomials are built up of products of them. One can then prove that
+
+Nn∼qnn._n∼q^n/n.
+If we make the substitution x = qn, then the right hand side is just
+
+xlogq⁡x,x/log_qx,
+which makes the analogy clearer. Since there are precisely qn monic polynomials of degree n (including the reducible ones), this can be rephrased as follows: if a monic polynomial of degree n is selected randomly, then the probability of it being irreducible is about 1/n.
+One can even prove an analogue of the Riemann hypothesis, namely that
+
+Nn=qnn+O(qn2n)._n=q^n/n+O(q^n/2/n).
+The proofs of these statements are far simpler than in the classical case. It involves a short, combinatorial argument,[40] summarised as follows: every element of the degree n extension of F is a root of some irreducible polynomial whose degree d divides n; by counting these roots in two different ways one establishes that
+
+qn=∑d∣ndNd,^n=∑_ddN_d,
+where the sum is over all divisors d of n. Möbius inversion then yields
+
+Nn=1n∑d∣nμ(nd)qd,_n=1/n∑_dμ(n/d)q^d,
+where μ(k) is the Möbius function. (This formula was known to Gauss.) The main term occurs for d = n, and it is not difficult to bound the remaining terms. The "Riemann hypothesis" statement depends on the fact that the largest proper divisor of n can be no larger than n/2.
+
+See also[edit]
+Abstract analytic number theory for information about generalizations of the theorem.
+Landau prime ideal theorem for a generalization to prime ideals in algebraic number fields.
+Riemann hypothesis
+Citations[edit]
+
+
+^ a b Hadamard, Jacques (1896), "Sur la distribution des zéros de la fonction ζ(s) et ses conséquences arithmétiques.", Bulletin de la Société Mathématique de France, Société Mathématique de France, 24: 199–220, archived from the original on 2012-07-17
+
+^ a b de la Vallée Poussin, Charles-Jean (1896), "Recherches analytiques sur la théorie des nombres premiers.", Annales de la Société scientifique de Bruxelles, Imprimeur de l'Académie Royale de Belgique, 20 B, 21 B: 183–256, 281–352, 363–397, 351–368
+
+^ Hoffman, Paul (1998). The Man Who Loved Only Numbers. New York: Hyperion Books. p. 227. ISBN 978-0-7868-8406-3. MR 1666054.
+
+^ "Prime Curios!: 8512677386048191063". Prime Curios!. University of Tennessee at Martin. 2011-10-09.
+
+^ M. Apostol, Tom (1976). Introduction to Analytic Number Theory. Undergraduate Texts in Mathematics (1 ed.). Springer. pp. 80–82. doi:10.1007/978-1-4757-5579-4. ISBN 978-1-4757-5579-4.
+
+^ M. Apostol, Tom (1976). Introduction to Analytic Number Theory. Undergraduate Texts in Mathematics (1 ed.). Springer. pp. 92–94. doi:10.1007/978-1-4757-5579-4. ISBN 978-1-4757-5579-4.
+
+^ Gauss, C. F. (1863), Werke, vol. 2 (1st ed.), Göttingen: Teubner, pp. 444–447.
+
+^ Costa Pereira, N. (August–September 1985). "A Short Proof of Chebyshev's Theorem". American Mathematical Monthly. 92 (7): 494–495. doi:10.2307/2322510. JSTOR 2322510.
+
+^ Nair, M. (February 1982). "On Chebyshev-Type Inequalities for Primes". American Mathematical Monthly. 89 (2): 126–129. doi:10.2307/2320934. JSTOR 2320934.
+
+^ Ingham, A. E. (1990). The Distribution of Prime Numbers. Cambridge University Press. pp. 2–5. ISBN 978-0-521-39789-6.
+
+^ a b Selberg, Atle (1949), "An Elementary Proof of the Prime-Number Theorem", Annals of Mathematics, 50 (2): 305–313, doi:10.2307/1969455, JSTOR 1969455, MR 0029410, S2CID 124153092
+
+^ a b Erdős, Paul (1949-07-01), "On a new method in elementary number theory which leads to an elementary proof of the prime number theorem" (PDF), Proceedings of the National Academy of Sciences, U.S.A.: National Academy of Sciences, 35 (7): 374–384, Bibcode:1949PNAS...35..374E, doi:10.1073/pnas.35.7.374, PMC 1063042, PMID 16588909
+
+^ Newman, Donald J. (1980). "Simple analytic proof of the prime number theorem". American Mathematical Monthly. 87 (9): 693–696. doi:10.2307/2321853. JSTOR 2321853. MR 0602825.
+
+^ a b Zagier, Don (1997). "Newman's short proof of the prime number theorem". American Mathematical Monthly. 104 (8): 705–708. doi:10.2307/2975232. JSTOR 2975232. MR 1476753.
+
+^ Tao, Terence (10 December 2014). "254A, Notes 2: Complex-analytic multiplicative number theory". Terence Tao's blog.
+
+^ Edwards, Harold M. (2001). Riemann's zeta function. Courier Dover Publications. ISBN 978-0-486-41740-0.
+
+^ de la Vallée Poussin, Charles-Jean (1899), "Sur la fonction ζ(s) de Riemann et le nombre des nombres premiers inférieurs a une limite donnée.", Mémoires couronnés de l'Académie de Belgique, Imprimeur de l'Académie Royale de Belgique, 59: 1–74
+
+^ Kevin Ford (2002). "Vinogradov's Integral and Bounds for the Riemann Zeta Function" (PDF). Proc. London Math. Soc. 85 (3): 565–633. arXiv:1910.08209. doi:10.1112/S0024611502013655. S2CID 121144007.
+
+^ Tim Trudgian (February 2016). "Updating the error term in the prime number theorem". Ramanujan Journal. 39 (2): 225–234. arXiv:1401.2689. doi:10.1007/s11139-014-9656-6. S2CID 11013503.
+
+^ von Koch, Helge (1901). "Sur la distribution des nombres premiers" [On the distribution of prime numbers]. Acta Mathematica (in French). 24 (1): 159–182. doi:10.1007/BF02403071. MR 1554926. S2CID 119914826.
+
+^ Schoenfeld, Lowell (1976). "Sharper Bounds for the Chebyshev Functions ϑ(x) and ψ(x). II". Mathematics of Computation. 30 (134): 337–360. doi:10.2307/2005976. JSTOR 2005976. MR 0457374.
+
+^ Jørgensen, Bent; Martínez, José Raúl; Tsao, Min (1994). "Asymptotic behaviour of the variance function". Scandinavian Journal of Statistics. 21 (3): 223–243. JSTOR 4616314. MR 1292637.
+
+^ Littlewood, J.E. (1914). "Sur la distribution des nombres premiers". Comptes Rendus. 158: 1869–1872. JFM 45.0305.01.
+
+^ a b c Goldfeld, Dorian (2004). "The elementary proof of the prime number theorem: an historical perspective" (PDF). In Chudnovsky, David; Chudnovsky, Gregory; Nathanson, Melvyn (eds.). Number theory (New York, 2003). New York: Springer-Verlag. pp. 179–192. doi:10.1007/978-1-4419-9060-0_10. ISBN 978-0-387-40655-8. MR 2044518.
+
+^ Baas, Nils A.; Skau, Christian F. (2008). "The lord of the numbers, Atle Selberg. On his life and mathematics" (PDF). Bull. Amer. Math. Soc. 45 (4): 617–649. doi:10.1090/S0273-0979-08-01223-8. MR 2434348.
+
+^ Cornaros, Charalambos; Dimitracopoulos, Costas (1994). "The prime number theorem and fragments of PA" (PDF). Archive for Mathematical Logic. 33 (4): 265–281. doi:10.1007/BF01270626. MR 1294272. S2CID 29171246. Archived from the original (PDF) on 2011-07-21.
+
+^ a b Avigad, Jeremy; Donnelly, Kevin; Gray, David; Raff, Paul (2008). "A formally verified proof of the prime number theorem". ACM Transactions on Computational Logic. 9 (1): 2. arXiv:cs/0509025. doi:10.1145/1297658.1297660. MR 2371488. S2CID 7720253.
+
+^ Harrison, John (2009). "Formalizing an analytic proof of the Prime Number Theorem". Journal of Automated Reasoning. 43 (3): 243–261. CiteSeerX 10.1.1.646.9725. doi:10.1007/s10817-009-9145-6. MR 2544285. S2CID 8032103.
+
+^ Soprounov, Ivan (1998). "A short proof of the Prime Number Theorem for arithmetic progressions" (PDF). Ohio: Cleveland State University.
+
+^ Bennett, Michael A.; Martin, Greg; O'Bryant, Kevin; Rechnitzer, Andrew (2018). "Explicit bounds for primes in arithmetic progressions". Illinois J. Math. 62 (1–4): 427–532. arXiv:1802.00085. doi:10.1215/ijm/1552442669. S2CID 119647640.
+
+^ a b c 
+Granville, Andrew; Martin, Greg (2006). "Prime number races" (PDF). American Mathematical Monthly. 113 (1): 1–33. doi:10.2307/27641834. JSTOR 27641834. MR 2202918.
+
+^ Guy, Richard K. (2004). Unsolved Problems in Number Theory (3rd ed.). Springer-Verlag. A4. ISBN 978-0-387-20860-2. Zbl 1058.11001.
+
+^ Dusart, Pierre (26 May 1998). Autour de la fonction qui compte le nombre de nombres premiers. département de Mathématiques (Ph.D. thesis) (in French). Limoges, France: l'Université de Limoges.
+
+^ a b Rosser, Barkley (1941). "Explicit bounds for some functions of prime numbers". American Journal of Mathematics. 63 (1): 211–232. doi:10.2307/2371291. JSTOR 2371291. MR 0003018.
+
+^ Dusart, Pierre (2010). "Estimates of some functions over primes, without R.H.". arXiv:1002.0442 [math.NT].
+
+^ Cesàro, Ernesto (1894). "Sur une formule empirique de M. Pervouchine". Comptes Rendus Hebdomadaires des Séances de l'Académie des Sciences (in French). 119: 848–849.
+
+^ Dusart, Pierre (1999). "The kth prime is greater than k(log k + log log k−1) for k ≥ 2". Mathematics of Computation. 68 (225): 411–415. doi:10.1090/S0025-5718-99-01037-6. MR 1620223.
+
+^ "Conditional Calculation of π(1024)". Chris K. Caldwell. Archived from the original on 2010-08-04. Retrieved 2010-08-03.
+
+^ Platt, David (2015). "Computing π(x) analytically". Mathematics of Computation. 84 (293): 1521–1535. arXiv:1203.5712. doi:10.1090/S0025-5718-2014-02884-6. MR 3315519. S2CID 119174627.
+
+^ Chebolu, Sunil; Mináč, Ján (December 2011). "Counting Irreducible Polynomials over Finite Fields Using the Inclusion π Exclusion Principle". Mathematics Magazine. 84 (5): 369–371. arXiv:1001.0409. doi:10.4169/math.mag.84.5.369. JSTOR 10.4169/math.mag.84.5.369. S2CID 115181186.
+
+
+References[edit]
+Granville, Andrew (1995). "Harald Cramér and the distribution of prime numbers" (PDF). Scandinavian Actuarial Journal. 1: 12–28. CiteSeerX 10.1.1.129.6847. doi:10.1080/03461238.1995.10413946.
+Hardy, G.H.; Littlewood, J.E. (1916). "Contributions to the theory of the Riemann zeta-function and the theory of the distribution of primes". Acta Mathematica. 41: 119–196. doi:10.1007/BF02422942. S2CID 53405990.
+Hardy, G. H.; Wright, E. M. (2008) [1st ed. 1938], An Introduction to the Theory of Numbers, Revised by D. R. Heath-Brown and J. H. Silverman, with a foreword by Andrew Wiles (6th ed.), Oxford: Oxford University Press, ISBN 978-0-19-921985-8
+Narkiewicz, Władysław (2000), The Development of Prime Number Theory: From Euclid to Hardy and Littlewood, Springer Monographs in Mathematics, Springer-Verlag, doi:10.1007/978-3-662-13157-2, ISBN 978-3-540-66289-1, ISSN 1439-7382
+External links[edit]
+"Distribution of prime numbers", Encyclopedia of Mathematics, EMS Press, 2001 [1994]
+Table of Primes by Anton Felkel.
+Short video visualizing the Prime Number Theorem.
+Prime formulas and Prime number theorem at MathWorld.
+How Many Primes Are There? Archived 2012-10-15 at the Wayback Machine and The Gaps between Primes by Chris Caldwell, University of Tennessee at Martin.
+Tables of prime-counting functions by Tomás Oliveira e Silva
+Eberl, Manuel and Paulson, L. C. The Prime Number Theorem (Formal proof development in Isabelle/HOL, Archive of Formal Proofs)
+The Prime Number Theorem: the "elementary" proof −  An exposition of the elementary proof of the Prime Number Theorem of Atle Selberg and Paul Erdős at www.dimostriamogoldbach.it/en/ 
+
+
+

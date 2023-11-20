@@ -1,0 +1,71 @@
+A martingale's expected value at a stopping time equals its initial expected value
+Not to be confused with Optimal stopping.
+In probability theory, the optional stopping theorem (or sometimes Doob's optional sampling theorem, for American probabilist Joseph Doob) says that, under certain conditions, the expected value of a martingale at a stopping time is equal to its initial expected value. Since martingales can be used to model the wealth of a gambler participating in a fair game, the optional stopping theorem says that, on average, nothing can be gained by stopping play based on the information obtainable so far (i.e., without looking into the future). Certain conditions are necessary for this result to hold true. In particular, the theorem applies to doubling strategies.
+The optional stopping theorem is an important tool of mathematical finance in the context of the fundamental theorem of asset pricing.
+
+
+Statement[edit]
+A discrete-time version of the theorem is given below, with Nℕ0 denoting the set of natural integers, including zero.
+Let X = (Xt)t∈Nℕ0 be a discrete-time martingale and τ a stopping time with values in Nℕ0 ∪ {∞}, both with respect to a filtration (Ft)t∈Nℕ0. Assume that one of the following three conditions holds:
+
+(a) The stopping time τ is almost surely bounded, i.e., there exists a constant c ∈ Nℕ such that τ ≤ c a.s.
+(b) The stopping time τ has finite expectation and the conditional expectations of the absolute value of the martingale increments are almost surely bounded, more precisely, E[τ]<∞𝔼[τ]<∞ and there exists a constant c such that E[|Xt+1−Xt||Ft]≤c𝔼[|X_t+1-X_t| | ℱ_t] almost surely on the event {τ > t} for all t ∈ Nℕ0.
+(c) There exists a constant c such that |Xt∧τ| ≤ c a.s. for all t ∈ Nℕ0 where ∧ denotes the minimum operator.
+Then Xτ is an almost surely well defined random variable and E[Xτ]=E[X0].𝔼[X_τ]=𝔼[X_0].
+Similarly, if the stochastic process X = (Xt)t∈Nℕ0 is a submartingale or a supermartingale and one of the above conditions holds, then
+
+E[Xτ]≥E[X0],𝔼[X_τ]≥𝔼[X_0],
+for a submartingale, and
+
+E[Xτ]≤E[X0],𝔼[X_τ]≤𝔼[X_0],
+for a supermartingale.
+
+Remark[edit]
+Under condition (c) it is possible that τ = ∞ happens with positive probability. On this event Xτ is defined as the almost surely existing pointwise limit of (Xt)t∈Nℕ0 , see the proof below for details.
+
+Applications[edit]
+The optional stopping theorem can be used to prove the impossibility of successful betting strategies for a gambler with a finite lifetime (which gives condition (a)) or a house limit on bets (condition (b)).  Suppose that the gambler can wager up to c dollars on a fair coin flip at times 1, 2, 3, etc., winning his wager if the coin comes up heads and losing it if the coin comes up tails.  Suppose further that he can quit whenever he likes, but cannot predict the outcome of gambles that haven't happened yet.  Then the gambler's fortune over time is a martingale, and the time τ at which he decides to quit (or goes broke and is forced to quit) is a stopping time.  So the theorem says that E[Xτ] = E[X0].  In other words, the gambler leaves with the same amount of money on average as when he started.  (The same result holds if the gambler, instead of having a house limit on individual bets, has a finite limit on his line of credit or how far in debt he may go, though this is easier to show with another version of the theorem.)
+Suppose a random walk starting at a ≥ 0 that goes up or down by one with equal probability on each step.  Suppose further that the walk stops if it reaches 0 or m ≥ a; the time at which this first occurs is a stopping time.  If it is known that the expected time at which the walk ends is finite (say, from Markov chain theory), the optional stopping theorem predicts that the expected stop position is equal to the initial position a.  Solving a = pm + (1 – p)0 for the probability p that the walk reaches m before 0 gives p = a/m.
+Now consider a random walk X that starts at 0 and stops if it reaches –m or +m, and use the Yn = Xn2 – n martingale from the examples section. If τ is the time at which X first reaches ±m, then 0 = E[Y0] = E[Yτ] = m2 – E[τ]. This gives E[τ] = m2.
+Care must be taken, however, to ensure that one of the conditions of the theorem hold. For example, suppose the last example had instead used a 'one-sided' stopping time, so that stopping only occurred at +m, not at −m. The value of X at this stopping time would therefore be m. Therefore, the expectation value E[Xτ] must also be m, seemingly in violation of the theorem which would give E[Xτ] = 0. The failure of the optional stopping theorem shows that all three of the conditions fail.
+Proof[edit]
+Let Xτ denote the stopped process, it is also a martingale (or a submartingale or supermartingale, respectively). Under condition (a) or (b), the random variable Xτ is well defined. Under condition (c) the stopped process Xτ is bounded, hence by Doob's martingale convergence theorem it converges a.s. pointwise to a random variable which we call Xτ.
+If condition (c) holds, then the stopped process Xτ is bounded by the constant random variable M := c. Otherwise, writing the stopped process as
+
+Xtτ=X0+∑s=0τ−1∧t−1(Xs+1−Xs),t∈N0,_t^τ=X_0+∑_s=0^τ-1-1(X_s+1-X_s),∈ℕ_0,
+gives |Xtτ| ≤ M for all t ∈ Nℕ0, where
+
+M:=|X0|+∑s=0τ−1|Xs+1−Xs|=|X0|+∑s=0∞|Xs+1−Xs|⋅1τ>s:=|X_0|+∑_s=0^τ-1|X_s+1-X_s|=|X_0|+∑_s=0^∞|X_s+1-X_s|·1_{τ>s}.
+By the monotone convergence theorem
+
+E[M]=E[|X0|]+∑s=0∞E[|Xs+1−Xs|⋅1τ>s]𝔼[M]=𝔼[|X_0|]+∑_s=0^∞𝔼[|X_s+1-X_s|·1_{τ>s}].
+If condition (a) holds, then this series only has a finite number of non-zero terms, hence M is integrable.
+If condition (b) holds, then we continue by inserting a conditional expectation and using that the event {τ > s} is known at time s (note that τ is assumed to be a stopping time with respect to the filtration), hence
+
+E[M]=E[|X0|]+∑s=0∞E[E[|Xs+1−Xs||Fs]⋅1τ>s⏟≤c1τ>sa.s.by(b)]≤E[|X0|]+c∑s=0∞P(τ>s)=E[|X0|]+cE[τ]<∞,𝔼[M]   =𝔼[|X_0|]+∑_s=0^∞𝔼[𝔼[|X_s+1-X_s||ℱ_s]·1_{τ>s}_≤ c 1_{τ>s}a.s.by(b)]
+   ≤𝔼[|X_0|]+c∑_s=0^∞ℙ(τ>s)
+   =𝔼[|X_0|]+c 𝔼[τ]<∞,
+
+where a representation of the expected value of non-negative integer-valued random variables is used for the last equality.
+Therefore, under any one of the three conditions in the theorem, the stopped process is dominated by an integrable random variable M. Since the stopped process Xτ converges almost surely to Xτ, the dominated convergence theorem implies
+
+E[Xτ]=limt→∞E[Xtτ].𝔼[X_τ]=lim_t→∞𝔼[X_t^τ].
+By the martingale property of the stopped process,
+
+E[Xtτ]=E[X0],t∈N0,𝔼[X_t^τ]=𝔼[X_0],∈ℕ_0,
+hence
+
+E[Xτ]=E[X0].𝔼[X_τ]=𝔼[X_0].
+Similarly, if X is a submartingale or supermartingale, respectively, change the equality in the last two formulas to the appropriate inequality.
+
+References[edit]
+This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.Find sources: "Optional stopping theorem" – news · newspapers · books · scholar · JSTOR (February 2012) (Learn how and when to remove this template message)
+
+
+Grimmett, Geoffrey R.; Stirzaker, David R. (2001). Probability and Random Processes (3rd ed.). Oxford University Press. pp. 491–495. ISBN 9780198572220.
+Bhattacharya, Rabi; Waymire, Edward C. (2007). A Basic Course in Probability Theory. Springer. pp. 43–45. ISBN 978-0-387-71939-9.
+External links[edit]
+Doob's Optional Stopping Theorem
+
+
+

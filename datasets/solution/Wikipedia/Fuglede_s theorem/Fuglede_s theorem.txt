@@ -1,0 +1,255 @@
+In mathematics, Fuglede's theorem is a result in operator theory, named after Bent Fuglede.
+
+
+The result[edit]
+Theorem (Fuglede) Let T and N be bounded operators on a complex Hilbert space with N being normal. If TN = NT, then TN* = N*T, where N* denotes the adjoint of N.
+Normality of N is necessary, as is seen by taking T=N. When T is self-adjoint, the claim is trivial regardless of whether N is normal:
+TN∗=(NT)∗=(TN)∗=N∗T.^*=(NT)^*=(TN)^*=N^*T.
+Tentative Proof: If the underlying Hilbert space is finite-dimensional, the spectral theorem says that N is of the form
+N=∑iλiPi=∑_iλ_iP_i
+where Pi are pairwise orthogonal projections. One expects that TN = NT if and only if TPi = PiT.
+Indeed, it can be proved to be true by elementary arguments (e.g. it can be shown that all Pi are representable as polynomials of N and for this reason, if T commutes with N, it has to commute with Pi...).
+Therefore T must also commute with
+N∗=∑iλ¯iPi.^*=∑_iλ̅_iP_i.
+In general, when the Hilbert space is not finite-dimensional, the normal operator N gives rise to a projection-valued measure P on its spectrum, σ(N), which assigns a projection PΩ to each Borel subset of σ(N). N can be expressed as
+N=∫σ(N)λdP(λ).=∫_σ(N)(λ).
+Differently from the finite dimensional case, it is by no means obvious that TN = NT implies TPΩ = PΩT. Thus, it is not so obvious that T also commutes with any simple function of the form
+ρ=∑iλ¯PΩi.ρ=∑_iλ̅P_Ω_i.
+Indeed, following the construction of the spectral decomposition for a bounded, normal, not self-adjoint, operator T, one sees that to verify that T commutes with PΩi_Ω_i, the most straightforward way is to assume that T commutes with both N and N*, giving rise to a vicious circle!
+That is the relevance of Fuglede's theorem: The latter hypothesis is not really necessary.
+
+Putnam's generalization[edit]
+The following contains Fuglede's result as a special case. The proof by Rosenblum pictured below is just that presented by Fuglede for his theorem when assuming N=M.
+Theorem (Calvin Richard Putnam)[1] Let T, M, N be linear operators on a complex Hilbert space, and suppose that M and N are normal, T is bounded and MT = TN.
+Then M*T = TN*.
+First proof (Marvin Rosenblum):
+By induction, the hypothesis implies that MkT = TNk for all k.
+Thus for any λ in Cℂ,
+eλ¯MT=Teλ¯N.^λ̅MT=Te^λ̅N.
+Consider the function
+F(λ)=eλM∗Te−λN∗.(λ)=e^^*Te^-^*.
+This is equal to
+eλM∗[e−λ¯MTeλ¯N]e−λN∗=U(λ)TV(λ)−1,^^*[e^-λ̅MTe^λ̅N]e^-^*=U(λ)TV(λ)^-1,
+where U(λ)=eλM∗−λ¯M(λ)=e^^*-λ̅M because M is normal, and similarly V(λ)=eλN∗−λ¯N(λ)=e^^*-λ̅N. However we have
+U(λ)∗=eλ¯M−λM∗=U(λ)−1(λ)^*=e^λ̅M-^*=U(λ)^-1
+so U is unitary, and hence has norm 1 for all λ; the same is true for V(λ), so
+‖F(λ)‖≤‖T‖∀λ.F(λ)≤T
+forallλ.
+So F is a bounded analytic vector-valued function, and is thus constant, and equal to F(0) = T. Considering the first-order terms in the expansion for small λ, we must have M*T = TN*.
+The original paper of Fuglede appeared in 1950; it was extended to the form given above by Putnam in 1951.[1] The short proof given above was first published by Rosenblum in 1958; it is very elegant, but is less general than the original proof which also considered the case of unbounded operators. Another simple proof of Putnam's theorem is as follows:
+Second proof: Consider the matrices
+T′=[00T0]andN′=[N00M].'=[ 0 0; T 0 ]  and'=[ N 0; 0 M ].
+The operator N'  is normal and, by assumption, T' N' = N' T' . By Fuglede's theorem, one has
+T′(N′)∗=(N′)∗T′.'(N')^*=(N')^*T'.
+Comparing entries then gives the desired result.
+From Putnam's generalization, one can deduce the following:
+Corollary If two normal operators M and N are similar, then they are unitarily equivalent.
+Proof: Suppose MS = SN where S is a bounded invertible operator. Putnam's result implies M*S = SN*, i.e.
+S−1M∗S=N∗.^-1M^*S=N^*.
+Take the adjoint of the above equation and we have
+S∗M(S−1)∗=N.^*M(S^-1)^*=N.
+So
+S∗M(S−1)∗=S−1MS⇒SS∗M(SS∗)−1=M.^*M(S^-1)^*=S^-1MS  ⇒^*M(SS^*)^-1=M.
+Let S*=VR, with V a unitary (since S is invertible) and R the positive square root of SS*. As R is a limit of polynomials on SS*, the above implies that R commutes with M. It is also invertible. Then
+N=S∗M(S∗)−1=VRMR−1V∗=VMV∗.=S^*M(S^*)^-1=VRMR^-1V^*=VMV^*.
+Corollary If M and N are normal operators, and MN = NM, then MN is also normal.
+Proof: The argument invokes only Fuglede's theorem. One can directly compute
+(MN)(MN)∗=MN(NM)∗=MNM∗N∗.(MN)(MN)^*=MN(NM)^*=MNM^*N^*.
+By Fuglede, the above becomes
+=MM∗NN∗=M∗MN∗N.=MM^*NN^*=M^*MN^*N.
+But M and N are normal, so
+=M∗N∗MN=(MN)∗MN.=M^*N^*MN=(MN)^*MN.
+
+C*-algebras[edit]
+The theorem can be rephrased as a statement about elements of C*-algebras.
+Theorem (Fuglede-Putnam-Rosenblum) Let x, y be two normal elements of a C*-algebra A and z such that xz = zy. Then it follows that x* z = z y*.
+
+References[edit]
+
+
+^ a b Putnam, C. R. (April 1951). "On Normal Operators in Hilbert Space". American Journal of Mathematics. 73 (2): 357–362. doi:10.2307/2372180.
+
+
+Fuglede, Bent. A Commutativity Theorem for Normal Operators — PNAS
+Berberian, Sterling K. (1974), Lectures in Functional Analysis and Operator Theory, Graduate Texts in Mathematics, vol. 15, New York-Heidelberg-Berlin: Springer-Verlag, p. 274, ISBN 0-387-90080-2, MR 0417727.
+Rudin, Walter (1973). Functional Analysis. International Series in Pure and Applied Mathematics. Vol. 25 (First ed.). New York, NY: McGraw-Hill Science/Engineering/Math. ISBN 9780070542259.
+vteSpectral theory and *-algebrasBasic concepts
+Involution/*-algebra
+Banach algebra
+B*-algebra
+C*-algebra
+Noncommutative topology
+Projection-valued measure
+Spectrum
+Spectrum of a C*-algebra
+Spectral radius
+Operator space
+Main results
+Gelfand–Mazur theorem
+Gelfand–Naimark theorem
+Gelfand representation
+Polar decomposition
+Singular value decomposition
+Spectral theorem
+Spectral theory of normal C*-algebras
+Special Elements/Operators
+Isospectral
+Normal operator
+Hermitian/Self-adjoint operator
+Unitary operator
+Unit
+Spectrum
+Krein–Rutman theorem
+Normal eigenvalue
+Spectrum of a C*-algebra
+Spectral radius
+Spectral asymmetry
+Spectral gap
+Decomposition
+Decomposition of a spectrum
+Continuous
+Point
+Residual
+Approximate point
+Compression
+Direct integral
+Discrete
+Spectral abscissa
+Spectral Theorem
+Borel functional calculus
+Min-max theorem
+Positive operator-valued measure
+Projection-valued measure
+Riesz projector
+Rigged Hilbert space
+Spectral theorem
+Spectral theory of compact operators
+Spectral theory of normal C*-algebras
+Special algebras
+Amenable Banach algebra
+With an Approximate identity
+Banach function algebra
+Disk algebra
+Nuclear C*-algebra
+Uniform algebra
+Von Neumann algebra
+Tomita–Takesaki theory
+Finite-Dimensional
+Alon–Boppana bound
+Bauer–Fike theorem
+Numerical range
+Schur–Horn theorem
+Generalizations
+Dirac spectrum
+Essential spectrum
+Pseudospectrum
+Structure space (Shilov boundary)
+Miscellaneous
+Abstract index group
+Banach algebra cohomology
+Cohen–Hewitt factorization theorem
+Extensions of symmetric operators
+Fredholm theory
+Limiting absorption principle
+Schröder–Bernstein theorems for operator algebras
+Sherman–Takeda theorem
+Unbounded operator
+Examples
+Wiener algebra
+Applications
+Almost Mathieu operator
+Corona theorem
+Hearing the shape of a drum (Dirichlet eigenvalue)
+Heat kernel
+Kuznetsov trace formula
+Lax pair
+Proto-value function
+Ramanujan graph
+Rayleigh–Faber–Krahn inequality
+Spectral geometry
+Spectral method
+Spectral theory of ordinary differential equations
+Sturm–Liouville theory
+Superstrong approximation
+Transfer operator
+Transform theory
+Weyl law
+Wiener–Khinchin theorem
+
+vteFunctional analysis (topics – glossary)Spaces
+Banach
+Besov
+Fréchet
+Hilbert
+Hölder
+Nuclear
+Orlicz
+Schwartz
+Sobolev
+Topological vector
+Properties
+Barrelled
+Complete
+Dual (Algebraic/Topological)
+Locally convex
+Reflexive
+Separable
+Theorems
+Hahn–Banach
+Riesz representation
+Closed graph
+Uniform boundedness principle
+Kakutani fixed-point
+Krein–Milman
+Min–max
+Gelfand–Naimark
+Banach–Alaoglu
+Operators
+Adjoint
+Bounded
+Compact
+Hilbert–Schmidt
+Normal
+Nuclear
+Trace class
+Transpose
+Unbounded
+Unitary
+Algebras
+Banach algebra
+C*-algebra
+Spectrum of a C*-algebra
+Operator algebra
+Group algebra of a locally compact group
+Von Neumann algebra
+Open problems
+Invariant subspace problem
+Mahler's conjecture
+Applications
+Hardy space
+Spectral theory of ordinary differential equations
+Heat kernel
+Index theorem
+Calculus of variations
+Functional calculus
+Integral operator
+Jones polynomial
+Topological quantum field theory
+Noncommutative geometry
+Riemann hypothesis
+Distribution (or Generalized functions)
+Advanced topics
+Approximation property
+Balanced set
+Choquet theory
+Weak topology
+Banach–Mazur distance
+Tomita–Takesaki theory
+
+ Mathematics portal
+ Category
+Commons
+
+
+
+

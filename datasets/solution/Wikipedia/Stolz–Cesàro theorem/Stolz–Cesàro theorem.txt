@@ -1,0 +1,239 @@
+In mathematics, the Stolz–Cesàro theorem is a criterion for proving the convergence of a sequence.  The theorem is named after mathematicians Otto Stolz and Ernesto Cesàro, who stated and proved it for the first time.
+The Stolz–Cesàro theorem can be viewed as a generalization of the Cesàro mean, but also as a l'Hôpital's rule for sequences.  
+
+
+Statement of the theorem for the */∞ case[edit]
+Let  (an)n≥1(a_n)_n≥1 and  (bn)n≥1(b_n)_n≥1 be two sequences of real numbers. Assume that (bn)n≥1(b_n)_n≥1 is a strictly monotone and divergent sequence (i.e. strictly increasing and approaching +∞+∞, or strictly decreasing and approaching −∞-∞) and the following limit exists:
+
+limn→∞an+1−anbn+1−bn=l.lim_n→∞a_n+1-a_n/b_n+1-b_n=l.}
+Then, the limit
+
+limn→∞anbn=l.lim_n→∞a_n/b_n=l.}
+Statement of the theorem for the 0/0 case[edit]
+Let  (an)n≥1(a_n)_n≥1 and  (bn)n≥1(b_n)_n≥1 be two sequences of real numbers. Assume now that (an)→0(a_n)→0 and  (bn)→0(b_n)→0 while (bn)n≥1(b_n)_n≥1 is  strictly decreasing. If 
+
+limn→∞an+1−anbn+1−bn=l,lim_n→∞a_n+1-a_n/b_n+1-b_n=l,}
+then
+
+limn→∞anbn=l.lim_n→∞a_n/b_n=l.}[1]
+Proofs[edit]
+Proof of the theorem for the */∞ case[edit]
+Case 1: suppose (bn)(b_n) strictly increasing and divergent to +∞+∞, and −∞<l<∞-∞<l<∞. By hypothesis, we have that for all ϵ/2>0ϵ/2>0 there exists ν>0ν>0 such that ∀n>ν>ν
+
+|an+1−anbn+1−bn−l|<ϵ2,| a_n+1-a_n/b_n+1-b_n-l |<ϵ/2,
+which is to say
+
+l−ϵ/2<an+1−anbn+1−bn<l+ϵ/2,∀n>ν.-ϵ/2<a_n+1-a_n/b_n+1-b_n<l+ϵ/2,  >ν.
+Since (bn)(b_n) is strictly increasing, bn+1−bn>0_n+1-b_n>0, and the following holds
+
+(l−ϵ/2)(bn+1−bn)<an+1−an<(l+ϵ/2)(bn+1−bn),∀n>ν(l-ϵ/2)(b_n+1-b_n)<a_n+1-a_n<(l+ϵ/2)(b_n+1-b_n),  >ν.
+Next we notice that
+
+an=[(an−an−1)+⋯+(aν+2−aν+1)]+aν+1_n=[(a_n-a_n-1)+…+(a_ν+2-a_ν+1)]+a_ν+1
+thus, by applying the above inequality to each of the terms in the square brackets, we obtain
+
+(l−ϵ/2)(bn−bν+1)+aν+1=(l−ϵ/2)[(bn−bn−1)+⋯+(bν+2−bν+1)]+aν+1<anan<(l+ϵ/2)[(bn−bn−1)+⋯+(bν+2−bν+1)]+aν+1=(l+ϵ/2)(bn−bν+1)+aν+1.   (l-ϵ/2)(b_n-b_ν+1)+a_ν+1=(l-ϵ/2)[(b_n-b_n-1)+…+(b_ν+2-b_ν+1)]+a_ν+1<a_n
+   a_n<(l+ϵ/2)[(b_n-b_n-1)+…+(b_ν+2-b_ν+1)]+a_ν+1=(l+ϵ/2)(b_n-b_ν+1)+a_ν+1.
+Now, since bn→+∞_n→+∞ as n→∞→∞, there is an n0>0_0>0 such that bn>0_n>0 for all n>n0>n_0, and we can divide the two inequalities by bn_n for all n>maxν,n0>max{ν,n_0}
+
+(l−ϵ/2)+aν+1−bν+1(l−ϵ/2)bn<anbn<(l+ϵ/2)+aν+1−bν+1(l+ϵ/2)bn.(l-ϵ/2)+a_ν+1-b_ν+1(l-ϵ/2)/b_n<a_n/b_n<(l+ϵ/2)+a_ν+1-b_ν+1(l+ϵ/2)/b_n.
+The two sequences (which are only defined for n>n0>n_0 as there could be an N≤n0_0 such that bN=0_N=0) 
+
+cn±:=aν+1−bν+1(l±ϵ/2)bn_n^±:=a_ν+1-b_ν+1(l±ϵ/2)/b_n
+are infinitesimal since bn→+∞_n→+∞ and the numerator is a constant number, hence for all ϵ/2>0ϵ/2>0 there exists n±>n0>0_±>n_0>0, such that
+
+|cn+|<ϵ/2,∀n>n+,|cn−|<ϵ/2,∀n>n−,   |c_n^+|<ϵ/2,  >n_+,
+   |c_n^-|<ϵ/2,  >n_-,
+therefore
+
+l−ϵ<l−ϵ/2+cn−<anbn<l+ϵ/2+cn+<l+ϵ,∀n>maxν,n±=:N>0,-ϵ<l-ϵ/2+c_n^-<a_n/b_n<l+ϵ/2+c_n^+<l+ϵ,  >max{ν,n_±}=:N>0,
+which concludes the proof. The case with (bn)(b_n) strictly decreasing and divergent to −∞-∞, and l<∞<∞ is similar.
+Case 2: we assume (bn)(b_n) strictly increasing and divergent to +∞+∞, and l=+∞=+∞. Proceeding as before, for all 2M>02M>0 there exists ν>0ν>0 such that for all n>ν>ν
+
+an+1−anbn+1−bn>2M.a_n+1-a_n/b_n+1-b_n>2M.
+Again, by applying the above inequality to each of the terms inside the square brackets we obtain
+
+an>2M(bn−bν+1)+aν+1,∀n>ν,_n>2M(b_n-b_ν+1)+a_ν+1,  >ν,
+and
+
+anbn>2M+aν+1−2Mbν+1bn,∀n>maxν,n0.a_n/b_n>2M+a_ν+1-2Mb_ν+1/b_n,  >max{ν,n_0}.
+The sequence (cn)n>n0(c_n)_n>n_0 defined by
+
+cn:=aν+1−2Mbν+1bn_n:=a_ν+1-2Mb_ν+1/b_n
+is infinitesimal, thus
+
+∀M>0∃n¯>n0>0suchthat−M<cn<M,∀n>n¯,>0 ∃n̅>n_0>0suchthat-M<c_n<M, >n̅,
+combining this inequality with the previous one we conclude
+
+anbn>2M+cn>M,∀n>maxν,n¯=:N.a_n/b_n>2M+c_n>M,  >max{ν,n̅}=:N.
+The proofs of the other cases with (bn)(b_n) strictly increasing or decreasing and approaching +∞+∞ or −∞-∞ respectively and l=±∞=±∞ all proceed in this same way.
+
+Proof of the theorem for the 0/0 case[edit]
+Case 1: we first consider the case with l<∞<∞ and (bn)(b_n) strictly decreasing. This time, for each ν>0ν>0, we can write
+
+an=(an−an+1)+⋯+(an+ν−1−an+ν)+an+ν,_n=(a_n-a_n+1)+…+(a_n+ν-1-a_n+ν)+a_n+ν,
+and for any ϵ/2>0,ϵ/2>0, ∃n0_0 such that for all n>n0>n_0 we have
+
+(l−ϵ/2)(bn−bn+ν)+an+ν=(l−ϵ/2)[(bn−bn+1)+⋯+(bn+ν−1−bn+ν)]+an+ν<anan<(l+ϵ/2)[(bn−bn+1)+⋯+(bn+ν−1−bn+ν)]+an+ν=(l+ϵ/2)(bn−bn+ν)+an+ν.   (l-ϵ/2)(b_n-b_n+ν)+a_n+ν=(l-ϵ/2)[(b_n-b_n+1)+…+(b_n+ν-1-b_n+ν)]+a_n+ν<a_n
+   a_n<(l+ϵ/2)[(b_n-b_n+1)+…+(b_n+ν-1-b_n+ν)]+a_n+ν=(l+ϵ/2)(b_n-b_n+ν)+a_n+ν.
+The two sequences
+
+cν±:=an+ν−bn+ν(l±ϵ/2)bn_ν^±:=a_n+ν-b_n+ν(l±ϵ/2)/b_n
+are infinitesimal since by hypothesis an+ν,bn+ν→0_n+ν,b_n+ν→0 as ν→∞ν→∞, thus for all ϵ/2>0ϵ/2>0 there are ν±>0ν_±>0 such that 
+
+|cν+|<ϵ/2,∀ν>ν+,|cν−|<ϵ/2,∀ν>ν−,   |c_ν^+|<ϵ/2,  ∀ν>ν_+,
+   |c_ν^-|<ϵ/2,  ∀ν>ν_-,
+thus, choosing νν appropriately (which is to say, taking the limit with respect to νν) we obtain
+
+l−ϵ<l−ϵ/2+cν−<anbn<l+ϵ/2+cν+<l+ϵ,∀n>n0-ϵ<l-ϵ/2+c_ν^-<a_n/b_n<l+ϵ/2+c_ν^+<l+ϵ,  >n_0
+which concludes the proof.
+Case 2: we assume l=+∞=+∞ and (bn)(b_n) strictly decreasing. For all 2M>02M>0 there exists n0>0_0>0 such that for all n>n0,>n_0,
+
+an+1−anbn+1−bn>2M⟹an−an+1>2M(bn−bn+1).a_n+1-a_n/b_n+1-b_n>2M_n-a_n+1>2M(b_n-b_n+1).
+Therefore, for each ν>0,ν>0,
+
+anbn>2M+an+ν−2Mbn+νbn,∀n>n0.a_n/b_n>2M+a_n+ν-2Mb_n+ν/b_n,  >n_0.
+The sequence
+
+cν:=an+ν−2Mbn+νbn_ν:=a_n+ν-2Mb_n+ν/b_n
+converges to 00 (keeping n fixed). Hence 
+
+∀M>0∃ν¯>0>0  ∃ν̅>0 such that −M<cν<M,∀ν>ν¯,-M<c_ν<M, ∀ν>ν̅,
+and, choosing νν conveniently, we conclude the proof
+
+anbn>2M+cν>M,∀n>n0.a_n/b_n>2M+c_ν>M,  >n_0.
+Applications and examples[edit]
+The theorem concerning the ∞/∞ case has a few notable consequences which are useful in the computation of limits.
+
+Arithmetic mean[edit]
+Let (xn)(x_n) be a sequence of real numbers which converges to l, define
+
+an:=∑m=1nxm=x1+⋯+xn,bn:=n_n:=∑_m=1^nx_m=x_1+…+x_n,_n:=n
+then (bn)(b_n) is strictly increasing and diverges to +∞+∞. We compute
+
+limn→∞an+1−anbn+1−bn=limn→∞xn+1=limn→∞xn=llim_n→∞a_n+1-a_n/b_n+1-b_n=lim_n→∞x_n+1=lim_n→∞x_n=l
+therefore
+
+limn→∞x1+⋯+xnn=limn→∞xn.lim_n→∞x_1+…+x_n/n=lim_n→∞x_n.
+Given any sequence (xn)n≥1(x_n)_n≥1 of real numbers, suppose that
+limn→∞xnlim_n→∞x_n
+exists (finite or infinite), then 
+
+limn→∞x1+⋯+xnn=limn→∞xn.lim_n→∞x_1+…+x_n/n=lim_n→∞x_n.
+Geometric mean[edit]
+Let (xn)(x_n) be a sequence of positive real numbers converging to l and define
+
+an:=log⁡(x1⋯xn),bn:=n,_n:=log(x_1_n),_n:=n,
+again we compute
+
+limn→∞an+1−anbn+1−bn=limn→∞log⁡(x1⋯xn+1x1⋯xn)=limn→∞log⁡(xn+1)=limn→∞log⁡(xn)=log⁡(l),lim_n→∞a_n+1-a_n/b_n+1-b_n=lim_n→∞log(x_1_n+1/x_1_n)=lim_n→∞log(x_n+1)=lim_n→∞log(x_n)=log(l),
+where we used the fact that the logarithm is continuous. Thus
+
+limn→∞log⁡(x1⋯xn)n=limn→∞log⁡((x1⋯xn)1n)=log⁡(l),lim_n→∞log(x_1_n)/n=lim_n→∞log((x_1_n)^1/n)=log(l),
+since the logarithm is both continuous and injective we can conclude that
+
+limn→∞x1⋯xnn=limn→∞xnlim_n→∞√(x_1_n)=lim_n→∞x_n.
+Given any sequence (xn)n≥1(x_n)_n≥1 of (strictly) positive real numbers, suppose that
+limn→∞xnlim_n→∞x_n
+exists (finite or infinite), then 
+
+limn→∞x1⋯xnn=limn→∞xn.lim_n→∞√(x_1_n)=lim_n→∞x_n.
+Suppose we are given a sequence (yn)n≥1(y_n)_n≥1 and we are asked to compute 
+
+limn→∞ynn,lim_n→∞√(y_n),
+defining y0=1_0=1 and xn=yn/yn−1_n=y_n/y_n-1 we obtain
+
+limn→∞x1…xnn=limn→∞y1…yny0⋅y1…yn−1n=limn→∞ynn,lim_n→∞√(x_1_n)=lim_n→∞√(y_1_n/y_0_1_n-1)=lim_n→∞√(y_n),
+if we apply the property above
+
+limn→∞ynn=limn→∞xn=limn→∞ynyn−1.lim_n→∞√(y_n)=lim_n→∞x_n=lim_n→∞y_n/y_n-1.
+This last form is usually the most useful to compute limits
+
+Given any sequence (yn)n≥1(y_n)_n≥1 of (strictly) positive real numbers, suppose that
+limn→∞yn+1ynlim_n→∞y_n+1/y_n
+exists (finite or infinite), then 
+
+limn→∞ynn=limn→∞yn+1yn.lim_n→∞√(y_n)=lim_n→∞y_n+1/y_n.
+Examples[edit]
+Example 1[edit]
+limn→∞nn=limn→∞n+1n=1.lim_n→∞√(n)=lim_n→∞n+1/n=1.
+Example 2[edit]
+limn→∞n!nn=limn→∞(n+1)!(nn)n!(n+1)n+1=limn→∞nn(n+1)n=limn→∞1(1+1n)n=1elim_n→∞√(n!)/n   =lim_n→∞(n+1)!(n^n)/n!(n+1)^n+1
+   =lim_n→∞n^n/(n+1)^n=lim_n→∞1/(1+1/n)^n=1/e
+where we used the representation of e as the limit of a sequence.
+
+History[edit]
+The ∞/∞ case is stated and proved on pages 173—175 of Stolz's 1885 book and also on page 54 of Cesàro's 1888 article. 
+It appears as Problem 70 in Pólya and Szegő (1925).
+
+The general form[edit]
+Statement[edit]
+The general form of the Stolz–Cesàro theorem is the following:[2] If (an)n≥1(a_n)_n≥1 and (bn)n≥1(b_n)_n≥1 are two sequences such that (bn)n≥1(b_n)_n≥1 is monotone and unbounded, then:
+
+liminfn→∞an+1−anbn+1−bn≤liminfn→∞anbn≤limsupn→∞anbn≤limsupn→∞an+1−anbn+1−bn.lim inf_n→∞a_n+1-a_n/b_n+1-b_n≤lim inf_n→∞a_n/b_n≤lim sup_n→∞a_n/b_n≤lim sup_n→∞a_n+1-a_n/b_n+1-b_n.
+Proof[edit]
+Instead of proving the previous statement, we shall prove a slightly different one; first we introduce a notation: let (an)n≥1(a_n)_n≥1 be any sequence, its partial sum will be denoted by An:=∑m≥1nam_n:=∑_m≥1^na_m. The equivalent statement we shall prove is:
+
+Let (an)n≥1,(bn)≥1(a_n)_n≥1,(b_n)_≥1 be any two sequences of real numbers such that
+bn>0,∀n∈Z>0_n>0,  ∈ℤ_>0,
+limn→∞Bn=+∞lim_n→∞B_n=+∞,
+then
+
+liminfn→∞anbn≤liminfn→∞AnBn≤limsupn→∞AnBn≤limsupn→∞anbn.lim inf_n→∞a_n/b_n≤lim inf_n→∞A_n/B_n≤lim sup_n→∞A_n/B_n≤lim sup_n→∞a_n/b_n.
+
+Proof of the equivalent statement[edit]
+First we notice that:
+
+liminfn→∞AnBn≤limsupn→∞AnBnlim inf_n→∞A_n/B_n≤lim sup_n→∞A_n/B_n holds by definition of limit superior and limit inferior;
+liminfn→∞anbn≤liminfn→∞AnBnlim inf_n→∞a_n/b_n≤lim inf_n→∞A_n/B_n holds if and only if limsupn→∞AnBn≤limsupn→∞anbnlim sup_n→∞A_n/B_n≤lim sup_n→∞a_n/b_n because liminfn→∞xn=−limsupn→∞(−xn)lim inf_n→∞x_n=-lim sup_n→∞(-x_n) for any sequence (xn)n≥1(x_n)_n≥1.
+Therefore we need only to show that limsupn→∞AnBn≤limsupn→∞anbnlim sup_n→∞A_n/B_n≤lim sup_n→∞a_n/b_n. If L:=limsupn→∞anbn=+∞:=lim sup_n→∞a_n/b_n=+∞ there is nothing to prove, hence we can assume L<+∞<+∞ (it can be either finite or −∞-∞). By definition of limsuplim sup, for all l>L>L there is a natural number ν>0ν>0 such that
+
+anbn<l,∀n>ν.a_n/b_n<l,  >ν.
+We can use this inequality so as to write
+
+An=Aν+aν+1+⋯+an<Aν+l(Bn−Bν),∀n>ν,_n=A_ν+a_ν+1+…+a_n<A_ν+l(B_n-B_ν),  >ν,
+Because bn>0_n>0, we also have Bn>0_n>0 and we can divide by Bn_n to get
+
+AnBn<Aν−lBνBn+l,∀n>ν.A_n/B_n<A_ν-lB_ν/B_n+l,  >ν.
+Since Bn→+∞_n→+∞ as n→+∞→+∞, the sequence
+
+Aν−lBνBn→0asn→+∞(keepingνfixed),A_ν-lB_ν/B_n→0asn→+∞(keepingνfixed),
+and we obtain
+
+limsupn→∞AnBn≤l,∀l>L,lim sup_n→∞A_n/B_n,  >L,
+By definition of least upper bound, this precisely means that
+
+limsupn→∞AnBn≤L=limsupn→∞anbn,lim sup_n→∞A_n/B_n=lim sup_n→∞a_n/b_n,
+and we are done.
+
+Proof of the original statement[edit]
+Now, take (an),(bn)(a_n),(b_n) as in the statement of the general form of the Stolz-Cesàro theorem and define
+
+α1=a1,αk=ak−ak−1,∀k>1β1=b1,βk=bk−bk−1∀k>1α_1=a_1,α_k=a_k-a_k-1, >1  β_1=b_1,β_k=b_k-b_k-1 >1
+since (bn)(b_n) is strictly monotone (we can assume strictly increasing for example), βn>0β_n>0 for all n and since bn→+∞_n→+∞ also Bn=b1+(b2−b1)+⋯+(bn−bn−1)=bn→+∞B_n=b_1+(b_2-b_1)+…+(b_n-b_n-1)=b_n→+∞, thus we can apply the theorem we have just proved to (αn),(βn)(α_n),(β_n) (and their partial sums (An),(Bn)(A_n),(B_n))
+
+limsupn→∞anbn=limsupn→∞AnBn≤limsupn→∞αnβn=limsupn→∞an−an−1bn−bn−1,lim sup_n→∞a_n/b_n=lim sup_n→∞A_n/B_n≤lim sup_n→∞α_n/β_n=lim sup_n→∞a_n-a_n-1/b_n-b_n-1,
+which is exactly what we wanted to prove.
+
+References[edit]
+Mureşan, Marian (2008), A Concrete Approach to Classical Analysis, Berlin: Springer, pp. 85–88, ISBN 978-0-387-78932-3.
+Stolz, Otto (1885), Vorlesungen über allgemeine Arithmetik: nach den Neueren Ansichten, Leipzig: Teubners, pp. 173–175.
+Cesàro, Ernesto (1888), "Sur la convergence des séries", Nouvelles annales de mathématiques, Series 3, 7: 49–59.
+Pólya, George; Szegő, Gábor (1925), Aufgaben und Lehrsätze aus der Analysis, vol. I, Berlin: Springer.
+A. D. R. Choudary, Constantin Niculescu: Real Analysis on Intervals. Springer, 2014, ISBN 9788132221487, pp. 59-62
+J. Marshall Ash, Allan Berele, Stefan Catoiu: Plausible and Genuine Extensions of L’Hospital's Rule. Mathematics Magazine, Vol. 85, No. 1 (February 2012), pp. 52–60 (JSTOR)
+External links[edit]
+l'Hôpital's rule and Stolz-Cesàro theorem at imomath.com
+Proof of Stolz–Cesàro theorem at PlanetMath.
+Notes[edit]
+
+^ Choudary, A. D. R.; Niculescu, Constantin (2014). Real Analysis on Intervals. Springer India. pp. 59–60. ISBN 978-81-322-2147-0.
+
+^ l'Hôpital's rule and Stolz-Cesàro theorem at imomath.com
+
+
+This article incorporates material from Stolz-Cesaro theorem on PlanetMath, which is licensed under the Creative Commons Attribution/Share-Alike License.
+
+
+
+
