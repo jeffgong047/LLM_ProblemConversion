@@ -76,7 +76,6 @@ def hint_generation_llama2(problem_path,ground_truth_path,solution_space_path, m
             # Generate
             generate_ids = model.generate(inputs.input_ids, max_length=1000)
             response = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-            breakpoint()
             # Save response to file
             output_file_path = os.path.join(solution_path, problem)
             os.makedirs(solution_path, exist_ok=True)
