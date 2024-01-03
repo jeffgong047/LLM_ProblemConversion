@@ -1,4 +1,4 @@
-# MATH with Complex CoT
+# MATH with Complex CoT and PHP
 
 import guidance
 import json
@@ -31,7 +31,8 @@ def get_parser():
     parser.add_argument('--answertrycnt', type=int, choices=range(0, 101), default=4, help='numbers of tries to answer')
     parser.add_argument('--verbose', type=ast.literal_eval, default=True, help='verbose mode')
     parser.add_argument('--model', type=str, default='gpt-3.5-turbo-16k-0613', help='model to use')
-    parser.add_argument('--withcode', type=ast.literal_eval, default='False', help='whether to use code to verify answers')
+    parser.add_argument('--withcode', type=ast.literal_eval, default='False',
+                        help='whether to use code to verify answers')
     parser.add_argument('--dataset', type=str, default='data/test.jsonl', help='dataset to use')
     parser.add_argument('--problem_level_lower_bound', type=int, default=1,
                         help='lower bound of problem level [lower_bound, upper_bound]')
@@ -40,7 +41,8 @@ def get_parser():
     # parser.add_argument('--problem_numbers', type=int, default=500, help='problem numbers to be evaluated')
     parser.add_argument('--problem_interval_begin', type=int, default=0, help='problem interval begin [begin, end]')
     parser.add_argument('--problem_interval_end', type=int, default=500, help='problem interval end [begin, end]')
-    parser.add_argument('--inverse_problem_order', type=ast.literal_eval, default=True, help='whether to inverse problem order')
+    parser.add_argument('--inverse_problem_order', type=ast.literal_eval, default=True,
+                        help='whether to inverse problem order')
     return parser
 
 
@@ -70,8 +72,7 @@ def get_time_str(trycnt=0):
     return time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
 
 
-examples = [
-]
+examples = []
 
 ""
 # we can pre-define valid option sets
@@ -89,10 +90,24 @@ judger = guidance(
     {{#assistant}}{{select "correctness" options=valid_correctness}}{{/assistant}}
     """, llm=gpt4, valid_correctness=valid_correctness)
 
+valid_equivalence = ['Equivalent', 'Different']
+equivalence_judger = guidance(
+    """
+    {{#system}}YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. You THINK NATURAL, BROAD AND DEEP. Let's think step by step. {{/system}}
+    {{#system}}Your job is to judge whether the "answer" and "last_answer" are equivalent. Do not be strict on the format, but check the content. {{/system}}
+    {{#user}}
+    Problem Subject: "{{question_subject}}", 
+    Problem Content: "{{question_content}}"
+    Are the "answer" and "last_answer" are equivalent? Reply with Equivalent or Different.
+    "answer": "{{answer}}"
+    "last_answer": "{{last_answer}}"
+    {{/user}}
+    {{#assistant}}{{select "equivalence" options=valid_equivalence}}{{/assistant}}
+    """, llm=gpt4, valid_equivalence=valid_equivalence)
+
 
 def main():
     # Load the data from the JSONL file
-    breakpoint()
     data = []
     with open(args.dataset, 'r', encoding='utf-8') as f:
         cnt = 0
@@ -128,7 +143,7 @@ def main():
     {{/user}}
     {{#assistant}}{{this.final_answer}}{{/assistant}}
     {{~/each}}
-    
+
     {{#user}}Question: {{question}}{{/user}}
     {{#assistant}}{{gen "final_solution" temperature=sol_temperature max_tokens=800}}{{/assistant}}
     {{#user}}
@@ -137,7 +152,7 @@ def main():
     {{#assistant}}{{gen "final_answer" temperature=ans_temperature max_tokens=50}}{{/assistant}}
     '''
     complex_examples = []
-    with open('complex-cot-math.txt', 'r', encoding='utf-8') as f:
+    with open('complex-php-math.txt', 'r', encoding='utf-8') as f:
         t = f.read().split("\n\n")
         for i in t:
             question = i.split("\nA:")[0].split('Question: ')[-1]
@@ -159,7 +174,7 @@ def main():
     dataset_name = args.dataset.split('/')[1].split('.')[0]
     # change huggyllama/llama-13b to huggyllama-llama-13b
     model_name = args.model.replace('/', '-')
-    logfilename = 'results/results-math-complex-cot-openai--' + model_name + '--' + dataset_name + '--k_' + str(
+    logfilename = 'results/results-math-php-openai--' + model_name + '--' + dataset_name + '--k_' + str(
         args.majoritycnt) + '--' + time.strftime("%Y-%m-%d-%H-%M-%S", t) + '.jsonl'
     with open(logfilename, 'w') as f:
         f.write("Model: " + args.model + "\n")
@@ -190,21 +205,38 @@ def main():
         # new Q for every example
 
         try_cnt = 0
+        answers = []
         while True:
             try_cnt += 1
             try:
-                out = try_wrapper(program)(question=example['problem'], sol_temperature=args.temperature, ans_temperature=args.temperature)
+                this_question = example['problem']
+                if len(answers) > 0:
+                    this_question = this_question + f"Hint: The answeer is near to {', '.join(answers)}"
+                out = try_wrapper(program)(question=this_question, sol_temperature=args.temperature,
+                                           ans_temperature=args.temperature)
 
-                judgement = try_wrapper(judger)(question_content=example['problem'],
-                                                question_subject=example['subject'], final_answer=out['final_answer'],
-                                                ground_truth_answer=example['answer'])
+                print(f"[Solution {try_cnt}]: ", out['final_solution'])
+                print(f"[Answer {try_cnt}]: ", out['final_answer'])
+                if len(answers) > 0:
+                    equivalence = try_wrapper(equivalence_judger)(
+                        question_content=example['problem'],
+                        question_subject=example['subject'],
+                        answer=out['final_answer'],
+                        last_answer=answers[-1]
+                    )['equivalence']
 
-                print("[Final Solution]: ", out['final_solution'])
-                print("[Final Answer]: ", out['final_answer'])
-                # print("[Ground Truth Solution]: ", example["solution"])
-                print("[Ground Truth Answer]: ", example["answer"])
-                print("[Correctness]: ", judgement["correctness"])
-                break
+                    print('[Equivalence]: ', equivalence)
+                    if equivalence == 'Equivalent' or len(answers) + 1 == args.hintcnt:
+                        judgement = try_wrapper(judger)(question_content=example['problem'],
+                                                        question_subject=example['subject'],
+                                                        final_answer=out['final_answer'],
+                                                        ground_truth_answer=example['answer'])
+                        print('[Correctness]: ', judgement['correctness'])
+                        break
+                    else:
+                        answers.append(out['final_answer'])
+                else:
+                    answers.append(out['final_answer'])
             except Exception as e:
                 print(e)
                 time.sleep(min(1024, 2 ** (try_cnt / 2)))
@@ -227,6 +259,7 @@ def main():
             "final_answer": out['final_answer'],
             "ground_truth_solution": example["solution"],
             "ground_truth_answer": example["answer"],
+            "interaction_number": len(answers) + 1,
         }
 
         # Write the result to a JSON file, note that we open the file in append mode ('a')

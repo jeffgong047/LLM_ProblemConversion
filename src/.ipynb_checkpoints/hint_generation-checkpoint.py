@@ -72,10 +72,12 @@ def hint_generation_llama2(problem_path,ground_truth_path,solution_space_path, m
                 continue
             question = f"What 3 theorems are best applicable for solving following question? Please provide response that are separated by , only. \n{{\n{problem_txt}\n}}\n"
             prompt  =template + question
+            breakpoint()
             inputs = tokenizer(prompt, return_tensors="pt")
             # Generate
             generate_ids = model.generate(inputs.input_ids, max_length=1000)
             response = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+            breakpoint()
             # Save response to file
             output_file_path = os.path.join(solution_path, problem)
             os.makedirs(solution_path, exist_ok=True)
@@ -183,10 +185,10 @@ def hint_generation_langchain(problem_path, ground_truth_path, solution_space_pa
 
 def main():
     logging.basicConfig(filename=f'hint_generation_davinci003_test.log', level=logging.DEBUG)
-    os.chdir('/common/home/hg343/Research/LLM_ProblemConversion/datasets')
-    problem_path = "/common/home/hg343/Research/LLM_ProblemConversion/datasets/problems/Math_manual"
-    ground_truth_path = "/common/home/hg343/Research/LLM_ProblemConversion/datasets/solution/ground_truth_Math_manual"
-    solution_path_noise = "/common/home/hg343/Research/LLM_ProblemConversion/datasets/solution/Wikipedia"
+    os.chdir('/common/home/zw393/wzz/LLM/LLM_ProblemConversion/datasets')
+    problem_path = "/common/home/zw393/wzz/LLM/LLM_ProblemConversion/problems/Math_manual"
+    ground_truth_path = "/common/home/zw393/wzz/LLM/LLM_ProblemConversion/datasets/solution/ground_truth_Math_manual"
+    solution_path_noise = "/common/home/zw393/wzz/LLM/LLM_ProblemConversion/datasets/solution/Wikipedia"
   #  model  = get_LLM_model() # we might uses lang-chain to implement this
     hint_accuracy = hint_generation_llama2(problem_path,ground_truth_path,solution_path_noise, model=None)
     print(hint_accuracy)
