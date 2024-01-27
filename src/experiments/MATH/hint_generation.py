@@ -20,7 +20,7 @@ import sys
 # os.environ["OPENAI_API_KEY"] = 'sk-...'
 
 
-llama2 = models.Transformers("meta-llama/Llama-2-13b-chat-hf")
+llama2 = models.Transformers("microsoft/phi-2")
 
 # openai.proxy = "http://..."
 # os.environ["OPENAI_API_KEY"] = 'sk-...'
@@ -138,7 +138,9 @@ def guided_student(llm,*args, **kwargs):
     lm = llm+  f'''
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
     You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-    Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''+ f'''Here is the problem, Q:{kwargs['question']} ,and please use these hint to solve the problem: {kwargs['hints']}. S: Please provide the solution based on the hints:'''  + gen(max_tokens=1000, name = 'final_solution')
+     Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, 
+    and then leverage these intermediate results to deduce the final solution.''' \
+         + f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution based on these hints: {kwargs['hints']}'''+ gen(max_tokens=1000, name = 'final_solution')
     return lm
 
 @guidance
@@ -154,16 +156,24 @@ def vanilla_student(llm,*args, **kwargs):
     lm = llm+  f'''
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
     You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-    Prioritize generating foundational questions that are useful for solving the problem. Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''+ f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution'''+ gen(max_tokens=1000, name = 'final_solution')
+    Prioritize generating foundational questions that are useful for solving the problem. Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, 
+    and then leverage these intermediate results to deduce the final solution.'''\
+    + f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution'''+ gen(max_tokens=1000, name = 'final_solution')
     return lm
 
 @guidance
 def teacher(llm,*args,**kwargs):
-    lm = llm+  f'''
+    with system():
+        lm = llm+f'''
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
     You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-    Prioritize generating foundational questions that are useful for solving the problem. Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''+ f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution'''+ gen(max_tokens=1000, name = 'final_solution')
+    Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''
+    with user():
+        lm += f'''Here is the prblem, Q:{kwargs['question']} ,please provide the solution.'''
+    with assistant():
+        lm += gen(max_tokens=1000, name='final_solution')
     return lm
+
 
 @guidance
 def self_guided_teacher(llm,  *args,**kwargs):
@@ -239,9 +249,9 @@ def main():
     correct_answers_vanilla = 0
     correct_answers_self_guided = 0
     correct_answers_guided = 0
+    correct_answers_teacher = 0
     cnt = 0
     total_cnt = len(data)
-
     # Iterate over the data from the JSON file and call the solve function
     problem_missed = []
     counter = 0
@@ -256,87 +266,85 @@ def main():
         print("[Problem Content]: ", example["problem"])
         # new Q for every example
         print('example', example)
-        try_cnt = 0
-        while try_cnt<TRY_CNT:
-            try_cnt += 1
-            try:
-                hints = gpt4 + try_wrapper(hint)(question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
-                vanilla_student_answer = llama2+ try_wrapper(vanilla_student)(hints=hints['hints'],question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
-                self_guided_student_answer= llama2+ try_wrapper(self_guided_student)(hints=hints['hints'],question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
-                guided_student_answer= llama2+ try_wrapper(guided_student)(hints=hints['hints'],question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
-                teacher_answer = gpt4 + try_wrapper(teacher)(hints=hints['hints'],question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
-                self_guided_teacher_answer = gpt4 + try_wrapper(self_guided_teacher)(hints=hints['hints'],question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
+
+        try:
+            hints = gpt4 + try_wrapper(hint)(question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
+            vanilla_student_answer = llama2+ try_wrapper(vanilla_student)(question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
+ #           self_guided_student_answer= llama2+ try_wrapper(self_guided_student)(question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
+            guided_student_answer= llama2+ try_wrapper(guided_student)(hints=hints['hints'],question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
+            teacher_answer = gpt4 + try_wrapper(teacher)(question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
+  #          self_guided_teacher_answer = gpt4 + try_wrapper(self_guided_teacher)(hints=hints['hints'],question=example['problem'], sol_temperature=temperature, ans_temperature=temperature)
 
 #
-                #                 print('hints: ',out['hints'])
+            #                 print('hints: ',out['hints'])
 #                 print('solutions: ', out['solution'])
-                print('program executed')
-                judgement_vanilla = gpt4+ try_wrapper(judger)(question_content=example['problem'],
-                                                question_subject=example['subject'], final_answer=vanilla_student_answer['final_solution'],
-                                                ground_truth_answer=example['answer'])
-                judgement_self_guided =gpt4+ try_wrapper(judger)(question_content=example['problem'],
-                                                                 question_subject=example['subject'], final_answer=self_guided_student_answer['final_solution'],
-                                                                 ground_truth_answer=example['answer'])
-                judgement_guided  = gpt4+ try_wrapper(judger)(question_content=example['problem'],
-                                                              question_subject=example['subject'], final_answer=guided_student_answer['final_solution'],
-                                                              ground_truth_answer=example['answer'])
-                judgement_teacher =  gpt4+ try_wrapper(judger)(question_content=example['problem'],
-                                                               question_subject=example['subject'], final_answer=teacher_answer['final_solution'],
-                                                               ground_truth_answer=example['answer'])
-                judgement_self_guided_teacher =  gpt4+ try_wrapper(judger)(question_content=example['problem'],
-                                                                           question_subject=example['subject'], final_answer=self_guided_teacher_answer['final_solution'],
-                                                                           ground_truth_answer=example['answer'])
-                if try_cnt == TRY_CNT:
-                    problem_missed.append(index)
-                break
-            except Exception as e:
-                print(e)
-                time.sleep(min(1024, 2 ** (try_cnt / 2)))
-                continue
+            print('program executed')
+            judgement_vanilla = gpt4+ try_wrapper(judger)(question_content=example['problem'],
+                                            question_subject=example['subject'], final_answer=vanilla_student_answer['final_solution'],
+                                            ground_truth_answer=example['answer'])
+            # judgement_self_guided =gpt4+ try_wrapper(judger)(question_content=example['problem'],
+            #                                                  question_subject=example['subject'], final_answer=self_guided_student_answer['final_solution'],
+            #                                                  ground_truth_answer=example['answer'])
+            judgement_guided  = gpt4+ try_wrapper(judger)(question_content=example['problem'],
+                                                          question_subject=example['subject'], final_answer=guided_student_answer['final_solution'],
+                                                          ground_truth_answer=example['answer'])
+            judgement_teacher =  gpt4+ try_wrapper(judger)(question_content=example['problem'],
+                                                           question_subject=example['subject'], final_answer=teacher_answer['final_solution'],
+                                                           ground_truth_answer=example['answer'])
+            # judgement_self_guided_teacher =  gpt4+ try_wrapper(judger)(question_content=example['problem'],
+            #                                                            question_subject=example['subject'], final_answer=self_guided_teacher_answer['final_solution'],
+            #                                                            ground_truth_answer=example['answer'])
+        except Exception as e:
+            problem_missed.append(index)
+            print(e)
+            time.sleep(min(1024, 2 ** (1 / 2)))
+            continue
         try:
             correct_answers_vanilla += (judgement_vanilla['Correctness'].lower() == 'correct')
             print('vanilla answers the problem: ',judgement_vanilla['Correctness'])
-            correct_answers_self_guided +=(judgement_self_guided['Correctness'].lower() =='correct')
-            print('self_guided student answers the problem: ',self_guided_student['Correctness'])
+            # correct_answers_self_guided +=(judgement_self_guided['Correctness'].lower() =='correct')
+            # print('self_guided student answers the problem: ',self_guided_student['Correctness'])
             correct_answers_guided += (judgement_guided['Correctness'].lower() =='correct')
             print('guided student answers the problem: ', judgement_guided['Correctness'])
             correct_answers_teacher +=(judgement_teacher['Correctness'].lower() =='correct')
             print('teacher answers the problem: ', judgement_teacher['Correctness'])
-            correct_answers_self_guided_teacher +=(judgement_self_guided_teacher['Correctness'].lower() =='correct')
-            print('self guided teacher answers the problem: ', judgement_self_guided_teacher['Correctness'])
+            # correct_answers_self_guided_teacher +=(judgement_self_guided_teacher['Correctness'].lower() =='correct')
+            # print('self guided teacher answers the problem: ', judgement_self_guided_teacher['Correctness'])
         except Exception as e:
             pass
         # Calculate and print the running accuracy
         accuracy_guided = correct_answers_guided / cnt
-        accuracy_self_guided = correct_answers_self_guided/ cnt
+        # accuracy_self_guided = correct_answers_self_guided/ cnt
         accuracy_vanilla = correct_answers_vanilla / cnt
         accuracy_teacher = correct_answers_teacher/cnt
-        accuarcy_self_guided_teacher = correct_answers_self_guided_teacher/cnt
+        # accuarcy_self_guided_teacher = correct_answers_self_guided_teacher/cnt
 
         result = {
             "accuracy_guided": accuracy_guided,
-            "accuracy_self_guided":accuracy_self_guided,
+            # "accuracy_self_guided":accuracy_self_guided,
             "accuracy_vanilla": accuracy_vanilla,
             "accuracy_teacher": accuracy_teacher,
-            "accuracy_self_guided_teacher":accuarcy_self_guided_teacher,
+            # "accuracy_self_guided_teacher":accuarcy_self_guided_teacher,
             "example_id": example["unique_id"],
             "level": example["level"],
             "problem_subject": example["subject"],
             "problem_content": example["problem"],
-            "correctness": judgement["Correctness"],
+            "vanilla_correctness": judgement_vanilla["Correctness"],
+            "guided_correctness": judgement_guided['Correctness'],
+            "teacher_correctness": judgement_teacher['Correctness'],
             "teacher_hints": hints['hints'],
-            "student_hints": self_guided_student_answer['hints'],
+            # "student_hints": self_guided_student_answer['hints'],
             "guided_student_answer": guided_student_answer['final_solution'],
-            "self_guided_student_answer": self_guided_student_answer['final_solution'],
+        #    "self_guided_student_answer": self_guided_student_answer['final_solution'],
             "vanilla_student_answer": vanilla_student_answer['final_solution'],
             "teacher solution:":teacher_answer['final_solution'],
-            "self_guided teacher solution": self_guided_teacher['final_solution'],
+     #       "self_guided teacher solution": self_guided_teacher['final_solution'],
             "confidence:": hints['confidence'],
             "ground_truth_solution": example["solution"],
             "ground_truth_answer": example["answer"],
         }
         print(result)
-        breakpoint()
+
         # Write the result to a JSON file, note that we open the file in append mode ('a')
         with open(logfilename, 'a') as f:
             f.write(json.dumps(result) + '\n')  # write each result as a new line
