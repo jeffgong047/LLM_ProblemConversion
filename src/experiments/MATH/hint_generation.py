@@ -140,14 +140,14 @@ def guided_student(llm,*args, **kwargs):
     You THINK NATURAL, BROAD AND DEEP. Let's think step by step.''' \
          + f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution based on these hints: {kwargs['hints']}'''+ gen(max_tokens=500, name = 'final_solution')
     return lm
-
-@guidance
-def self_guided_student(llm,*args,**kwargs):
-    lm = llm+  f'''
-    YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
-    You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-   Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''+ f'''Here is the problem, Q:{kwargs['question']} ,and Please provide few but less than 5 math theorems that are most representative as hints first before generating the solution.'''+gen(max_tokens=200, name='hints')+ f'''S: Please provide the solution based on the self-generated hints:'''  + gen(max_tokens=1000, name = 'final_solution')
-    return lm
+#
+# @guidance
+# def self_guided_student(llm,*args,**kwargs):
+#     lm = llm+  f'''
+#     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled.
+#     You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
+#    Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''+ f'''Here is the problem, Q:{kwargs['question']} ,and Please provide few but less than 5 math theorems that are most representative as hints first before generating the solution.'''+gen(max_tokens=2, name='hints')+ f'''S: Please provide the solution based on the self-generated hints:'''  + gen(max_tokens=10, name = 'final_solution')
+#     return lm
 
 @guidance
 def vanilla_student(llm, *args, **kwargs):
@@ -173,13 +173,13 @@ def teacher(llm,*args,**kwargs):
     return lm
 
 
-@guidance
-def self_guided_teacher(llm,  *args,**kwargs):
-    lm = llm+  f'''
-    YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
-    You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-   Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''+ f'''Here is the problem, Q:{kwargs['question']} ,and Please provide few but less than 5 math theorems that are most representative as hints first before generating the solution.'''+gen(max_tokens=200, name='hints')+ f'''S: Please provide the solution based on the self-generated hints:'''  + gen(max_tokens=1000, name = 'final_solution')
-    return lm
+# @guidance
+# def self_guided_teacher(llm,  *args,**kwargs):
+#     lm = llm+  f'''
+#     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled.
+#     You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
+#    Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''+ f'''Here is the problem, Q:{kwargs['question']} ,and Please provide few but less than 5 math theorems that are most representative as hints first before generating the solution.'''+gen(max_tokens=200, name='hints')+ f'''S: Please provide the solution based on the self-generated hints:'''  + gen(max_tokens=1000, name = 'final_solution')
+#     return lm
 
 
 def extract_Keyword(input_string,keyword_options):
@@ -189,8 +189,8 @@ def extract_Keyword(input_string,keyword_options):
     for keyword in keyword_options:
         if keyword in content:
             keyword_list.append(keyword)
-    assert len(keyword_list==1)
-    return keyword_list
+    assert len(keyword_list)==1
+    return keyword_list[0]
 
 
 def main():
@@ -350,9 +350,9 @@ def main():
             #    "self_guided_student_answer": self_guided_student_answer['final_solution'],
                 "vanilla_student_answer": vanilla_student_answer['final_solution'],
                 "teacher solution:":teacher_answer['final_solution'],
-                "judger_conclusion_vanilla":judgement_vanilla['Correctness']  ,
-                "judger_conclusion_guided_student":judgement_guided['Correctness'],
-                "judger_conclusion_teacher": judgement_teacher['Correctness'],
+                # "judger_conclusion_vanilla":judgement_vanilla['Correctness']  ,
+                # "judger_conclusion_guided_student":judgement_guided['Correctness'],
+                # "judger_conclusion_teacher": judgement_teacher['Correctness'],
 
          #       "self_guided teacher solution": self_guided_teacher['final_solution'],
                 "confidence:": hints['confidence'],
