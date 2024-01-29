@@ -150,11 +150,13 @@ def self_guided_student(llm,*args,**kwargs):
     return lm
 
 @guidance
-def vanilla_student(llm,*args, **kwargs):
-    lm = llm+f'''
-    YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
-    You THINK NATURAL, BROAD AND DEEP. Lets think step by step.'''
-    + f'''Here is the problem, Q:{kwargs['question']} and please provide the solution'''+ gen(max_tokens=1000, name = 'final_solution')
+def vanilla_student(llm, *args, **kwargs):
+    # Check if 'question' key exists in kwargs
+    if 'question' in kwargs:
+        lm = llm + f'YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. You THINK NATURAL, BROAD AND DEEP. Lets think step by step. Here is the problem, Q:{kwargs["question"]} and please provide the solution' + gen(max_tokens=1000, name='final_solution')
+    else:
+        lm = llm  # Handle the case when 'question' key is missing
+
     return lm
 
 @guidance
