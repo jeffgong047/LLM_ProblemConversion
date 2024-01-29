@@ -137,9 +137,7 @@ def hint(llm,*args,**kwargs):
 def guided_student(llm,*args, **kwargs):
     lm = llm+  f'''
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
-    You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-     Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, 
-    and then leverage these intermediate results to deduce the final solution.''' \
+    You THINK NATURAL, BROAD AND DEEP. Let's think step by step.''' \
          + f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution based on these hints: {kwargs['hints']}'''+ gen(max_tokens=1000, name = 'final_solution')
     return lm
 
@@ -153,12 +151,10 @@ def self_guided_student(llm,*args,**kwargs):
 
 @guidance
 def vanilla_student(llm,*args, **kwargs):
-    lm = llm+  f'''
+    lm = llm+f'''
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
-    You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-    Prioritize generating foundational questions that are useful for solving the problem. Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, 
-    and then leverage these intermediate results to deduce the final solution.'''\
-    + f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution'''+ gen(max_tokens=1000, name = 'final_solution')
+    You THINK NATURAL, BROAD AND DEEP. Lets think step by step.'''
+    + f'''Here is the problem, Q:{kwargs['question']} and please provide the solution'''+ gen(max_tokens=1000, name = 'final_solution')
     return lm
 
 @guidance
@@ -166,10 +162,10 @@ def teacher(llm,*args,**kwargs):
     with system():
         lm = llm+f'''
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
-    You THINK NATURAL, BROAD AND DEEP. Let's think step by step.YOU will be given a mathematical question Q, and you need to generate intermediate thoughts to approach the answer of the given question Q.
-    Prioritize generating foundational questions that are useful for solving the problem. We will solve these simpler components later, and then leverage these intermediate results to deduce the final solution.'''
+    You THINK NATURAL, BROAD AND DEEP. Lets think step by step.'''
+
     with user():
-        lm += f'''Here is the prblem, Q:{kwargs['question']} ,please provide the solution.'''
+        lm += f'''Please provide solution to the problem, Q:{kwargs['question']}.'''
     with assistant():
         lm += gen(max_tokens=1000, name='final_solution')
     return lm
