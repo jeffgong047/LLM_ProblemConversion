@@ -109,8 +109,8 @@ def judger(llm,*args, **kwargs):
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. You THINK NATURAL, BROAD AND DEEP. Let's think step by step.
     Your job is to judge whether the "final answer" is correct based on "ground truth answer", do not be strict on the format, but check the content. Notice that unsolved half results are not Correct.'''
     with user():
-        lm += f'''Problem Subject: {kwargs['question_subject']}, Problem Content: {kwargs['question_content']}, Final answer is: {kwargs['final_answer']},Ground truth answer: {kwargs['ground_truth_answer']}. 
-    Is the final_answer correct, given the ground truth answer? Please select from one of following option[Correct', 'Wrong', 'Unknown]''' 
+        lm += f'''Problem Subject: {kwargs['question_subject']}, Problem Content: {kwargs['question_content']}.
+    Is the final_answer: '{kwargs['final_answer']}' correct, given the ground truth answer: '{kwargs['ground_truth_answer']}'? Please select from one of following option[Correct', 'Wrong', 'Unknown]'''
     with assistant():
         lm += gen(name='Correctness')
     return lm
@@ -184,6 +184,15 @@ def self_guided_teacher(llm,  *args,**kwargs):
     return lm
 
 
+def extract_Keyword(input_string,keyword_options):
+    content = input_string.split()
+    keyword_list = []
+    # Check if the substring_to_check is in the list of substrings
+    for keyword in keyword_options:
+        if keyword in content:
+            keyword_list.append(keyword)
+    assert len(keyword_list==1)
+    return keyword_list
 
 
 def main():
@@ -260,6 +269,10 @@ def main():
         if counter >50:
             sys.exit()
         cnt += 1
+        if example['unique_id'] != "test/algebra/2470.json":
+            continue
+        else:
+            breakpoint()
         print("-------------------------\n### Example ID: ", example["unique_id"], "\t ( ", cnt, "/", total_cnt, " )")
         print("Problem Level: ", example["level"])
         print("[Problem Subject]: ", example["subject"])
@@ -300,14 +313,14 @@ def main():
             time.sleep(min(1024, 2 ** (1 / 2)))
             continue
         try:
-            correct_answers_vanilla += (judgement_vanilla['Correctness'].lower() == 'correct')
-            print('vanilla answers the problem: ',judgement_vanilla['Correctness'])
+            correct_answers_vanilla += (extract_Keyword(judgement_vanilla['Correctness']).lower() == 'correct')
+            print('vanilla answers the problem: ',extract_Keyword(judgement_vanilla['Correctness']))
             # correct_answers_self_guided +=(judgement_self_guided['Correctness'].lower() =='correct')
             # print('self_guided student answers the problem: ',self_guided_student['Correctness'])
-            correct_answers_guided += (judgement_guided['Correctness'].lower() =='correct')
-            print('guided student answers the problem: ', judgement_guided['Correctness'])
-            correct_answers_teacher +=(judgement_teacher['Correctness'].lower() =='correct')
-            print('teacher answers the problem: ', judgement_teacher['Correctness'])
+            correct_answers_guided += (extract_Keyword(judgement_guided['Correctness']).lower() =='correct')
+            print('guided student answers the problem: ', extract_Keyword(judgement_guided['Correctness']))
+            correct_answers_teacher +=(extract_Keyword(judgement_teacher['Correctness']).lower() =='correct')
+            print('teacher answers the problem: ', extract_Keyword(judgement_teacher['Correctness']))
             # correct_answers_self_guided_teacher +=(judgement_self_guided_teacher['Correctness'].lower() =='correct')
             # print('self guided teacher answers the problem: ', judgement_self_guided_teacher['Correctness'])
         except Exception as e:
@@ -318,32 +331,37 @@ def main():
         accuracy_vanilla = correct_answers_vanilla / cnt
         accuracy_teacher = correct_answers_teacher/cnt
         # accuarcy_self_guided_teacher = correct_answers_self_guided_teacher/cnt
+        try:
+            result = {
+                "accuracy_guided": accuracy_guided,
+                # "accuracy_self_guided":accuracy_self_guided,
+                "accuracy_vanilla": accuracy_vanilla,
+                "accuracy_teacher": accuracy_teacher,
+                # "accuracy_self_guided_teacher":accuarcy_self_guided_teacher,
+                "example_id": example["unique_id"],
+                "level": example["level"],
+                "problem_subject": example["subject"],
+                "problem_content": example["problem"],
+                "vanilla_correctness": judgement_vanilla["Correctness"],
+                "guided_correctness": judgement_guided['Correctness'],
+                "teacher_correctness": judgement_teacher['Correctness'],
+                "teacher_hints": hints['hints'],
+                # "student_hints": self_guided_student_answer['hints'],
+                "guided_student_answer": guided_student_answer['final_solution'],
+            #    "self_guided_student_answer": self_guided_student_answer['final_solution'],
+                "vanilla_student_answer": vanilla_student_answer['final_solution'],
+                "teacher solution:":teacher_answer['final_solution'],
+                "judger_conclusion_vanilla":judgement_vanilla['Correctness']  ,
+                "judger_conclusion_guided_student":judgement_guided['Correctness'],
+                "judger_conclusion_teacher": judgement_teacher['Correctness'],
 
-        result = {
-            "accuracy_guided": accuracy_guided,
-            # "accuracy_self_guided":accuracy_self_guided,
-            "accuracy_vanilla": accuracy_vanilla,
-            "accuracy_teacher": accuracy_teacher,
-            # "accuracy_self_guided_teacher":accuarcy_self_guided_teacher,
-            "example_id": example["unique_id"],
-            "level": example["level"],
-            "problem_subject": example["subject"],
-            "problem_content": example["problem"],
-            "vanilla_correctness": judgement_vanilla["Correctness"],
-            "guided_correctness": judgement_guided['Correctness'],
-            "teacher_correctness": judgement_teacher['Correctness'],
-            "teacher_hints": hints['hints'],
-            # "student_hints": self_guided_student_answer['hints'],
-            "guided_student_answer": guided_student_answer['final_solution'],
-        #    "self_guided_student_answer": self_guided_student_answer['final_solution'],
-            "vanilla_student_answer": vanilla_student_answer['final_solution'],
-            "teacher solution:":teacher_answer['final_solution'],
-     #       "self_guided teacher solution": self_guided_teacher['final_solution'],
-            "confidence:": hints['confidence'],
-            "ground_truth_solution": example["solution"],
-            "ground_truth_answer": example["answer"],
-        }
-        print(result)
+         #       "self_guided teacher solution": self_guided_teacher['final_solution'],
+                "confidence:": hints['confidence'],
+                "ground_truth_solution": example["solution"],
+                "ground_truth_answer": example["answer"],
+            }
+        except:
+            pass
 
         # Write the result to a JSON file, note that we open the file in append mode ('a')
         with open(logfilename, 'a') as f:
