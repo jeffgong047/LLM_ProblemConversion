@@ -313,13 +313,13 @@ def main():
         try:
             key_word_options = ['Correct', 'Wrong', 'Unknown']
             correct_answers_vanilla += (extract_Keyword(judgement_vanilla['Correctness'],key_word_options).lower() == 'correct')
-            print('vanilla answers the problem: ',extract_Keyword(judgement_vanilla['Correctness']))
+            # print('vanilla answers the problem: ',extract_Keyword(judgement_vanilla['Correctness']))
             # correct_answers_self_guided +=(judgement_self_guided['Correctness'].lower() =='correct')
             # print('self_guided student answers the problem: ',self_guided_student['Correctness'])
             correct_answers_guided += (extract_Keyword(judgement_guided['Correctness'], key_word_options).lower() =='correct')
-            print('guided student answers the problem: ', extract_Keyword(judgement_guided['Correctness']))
+            # print('guided student answers the problem: ', extract_Keyword(judgement_guided['Correctness']))
             correct_answers_teacher +=(extract_Keyword(judgement_teacher['Correctness'], key_word_options).lower() =='correct')
-            print('teacher answers the problem: ', extract_Keyword(judgement_teacher['Correctness']))
+            # print('teacher answers the problem: ', extract_Keyword(judgement_teacher['Correctness']))
             # correct_answers_self_guided_teacher +=(judgement_self_guided_teacher['Correctness'].lower() =='correct')
             # print('self guided teacher answers the problem: ', judgement_self_guided_teacher['Correctness'])
         except Exception as e:
