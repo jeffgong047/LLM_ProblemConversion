@@ -138,7 +138,7 @@ def guided_student(llm,*args, **kwargs):
     lm = llm+  f'''
     YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. 
     You THINK NATURAL, BROAD AND DEEP. Let's think step by step.''' \
-         + f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution based on these hints: {kwargs['hints']}'''+ gen(max_tokens=1000, name = 'final_solution')
+         + f'''Here is the prblem, Q:{kwargs['question']}, please provide the solution based on these hints: {kwargs['hints']}'''+ gen(max_tokens=500, name = 'final_solution')
     return lm
 
 @guidance
@@ -153,7 +153,7 @@ def self_guided_student(llm,*args,**kwargs):
 def vanilla_student(llm, *args, **kwargs):
     # Check if 'question' key exists in kwargs
     if 'question' in kwargs:
-        lm = llm + f'YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. You THINK NATURAL, BROAD AND DEEP. Lets think step by step. Here is the problem, Q:{kwargs["question"]} and please provide the solution' + gen(max_tokens=1000, name='final_solution')
+        lm = llm + f'YOU ARE one of the GREATEST mathematicians, logicians, programmers, and AI scientists. You are intelligent and rational. You are prudent and cautious. Your mastery over Arithmetic, Combinatorics, Number Theory, Probability Theory, Algebra, Analysis, and Geometry is unparalleled. You THINK NATURAL, BROAD AND DEEP. Lets think step by step. Here is the problem, Q:{kwargs["question"]} and please provide the solution' + gen(max_tokens=500, name='final_solution')
     else:
         lm = llm  # Handle the case when 'question' key is missing
 
@@ -169,7 +169,7 @@ def teacher(llm,*args,**kwargs):
     with user():
         lm += f'''Please provide solution to the problem, Q:{kwargs['question']}.'''
     with assistant():
-        lm += gen(max_tokens=1000, name='final_solution')
+        lm += gen(max_tokens=500, name='final_solution')
     return lm
 
 
@@ -237,7 +237,7 @@ def main():
     dataset_name = dataset.split('/')[1].split('.')[0]
     # change huggyllama/llama-13b to huggyllama-llama-13b
     model_name = model.replace('/', '-')
-    logfilename = 'results/results-math-hint-generation' + model_name + '--' + dataset_name + '--k_' + str(
+    logfilename = 'results/new' + model_name + '--' + dataset_name + '--k_' + str(
         majoritycnt) + '--' + time.strftime("%Y-%m-%d-%H-%M-%S", t) + '.jsonl'
     with open(logfilename, 'w') as f:
         f.write("Model: " + model + "\n")
@@ -311,13 +311,14 @@ def main():
             time.sleep(min(1024, 2 ** (1 / 2)))
             continue
         try:
-            correct_answers_vanilla += (extract_Keyword(judgement_vanilla['Correctness']).lower() == 'correct')
+            key_word_options = ['Correct', 'Wrong', 'Unknown']
+            correct_answers_vanilla += (extract_Keyword(judgement_vanilla['Correctness'],key_word_options).lower() == 'correct')
             print('vanilla answers the problem: ',extract_Keyword(judgement_vanilla['Correctness']))
             # correct_answers_self_guided +=(judgement_self_guided['Correctness'].lower() =='correct')
             # print('self_guided student answers the problem: ',self_guided_student['Correctness'])
-            correct_answers_guided += (extract_Keyword(judgement_guided['Correctness']).lower() =='correct')
+            correct_answers_guided += (extract_Keyword(judgement_guided['Correctness'], key_word_options).lower() =='correct')
             print('guided student answers the problem: ', extract_Keyword(judgement_guided['Correctness']))
-            correct_answers_teacher +=(extract_Keyword(judgement_teacher['Correctness']).lower() =='correct')
+            correct_answers_teacher +=(extract_Keyword(judgement_teacher['Correctness'], key_word_options).lower() =='correct')
             print('teacher answers the problem: ', extract_Keyword(judgement_teacher['Correctness']))
             # correct_answers_self_guided_teacher +=(judgement_self_guided_teacher['Correctness'].lower() =='correct')
             # print('self guided teacher answers the problem: ', judgement_self_guided_teacher['Correctness'])
