@@ -53,7 +53,7 @@ import os
 from guidance import user, assistant,system
 os.environ["OPENAI_API_KEY"] = "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"
 
-gpt4 = models.OpenAI("gpt-4")
+gpt4 = models.OpenAI("gpt-3.5-turbo")
 
 
 # You can now use these variables in your code
