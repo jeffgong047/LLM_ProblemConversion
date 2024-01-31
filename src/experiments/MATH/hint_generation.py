@@ -16,6 +16,7 @@ import time
 import guidance
 from guidance import models, gen, select
 import sys
+import logging
 # openai.proxy = "http://..."
 # os.environ["OPENAI_API_KEY"] = 'sk-...'
 
@@ -239,6 +240,7 @@ def main():
     model_name = model.replace('/', '-')
     logfilename = 'results/new' + model_name + '--' + dataset_name + '--k_' + str(
         majoritycnt) + '--' + time.strftime("%Y-%m-%d-%H-%M-%S", t) + '.jsonl'
+    logging.basicConfig(filename=f'{logfilename}.log', level=logging.DEBUG)
     with open(logfilename, 'w') as f:
         f.write("Model: " + model + "\n")
         f.write("Temperature: " + str(temperature) + "\n")
@@ -264,8 +266,6 @@ def main():
     counter = 0
     for index, example in tqdm(enumerate(data),desc="Evaluating", unit="example"):
         counter +=1
-        if counter >50:
-            sys.exit()
         cnt += 1
         # if example['unique_id'] != "test/algebra/2470.json":
         #     continue
@@ -309,6 +309,7 @@ def main():
             problem_missed.append(index)
             print(e)
             time.sleep(min(1024, 2 ** (1 / 2)))
+            logger.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
             continue
         try:
             key_word_options = ['Correct', 'Wrong', 'Unknown']
@@ -323,6 +324,7 @@ def main():
             # correct_answers_self_guided_teacher +=(judgement_self_guided_teacher['Correctness'].lower() =='correct')
             # print('self guided teacher answers the problem: ', judgement_self_guided_teacher['Correctness'])
         except Exception as e:
+            logger.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
             continue
         # Calculate and print the running accuracy
         accuracy_guided = correct_answers_guided / cnt
@@ -359,7 +361,8 @@ def main():
                 "ground_truth_solution": example["solution"],
                 "ground_truth_answer": example["answer"],
             }
-        except:
+        except Exception as e:
+            logger.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
             continue
 
         # Write the result to a JSON file, note that we open the file in append mode ('a')
