@@ -309,7 +309,7 @@ def main():
             problem_missed.append(index)
             print(e)
             time.sleep(min(1024, 2 ** (1 / 2)))
-            logger.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
+            logging.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
             continue
         try:
             key_word_options = ['Correct', 'Wrong', 'Unknown']
@@ -324,7 +324,7 @@ def main():
             # correct_answers_self_guided_teacher +=(judgement_self_guided_teacher['Correctness'].lower() =='correct')
             # print('self guided teacher answers the problem: ', judgement_self_guided_teacher['Correctness'])
         except Exception as e:
-            logger.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
+            logging.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
             continue
         # Calculate and print the running accuracy
         accuracy_guided = correct_answers_guided / cnt
@@ -362,7 +362,7 @@ def main():
                 "ground_truth_answer": example["answer"],
             }
         except Exception as e:
-            logger.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
+            logging.exception('An error occurred: %s', e,'for the problem',example['unique_id'])
             continue
 
         # Write the result to a JSON file, note that we open the file in append mode ('a')
